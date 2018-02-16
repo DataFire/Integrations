@@ -193,16 +193,16 @@
         "operationId": "services.search",
         "parameters": [
           {
-            "description": "Token identifying which result to start with; returned by a previous list\ncall.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
             "description": "Requested size of the next page of data.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
+          },
+          {
+            "description": "Token identifying which result to start with; returned by a previous list\ncall.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
           }
         ],
         "responses": {
@@ -237,86 +237,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1/{name}:disable": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -324,19 +324,19 @@
         "operationId": "projects.services.disable",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DisableServiceRequest"
+            }
+          },
+          {
             "description": "Name of the consumer and the service to disable for that consumer.\n\nThe Service User implementation accepts the following forms for consumer:\n- \"project:<project_id>\"\n\nA valid path would be:\n- /v1/projects/my-project/services/servicemanagement.googleapis.com:disable",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DisableServiceRequest"
-            }
           }
         ],
         "responses": {
@@ -373,43 +373,43 @@
     "/v1/{name}:enable": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -417,19 +417,19 @@
         "operationId": "projects.services.enable",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EnableServiceRequest"
+            }
+          },
+          {
             "description": "Name of the consumer and the service to enable for that consumer.\n\nA valid path would be:\n- /v1/projects/my-project/services/servicemanagement.googleapis.com:enable",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/EnableServiceRequest"
-            }
           }
         ],
         "responses": {
@@ -469,12 +469,10 @@
         "operationId": "projects.services.list",
         "parameters": [
           {
-            "description": "List enabled services for the specified parent.\n\nAn example valid parent would be:\n- projects/my-project",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "description": "Requested size of the next page of data.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "Token identifying which result to start with; returned by a previous list\ncall.",
@@ -483,10 +481,12 @@
             "type": "string"
           },
           {
-            "description": "Requested size of the next page of data.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "List enabled services for the specified parent.\n\nAn example valid parent would be:\n- projects/my-project",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -521,43 +521,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     }
@@ -955,13 +955,6 @@
           "description": "Allowing\n[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), aka\ncross-domain traffic, would allow the backends served from this endpoint to\nreceive and respond to HTTP OPTIONS requests. The response will be used by\nthe browser to determine whether the subsequent cross-origin request is\nallowed to proceed.",
           "type": "boolean"
         },
-        "apis": {
-          "description": "The list of APIs served by this endpoint.\n\nIf no APIs are specified this translates to \"all APIs\" exported by the\nservice, as defined in the top-level service configuration.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
         "features": {
           "description": "The list of features enabled on this endpoint.",
           "items": {
@@ -1187,10 +1180,6 @@
         },
         "put": {
           "description": "Used for updating a resource.",
-          "type": "string"
-        },
-        "responseBody": {
-          "description": "The name of the response field whose value is mapped to the HTTP body of\nresponse. Other response fields are ignored. This field is optional. When\nnot set, the response message will be used as HTTP body of response.\nNOTE: the referred field must be not a repeated field and must be present\nat the top-level of response message type.",
           "type": "string"
         },
         "selector": {
@@ -2123,7 +2112,7 @@
       "description": "Usage configuration rules for the service.\n\nNOTE: Under development.\n\n\nUse this rule to configure unregistered calls for the service. Unregistered\ncalls are calls that do not contain consumer project identity.\n(Example: calls that do not contain an API key).\nBy default, API methods do not allow unregistered calls, and each method call\nmust be identified by a consumer project identity. Use this rule to\nallow/disallow unregistered calls.\n\nExample of an API that wants to allow unregistered calls for entire service.\n\n    usage:\n      rules:\n      - selector: \"*\"\n        allow_unregistered_calls: true\n\nExample of a method that wants to allow unregistered calls.\n\n    usage:\n      rules:\n      - selector: \"google.example.library.v1.LibraryService.CreateBook\"\n        allow_unregistered_calls: true",
       "properties": {
         "allowUnregisteredCalls": {
-          "description": "True, if the method allows unregistered calls; false otherwise.",
+          "description": "If true, the selected method allows unregistered calls, e.g. calls\nthat don't identify any user or application.",
           "type": "boolean"
         },
         "selector": {
@@ -2131,7 +2120,7 @@
           "type": "string"
         },
         "skipServiceControl": {
-          "description": "True, if the method should skip service control. If so, no control plane\nfeature (like quota and billing) will be enabled.\nThis flag is used by ESP to allow some Endpoints customers to bypass\nGoogle internal checks.",
+          "description": "If true, the selected method should skip service control and the control\nplane features, such as quota and billing, will not be available.\nThis flag is used by Google Cloud Endpoints to bypass checks for internal\nmethods, such as service health check methods.",
           "type": "boolean"
         }
       },

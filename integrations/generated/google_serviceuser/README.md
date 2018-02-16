@@ -81,21 +81,21 @@ google_serviceuser.services.search({}, context)
 
 #### Input
 * input `object`
-  * pageToken `string`: Token identifying which result to start with; returned by a previous list
   * pageSize `integer`: Requested size of the next page of data.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * pageToken `string`: Token identifying which result to start with; returned by a previous list
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [SearchServicesResponse](#searchservicesresponse)
@@ -116,21 +116,21 @@ google_serviceuser.projects.services.disable({
 
 #### Input
 * input `object`
-  * name **required** `string`: Name of the consumer and the service to disable for that consumer.
   * body [DisableServiceRequest](#disableservicerequest)
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * name **required** `string`: Name of the consumer and the service to disable for that consumer.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -151,21 +151,21 @@ google_serviceuser.projects.services.enable({
 
 #### Input
 * input `object`
-  * name **required** `string`: Name of the consumer and the service to enable for that consumer.
   * body [EnableServiceRequest](#enableservicerequest)
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * name **required** `string`: Name of the consumer and the service to enable for that consumer.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -182,22 +182,22 @@ google_serviceuser.projects.services.list({
 
 #### Input
 * input `object`
-  * parent **required** `string`: List enabled services for the specified parent.
-  * pageToken `string`: Token identifying which result to start with; returned by a previous list
   * pageSize `integer`: Requested size of the next page of data.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * pageToken `string`: Token identifying which result to start with; returned by a previous list
+  * parent **required** `string`: List enabled services for the specified parent.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListEnabledServicesResponse](#listenabledservicesresponse)
@@ -340,8 +340,6 @@ google_serviceuser.projects.services.list({
   * aliases `array`: DEPRECATED: This field is no longer supported. Instead of using aliases,
     * items `string`
   * allowCors `boolean`: Allowing
-  * apis `array`: The list of APIs served by this endpoint.
-    * items `string`
   * features `array`: The list of features enabled on this endpoint.
     * items `string`
   * name `string`: The canonical name of this endpoint.
@@ -401,7 +399,6 @@ google_serviceuser.projects.services.list({
   * patch `string`: Used for updating a resource.
   * post `string`: Used for creating a resource.
   * put `string`: Used for updating a resource.
-  * responseBody `string`: The name of the response field whose value is mapped to the HTTP body of
   * selector `string`: Selects methods to which this rule applies.
 
 ### LabelDescriptor
@@ -677,9 +674,9 @@ google_serviceuser.projects.services.list({
 
 ### UsageRule
 * UsageRule `object`: Usage configuration rules for the service.
-  * allowUnregisteredCalls `boolean`: True, if the method allows unregistered calls; false otherwise.
+  * allowUnregisteredCalls `boolean`: If true, the selected method allows unregistered calls, e.g. calls
   * selector `string`: Selects the methods to which this rule applies. Use '*' to indicate all
-  * skipServiceControl `boolean`: True, if the method should skip service control. If so, no control plane
+  * skipServiceControl `boolean`: If true, the selected method should skip service control and the control
 
 ### Visibility
 * Visibility `object`: `Visibility` defines restrictions for the visibility of service

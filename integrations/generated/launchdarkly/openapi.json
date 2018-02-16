@@ -9,7 +9,8 @@
     "contact": {
       "email": "support@launchdarkly.com",
       "name": "LaunchDarkly Support",
-      "url": "https://support.launchdarkly.com"
+      "url": "https://support.launchdarkly.com",
+      "x-twitter": "launchdarkly"
     },
     "description": "Build custom integrations with the LaunchDarkly REST API",
     "license": {

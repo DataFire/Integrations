@@ -128,8 +128,8 @@ google_sqladmin.instances.insert({
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project to which the newly created Cloud SQL instances should belong.
   * body [DatabaseInstance](#databaseinstance)
+  * project **required** `string`: Project ID of the project to which the newly created Cloud SQL instances should belong.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -147,15 +147,15 @@ Deletes a Cloud SQL instance.
 
 ```js
 google_sqladmin.instances.delete({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance to be deleted.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance to be deleted.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -173,15 +173,15 @@ Retrieves a resource containing information about a Cloud SQL instance.
 
 ```js
 google_sqladmin.instances.get({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -199,16 +199,16 @@ Updates settings of a Cloud SQL instance. Caution: This is not a partial update,
 
 ```js
 google_sqladmin.instances.patch({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [DatabaseInstance](#databaseinstance)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -226,16 +226,16 @@ Updates settings of a Cloud SQL instance. Caution: This is not a partial update,
 
 ```js
 google_sqladmin.instances.update({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [DatabaseInstance](#databaseinstance)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -253,17 +253,17 @@ Lists all backup runs associated with a given instance and configuration in the 
 
 ```js
 google_sqladmin.backupRuns.list({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * maxResults `integer`: Maximum number of backup runs per response.
   * pageToken `string`: A previously-returned page token representing part of the larger set of results to view.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -281,16 +281,16 @@ Creates a new backup run on demand. This method is applicable only to Second Gen
 
 ```js
 google_sqladmin.backupRuns.insert({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [BackupRun](#backuprun)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -308,17 +308,17 @@ Deletes the backup taken by a backup run.
 
 ```js
 google_sqladmin.backupRuns.delete({
-  "project": "",
+  "id": "",
   "instance": "",
-  "id": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * id **required** `string`: The ID of the Backup Run to delete. To find a Backup Run ID, use the list method.
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -336,17 +336,17 @@ Retrieves a resource containing information about a backup run.
 
 ```js
 google_sqladmin.backupRuns.get({
-  "project": "",
+  "id": "",
   "instance": "",
-  "id": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * id **required** `string`: The ID of this Backup Run.
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -364,16 +364,16 @@ Creates a Cloud SQL instance as a clone of the source instance. The API is not r
 
 ```js
 google_sqladmin.instances.clone({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the source as well as the clone Cloud SQL instance.
-  * instance **required** `string`: The ID of the Cloud SQL instance to be cloned (source). This does not include the project ID.
   * body [InstancesCloneRequest](#instancesclonerequest)
+  * instance **required** `string`: The ID of the Cloud SQL instance to be cloned (source). This does not include the project ID.
+  * project **required** `string`: Project ID of the source as well as the clone Cloud SQL instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -391,16 +391,16 @@ Generates a short-lived X509 certificate containing the provided public key and 
 
 ```js
 google_sqladmin.sslCerts.createEphemeral({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the Cloud SQL project.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [SslCertsCreateEphemeralRequest](#sslcertscreateephemeralrequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the Cloud SQL project.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -418,15 +418,15 @@ Lists databases in the specified Cloud SQL instance.
 
 ```js
 google_sqladmin.databases.list({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project for which to list Cloud SQL instances.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project for which to list Cloud SQL instances.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -444,16 +444,16 @@ Inserts a resource containing information about a database inside a Cloud SQL in
 
 ```js
 google_sqladmin.databases.insert({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
   * body [Database](#database)
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -471,17 +471,17 @@ Deletes a database from a Cloud SQL instance.
 
 ```js
 google_sqladmin.databases.delete({
-  "project": "",
+  "database": "",
   "instance": "",
-  "database": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
   * database **required** `string`: Name of the database to be deleted in the instance.
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -499,17 +499,17 @@ Retrieves a resource containing information about a database inside a Cloud SQL 
 
 ```js
 google_sqladmin.databases.get({
-  "project": "",
+  "database": "",
   "instance": "",
-  "database": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
   * database **required** `string`: Name of the database in the instance.
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -527,18 +527,18 @@ Updates a resource containing information about a database inside a Cloud SQL in
 
 ```js
 google_sqladmin.databases.patch({
-  "project": "",
+  "database": "",
   "instance": "",
-  "database": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
-  * database **required** `string`: Name of the database to be updated in the instance.
   * body [Database](#database)
+  * database **required** `string`: Name of the database to be updated in the instance.
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -556,18 +556,18 @@ Updates a resource containing information about a database inside a Cloud SQL in
 
 ```js
 google_sqladmin.databases.update({
-  "project": "",
+  "database": "",
   "instance": "",
-  "database": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
-  * database **required** `string`: Name of the database to be updated in the instance.
   * body [Database](#database)
+  * database **required** `string`: Name of the database to be updated in the instance.
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -580,7 +580,7 @@ google_sqladmin.databases.update({
 * output [Operation](#operation)
 
 ### instances.demoteMaster
-Demotes the standalone instance to be a read replica Cloud SQL instance of an on-premises master.
+Reserved for future use.
 
 
 ```js
@@ -612,16 +612,16 @@ Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a MyS
 
 ```js
 google_sqladmin.instances.export({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance to be exported.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [InstancesExportRequest](#instancesexportrequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance to be exported.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -639,16 +639,16 @@ Failover the instance to its failover replica instance.
 
 ```js
 google_sqladmin.instances.failover({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: ID of the project that contains the read replica.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [InstancesFailoverRequest](#instancesfailoverrequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: ID of the project that contains the read replica.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -666,16 +666,16 @@ Imports data into a Cloud SQL instance from a MySQL dump file in Google Cloud St
 
 ```js
 google_sqladmin.instances.import({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [InstancesImportRequest](#instancesimportrequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -693,15 +693,15 @@ Promotes the read replica instance to be a stand-alone Cloud SQL instance.
 
 ```js
 google_sqladmin.instances.promoteReplica({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: ID of the project that contains the read replica.
   * instance **required** `string`: Cloud SQL read replica instance name.
+  * project **required** `string`: ID of the project that contains the read replica.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -719,15 +719,15 @@ Deletes all client certificates and generates a new server SSL certificate for t
 
 ```js
 google_sqladmin.instances.resetSslConfig({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -745,15 +745,15 @@ Restarts a Cloud SQL instance.
 
 ```js
 google_sqladmin.instances.restart({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance to be restarted.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance to be restarted.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -771,16 +771,16 @@ Restores a backup of a Cloud SQL instance.
 
 ```js
 google_sqladmin.instances.restoreBackup({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [InstancesRestoreBackupRequest](#instancesrestorebackuprequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -798,15 +798,15 @@ Lists all of the current SSL certificates for the instance.
 
 ```js
 google_sqladmin.sslCerts.list({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project for which to list Cloud SQL instances.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project for which to list Cloud SQL instances.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -824,16 +824,16 @@ Creates an SSL certificate and returns it along with the private key and server 
 
 ```js
 google_sqladmin.sslCerts.insert({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project to which the newly created Cloud SQL instances should belong.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [SslCertsInsertRequest](#sslcertsinsertrequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project to which the newly created Cloud SQL instances should belong.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -851,16 +851,16 @@ Deletes the SSL certificate. The change will not take effect until the instance 
 
 ```js
 google_sqladmin.sslCerts.delete({
-  "project": "",
   "instance": "",
+  "project": "",
   "sha1Fingerprint": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance to be deleted.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance to be deleted.
   * sha1Fingerprint **required** `string`: Sha1 FingerPrint.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -879,16 +879,16 @@ Retrieves a particular SSL certificate. Does not include the private key (requir
 
 ```js
 google_sqladmin.sslCerts.get({
-  "project": "",
   "instance": "",
+  "project": "",
   "sha1Fingerprint": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * sha1Fingerprint **required** `string`: Sha1 FingerPrint.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -907,15 +907,15 @@ Starts the replication in the read replica instance.
 
 ```js
 google_sqladmin.instances.startReplica({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: ID of the project that contains the read replica.
   * instance **required** `string`: Cloud SQL read replica instance name.
+  * project **required** `string`: ID of the project that contains the read replica.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -933,15 +933,15 @@ Stops the replication in the read replica instance.
 
 ```js
 google_sqladmin.instances.stopReplica({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: ID of the project that contains the read replica.
   * instance **required** `string`: Cloud SQL read replica instance name.
+  * project **required** `string`: ID of the project that contains the read replica.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -959,16 +959,16 @@ Truncate MySQL general and slow query log tables
 
 ```js
 google_sqladmin.instances.truncateLog({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the Cloud SQL project.
-  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * body [InstancesTruncateLogRequest](#instancestruncatelogrequest)
+  * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the Cloud SQL project.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -986,19 +986,19 @@ Deletes a user from a Cloud SQL instance.
 
 ```js
 google_sqladmin.users.delete({
-  "project": "",
-  "instance": "",
   "host": "",
-  "name": ""
+  "instance": "",
+  "name": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
   * host **required** `string`: Host of the user in the instance.
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
   * name **required** `string`: Name of the user in the instance.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1016,15 +1016,15 @@ Lists users in the specified Cloud SQL instance.
 
 ```js
 google_sqladmin.users.list({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1042,16 +1042,16 @@ Creates a new user in a Cloud SQL instance.
 
 ```js
 google_sqladmin.users.insert({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
   * body [User](#user)
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1069,20 +1069,20 @@ Updates an existing user in a Cloud SQL instance.
 
 ```js
 google_sqladmin.users.update({
-  "project": "",
-  "instance": "",
   "host": "",
-  "name": ""
+  "instance": "",
+  "name": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
-  * instance **required** `string`: Database instance ID. This does not include the project ID.
-  * host **required** `string`: Host of the user in the instance.
-  * name **required** `string`: Name of the user in the instance.
   * body [User](#user)
+  * host **required** `string`: Host of the user in the instance.
+  * instance **required** `string`: Database instance ID. This does not include the project ID.
+  * name **required** `string`: Name of the user in the instance.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1100,17 +1100,17 @@ Lists all instance operations that have been performed on the given Cloud SQL in
 
 ```js
 google_sqladmin.operations.list({
-  "project": "",
-  "instance": ""
+  "instance": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * instance **required** `string`: Cloud SQL instance ID. This does not include the project ID.
   * maxResults `integer`: Maximum number of operations per response.
   * pageToken `string`: A previously-returned page token representing part of the larger set of results to view.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1128,15 +1128,15 @@ Retrieves an instance operation that has been performed on an instance.
 
 ```js
 google_sqladmin.operations.get({
-  "project": "",
-  "operation": ""
+  "operation": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID of the project that contains the instance.
   * operation **required** `string`: Instance operation ID.
+  * project **required** `string`: Project ID of the project that contains the instance.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1188,6 +1188,7 @@ google_sqladmin.tiers.list({
   * binaryLogEnabled `boolean`: Whether binary log is enabled. If backup configuration is disabled, binary log must be disabled as well.
   * enabled `boolean`: Whether this configuration is enabled.
   * kind `string`: This is always sql#backupConfiguration.
+  * replicationLogArchivingEnabled `boolean`: Whether replication log archiving is enabled. Replication log archiving is required for the point-in-time recovery (PITR) feature. PostgreSQL instances only.
   * startTime `string`: Start time for the daily backup configuration in UTC timezone in the 24 hour format - HH:MM.
 
 ### BackupRun
@@ -1223,6 +1224,7 @@ google_sqladmin.tiers.list({
   * binLogCoordinates [BinLogCoordinates](#binlogcoordinates)
   * destinationInstanceName `string`: Name of the Cloud SQL instance to be created as a clone.
   * kind `string`: This is always sql#cloneContext.
+  * pitrTimestampMs `string`: The epoch timestamp, in milliseconds, of the time to which a point-in-time recovery (PITR) is performed. PostgreSQL instances only. For MySQL instances, use the binLogCoordinates property.
 
 ### Database
 * Database `object`: A database resource inside a Cloud SQL instance.
@@ -1250,7 +1252,7 @@ google_sqladmin.tiers.list({
   * failoverReplica `object`: The name and status of the failover replica. This property is applicable only to Second Generation instances.
     * available `boolean`: The availability status of the failover replica. A false status indicates that the failover replica is out of sync. The master can only failover to the falover replica when the status is true.
     * name `string`: The name of the failover replica. If specified at instance creation, a failover replica is created for the instance. The name doesn't include the project ID. This property is applicable only to Second Generation instances.
-  * gceZone `string`: The GCE zone that the instance is serving from. In case when the instance is failed over to standby zone, this value may be different with what user specified in the settings.
+  * gceZone `string`: The Compute Engine zone that the instance is currently serving from. This value could be different from the zone that was specified when the instance was created if the instance has failed over to its secondary zone.
   * instanceType `string`: The instance type. This can be one of the following.
   * ipAddresses `array`: The assigned IP addresses for the instance.
     * items [IpMapping](#ipmapping)
@@ -1311,7 +1313,7 @@ google_sqladmin.tiers.list({
     * schemaOnly `boolean`: Export only schemas.
     * tables `array`: Tables to export, or that were exported, from the specified database. If you specify tables, specify one and only one database.
       * items `string`
-  * uri `string`: The path to the file in Google Cloud Storage where the export will be stored. The URI is in the form gs://bucketName/fileName. If the file already exists, the operation fails. If fileType is SQL and the filename ends with .gz, the contents are compressed.
+  * uri `string`: The path to the file in Google Cloud Storage where the export will be stored. The URI is in the form gs://bucketName/fileName. If the file already exists, the requests succeeds, but the operation fails. If fileType is SQL and the filename ends with .gz, the contents are compressed.
 
 ### FailoverContext
 * FailoverContext `object`: Database instance failover context.
@@ -1408,7 +1410,7 @@ google_sqladmin.tiers.list({
   * day `integer`: day of week (1-7), starting on Monday.
   * hour `integer`: hour of day - 0 to 23.
   * kind `string`: This is always sql#maintenanceWindow.
-  * updateTrack `string`
+  * updateTrack `string`: Maintenance timing setting: canary (Earlier) or stable (Later).
 
 ### MySqlReplicaConfiguration
 * MySqlReplicaConfiguration `object`: Read-replica configuration specific to MySQL databases.
@@ -1480,10 +1482,10 @@ google_sqladmin.tiers.list({
 
 ### Settings
 * Settings `object`: Database instance settings.
-  * activationPolicy `string`: The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. The activation policy cannot be updated together with other settings for Second Generation instances. Valid values:
+  * activationPolicy `string`: The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values:
   * authorizedGaeApplications `array`: The App Engine app IDs that can access this instance. This property is only applicable to First Generation instances.
     * items `string`
-  * availabilityType `string`: Reserved for future use.
+  * availabilityType `string`: Availability type (PostgreSQL instances only). Potential values:
   * backupConfiguration [BackupConfiguration](#backupconfiguration)
   * crashSafeReplicationEnabled `boolean`: Configuration specific to read replica instances. Indicates whether database flags for crash-safe replication are enabled. This property is only applicable to First Generation instances.
   * dataDiskSizeGb `string`: The size of data disk, in GB. The data disk size minimum is 10GB. Applies only to Second Generation instances.

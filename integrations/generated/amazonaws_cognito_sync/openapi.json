@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<fullname>Amazon Cognito Sync</fullname> <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p> <p>With Amazon Cognito Sync, the data stored for each identity is accessible only to credentials assigned to that identity. In order to use the Cognito Sync service, you need to make API calls using credentials retrieved with <a href=\"http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html\">Amazon Cognito Identity service</a>.</p> <p>If you want to use Cognito Sync in an Android or iOS application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the <a href=\"http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html\">Developer Guide for Android</a> and the <a href=\"http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html\">Developer Guide for iOS</a>.</p>",
     "license": {
@@ -395,6 +396,69 @@
       }
     },
     "/identitypools/{IdentityPoolId}/configuration": {
+      "get": {
+        "description": "<p>Gets the configuration settings of an identity pool.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
+        "operationId": "GetIdentityPoolConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetIdentityPoolConfigurationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "IdentityPoolId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetIdentityPoolConfigurationResponse"
+            }
+          },
+          "400": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "403": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            },
+            "x-aws-exception": true
+          },
+          "429": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            },
+            "x-aws-exception": true
+          },
+          "500": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            },
+            "x-aws-exception": true
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -489,6 +553,69 @@
       }
     },
     "/identitypools/{IdentityPoolId}/events": {
+      "get": {
+        "description": "<p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
+        "operationId": "GetCognitoEvents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCognitoEventsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "IdentityPoolId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCognitoEventsResponse"
+            }
+          },
+          "400": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "403": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            },
+            "x-aws-exception": true
+          },
+          "429": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            },
+            "x-aws-exception": true
+          },
+          "500": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            },
+            "x-aws-exception": true
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -860,6 +987,163 @@
       ]
     },
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}": {
+      "delete": {
+        "description": "<p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p> <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
+        "operationId": "DeleteDataset",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDatasetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "IdentityPoolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "IdentityId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "DatasetName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDatasetResponse"
+            }
+          },
+          "400": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "403": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            },
+            "x-aws-exception": true
+          },
+          "409": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            },
+            "x-aws-exception": true
+          },
+          "429": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            },
+            "x-aws-exception": true
+          },
+          "500": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            },
+            "x-aws-exception": true
+          }
+        }
+      },
+      "get": {
+        "description": "<p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p> <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>",
+        "operationId": "DescribeDataset",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDatasetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "IdentityPoolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "IdentityId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "DatasetName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDatasetResponse"
+            }
+          },
+          "400": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            },
+            "x-aws-exception": true
+          },
+          "403": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            },
+            "x-aws-exception": true
+          },
+          "429": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            },
+            "x-aws-exception": true
+          },
+          "500": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            },
+            "x-aws-exception": true
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1181,7 +1465,88 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>Subscribes to receive notifications when a dataset is modified by another device.</p> <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
+        "operationId": "SubscribeToDataset",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubscribeToDatasetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "IdentityPoolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "IdentityId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "DatasetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "DeviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SubscribeToDatasetResponse"
+            }
+          },
+          "400": {
+            "description": "InvalidConfigurationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidConfigurationException"
+            },
+            "x-aws-exception": true
+          },
+          "403": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            },
+            "x-aws-exception": true
+          },
+          "404": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            },
+            "x-aws-exception": true
+          },
+          "429": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            },
+            "x-aws-exception": true
+          },
+          "500": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            },
+            "x-aws-exception": true
+          }
+        }
+      }
     },
     "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device": {
       "parameters": [

@@ -314,18 +314,18 @@
         "operationId": "instances.insert",
         "parameters": [
           {
-            "description": "Project ID of the project to which the newly created Cloud SQL instances should belong.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/DatabaseInstance"
             }
+          },
+          {
+            "description": "Project ID of the project to which the newly created Cloud SQL instances should belong.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -365,16 +365,16 @@
         "operationId": "instances.delete",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance to be deleted.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance to be deleted.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -414,16 +414,16 @@
         "operationId": "instances.get",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Database instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Database instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -486,11 +486,11 @@
         "operationId": "instances.patch",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DatabaseInstance"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -500,11 +500,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DatabaseInstance"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -542,11 +542,11 @@
         "operationId": "instances.update",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DatabaseInstance"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -556,11 +556,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DatabaseInstance"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -600,13 +600,6 @@
         "operationId": "backupRuns.list",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
             "name": "instance",
@@ -623,6 +616,13 @@
             "description": "A previously-returned page token representing part of the larger set of results to view.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
             "type": "string"
           }
         ],
@@ -684,11 +684,11 @@
         "operationId": "backupRuns.insert",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BackupRun"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -698,11 +698,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BackupRun"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -742,9 +742,9 @@
         "operationId": "backupRuns.delete",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "The ID of the Backup Run to delete. To find a Backup Run ID, use the list method.",
             "in": "path",
-            "name": "project",
+            "name": "id",
             "required": true,
             "type": "string"
           },
@@ -756,9 +756,9 @@
             "type": "string"
           },
           {
-            "description": "The ID of the Backup Run to delete. To find a Backup Run ID, use the list method.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "id",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -798,9 +798,9 @@
         "operationId": "backupRuns.get",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "The ID of this Backup Run.",
             "in": "path",
-            "name": "project",
+            "name": "id",
             "required": true,
             "type": "string"
           },
@@ -812,9 +812,9 @@
             "type": "string"
           },
           {
-            "description": "The ID of this Backup Run.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "id",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -902,11 +902,11 @@
         "operationId": "instances.clone",
         "parameters": [
           {
-            "description": "Project ID of the source as well as the clone Cloud SQL instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InstancesCloneRequest"
+            }
           },
           {
             "description": "The ID of the Cloud SQL instance to be cloned (source). This does not include the project ID.",
@@ -916,11 +916,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstancesCloneRequest"
-            }
+            "description": "Project ID of the source as well as the clone Cloud SQL instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -983,11 +983,11 @@
         "operationId": "sslCerts.createEphemeral",
         "parameters": [
           {
-            "description": "Project ID of the Cloud SQL project.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SslCertsCreateEphemeralRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -997,11 +997,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SslCertsCreateEphemeralRequest"
-            }
+            "description": "Project ID of the Cloud SQL project.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1041,16 +1041,16 @@
         "operationId": "databases.list",
         "parameters": [
           {
-            "description": "Project ID of the project for which to list Cloud SQL instances.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project for which to list Cloud SQL instances.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1113,11 +1113,11 @@
         "operationId": "databases.insert",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Database"
+            }
           },
           {
             "description": "Database instance ID. This does not include the project ID.",
@@ -1127,11 +1127,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Database"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1171,9 +1171,9 @@
         "operationId": "databases.delete",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Name of the database to be deleted in the instance.",
             "in": "path",
-            "name": "project",
+            "name": "database",
             "required": true,
             "type": "string"
           },
@@ -1185,9 +1185,9 @@
             "type": "string"
           },
           {
-            "description": "Name of the database to be deleted in the instance.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "database",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1227,9 +1227,9 @@
         "operationId": "databases.get",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Name of the database in the instance.",
             "in": "path",
-            "name": "project",
+            "name": "database",
             "required": true,
             "type": "string"
           },
@@ -1241,9 +1241,9 @@
             "type": "string"
           },
           {
-            "description": "Name of the database in the instance.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "database",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1306,9 +1306,16 @@
         "operationId": "databases.patch",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Database"
+            }
+          },
+          {
+            "description": "Name of the database to be updated in the instance.",
             "in": "path",
-            "name": "project",
+            "name": "database",
             "required": true,
             "type": "string"
           },
@@ -1320,18 +1327,11 @@
             "type": "string"
           },
           {
-            "description": "Name of the database to be updated in the instance.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "database",
+            "name": "project",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Database"
-            }
           }
         ],
         "responses": {
@@ -1369,9 +1369,16 @@
         "operationId": "databases.update",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Database"
+            }
+          },
+          {
+            "description": "Name of the database to be updated in the instance.",
             "in": "path",
-            "name": "project",
+            "name": "database",
             "required": true,
             "type": "string"
           },
@@ -1383,18 +1390,11 @@
             "type": "string"
           },
           {
-            "description": "Name of the database to be updated in the instance.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "database",
+            "name": "project",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Database"
-            }
           }
         ],
         "responses": {
@@ -1453,7 +1453,7 @@
         }
       ],
       "post": {
-        "description": "Demotes the standalone instance to be a read replica Cloud SQL instance of an on-premises master.",
+        "description": "Reserved for future use.",
         "operationId": "instances.demoteMaster",
         "parameters": [
           {
@@ -1538,11 +1538,11 @@
         "operationId": "instances.export",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance to be exported.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InstancesExportRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -1552,11 +1552,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstancesExportRequest"
-            }
+            "description": "Project ID of the project that contains the instance to be exported.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1611,11 +1611,11 @@
         "operationId": "instances.failover",
         "parameters": [
           {
-            "description": "ID of the project that contains the read replica.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InstancesFailoverRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -1625,11 +1625,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstancesFailoverRequest"
-            }
+            "description": "ID of the project that contains the read replica.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1692,11 +1692,11 @@
         "operationId": "instances.import",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InstancesImportRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -1706,11 +1706,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstancesImportRequest"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1765,16 +1765,16 @@
         "operationId": "instances.promoteReplica",
         "parameters": [
           {
-            "description": "ID of the project that contains the read replica.",
+            "description": "Cloud SQL read replica instance name.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL read replica instance name.",
+            "description": "ID of the project that contains the read replica.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1839,16 +1839,16 @@
         "operationId": "instances.resetSslConfig",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1913,16 +1913,16 @@
         "operationId": "instances.restart",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance to be restarted.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance to be restarted.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1987,11 +1987,11 @@
         "operationId": "instances.restoreBackup",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InstancesRestoreBackupRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -2001,11 +2001,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstancesRestoreBackupRequest"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2045,16 +2045,16 @@
         "operationId": "sslCerts.list",
         "parameters": [
           {
-            "description": "Project ID of the project for which to list Cloud SQL instances.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project for which to list Cloud SQL instances.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -2117,11 +2117,11 @@
         "operationId": "sslCerts.insert",
         "parameters": [
           {
-            "description": "Project ID of the project to which the newly created Cloud SQL instances should belong.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SslCertsInsertRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -2131,11 +2131,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SslCertsInsertRequest"
-            }
+            "description": "Project ID of the project to which the newly created Cloud SQL instances should belong.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2175,16 +2175,16 @@
         "operationId": "sslCerts.delete",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance to be deleted.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance to be deleted.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           },
@@ -2231,16 +2231,16 @@
         "operationId": "sslCerts.get",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           },
@@ -2335,16 +2335,16 @@
         "operationId": "instances.startReplica",
         "parameters": [
           {
-            "description": "ID of the project that contains the read replica.",
+            "description": "Cloud SQL read replica instance name.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL read replica instance name.",
+            "description": "ID of the project that contains the read replica.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -2409,16 +2409,16 @@
         "operationId": "instances.stopReplica",
         "parameters": [
           {
-            "description": "ID of the project that contains the read replica.",
+            "description": "Cloud SQL read replica instance name.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Cloud SQL read replica instance name.",
+            "description": "ID of the project that contains the read replica.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -2483,11 +2483,11 @@
         "operationId": "instances.truncateLog",
         "parameters": [
           {
-            "description": "Project ID of the Cloud SQL project.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InstancesTruncateLogRequest"
+            }
           },
           {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
@@ -2497,11 +2497,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InstancesTruncateLogRequest"
-            }
+            "description": "Project ID of the Cloud SQL project.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2541,9 +2541,9 @@
         "operationId": "users.delete",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
+            "description": "Host of the user in the instance.",
+            "in": "query",
+            "name": "host",
             "required": true,
             "type": "string"
           },
@@ -2555,16 +2555,16 @@
             "type": "string"
           },
           {
-            "description": "Host of the user in the instance.",
+            "description": "Name of the user in the instance.",
             "in": "query",
-            "name": "host",
+            "name": "name",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name of the user in the instance.",
-            "in": "query",
-            "name": "name",
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -2604,16 +2604,16 @@
         "operationId": "users.list",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Database instance ID. This does not include the project ID.",
             "in": "path",
-            "name": "project",
+            "name": "instance",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Database instance ID. This does not include the project ID.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "instance",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -2676,11 +2676,11 @@
         "operationId": "users.insert",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           },
           {
             "description": "Database instance ID. This does not include the project ID.",
@@ -2690,11 +2690,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2732,9 +2732,16 @@
         "operationId": "users.update",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "description": "Host of the user in the instance.",
+            "in": "query",
+            "name": "host",
             "required": true,
             "type": "string"
           },
@@ -2746,13 +2753,6 @@
             "type": "string"
           },
           {
-            "description": "Host of the user in the instance.",
-            "in": "query",
-            "name": "host",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Name of the user in the instance.",
             "in": "query",
             "name": "name",
@@ -2760,11 +2760,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2804,13 +2804,6 @@
         "operationId": "operations.list",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Cloud SQL instance ID. This does not include the project ID.",
             "in": "query",
             "name": "instance",
@@ -2827,6 +2820,13 @@
             "description": "A previously-returned page token representing part of the larger set of results to view.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Project ID of the project that contains the instance.",
+            "in": "path",
+            "name": "project",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2890,16 +2890,16 @@
         "operationId": "operations.get",
         "parameters": [
           {
-            "description": "Project ID of the project that contains the instance.",
+            "description": "Instance operation ID.",
             "in": "path",
-            "name": "project",
+            "name": "operation",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Instance operation ID.",
+            "description": "Project ID of the project that contains the instance.",
             "in": "path",
-            "name": "operation",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -3067,6 +3067,10 @@
           "description": "This is always sql#backupConfiguration.",
           "type": "string"
         },
+        "replicationLogArchivingEnabled": {
+          "description": "Whether replication log archiving is enabled. Replication log archiving is required for the point-in-time recovery (PITR) feature. PostgreSQL instances only.",
+          "type": "boolean"
+        },
         "startTime": {
           "description": "Start time for the daily backup configuration in UTC timezone in the 24 hour format - HH:MM.",
           "type": "string"
@@ -3191,6 +3195,11 @@
           "default": "sql#cloneContext",
           "description": "This is always sql#cloneContext.",
           "type": "string"
+        },
+        "pitrTimestampMs": {
+          "description": "The epoch timestamp, in milliseconds, of the time to which a point-in-time recovery (PITR) is performed. PostgreSQL instances only. For MySQL instances, use the binLogCoordinates property.",
+          "format": "int64",
+          "type": "string"
         }
       },
       "type": "object"
@@ -3287,7 +3296,7 @@
           "type": "object"
         },
         "gceZone": {
-          "description": "The GCE zone that the instance is serving from. In case when the instance is failed over to standby zone, this value may be different with what user specified in the settings.",
+          "description": "The Compute Engine zone that the instance is currently serving from. This value could be different from the zone that was specified when the instance was created if the instance has failed over to its secondary zone.",
           "type": "string"
         },
         "instanceType": {
@@ -3506,7 +3515,7 @@
           "type": "object"
         },
         "uri": {
-          "description": "The path to the file in Google Cloud Storage where the export will be stored. The URI is in the form gs://bucketName/fileName. If the file already exists, the operation fails. If fileType is SQL and the filename ends with .gz, the contents are compressed.",
+          "description": "The path to the file in Google Cloud Storage where the export will be stored. The URI is in the form gs://bucketName/fileName. If the file already exists, the requests succeeds, but the operation fails. If fileType is SQL and the filename ends with .gz, the contents are compressed.",
           "type": "string"
         }
       },
@@ -3807,6 +3816,7 @@
           "type": "string"
         },
         "updateTrack": {
+          "description": "Maintenance timing setting: canary (Earlier) or stable (Later).\n Learn more.",
           "type": "string"
         }
       },
@@ -4051,7 +4061,7 @@
       "description": "Database instance settings.",
       "properties": {
         "activationPolicy": {
-          "description": "The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. The activation policy cannot be updated together with other settings for Second Generation instances. Valid values:\nALWAYS: The instance is on; it is not deactivated by inactivity.\nNEVER: The instance is off; it is not activated, even if a connection request arrives.\nON_DEMAND: The instance responds to incoming requests, and turns itself off when not in use. Instances with PER_USE pricing turn off after 15 minutes of inactivity. Instances with PER_PACKAGE pricing turn off after 12 hours of inactivity.",
+          "description": "The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values:\nALWAYS: The instance is on, and remains so even in the absence of connection requests.\nNEVER: The instance is off; it is not activated, even if a connection request arrives.\nON_DEMAND: First Generation instances only. The instance responds to incoming requests, and turns itself off when not in use. Instances with PER_USE pricing turn off after 15 minutes of inactivity. Instances with PER_PACKAGE pricing turn off after 12 hours of inactivity.",
           "type": "string"
         },
         "authorizedGaeApplications": {
@@ -4062,7 +4072,7 @@
           "type": "array"
         },
         "availabilityType": {
-          "description": "Reserved for future use.",
+          "description": "Availability type (PostgreSQL instances only). Potential values:\nZONAL: The instance serves data from only one zone. Outages in that zone affect data accessibility.\nREGIONAL: The instance can serve data from more than one zone in a region (it is highly available).\nFor more information, see Overview of the High Availability Configuration.",
           "type": "string"
         },
         "backupConfiguration": {
@@ -4104,7 +4114,7 @@
         },
         "locationPreference": {
           "$ref": "#/definitions/LocationPreference",
-          "description": "The location preference settings. This allows the instance to be located as near as possible to either an App Engine app or GCE zone for better performance. App Engine co-location is only applicable to First Generation instances."
+          "description": "The location preference settings. This allows the instance to be located as near as possible to either an App Engine app or Compute Engine zone for better performance. App Engine co-location is only applicable to First Generation instances."
         },
         "maintenanceWindow": {
           "$ref": "#/definitions/MaintenanceWindow",
@@ -4231,7 +4241,7 @@
       "properties": {
         "clientCert": {
           "$ref": "#/definitions/SslCertDetail",
-          "description": "The new client certificate and private key. The new certificate will not work until the instance is restarted for First Generation instances."
+          "description": "The new client certificate and private key. For First Generation instances, the new certificate does not take effect until the instance is restarted."
         },
         "kind": {
           "default": "sql#sslCertsInsert",

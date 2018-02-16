@@ -38,6 +38,40 @@ amazonaws_polly.ListLexicons({}, context)
 #### Output
 * output [ListLexiconsOutput](#listlexiconsoutput)
 
+### DeleteLexicon
+
+
+
+```js
+amazonaws_polly.DeleteLexicon({
+  "LexiconName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LexiconName **required** `string`
+
+#### Output
+* output [DeleteLexiconOutput](#deletelexiconoutput)
+
+### GetLexicon
+
+
+
+```js
+amazonaws_polly.GetLexicon({
+  "LexiconName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LexiconName **required** `string`
+
+#### Output
+* output [GetLexiconOutput](#getlexiconoutput)
+
 ### PutLexicon
 
 
@@ -154,7 +188,7 @@ amazonaws_polly.DescribeVoices({}, context)
   * message [ErrorMessage](#errormessage)
 
 ### LanguageCode
-* LanguageCode `string` (values: cy-GB, da-DK, de-DE, en-AU, en-GB, en-GB-WLS, en-IN, en-US, es-ES, es-US, fr-CA, fr-FR, is-IS, it-IT, ja-JP, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, ro-RO, ru-RU, sv-SE, tr-TR)
+* LanguageCode `string` (values: cy-GB, da-DK, de-DE, en-AU, en-GB, en-GB-WLS, en-IN, en-US, es-ES, es-US, fr-CA, fr-FR, is-IS, it-IT, ko-KR, ja-JP, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, ro-RO, ru-RU, sv-SE, tr-TR)
 
 ### LanguageName
 * LanguageName `string`
@@ -307,7 +341,7 @@ amazonaws_polly.DescribeVoices({}, context)
   * Name [VoiceName](#voicename)
 
 ### VoiceId
-* VoiceId `string` (values: Geraint, Gwyneth, Mads, Naja, Hans, Marlene, Nicole, Russell, Amy, Brian, Emma, Raveena, Ivy, Joanna, Joey, Justin, Kendra, Kimberly, Matthew, Salli, Conchita, Enrique, Miguel, Penelope, Chantal, Celine, Mathieu, Dora, Karl, Carla, Giorgio, Mizuki, Liv, Lotte, Ruben, Ewa, Jacek, Jan, Maja, Ricardo, Vitoria, Cristiano, Ines, Carmen, Maxim, Tatyana, Astrid, Filiz, Vicki, Takumi)
+* VoiceId `string` (values: Geraint, Gwyneth, Mads, Naja, Hans, Marlene, Nicole, Russell, Amy, Brian, Emma, Raveena, Ivy, Joanna, Joey, Justin, Kendra, Kimberly, Matthew, Salli, Conchita, Enrique, Miguel, Penelope, Chantal, Celine, Mathieu, Dora, Karl, Carla, Giorgio, Mizuki, Liv, Lotte, Ruben, Ewa, Jacek, Jan, Maja, Ricardo, Vitoria, Cristiano, Ines, Carmen, Maxim, Tatyana, Astrid, Filiz, Vicki, Takumi, Seoyeon, Aditi)
 
 ### VoiceList
 * VoiceList `array`

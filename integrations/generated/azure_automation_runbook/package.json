@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/azure_automation_runbook",
+  "version": "3.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for AutomationManagement",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/azure.com/automation-runbook/2015-10-31/swagger.json",
+    "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

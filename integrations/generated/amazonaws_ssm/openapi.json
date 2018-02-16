@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<fullname>AWS Systems Manager</fullname> <p>AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/\">AWS Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html\">Systems Manager Prerequisites</a>.</p> <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/\">Amazon EC2 API Reference</a>. For information about how to use a Query API, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html\">Making API Requests</a>. </p>",
     "license": {
@@ -163,7 +164,7 @@
         }
       ],
       "post": {
-        "description": "<p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you can assign to your documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.</p> <p>Each resource can have a maximum of 10 tags. </p> <p>We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. </p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+        "description": "<p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you can assign to your documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.</p> <p>Each resource can have a maximum of 50 tags. </p> <p>We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. </p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>",
         "operationId": "AddTagsToResource",
         "parameters": [
           {
@@ -774,7 +775,7 @@
         }
       ],
       "post": {
-        "description": "Creates a patch baseline.",
+        "description": "<p>Creates a patch baseline.</p> <note> <p>For information about valid key and value pairs in <code>PatchFilters</code> for each supported operating system type, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html\">PatchFilter</a>.</p> </note>",
         "operationId": "CreatePatchBaseline",
         "parameters": [
           {
@@ -845,7 +846,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the <a href=\"API_ListResourceDataSync.html\">ListResourceDataSync</a> operation.</p> <p>By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync\">Configuring Resource Data Sync for Inventory</a>.</p>",
+        "description": "<p>Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the <a>ListResourceDataSync</a>.</p> <p>By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync\">Configuring Resource Data Sync for Inventory</a>.</p>",
         "operationId": "CreateResourceDataSync",
         "parameters": [
           {
@@ -1823,7 +1824,7 @@
         }
       ],
       "post": {
-        "description": "Describes the associations for the specified Systems Manager document or instance.",
+        "description": "Describes the association for the specified target or instance. If you created the association by using the <code>Targets</code> parameter, then you must retrieve the association by using the association ID. If you created the association by specifying an instance ID and a Systems Manager document, then you retrieve the association by specifying the document name and the instance ID. ",
         "operationId": "DescribeAssociation",
         "parameters": [
           {
@@ -1926,12 +1927,107 @@
             }
           },
           "480": {
+            "description": "InvalidFilterKey",
+            "schema": {
+              "$ref": "#/definitions/InvalidFilterKey"
+            }
+          },
+          "481": {
+            "description": "InvalidFilterValue",
+            "schema": {
+              "$ref": "#/definitions/InvalidFilterValue"
+            }
+          },
+          "482": {
             "description": "InvalidNextToken",
             "schema": {
               "$ref": "#/definitions/InvalidNextToken"
             }
           },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeAutomationStepExecutions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Information about all active and terminated step executions in an Automation workflow.",
+        "operationId": "DescribeAutomationStepExecutions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAutomationStepExecutionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAutomationStepExecutionsResult"
+            }
+          },
+          "480": {
+            "description": "AutomationExecutionNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AutomationExecutionNotFoundException"
+            }
+          },
           "481": {
+            "description": "InvalidNextToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextToken"
+            }
+          },
+          "482": {
+            "description": "InvalidFilterKey",
+            "schema": {
+              "$ref": "#/definitions/InvalidFilterKey"
+            }
+          },
+          "483": {
+            "description": "InvalidFilterValue",
+            "schema": {
+              "$ref": "#/definitions/InvalidFilterValue"
+            }
+          },
+          "484": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
@@ -4414,7 +4510,7 @@
         }
       ],
       "post": {
-        "description": "<p>Retrieve parameters in a specific hierarchy. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a>. </p> <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of <code>MaxResults</code>. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a <code>NextToken</code>. You can specify the <code>NextToken</code> in a subsequent call to get the next set of results.</p>",
+        "description": "<p>Retrieve parameters in a specific hierarchy. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a>. </p> <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of <code>MaxResults</code>. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a <code>NextToken</code>. You can specify the <code>NextToken</code> in a subsequent call to get the next set of results.</p> <note> <p>This API action doesn't support filtering by tags. </p> </note>",
         "operationId": "GetParametersByPath",
         "parameters": [
           {
@@ -5674,7 +5770,7 @@
         }
       ],
       "post": {
-        "description": "Registers a compliance type and other compliance details on a designated resource. This action lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.",
+        "description": "<p>Registers a compliance type and other compliance details on a designated resource. This action lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.</p> <p>ComplianceType can be one of the following:</p> <ul> <li> <p>ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.</p> </li> <li> <p>ExecutionType: Specify patch, association, or Custom:<code>string</code>.</p> </li> <li> <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to the instance.</p> </li> <li> <p>Id: The patch, association, or custom compliance ID.</p> </li> <li> <p>Title: A title.</p> </li> <li> <p>Status: The status of the compliance item. For example, <code>approved</code> for patches, or <code>Failed</code> for associations.</p> </li> <li> <p>Severity: A patch severity. For example, <code>critical</code>.</p> </li> <li> <p>DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.</p> </li> <li> <p>DocumentVersion: An SSM document version number. For example, 4.</p> </li> <li> <p>Classification: A patch classification. For example, <code>security updates</code>.</p> </li> <li> <p>PatchBaselineId: A patch baseline ID.</p> </li> <li> <p>PatchSeverity: A patch severity. For example, <code>Critical</code>.</p> </li> <li> <p>PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.</p> </li> <li> <p>PatchGroup: The name of a patch group.</p> </li> <li> <p>InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p> </li> </ul>",
         "operationId": "PutComplianceItems",
         "parameters": [
           {
@@ -6424,12 +6520,18 @@
             }
           },
           "481": {
+            "description": "AutomationStepNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AutomationStepNotFoundException"
+            }
+          },
+          "482": {
             "description": "InvalidAutomationSignalException",
             "schema": {
               "$ref": "#/definitions/InvalidAutomationSignalException"
             }
           },
-          "482": {
+          "483": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
@@ -6632,6 +6734,12 @@
             }
           },
           "485": {
+            "description": "InvalidTarget",
+            "schema": {
+              "$ref": "#/definitions/InvalidTarget"
+            }
+          },
+          "486": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
@@ -6697,6 +6805,12 @@
             }
           },
           "481": {
+            "description": "InvalidAutomationStatusUpdateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAutomationStatusUpdateException"
+            }
+          },
+          "482": {
             "description": "InternalServerError",
             "schema": {
               "$ref": "#/definitions/InternalServerError"
@@ -7388,7 +7502,7 @@
         }
       ],
       "post": {
-        "description": "Modifies an existing patch baseline. Fields not specified in the request are left unchanged.",
+        "description": "<p>Modifies an existing patch baseline. Fields not specified in the request are left unchanged.</p> <note> <p>For information about valid key and value pairs in <code>PatchFilters</code> for each supported operating system type, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html\">PatchFilter</a>.</p> </note>",
         "operationId": "UpdatePatchBaseline",
         "parameters": [
           {
@@ -7526,6 +7640,9 @@
     "AgentErrorCode": {
       "maxLength": 10,
       "type": "string"
+    },
+    "AggregatorSchemaOnly": {
+      "type": "boolean"
     },
     "AllowedPattern": {
       "maxLength": 1024,
@@ -7923,6 +8040,14 @@
           "$ref": "#/definitions/AutomationExecutionStatus",
           "description": "The execution status of the Automation."
         },
+        "CurrentAction": {
+          "$ref": "#/definitions/String",
+          "description": "The action of the currently executing step."
+        },
+        "CurrentStepName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the currently executing step."
+        },
         "DocumentName": {
           "$ref": "#/definitions/DocumentName",
           "description": "The name of the Automation document used during the execution."
@@ -7930,6 +8055,10 @@
         "DocumentVersion": {
           "$ref": "#/definitions/DocumentVersion",
           "description": "The version of the document to use during execution."
+        },
+        "ExecutedBy": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the user who executed the automation."
         },
         "ExecutionEndTime": {
           "$ref": "#/definitions/DateTime",
@@ -7943,6 +8072,18 @@
           "$ref": "#/definitions/String",
           "description": "A message describing why an execution has failed, if the status is set to Failed."
         },
+        "MaxConcurrency": {
+          "$ref": "#/definitions/MaxConcurrency",
+          "description": "The MaxConcurrency value specified by the user when the execution started."
+        },
+        "MaxErrors": {
+          "$ref": "#/definitions/MaxErrors",
+          "description": "The MaxErrors value specified by the user when the execution started."
+        },
+        "Mode": {
+          "$ref": "#/definitions/ExecutionMode",
+          "description": "The automation execution mode."
+        },
         "Outputs": {
           "$ref": "#/definitions/AutomationParameterMap",
           "description": "The list of execution outputs as defined in the automation document."
@@ -7951,9 +8092,33 @@
           "$ref": "#/definitions/AutomationParameterMap",
           "description": "The key-value map of execution parameters, which were supplied when calling StartAutomationExecution."
         },
+        "ParentAutomationExecutionId": {
+          "$ref": "#/definitions/AutomationExecutionId",
+          "description": "The AutomationExecutionId of the parent automation."
+        },
+        "ResolvedTargets": {
+          "$ref": "#/definitions/ResolvedTargets",
+          "description": "A list of resolved targets in the rate control execution."
+        },
         "StepExecutions": {
           "$ref": "#/definitions/StepExecutionList",
           "description": "A list of details about the current state of all steps that comprise an execution. An Automation document contains a list of steps that are executed in order."
+        },
+        "StepExecutionsTruncated": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A boolean value that indicates if the response contains the full list of the Automation step executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of step executions."
+        },
+        "Target": {
+          "$ref": "#/definitions/String",
+          "description": "The target of the execution."
+        },
+        "TargetParameterName": {
+          "$ref": "#/definitions/AutomationParameterKey",
+          "description": "The parameter name."
+        },
+        "Targets": {
+          "$ref": "#/definitions/Targets",
+          "description": "The specified targets."
         }
       },
       "type": "object"
@@ -7963,7 +8128,7 @@
       "properties": {
         "Key": {
           "$ref": "#/definitions/AutomationExecutionFilterKey",
-          "description": "The aspect of the Automation execution information that should be limited."
+          "description": "One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter."
         },
         "Values": {
           "$ref": "#/definitions/AutomationExecutionFilterValueList",
@@ -7979,7 +8144,12 @@
     "AutomationExecutionFilterKey": {
       "enum": [
         "DocumentNamePrefix",
-        "ExecutionStatus"
+        "ExecutionStatus",
+        "ExecutionId",
+        "ParentExecutionId",
+        "CurrentAction",
+        "StartTimeBefore",
+        "StartTimeAfter"
       ],
       "type": "string"
     },
@@ -8029,6 +8199,14 @@
           "$ref": "#/definitions/AutomationExecutionStatus",
           "description": "The status of the execution. Valid values include: Running, Succeeded, Failed, Timed out, or Cancelled."
         },
+        "CurrentAction": {
+          "$ref": "#/definitions/String",
+          "description": "The action of the currently executing step."
+        },
+        "CurrentStepName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the currently executing step."
+        },
         "DocumentName": {
           "$ref": "#/definitions/DocumentName",
           "description": "The name of the Automation document used during execution."
@@ -8049,13 +8227,49 @@
           "$ref": "#/definitions/DateTime",
           "description": "The time the execution started.&gt;"
         },
+        "FailureMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The list of execution outputs as defined in the Automation document."
+        },
         "LogFile": {
           "$ref": "#/definitions/String",
           "description": "An Amazon S3 bucket where execution information is stored."
         },
+        "MaxConcurrency": {
+          "$ref": "#/definitions/MaxConcurrency",
+          "description": "The MaxConcurrency value specified by the user when starting the Automation."
+        },
+        "MaxErrors": {
+          "$ref": "#/definitions/MaxErrors",
+          "description": "The MaxErrors value specified by the user when starting the Automation."
+        },
+        "Mode": {
+          "$ref": "#/definitions/ExecutionMode",
+          "description": "The Automation execution mode."
+        },
         "Outputs": {
           "$ref": "#/definitions/AutomationParameterMap",
           "description": "The list of execution outputs as defined in the Automation document."
+        },
+        "ParentAutomationExecutionId": {
+          "$ref": "#/definitions/AutomationExecutionId",
+          "description": "The ExecutionId of the parent Automation."
+        },
+        "ResolvedTargets": {
+          "$ref": "#/definitions/ResolvedTargets",
+          "description": "A list of targets that resolved during the execution."
+        },
+        "Target": {
+          "$ref": "#/definitions/String",
+          "description": "The list of execution outputs as defined in the Automation document."
+        },
+        "TargetParameterName": {
+          "$ref": "#/definitions/AutomationParameterKey",
+          "description": "The list of execution outputs as defined in the Automation document."
+        },
+        "Targets": {
+          "$ref": "#/definitions/Targets",
+          "description": "The targets defined by the user when starting the Automation."
         }
       },
       "type": "object"
@@ -8064,8 +8278,6 @@
       "items": {
         "$ref": "#/definitions/AutomationExecutionMetadata"
       },
-      "maxItems": 50,
-      "minItems": 0,
       "type": "array"
     },
     "AutomationExecutionNotFoundException": {
@@ -8084,6 +8296,7 @@
         "Waiting",
         "Success",
         "TimedOut",
+        "Cancelling",
         "Cancelled",
         "Failed"
       ],
@@ -8122,6 +8335,15 @@
       "maxItems": 10,
       "minItems": 0,
       "type": "array"
+    },
+    "AutomationStepNotFoundException": {
+      "description": "The specified step name and execution ID don't exist. Verify the information and try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
     },
     "BaselineDescription": {
       "maxLength": 1024,
@@ -8953,7 +9175,11 @@
       "properties": {
         "Content": {
           "$ref": "#/definitions/DocumentContent",
-          "description": "A valid JSON string."
+          "description": "A valid JSON or YAML string."
+        },
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format."
         },
         "DocumentType": {
           "$ref": "#/definitions/DocumentType",
@@ -8961,7 +9187,11 @@
         },
         "Name": {
           "$ref": "#/definitions/DocumentName",
-          "description": "A name for the Systems Manager document."
+          "description": "<p>A name for the Systems Manager document.</p> <important> <p>Do not use the following to begin the names of documents you create. They are reserved by AWS for use as document prefixes:</p> <ul> <li> <p> <code>aws</code> </p> </li> <li> <p> <code>amazon</code> </p> </li> <li> <p> <code>amzn</code> </p> </li> </ul> </important>"
+        },
+        "TargetType": {
+          "$ref": "#/definitions/TargetType",
+          "description": "Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a> in the <i>AWS CloudFormation User Guide</i>. "
         }
       },
       "required": [
@@ -9042,6 +9272,10 @@
           "$ref": "#/definitions/PatchComplianceLevel",
           "description": "Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance severity levels include the following: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED. The default value is UNSPECIFIED."
         },
+        "ApprovedPatchesEnableNonSecurity": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only."
+        },
         "ClientToken": {
           "$ref": "#/definitions/ClientToken",
           "description": "User-provided idempotency token."
@@ -9060,11 +9294,15 @@
         },
         "OperatingSystem": {
           "$ref": "#/definitions/OperatingSystem",
-          "description": "Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS."
+          "description": "Defines the operating system the patch baseline applies to. The Default value is WINDOWS."
         },
         "RejectedPatches": {
           "$ref": "#/definitions/PatchIdList",
           "description": "A list of explicitly rejected patches for the baseline."
+        },
+        "Sources": {
+          "$ref": "#/definitions/PatchSourceList",
+          "description": "Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only."
         }
       },
       "required": [
@@ -9504,6 +9742,47 @@
         "NextToken": {
           "$ref": "#/definitions/NextToken",
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAutomationStepExecutionsRequest": {
+      "properties": {
+        "AutomationExecutionId": {
+          "$ref": "#/definitions/AutomationExecutionId",
+          "description": "The Automation execution ID for which you want step execution descriptions."
+        },
+        "Filters": {
+          "$ref": "#/definitions/StepExecutionFilterList",
+          "description": "One or more filters to limit the number of step executions returned by the request."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        },
+        "ReverseOrder": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A boolean that indicates whether to list step executions in reverse order by start time. The default value is false."
+        }
+      },
+      "required": [
+        "AutomationExecutionId"
+      ],
+      "type": "object"
+    },
+    "DescribeAutomationStepExecutionsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
+        },
+        "StepExecutions": {
+          "$ref": "#/definitions/StepExecutionList",
+          "description": "A list of details about the current state of all steps that make up an execution."
         }
       },
       "type": "object"
@@ -10233,6 +10512,10 @@
           "$ref": "#/definitions/DescriptionInDocument",
           "description": "A description of the document. "
         },
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "The document format, either JSON or YAML."
+        },
         "DocumentType": {
           "$ref": "#/definitions/DocumentType",
           "description": "The type of document. "
@@ -10284,6 +10567,10 @@
         "Tags": {
           "$ref": "#/definitions/TagList",
           "description": "The tags, or metadata, that have been applied to the document."
+        },
+        "TargetType": {
+          "$ref": "#/definitions/TargetType",
+          "description": "The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a> in the <i>AWS CloudFormation User Guide</i>. "
         }
       },
       "type": "object"
@@ -10326,6 +10613,13 @@
       "minLength": 1,
       "type": "string"
     },
+    "DocumentFormat": {
+      "enum": [
+        "YAML",
+        "JSON"
+      ],
+      "type": "string"
+    },
     "DocumentHash": {
       "maxLength": 256,
       "type": "string"
@@ -10340,6 +10634,10 @@
     "DocumentIdentifier": {
       "description": "Describes the name of a Systems Manager document.",
       "properties": {
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "The document format, either JSON or YAML."
+        },
         "DocumentType": {
           "$ref": "#/definitions/DocumentType",
           "description": "The document type."
@@ -10367,6 +10665,10 @@
         "Tags": {
           "$ref": "#/definitions/TagList",
           "description": "The tags, or metadata, that have been applied to the document."
+        },
+        "TargetType": {
+          "$ref": "#/definitions/TargetType",
+          "description": "The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a> in the <i>AWS CloudFormation User Guide</i>. "
         }
       },
       "type": "object"
@@ -10400,7 +10702,7 @@
       "items": {
         "$ref": "#/definitions/DocumentKeyValuesFilter"
       },
-      "maxItems": 5,
+      "maxItems": 6,
       "minItems": 0,
       "type": "array"
     },
@@ -10525,6 +10827,10 @@
           "$ref": "#/definitions/DateTime",
           "description": "The date the document was created."
         },
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "The document format, either JSON or YAML."
+        },
         "DocumentVersion": {
           "$ref": "#/definitions/DocumentVersion",
           "description": "The document version."
@@ -10561,7 +10867,7 @@
       "type": "string"
     },
     "DoesNotExistException": {
-      "description": "Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't exist.",
+      "description": "<p>Error returned when the ID specified for a resource, such as a Maintenance Window or Patch baseline, doesn't exist.</p> <p>For information about resource limits in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm\">AWS Systems Manager Limits</a>.</p>",
       "properties": {
         "Message": {
           "$ref": "#/definitions/String"
@@ -10610,6 +10916,13 @@
     },
     "ErrorCount": {
       "type": "integer"
+    },
+    "ExecutionMode": {
+      "enum": [
+        "Auto",
+        "Interactive"
+      ],
+      "type": "string"
     },
     "ExpirationDate": {
       "format": "date-time",
@@ -10843,6 +11156,10 @@
     },
     "GetDocumentRequest": {
       "properties": {
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format."
+        },
         "DocumentVersion": {
           "$ref": "#/definitions/DocumentVersion",
           "description": "The document version for which you want information."
@@ -10863,6 +11180,10 @@
           "$ref": "#/definitions/DocumentContent",
           "description": "The contents of the Systems Manager document."
         },
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "The document format, either JSON or YAML."
+        },
         "DocumentType": {
           "$ref": "#/definitions/DocumentType",
           "description": "The document type."
@@ -10880,6 +11201,10 @@
     },
     "GetInventoryRequest": {
       "properties": {
+        "Aggregators": {
+          "$ref": "#/definitions/InventoryAggregatorList",
+          "description": "Returns counts of inventory types based on one or more expressions. For example, if you aggregate by using an expression that uses the <code>AWS:InstanceInformation.PlatformType</code> type, you can see a count of how many Windows and Linux instances exist in your inventoried fleet."
+        },
         "Filters": {
           "$ref": "#/definitions/InventoryFilterList",
           "description": "One or more filters. Use a filter to return a more specific list of results."
@@ -10919,6 +11244,10 @@
     },
     "GetInventorySchemaRequest": {
       "properties": {
+        "Aggregator": {
+          "$ref": "#/definitions/AggregatorSchemaOnly",
+          "description": "Returns inventory schemas that support aggregation. For example, this call returns the <code>AWS:InstanceInformation</code> type, because it supports aggregation based on the <code>PlatformName</code>, <code>PlatformType</code>, and <code>PlatformVersion</code> attributes."
+        },
         "MaxResults": {
           "$ref": "#/definitions/GetInventorySchemaMaxResults",
           "description": "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results."
@@ -11359,7 +11688,7 @@
         },
         "Path": {
           "$ref": "#/definitions/PSParameterName",
-          "description": "<p>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A hierarchy can have a maximum of five levels. Examples: /Environment/Test/DBString003</p> <p>/Finance/Prod/IAD/OS/WinServ2016/license15</p>"
+          "description": "The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33</code> "
         },
         "Recursive": {
           "$ref": "#/definitions/Boolean",
@@ -11476,6 +11805,10 @@
           "$ref": "#/definitions/PatchComplianceLevel",
           "description": "Returns the specified compliance severity level for approved patches in the patch baseline."
         },
+        "ApprovedPatchesEnableNonSecurity": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only."
+        },
         "BaselineId": {
           "$ref": "#/definitions/BaselineId",
           "description": "The ID of the retrieved patch baseline."
@@ -11511,16 +11844,20 @@
         "RejectedPatches": {
           "$ref": "#/definitions/PatchIdList",
           "description": "A list of explicitly rejected patches for the baseline."
+        },
+        "Sources": {
+          "$ref": "#/definitions/PatchSourceList",
+          "description": "Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only."
         }
       },
       "type": "object"
     },
     "HierarchyLevelLimitExceededException": {
-      "description": "<p>A hierarchy can have a maximum of five levels. For example:</p> <p>/Finance/Prod/IAD/OS/WinServ2016/license15</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a>. </p>",
+      "description": "A hierarchy can have a maximum of 15 levels. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a>. ",
       "properties": {
         "message": {
           "$ref": "#/definitions/String",
-          "description": "<p>A hierarchy can have a maximum of five levels. For example:</p> <p>/Finance/Prod/IAD/OS/WinServ2016/license15</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a>. </p>"
+          "description": "A hierarchy can have a maximum of 15 levels. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a>. "
         }
       },
       "type": "object"
@@ -12089,6 +12426,15 @@
       },
       "type": "object"
     },
+    "InvalidAutomationStatusUpdateException": {
+      "description": "The specified update status operation is not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
     "InvalidCommandId": {
       "properties": {},
       "type": "object"
@@ -12292,7 +12638,7 @@
       "type": "object"
     },
     "InvalidRole": {
-      "description": "The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html\">Configuring Amazon SNS Notifications for Run Command</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.",
+      "description": "The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html\">Configuring Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/String"
@@ -12335,6 +12681,33 @@
         }
       },
       "type": "object"
+    },
+    "InventoryAggregator": {
+      "description": "Specifies the inventory type and attribute for the aggregation execution.",
+      "properties": {
+        "Aggregators": {
+          "$ref": "#/definitions/InventoryAggregatorList",
+          "description": "Nested aggregators to further refine aggregation for an inventory type."
+        },
+        "Expression": {
+          "$ref": "#/definitions/InventoryAggregatorExpression",
+          "description": "The inventory type and attribute name for aggregation."
+        }
+      },
+      "type": "object"
+    },
+    "InventoryAggregatorExpression": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "InventoryAggregatorList": {
+      "items": {
+        "$ref": "#/definitions/InventoryAggregator"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
     },
     "InventoryAttributeDataType": {
       "enum": [
@@ -12516,6 +12889,10 @@
           "$ref": "#/definitions/InventoryItemAttributeList",
           "description": "The schema attributes for inventory. This contains data type and attribute name."
         },
+        "DisplayName": {
+          "$ref": "#/definitions/InventoryTypeDisplayName",
+          "description": "The alias name of the inventory type. The alias name is used for display purposes."
+        },
         "TypeName": {
           "$ref": "#/definitions/InventoryItemTypeName",
           "description": "The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate."
@@ -12567,7 +12944,7 @@
       "properties": {
         "Data": {
           "$ref": "#/definitions/InventoryResultItemMap",
-          "description": "The data section in the inventory result entity json."
+          "description": "The data section in the inventory result entity JSON."
         },
         "Id": {
           "$ref": "#/definitions/InventoryResultEntityId",
@@ -12632,6 +13009,9 @@
         "type": "object"
       },
       "type": "array"
+    },
+    "InventoryTypeDisplayName": {
+      "type": "string"
     },
     "InvocationDoesNotExist": {
       "description": "The command ID and instance ID you specified did not match any invocations. Verify the command ID adn the instance ID and try again. ",
@@ -13130,6 +13510,9 @@
         "S3Region"
       ],
       "type": "object"
+    },
+    "Long": {
+      "type": "integer"
     },
     "MaintenanceWindowAllowUnassociatedTargets": {
       "type": "boolean"
@@ -13871,7 +14254,7 @@
         },
         "NotificationEvents": {
           "$ref": "#/definitions/NotificationEventList",
-          "description": "The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html\">Setting Up Events and Notifications</a> in the <i>Amazon EC2 Systems Manager User Guide</i>."
+          "description": "The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html\">Setting Up Events and Notifications</a> in the <i>AWS Systems Manager User Guide</i>."
         },
         "NotificationType": {
           "$ref": "#/definitions/NotificationType",
@@ -13909,7 +14292,8 @@
         "WINDOWS",
         "AMAZON_LINUX",
         "UBUNTU",
-        "REDHAT_ENTERPRISE_LINUX"
+        "REDHAT_ENTERPRISE_LINUX",
+        "SUSE"
       ],
       "type": "string"
     },
@@ -14212,7 +14596,7 @@
       "type": "array"
     },
     "ParametersFilter": {
-      "description": "One or more filters. Use a filter to return a more specific list of results.",
+      "description": "This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.",
       "properties": {
         "Key": {
           "$ref": "#/definitions/ParametersFilterKey",
@@ -14335,7 +14719,7 @@
         },
         "OperatingSystem": {
           "$ref": "#/definitions/OperatingSystem",
-          "description": "Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS. "
+          "description": "Defines the operating system the patch baseline applies to. The Default value is WINDOWS. "
         }
       },
       "type": "object"
@@ -14443,15 +14827,15 @@
       "type": "integer"
     },
     "PatchFilter": {
-      "description": "Defines a patch filter.",
+      "description": "<p>Defines a patch filter.</p> <p>A patch filter consists of key/value pairs, but not all keys are valid for all operating system types. For example, the key <code>PRODUCT</code> is valid for all supported operating system types. The key <code>MSRC_SEVERITY</code>, however, is valid only for Windows operating systems, and the key <code>SECTION</code> is valid only for Ubuntu operating systems.</p> <p>Refer to the following sections for information about which keys may be used with each major operating system, and which values are valid for each key.</p> <p> <b>Windows Operating Systems</b> </p> <p>The supported keys for Windows operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>MSRC_SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Windows7</code> </p> </li> <li> <p> <code>Windows8</code> </p> </li> <li> <p> <code>Windows8.1</code> </p> </li> <li> <p> <code>Windows8Embedded</code> </p> </li> <li> <p> <code>Windows10</code> </p> </li> <li> <p> <code>Windows10LTSB</code> </p> </li> <li> <p> <code>WindowsServer2008</code> </p> </li> <li> <p> <code>WindowsServer2008R2</code> </p> </li> <li> <p> <code>WindowsServer2012</code> </p> </li> <li> <p> <code>WindowsServer2012R2</code> </p> </li> <li> <p> <code>WindowsServer2016</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CriticalUpdates</code> </p> </li> <li> <p> <code>DefinitionUpdates</code> </p> </li> <li> <p> <code>Drivers</code> </p> </li> <li> <p> <code>FeaturePacks</code> </p> </li> <li> <p> <code>SecurityUpdates</code> </p> </li> <li> <p> <code>ServicePacks</code> </p> </li> <li> <p> <code>Tools</code> </p> </li> <li> <p> <code>UpdateRollups</code> </p> </li> <li> <p> <code>Updates</code> </p> </li> <li> <p> <code>Upgrades</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>MSRC_SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> <li> <p> <code>Unspecified</code> </p> </li> </ul> <p> <b>Ubuntu Operating Systems</b> </p> <p>The supported keys for Ubuntu operating systems are <code>PRODUCT</code>, <code>PRIORITY</code>, and <code>SECTION</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Ubuntu14.04</code> </p> </li> <li> <p> <code>Ubuntu16.04</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>PRIORITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Required</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Standard</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Extra</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SECTION</code> </p> <p>Only the length of the key value is validated. Minimum length is 1. Maximum length is 64.</p> <p> <b>Amazon Linux Operating Systems</b> </p> <p>The supported keys for Amazon Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>AmazonLinux2012.03</code> </p> </li> <li> <p> <code>AmazonLinux2012.09</code> </p> </li> <li> <p> <code>AmazonLinux2013.03</code> </p> </li> <li> <p> <code>AmazonLinux2013.09</code> </p> </li> <li> <p> <code>AmazonLinux2014.03</code> </p> </li> <li> <p> <code>AmazonLinux2014.09</code> </p> </li> <li> <p> <code>AmazonLinux2015.03</code> </p> </li> <li> <p> <code>AmazonLinux2015.09</code> </p> </li> <li> <p> <code>AmazonLinux2016.03</code> </p> </li> <li> <p> <code>AmazonLinux2016.09</code> </p> </li> <li> <p> <code>AmazonLinux2017.03</code> </p> </li> <li> <p> <code>AmazonLinux2017.09</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>RedHat Enterprise Linux (RHEL) Operating Systems</b> </p> <p>The supported keys for RedHat Enterprise Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>RedhatEnterpriseLinux6.5</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.6</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.7</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.8</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.9</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.0</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.1</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.2</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.3</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>SUSE Linux Enterprise Server (SUSE) Operating Systems</b> </p> <p>The supported keys for SUSE operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Suse12.0</code> </p> </li> <li> <p> <code>Suse12.1</code> </p> </li> <li> <p> <code>Suse12.2</code> </p> </li> <li> <p> <code>Suse12.3</code> </p> </li> <li> <p> <code>Suse12.4</code> </p> </li> <li> <p> <code>Suse12.5</code> </p> </li> <li> <p> <code>Suse12.6</code> </p> </li> <li> <p> <code>Suse12.7</code> </p> </li> <li> <p> <code>Suse12.8</code> </p> </li> <li> <p> <code>Suse12.9</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Feature</code> </p> </li> <li> <p> <code>Document</code> </p> </li> <li> <p> <code>Yast</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul>",
       "properties": {
         "Key": {
           "$ref": "#/definitions/PatchFilterKey",
-          "description": "The key for the filter (PRODUCT, CLASSIFICATION, MSRC_SEVERITY, PATCH_ID)"
+          "description": "<p>The key for the filter.</p> <p>See <a>PatchFilter</a> for lists of valid keys for each operating system type.</p>"
         },
         "Values": {
           "$ref": "#/definitions/PatchFilterValueList",
-          "description": "The value for the filter key."
+          "description": "<p>The value for the filter key.</p> <p>See <a>PatchFilter</a> for lists of valid values for each key based on operating system type.</p>"
         }
       },
       "required": [
@@ -14643,6 +15027,10 @@
           "$ref": "#/definitions/PatchComplianceLevel",
           "description": "A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: Unspecified, Critical, High, Medium, Low, and Informational."
         },
+        "EnableNonSecurity": {
+          "$ref": "#/definitions/Boolean",
+          "description": "For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only."
+        },
         "PatchFilterGroup": {
           "$ref": "#/definitions/PatchFilterGroup",
           "description": "The patch filter group that defines the criteria for the rule."
@@ -14677,6 +15065,60 @@
     },
     "PatchSeverity": {
       "type": "string"
+    },
+    "PatchSource": {
+      "description": "Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.",
+      "properties": {
+        "Configuration": {
+          "$ref": "#/definitions/PatchSourceConfiguration",
+          "description": "<p>The value of the yum repo configuration. For example:</p> <p> <code>cachedir=/var/cache/yum/$basesearch</code> </p> <p> <code>$releasever</code> </p> <p> <code>keepcache=0</code> </p> <p> <code>debualevel=2</code> </p>"
+        },
+        "Name": {
+          "$ref": "#/definitions/PatchSourceName",
+          "description": "The name specified to identify the patch source."
+        },
+        "Products": {
+          "$ref": "#/definitions/PatchSourceProductList",
+          "description": "The specific operating system versions a patch repository applies to, such as \"Ubuntu16.04\", \"AmazonLinux2016.09\", \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported product values, see <a>PatchFilter</a>."
+        }
+      },
+      "required": [
+        "Name",
+        "Products",
+        "Configuration"
+      ],
+      "type": "object"
+    },
+    "PatchSourceConfiguration": {
+      "format": "password",
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PatchSourceList": {
+      "items": {
+        "$ref": "#/definitions/PatchSource"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "PatchSourceName": {
+      "pattern": "^[a-zA-Z0-9_\\-.]{3,50}$",
+      "type": "string"
+    },
+    "PatchSourceProduct": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PatchSourceProductList": {
+      "items": {
+        "$ref": "#/definitions/PatchSourceProduct"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array"
     },
     "PatchStatus": {
       "description": "Information about the approval status of a patch.",
@@ -14795,7 +15237,7 @@
         },
         "Description": {
           "$ref": "#/definitions/ParameterDescription",
-          "description": "Information about the parameter that you want to add to the system"
+          "description": "Information about the parameter that you want to add to the system."
         },
         "KeyId": {
           "$ref": "#/definitions/ParameterKeyId",
@@ -14803,7 +15245,7 @@
         },
         "Name": {
           "$ref": "#/definitions/PSParameterName",
-          "description": "The name of the parameter that you want to add to the system."
+          "description": "<p>The fully qualified name of the parameter that you want to add to the system. The fully qualified name includes the complete hierarchy of the parameter path and name. For example: <code>/Dev/DBServer/MySQL/db-string13</code> </p> <p>For information about parameter name requirements and restrictions, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about\">About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.</p> <note> <p>The maximum length constraint listed below includes capacity for additional system attributes that are not part of the name. The maximum length for the fully qualified parameter name is 1011 characters. </p> </note>"
         },
         "Overwrite": {
           "$ref": "#/definitions/Boolean",
@@ -15047,6 +15489,20 @@
       "properties": {},
       "type": "object"
     },
+    "ResolvedTargets": {
+      "description": "Information about targets that resolved during the Automation execution.",
+      "properties": {
+        "ParameterValues": {
+          "$ref": "#/definitions/TargetParameterList",
+          "description": "A list of parameter values sent to targets that resolved during the Automation execution."
+        },
+        "Truncated": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A boolean value indicating whether the resolved target list is truncated."
+        }
+      },
+      "type": "object"
+    },
     "ResourceComplianceSummaryItem": {
       "description": "Compliance summary information for a specific resource. ",
       "properties": {
@@ -15243,7 +15699,7 @@
       "type": "object"
     },
     "ResourceLimitExceededException": {
-      "description": "Error returned when the caller has exceeded the default resource limits (e.g. too many Maintenance Windows have been created).",
+      "description": "<p>Error returned when the caller has exceeded the default resource limits. For example, too many Maintenance Windows or Patch baselines have been created.</p> <p>For information about resource limits in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm\">AWS Systems Manager Limits</a>.</p>",
       "properties": {
         "Message": {
           "$ref": "#/definitions/String"
@@ -15478,7 +15934,10 @@
     "SignalType": {
       "enum": [
         "Approve",
-        "Reject"
+        "Reject",
+        "StartStep",
+        "StopStep",
+        "Resume"
       ],
       "type": "string"
     },
@@ -15513,9 +15972,29 @@
           "$ref": "#/definitions/DocumentVersion",
           "description": "The version of the Automation document to use for this execution."
         },
+        "MaxConcurrency": {
+          "$ref": "#/definitions/MaxConcurrency",
+          "description": "The maximum number of targets allowed to run this task in parallel. You can specify a number, such as 10, or a percentage, such as 10%. The default value is 10."
+        },
+        "MaxErrors": {
+          "$ref": "#/definitions/MaxErrors",
+          "description": "<p>The number of errors that are allowed before the system stops running the automation on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops running the automation when the fourth error is received. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned. If you run an automation on 50 resources and set max-errors to 10%, then the system stops running the automation on additional targets when the sixth error is received.</p> <p>Executions that are already running an automation when max-errors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one at a time.</p>"
+        },
+        "Mode": {
+          "$ref": "#/definitions/ExecutionMode",
+          "description": "The execution mode of the automation. Valid modes include the following: Auto and Interactive. The default mode is Auto."
+        },
         "Parameters": {
           "$ref": "#/definitions/AutomationParameterMap",
           "description": "A key-value map of execution parameters, which match the declared parameters in the Automation document."
+        },
+        "TargetParameterName": {
+          "$ref": "#/definitions/AutomationParameterKey",
+          "description": "The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify Targets."
+        },
+        "Targets": {
+          "$ref": "#/definitions/Targets",
+          "description": "A key-value mapping to target resources. Required if you specify TargetParameterName."
         }
       },
       "required": [
@@ -15581,9 +16060,21 @@
           "$ref": "#/definitions/NormalStringMap",
           "description": "Fully-resolved values passed into the step before execution."
         },
+        "MaxAttempts": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of tries to run the action of the step. The default value is 1."
+        },
+        "OnFailure": {
+          "$ref": "#/definitions/String",
+          "description": "The action to take if the step fails. The default value is Abort."
+        },
         "Outputs": {
           "$ref": "#/definitions/AutomationParameterMap",
           "description": "Returned values from the execution of the step."
+        },
+        "OverriddenParameters": {
+          "$ref": "#/definitions/AutomationParameterMap",
+          "description": "A user-specified list of parameters to override when executing a step."
         },
         "Response": {
           "$ref": "#/definitions/String",
@@ -15593,6 +16084,10 @@
           "$ref": "#/definitions/String",
           "description": "The response code returned by the execution of the step."
         },
+        "StepExecutionId": {
+          "$ref": "#/definitions/String",
+          "description": "The unique ID of a step execution."
+        },
         "StepName": {
           "$ref": "#/definitions/String",
           "description": "The name of this execution step."
@@ -15600,16 +16095,68 @@
         "StepStatus": {
           "$ref": "#/definitions/AutomationExecutionStatus",
           "description": "The execution status for this step. Valid values include: Pending, InProgress, Success, Cancelled, Failed, and TimedOut."
+        },
+        "TimeoutSeconds": {
+          "$ref": "#/definitions/Long",
+          "description": "The timeout seconds of the step."
         }
       },
       "type": "object"
+    },
+    "StepExecutionFilter": {
+      "description": "A filter to limit the amount of step execution information returned by the call.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/StepExecutionFilterKey",
+          "description": "One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter."
+        },
+        "Values": {
+          "$ref": "#/definitions/StepExecutionFilterValueList",
+          "description": "The values of the filter key."
+        }
+      },
+      "required": [
+        "Key",
+        "Values"
+      ],
+      "type": "object"
+    },
+    "StepExecutionFilterKey": {
+      "enum": [
+        "StartTimeBefore",
+        "StartTimeAfter",
+        "StepExecutionStatus",
+        "StepExecutionId",
+        "StepName",
+        "Action"
+      ],
+      "type": "string"
+    },
+    "StepExecutionFilterList": {
+      "items": {
+        "$ref": "#/definitions/StepExecutionFilter"
+      },
+      "maxItems": 6,
+      "minItems": 1,
+      "type": "array"
+    },
+    "StepExecutionFilterValue": {
+      "maxLength": 150,
+      "minLength": 1,
+      "type": "string"
+    },
+    "StepExecutionFilterValueList": {
+      "items": {
+        "$ref": "#/definitions/StepExecutionFilterValue"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
     },
     "StepExecutionList": {
       "items": {
         "$ref": "#/definitions/StepExecution"
       },
-      "maxItems": 100,
-      "minItems": 0,
       "type": "array"
     },
     "StopAutomationExecutionRequest": {
@@ -15617,6 +16164,10 @@
         "AutomationExecutionId": {
           "$ref": "#/definitions/AutomationExecutionId",
           "description": "The execution ID of the Automation to stop."
+        },
+        "Type": {
+          "$ref": "#/definitions/StopType",
+          "description": "The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel."
         }
       },
       "required": [
@@ -15627,6 +16178,13 @@
     "StopAutomationExecutionResult": {
       "properties": {},
       "type": "object"
+    },
+    "StopType": {
+      "enum": [
+        "Complete",
+        "Cancel"
+      ],
+      "type": "string"
     },
     "String": {
       "type": "string"
@@ -15716,6 +16274,17 @@
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=\\-@]*$",
+      "type": "string"
+    },
+    "TargetParameterList": {
+      "items": {
+        "$ref": "#/definitions/ParameterValue"
+      },
+      "type": "array"
+    },
+    "TargetType": {
+      "maxLength": 200,
+      "pattern": "^\\/[\\w\\.\\-\\:\\/]*$",
       "type": "string"
     },
     "TargetValue": {
@@ -15929,6 +16498,10 @@
           "$ref": "#/definitions/DocumentContent",
           "description": "The content in a document that you want to update."
         },
+        "DocumentFormat": {
+          "$ref": "#/definitions/DocumentFormat",
+          "description": "Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format."
+        },
         "DocumentVersion": {
           "$ref": "#/definitions/DocumentVersion",
           "description": "The version of the document that you want to update."
@@ -15936,6 +16509,10 @@
         "Name": {
           "$ref": "#/definitions/DocumentName",
           "description": "The name of the document that you want to update."
+        },
+        "TargetType": {
+          "$ref": "#/definitions/TargetType",
+          "description": "Specify a new target type for the document."
         }
       },
       "required": [
@@ -16257,6 +16834,10 @@
           "$ref": "#/definitions/PatchComplianceLevel",
           "description": "Assigns a new compliance severity level to an existing patch baseline."
         },
+        "ApprovedPatchesEnableNonSecurity": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only."
+        },
         "BaselineId": {
           "$ref": "#/definitions/BaselineId",
           "description": "The ID of the patch baseline to update."
@@ -16276,6 +16857,14 @@
         "RejectedPatches": {
           "$ref": "#/definitions/PatchIdList",
           "description": "A list of explicitly rejected patches for the baseline."
+        },
+        "Replace": {
+          "$ref": "#/definitions/Boolean",
+          "description": "If True, then all fields that are required by the CreatePatchBaseline action are also required for this API request. Optional fields that are not specified are set to null."
+        },
+        "Sources": {
+          "$ref": "#/definitions/PatchSourceList",
+          "description": "Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only."
         }
       },
       "required": [
@@ -16296,6 +16885,10 @@
         "ApprovedPatchesComplianceLevel": {
           "$ref": "#/definitions/PatchComplianceLevel",
           "description": "The compliance severity level assigned to the patch baseline after the update completed."
+        },
+        "ApprovedPatchesEnableNonSecurity": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only."
         },
         "BaselineId": {
           "$ref": "#/definitions/BaselineId",
@@ -16328,6 +16921,10 @@
         "RejectedPatches": {
           "$ref": "#/definitions/PatchIdList",
           "description": "A list of explicitly rejected patches for the baseline."
+        },
+        "Sources": {
+          "$ref": "#/definitions/PatchSourceList",
+          "description": "Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only."
         }
       },
       "type": "object"

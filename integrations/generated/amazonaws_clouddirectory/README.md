@@ -152,6 +152,23 @@ amazonaws_clouddirectory.ListDirectories({}, context)
 #### Output
 * output [ListDirectoriesResponse](#listdirectoriesresponse)
 
+### GetFacet
+
+
+
+```js
+amazonaws_clouddirectory.GetFacet({
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required** [FacetName](#facetname)
+
+#### Output
+* output [GetFacetResponse](#getfacetresponse)
+
 ### UpdateFacet
 
 
@@ -718,6 +735,7 @@ amazonaws_clouddirectory.ListAppliedSchemaArns({
   * DirectoryArn **required** [Arn](#arn)
   * MaxResults [NumberResults](#numberresults)
   * NextToken [NextToken](#nexttoken)
+  * SchemaArn [Arn](#arn)
 
 #### Output
 * output [ListAppliedSchemaArnsResponse](#listappliedschemaarnsresponse)
@@ -774,6 +792,37 @@ amazonaws_clouddirectory.ListDevelopmentSchemaArns({}, context)
 #### Output
 * output [ListDevelopmentSchemaArnsResponse](#listdevelopmentschemaarnsresponse)
 
+### GetAppliedSchemaVersion
+
+
+
+```js
+amazonaws_clouddirectory.GetAppliedSchemaVersion({
+  "SchemaArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaArn **required** [Arn](#arn)
+
+#### Output
+* output [GetAppliedSchemaVersionResponse](#getappliedschemaversionresponse)
+
+### GetSchemaAsJson
+
+
+
+```js
+amazonaws_clouddirectory.GetSchemaAsJson({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetSchemaAsJsonResponse](#getschemaasjsonresponse)
+
 ### PutSchemaFromJson
 
 
@@ -803,6 +852,7 @@ amazonaws_clouddirectory.PublishSchema({
 
 #### Input
 * input `object`
+  * MinorVersion [Version](#version)
   * Name [SchemaName](#schemaname)
   * Version **required** [Version](#version)
 
@@ -823,6 +873,7 @@ amazonaws_clouddirectory.ListPublishedSchemaArns({}, context)
   * NextToken `string`
   * MaxResults [NumberResults](#numberresults)
   * NextToken [NextToken](#nexttoken)
+  * SchemaArn [Arn](#arn)
 
 #### Output
 * output [ListPublishedSchemaArnsResponse](#listpublishedschemaarnsresponse)
@@ -843,6 +894,48 @@ amazonaws_clouddirectory.UpdateSchema({
 
 #### Output
 * output [UpdateSchemaResponse](#updateschemaresponse)
+
+### UpgradeAppliedSchema
+
+
+
+```js
+amazonaws_clouddirectory.UpgradeAppliedSchema({
+  "PublishedSchemaArn": "",
+  "DirectoryArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DirectoryArn **required** [Arn](#arn)
+  * DryRun [Bool](#bool)
+  * PublishedSchemaArn **required** [Arn](#arn)
+
+#### Output
+* output [UpgradeAppliedSchemaResponse](#upgradeappliedschemaresponse)
+
+### UpgradePublishedSchema
+
+
+
+```js
+amazonaws_clouddirectory.UpgradePublishedSchema({
+  "DevelopmentSchemaArn": "",
+  "PublishedSchemaArn": "",
+  "MinorVersion": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DevelopmentSchemaArn **required** [Arn](#arn)
+  * DryRun [Bool](#bool)
+  * MinorVersion **required** [Version](#version)
+  * PublishedSchemaArn **required** [Arn](#arn)
+
+#### Output
+* output [UpgradePublishedSchemaResponse](#upgradepublishedschemaresponse)
 
 ### ListTagsForResource
 
@@ -1317,7 +1410,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * detachedObjectIdentifier [ObjectIdentifier](#objectidentifier)
 
 ### BatchDetachPolicy
-* BatchDetachPolicy `object`: Detaches the specified policy from the specified directory inside a <a>BatchRead</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchReadRequest$Operations</a>.
+* BatchDetachPolicy `object`: Detaches the specified policy from the specified directory inside a <a>BatchWrite</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchWriteRequest$Operations</a>.
   * ObjectReference **required** [ObjectReference](#objectreference)
   * PolicyReference **required** [ObjectReference](#objectreference)
 
@@ -1855,6 +1948,14 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * FacetValidationException `object`: The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.
   * Message [ExceptionMessage](#exceptionmessage)
 
+### GetAppliedSchemaVersionRequest
+* GetAppliedSchemaVersionRequest `object`
+  * SchemaArn **required** [Arn](#arn)
+
+### GetAppliedSchemaVersionResponse
+* GetAppliedSchemaVersionResponse `object`
+  * AppliedSchemaArn [Arn](#arn)
+
 ### GetDirectoryRequest
 * GetDirectoryRequest `object`
 
@@ -1894,6 +1995,10 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 ### GetTypedLinkFacetInformationResponse
 * GetTypedLinkFacetInformationResponse `object`
   * IdentityAttributeOrder [AttributeNameList](#attributenamelist)
+
+### IncompatibleSchemaException
+* IncompatibleSchemaException `object`: Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.
+  * Message [ExceptionMessage](#exceptionmessage)
 
 ### IndexAttachment
 * IndexAttachment `object`: Represents an index and an attached object.
@@ -1962,6 +2067,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
   * DirectoryArn **required** [Arn](#arn)
   * MaxResults [NumberResults](#numberresults)
   * NextToken [NextToken](#nexttoken)
+  * SchemaArn [Arn](#arn)
 
 ### ListAppliedSchemaArnsResponse
 * ListAppliedSchemaArnsResponse `object`
@@ -2132,6 +2238,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 * ListPublishedSchemaArnsRequest `object`
   * MaxResults [NumberResults](#numberresults)
   * NextToken [NextToken](#nexttoken)
+  * SchemaArn [Arn](#arn)
 
 ### ListPublishedSchemaArnsResponse
 * ListPublishedSchemaArnsResponse `object`
@@ -2289,6 +2396,7 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### PublishSchemaRequest
 * PublishSchemaRequest `object`
+  * MinorVersion [Version](#version)
   * Name [SchemaName](#schemaname)
   * Version **required** [Version](#version)
 
@@ -2542,6 +2650,28 @@ amazonaws_clouddirectory.ListOutgoingTypedLinks({
 
 ### UpdateTypedLinkFacetResponse
 * UpdateTypedLinkFacetResponse `object`
+
+### UpgradeAppliedSchemaRequest
+* UpgradeAppliedSchemaRequest `object`
+  * DirectoryArn **required** [Arn](#arn)
+  * DryRun [Bool](#bool)
+  * PublishedSchemaArn **required** [Arn](#arn)
+
+### UpgradeAppliedSchemaResponse
+* UpgradeAppliedSchemaResponse `object`
+  * DirectoryArn [Arn](#arn)
+  * UpgradedSchemaArn [Arn](#arn)
+
+### UpgradePublishedSchemaRequest
+* UpgradePublishedSchemaRequest `object`
+  * DevelopmentSchemaArn **required** [Arn](#arn)
+  * DryRun [Bool](#bool)
+  * MinorVersion **required** [Version](#version)
+  * PublishedSchemaArn **required** [Arn](#arn)
+
+### UpgradePublishedSchemaResponse
+* UpgradePublishedSchemaResponse `object`
+  * UpgradedSchemaArn [Arn](#arn)
 
 ### ValidationException
 * ValidationException `object`: Indicates that your request is malformed in some manner. See the exception message.

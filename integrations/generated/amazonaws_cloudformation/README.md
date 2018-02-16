@@ -146,6 +146,7 @@ amazonaws_cloudformation.CreateStackInstances({
   * Accounts **required** [AccountList](#accountlist)
   * OperationId [ClientRequestToken](#clientrequesttoken)
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
+  * ParameterOverrides [Parameters](#parameters)
   * Regions **required** [RegionList](#regionlist)
   * StackSetName **required** [StackSetName](#stacksetname)
 
@@ -765,6 +766,30 @@ amazonaws_cloudformation.UpdateStack({
 #### Output
 * output [UpdateStackOutput](#updatestackoutput)
 
+### UpdateStackInstances
+
+
+
+```js
+amazonaws_cloudformation.UpdateStackInstances({
+  "StackSetName": "",
+  "Accounts": [],
+  "Regions": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * Accounts **required** [AccountList](#accountlist)
+  * OperationId [ClientRequestToken](#clientrequesttoken)
+  * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
+  * ParameterOverrides [Parameters](#parameters)
+  * Regions **required** [RegionList](#regionlist)
+  * StackSetName **required** [StackSetName](#stacksetname)
+
+#### Output
+* output [UpdateStackInstancesOutput](#updatestackinstancesoutput)
+
 ### UpdateStackSet
 
 
@@ -1007,6 +1032,7 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
   * Accounts **required** [AccountList](#accountlist)
   * OperationId [ClientRequestToken](#clientrequesttoken)
   * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
+  * ParameterOverrides [Parameters](#parameters)
   * Regions **required** [RegionList](#regionlist)
   * StackSetName **required** [StackSetName](#stacksetname)
 
@@ -1461,6 +1487,7 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 * Parameter `object`: The Parameter data type.
   * ParameterKey [ParameterKey](#parameterkey)
   * ParameterValue [ParameterValue](#parametervalue)
+  * ResolvedValue [ParameterValue](#parametervalue)
   * UsePreviousValue [UsePreviousValue](#usepreviousvalue)
 
 ### ParameterConstraints
@@ -1666,6 +1693,7 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
 ### StackInstance
 * StackInstance `object`: An AWS CloudFormation stack, in a specific account and region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status.
   * Account [Account](#account)
+  * ParameterOverrides [Parameters](#parameters)
   * Region [Region](#region)
   * StackId [StackId](#stackid)
   * StackSetId [StackSetId](#stacksetid)
@@ -1964,6 +1992,19 @@ amazonaws_cloudformation.ValidateTemplate({}, context)
   * TemplateBody [TemplateBody](#templatebody)
   * TemplateURL [TemplateURL](#templateurl)
   * UsePreviousTemplate [UsePreviousTemplate](#useprevioustemplate)
+
+### UpdateStackInstancesInput
+* UpdateStackInstancesInput `object`
+  * Accounts **required** [AccountList](#accountlist)
+  * OperationId [ClientRequestToken](#clientrequesttoken)
+  * OperationPreferences [StackSetOperationPreferences](#stacksetoperationpreferences)
+  * ParameterOverrides [Parameters](#parameters)
+  * Regions **required** [RegionList](#regionlist)
+  * StackSetName **required** [StackSetName](#stacksetname)
+
+### UpdateStackInstancesOutput
+* UpdateStackInstancesOutput `object`
+  * OperationId [ClientRequestToken](#clientrequesttoken)
 
 ### UpdateStackOutput
 * UpdateStackOutput `object`: The output for an <a>UpdateStack</a> action.

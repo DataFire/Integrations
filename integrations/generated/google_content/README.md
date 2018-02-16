@@ -98,8 +98,8 @@ google_content.accounts.custombatch({}, context)
 
 #### Input
 * input `object`
-  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * body [AccountsCustomBatchRequest](#accountscustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -143,8 +143,8 @@ google_content.accounttax.custombatch({}, context)
 
 #### Input
 * input `object`
-  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * body [AccounttaxCustomBatchRequest](#accounttaxcustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -166,8 +166,8 @@ google_content.datafeeds.custombatch({}, context)
 
 #### Input
 * input `object`
-  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * body [DatafeedsCustomBatchRequest](#datafeedscustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -211,8 +211,8 @@ google_content.inventory.custombatch({}, context)
 
 #### Input
 * input `object`
-  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * body [InventoryCustomBatchRequest](#inventorycustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -256,8 +256,8 @@ google_content.products.custombatch({}, context)
 
 #### Input
 * input `object`
-  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * body [ProductsCustomBatchRequest](#productscustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -302,8 +302,8 @@ google_content.shippingsettings.custombatch({}, context)
 
 #### Input
 * input `object`
-  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * body [ShippingsettingsCustomBatchRequest](#shippingsettingscustombatchrequest)
+  * dryRun `boolean`: Flag to run the request in dry-run mode.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -383,7 +383,7 @@ google_content.accounts.delete({
   * accountId **required** `string`: The ID of the account.
   * dryRun `boolean`: Flag to run the request in dry-run mode.
   * force `boolean`: Flag to delete sub-accounts with products. The default value is false.
-  * merchantId **required** `string`: The ID of the managing account. This must be a multi-client account.
+  * merchantId **required** `string`: The ID of the managing account. This must be a multi-client account, and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -409,7 +409,7 @@ google_content.accounts.get({
 #### Input
 * input `object`
   * accountId **required** `string`: The ID of the account.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -437,7 +437,7 @@ google_content.accounts.patch({
   * accountId **required** `string`: The ID of the account.
   * body [Account](#account)
   * dryRun `boolean`: Flag to run the request in dry-run mode.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -465,7 +465,7 @@ google_content.accounts.update({
   * accountId **required** `string`: The ID of the account.
   * body [Account](#account)
   * dryRun `boolean`: Flag to run the request in dry-run mode.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -491,7 +491,7 @@ google_content.accounts.claimwebsite({
 #### Input
 * input `object`
   * accountId **required** `string`: The ID of the account whose website is claimed.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * overwrite `boolean`: Only available to selected merchants. When set to True, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -544,7 +544,7 @@ google_content.accountstatuses.get({
 #### Input
 * input `object`
   * accountId **required** `string`: The ID of the account.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -596,7 +596,7 @@ google_content.accounttax.get({
 #### Input
 * input `object`
   * accountId **required** `string`: The ID of the account for which to get/update account tax settings.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -624,7 +624,7 @@ google_content.accounttax.patch({
   * accountId **required** `string`: The ID of the account for which to get/update account tax settings.
   * body [AccountTax](#accounttax)
   * dryRun `boolean`: Flag to run the request in dry-run mode.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -652,7 +652,7 @@ google_content.accounttax.update({
   * accountId **required** `string`: The ID of the account for which to get/update account tax settings.
   * body [AccountTax](#accounttax)
   * dryRun `boolean`: Flag to run the request in dry-run mode.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -665,7 +665,7 @@ google_content.accounttax.update({
 * output [AccountTax](#accounttax)
 
 ### datafeeds.list
-Lists the datafeeds in your Merchant Center account.
+Lists the configurations for datafeeds in your Merchant Center account.
 
 
 ```js
@@ -1047,6 +1047,33 @@ google_content.orders.cancellineitem({
 #### Output
 * output [OrdersCancelLineItemResponse](#orderscancellineitemresponse)
 
+### orders.instorerefundlineitem
+Notifies that item return and refund was handled directly in store.
+
+
+```js
+google_content.orders.instorerefundlineitem({
+  "merchantId": "",
+  "orderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [OrdersInStoreRefundLineItemRequest](#ordersinstorerefundlineitemrequest)
+  * merchantId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * orderId **required** `string`: The ID of the order.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [OrdersInStoreRefundLineItemResponse](#ordersinstorerefundlineitemresponse)
+
 ### orders.refund
 Refund a portion of the order, up to the full amount paid.
 
@@ -1073,6 +1100,33 @@ google_content.orders.refund({
 
 #### Output
 * output [OrdersRefundResponse](#ordersrefundresponse)
+
+### orders.rejectreturnlineitem
+Rejects return on an line item.
+
+
+```js
+google_content.orders.rejectreturnlineitem({
+  "merchantId": "",
+  "orderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [OrdersRejectReturnLineItemRequest](#ordersrejectreturnlineitemrequest)
+  * merchantId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * orderId **required** `string`: The ID of the order.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [OrdersRejectReturnLineItemResponse](#ordersrejectreturnlineitemresponse)
 
 ### orders.returnlineitem
 Returns a line item.
@@ -1101,6 +1155,60 @@ google_content.orders.returnlineitem({
 #### Output
 * output [OrdersReturnLineItemResponse](#ordersreturnlineitemresponse)
 
+### orders.returnrefundlineitem
+Returns and refunds a line item. Note that this method can only be called on fully shipped orders.
+
+
+```js
+google_content.orders.returnrefundlineitem({
+  "merchantId": "",
+  "orderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [OrdersReturnRefundLineItemRequest](#ordersreturnrefundlineitemrequest)
+  * merchantId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * orderId **required** `string`: The ID of the order.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [OrdersReturnRefundLineItemResponse](#ordersreturnrefundlineitemresponse)
+
+### orders.setlineitemmetadata
+Sets (overrides) merchant provided annotations on the line item.
+
+
+```js
+google_content.orders.setlineitemmetadata({
+  "merchantId": "",
+  "orderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [OrdersSetLineItemMetadataRequest](#orderssetlineitemmetadatarequest)
+  * merchantId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * orderId **required** `string`: The ID of the order.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [OrdersSetLineItemMetadataResponse](#orderssetlineitemmetadataresponse)
+
 ### orders.shiplineitems
 Marks line item(s) as shipped.
 
@@ -1127,6 +1235,33 @@ google_content.orders.shiplineitems({
 
 #### Output
 * output [OrdersShipLineItemsResponse](#ordersshiplineitemsresponse)
+
+### orders.updatelineitemshippingdetails
+Updates ship by and delivery by dates for a line item.
+
+
+```js
+google_content.orders.updatelineitemshippingdetails({
+  "merchantId": "",
+  "orderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [OrdersUpdateLineItemShippingDetailsRequest](#ordersupdatelineitemshippingdetailsrequest)
+  * merchantId **required** `string`: The ID of the account that manages the order. This cannot be a multi-client account.
+  * orderId **required** `string`: The ID of the order.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [OrdersUpdateLineItemShippingDetailsResponse](#ordersupdatelineitemshippingdetailsresponse)
 
 ### orders.updatemerchantorderid
 Updates the merchant order ID for a given order.
@@ -1409,7 +1544,7 @@ google_content.shippingsettings.get({
 #### Input
 * input `object`
   * accountId **required** `string`: The ID of the account for which to get/update shipping settings.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1437,7 +1572,7 @@ google_content.shippingsettings.patch({
   * accountId **required** `string`: The ID of the account for which to get/update shipping settings.
   * body [ShippingSettings](#shippingsettings)
   * dryRun `boolean`: Flag to run the request in dry-run mode.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1465,7 +1600,7 @@ google_content.shippingsettings.update({
   * accountId **required** `string`: The ID of the account for which to get/update shipping settings.
   * body [ShippingSettings](#shippingsettings)
   * dryRun `boolean`: Flag to run the request in dry-run mode.
-  * merchantId **required** `string`: The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+  * merchantId **required** `string`: The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1500,6 +1635,30 @@ google_content.shippingsettings.getsupportedcarriers({
 
 #### Output
 * output [ShippingsettingsGetSupportedCarriersResponse](#shippingsettingsgetsupportedcarriersresponse)
+
+### shippingsettings.getsupportedholidays
+Retrieves supported holidays for an account.
+
+
+```js
+google_content.shippingsettings.getsupportedholidays({
+  "merchantId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * merchantId **required** `string`: The ID of the account for which to retrieve the supported holidays.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [ShippingsettingsGetSupportedHolidaysResponse](#shippingsettingsgetsupportedholidaysresponse)
 
 ### orders.createtestorder
 Sandbox only. Creates a test order.
@@ -1587,6 +1746,7 @@ google_content.orders.gettestordertemplate({
   * adultContent `boolean`: Indicates whether the merchant sells adult content.
   * adwordsLinks `array`: List of linked AdWords accounts that are active or pending approval. To create a new link request, add a new link with status active to the list. It will remain in a pending state until approved or rejected either in the AdWords interface or through the  AdWords API. To delete an active link, or to cancel a link request, remove it from the list.
     * items [AccountAdwordsLink](#accountadwordslink)
+  * googleMyBusinessLink [AccountGoogleMyBusinessLink](#accountgooglemybusinesslink)
   * id `string`: Merchant Center account ID.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#account".
   * name `string`: Display name for the account.
@@ -1602,6 +1762,11 @@ google_content.orders.gettestordertemplate({
 * AccountAdwordsLink `object`
   * adwordsId `string`: Customer ID of the AdWords account.
   * status `string`: Status of the link between this Merchant Center account and the AdWords account. Upon retrieval, it represents the actual status of the link and can be either active if it was approved in Google AdWords or pending if it's pending approval. Upon insertion, it represents the intended status of the link. Re-uploading a link with status active when it's still pending or with status pending when it's already active will have no effect: the status will remain unchanged. Re-uploading a link with deprecated status inactive is equivalent to not submitting the link at all and will delete the link if it was active or cancel the link request if it was pending.
+
+### AccountGoogleMyBusinessLink
+* AccountGoogleMyBusinessLink `object`
+  * gmbEmail `string`: The GMB email address.
+  * status `string`: Status of the link between this Merchant Center account and the GMB account.
 
 ### AccountIdentifier
 * AccountIdentifier `object`
@@ -1938,6 +2103,8 @@ google_content.orders.gettestordertemplate({
 
 ### DeliveryTime
 * DeliveryTime `object`
+  * holidayCutoffs `array`: Holiday cutoff definitions. If configured, they specify order cutoff times for holiday-specific shipping.
+    * items [HolidayCutoff](#holidaycutoff)
   * maxTransitTimeInDays `integer`: Maximum number of business days that is spent in transit. 0 means same day delivery, 1 means next day delivery. Must be greater than or equal to minTransitTimeInDays. Required.
   * minTransitTimeInDays `integer`: Minimum number of business days that is spent in transit. 0 means same day delivery, 1 means next day delivery. Required.
 
@@ -1966,6 +2133,23 @@ google_content.orders.gettestordertemplate({
     * items [Price](#price)
   * weights `array`: A list of inclusive order weight upper bounds. The last weight's value can be "infinity". For example [{"value": "10", "unit": "kg"}, {"value": "50", "unit": "kg"}, {"value": "infinity", "unit": "kg"}] represents the headers "<= 10kg", " 50kg". All weights within a service must have the same unit. Must be non-empty. Can only be set if all other fields are not set.
     * items [Weight](#weight)
+
+### HolidayCutoff
+* HolidayCutoff `object`
+  * deadlineDate `string`: Date of the order deadline, in ISO 8601 format. E.g. "2016-11-29" for 29th November 2016. Required.
+  * deadlineHour `integer`: Hour of the day on the deadline date until which the order has to be placed to qualify for the delivery guarantee. Possible values are: 0 (midnight), 1, ..., 12 (noon), 13, ..., 23. Required.
+  * deadlineTimezone `string`: Timezone identifier for the deadline hour. A list of identifiers can be found in  the AdWords API documentation. E.g. "Europe/Zurich". Required.
+  * holidayId `string`: Unique identifier for the holiday. Required.
+  * visibleFromDate `string`: Date on which the deadline will become visible to consumers in ISO 8601 format. E.g. "2016-10-31" for 31st October 2016. Required.
+
+### HolidaysHoliday
+* HolidaysHoliday `object`
+  * countryCode `string`: The CLDR territory code of the country in which the holiday is available. E.g. "US", "DE", "GB". A holiday cutoff can only be configured in a shipping settings service with matching delivery country. Always present.
+  * date `string`: Date of the holiday, in ISO 8601 format. E.g. "2016-12-25" for Christmas 2016. Always present.
+  * deliveryGuaranteeDate `string`: Date on which the order has to arrive at the customer's, in ISO 8601 format. E.g. "2016-12-24" for 24th December 2016. Always present.
+  * deliveryGuaranteeHour `string`: Hour of the day in the delivery location's timezone on the guaranteed delivery date by which the order has to arrive at the customer's. Possible values are: 0 (midnight), 1, ..., 12 (noon), 13, ..., 23. Always present.
+  * id `string`: Unique identifier for the holiday to be used when configuring holiday cutoffs. Always present.
+  * type `string`: The holiday type. Always present.
 
 ### Installment
 * Installment `object`
@@ -2103,9 +2287,10 @@ google_content.orders.gettestordertemplate({
 
 ### OrderLineItem
 * OrderLineItem `object`
+  * annotations `array`: Annotations that are attached to the line item.
+    * items [OrderMerchantProvidedAnnotation](#ordermerchantprovidedannotation)
   * cancellations `array`: Cancellations of the line item.
     * items [OrderCancellation](#ordercancellation)
-  * channelType `string`: The channel type of the order: "purchaseOnGoogle" or "googleExpress".
   * id `string`: The id of the line item.
   * price [Price](#price)
   * product [OrderLineItemProduct](#orderlineitemproduct)
@@ -2163,6 +2348,11 @@ google_content.orders.gettestordertemplate({
   * maxDaysInTransit `integer`: Maximum transit time.
   * methodName `string`: The name of the shipping method.
   * minDaysInTransit `integer`: Minimum transit time.
+
+### OrderMerchantProvidedAnnotation
+* OrderMerchantProvidedAnnotation `object`
+  * key `string`: Key for additional merchant provided (as key-value pairs) annotation about the line item.
+  * value `string`: Value for additional merchant provided (as key-value pairs) annotation about the line item.
 
 ### OrderPaymentMethod
 * OrderPaymentMethod `object`
@@ -2222,7 +2412,8 @@ google_content.orders.gettestordertemplate({
 
 ### OrderShipmentLineItemShipment
 * OrderShipmentLineItemShipment `object`
-  * lineItemId `string`: The id of the line item that is shipped.
+  * lineItemId `string`: The id of the line item that is shipped. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to ship. This is the REST ID used in the products service. Either lineItemId or productId is required.
   * quantity `integer`: The quantity that is shipped.
 
 ### OrdersAcknowledgeRequest
@@ -2241,8 +2432,11 @@ google_content.orders.gettestordertemplate({
 ### OrdersCancelLineItemRequest
 * OrdersCancelLineItemRequest `object`
   * amount [Price](#price)
-  * lineItemId `string`: The ID of the line item to cancel.
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
+  * lineItemId `string`: The ID of the line item to cancel. Either lineItemId or productId is required.
   * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to cancel. This is the REST ID used in the products service. Either lineItemId or productId is required.
   * quantity `integer`: The quantity to cancel.
   * reason `string`: The reason for the cancellation.
   * reasonText `string`: The explanation of the reason.
@@ -2283,14 +2477,19 @@ google_content.orders.gettestordertemplate({
   * batchId `integer`: An entry ID, unique within the batch request.
   * cancel [OrdersCustomBatchRequestEntryCancel](#orderscustombatchrequestentrycancel)
   * cancelLineItem [OrdersCustomBatchRequestEntryCancelLineItem](#orderscustombatchrequestentrycancellineitem)
+  * inStoreRefundLineItem [OrdersCustomBatchRequestEntryInStoreRefundLineItem](#orderscustombatchrequestentryinstorerefundlineitem)
   * merchantId `string`: The ID of the managing account.
   * merchantOrderId `string`: The merchant order id. Required for updateMerchantOrderId and getByMerchantOrderId methods.
   * method `string`: The method to apply.
   * operationId `string`: The ID of the operation. Unique across all operations for a given order. Required for all methods beside get and getByMerchantOrderId.
   * orderId `string`: The ID of the order. Required for all methods beside getByMerchantOrderId.
   * refund [OrdersCustomBatchRequestEntryRefund](#orderscustombatchrequestentryrefund)
+  * rejectReturnLineItem [OrdersCustomBatchRequestEntryRejectReturnLineItem](#orderscustombatchrequestentryrejectreturnlineitem)
   * returnLineItem [OrdersCustomBatchRequestEntryReturnLineItem](#orderscustombatchrequestentryreturnlineitem)
+  * returnRefundLineItem [OrdersCustomBatchRequestEntryReturnRefundLineItem](#orderscustombatchrequestentryreturnrefundlineitem)
+  * setLineItemMetadata [OrdersCustomBatchRequestEntrySetLineItemMetadata](#orderscustombatchrequestentrysetlineitemmetadata)
   * shipLineItems [OrdersCustomBatchRequestEntryShipLineItems](#orderscustombatchrequestentryshiplineitems)
+  * updateLineItemShippingDetails [OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails](#orderscustombatchrequestentryupdatelineitemshippingdetails)
   * updateShipment [OrdersCustomBatchRequestEntryUpdateShipment](#orderscustombatchrequestentryupdateshipment)
 
 ### OrdersCustomBatchRequestEntryCancel
@@ -2301,23 +2500,64 @@ google_content.orders.gettestordertemplate({
 ### OrdersCustomBatchRequestEntryCancelLineItem
 * OrdersCustomBatchRequestEntryCancelLineItem `object`
   * amount [Price](#price)
-  * lineItemId `string`: The ID of the line item to cancel.
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
+  * lineItemId `string`: The ID of the line item to cancel. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to cancel. This is the REST ID used in the products service. Either lineItemId or productId is required.
   * quantity `integer`: The quantity to cancel.
   * reason `string`: The reason for the cancellation.
+  * reasonText `string`: The explanation of the reason.
+
+### OrdersCustomBatchRequestEntryInStoreRefundLineItem
+* OrdersCustomBatchRequestEntryInStoreRefundLineItem `object`
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * quantity `integer`: The quantity to return and refund.
+  * reason `string`: The reason for the return.
   * reasonText `string`: The explanation of the reason.
 
 ### OrdersCustomBatchRequestEntryRefund
 * OrdersCustomBatchRequestEntryRefund `object`
   * amount [Price](#price)
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
   * reason `string`: The reason for the refund.
+  * reasonText `string`: The explanation of the reason.
+
+### OrdersCustomBatchRequestEntryRejectReturnLineItem
+* OrdersCustomBatchRequestEntryRejectReturnLineItem `object`
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * quantity `integer`: The quantity to return and refund.
+  * reason `string`: The reason for the return.
   * reasonText `string`: The explanation of the reason.
 
 ### OrdersCustomBatchRequestEntryReturnLineItem
 * OrdersCustomBatchRequestEntryReturnLineItem `object`
-  * lineItemId `string`: The ID of the line item to return.
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
   * quantity `integer`: The quantity to return.
   * reason `string`: The reason for the return.
   * reasonText `string`: The explanation of the reason.
+
+### OrdersCustomBatchRequestEntryReturnRefundLineItem
+* OrdersCustomBatchRequestEntryReturnRefundLineItem `object`
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * quantity `integer`: The quantity to return and refund.
+  * reason `string`: The reason for the return.
+  * reasonText `string`: The explanation of the reason.
+
+### OrdersCustomBatchRequestEntrySetLineItemMetadata
+* OrdersCustomBatchRequestEntrySetLineItemMetadata `object`
+  * annotations `array`
+    * items [OrderMerchantProvidedAnnotation](#ordermerchantprovidedannotation)
+  * lineItemId `string`: The ID of the line item to set metadata. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to set metadata. This is the REST ID used in the products service. Either lineItemId or productId is required.
 
 ### OrdersCustomBatchRequestEntryShipLineItems
 * OrdersCustomBatchRequestEntryShipLineItems `object`
@@ -2334,6 +2574,13 @@ google_content.orders.gettestordertemplate({
   * carrier `string`: The carrier handling the shipment. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.
   * shipmentId `string`: The ID of the shipment.
   * trackingId `string`: The tracking id for the shipment.
+
+### OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails
+* OrdersCustomBatchRequestEntryUpdateLineItemShippingDetails `object`
+  * deliverByDate `string`: Updated delivery by date, in ISO 8601 format. If not specified only ship by date is updated.
+  * lineItemId `string`: The ID of the line item to set metadata. Either lineItemId or productId is required.
+  * productId `string`: The ID of the product to set metadata. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * shipByDate `string`: Updated ship by date, in ISO 8601 format. If not specified only deliver by date is updated.
 
 ### OrdersCustomBatchRequestEntryUpdateShipment
 * OrdersCustomBatchRequestEntryUpdateShipment `object`
@@ -2366,6 +2613,22 @@ google_content.orders.gettestordertemplate({
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersGetTestOrderTemplateResponse".
   * template [TestOrder](#testorder)
 
+### OrdersInStoreRefundLineItemRequest
+* OrdersInStoreRefundLineItemRequest `object`
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * quantity `integer`: The quantity to return and refund.
+  * reason `string`: The reason for the return.
+  * reasonText `string`: The explanation of the reason.
+
+### OrdersInStoreRefundLineItemResponse
+* OrdersInStoreRefundLineItemResponse `object`
+  * executionStatus `string`: The status of the execution.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersInStoreRefundLineItemResponse".
+
 ### OrdersListResponse
 * OrdersListResponse `object`
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersListResponse".
@@ -2376,6 +2639,8 @@ google_content.orders.gettestordertemplate({
 ### OrdersRefundRequest
 * OrdersRefundRequest `object`
   * amount [Price](#price)
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
   * operationId `string`: The ID of the operation. Unique across all operations for a given order.
   * reason `string`: The reason for the refund.
   * reasonText `string`: The explanation of the reason.
@@ -2385,10 +2650,25 @@ google_content.orders.gettestordertemplate({
   * executionStatus `string`: The status of the execution.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersRefundResponse".
 
+### OrdersRejectReturnLineItemRequest
+* OrdersRejectReturnLineItemRequest `object`
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * quantity `integer`: The quantity to return and refund.
+  * reason `string`: The reason for the return.
+  * reasonText `string`: The explanation of the reason.
+
+### OrdersRejectReturnLineItemResponse
+* OrdersRejectReturnLineItemResponse `object`
+  * executionStatus `string`: The status of the execution.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersRejectReturnLineItemResponse".
+
 ### OrdersReturnLineItemRequest
 * OrdersReturnLineItemRequest `object`
-  * lineItemId `string`: The ID of the line item to return.
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
   * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
   * quantity `integer`: The quantity to return.
   * reason `string`: The reason for the return.
   * reasonText `string`: The explanation of the reason.
@@ -2397,6 +2677,35 @@ google_content.orders.gettestordertemplate({
 * OrdersReturnLineItemResponse `object`
   * executionStatus `string`: The status of the execution.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersReturnLineItemResponse".
+
+### OrdersReturnRefundLineItemRequest
+* OrdersReturnRefundLineItemRequest `object`
+  * amountPretax [Price](#price)
+  * amountTax [Price](#price)
+  * lineItemId `string`: The ID of the line item to return. Either lineItemId or productId is required.
+  * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to return. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * quantity `integer`: The quantity to return and refund.
+  * reason `string`: The reason for the return.
+  * reasonText `string`: The explanation of the reason.
+
+### OrdersReturnRefundLineItemResponse
+* OrdersReturnRefundLineItemResponse `object`
+  * executionStatus `string`: The status of the execution.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersReturnRefundLineItemResponse".
+
+### OrdersSetLineItemMetadataRequest
+* OrdersSetLineItemMetadataRequest `object`
+  * annotations `array`
+    * items [OrderMerchantProvidedAnnotation](#ordermerchantprovidedannotation)
+  * lineItemId `string`: The ID of the line item to set metadata. Either lineItemId or productId is required.
+  * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to set metadata. This is the REST ID used in the products service. Either lineItemId or productId is required.
+
+### OrdersSetLineItemMetadataResponse
+* OrdersSetLineItemMetadataResponse `object`
+  * executionStatus `string`: The status of the execution.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersSetLineItemMetadataResponse".
 
 ### OrdersShipLineItemsRequest
 * OrdersShipLineItemsRequest `object`
@@ -2413,6 +2722,19 @@ google_content.orders.gettestordertemplate({
 * OrdersShipLineItemsResponse `object`
   * executionStatus `string`: The status of the execution.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersShipLineItemsResponse".
+
+### OrdersUpdateLineItemShippingDetailsRequest
+* OrdersUpdateLineItemShippingDetailsRequest `object`
+  * deliverByDate `string`: Updated delivery by date, in ISO 8601 format. If not specified only ship by date is updated.
+  * lineItemId `string`: The ID of the line item to set metadata. Either lineItemId or productId is required.
+  * operationId `string`: The ID of the operation. Unique across all operations for a given order.
+  * productId `string`: The ID of the product to set metadata. This is the REST ID used in the products service. Either lineItemId or productId is required.
+  * shipByDate `string`: Updated ship by date, in ISO 8601 format. If not specified only deliver by date is updated.
+
+### OrdersUpdateLineItemShippingDetailsResponse
+* OrdersUpdateLineItemShippingDetailsResponse `object`
+  * executionStatus `string`: The status of the execution.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#ordersUpdateLineItemShippingDetailsResponse".
 
 ### OrdersUpdateMerchantOrderIdRequest
 * OrdersUpdateMerchantOrderIdRequest `object`
@@ -2597,6 +2919,8 @@ google_content.orders.gettestordertemplate({
   * destinationStatuses `array`: The intended destinations for the product.
     * items [ProductStatusDestinationStatus](#productstatusdestinationstatus)
   * googleExpirationDate `string`: Date on which the item expires in Google Shopping, in ISO 8601 format.
+  * itemLevelIssues `array`: A list of all issues associated with the product.
+    * items [ProductStatusItemLevelIssue](#productstatusitemlevelissue)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#productStatus".
   * lastUpdateDate `string`: Date on which the item has been last updated, in ISO 8601 format.
   * link `string`: The link to the product.
@@ -2617,9 +2941,18 @@ google_content.orders.gettestordertemplate({
 
 ### ProductStatusDestinationStatus
 * ProductStatusDestinationStatus `object`
+  * approvalPending `boolean`: Whether the approval status might change due to further processing.
   * approvalStatus `string`: The destination's approval status.
   * destination `string`: The name of the destination
-  * intention `string`: Whether the destination is required, excluded, selected by default or should be validated.
+  * intention `string`: Provided for backward compatibility only. Always set to "required".
+
+### ProductStatusItemLevelIssue
+* ProductStatusItemLevelIssue `object`
+  * attributeName `string`: The attribute's name, if the issue is caused by a single attribute.
+  * code `string`: The error code of the issue.
+  * destination `string`: The destination the issue applies to.
+  * resolution `string`: Whether the issue can be resolved by the merchant.
+  * servability `string`: How this issue affects serving of the offer.
 
 ### ProductTax
 * ProductTax `object`
@@ -2773,6 +3106,12 @@ google_content.orders.gettestordertemplate({
     * items [CarriersCarrier](#carrierscarrier)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#shippingsettingsGetSupportedCarriersResponse".
 
+### ShippingsettingsGetSupportedHolidaysResponse
+* ShippingsettingsGetSupportedHolidaysResponse `object`
+  * holidays `array`: A list of holidays applicable for delivery guarantees. May be empty.
+    * items [HolidaysHoliday](#holidaysholiday)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#shippingsettingsGetSupportedHolidaysResponse".
+
 ### ShippingsettingsListResponse
 * ShippingsettingsListResponse `object`
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#shippingsettingsListResponse".
@@ -2794,6 +3133,7 @@ google_content.orders.gettestordertemplate({
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "content#testOrder".
   * lineItems `array`: Line items that are ordered. At least one line item must be provided.
     * items [TestOrderLineItem](#testorderlineitem)
+  * notificationMode `string`: Determines if test order must be pulled by merchant or pushed to merchant via push integration.
   * paymentMethod [TestOrderPaymentMethod](#testorderpaymentmethod)
   * predefinedDeliveryAddress `string`: Identifier of one of the predefined delivery addresses for the delivery.
   * promotions `array`: The details of the merchant provided promotions applied to the order. More details about the program are here.

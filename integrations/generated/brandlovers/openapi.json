@@ -12,10 +12,6 @@
     "x-apisguru-categories": [
       "ecommerce"
     ],
-    "x-logo": {
-      "backgroundColor": "#E34056",
-      "url": "https://api.apis.guru/v2/cache/logo/https_brandlovers.com_static_img_logo_BL_white_balao_35px.png"
-    },
     "x-origin": [
       {
         "format": "swagger",

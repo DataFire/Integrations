@@ -455,7 +455,8 @@ hetras_certification_booking.Bookings_CheckIn({
   "App-Id": "",
   "App-Key": "",
   "confirmationId": "",
-  "reservationNumber": 0
+  "reservationNumber": 0,
+  "checkInDetails": {}
 }, context)
 ```
 
@@ -465,6 +466,32 @@ hetras_certification_booking.Bookings_CheckIn({
   * App-Key **required** `string`: Application key.
   * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
   * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to be checked in.
+  * checkInDetails **required** [CheckInDetails](#checkindetails)
+
+#### Output
+* output [BaseResponse](#baseresponse)
+
+### Bookings_CheckOut
+With this call you can set a reservation to the checkout status. It allows only single room reservations to be checked out.
+            For more details on how the API responds to errors please check our documentation on 
+            <a href="https://developer.hetras.com/docs/errors/" onfocus="this.blur()">Error Handling</a>.
+
+
+```js
+hetras_certification_booking.Bookings_CheckOut({
+  "App-Id": "",
+  "App-Key": "",
+  "confirmationId": "",
+  "reservationNumber": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * App-Id **required** `string`: Application identifier
+  * App-Key **required** `string`: Application key.
+  * confirmationId **required** `string`: The confirmation id for the booking the reservation was made.
+  * reservationNumber **required** `integer`: Specifies the reservation number for the reservation to be checked out.
 
 #### Output
 * output [BaseResponse](#baseresponse)
@@ -612,6 +639,19 @@ hetras_certification_booking.Rates_Get({
   * _warnings `array`: Warnings that came up when your request was processed. Your request will still be processed successfull when
     * items `string`
   * room_number `string`: The room number assigned
+
+### AuthorizationDetails
+* AuthorizationDetails `object`
+  * amount `number`: AuthorizedAmount
+  * expiry_date `string`: Authorization ExpiryDate
+  * merchant_reference **required** `string`: Merchant Reference
+  * reference **required** `string`: Authorization Reference
+  * shopper_reference **required** `string`: Shopper Reference
+
+### AuthorizationRequest
+* AuthorizationRequest `object`
+  * authorization [AuthorizationDetails](#authorizationdetails)
+  * payment_token **required** `string`: The token you get from the payment service provider
 
 ### AvailabilityDetail
 * AvailabilityDetail `object`
@@ -814,6 +854,10 @@ hetras_certification_booking.Rates_Get({
 ### Card
 * Card `object`
   * id `string`
+
+### CheckInDetails
+* CheckInDetails `object`
+  * client_identity `string`: Client identity
 
 ### CompaniesInfo
 * CompaniesInfo `object`
@@ -1221,7 +1265,7 @@ hetras_certification_booking.Rates_Get({
   * rate_plan `string`: The rate plan code this reservation is related to
   * room_type `string`: The room type code this reservation is related to
   * rooms `integer`: The number of rooms this reservation is for. After a multi-room booking is done there will be 
-  * travelAgent [Company](#company)
+  * travel_agent [Company](#company)
 
 ### ReservationConfirmation
 * ReservationConfirmation `object`
@@ -1252,7 +1296,7 @@ hetras_certification_booking.Rates_Get({
   * room_rates `array`: A breakdown of room rates specified for every stay day
     * items [RoomRate](#roomrate)
   * rooms `integer`: The number of rooms this reservation is for. After a multi-room booking is done there will be 
-  * travelAgent [Company](#company)
+  * travel_agent [Company](#company)
 
 ### ReservationResponse
 * ReservationResponse `object`

@@ -5,7 +5,7 @@ let openapi = require('./openapi.json');
 
 let aws = require('aws-sdk');
 const INTEGRATION_ID = 'amazonaws_autoscaling';
-const SDK_ID = 'ApplicationAutoScaling';
+const SDK_ID = 'AutoScaling';
 
 let integ = module.exports = new datafire.Integration({
   id: INTEGRATION_ID,

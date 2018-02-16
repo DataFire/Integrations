@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "license": {
       "name": "Apache 2.0 License",
@@ -218,9 +219,131 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates or updates an app.",
+        "operationId": "CreateApp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAppRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAppResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/v1/apps/{application-id}": {
+      "delete": {
+        "description": "Deletes an app.",
+        "operationId": "DeleteApp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAppRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAppResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Returns information about an app.",
         "operationId": "GetApp",
@@ -408,9 +531,213 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates or updates a campaign.",
+        "operationId": "CreateCampaign",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCampaignRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCampaignResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/v1/apps/{application-id}/campaigns/{campaign-id}": {
+      "delete": {
+        "description": "Deletes a campaign.",
+        "operationId": "DeleteCampaign",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCampaignRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "campaign-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteCampaignResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information about a campaign.",
+        "operationId": "GetCampaign",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCampaignRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "campaign-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCampaignResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -821,6 +1148,134 @@
       ]
     },
     "/v1/apps/{application-id}/channels/adm": {
+      "delete": {
+        "description": "Delete an ADM channel",
+        "operationId": "DeleteAdmChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAdmChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAdmChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get an ADM channel",
+        "operationId": "GetAdmChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAdmChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAdmChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -916,6 +1371,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/apns": {
+      "delete": {
+        "description": "Deletes the APNs channel for an app.",
+        "operationId": "DeleteApnsChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information about the APNs channel for an app.",
+        "operationId": "GetApnsChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetApnsChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetApnsChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1011,6 +1594,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/apns_sandbox": {
+      "delete": {
+        "description": "Delete an APNS sandbox channel",
+        "operationId": "DeleteApnsSandboxChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsSandboxChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsSandboxChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get an APNS sandbox channel",
+        "operationId": "GetApnsSandboxChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetApnsSandboxChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetApnsSandboxChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1106,6 +1817,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/apns_voip": {
+      "delete": {
+        "description": "Delete an APNS VoIP channel",
+        "operationId": "DeleteApnsVoipChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsVoipChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsVoipChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get an APNS VoIP channel",
+        "operationId": "GetApnsVoipChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetApnsVoipChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetApnsVoipChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1201,6 +2040,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/apns_voip_sandbox": {
+      "delete": {
+        "description": "Delete an APNS VoIP sandbox channel",
+        "operationId": "DeleteApnsVoipSandboxChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsVoipSandboxChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApnsVoipSandboxChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get an APNS VoipSandbox channel",
+        "operationId": "GetApnsVoipSandboxChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetApnsVoipSandboxChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetApnsVoipSandboxChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1296,6 +2263,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/baidu": {
+      "delete": {
+        "description": "Delete a BAIDU GCM channel",
+        "operationId": "DeleteBaiduChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBaiduChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteBaiduChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get a BAIDU GCM channel",
+        "operationId": "GetBaiduChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBaiduChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetBaiduChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1391,6 +2486,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/email": {
+      "delete": {
+        "description": "Delete an email channel",
+        "operationId": "DeleteEmailChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteEmailChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteEmailChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get an email channel",
+        "operationId": "GetEmailChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEmailChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEmailChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1486,6 +2709,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/gcm": {
+      "delete": {
+        "description": "Deletes the GCM channel for an app.",
+        "operationId": "DeleteGcmChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteGcmChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteGcmChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information about the GCM channel for an app.",
+        "operationId": "GetGcmChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetGcmChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetGcmChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1581,6 +2932,134 @@
       }
     },
     "/v1/apps/{application-id}/channels/sms": {
+      "delete": {
+        "description": "Delete an SMS channel",
+        "operationId": "DeleteSmsChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSmsChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSmsChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Get an SMS channel",
+        "operationId": "GetSmsChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSmsChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSmsChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1771,6 +3250,76 @@
       }
     },
     "/v1/apps/{application-id}/endpoints/{endpoint-id}": {
+      "get": {
+        "description": "Returns information about an endpoint.",
+        "operationId": "GetEndpoint",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEndpointRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "endpoint-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEndpointResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1872,6 +3421,134 @@
       }
     },
     "/v1/apps/{application-id}/eventstream": {
+      "delete": {
+        "description": "Deletes the event stream for an app.",
+        "operationId": "DeleteEventStream",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteEventStreamRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteEventStreamResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns the event stream for an app.",
+        "operationId": "GetEventStream",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEventStreamRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEventStreamResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2059,7 +3736,71 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates or updates an import job.",
+        "operationId": "CreateImportJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateImportJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateImportJobResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/v1/apps/{application-id}/jobs/import/{job-id}": {
       "get": {
@@ -2350,9 +4091,213 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Used to create or update a segment.",
+        "operationId": "CreateSegment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSegmentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSegmentResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/v1/apps/{application-id}/segments/{segment-id}": {
+      "delete": {
+        "description": "Deletes a segment.",
+        "operationId": "DeleteSegment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSegmentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "segment-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSegmentResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns information about a segment.",
+        "operationId": "GetSegment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSegmentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "segment-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSegmentResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2763,6 +4708,70 @@
       ]
     },
     "/v1/apps/{application-id}/settings": {
+      "get": {
+        "description": "Used to request the settings for an app.",
+        "operationId": "GetApplicationSettings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetApplicationSettingsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "application-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetApplicationSettingsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"

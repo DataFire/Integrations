@@ -83,9 +83,9 @@ google_licensing.licenseAssignments.insert({
 
 #### Input
 * input `object`
+  * body [LicenseAssignmentInsert](#licenseassignmentinsert)
   * productId **required** `string`: Name for product
   * skuId **required** `string`: Name for sku
-  * body [LicenseAssignmentInsert](#licenseassignmentinsert)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -167,10 +167,10 @@ google_licensing.licenseAssignments.patch({
 
 #### Input
 * input `object`
+  * body [LicenseAssignment](#licenseassignment)
   * productId **required** `string`: Name for product
   * skuId **required** `string`: Name for sku for which license would be revoked
   * userId **required** `string`: email id or unique Id of the user
-  * body [LicenseAssignment](#licenseassignment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -196,10 +196,10 @@ google_licensing.licenseAssignments.update({
 
 #### Input
 * input `object`
+  * body [LicenseAssignment](#licenseassignment)
   * productId **required** `string`: Name for product
   * skuId **required** `string`: Name for sku for which license would be revoked
   * userId **required** `string`: email id or unique Id of the user
-  * body [LicenseAssignment](#licenseassignment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -217,19 +217,19 @@ List license assignments for given product and sku of the customer.
 
 ```js
 google_licensing.licenseAssignments.listForProductAndSku({
+  "customerId": "",
   "productId": "",
-  "skuId": "",
-  "customerId": ""
+  "skuId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * productId **required** `string`: Name for product
-  * skuId **required** `string`: Name for sku
   * customerId **required** `string`: CustomerId represents the customer for whom licenseassignments are queried
   * maxResults `integer`: Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is 100.
   * pageToken `string`: Token to fetch the next page.Optional. By default server will return first page
+  * productId **required** `string`: Name for product
+  * skuId **required** `string`: Name for sku
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -247,17 +247,17 @@ List license assignments for given product of the customer.
 
 ```js
 google_licensing.licenseAssignments.listForProduct({
-  "productId": "",
-  "customerId": ""
+  "customerId": "",
+  "productId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * productId **required** `string`: Name for product
   * customerId **required** `string`: CustomerId represents the customer for whom licenseassignments are queried
   * maxResults `integer`: Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is 100.
   * pageToken `string`: Token to fetch the next page.Optional. By default server will return first page
+  * productId **required** `string`: Name for product
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

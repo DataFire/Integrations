@@ -918,7 +918,7 @@
         }
       ],
       "post": {
-        "description": "Returns a signed URL for uploading a function source code.\nFor more information about the signed URL usage see:\nhttps://cloud.google.com/storage/docs/access-control/signed-urls\nOnce the function source code upload is complete, the used signed\nURL should be provided in CreateFunction or UpdateFunction request\nas a reference to the function source code.",
+        "description": "Returns a signed URL for uploading a function source code.\nFor more information about the signed URL usage see:\nhttps://cloud.google.com/storage/docs/access-control/signed-urls.\nOnce the function source code upload is complete, the used signed\nURL should be provided in CreateFunction or UpdateFunction request\nas a reference to the function source code.\n\nWhen uploading source code to the generated signed URL, please follow\nthese restrictions:\n\n* Source file type should be a zip file.\n* Source file size should not exceed 100MB limit.\n\nWhen making a HTTP PUT request, these two headers need to be specified:\n\n* `content-type: application/zip`\n* `x-google-content-length-range: 0,104857600`",
         "operationId": "projects.locations.functions.generateUploadUrl",
         "parameters": [
           {
@@ -929,7 +929,7 @@
             }
           },
           {
-            "description": "The project and location in which the Google Cloud Storage signed URL\nshould be generated, specified in the format `projects/*/locations/*",
+            "description": "The project and location in which the Google Cloud Storage signed URL\nshould be generated, specified in the format `projects/*/locations/*`.",
             "in": "path",
             "name": "parent",
             "required": true,
@@ -1075,7 +1075,7 @@
       "description": "Describes EventTrigger, used to request events be sent from another\nservice.",
       "properties": {
         "eventType": {
-          "description": "Required. The type of event to observe. For example:\n`google.storage.object.finalized` and\n`google.firebase.analytics.event.log`.\n\nEvent type consists of three parts:\n 1. namespace: The domain name of the organization in reverse-domain\n    notation (e.g. `acme.net` appears as `net.acme`) and any orginization\n    specific subdivisions. If the organization's top-level domain is `com`,\n    the top-level domain is ommited (e.g. `google.com` appears as\n    `google`). For example, `google.storage` and\n    `google.firebase.analytics`.\n 2. resource type: The type of resource on which event ocurs. For\n    example, the Google Cloud Storage API includes the type `object`.\n 3. action: The action that generates the event. For example, actions for\n    a Google Cloud Storage Object include 'finalize' and 'delete'.\nThese parts are lower case and joined by '.'.",
+          "description": "Required. The type of event to observe. For example:\n`providers/cloud.storage/eventTypes/object.change` and\n`providers/cloud.pubsub/eventTypes/topic.publish`.\n\nEvent types match pattern `providers/*/eventTypes/*.*`.\nThe pattern contains:\n\n1. namespace: For example, `cloud.storage` and\n   `google.firebase.analytics`.\n2. resource type: The type of resource on which event occurs. For\n   example, the Google Cloud Storage API includes the type `object`.\n3. action: The action that generates the event. For example, action for\n   a Google Cloud Storage Object is 'change'.\nThese parts are lower case.",
           "type": "string"
         },
         "failurePolicy": {
@@ -1087,7 +1087,7 @@
           "type": "string"
         },
         "service": {
-          "description": "The hostname of the service that should be observed.\n\nIf no string is provided, the default service implementing the API will\nbe used. For example, `storage.googleapis.com` is the default for all\nevent types in the 'google.storage` namespace.",
+          "description": "The hostname of the service that should be observed.\n\nIf no string is provided, the default service implementing the API will\nbe used. For example, `storage.googleapis.com` is the default for all\nevent types in the `google.storage` namespace.",
           "type": "string"
         }
       },
@@ -1284,6 +1284,11 @@
           ],
           "type": "string"
         },
+        "updateTime": {
+          "description": "The last update timestamp of the operation.",
+          "format": "google-datetime",
+          "type": "string"
+        },
         "versionId": {
           "description": "Version id of the function created or updated by an API call.\nThis field is only pupulated for Create and Update operations.",
           "format": "int64",
@@ -1314,6 +1319,11 @@
             "UPDATE_FUNCTION",
             "DELETE_FUNCTION"
           ],
+          "type": "string"
+        },
+        "updateTime": {
+          "description": "The last update timestamp of the operation.",
+          "format": "google-datetime",
           "type": "string"
         },
         "versionId": {

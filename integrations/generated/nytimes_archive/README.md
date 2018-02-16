@@ -61,12 +61,12 @@ nytimes_archive.year.month.json.get({
   * _id `string`
   * abstract `string`
   * blog `array`
-    * items `string`
+
   * byline `object`
     * organization `string`
     * original `string`
     * person `array`
-      * items `string`
+
   * document_type `string`
   * headline `object`
     * kicker `string`

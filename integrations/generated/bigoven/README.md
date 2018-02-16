@@ -48,6 +48,42 @@ For more information on usage of this API, including features, pricing, rate lim
 
 ## Actions
 
+### Article_Get
+Get a food article
+
+
+```js
+bigoven.Article_Get({
+  "term": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * term **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### Article_Put
+Update the article by term
+
+
+```js
+bigoven.Article_Put({
+  "term": "",
+  "data": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * term **required** `string`
+  * data **required** [API2.Controllers.WebAPI.ArticleController.PutArticleReq](#api2.controllers.webapi.articlecontroller.putarticlereq)
+
+#### Output
+*Output schema unknown*
+
 ### Collection_GetCollection
 Gets a recipe collection. A recipe collection is a curated set of recipes.
 
@@ -120,7 +156,7 @@ bigoven.Glossary_ByTerm({
 * output [BigOven.Model.API.GlossaryEntry](#bigoven.model.api.glossaryentry)
 
 ### Glossary_Get
-Get food glossary article
+DEPRECATED. Please use "Article", which is a new format for food glossary articles, which separates out the images.
 
 
 ```js
@@ -165,7 +201,7 @@ bigoven.GroceryList_Get(null, context)
 * output [BigOven.Model.API2.GroceryList](#bigoven.model.api2.grocerylist)
 
 ### GroceryList_GroceryListRemoveMarkedItems
-
+Clears the checked lines.
 
 
 ```js
@@ -321,7 +357,7 @@ bigoven.Images_UploadUserAvatar(null, context)
 * output [System.Object](#system.object)
 
 ### Me_Index
-
+Indexes this instance.
 
 
 ```js
@@ -335,7 +371,7 @@ bigoven.Me_Index(null, context)
 * output [API2.Models.BigOvenUser](#api2.models.bigovenuser)
 
 ### me.put
-
+Puts me.
 
 
 ```js
@@ -352,7 +388,7 @@ bigoven.me.put({
 * output [API2.Models.BigOvenUser](#api2.models.bigovenuser)
 
 ### Me_PutMePersonal
-
+Puts me personal.
 
 
 ```js
@@ -369,7 +405,7 @@ bigoven.Me_PutMePersonal({
 * output [API2.Models.BigOvenUser](#api2.models.bigovenuser)
 
 ### Me_PutMePreferences
-
+Puts me preferences.
 
 
 ```js
@@ -386,7 +422,7 @@ bigoven.Me_PutMePreferences({
 * output [API2.Models.BigOvenUser](#api2.models.bigovenuser)
 
 ### Me_GetOptions
-
+Gets the options.
 
 
 ```js
@@ -400,7 +436,7 @@ bigoven.Me_GetOptions(null, context)
 * output [API2.Controllers.MeController.PreferenceOptions](#api2.controllers.mecontroller.preferenceoptions)
 
 ### me.profile.put
-
+Puts me.
 
 
 ```js
@@ -417,7 +453,7 @@ bigoven.me.profile.put({
 * output [API2.Models.BigOvenUser](#api2.models.bigovenuser)
 
 ### Me_Skinny
-
+Skinnies this instance.
 
 
 ```js
@@ -483,6 +519,46 @@ bigoven.Recipe_AutoComplete({
 * output `array`
   * items `string`
 
+### Recipe_AutoCompleteAllRecipes
+Automatics the complete all recipes.
+
+
+```js
+bigoven.Recipe_AutoCompleteAllRecipes({
+  "query": "",
+  "limit": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * query **required** `string`: The query.
+  * limit **required** `integer`: The limit.
+
+#### Output
+* output `array`
+  * items [BigOven.Model.RecipeInfoTiny](#bigoven.model.recipeinfotiny)
+
+### Recipe_AutoCompleteMyRecipes
+Automatics the complete my recipes.
+
+
+```js
+bigoven.Recipe_AutoCompleteMyRecipes({
+  "query": "",
+  "limit": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * query **required** `string`: The query.
+  * limit **required** `integer`: The limit.
+
+#### Output
+* output `array`
+  * items [BigOven.Model.RecipeInfoTiny](#bigoven.model.recipeinfotiny)
+
 ### Recipe_Categories
 Get a list of recipe categories (the ID field can be used for include_cat in search parameters)
 
@@ -497,6 +573,20 @@ bigoven.Recipe_Categories(null, context)
 #### Output
 * output `array`
   * items [BigOven.Model.RecipeCategory](#bigoven.model.recipecategory)
+
+### Images_GetPendingByUser
+Gets the pending by user.
+
+
+```js
+bigoven.Images_GetPendingByUser(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [API2.Controllers.ImagesController.RecipePhotosResponse](#api2.controllers.imagescontroller.recipephotosresponse)
 
 ### Review_DeleteReply
 DELETE a reply to a given review. Authenticated user must be the one who originally posted the reply.
@@ -673,7 +763,7 @@ bigoven.Recipe_Get({
 * output [BigOven.Model.API2.Recipe](#bigoven.model.api2.recipe)
 
 ### Recipe_ZapRecipe
-
+Zaps the recipe.
 
 
 ```js
@@ -684,7 +774,7 @@ bigoven.Recipe_ZapRecipe({
 
 #### Input
 * input `object`
-  * id **required** `integer`
+  * id **required** `integer`: The identifier.
 
 #### Output
 * output [System.Object](#system.object)
@@ -1155,56 +1245,56 @@ bigoven.Recipe_RecentViews({}, context)
 
 ### API2.Controllers.GroceryListController.DepartmentModel
 * API2.Controllers.GroceryListController.DepartmentModel `object`
-  * items `string`
+  * items `string`: Gets or sets the items.
 
 ### API2.Controllers.GroceryListController.PostGroceryListAddLineRequest
 * API2.Controllers.GroceryListController.PostGroceryListAddLineRequest `object`
-  * text `string`
+  * text `string`: Gets or sets the text.
 
 ### API2.Controllers.GroceryListController.PostGroceryListRecipeRequest
 * API2.Controllers.GroceryListController.PostGroceryListRecipeRequest `object`
-  * markAsPending `boolean`
-  * recipeId `integer`
-  * scale `number`
+  * markAsPending `boolean`: Gets or sets the mark as pending.
+  * recipeId `integer`: Gets or sets the recipe identifier.
+  * scale `number`: Gets or sets the scale.
 
 ### API2.Controllers.GroceryListController.PostGroceryListSyncRequest
 * API2.Controllers.GroceryListController.PostGroceryListSyncRequest `object`
   * list [BigOven.Model.API.Grocery.GroceryList](#bigoven.model.api.grocery.grocerylist)
-  * since `string`
+  * since `string`: Gets or sets the since.
 
 ### API2.Controllers.GroceryListController.PostToGroceryListRecipeRequest
 * API2.Controllers.GroceryListController.PostToGroceryListRecipeRequest `object`
-  * department `string`
-  * name `string`
-  * notes `string`
-  * quantity `string`
-  * unit `string`
+  * department `string`: Gets or sets the department.
+  * name `string`: Gets or sets the name.
+  * notes `string`: Gets or sets the notes.
+  * quantity `string`: Gets or sets the quantity.
+  * unit `string`: Gets or sets the unit.
 
 ### API2.Controllers.GroceryListController.UpdateItemByGuidRequest
 * API2.Controllers.GroceryListController.UpdateItemByGuidRequest `object`
-  * department `string`
-  * guid `string`
-  * ischecked `boolean`
-  * name `string`
-  * notes `string`
-  * quantity `string`
-  * unit `string`
+  * department `string`: Gets or sets the department.
+  * guid `string`: Gets or sets the unique identifier.
+  * ischecked `boolean`: Gets or sets the ischecked.
+  * name `string`: Gets or sets the name.
+  * notes `string`: Gets or sets the notes.
+  * quantity `string`: Gets or sets the quantity.
+  * unit `string`: Gets or sets the unit.
 
 ### API2.Controllers.ImagesController.RecipePhotosResponse
 * API2.Controllers.ImagesController.RecipePhotosResponse `object`
-  * ResultCount `integer`
-  * Results `array`
+  * ResultCount `integer`: Gets or sets the result count.
+  * Results `array`: Gets or sets the results.
     * items [BigOven.Model.API2.Photo](#bigoven.model.api2.photo)
 
 ### API2.Controllers.MeController.EatingStyle
 * API2.Controllers.MeController.EatingStyle `object`
-  * Options `array`
+  * Options `array`: Gets or sets the options.
     * items [API2.Controllers.MeController.Option](#api2.controllers.mecontroller.option)
 
 ### API2.Controllers.MeController.Option
 * API2.Controllers.MeController.Option `object`
-  * Description `string`
-  * Key `string`
+  * Description `string`: Gets or sets the description.
+  * Key `string`: Gets or sets the key.
 
 ### API2.Controllers.MeController.PreferenceOptions
 * API2.Controllers.MeController.PreferenceOptions `object`
@@ -1212,16 +1302,16 @@ bigoven.Recipe_RecentViews({}, context)
 
 ### API2.Controllers.NoteController.NoteRequest
 * API2.Controllers.NoteController.NoteRequest `object`
-  * CreationDate `string`
-  * Date `string`
-  * DateDT `string`
-  * GUID `string`
-  * ID `integer`
-  * Notes `string`
-  * People `string`
-  * RecipeID `integer`
-  * UserID `integer`
-  * Variations `string`
+  * CreationDate `string`: Gets or sets the creation date.
+  * Date `string`: Gets or sets the date.
+  * DateDT `string`: Gets or sets the date dt.
+  * GUID `string`: Gets or sets the unique identifier.
+  * ID `integer`: Gets or sets the identifier.
+  * Notes `string`: Gets or sets the notes.
+  * People `string`: Gets or sets the people.
+  * RecipeID `integer`: Gets or sets the recipe identifier.
+  * UserID `integer`: Gets or sets the user identifier.
+  * Variations `string`: Gets or sets the variations.
 
 ### API2.Controllers.RecipeController.FeedbackDTO
 * API2.Controllers.RecipeController.FeedbackDTO `object`
@@ -1249,10 +1339,14 @@ bigoven.Recipe_RecentViews({}, context)
   * StarRating `integer`
   * TotalMinutes `integer`
 
+### API2.Controllers.WebAPI.ArticleController.PutArticleReq
+* API2.Controllers.WebAPI.ArticleController.PutArticleReq `object`: Update an article
+  * definition `string`: the html definition
+
 ### API2.GroceryListDepartmentResult
 * API2.GroceryListDepartmentResult `object`
-  * dept `string`
-  * item `string`
+  * dept `string`: Gets or sets the dept.
+  * item `string`: Gets or sets the item.
 
 ### API2.Models.Accounting
 * API2.Models.Accounting `object`
@@ -1262,10 +1356,10 @@ bigoven.Recipe_RecentViews({}, context)
   * UserLevel `string`
 
 ### API2.Models.BigOvenUser
-* API2.Models.BigOvenUser `object`
+* API2.Models.BigOvenUser `object`: An API2 wrapper object for a user
   * Accounting [API2.Models.Accounting](#api2.models.accounting)
-  * BOAuthToken `string`
-  * LastChangeLogID `string`
+  * BOAuthToken `string`: The user-specific authentication token
+  * LastChangeLogID `string`: Last change log
   * Personal [API2.Models.Personal](#api2.models.personal)
   * Preferences [API2.Models.Preference](#api2.models.preference)
   * Profile [API2.Models.Profile](#api2.models.profile)
@@ -1286,7 +1380,7 @@ bigoven.Recipe_RecentViews({}, context)
   * DMA `integer`
 
 ### API2.Models.Personal
-* API2.Models.Personal `object`
+* API2.Models.Personal `object`: Personal level info -- email, location, etc.
   * Email `string`
   * Location [API2.Models.Location](#api2.models.location)
 
@@ -1297,6 +1391,7 @@ bigoven.Recipe_RecentViews({}, context)
 ### API2.Models.Profile
 * API2.Models.Profile `object`
   * AboutMe `string`
+  * BackgroundUrl `string`
   * Counts [API2.Models.Counts](#api2.models.counts)
   * FirstName `string`
   * FullName `string`
@@ -1683,6 +1778,41 @@ bigoven.Recipe_RecentViews({}, context)
   * UserID `integer`
   * UserName `string`
 
+### BigOven.Model.Article
+* BigOven.Model.Article `object`
+  * AllCategoriesText `string`
+  * ApprovedForDisplay `boolean`
+  * ArticleId `integer`
+  * AssignedToUserID `integer`
+  * Body `string`
+  * Byline `string`
+  * CaptionedImages `array`
+    * items [BigOven.Model.CaptionedImage](#bigoven.model.captionedimage)
+  * CategoryID `integer`
+  * DateApproved `string`
+  * DateAssigned `string`
+  * DateCreated `string`
+  * DeadlineDate `string`
+  * Id `string`
+  * InternalAbstract `string`
+  * IsSeasonal `boolean`
+  * LineOrder `integer`
+  * PrimaryImage `string`
+  * ReadyForReview `boolean`
+  * SeasonalEndEmphasis `string`
+  * SeasonalStartEmphasis `string`
+  * ShortURL `string`
+  * Slug `string`
+  * SubcategoryID `integer`
+  * Subhead `string`
+  * Title `string`
+  * keywordUnique `string`
+
+### BigOven.Model.CaptionedImage
+* BigOven.Model.CaptionedImage `object`
+  * Caption `string`
+  * PhotoUrl `string`
+
 ### BigOven.Model.RecipeCategory
 * BigOven.Model.RecipeCategory `object`
   * Category `string`
@@ -1702,6 +1832,14 @@ bigoven.Recipe_RecentViews({}, context)
 * BigOven.Model.RecipeInfoReviewTuple2 `object`
   * RecipeInfo [BigOven.Model.API2.RecipeInfox](#bigoven.model.api2.recipeinfox)
   * Review [BigOven.Model.API.Review](#bigoven.model.api.review)
+
+### BigOven.Model.RecipeInfoTiny
+* BigOven.Model.RecipeInfoTiny `object`
+  * ImageURL `string`
+  * QualityScore `integer`
+  * RecipeID `integer`
+  * Servings `number`
+  * Title `string`
 
 ### BigOven.Model.ShoppingListLine
 * BigOven.Model.ShoppingListLine `object`

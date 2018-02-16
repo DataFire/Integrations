@@ -352,6 +352,7 @@ amazonaws_rds.CreateDBInstance({
   * DBSubnetGroupName [String](#string)
   * Domain [String](#string)
   * DomainIAMRoleName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
@@ -401,12 +402,14 @@ amazonaws_rds.CreateDBInstanceReadReplica({
   * DBInstanceClass [String](#string)
   * DBInstanceIdentifier **required** [String](#string)
   * DBSubnetGroupName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
   * Iops [IntegerOptional](#integeroptional)
   * KmsKeyId [String](#string)
   * MonitoringInterval [IntegerOptional](#integeroptional)
   * MonitoringRoleArn [String](#string)
+  * MultiAZ [BooleanOptional](#booleanoptional)
   * OptionGroupName [String](#string)
   * PerformanceInsightsKMSKeyId [String](#string)
   * Port [IntegerOptional](#integeroptional)
@@ -1469,6 +1472,7 @@ amazonaws_rds.ModifyDBInstance({
   * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CACertificateIdentifier [String](#string)
+  * CloudwatchLogsExportConfiguration [CloudwatchLogsExportConfiguration](#cloudwatchlogsexportconfiguration)
   * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
   * DBInstanceClass [String](#string)
   * DBInstanceIdentifier **required** [String](#string)
@@ -1922,6 +1926,7 @@ amazonaws_rds.RestoreDBInstanceFromDBSnapshot({
   * DBSubnetGroupName [String](#string)
   * Domain [String](#string)
   * DomainIAMRoleName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine [String](#string)
   * Iops [IntegerOptional](#integeroptional)
@@ -1937,6 +1942,67 @@ amazonaws_rds.RestoreDBInstanceFromDBSnapshot({
 
 #### Output
 * output [RestoreDBInstanceFromDBSnapshotResult](#restoredbinstancefromdbsnapshotresult)
+
+### RestoreDBInstanceFromS3
+
+
+
+```js
+amazonaws_rds.RestoreDBInstanceFromS3({
+  "DBInstanceIdentifier": "",
+  "DBInstanceClass": "",
+  "Engine": "",
+  "SourceEngine": "",
+  "SourceEngineVersion": "",
+  "S3BucketName": "",
+  "S3IngestionRoleArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AllocatedStorage [IntegerOptional](#integeroptional)
+  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
+  * AvailabilityZone [String](#string)
+  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
+  * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
+  * DBInstanceClass **required** [String](#string)
+  * DBInstanceIdentifier **required** [String](#string)
+  * DBName [String](#string)
+  * DBParameterGroupName [String](#string)
+  * DBSecurityGroups [DBSecurityGroupNameList](#dbsecuritygroupnamelist)
+  * DBSubnetGroupName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
+  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
+  * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
+  * Engine **required** [String](#string)
+  * EngineVersion [String](#string)
+  * Iops [IntegerOptional](#integeroptional)
+  * KmsKeyId [String](#string)
+  * LicenseModel [String](#string)
+  * MasterUserPassword [String](#string)
+  * MasterUsername [String](#string)
+  * MonitoringInterval [IntegerOptional](#integeroptional)
+  * MonitoringRoleArn [String](#string)
+  * MultiAZ [BooleanOptional](#booleanoptional)
+  * OptionGroupName [String](#string)
+  * PerformanceInsightsKMSKeyId [String](#string)
+  * Port [IntegerOptional](#integeroptional)
+  * PreferredBackupWindow [String](#string)
+  * PreferredMaintenanceWindow [String](#string)
+  * PubliclyAccessible [BooleanOptional](#booleanoptional)
+  * S3BucketName **required** [String](#string)
+  * S3IngestionRoleArn **required** [String](#string)
+  * S3Prefix [String](#string)
+  * SourceEngine **required** [String](#string)
+  * SourceEngineVersion **required** [String](#string)
+  * StorageEncrypted [BooleanOptional](#booleanoptional)
+  * StorageType [String](#string)
+  * Tags [TagList](#taglist)
+  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+
+#### Output
+* output [RestoreDBInstanceFromS3Result](#restoredbinstancefroms3result)
 
 ### RestoreDBInstanceToPointInTime
 
@@ -1959,6 +2025,7 @@ amazonaws_rds.RestoreDBInstanceToPointInTime({
   * DBSubnetGroupName [String](#string)
   * Domain [String](#string)
   * DomainIAMRoleName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine [String](#string)
   * Iops [IntegerOptional](#integeroptional)
@@ -2154,6 +2221,11 @@ amazonaws_rds.StopDBInstance({
   * CharacterSetDescription [String](#string)
   * CharacterSetName [String](#string)
 
+### CloudwatchLogsExportConfiguration
+* CloudwatchLogsExportConfiguration `object`: The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.
+  * DisableLogTypes [LogTypeList](#logtypelist)
+  * EnableLogTypes [LogTypeList](#logtypelist)
+
 ### CopyDBClusterParameterGroupMessage
 * CopyDBClusterParameterGroupMessage `object`
   * SourceDBClusterParameterGroupIdentifier **required** [String](#string)
@@ -2284,6 +2356,7 @@ amazonaws_rds.StopDBInstance({
   * DBSubnetGroupName [String](#string)
   * Domain [String](#string)
   * DomainIAMRoleName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
   * Engine **required** [String](#string)
@@ -2319,12 +2392,14 @@ amazonaws_rds.StopDBInstance({
   * DBInstanceClass [String](#string)
   * DBInstanceIdentifier **required** [String](#string)
   * DBSubnetGroupName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
   * Iops [IntegerOptional](#integeroptional)
   * KmsKeyId [String](#string)
   * MonitoringInterval [IntegerOptional](#integeroptional)
   * MonitoringRoleArn [String](#string)
+  * MultiAZ [BooleanOptional](#booleanoptional)
   * OptionGroupName [String](#string)
   * PerformanceInsightsKMSKeyId [String](#string)
   * Port [IntegerOptional](#integeroptional)
@@ -2412,7 +2487,7 @@ amazonaws_rds.StopDBInstance({
   * OptionGroup [OptionGroup](#optiongroup)
 
 ### DBCluster
-* DBCluster `object`: <p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBCluster</a> </p> </li> <li> <p> <a>DeleteDBCluster</a> </p> </li> <li> <p> <a>FailoverDBCluster</a> </p> </li> <li> <p> <a>ModifyDBCluster</a> </p> </li> <li> <p> <a>RestoreDBClusterFromSnapshot</a> </p> </li> <li> <p> <a>RestoreDBClusterToPointInTime</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+* DBCluster `object`: <p>Contains the details of an Amazon RDS DB cluster. </p> <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action. </p>
   * AllocatedStorage [IntegerOptional](#integeroptional)
   * AssociatedRoles [DBClusterRoles](#dbclusterroles)
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
@@ -2485,7 +2560,7 @@ amazonaws_rds.StopDBInstance({
   * Status [String](#string)
 
 ### DBClusterParameterGroup
-* DBClusterParameterGroup `object`: <p>Contains the result of a successful invocation of the <a>CreateDBClusterParameterGroup</a> or <a>CopyDBClusterParameterGroup</a> action. </p> <p>This data type is used as a request parameter in the <a>DeleteDBClusterParameterGroup</a> action, and as a response element in the <a>DescribeDBClusterParameterGroups</a> action. </p>
+* DBClusterParameterGroup `object`: <p>Contains the details of an Amazon RDS DB cluster parameter group. </p> <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action. </p>
   * DBClusterParameterGroupArn [String](#string)
   * DBClusterParameterGroupName [String](#string)
   * DBParameterGroupFamily [String](#string)
@@ -2534,7 +2609,7 @@ amazonaws_rds.StopDBInstance({
   * items [DBClusterRole](#dbclusterrole)
 
 ### DBClusterSnapshot
-* DBClusterSnapshot `object`: <p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBClusterSnapshot</a> </p> </li> <li> <p> <a>DeleteDBClusterSnapshot</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
+* DBClusterSnapshot `object`: <p>Contains the details for an Amazon RDS DB cluster snapshot </p> <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action. </p>
   * AllocatedStorage [Integer](#integer)
   * AvailabilityZones [AvailabilityZones](#availabilityzones)
   * ClusterCreateTime [TStamp](#tstamp)
@@ -2593,8 +2668,10 @@ amazonaws_rds.StopDBInstance({
   * DefaultCharacterSet [CharacterSet](#characterset)
   * Engine [String](#string)
   * EngineVersion [String](#string)
+  * ExportableLogTypes [LogTypeList](#logtypelist)
   * SupportedCharacterSets [SupportedCharacterSetsList](#supportedcharactersetslist)
   * SupportedTimezones [SupportedTimezonesList](#supportedtimezoneslist)
+  * SupportsLogExportsToCloudwatchLogs [Boolean](#boolean)
   * ValidUpgradeTarget [ValidUpgradeTargetList](#validupgradetargetlist)
 
 ### DBEngineVersionList
@@ -2607,7 +2684,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBInstance
-* DBInstance `object`: <p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>StopDBInstance</a> </p> </li> <li> <p> <a>StartDBInstance</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
+* DBInstance `object`: <p>Contains the details of an Amazon RDS DB instance. </p> <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action. </p>
   * AllocatedStorage [Integer](#integer)
   * AutoMinorVersionUpgrade [Boolean](#boolean)
   * AvailabilityZone [String](#string)
@@ -2627,6 +2704,7 @@ amazonaws_rds.StopDBInstance({
   * DbInstancePort [Integer](#integer)
   * DbiResourceId [String](#string)
   * DomainMemberships [DomainMembershipList](#domainmembershiplist)
+  * EnabledCloudwatchLogsExports [LogTypeList](#logtypelist)
   * Endpoint [Endpoint](#endpoint)
   * Engine [String](#string)
   * EngineVersion [String](#string)
@@ -2690,7 +2768,7 @@ amazonaws_rds.StopDBInstance({
 * DBLogFileNotFoundFault `object`:  <i>LogFileName</i> does not refer to an existing DB log file.
 
 ### DBParameterGroup
-* DBParameterGroup `object`: <p>Contains the result of a successful invocation of the <a>CreateDBParameterGroup</a> action. </p> <p>This data type is used as a request parameter in the <a>DeleteDBParameterGroup</a> action, and as a response element in the <a>DescribeDBParameterGroups</a> action. </p>
+* DBParameterGroup `object`: <p>Contains the details of an Amazon RDS DB parameter group. </p> <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action. </p>
   * DBParameterGroupArn [String](#string)
   * DBParameterGroupFamily [String](#string)
   * DBParameterGroupName [String](#string)
@@ -2733,7 +2811,7 @@ amazonaws_rds.StopDBInstance({
   * Marker [String](#string)
 
 ### DBSecurityGroup
-* DBSecurityGroup `object`: <p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>DescribeDBSecurityGroups</a> </p> </li> <li> <p> <a>AuthorizeDBSecurityGroupIngress</a> </p> </li> <li> <p> <a>CreateDBSecurityGroup</a> </p> </li> <li> <p> <a>RevokeDBSecurityGroupIngress</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBSecurityGroups</a> action.</p>
+* DBSecurityGroup `object`: <p>Contains the details for an Amazon RDS DB security group. </p> <p>This data type is used as a response element in the <a>DescribeDBSecurityGroups</a> action. </p>
   * DBSecurityGroupArn [String](#string)
   * DBSecurityGroupDescription [String](#string)
   * DBSecurityGroupName [String](#string)
@@ -2777,7 +2855,7 @@ amazonaws_rds.StopDBInstance({
   * items [DBSecurityGroup](#dbsecuritygroup)
 
 ### DBSnapshot
-* DBSnapshot `object`: <p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBSnapshot</a> </p> </li> <li> <p> <a>DeleteDBSnapshot</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBSnapshots</a> action.</p>
+* DBSnapshot `object`: <p>Contains the details of an Amazon RDS DB snapshot. </p> <p>This data type is used as a response element in the <a>DescribeDBSnapshots</a> action. </p>
   * AllocatedStorage [Integer](#integer)
   * AvailabilityZone [String](#string)
   * DBInstanceIdentifier [String](#string)
@@ -2835,7 +2913,7 @@ amazonaws_rds.StopDBInstance({
 * DBSnapshotNotFoundFault `object`:  <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot. 
 
 ### DBSubnetGroup
-* DBSubnetGroup `object`: <p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBSubnetGroup</a> </p> </li> <li> <p> <a>ModifyDBSubnetGroup</a> </p> </li> <li> <p> <a>DescribeDBSubnetGroups</a> </p> </li> <li> <p> <a>DeleteDBSubnetGroup</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
+* DBSubnetGroup `object`: <p>Contains the details of an Amazon RDS DB subnet group. </p> <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action. </p>
   * DBSubnetGroupArn [String](#string)
   * DBSubnetGroupDescription [String](#string)
   * DBSubnetGroupName [String](#string)
@@ -3432,6 +3510,10 @@ amazonaws_rds.StopDBInstance({
   * Filters [FilterList](#filterlist)
   * ResourceName **required** [String](#string)
 
+### LogTypeList
+* LogTypeList `array`
+  * items [String](#string)
+
 ### Long
 * Long `integer`
 
@@ -3478,6 +3560,7 @@ amazonaws_rds.StopDBInstance({
   * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
   * BackupRetentionPeriod [IntegerOptional](#integeroptional)
   * CACertificateIdentifier [String](#string)
+  * CloudwatchLogsExportConfiguration [CloudwatchLogsExportConfiguration](#cloudwatchlogsexportconfiguration)
   * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
   * DBInstanceClass [String](#string)
   * DBInstanceIdentifier **required** [String](#string)
@@ -3769,6 +3852,11 @@ amazonaws_rds.StopDBInstance({
 * ParametersList `array`
   * items [Parameter](#parameter)
 
+### PendingCloudwatchLogsExports
+* PendingCloudwatchLogsExports `object`: A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+  * LogTypesToDisable [LogTypeList](#logtypelist)
+  * LogTypesToEnable [LogTypeList](#logtypelist)
+
 ### PendingMaintenanceAction
 * PendingMaintenanceAction `object`: Provides information about a pending maintenance action for a resource.
   * Action [String](#string)
@@ -3804,6 +3892,7 @@ amazonaws_rds.StopDBInstance({
   * LicenseModel [String](#string)
   * MasterUserPassword [String](#string)
   * MultiAZ [BooleanOptional](#booleanoptional)
+  * PendingCloudwatchLogsExports [PendingCloudwatchLogsExports](#pendingcloudwatchlogsexports)
   * Port [IntegerOptional](#integeroptional)
   * StorageType [String](#string)
 
@@ -4065,6 +4154,7 @@ amazonaws_rds.StopDBInstance({
   * DBSubnetGroupName [String](#string)
   * Domain [String](#string)
   * DomainIAMRoleName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine [String](#string)
   * Iops [IntegerOptional](#integeroptional)
@@ -4082,6 +4172,52 @@ amazonaws_rds.StopDBInstance({
 * RestoreDBInstanceFromDBSnapshotResult `object`
   * DBInstance [DBInstance](#dbinstance)
 
+### RestoreDBInstanceFromS3Message
+* RestoreDBInstanceFromS3Message `object`
+  * AllocatedStorage [IntegerOptional](#integeroptional)
+  * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
+  * AvailabilityZone [String](#string)
+  * BackupRetentionPeriod [IntegerOptional](#integeroptional)
+  * CopyTagsToSnapshot [BooleanOptional](#booleanoptional)
+  * DBInstanceClass **required** [String](#string)
+  * DBInstanceIdentifier **required** [String](#string)
+  * DBName [String](#string)
+  * DBParameterGroupName [String](#string)
+  * DBSecurityGroups [DBSecurityGroupNameList](#dbsecuritygroupnamelist)
+  * DBSubnetGroupName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
+  * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
+  * EnablePerformanceInsights [BooleanOptional](#booleanoptional)
+  * Engine **required** [String](#string)
+  * EngineVersion [String](#string)
+  * Iops [IntegerOptional](#integeroptional)
+  * KmsKeyId [String](#string)
+  * LicenseModel [String](#string)
+  * MasterUserPassword [String](#string)
+  * MasterUsername [String](#string)
+  * MonitoringInterval [IntegerOptional](#integeroptional)
+  * MonitoringRoleArn [String](#string)
+  * MultiAZ [BooleanOptional](#booleanoptional)
+  * OptionGroupName [String](#string)
+  * PerformanceInsightsKMSKeyId [String](#string)
+  * Port [IntegerOptional](#integeroptional)
+  * PreferredBackupWindow [String](#string)
+  * PreferredMaintenanceWindow [String](#string)
+  * PubliclyAccessible [BooleanOptional](#booleanoptional)
+  * S3BucketName **required** [String](#string)
+  * S3IngestionRoleArn **required** [String](#string)
+  * S3Prefix [String](#string)
+  * SourceEngine **required** [String](#string)
+  * SourceEngineVersion **required** [String](#string)
+  * StorageEncrypted [BooleanOptional](#booleanoptional)
+  * StorageType [String](#string)
+  * Tags [TagList](#taglist)
+  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+
+### RestoreDBInstanceFromS3Result
+* RestoreDBInstanceFromS3Result `object`
+  * DBInstance [DBInstance](#dbinstance)
+
 ### RestoreDBInstanceToPointInTimeMessage
 * RestoreDBInstanceToPointInTimeMessage `object`: <p/>
   * AutoMinorVersionUpgrade [BooleanOptional](#booleanoptional)
@@ -4092,6 +4228,7 @@ amazonaws_rds.StopDBInstance({
   * DBSubnetGroupName [String](#string)
   * Domain [String](#string)
   * DomainIAMRoleName [String](#string)
+  * EnableCloudwatchLogsExports [LogTypeList](#logtypelist)
   * EnableIAMDatabaseAuthentication [BooleanOptional](#booleanoptional)
   * Engine [String](#string)
   * Iops [IntegerOptional](#integeroptional)
@@ -4234,7 +4371,7 @@ amazonaws_rds.StopDBInstance({
   * Value [String](#string)
 
 ### TagList
-* TagList `array`: A list of tags.
+* TagList `array`: A list of tags. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>. 
   * items [Tag](#tag)
 
 ### TagListMessage

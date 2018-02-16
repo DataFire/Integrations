@@ -2096,12 +2096,14 @@ callfire.updateWebhook({
   * username `string`: Username for credential
 
 ### ApiCredentialPage
-* ApiCredentialPage `object`: ~
-  * items `array`: ~
+* ApiCredentialPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [ApiCredential](#apicredential)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### Batch
 * Batch `object`: A batch represents a group of contacts which can be dialed or texted via call/text broadcast
@@ -2115,12 +2117,14 @@ callfire.updateWebhook({
   * status `string` (values: NEW, VALIDATING, ERRORS, SOURCE_ERROR, ACTIVE): A status of batch (NEW, VALIDATING, ERRORS, SOURCE_ERROR, ACTIVE). NEW - batch is queued for validation; VALIDATING - batch is currently validating; ERRORS - batch is processed, some validation errors occurred; SOURCE_ERROR - if contact source is contact list in Callfire system and it has an error; ACTIVE - batch is processed and ready
 
 ### BatchPage
-* BatchPage `object`: ~
-  * items `array`: ~
+* BatchPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [Batch](#batch)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### BatchRequest
 * BatchRequest `object`: Request object is used for adding new batch to an existing broadcast
@@ -2183,12 +2187,14 @@ callfire.updateWebhook({
   * status `string` (values: TEST, SETUP, START_PENDING, RUNNING, SCHEDULED, STOPPED, SUSPENDED, FINISHED, ARCHIVED, VALIDATING_START, VALIDATING_EMAIL): A status of a broadcast (read only). SETUP - campaign isn't configured yet; START_PENDING - waiting for contact batch population; RUNNING - campaign is running; STOPPED - campaign is stopped; FINISHED - campaign is finished; ARCHIVED - campaign was archived
 
 ### CallBroadcastPage
-* CallBroadcastPage `object`: ~
-  * items `array`: ~
+* CallBroadcastPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [CallBroadcast](#callbroadcast)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### CallBroadcastSounds
 * CallBroadcastSounds `object`: A set of sounds assigned to a voice broadcast to play according to an answering machine configuration. You can add the existing sounds from the account's sound library or to provide a text which will be converted into a speech. There are four sound options available for a Voice Broadcast campaign
@@ -2238,17 +2244,21 @@ callfire.updateWebhook({
   * toNumber `string`: Phone number in E.164 11-digit format to call to record a sound.  Example: 12132000384
 
 ### CallList
-* CallList `object`: ~
+* CallList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [Call](#call)
 
 ### CallPage
-* CallPage `object`: ~
-  * items `array`: ~
+* CallPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [Call](#call)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### CallRecipient
 * CallRecipient `object`: Recipient of a campaign action. Can be a phone number, contact, or contact list with attributes added to action. It is required to specify one of this values
@@ -2302,8 +2312,10 @@ callfire.updateWebhook({
   * state `string` (values: RECORDING, READY, ERROR): Current state of a recording, available values: RECORDING - recording is in progress, READY - recording is ready, ERROR - error has occurred and recording can be broken
 
 ### CallRecordingList
-* CallRecordingList `object`: ~
+* CallRecordingList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [CallRecording](#callrecording)
 
 ### CallTrackingConfig
@@ -2325,8 +2337,10 @@ callfire.updateWebhook({
   * phoneNumber `string`: ~
 
 ### CallerIdList
-* CallerIdList `object`: ~
+* CallerIdList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [CallerId](#callerid)
 
 ### CallerIdVerificationRequest
@@ -2343,12 +2357,14 @@ callfire.updateWebhook({
   * status `string` (values: UPLOAD, RECORDING, ACTIVE, ACTIVE_SYSTEM, FAILED, ARCHIVED, SCRUBBED): A current status of a sound, available values: UPLOAD - uploading is in progress, RECORDING - recording of sound is in progress, ACTIVE - sound is ready, FAILED, ARCHIVED - sound was archived, SCRUBBED - sound was scrubbed 
 
 ### CampaignSoundPage
-* CampaignSoundPage `object`: ~
-  * items `array`: ~
+* CampaignSoundPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [CampaignSound](#campaignsound)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### Contact
 * Contact `object`: Represents a contact in CallFire platform. Contains info about the people you want to contact. It allows you to store a user-defined properties for each contact
@@ -2384,20 +2400,24 @@ callfire.updateWebhook({
   * status `string` (values: ACTIVE, VALIDATING, IMPORTING, IMPORT_FAILED, ERRORS, DELETED, PARSE_FAILED, COLUMN_TOO_LARGE): A current status of a contact list, available values: ACTIVE - contact list is ready, VALIDATING - contact list validation is in progress, IMPORTING - importing is in progress, IMPORT_FAILED - in case of errors occurred during the importing, ERRORS - contact list has validation errors, DELETED - contact list was deleted, PARSE_FAILED - contacts cannot be parsed, COLUMN_TOO_LARGE - if size of phone number or any other column exceeds 255 characters
 
 ### ContactListPage
-* ContactListPage `object`: ~
-  * items `array`: ~
+* ContactListPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [ContactList](#contactlist)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### ContactPage
-* ContactPage `object`: ~
-  * items `array`: ~
+* ContactPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [Contact](#contact)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### CreateContactListRequest
 * CreateContactListRequest `object`: A request object is used to create a contact list from one of available contact sources
@@ -2436,12 +2456,14 @@ callfire.updateWebhook({
   * text `boolean`: A number on Do-Not-Text list
 
 ### DoNotContactPage
-* DoNotContactPage `object`: ~
-  * items `array`: ~
+* DoNotContactPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [DoNotContact](#donotcontact)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### ErrorResponse
 * ErrorResponse `object`: Error response containing error info
@@ -2492,16 +2514,20 @@ callfire.updateWebhook({
   * status `string` (values: PENDING, ACTIVE, RELEASED, UNAVAILABLE): A lease status. Available values: PENDING, ACTIVE, RELEASED, UNAVAILABLE
 
 ### KeywordLeasePage
-* KeywordLeasePage `object`: ~
-  * items `array`: ~
+* KeywordLeasePage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [KeywordLease](#keywordlease)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### KeywordList
-* KeywordList `object`: ~
+* KeywordList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [Keyword](#keyword)
 
 ### KeywordPurchaseRequest
@@ -2559,12 +2585,14 @@ callfire.updateWebhook({
   * number `string`: Phone number in E.164 format (11-digit). Example: 12132000384
 
 ### NumberConfigPage
-* NumberConfigPage `object`: ~
-  * items `array`: ~
+* NumberConfigPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [NumberConfig](#numberconfig)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### NumberLease
 * NumberLease `object`: Represents a lease object for a given phone number
@@ -2582,16 +2610,20 @@ callfire.updateWebhook({
   * tollFree `boolean`: A  toll-free number
 
 ### NumberLeasePage
-* NumberLeasePage `object`: ~
-  * items `array`: ~
+* NumberLeasePage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [NumberLease](#numberlease)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### NumberList
-* NumberList `object`: ~
+* NumberList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [Number](#number)
 
 ### NumberOrder
@@ -2624,6 +2656,14 @@ callfire.updateWebhook({
   * tollFreeCount `integer`: Total count of toll-free numbers requested
   * zipcode `string`: A five-digit Zip code of requested numbers
 
+### Page
+* Page `object`: Represents a page with results returned by query operation. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+
 ### QuestionResponse
 * QuestionResponse `object`: Object represents the question and client's answer, used in cloud call center / IVR campaign
   * question `string`: A text of a question
@@ -2650,20 +2690,24 @@ callfire.updateWebhook({
   * zipcode `string`: A five-digit zip code of a region
 
 ### RegionPage
-* RegionPage `object`: ~
-  * items `array`: ~
+* RegionPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [Region](#region)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### ResourceId
 * ResourceId `object`: An id of a resource
   * id `integer`: An id of a resource
 
 ### ResourceIdList
-* ResourceIdList `object`: ~
+* ResourceIdList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [ResourceId](#resourceid)
 
 ### RetryConfig
@@ -2734,12 +2778,14 @@ callfire.updateWebhook({
   * number `string`: Setup autoreply for a given phone number, E.164 format (11-digit). Example: 12132000384
 
 ### TextAutoReplyPage
-* TextAutoReplyPage `object`: ~
-  * items `array`: ~
+* TextAutoReplyPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [TextAutoReply](#textautoreply)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### TextBroadcast
 * TextBroadcast `object`: A text campaign allows you to send a text message to a number of recipients. It supports scheduling, retry logic and pattern-based messages
@@ -2763,12 +2809,14 @@ callfire.updateWebhook({
   * status `string` (values: TEST, SETUP, START_PENDING, RUNNING, SCHEDULED, STOPPED, SUSPENDED, FINISHED, ARCHIVED, VALIDATING_START, VALIDATING_EMAIL): A status of a broadcast. SETUP - campaign isn't configured yet; START_PENDING - waiting for contact batch population; RUNNING - campaign is running; STOPPED - campaign is stopped; FINISHED - campaign is finished; ARCHIVED - campaign was archived
 
 ### TextBroadcastPage
-* TextBroadcastPage `object`: ~
-  * items `array`: ~
+* TextBroadcastPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [TextBroadcast](#textbroadcast)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### TextBroadcastStatsDto
 * TextBroadcastStatsDto `object`: ~
@@ -2783,17 +2831,21 @@ callfire.updateWebhook({
   * unsentCount `integer`: ~
 
 ### TextList
-* TextList `object`: ~
+* TextList: ~
   * items `array`: ~
+    * items `object`
+  * items `array`
     * items [Text](#text)
 
 ### TextPage
-* TextPage `object`: ~
-  * items `array`: ~
+* TextPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [Text](#text)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### TextRecipient
 * TextRecipient `object`: A recipient of a text message. You should provide either phone number or contact id of existing contact
@@ -2849,12 +2901,14 @@ callfire.updateWebhook({
   * updatedAt `integer`: A time when the given resource was updated, formatted in unix time milliseconds (read only). Example: 1473781817000
 
 ### WebhookPage
-* WebhookPage `object`: ~
-  * items `array`: ~
+* WebhookPage: ~
+  * items `array`: A list of returned items
+    * items `object`
+  * limit `integer`: A maximum number of returned items. If items.size() < limit assume no more items
+  * offset `integer`: An offset from a start of paging source
+  * totalCount `integer`: Total count of available results. -1 if unknown
+  * items `array`
     * items [Webhook](#webhook)
-  * limit `integer`: ~
-  * offset `integer`: ~
-  * totalCount `integer`: ~
 
 ### WebhookResource
 * WebhookResource `object`: WebhookResource describes a resource and a list of supported events, once event is triggered Callfire performs an HTTP POST request to a client's endpoint

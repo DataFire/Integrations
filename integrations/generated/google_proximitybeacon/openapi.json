@@ -191,43 +191,43 @@
     "/v1beta1/beaconinfo:getforobserved": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -261,10 +261,10 @@
         "operationId": "beacons.list",
         "parameters": [
           {
-            "description": "The project id to list beacons under. If not present then the project\ncredential that made the request is used as the project.\nOptional.",
+            "description": "The maximum number of records to return for this request, up to a\nserver-defined upper limit.",
             "in": "query",
-            "name": "projectId",
-            "type": "string"
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "A pagination token obtained from a previous request to list beacons.",
@@ -273,16 +273,16 @@
             "type": "string"
           },
           {
+            "description": "The project id to list beacons under. If not present then the project\ncredential that made the request is used as the project.\nOptional.",
+            "in": "query",
+            "name": "projectId",
+            "type": "string"
+          },
+          {
             "description": "Filter query string that supports the following field filters:\n\n* **description:`\"<string>\"`**\n  For example: **description:\"Room 3\"**\n  Returns beacons whose description matches tokens in the string \"Room 3\"\n  (not necessarily that exact string).\n  The string must be double-quoted.\n* **status:`<enum>`**\n  For example: **status:active**\n  Returns beacons whose status matches the given value. Values must be\n  one of the Beacon.Status enum values (case insensitive). Accepts\n  multiple filters which will be combined with OR logic.\n* **stability:`<enum>`**\n  For example: **stability:mobile**\n  Returns beacons whose expected stability matches the given value.\n  Values must be one of the Beacon.Stability enum values (case\n  insensitive). Accepts multiple filters which will be combined with\n  OR logic.\n* **place\\_id:`\"<string>\"`**\n  For example: **place\\_id:\"ChIJVSZzVR8FdkgRXGmmm6SslKw=\"**\n  Returns beacons explicitly registered at the given place, expressed as\n  a Place ID obtained from [Google Places API](/places/place-id). Does not\n  match places inside the given place. Does not consider the beacon's\n  actual location (which may be different from its registered place).\n  Accepts multiple filters that will be combined with OR logic. The place\n  ID must be double-quoted.\n* **registration\\_time`[<|>|<=|>=]<integer>`**\n  For example: **registration\\_time>=1433116800**\n  Returns beacons whose registration time matches the given filter.\n  Supports the operators: <, >, <=, and >=. Timestamp must be expressed as\n  an integer number of seconds since midnight January 1, 1970 UTC. Accepts\n  at most two filters that will be combined with AND logic, to support\n  \"between\" semantics. If more than two are supplied, the latter ones are\n  ignored.\n* **lat:`<double> lng:<double> radius:<integer>`**\n  For example: **lat:51.1232343 lng:-1.093852 radius:1000**\n  Returns beacons whose registered location is within the given circle.\n  When any of these fields are given, all are required. Latitude and\n  longitude must be decimal degrees between -90.0 and 90.0 and between\n  -180.0 and 180.0 respectively. Radius must be an integer number of\n  meters between 10 and 1,000,000 (1000 km).\n* **property:`\"<string>=<string>\"`**\n  For example: **property:\"battery-type=CR2032\"**\n  Returns beacons which have a property of the given name and value.\n  Supports multiple filters which will be combined with OR logic.\n  The entire name=value string must be double-quoted as one string.\n* **attachment\\_type:`\"<string>\"`**\n  For example: **attachment_type:\"my-namespace/my-type\"**\n  Returns beacons having at least one attachment of the given namespaced\n  type. Supports \"any within this namespace\" via the partial wildcard\n  syntax: \"my-namespace/*\". Supports multiple filters which will be\n  combined with OR logic. The string must be double-quoted.\n* **indoor\\_level:`\"<string>\"`**\n  For example: **indoor\\_level:\"1\"**\n  Returns beacons which are located on the given indoor level. Accepts\n  multiple filters that will be combined with OR logic.\n\nMultiple filters on the same field are combined with OR logic (except\nregistration_time which is combined with AND logic).\nMultiple filters on different fields are combined with AND logic.\nFilters should be separated by spaces.\n\nAs with any HTTP query string parameter, the whole filter expression must\nbe URL-encoded.\n\nExample REST request:\n`GET /v1beta1/beacons?q=status:active%20lat:51.123%20lng:-1.095%20radius:1000`",
             "in": "query",
             "name": "q",
             "type": "string"
-          },
-          {
-            "description": "The maximum number of records to return for this request, up to a\nserver-defined upper limit.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
           }
         ],
         "responses": {
@@ -309,86 +309,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1beta1/beacons:register": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -396,17 +396,17 @@
         "operationId": "beacons.register",
         "parameters": [
           {
-            "description": "The project id of the project the beacon will be registered to. If\nthe project id is not specified then the project making the request\nis used.\nOptional.",
-            "in": "query",
-            "name": "projectId",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Beacon"
             }
+          },
+          {
+            "description": "The project id of the project the beacon will be registered to. If\nthe project id is not specified then the project making the request\nis used.\nOptional.",
+            "in": "query",
+            "name": "projectId",
+            "type": "string"
           }
         ],
         "responses": {
@@ -460,43 +460,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -536,43 +536,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -620,43 +620,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -745,43 +745,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -797,17 +797,17 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "The project id of the beacon to update. If the project id is not\nspecified then the project making the request is used. The project id\nmust match the project that owns the beacon.\nOptional.",
-            "in": "query",
-            "name": "projectId",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Beacon"
             }
+          },
+          {
+            "description": "The project id of the beacon to update. If the project id is not\nspecified then the project making the request is used. The project id\nmust match the project that owns the beacon.\nOptional.",
+            "in": "query",
+            "name": "projectId",
+            "type": "string"
           }
         ],
         "responses": {
@@ -883,43 +883,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -935,17 +935,17 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "The project id of the project the attachment will belong to. If\nthe project id is not specified then the project making the request\nis used.\nOptional.",
-            "in": "query",
-            "name": "projectId",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BeaconAttachment"
             }
+          },
+          {
+            "description": "The project id of the project the attachment will belong to. If\nthe project id is not specified then the project making the request\nis used.\nOptional.",
+            "in": "query",
+            "name": "projectId",
+            "type": "string"
           }
         ],
         "responses": {
@@ -974,43 +974,43 @@
     "/v1beta1/{beaconName}/attachments:batchDelete": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1129,86 +1129,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1beta1/{beaconName}:activate": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1256,43 +1256,43 @@
     "/v1beta1/{beaconName}:deactivate": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1340,43 +1340,43 @@
     "/v1beta1/{beaconName}:decommission": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1424,49 +1424,56 @@
     "/v1beta1/{namespaceName}": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
         "description": "Updates the information about the specified namespace. Only the namespace\nvisibility can be updated.",
         "operationId": "namespaces.update",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Namespace"
+            }
+          },
           {
             "description": "Resource name of this namespace. Namespaces names have the format:\n<code>namespaces/<var>namespace</var></code>.",
             "in": "path",
@@ -1480,13 +1487,6 @@
             "in": "query",
             "name": "projectId",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Namespace"
-            }
           }
         ],
         "responses": {
@@ -1543,6 +1543,11 @@
           "description": "An opaque data container for client-provided data.",
           "format": "byte",
           "type": "string"
+        },
+        "maxDistanceMeters": {
+          "description": "The distance away from the beacon at which this attachment should be\ndelivered to a mobile app.\n\nSetting this to a value greater than zero indicates that the app should\nbehave as if the beacon is \"seen\" when the mobile device is less than this\ndistance away from the beacon.\n\nDifferent attachments on the same beacon can have different max distances.\n\nNote that even though this value is expressed with fractional meter\nprecision, real-world behavior is likley to be much less precise than one\nmeter, due to the nature of current Bluetooth radio technology.\n\nOptional. When not set or zero, the attachment should be delivered at the\nbeacon's outer limit of detection.",
+          "format": "double",
+          "type": "number"
         },
         "namespacedType": {
           "description": "Specifies what kind of attachment this is. Tells a client how to\ninterpret the `data` field. Format is <var>namespace/type</var>, for\nexample <code>scrupulous-wombat-12345/welcome-message</code>",
@@ -1833,7 +1838,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",

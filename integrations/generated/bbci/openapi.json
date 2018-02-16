@@ -35,7 +35,7 @@
     ],
     "x-preferred": true,
     "x-providerName": "bbci.co.uk",
-    "x-release": "1.0.0-334",
+    "x-release": "1.0.0-342",
     "x-schema-id": "https://ibl.api.bbci.co.uk/ibl/v1/schema/ibl.json",
     "x-unofficialSpec": true,
     "x-datafire": {
@@ -2328,6 +2328,22 @@
             "elements",
             "count",
             "count_all"
+          ],
+          "type": "object"
+        },
+        "adds": {
+          "additionalProperties": false,
+          "properties": {
+            "added": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "added"
           ],
           "type": "object"
         },

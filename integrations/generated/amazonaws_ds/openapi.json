@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<fullname>AWS Directory Service</fullname> <p>AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors. For information about AWS Directory Services features, see <a href=\"https://aws.amazon.com/directoryservice/\">AWS Directory Service</a> and the <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html\">AWS Directory Service Administration Guide</a>.</p> <note> <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWS Directory Service and other AWS services. For more information about the AWS SDKs, including how to download and install them, see <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.</p> </note>",
     "license": {
@@ -3863,6 +3864,10 @@
           "$ref": "#/definitions/Description",
           "description": "A textual description for the directory. This label will appear on the AWS console <code>Directory Details</code> page after the directory is created."
         },
+        "Edition": {
+          "$ref": "#/definitions/DirectoryEdition",
+          "description": "AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default."
+        },
         "Name": {
           "$ref": "#/definitions/DirectoryName",
           "description": "The fully qualified domain name for the directory, such as <code>corp.example.com</code>. This name will resolve inside your VPC only. It does not need to be publicly resolvable."
@@ -4390,6 +4395,10 @@
           "$ref": "#/definitions/DnsIpAddrs",
           "description": "The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected."
         },
+        "Edition": {
+          "$ref": "#/definitions/DirectoryEdition",
+          "description": "The edition associated with this directory."
+        },
         "LaunchTime": {
           "$ref": "#/definitions/LaunchTime",
           "description": "Specifies when the directory was created."
@@ -4447,6 +4456,13 @@
         "$ref": "#/definitions/DirectoryDescription"
       },
       "type": "array"
+    },
+    "DirectoryEdition": {
+      "enum": [
+        "Enterprise",
+        "Standard"
+      ],
+      "type": "string"
     },
     "DirectoryId": {
       "pattern": "^d-[0-9a-f]{10}$",
@@ -4591,7 +4607,7 @@
         },
         "SecurityGroupId": {
           "$ref": "#/definitions/SecurityGroupId",
-          "description": "The security group identifier for the directory. If the directory was created before 8/1/2014, this is the identifier of the directory members security group that was created when the directory was created. If the directory was created after this date, this value is null."
+          "description": "The domain controller security group identifier for the directory."
         },
         "SubnetIds": {
           "$ref": "#/definitions/SubnetIds",
@@ -5411,7 +5427,7 @@
       "type": "array"
     },
     "SecurityGroupId": {
-      "pattern": "^(sg-[0-9a-f]{8})$",
+      "pattern": "^(sg-[0-9a-f]{8}|sg-[0-9a-f]{17})$",
       "type": "string"
     },
     "Server": {
@@ -5591,7 +5607,7 @@
       "type": "string"
     },
     "SubnetId": {
-      "pattern": "^(subnet-[0-9a-f]{8})$",
+      "pattern": "^(subnet-[0-9a-f]{8}|subnet-[0-9a-f]{17})$",
       "type": "string"
     },
     "SubnetIds": {
@@ -5895,7 +5911,7 @@
       "type": "object"
     },
     "VpcId": {
-      "pattern": "^(vpc-[0-9a-f]{8})$",
+      "pattern": "^(vpc-[0-9a-f]{8}|vpc-[0-9a-f]{17})$",
       "type": "string"
     }
   }

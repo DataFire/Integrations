@@ -223,40 +223,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -308,40 +308,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -493,40 +493,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -541,17 +541,17 @@
             "type": "string"
           },
           {
-            "description": "An optional mask specifying which fields to update. Mutable fields are\nname,\nvariant,\ntranscript, and\ninfo. If unspecified, all mutable\nfields will be updated.",
-            "in": "query",
-            "name": "updateMask",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Annotation"
             }
+          },
+          {
+            "description": "An optional mask specifying which fields to update. Mutable fields are\nname,\nvariant,\ntranscript, and\ninfo. If unspecified, all mutable\nfields will be updated.",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
           }
         ],
         "responses": {
@@ -591,40 +591,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -676,40 +676,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -761,40 +761,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -946,40 +946,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -994,17 +994,17 @@
             "type": "string"
           },
           {
-            "description": "An optional mask specifying which fields to update. Mutable fields are\nname,\nsource_uri, and\ninfo. If unspecified, all\nmutable fields will be updated.",
-            "in": "query",
-            "name": "updateMask",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AnnotationSet"
             }
+          },
+          {
+            "description": "An optional mask specifying which fields to update. Mutable fields are\nname,\nsource_uri, and\ninfo. If unspecified, all\nmutable fields will be updated.",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1044,40 +1044,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1129,40 +1129,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1314,46 +1314,53 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
         "description": "Updates a call set.\n\nFor the definitions of call sets and other genomics resources, see\n[Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)\n\nThis method supports patch semantics.",
         "operationId": "callsets.patch",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CallSet"
+            }
+          },
           {
             "description": "The ID of the call set to be updated.",
             "in": "path",
@@ -1366,13 +1373,6 @@
             "in": "query",
             "name": "updateMask",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CallSet"
-            }
           }
         ],
         "responses": {
@@ -1412,16 +1412,16 @@
         "operationId": "datasets.list",
         "parameters": [
           {
-            "description": "The continuation token, which is used to page through large result sets.\nTo get the next page of results, set this parameter to the value of\n`nextPageToken` from the previous response.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
             "description": "The maximum number of results to return in a single page. If unspecified,\ndefaults to 50. The maximum value is 1024.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
+          },
+          {
+            "description": "The continuation token, which is used to page through large result sets.\nTo get the next page of results, set this parameter to the value of\n`nextPageToken` from the previous response.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
           },
           {
             "description": "Required. The Google Cloud project ID to list datasets for.",
@@ -1473,40 +1473,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1650,46 +1650,53 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
         "description": "Updates a dataset.\n\nFor the definitions of datasets and other genomics resources, see\n[Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)\n\nThis method supports patch semantics.",
         "operationId": "datasets.patch",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          },
           {
             "description": "The ID of the dataset to be updated.",
             "in": "path",
@@ -1702,13 +1709,6 @@
             "in": "query",
             "name": "updateMask",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Dataset"
-            }
           }
         ],
         "responses": {
@@ -1748,40 +1748,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1789,18 +1789,18 @@
         "operationId": "datasets.undelete",
         "parameters": [
           {
-            "description": "The ID of the dataset to be undeleted.",
-            "in": "path",
-            "name": "datasetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/UndeleteDatasetRequest"
             }
+          },
+          {
+            "description": "The ID of the dataset to be undeleted.",
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1840,40 +1840,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2025,46 +2025,53 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
         "description": "Updates a read group set.\n\nFor the definitions of read group sets and other genomics resources, see\n[Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)\n\nThis method supports patch semantics.",
         "operationId": "readgroupsets.patch",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReadGroupSet"
+            }
+          },
           {
             "description": "The ID of the read group set to be updated. The caller must have WRITE\npermissions to the dataset associated with this read group set.",
             "in": "path",
@@ -2077,13 +2084,6 @@
             "in": "query",
             "name": "updateMask",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ReadGroupSet"
-            }
           }
         ],
         "responses": {
@@ -2123,17 +2123,16 @@
         "operationId": "readgroupsets.coveragebuckets.list",
         "parameters": [
           {
-            "description": "Required. The ID of the read group set over which coverage is requested.",
-            "in": "path",
-            "name": "readGroupSetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The end position of the range on the reference, 0-based exclusive. If\nspecified, `referenceName` must also be specified. If unset or 0, defaults\nto the length of the reference.",
             "in": "query",
             "name": "end",
             "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return in a single page. If unspecified,\ndefaults to 1024. The maximum value is 2048.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "The continuation token, which is used to page through large result sets.\nTo get the next page of results, set this parameter to the value of\n`nextPageToken` from the previous response.",
@@ -2142,10 +2141,17 @@
             "type": "string"
           },
           {
-            "description": "The maximum number of results to return in a single page. If unspecified,\ndefaults to 1024. The maximum value is 2048.",
+            "description": "Required. The ID of the read group set over which coverage is requested.",
+            "in": "path",
+            "name": "readGroupSetId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the reference to query, within the reference set associated\nwith this query. Optional.",
             "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "name": "referenceName",
+            "type": "string"
           },
           {
             "description": "The start position of the range on the reference, 0-based inclusive. If\nspecified, `referenceName` must also be specified. Defaults to 0.",
@@ -2157,12 +2163,6 @@
             "description": "The desired width of each reported coverage bucket in base pairs. This\nwill be rounded down to the nearest precomputed bucket width; the value\nof which is returned as `bucketWidth` in the response. Defaults\nto infinity (each bucket spans an entire reference sequence) or the length\nof the target range, if specified. The smallest precomputed\n`bucketWidth` is currently 2048 base pairs; this is subject to\nchange.",
             "in": "query",
             "name": "targetBucketWidth",
-            "type": "string"
-          },
-          {
-            "description": "The name of the reference to query, within the reference set associated\nwith this query. Optional.",
-            "in": "query",
-            "name": "referenceName",
             "type": "string"
           }
         ],
@@ -2209,40 +2209,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -2252,40 +2252,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2293,18 +2293,18 @@
         "operationId": "readgroupsets.export",
         "parameters": [
           {
-            "description": "Required. The ID of the read group set to export. The caller must have\nREAD access to this read group set.",
-            "in": "path",
-            "name": "readGroupSetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/ExportReadGroupSetRequest"
             }
+          },
+          {
+            "description": "Required. The ID of the read group set to export. The caller must have\nREAD access to this read group set.",
+            "in": "path",
+            "name": "readGroupSetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2352,40 +2352,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2445,40 +2445,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2538,40 +2538,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2681,40 +2681,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -2724,17 +2724,16 @@
         "operationId": "references.bases.list",
         "parameters": [
           {
-            "description": "The ID of the reference.",
-            "in": "path",
-            "name": "referenceId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The end position (0-based, exclusive) of this query. Defaults to the length\nof this reference.",
             "in": "query",
             "name": "end",
             "type": "string"
+          },
+          {
+            "description": "The maximum number of bases to return in a single page. If unspecified,\ndefaults to 200Kbp (kilo base pairs). The maximum value is 10Mbp (mega base\npairs).",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "The continuation token, which is used to page through large result sets.\nTo get the next page of results, set this parameter to the value of\n`nextPageToken` from the previous response.",
@@ -2743,10 +2742,11 @@
             "type": "string"
           },
           {
-            "description": "The maximum number of bases to return in a single page. If unspecified,\ndefaults to 200Kbp (kilo base pairs). The maximum value is 10Mbp (mega base\npairs).",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "The ID of the reference.",
+            "in": "path",
+            "name": "referenceId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The start position (0-based) of this query. Defaults to 0.",
@@ -2798,40 +2798,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -2841,40 +2841,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2984,40 +2984,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -3027,40 +3027,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3112,40 +3112,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3297,40 +3297,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -3338,11 +3338,11 @@
         "operationId": "variants.patch",
         "parameters": [
           {
-            "description": "The ID of the variant to be updated.",
-            "in": "path",
-            "name": "variantId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Variant"
+            }
           },
           {
             "description": "An optional mask specifying which fields to update. At this time, mutable\nfields are names and\ninfo. Acceptable values are \"names\" and\n\"info\". If unspecified, all mutable fields will be updated.",
@@ -3351,11 +3351,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Variant"
-            }
+            "description": "The ID of the variant to be updated.",
+            "in": "path",
+            "name": "variantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3395,40 +3395,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3488,40 +3488,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3573,40 +3573,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3658,40 +3658,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3843,40 +3843,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -3884,11 +3884,11 @@
         "operationId": "variantsets.patch",
         "parameters": [
           {
-            "description": "The ID of the variant to be updated (must already exist).",
-            "in": "path",
-            "name": "variantSetId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/VariantSet"
+            }
           },
           {
             "description": "An optional mask specifying which fields to update. Supported fields:\n\n* metadata.\n* name.\n* description.\n\nLeaving `updateMask` unset is equivalent to specifying all mutable\nfields.",
@@ -3897,11 +3897,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/VariantSet"
-            }
+            "description": "The ID of the variant to be updated (must already exist).",
+            "in": "path",
+            "name": "variantSetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3941,40 +3941,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3982,18 +3982,18 @@
         "operationId": "variantsets.export",
         "parameters": [
           {
-            "description": "Required. The ID of the variant set that contains variant data which\nshould be exported. The caller must have READ access to this variant set.",
-            "in": "path",
-            "name": "variantSetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/ExportVariantSetRequest"
             }
+          },
+          {
+            "description": "Required. The ID of the variant set that contains variant data which\nshould be exported. The caller must have READ access to this variant set.",
+            "in": "path",
+            "name": "variantSetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4037,41 +4037,23 @@
     },
     "/v1/{name}": {
       "get": {
-        "description": "Lists operations that match the specified filter in the request.",
-        "operationId": "operations.list",
+        "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+        "operationId": "operations.get",
         "parameters": [
           {
-            "description": "A string for filtering Operations.\nThe following filter fields are supported&#58;\n\n* projectId&#58; Required. Corresponds to\n  OperationMetadata.projectId.\n* createTime&#58; The time this job was created, in seconds from the\n  [epoch](http://en.wikipedia.org/wiki/Unix_time). Can use `>=` and/or `<=`\n  operators.\n* status&#58; Can be `RUNNING`, `SUCCESS`, `FAILURE`, or `CANCELED`. Only\n  one status may be specified.\n* labels.key where key is a label key.\n\nExamples&#58;\n\n* `projectId = my-project AND createTime >= 1432140000`\n* `projectId = my-project AND createTime >= 1432140000 AND createTime <= 1432150000 AND status = RUNNING`\n* `projectId = my-project AND labels.color = *`\n* `projectId = my-project AND labels.color = red`",
-            "in": "query",
-            "name": "filter",
-            "type": "string"
-          },
-          {
-            "description": "The name of the operation's parent resource.",
+            "description": "The name of the operation resource.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "description": "The maximum number of results to return. If unspecified, defaults to\n256. The maximum value is 2048.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
-          },
-          {
-            "description": "The standard list page token.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/ListOperationsResponse"
+              "$ref": "#/definitions/Operation"
             }
           }
         },
@@ -4102,40 +4084,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -4145,40 +4127,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -4186,19 +4168,19 @@
         "operationId": "operations.cancel",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CancelOperationRequest"
+            }
+          },
+          {
             "description": "The name of the operation resource to be cancelled.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CancelOperationRequest"
-            }
           }
         ],
         "responses": {
@@ -4238,40 +4220,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -4279,19 +4261,19 @@
         "operationId": "datasets.getIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GetIamPolicyRequest"
+            }
+          },
+          {
             "description": "REQUIRED: The resource for which policy is being specified. Format is\n`datasets/<dataset ID>`.",
             "in": "path",
             "name": "resource",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/GetIamPolicyRequest"
-            }
           }
         ],
         "responses": {
@@ -4331,40 +4313,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -4372,19 +4354,19 @@
         "operationId": "datasets.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetIamPolicyRequest"
+            }
+          },
+          {
             "description": "REQUIRED: The resource for which policy is being specified. Format is\n`datasets/<dataset ID>`.",
             "in": "path",
             "name": "resource",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SetIamPolicyRequest"
-            }
           }
         ],
         "responses": {
@@ -4424,40 +4406,40 @@
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -4465,19 +4447,19 @@
         "operationId": "datasets.testIamPermissions",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TestIamPermissionsRequest"
+            }
+          },
+          {
             "description": "REQUIRED: The resource for which policy is being specified. Format is\n`datasets/<dataset ID>`.",
             "in": "path",
             "name": "resource",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TestIamPermissionsRequest"
-            }
           }
         ],
         "responses": {
@@ -5310,7 +5292,7 @@
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
         "bindings": {
           "description": "Associates a list of `members` to a `role`.\n`bindings` with no members will result in an error.",
@@ -5325,7 +5307,7 @@
           "type": "string"
         },
         "version": {
-          "description": "Version of the `Policy`. The default version is 0.",
+          "description": "Deprecated.",
           "format": "int32",
           "type": "integer"
         }

@@ -683,14 +683,14 @@ google_vault.matters.undelete({
 
 ### HeldGroupsQuery
 * HeldGroupsQuery `object`: Query options for group holds.
-  * endTime `string`: The end date range for the search query. These timestamps are in GMT and
-  * startTime `string`: The start date range for the search query. These timestamps are in GMT and
+  * endTime `string`: The end time range for the search query. These timestamps are in GMT and
+  * startTime `string`: The start time range for the search query. These timestamps are in GMT and
   * terms `string`: The search terms for the hold.
 
 ### HeldMailQuery
 * HeldMailQuery `object`: Query options for mail holds.
-  * endTime `string`: The end date range for the search query. These timestamps are in GMT and
-  * startTime `string`: The start date range for the search query. These timestamps are in GMT and
+  * endTime `string`: The end time range for the search query. These timestamps are in GMT and
+  * startTime `string`: The start time range for the search query. These timestamps are in GMT and
   * terms `string`: The search terms for the hold.
 
 ### HeldOrgUnit

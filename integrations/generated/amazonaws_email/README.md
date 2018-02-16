@@ -106,6 +106,33 @@ amazonaws_email.CreateConfigurationSetTrackingOptions({
 #### Output
 * output [CreateConfigurationSetTrackingOptionsResponse](#createconfigurationsettrackingoptionsresponse)
 
+### CreateCustomVerificationEmailTemplate
+
+
+
+```js
+amazonaws_email.CreateCustomVerificationEmailTemplate({
+  "TemplateName": "",
+  "FromEmailAddress": "",
+  "TemplateSubject": "",
+  "TemplateContent": "",
+  "SuccessRedirectionURL": "",
+  "FailureRedirectionURL": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FailureRedirectionURL **required** [FailureRedirectionURL](#failureredirectionurl)
+  * FromEmailAddress **required** [FromAddress](#fromaddress)
+  * SuccessRedirectionURL **required** [SuccessRedirectionURL](#successredirectionurl)
+  * TemplateContent **required** [TemplateContent](#templatecontent)
+  * TemplateName **required** [TemplateName](#templatename)
+  * TemplateSubject **required** [Subject](#subject)
+
+#### Output
+*Output schema unknown*
+
 ### CreateReceiptFilter
 
 
@@ -239,6 +266,23 @@ amazonaws_email.DeleteConfigurationSetTrackingOptions({
 
 #### Output
 * output [DeleteConfigurationSetTrackingOptionsResponse](#deleteconfigurationsettrackingoptionsresponse)
+
+### DeleteCustomVerificationEmailTemplate
+
+
+
+```js
+amazonaws_email.DeleteCustomVerificationEmailTemplate({
+  "TemplateName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TemplateName **required** [TemplateName](#templatename)
+
+#### Output
+*Output schema unknown*
 
 ### DeleteIdentity
 
@@ -431,6 +475,37 @@ amazonaws_email.DescribeReceiptRuleSet({
 #### Output
 * output [DescribeReceiptRuleSetResponse](#describereceiptrulesetresponse)
 
+### GetAccountSendingEnabled
+
+
+
+```js
+amazonaws_email.GetAccountSendingEnabled({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetAccountSendingEnabledResponse](#getaccountsendingenabledresponse)
+
+### GetCustomVerificationEmailTemplate
+
+
+
+```js
+amazonaws_email.GetCustomVerificationEmailTemplate({
+  "TemplateName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TemplateName **required** [TemplateName](#templatename)
+
+#### Output
+* output [GetCustomVerificationEmailTemplateResponse](#getcustomverificationemailtemplateresponse)
+
 ### GetIdentityDkimAttributes
 
 
@@ -578,6 +653,24 @@ amazonaws_email.ListConfigurationSets({}, context)
 
 #### Output
 * output [ListConfigurationSetsResponse](#listconfigurationsetsresponse)
+
+### ListCustomVerificationEmailTemplates
+
+
+
+```js
+amazonaws_email.ListCustomVerificationEmailTemplates({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+#### Output
+* output [ListCustomVerificationEmailTemplatesResponse](#listcustomverificationemailtemplatesresponse)
 
 ### ListIdentities
 
@@ -766,6 +859,26 @@ amazonaws_email.SendBulkTemplatedEmail({
 
 #### Output
 * output [SendBulkTemplatedEmailResponse](#sendbulktemplatedemailresponse)
+
+### SendCustomVerificationEmail
+
+
+
+```js
+amazonaws_email.SendCustomVerificationEmail({
+  "EmailAddress": "",
+  "TemplateName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationSetName [ConfigurationSetName](#configurationsetname)
+  * EmailAddress **required** [Address](#address)
+  * TemplateName **required** [TemplateName](#templatename)
+
+#### Output
+* output [SendCustomVerificationEmailResponse](#sendcustomverificationemailresponse)
 
 ### SendEmail
 
@@ -1007,6 +1120,21 @@ amazonaws_email.TestRenderTemplate({
 #### Output
 * output [TestRenderTemplateResponse](#testrendertemplateresponse)
 
+### UpdateAccountSendingEnabled
+
+
+
+```js
+amazonaws_email.UpdateAccountSendingEnabled({}, context)
+```
+
+#### Input
+* input `object`
+  * Enabled [Enabled](#enabled)
+
+#### Output
+*Output schema unknown*
+
 ### UpdateConfigurationSetEventDestination
 
 
@@ -1029,6 +1157,44 @@ amazonaws_email.UpdateConfigurationSetEventDestination({
 #### Output
 * output [UpdateConfigurationSetEventDestinationResponse](#updateconfigurationseteventdestinationresponse)
 
+### UpdateConfigurationSetReputationMetricsEnabled
+
+
+
+```js
+amazonaws_email.UpdateConfigurationSetReputationMetricsEnabled({
+  "ConfigurationSetName": "",
+  "Enabled": true
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationSetName **required** [ConfigurationSetName](#configurationsetname)
+  * Enabled **required** [Enabled](#enabled)
+
+#### Output
+*Output schema unknown*
+
+### UpdateConfigurationSetSendingEnabled
+
+
+
+```js
+amazonaws_email.UpdateConfigurationSetSendingEnabled({
+  "ConfigurationSetName": "",
+  "Enabled": true
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationSetName **required** [ConfigurationSetName](#configurationsetname)
+  * Enabled **required** [Enabled](#enabled)
+
+#### Output
+*Output schema unknown*
+
 ### UpdateConfigurationSetTrackingOptions
 
 
@@ -1047,6 +1213,28 @@ amazonaws_email.UpdateConfigurationSetTrackingOptions({
 
 #### Output
 * output [UpdateConfigurationSetTrackingOptionsResponse](#updateconfigurationsettrackingoptionsresponse)
+
+### UpdateCustomVerificationEmailTemplate
+
+
+
+```js
+amazonaws_email.UpdateCustomVerificationEmailTemplate({
+  "TemplateName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FailureRedirectionURL [FailureRedirectionURL](#failureredirectionurl)
+  * FromEmailAddress [FromAddress](#fromaddress)
+  * SuccessRedirectionURL [SuccessRedirectionURL](#successredirectionurl)
+  * TemplateContent [TemplateContent](#templatecontent)
+  * TemplateName **required** [TemplateName](#templatename)
+  * TemplateSubject [Subject](#subject)
+
+#### Output
+*Output schema unknown*
 
 ### UpdateReceiptRule
 
@@ -1160,6 +1348,9 @@ amazonaws_email.VerifyEmailIdentity({
 
 ## Definitions
 
+### AccountSendingPausedException
+* AccountSendingPausedException `object`: <p>Indicates that email sending is disabled for your entire Amazon SES account.</p> <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+
 ### AddHeaderAction
 * AddHeaderAction `object`: <p>When included in a receipt rule, this action adds a header to the received email.</p> <p>For information about adding a header using a receipt rule, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html">Amazon SES Developer Guide</a>.</p>
   * HeaderName **required** [HeaderName](#headername)
@@ -1242,7 +1433,7 @@ amazonaws_email.VerifyEmailIdentity({
   * items [BulkEmailDestinationStatus](#bulkemaildestinationstatus)
 
 ### BulkEmailStatus
-* BulkEmailStatus `string` (values: Success, MessageRejected, MailFromDomainNotVerified, ConfigurationSetDoesNotExist, TemplateDoesNotExist, AccountSuspended, AccountThrottled, AccountDailyQuotaExceeded, InvalidSendingPoolName, InvalidParameterValue, TransientFailure, Failed)
+* BulkEmailStatus `string` (values: Success, MessageRejected, MailFromDomainNotVerified, ConfigurationSetDoesNotExist, TemplateDoesNotExist, AccountSuspended, AccountThrottled, AccountDailyQuotaExceeded, InvalidSendingPoolName, AccountSendingPaused, ConfigurationSetSendingPaused, InvalidParameterValue, TransientFailure, Failed)
 
 ### CannotDeleteException
 * CannotDeleteException `object`: Indicates that the delete operation could not be completed.
@@ -1285,7 +1476,7 @@ amazonaws_email.VerifyEmailIdentity({
   * ConfigurationSetName [ConfigurationSetName](#configurationsetname)
 
 ### ConfigurationSetAttribute
-* ConfigurationSetAttribute `string` (values: eventDestinations, trackingOptions)
+* ConfigurationSetAttribute `string` (values: eventDestinations, trackingOptions, reputationOptions)
 
 ### ConfigurationSetAttributeList
 * ConfigurationSetAttributeList `array`
@@ -1297,6 +1488,10 @@ amazonaws_email.VerifyEmailIdentity({
 
 ### ConfigurationSetName
 * ConfigurationSetName `string`
+
+### ConfigurationSetSendingPausedException
+* ConfigurationSetSendingPausedException `object`: <p>Indicates that email sending is disabled for the configuration set.</p> <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+  * ConfigurationSetName [ConfigurationSetName](#configurationsetname)
 
 ### ConfigurationSets
 * ConfigurationSets `array`
@@ -1332,6 +1527,15 @@ amazonaws_email.VerifyEmailIdentity({
 
 ### CreateConfigurationSetTrackingOptionsResponse
 * CreateConfigurationSetTrackingOptionsResponse `object`: An empty element returned on a successful request.
+
+### CreateCustomVerificationEmailTemplateRequest
+* CreateCustomVerificationEmailTemplateRequest `object`: Represents a request to create a custom verification email template.
+  * FailureRedirectionURL **required** [FailureRedirectionURL](#failureredirectionurl)
+  * FromEmailAddress **required** [FromAddress](#fromaddress)
+  * SuccessRedirectionURL **required** [SuccessRedirectionURL](#successredirectionurl)
+  * TemplateContent **required** [TemplateContent](#templatecontent)
+  * TemplateName **required** [TemplateName](#templatename)
+  * TemplateSubject **required** [Subject](#subject)
 
 ### CreateReceiptFilterRequest
 * CreateReceiptFilterRequest `object`: Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
@@ -1369,6 +1573,29 @@ amazonaws_email.VerifyEmailIdentity({
 ### CustomRedirectDomain
 * CustomRedirectDomain `string`
 
+### CustomVerificationEmailInvalidContentException
+* CustomVerificationEmailInvalidContentException `object`: Indicates that custom verification email template provided content is invalid.
+
+### CustomVerificationEmailTemplate
+* CustomVerificationEmailTemplate `object`: Contains information about a custom verification email template.
+  * FailureRedirectionURL [FailureRedirectionURL](#failureredirectionurl)
+  * FromEmailAddress [FromAddress](#fromaddress)
+  * SuccessRedirectionURL [SuccessRedirectionURL](#successredirectionurl)
+  * TemplateName [TemplateName](#templatename)
+  * TemplateSubject [Subject](#subject)
+
+### CustomVerificationEmailTemplateAlreadyExistsException
+* CustomVerificationEmailTemplateAlreadyExistsException `object`: Indicates that a custom verification email template with the name you specified already exists.
+  * CustomVerificationEmailTemplateName [TemplateName](#templatename)
+
+### CustomVerificationEmailTemplateDoesNotExistException
+* CustomVerificationEmailTemplateDoesNotExistException `object`: Indicates that a custom verification email template with the name you specified does not exist.
+  * CustomVerificationEmailTemplateName [TemplateName](#templatename)
+
+### CustomVerificationEmailTemplates
+* CustomVerificationEmailTemplates `array`
+  * items [CustomVerificationEmailTemplate](#customverificationemailtemplate)
+
 ### DefaultDimensionValue
 * DefaultDimensionValue `string`
 
@@ -1393,6 +1620,10 @@ amazonaws_email.VerifyEmailIdentity({
 
 ### DeleteConfigurationSetTrackingOptionsResponse
 * DeleteConfigurationSetTrackingOptionsResponse `object`: An empty element returned on a successful request.
+
+### DeleteCustomVerificationEmailTemplateRequest
+* DeleteCustomVerificationEmailTemplateRequest `object`: Represents a request to delete an existing custom verification email template.
+  * TemplateName **required** [TemplateName](#templatename)
 
 ### DeleteIdentityPolicyRequest
 * DeleteIdentityPolicyRequest `object`: Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.
@@ -1459,6 +1690,7 @@ amazonaws_email.VerifyEmailIdentity({
 * DescribeConfigurationSetResponse `object`: Represents the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
   * ConfigurationSet [ConfigurationSet](#configurationset)
   * EventDestinations [EventDestinations](#eventdestinations)
+  * ReputationOptions [ReputationOptions](#reputationoptions)
   * TrackingOptions [TrackingOptions](#trackingoptions)
 
 ### DescribeReceiptRuleRequest
@@ -1480,7 +1712,7 @@ amazonaws_email.VerifyEmailIdentity({
   * Rules [ReceiptRulesList](#receiptruleslist)
 
 ### Destination
-* Destination `object`: <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. </p>
+* Destination `object`: <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p> </note>
   * BccAddresses [AddressList](#addresslist)
   * CcAddresses [AddressList](#addresslist)
   * ToAddresses [AddressList](#addresslist)
@@ -1565,6 +1797,33 @@ amazonaws_email.VerifyEmailIdentity({
 
 ### ExtensionFieldValue
 * ExtensionFieldValue `string`
+
+### FailureRedirectionURL
+* FailureRedirectionURL `string`
+
+### FromAddress
+* FromAddress `string`
+
+### FromEmailAddressNotVerifiedException
+* FromEmailAddressNotVerifiedException `object`: Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email. 
+  * FromEmailAddress [FromAddress](#fromaddress)
+
+### GetAccountSendingEnabledResponse
+* GetAccountSendingEnabledResponse `object`: Represents a request to return the email sending status for your Amazon SES account.
+  * Enabled [Enabled](#enabled)
+
+### GetCustomVerificationEmailTemplateRequest
+* GetCustomVerificationEmailTemplateRequest `object`: Represents a request to retrieve an existing custom verification email template.
+  * TemplateName **required** [TemplateName](#templatename)
+
+### GetCustomVerificationEmailTemplateResponse
+* GetCustomVerificationEmailTemplateResponse `object`: The content of the custom verification email template.
+  * FailureRedirectionURL [FailureRedirectionURL](#failureredirectionurl)
+  * FromEmailAddress [FromAddress](#fromaddress)
+  * SuccessRedirectionURL [SuccessRedirectionURL](#successredirectionurl)
+  * TemplateContent [TemplateContent](#templatecontent)
+  * TemplateName [TemplateName](#templatename)
+  * TemplateSubject [Subject](#subject)
 
 ### GetIdentityDkimAttributesRequest
 * GetIdentityDkimAttributesRequest `object`: Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.
@@ -1732,6 +1991,9 @@ amazonaws_email.VerifyEmailIdentity({
 ### LastAttemptDate
 * LastAttemptDate `string`
 
+### LastFreshStart
+* LastFreshStart `string`
+
 ### LimitExceededException
 * LimitExceededException `object`: Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer Guide</a>.
 
@@ -1743,6 +2005,16 @@ amazonaws_email.VerifyEmailIdentity({
 ### ListConfigurationSetsResponse
 * ListConfigurationSetsResponse `object`: A list of configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
   * ConfigurationSets [ConfigurationSets](#configurationsets)
+  * NextToken [NextToken](#nexttoken)
+
+### ListCustomVerificationEmailTemplatesRequest
+* ListCustomVerificationEmailTemplatesRequest `object`: <p>Represents a request to list the existing custom verification email templates for your account.</p> <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+### ListCustomVerificationEmailTemplatesResponse
+* ListCustomVerificationEmailTemplatesResponse `object`: A paginated list of custom verification email templates.
+  * CustomVerificationEmailTemplates [CustomVerificationEmailTemplates](#customverificationemailtemplates)
   * NextToken [NextToken](#nexttoken)
 
 ### ListIdentitiesRequest
@@ -1811,6 +2083,9 @@ amazonaws_email.VerifyEmailIdentity({
 
 ### MaxItems
 * MaxItems `integer`
+
+### MaxResults
+* MaxResults `integer`
 
 ### MaxSendRate
 * MaxSendRate `number`
@@ -1884,6 +2159,9 @@ amazonaws_email.VerifyEmailIdentity({
 ### PolicyNameList
 * PolicyNameList `array`
   * items [PolicyName](#policyname)
+
+### ProductionAccessNotGrantedException
+* ProductionAccessNotGrantedException `object`: Indicates that the account has not been granted production access.
 
 ### PutIdentityPolicyRequest
 * PutIdentityPolicyRequest `object`: Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.
@@ -2001,6 +2279,12 @@ amazonaws_email.VerifyEmailIdentity({
 ### ReportingMta
 * ReportingMta `string`
 
+### ReputationOptions
+* ReputationOptions `object`: Contains information about the reputation settings for a configuration set.
+  * LastFreshStart [LastFreshStart](#lastfreshstart)
+  * ReputationMetricsEnabled [Enabled](#enabled)
+  * SendingEnabled [Enabled](#enabled)
+
 ### RuleDoesNotExistException
 * RuleDoesNotExistException `object`: Indicates that the provided receipt rule does not exist.
   * Name [RuleOrRuleSetName](#ruleorrulesetname)
@@ -2067,6 +2351,16 @@ amazonaws_email.VerifyEmailIdentity({
 ### SendBulkTemplatedEmailResponse
 * SendBulkTemplatedEmailResponse `object`
   * Status **required** [BulkEmailDestinationStatusList](#bulkemaildestinationstatuslist)
+
+### SendCustomVerificationEmailRequest
+* SendCustomVerificationEmailRequest `object`: Represents a request to send a custom verification email to a specified recipient.
+  * ConfigurationSetName [ConfigurationSetName](#configurationsetname)
+  * EmailAddress **required** [Address](#address)
+  * TemplateName **required** [TemplateName](#templatename)
+
+### SendCustomVerificationEmailResponse
+* SendCustomVerificationEmailResponse `object`: The response received when attempting to send the custom verification email.
+  * MessageId [MessageId](#messageid)
 
 ### SendDataPoint
 * SendDataPoint `object`: Represents sending statistics data. Each <code>SendDataPoint</code> contains statistics for a 15-minute period of sending activity. 
@@ -2199,8 +2493,14 @@ amazonaws_email.VerifyEmailIdentity({
 ### StopScope
 * StopScope `string` (values: RuleSet)
 
+### Subject
+* Subject `string`
+
 ### SubjectPart
 * SubjectPart `string`
+
+### SuccessRedirectionURL
+* SuccessRedirectionURL `string`
 
 ### Template
 * Template `object`: The content of the email, composed of a subject line, an HTML part, and a text-only part.
@@ -2208,6 +2508,9 @@ amazonaws_email.VerifyEmailIdentity({
   * SubjectPart [SubjectPart](#subjectpart)
   * TemplateName **required** [TemplateName](#templatename)
   * TextPart [TextPart](#textpart)
+
+### TemplateContent
+* TemplateContent `string`
 
 ### TemplateData
 * TemplateData `string`
@@ -2217,7 +2520,7 @@ amazonaws_email.VerifyEmailIdentity({
   * TemplateName [TemplateName](#templatename)
 
 ### TemplateMetadata
-* TemplateMetadata `object`: Information about an email template.
+* TemplateMetadata `object`: Contains information about an email template.
   * CreatedTimestamp [Timestamp](#timestamp)
   * Name [TemplateName](#templatename)
 
@@ -2258,6 +2561,10 @@ amazonaws_email.VerifyEmailIdentity({
 * TrackingOptionsDoesNotExistException `object`: Indicates that the TrackingOptions object you specified does not exist.
   * ConfigurationSetName [ConfigurationSetName](#configurationsetname)
 
+### UpdateAccountSendingEnabledRequest
+* UpdateAccountSendingEnabledRequest `object`: Represents a request to enable or disable the email sending capabilities for your entire Amazon SES account.
+  * Enabled [Enabled](#enabled)
+
 ### UpdateConfigurationSetEventDestinationRequest
 * UpdateConfigurationSetEventDestinationRequest `object`: Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
   * ConfigurationSetName **required** [ConfigurationSetName](#configurationsetname)
@@ -2266,6 +2573,16 @@ amazonaws_email.VerifyEmailIdentity({
 ### UpdateConfigurationSetEventDestinationResponse
 * UpdateConfigurationSetEventDestinationResponse `object`: An empty element returned on a successful request.
 
+### UpdateConfigurationSetReputationMetricsEnabledRequest
+* UpdateConfigurationSetReputationMetricsEnabledRequest `object`: Represents a request to modify the reputation metric publishing settings for a configuration set.
+  * ConfigurationSetName **required** [ConfigurationSetName](#configurationsetname)
+  * Enabled **required** [Enabled](#enabled)
+
+### UpdateConfigurationSetSendingEnabledRequest
+* UpdateConfigurationSetSendingEnabledRequest `object`: Represents a request to enable or disable the email sending capabilities for a specific configuration set.
+  * ConfigurationSetName **required** [ConfigurationSetName](#configurationsetname)
+  * Enabled **required** [Enabled](#enabled)
+
 ### UpdateConfigurationSetTrackingOptionsRequest
 * UpdateConfigurationSetTrackingOptionsRequest `object`: Represents a request to update the tracking options for a configuration set. 
   * ConfigurationSetName **required** [ConfigurationSetName](#configurationsetname)
@@ -2273,6 +2590,15 @@ amazonaws_email.VerifyEmailIdentity({
 
 ### UpdateConfigurationSetTrackingOptionsResponse
 * UpdateConfigurationSetTrackingOptionsResponse `object`: An empty element returned on a successful request.
+
+### UpdateCustomVerificationEmailTemplateRequest
+* UpdateCustomVerificationEmailTemplateRequest `object`: Represents a request to update an existing custom verification email template.
+  * FailureRedirectionURL [FailureRedirectionURL](#failureredirectionurl)
+  * FromEmailAddress [FromAddress](#fromaddress)
+  * SuccessRedirectionURL [SuccessRedirectionURL](#successredirectionurl)
+  * TemplateContent [TemplateContent](#templatecontent)
+  * TemplateName **required** [TemplateName](#templatename)
+  * TemplateSubject [Subject](#subject)
 
 ### UpdateReceiptRuleRequest
 * UpdateReceiptRuleRequest `object`: Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.

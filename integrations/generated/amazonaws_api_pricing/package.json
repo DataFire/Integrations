@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_api_pricing",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS Price List Service",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/api.pricing/2017-10-15/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/pricing/2017-10-15/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

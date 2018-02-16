@@ -683,7 +683,7 @@ amazonaws_inspector.UpdateAssessmentTarget({
   * agentHealths **required** [AgentHealthList](#agenthealthlist)
 
 ### AgentHealth
-* AgentHealth `string` (values: HEALTHY, UNHEALTHY)
+* AgentHealth `string` (values: HEALTHY, UNHEALTHY, UNKNOWN)
 
 ### AgentHealthCode
 * AgentHealthCode `string` (values: IDLE, RUNNING, SHUTDOWN, UNHEALTHY, THROTTLED, UNKNOWN)
@@ -705,12 +705,21 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### AgentPreview
 * AgentPreview `object`: Used as a response element in the <a>PreviewAgents</a> action.
+  * agentHealth [AgentHealth](#agenthealth)
   * agentId **required** [AgentId](#agentid)
+  * agentVersion [AgentVersion](#agentversion)
   * autoScalingGroup [AutoScalingGroup](#autoscalinggroup)
+  * hostname [Hostname](#hostname)
+  * ipv4Address [Ipv4Address](#ipv4address)
+  * kernelVersion [KernelVersion](#kernelversion)
+  * operatingSystem [OperatingSystem](#operatingsystem)
 
 ### AgentPreviewList
 * AgentPreviewList `array`
   * items [AgentPreview](#agentpreview)
+
+### AgentVersion
+* AgentVersion `string`
 
 ### AgentsAlreadyRunningAssessmentException
 * AgentsAlreadyRunningAssessmentException `object`: You started an assessment run, but one of the instances is already participating in another assessment run.
@@ -724,6 +733,9 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### Arn
 * Arn `string`
+
+### ArnCount
+* ArnCount `integer`
 
 ### AssessmentRulesPackageArnList
 * AssessmentRulesPackageArnList `array`
@@ -852,9 +864,11 @@ amazonaws_inspector.UpdateAssessmentTarget({
 ### AssessmentTemplate
 * AssessmentTemplate `object`: Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the <a>DescribeAssessmentTemplates</a> action.
   * arn **required** [Arn](#arn)
+  * assessmentRunCount **required** [ArnCount](#arncount)
   * assessmentTargetArn **required** [Arn](#arn)
   * createdAt **required** [Timestamp](#timestamp)
   * durationInSeconds **required** [AssessmentRunDuration](#assessmentrunduration)
+  * lastAssessmentRunArn [Arn](#arn)
   * name **required** [AssessmentTemplateName](#assessmenttemplatename)
   * rulesPackageArns **required** [AssessmentTemplateRulesPackageArnList](#assessmenttemplaterulespackagearnlist)
   * userAttributesForFindings **required** [UserAttributeList](#userattributelist)
@@ -1161,6 +1175,9 @@ amazonaws_inspector.UpdateAssessmentTarget({
 * Ipv4AddressList `array`
   * items [Ipv4Address](#ipv4address)
 
+### KernelVersion
+* KernelVersion `string`
+
 ### LimitExceededErrorCode
 * LimitExceededErrorCode `string` (values: ASSESSMENT_TARGET_LIMIT_EXCEEDED, ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED, ASSESSMENT_RUN_LIMIT_EXCEEDED, RESOURCE_GROUP_LIMIT_EXCEEDED, EVENT_SUBSCRIPTION_LIMIT_EXCEEDED)
 
@@ -1301,6 +1318,9 @@ amazonaws_inspector.UpdateAssessmentTarget({
 
 ### NumericVersion
 * NumericVersion `integer`
+
+### OperatingSystem
+* OperatingSystem `string`
 
 ### PaginationToken
 * PaginationToken `string`

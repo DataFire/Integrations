@@ -40,6 +40,7 @@ amazonaws_xray.GetServiceGraph({
 
 #### Input
 * input `object`
+  * NextToken `string`
   * EndTime **required** [Timestamp](#timestamp)
   * NextToken [String](#string)
   * StartTime **required** [Timestamp](#timestamp)
@@ -59,9 +60,9 @@ amazonaws_xray.PutTelemetryRecords({
 
 #### Input
 * input `object`
-  * EC2InstanceId [String](#string)
-  * Hostname [String](#string)
-  * ResourceARN [String](#string)
+  * EC2InstanceId [EC2InstanceId](#ec2instanceid)
+  * Hostname [Hostname](#hostname)
+  * ResourceARN [ResourceARN](#resourcearn)
   * TelemetryRecords **required** [TelemetryRecordList](#telemetryrecordlist)
 
 #### Output
@@ -79,6 +80,7 @@ amazonaws_xray.GetTraceGraph({
 
 #### Input
 * input `object`
+  * NextToken `string`
   * NextToken [String](#string)
   * TraceIds **required** [TraceIdList](#traceidlist)
 
@@ -115,6 +117,7 @@ amazonaws_xray.GetTraceSummaries({
 
 #### Input
 * input `object`
+  * NextToken `string`
   * EndTime **required** [Timestamp](#timestamp)
   * FilterExpression [FilterExpression](#filterexpression)
   * NextToken [String](#string)
@@ -136,6 +139,7 @@ amazonaws_xray.BatchGetTraces({
 
 #### Input
 * input `object`
+  * NextToken `string`
   * NextToken [String](#string)
   * TraceIds **required** [TraceIdList](#traceidlist)
 
@@ -198,6 +202,9 @@ amazonaws_xray.BatchGetTraces({
 ### Double
 * Double `number`
 
+### EC2InstanceId
+* EC2InstanceId `string`
+
 ### Edge
 * Edge `object`: Information about a connection between two services.
   * Aliases [AliasList](#aliaslist)
@@ -218,6 +225,9 @@ amazonaws_xray.BatchGetTraces({
   * OkCount [NullableLong](#nullablelong)
   * TotalCount [NullableLong](#nullablelong)
   * TotalResponseTime [NullableDouble](#nullabledouble)
+
+### ErrorMessage
+* ErrorMessage `string`
 
 ### ErrorStatistics
 * ErrorStatistics `object`: Information about requests that failed with a 4xx Client Error status code.
@@ -280,6 +290,9 @@ amazonaws_xray.BatchGetTraces({
   * Count [Integer](#integer)
   * Value [Double](#double)
 
+### Hostname
+* Hostname `string`
+
 ### Http
 * Http `object`: Information about an HTTP request.
   * ClientIp [String](#string)
@@ -293,6 +306,7 @@ amazonaws_xray.BatchGetTraces({
 
 ### InvalidRequestException
 * InvalidRequestException `object`: The request is missing required parameters or has invalid parameters.
+  * Message [ErrorMessage](#errormessage)
 
 ### NullableBoolean
 * NullableBoolean `boolean`
@@ -308,9 +322,9 @@ amazonaws_xray.BatchGetTraces({
 
 ### PutTelemetryRecordsRequest
 * PutTelemetryRecordsRequest `object`
-  * EC2InstanceId [String](#string)
-  * Hostname [String](#string)
-  * ResourceARN [String](#string)
+  * EC2InstanceId [EC2InstanceId](#ec2instanceid)
+  * Hostname [Hostname](#hostname)
+  * ResourceARN [ResourceARN](#resourcearn)
   * TelemetryRecords **required** [TelemetryRecordList](#telemetryrecordlist)
 
 ### PutTelemetryRecordsResult
@@ -323,6 +337,9 @@ amazonaws_xray.BatchGetTraces({
 ### PutTraceSegmentsResult
 * PutTraceSegmentsResult `object`
   * UnprocessedTraceSegments [UnprocessedTraceSegmentList](#unprocessedtracesegmentlist)
+
+### ResourceARN
+* ResourceARN `string`
 
 ### Segment
 * Segment `object`: A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with <a>PutTraceSegments</a>, or an <code>inferred</code> segment for a downstream service, generated from a subsegment sent by the service that called it.
@@ -392,7 +409,7 @@ amazonaws_xray.BatchGetTraces({
   * SegmentsRejectedCount [NullableInteger](#nullableinteger)
   * SegmentsSentCount [NullableInteger](#nullableinteger)
   * SegmentsSpilloverCount [NullableInteger](#nullableinteger)
-  * Timestamp [Timestamp](#timestamp)
+  * Timestamp **required** [Timestamp](#timestamp)
 
 ### TelemetryRecordList
 * TelemetryRecordList `array`
@@ -400,6 +417,7 @@ amazonaws_xray.BatchGetTraces({
 
 ### ThrottledException
 * ThrottledException `object`: The request exceeds the maximum number of requests per second.
+  * Message [ErrorMessage](#errormessage)
 
 ### Timestamp
 * Timestamp `string`

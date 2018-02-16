@@ -50,6 +50,23 @@ amazonaws_elastictranscoder.CreateJob({
 #### Output
 *Output schema unknown*
 
+### CancelJob
+
+
+
+```js
+amazonaws_elastictranscoder.CancelJob({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### ReadJob
 
 
@@ -117,6 +134,66 @@ amazonaws_elastictranscoder.ListPipelines({}, context)
 
 #### Output
 * output [ListPipelinesResponse](#listpipelinesresponse)
+
+### CreatePipeline
+
+
+
+```js
+amazonaws_elastictranscoder.CreatePipeline({
+  "Name": "",
+  "InputBucket": "",
+  "Role": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AwsKmsKeyArn [KeyArn](#keyarn)
+  * ContentConfig [PipelineOutputConfig](#pipelineoutputconfig)
+  * InputBucket **required** [BucketName](#bucketname)
+  * Name **required** [Name](#name)
+  * Notifications [Notifications](#notifications)
+  * OutputBucket [BucketName](#bucketname)
+  * Role **required** [Role](#role)
+  * ThumbnailConfig [PipelineOutputConfig](#pipelineoutputconfig)
+
+#### Output
+*Output schema unknown*
+
+### DeletePipeline
+
+
+
+```js
+amazonaws_elastictranscoder.DeletePipeline({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### ReadPipeline
+
+
+
+```js
+amazonaws_elastictranscoder.ReadPipeline({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [ReadPipelineResponse](#readpipelineresponse)
 
 ### UpdatePipeline
 
@@ -194,6 +271,46 @@ amazonaws_elastictranscoder.ListPresets({}, context)
 
 #### Output
 * output [ListPresetsResponse](#listpresetsresponse)
+
+### CreatePreset
+
+
+
+```js
+amazonaws_elastictranscoder.CreatePreset({
+  "Name": "",
+  "Container": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Audio [AudioParameters](#audioparameters)
+  * Container **required** [PresetContainer](#presetcontainer)
+  * Description [Description](#description)
+  * Name **required** [Name](#name)
+  * Thumbnails [Thumbnails](#thumbnails)
+  * Video [VideoParameters](#videoparameters)
+
+#### Output
+*Output schema unknown*
+
+### DeletePreset
+
+
+
+```js
+amazonaws_elastictranscoder.DeletePreset({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ReadPreset
 

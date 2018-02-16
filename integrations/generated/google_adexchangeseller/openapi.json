@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Accesses the inventory of Ad Exchange seller users and generates reports.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Ad Exchange Seller",
     "version": "v2.0",
     "x-apiClientRegistration": {
@@ -44,12 +49,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
         "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
+        "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -152,10 +168,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -213,10 +235,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -288,10 +316,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -370,10 +404,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -445,10 +485,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -527,10 +573,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -594,10 +646,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -655,10 +713,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -716,10 +780,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -777,10 +847,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -845,10 +921,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -894,20 +976,6 @@
             "type": "string"
           },
           {
-            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "startDate",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "endDate",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Dimensions to base the report on.",
             "in": "query",
@@ -916,6 +984,13 @@
             },
             "name": "dimension",
             "type": "array"
+          },
+          {
+            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -962,6 +1037,13 @@
             "type": "array"
           },
           {
+            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Index of the first row of report data to return.",
             "in": "query",
             "maximum": 5000,
@@ -982,10 +1064,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -1057,10 +1145,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }
@@ -1106,13 +1200,6 @@
             "type": "string"
           },
           {
-            "description": "The saved report to retrieve.",
-            "in": "path",
-            "name": "savedReportId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Optional locale to use for translating report output to a local language. Defaults to \"en_US\" if not specified.",
             "in": "query",
             "name": "locale",
@@ -1125,6 +1212,13 @@
             "minimum": 0,
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The saved report to retrieve.",
+            "in": "path",
+            "name": "savedReportId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Index of the first row of report data to return.",
@@ -1147,10 +1241,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.seller"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.seller"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.seller.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.seller.readonly"
             ]
           }

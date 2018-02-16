@@ -64,6 +64,44 @@ amazonaws_dynamodb.BatchWriteItem({
 #### Output
 * output [BatchWriteItemOutput](#batchwriteitemoutput)
 
+### CreateBackup
+
+
+
+```js
+amazonaws_dynamodb.CreateBackup({
+  "TableName": "",
+  "BackupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupName **required** [BackupName](#backupname)
+  * TableName **required** [TableName](#tablename)
+
+#### Output
+* output [CreateBackupOutput](#createbackupoutput)
+
+### CreateGlobalTable
+
+
+
+```js
+amazonaws_dynamodb.CreateGlobalTable({
+  "GlobalTableName": "",
+  "ReplicationGroup": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalTableName **required** [TableName](#tablename)
+  * ReplicationGroup **required** [ReplicaList](#replicalist)
+
+#### Output
+* output [CreateGlobalTableOutput](#createglobaltableoutput)
+
 ### CreateTable
 
 
@@ -87,11 +125,29 @@ amazonaws_dynamodb.CreateTable({
   * KeySchema **required** [KeySchema](#keyschema)
   * LocalSecondaryIndexes [LocalSecondaryIndexList](#localsecondaryindexlist)
   * ProvisionedThroughput **required** [ProvisionedThroughput](#provisionedthroughput)
+  * SSESpecification [SSESpecification](#ssespecification)
   * StreamSpecification [StreamSpecification](#streamspecification)
   * TableName **required** [TableName](#tablename)
 
 #### Output
 * output [CreateTableOutput](#createtableoutput)
+
+### DeleteBackup
+
+
+
+```js
+amazonaws_dynamodb.DeleteBackup({
+  "BackupArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupArn **required** [BackupArn](#backuparn)
+
+#### Output
+* output [DeleteBackupOutput](#deletebackupoutput)
 
 ### DeleteItem
 
@@ -136,6 +192,57 @@ amazonaws_dynamodb.DeleteTable({
 
 #### Output
 * output [DeleteTableOutput](#deletetableoutput)
+
+### DescribeBackup
+
+
+
+```js
+amazonaws_dynamodb.DescribeBackup({
+  "BackupArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupArn **required** [BackupArn](#backuparn)
+
+#### Output
+* output [DescribeBackupOutput](#describebackupoutput)
+
+### DescribeContinuousBackups
+
+
+
+```js
+amazonaws_dynamodb.DescribeContinuousBackups({
+  "TableName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TableName **required** [TableName](#tablename)
+
+#### Output
+* output [DescribeContinuousBackupsOutput](#describecontinuousbackupsoutput)
+
+### DescribeGlobalTable
+
+
+
+```js
+amazonaws_dynamodb.DescribeGlobalTable({
+  "GlobalTableName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalTableName **required** [TableName](#tablename)
+
+#### Output
+* output [DescribeGlobalTableOutput](#describeglobaltableoutput)
 
 ### DescribeLimits
 
@@ -208,6 +315,42 @@ amazonaws_dynamodb.GetItem({
 
 #### Output
 * output [GetItemOutput](#getitemoutput)
+
+### ListBackups
+
+
+
+```js
+amazonaws_dynamodb.ListBackups({}, context)
+```
+
+#### Input
+* input `object`
+  * ExclusiveStartBackupArn [BackupArn](#backuparn)
+  * Limit [BackupsInputLimit](#backupsinputlimit)
+  * TableName [TableName](#tablename)
+  * TimeRangeLowerBound [TimeRangeLowerBound](#timerangelowerbound)
+  * TimeRangeUpperBound [TimeRangeUpperBound](#timerangeupperbound)
+
+#### Output
+* output [ListBackupsOutput](#listbackupsoutput)
+
+### ListGlobalTables
+
+
+
+```js
+amazonaws_dynamodb.ListGlobalTables({}, context)
+```
+
+#### Input
+* input `object`
+  * ExclusiveStartGlobalTableName [TableName](#tablename)
+  * Limit [PositiveIntegerObject](#positiveintegerobject)
+  * RegionName [RegionName](#regionname)
+
+#### Output
+* output [ListGlobalTablesOutput](#listglobaltablesoutput)
 
 ### ListTables
 
@@ -307,6 +450,25 @@ amazonaws_dynamodb.Query({
 #### Output
 * output [QueryOutput](#queryoutput)
 
+### RestoreTableFromBackup
+
+
+
+```js
+amazonaws_dynamodb.RestoreTableFromBackup({
+  "TargetTableName": "",
+  "BackupArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BackupArn **required** [BackupArn](#backuparn)
+  * TargetTableName **required** [TableName](#tablename)
+
+#### Output
+* output [RestoreTableFromBackupOutput](#restoretablefrombackupoutput)
+
 ### Scan
 
 
@@ -378,6 +540,25 @@ amazonaws_dynamodb.UntagResource({
 
 #### Output
 *Output schema unknown*
+
+### UpdateGlobalTable
+
+
+
+```js
+amazonaws_dynamodb.UpdateGlobalTable({
+  "GlobalTableName": "",
+  "ReplicaUpdates": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalTableName **required** [TableName](#tablename)
+  * ReplicaUpdates **required** [ReplicaUpdateList](#replicaupdatelist)
+
+#### Output
+* output [UpdateGlobalTableOutput](#updateglobaltableoutput)
 
 ### UpdateItem
 
@@ -511,6 +692,61 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### Backfilling
 * Backfilling `boolean`
 
+### BackupArn
+* BackupArn `string`
+
+### BackupCreationDateTime
+* BackupCreationDateTime `string`
+
+### BackupDescription
+* BackupDescription `object`: Contains the description of the backup created for the table.
+  * BackupDetails [BackupDetails](#backupdetails)
+  * SourceTableDetails [SourceTableDetails](#sourcetabledetails)
+  * SourceTableFeatureDetails [SourceTableFeatureDetails](#sourcetablefeaturedetails)
+
+### BackupDetails
+* BackupDetails `object`: Contains the details of the backup created for the table.
+  * BackupArn **required** [BackupArn](#backuparn)
+  * BackupCreationDateTime **required** [BackupCreationDateTime](#backupcreationdatetime)
+  * BackupName **required** [BackupName](#backupname)
+  * BackupSizeBytes [BackupSizeBytes](#backupsizebytes)
+  * BackupStatus **required** [BackupStatus](#backupstatus)
+
+### BackupInUseException
+* BackupInUseException `object`: There is another ongoing conflicting backup control plane operation on the table. The backups is either being created, deleted or restored to a table.
+  * message [ErrorMessage](#errormessage)
+
+### BackupName
+* BackupName `string`
+
+### BackupNotFoundException
+* BackupNotFoundException `object`: Backup not found for the given BackupARN. 
+  * message [ErrorMessage](#errormessage)
+
+### BackupSizeBytes
+* BackupSizeBytes `integer`
+
+### BackupStatus
+* BackupStatus `string` (values: CREATING, DELETED, AVAILABLE)
+
+### BackupSummaries
+* BackupSummaries `array`
+  * items [BackupSummary](#backupsummary)
+
+### BackupSummary
+* BackupSummary `object`: Contains details for the backup.
+  * BackupArn [BackupArn](#backuparn)
+  * BackupCreationDateTime [BackupCreationDateTime](#backupcreationdatetime)
+  * BackupName [BackupName](#backupname)
+  * BackupSizeBytes [BackupSizeBytes](#backupsizebytes)
+  * BackupStatus [BackupStatus](#backupstatus)
+  * TableArn [TableArn](#tablearn)
+  * TableId [TableId](#tableid)
+  * TableName [TableName](#tablename)
+
+### BackupsInputLimit
+* BackupsInputLimit `integer`
+
 ### BatchGetItemInput
 * BatchGetItemInput `object`: Represents the input of a <code>BatchGetItem</code> operation.
   * RequestItems **required** [BatchGetRequestMap](#batchgetrequestmap)
@@ -605,12 +841,45 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### ConsumedCapacityUnits
 * ConsumedCapacityUnits `number`
 
+### ContinuousBackupsDescription
+* ContinuousBackupsDescription `object`: Represents the backup and restore settings on the table when the backup was created.
+  * ContinuousBackupsStatus **required** [ContinuousBackupsStatus](#continuousbackupsstatus)
+
+### ContinuousBackupsStatus
+* ContinuousBackupsStatus `string` (values: ENABLED, DISABLED)
+
+### ContinuousBackupsUnavailableException
+* ContinuousBackupsUnavailableException `object`: Backups have not yet been enabled for this table.
+  * message [ErrorMessage](#errormessage)
+
+### CreateBackupInput
+* CreateBackupInput `object`
+  * BackupName **required** [BackupName](#backupname)
+  * TableName **required** [TableName](#tablename)
+
+### CreateBackupOutput
+* CreateBackupOutput `object`
+  * BackupDetails [BackupDetails](#backupdetails)
+
 ### CreateGlobalSecondaryIndexAction
 * CreateGlobalSecondaryIndexAction `object`: Represents a new global secondary index to be added to an existing table.
   * IndexName **required** [IndexName](#indexname)
   * KeySchema **required** [KeySchema](#keyschema)
   * Projection **required** [Projection](#projection)
   * ProvisionedThroughput **required** [ProvisionedThroughput](#provisionedthroughput)
+
+### CreateGlobalTableInput
+* CreateGlobalTableInput `object`
+  * GlobalTableName **required** [TableName](#tablename)
+  * ReplicationGroup **required** [ReplicaList](#replicalist)
+
+### CreateGlobalTableOutput
+* CreateGlobalTableOutput `object`
+  * GlobalTableDescription [GlobalTableDescription](#globaltabledescription)
+
+### CreateReplicaAction
+* CreateReplicaAction `object`: Represents a replica to be added.
+  * RegionName **required** [RegionName](#regionname)
 
 ### CreateTableInput
 * CreateTableInput `object`: Represents the input of a <code>CreateTable</code> operation.
@@ -619,6 +888,7 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * KeySchema **required** [KeySchema](#keyschema)
   * LocalSecondaryIndexes [LocalSecondaryIndexList](#localsecondaryindexlist)
   * ProvisionedThroughput **required** [ProvisionedThroughput](#provisionedthroughput)
+  * SSESpecification [SSESpecification](#ssespecification)
   * StreamSpecification [StreamSpecification](#streamspecification)
   * TableName **required** [TableName](#tablename)
 
@@ -628,6 +898,14 @@ amazonaws_dynamodb.UpdateTimeToLive({
 
 ### Date
 * Date `string`
+
+### DeleteBackupInput
+* DeleteBackupInput `object`
+  * BackupArn **required** [BackupArn](#backuparn)
+
+### DeleteBackupOutput
+* DeleteBackupOutput `object`
+  * BackupDescription [BackupDescription](#backupdescription)
 
 ### DeleteGlobalSecondaryIndexAction
 * DeleteGlobalSecondaryIndexAction `object`: Represents a global secondary index to be deleted from an existing table.
@@ -652,6 +930,10 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * ConsumedCapacity [ConsumedCapacity](#consumedcapacity)
   * ItemCollectionMetrics [ItemCollectionMetrics](#itemcollectionmetrics)
 
+### DeleteReplicaAction
+* DeleteReplicaAction `object`: Represents a replica to be removed.
+  * RegionName **required** [RegionName](#regionname)
+
 ### DeleteRequest
 * DeleteRequest `object`: Represents a request to perform a <code>DeleteItem</code> operation on an item.
   * Key **required** [Key](#key)
@@ -663,6 +945,30 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### DeleteTableOutput
 * DeleteTableOutput `object`: Represents the output of a <code>DeleteTable</code> operation.
   * TableDescription [TableDescription](#tabledescription)
+
+### DescribeBackupInput
+* DescribeBackupInput `object`
+  * BackupArn **required** [BackupArn](#backuparn)
+
+### DescribeBackupOutput
+* DescribeBackupOutput `object`
+  * BackupDescription [BackupDescription](#backupdescription)
+
+### DescribeContinuousBackupsInput
+* DescribeContinuousBackupsInput `object`
+  * TableName **required** [TableName](#tablename)
+
+### DescribeContinuousBackupsOutput
+* DescribeContinuousBackupsOutput `object`
+  * ContinuousBackupsDescription [ContinuousBackupsDescription](#continuousbackupsdescription)
+
+### DescribeGlobalTableInput
+* DescribeGlobalTableInput `object`
+  * GlobalTableName **required** [TableName](#tablename)
+
+### DescribeGlobalTableOutput
+* DescribeGlobalTableOutput `object`
+  * GlobalTableDescription [GlobalTableDescription](#globaltabledescription)
 
 ### DescribeLimitsInput
 * DescribeLimitsInput `object`: Represents the input of a <code>DescribeLimits</code> operation. Has no content.
@@ -768,6 +1074,13 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * GlobalSecondaryIndexDescriptionList `array`
   * items [GlobalSecondaryIndexDescription](#globalsecondaryindexdescription)
 
+### GlobalSecondaryIndexInfo
+* GlobalSecondaryIndexInfo `object`: Represents the properties of a global secondary index for the table when the backup was created.
+  * IndexName [IndexName](#indexname)
+  * KeySchema [KeySchema](#keyschema)
+  * Projection [Projection](#projection)
+  * ProvisionedThroughput [ProvisionedThroughput](#provisionedthroughput)
+
 ### GlobalSecondaryIndexList
 * GlobalSecondaryIndexList `array`
   * items [GlobalSecondaryIndex](#globalsecondaryindex)
@@ -781,6 +1094,41 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### GlobalSecondaryIndexUpdateList
 * GlobalSecondaryIndexUpdateList `array`
   * items [GlobalSecondaryIndexUpdate](#globalsecondaryindexupdate)
+
+### GlobalSecondaryIndexes
+* GlobalSecondaryIndexes `array`
+  * items [GlobalSecondaryIndexInfo](#globalsecondaryindexinfo)
+
+### GlobalTable
+* GlobalTable `object`: Represents the properties of a global table.
+  * GlobalTableName [TableName](#tablename)
+  * ReplicationGroup [ReplicaList](#replicalist)
+
+### GlobalTableAlreadyExistsException
+* GlobalTableAlreadyExistsException `object`: The specified global table already exists.
+  * message [ErrorMessage](#errormessage)
+
+### GlobalTableArnString
+* GlobalTableArnString `string`
+
+### GlobalTableDescription
+* GlobalTableDescription `object`: Contains details about the global table.
+  * CreationDateTime [Date](#date)
+  * GlobalTableArn [GlobalTableArnString](#globaltablearnstring)
+  * GlobalTableName [TableName](#tablename)
+  * GlobalTableStatus [GlobalTableStatus](#globaltablestatus)
+  * ReplicationGroup [ReplicaDescriptionList](#replicadescriptionlist)
+
+### GlobalTableList
+* GlobalTableList `array`
+  * items [GlobalTable](#globaltable)
+
+### GlobalTableNotFoundException
+* GlobalTableNotFoundException `object`: The specified global table does not exist.
+  * message [ErrorMessage](#errormessage)
+
+### GlobalTableStatus
+* GlobalTableStatus `string` (values: CREATING, ACTIVE, DELETING, UPDATING)
 
 ### IndexName
 * IndexName `string`
@@ -826,6 +1174,9 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### ItemCollectionSizeLimitExceededException
 * ItemCollectionSizeLimitExceededException `object`: An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
   * message [ErrorMessage](#errormessage)
+
+### ItemCount
+* ItemCount `integer`
 
 ### ItemList
 * ItemList `array`
@@ -874,12 +1225,36 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * ProjectionExpression [ProjectionExpression](#projectionexpression)
 
 ### LimitExceededException
-* LimitExceededException `object`: <p>The number of concurrent table requests (cumulative number of tables in the <code>CREATING</code>, <code>DELETING</code> or <code>UPDATING</code> state) exceeds the maximum allowed of 10.</p> <p>Also, for tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p>
+* LimitExceededException `object`: <p>Up to 50 <code>CreateBackup</code> operations are allowed per second, per account. There is no limit to the number of daily on-demand backups that can be taken. </p> <p>Up to 10 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, and <code>RestoreTableFromBackup</code>. </p> <p>For tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p> <p>For tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p>
   * message [ErrorMessage](#errormessage)
 
 ### ListAttributeValue
 * ListAttributeValue `array`
   * items [AttributeValue](#attributevalue)
+
+### ListBackupsInput
+* ListBackupsInput `object`
+  * ExclusiveStartBackupArn [BackupArn](#backuparn)
+  * Limit [BackupsInputLimit](#backupsinputlimit)
+  * TableName [TableName](#tablename)
+  * TimeRangeLowerBound [TimeRangeLowerBound](#timerangelowerbound)
+  * TimeRangeUpperBound [TimeRangeUpperBound](#timerangeupperbound)
+
+### ListBackupsOutput
+* ListBackupsOutput `object`
+  * BackupSummaries [BackupSummaries](#backupsummaries)
+  * LastEvaluatedBackupArn [BackupArn](#backuparn)
+
+### ListGlobalTablesInput
+* ListGlobalTablesInput `object`
+  * ExclusiveStartGlobalTableName [TableName](#tablename)
+  * Limit [PositiveIntegerObject](#positiveintegerobject)
+  * RegionName [RegionName](#regionname)
+
+### ListGlobalTablesOutput
+* ListGlobalTablesOutput `object`
+  * GlobalTables [GlobalTableList](#globaltablelist)
+  * LastEvaluatedGlobalTableName [TableName](#tablename)
 
 ### ListTablesInput
 * ListTablesInput `object`: Represents the input of a <code>ListTables</code> operation.
@@ -923,9 +1298,19 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * LocalSecondaryIndexDescriptionList `array`
   * items [LocalSecondaryIndexDescription](#localsecondaryindexdescription)
 
+### LocalSecondaryIndexInfo
+* LocalSecondaryIndexInfo `object`: Represents the properties of a local secondary index for the table when the backup was created.
+  * IndexName [IndexName](#indexname)
+  * KeySchema [KeySchema](#keyschema)
+  * Projection [Projection](#projection)
+
 ### LocalSecondaryIndexList
 * LocalSecondaryIndexList `array`
   * items [LocalSecondaryIndex](#localsecondaryindex)
+
+### LocalSecondaryIndexes
+* LocalSecondaryIndexes `array`
+  * items [LocalSecondaryIndexInfo](#localsecondaryindexinfo)
 
 ### Long
 * Long `integer`
@@ -1047,6 +1432,42 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * LastEvaluatedKey [Key](#key)
   * ScannedCount [Integer](#integer)
 
+### RegionName
+* RegionName `string`
+
+### Replica
+* Replica `object`: Represents the properties of a replica.
+  * RegionName [RegionName](#regionname)
+
+### ReplicaAlreadyExistsException
+* ReplicaAlreadyExistsException `object`: The specified replica is already part of the global table.
+  * message [ErrorMessage](#errormessage)
+
+### ReplicaDescription
+* ReplicaDescription `object`: Contains the details of the replica.
+  * RegionName [RegionName](#regionname)
+
+### ReplicaDescriptionList
+* ReplicaDescriptionList `array`
+  * items [ReplicaDescription](#replicadescription)
+
+### ReplicaList
+* ReplicaList `array`
+  * items [Replica](#replica)
+
+### ReplicaNotFoundException
+* ReplicaNotFoundException `object`: The specified replica is no longer part of the global table.
+  * message [ErrorMessage](#errormessage)
+
+### ReplicaUpdate
+* ReplicaUpdate `object`: <p>Represents one of the following:</p> <ul> <li> <p>A new replica to be added to an existing global table.</p> </li> <li> <p>New parameters for an existing replica.</p> </li> <li> <p>An existing replica to be removed from an existing global table.</p> </li> </ul>
+  * Create [CreateReplicaAction](#createreplicaaction)
+  * Delete [DeleteReplicaAction](#deletereplicaaction)
+
+### ReplicaUpdateList
+* ReplicaUpdateList `array`
+  * items [ReplicaUpdate](#replicaupdate)
+
 ### ResourceArnString
 * ResourceArnString `string`
 
@@ -1058,6 +1479,28 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * ResourceNotFoundException `object`: The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.
   * message [ErrorMessage](#errormessage)
 
+### RestoreDateTime
+* RestoreDateTime `string`
+
+### RestoreInProgress
+* RestoreInProgress `boolean`
+
+### RestoreSummary
+* RestoreSummary `object`: Contains details for the restore.
+  * RestoreDateTime **required** [RestoreDateTime](#restoredatetime)
+  * RestoreInProgress **required** [RestoreInProgress](#restoreinprogress)
+  * SourceBackupArn [BackupArn](#backuparn)
+  * SourceTableArn [TableArn](#tablearn)
+
+### RestoreTableFromBackupInput
+* RestoreTableFromBackupInput `object`
+  * BackupArn **required** [BackupArn](#backuparn)
+  * TargetTableName **required** [TableName](#tablename)
+
+### RestoreTableFromBackupOutput
+* RestoreTableFromBackupOutput `object`
+  * TableDescription [TableDescription](#tabledescription)
+
 ### ReturnConsumedCapacity
 * ReturnConsumedCapacity `string` (values: INDEXES, TOTAL, NONE): <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p> <ul> <li> <p> <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p> <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p> </li> <li> <p> <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p> </li> <li> <p> <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p> </li> </ul>
 
@@ -1066,6 +1509,20 @@ amazonaws_dynamodb.UpdateTimeToLive({
 
 ### ReturnValue
 * ReturnValue `string` (values: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW)
+
+### SSEDescription
+* SSEDescription `object`: The description of the server-side encryption status on the specified table.
+  * Status [SSEStatus](#ssestatus)
+
+### SSEEnabled
+* SSEEnabled `boolean`
+
+### SSESpecification
+* SSESpecification `object`: Represents the settings used to enable server-side encryption.
+  * Enabled **required** [SSEEnabled](#sseenabled)
+
+### SSEStatus
+* SSEStatus `string` (values: ENABLING, ENABLED, DISABLING, DISABLED)
 
 ### ScalarAttributeType
 * ScalarAttributeType `string` (values: S, N, B)
@@ -1112,6 +1569,25 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### Select
 * Select `string` (values: ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, COUNT)
 
+### SourceTableDetails
+* SourceTableDetails `object`: Contains the details of the table when the backup was created. 
+  * ItemCount [ItemCount](#itemcount)
+  * KeySchema **required** [KeySchema](#keyschema)
+  * ProvisionedThroughput **required** [ProvisionedThroughput](#provisionedthroughput)
+  * TableArn [TableArn](#tablearn)
+  * TableCreationDateTime **required** [TableCreationDateTime](#tablecreationdatetime)
+  * TableId **required** [TableId](#tableid)
+  * TableName **required** [TableName](#tablename)
+  * TableSizeBytes [Long](#long)
+
+### SourceTableFeatureDetails
+* SourceTableFeatureDetails `object`: Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL. 
+  * GlobalSecondaryIndexes [GlobalSecondaryIndexes](#globalsecondaryindexes)
+  * LocalSecondaryIndexes [LocalSecondaryIndexes](#localsecondaryindexes)
+  * SSEDescription [SSEDescription](#ssedescription)
+  * StreamDescription [StreamSpecification](#streamspecification)
+  * TimeToLiveDescription [TimeToLiveDescription](#timetolivedescription)
+
 ### StreamArn
 * StreamArn `string`
 
@@ -1136,6 +1612,16 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * StringSetAttributeValue `array`
   * items [StringAttributeValue](#stringattributevalue)
 
+### TableAlreadyExistsException
+* TableAlreadyExistsException `object`: A table with the name already exists. 
+  * message [ErrorMessage](#errormessage)
+
+### TableArn
+* TableArn `string`
+
+### TableCreationDateTime
+* TableCreationDateTime `string`
+
 ### TableDescription
 * TableDescription `object`: Represents the properties of a table.
   * AttributeDefinitions [AttributeDefinitions](#attributedefinitions)
@@ -1147,11 +1633,21 @@ amazonaws_dynamodb.UpdateTimeToLive({
   * LatestStreamLabel [String](#string)
   * LocalSecondaryIndexes [LocalSecondaryIndexDescriptionList](#localsecondaryindexdescriptionlist)
   * ProvisionedThroughput [ProvisionedThroughputDescription](#provisionedthroughputdescription)
+  * RestoreSummary [RestoreSummary](#restoresummary)
+  * SSEDescription [SSEDescription](#ssedescription)
   * StreamSpecification [StreamSpecification](#streamspecification)
   * TableArn [String](#string)
+  * TableId [TableId](#tableid)
   * TableName [TableName](#tablename)
   * TableSizeBytes [Long](#long)
   * TableStatus [TableStatus](#tablestatus)
+
+### TableId
+* TableId `string`
+
+### TableInUseException
+* TableInUseException `object`: A table by that name is either being created or deleted. 
+  * message [ErrorMessage](#errormessage)
 
 ### TableName
 * TableName `string`
@@ -1159,6 +1655,10 @@ amazonaws_dynamodb.UpdateTimeToLive({
 ### TableNameList
 * TableNameList `array`
   * items [TableName](#tablename)
+
+### TableNotFoundException
+* TableNotFoundException `object`: A table with the name <code>TableName</code> does not currently exist within the subscriber's account.
+  * message [ErrorMessage](#errormessage)
 
 ### TableStatus
 * TableStatus `string` (values: CREATING, UPDATING, DELETING, ACTIVE)
@@ -1186,6 +1686,12 @@ amazonaws_dynamodb.UpdateTimeToLive({
 
 ### TagValueString
 * TagValueString `string`
+
+### TimeRangeLowerBound
+* TimeRangeLowerBound `string`
+
+### TimeRangeUpperBound
+* TimeRangeUpperBound `string`
 
 ### TimeToLiveAttributeName
 * TimeToLiveAttributeName `string`
@@ -1218,6 +1724,15 @@ amazonaws_dynamodb.UpdateTimeToLive({
 * UpdateGlobalSecondaryIndexAction `object`: Represents the new provisioned throughput settings to be applied to a global secondary index.
   * IndexName **required** [IndexName](#indexname)
   * ProvisionedThroughput **required** [ProvisionedThroughput](#provisionedthroughput)
+
+### UpdateGlobalTableInput
+* UpdateGlobalTableInput `object`
+  * GlobalTableName **required** [TableName](#tablename)
+  * ReplicaUpdates **required** [ReplicaUpdateList](#replicaupdatelist)
+
+### UpdateGlobalTableOutput
+* UpdateGlobalTableOutput `object`
+  * GlobalTableDescription [GlobalTableDescription](#globaltabledescription)
 
 ### UpdateItemInput
 * UpdateItemInput `object`: Represents the input of an <code>UpdateItem</code> operation.

@@ -237,43 +237,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -424,43 +424,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -479,6 +479,12 @@
             "in": "path",
             "name": "clusterName",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in progress. Timeout specifies how long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs). Default timeout is 0 (for forceful decommission), and the maximum allowed timeout is 1 day.Only supported on Dataproc image versions 1.2 and higher.",
+            "in": "query",
+            "name": "gracefulDecommissionTimeout",
             "type": "string"
           },
           {
@@ -528,43 +534,43 @@
     "/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:diagnose": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -635,13 +641,13 @@
             "type": "string"
           },
           {
-            "description": "Optional. A filter constraining the jobs to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where field is status.state or labels.[KEY], and [KEY] is a label key. value can be * to match all values. status.state can be either ACTIVE or INACTIVE. Only the logical AND operator is supported; space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE AND labels.env = staging AND labels.starred = *",
+            "description": "Optional. A filter constraining the jobs to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where field is status.state or labels.[KEY], and [KEY] is a label key. value can be * to match all values. status.state can be either ACTIVE or NON_ACTIVE. Only the logical AND operator is supported; space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE AND labels.env = staging AND labels.starred = *",
             "in": "query",
             "name": "filter",
             "type": "string"
           },
           {
-            "description": "Optional. Specifies enumerated categories of jobs to list (default = match ALL jobs).",
+            "description": "Optional. Specifies enumerated categories of jobs to list. (default = match ALL jobs).If filter is provided, jobStateMatcher will be ignored.",
             "enum": [
               "ALL",
               "ACTIVE",
@@ -702,43 +708,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -841,43 +847,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -945,43 +951,43 @@
     "/v1/projects/{projectId}/regions/{region}/jobs/{jobId}:cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1043,43 +1049,43 @@
     "/v1/projects/{projectId}/regions/{region}/jobs:submit": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1204,86 +1210,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1/{name}:cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1352,7 +1358,7 @@
           "type": "string"
         },
         "clusterUuid": {
-          "description": "Output-only. A cluster UUID (Unique Universal Identifier). Cloud Dataproc generates this value when it creates the cluster.",
+          "description": "Output only. A cluster UUID (Unique Universal Identifier). Cloud Dataproc generates this value when it creates the cluster.",
           "type": "string"
         },
         "config": {
@@ -1376,10 +1382,10 @@
         },
         "status": {
           "$ref": "#/definitions/ClusterStatus",
-          "description": "Output-only. Cluster status."
+          "description": "Output only. Cluster status."
         },
         "statusHistory": {
-          "description": "Output-only. The previous cluster status.",
+          "description": "Output only. The previous cluster status.",
           "items": {
             "$ref": "#/definitions/ClusterStatus"
           },
@@ -1451,41 +1457,41 @@
       "description": "Metadata describing the operation.",
       "properties": {
         "clusterName": {
-          "description": "Output-only. Name of the cluster for the operation.",
+          "description": "Output only. Name of the cluster for the operation.",
           "type": "string"
         },
         "clusterUuid": {
-          "description": "Output-only. Cluster UUID for the operation.",
+          "description": "Output only. Cluster UUID for the operation.",
           "type": "string"
         },
         "description": {
-          "description": "Output-only. Short description of operation.",
+          "description": "Output only. Short description of operation.",
           "type": "string"
         },
         "labels": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Output-only. Labels associated with the operation",
+          "description": "Output only. Labels associated with the operation",
           "type": "object"
         },
         "operationType": {
-          "description": "Output-only. The operation type.",
+          "description": "Output only. The operation type.",
           "type": "string"
         },
         "status": {
           "$ref": "#/definitions/ClusterOperationStatus",
-          "description": "Output-only. Current operation status."
+          "description": "Output only. Current operation status."
         },
         "statusHistory": {
-          "description": "Output-only. The previous operation status.",
+          "description": "Output only. The previous operation status.",
           "items": {
             "$ref": "#/definitions/ClusterOperationStatus"
           },
           "type": "array"
         },
         "warnings": {
-          "description": "Output-only. Errors encountered during operation execution.",
+          "description": "Output only. Errors encountered during operation execution.",
           "items": {
             "type": "string"
           },
@@ -1498,15 +1504,15 @@
       "description": "The status of the operation.",
       "properties": {
         "details": {
-          "description": "Output-only.A message containing any operation metadata details.",
+          "description": "Output only. A message containing any operation metadata details.",
           "type": "string"
         },
         "innerState": {
-          "description": "Output-only. A message containing the detailed operation state.",
+          "description": "Output only. A message containing the detailed operation state.",
           "type": "string"
         },
         "state": {
-          "description": "Output-only. A message containing the operation state.",
+          "description": "Output only. A message containing the operation state.",
           "enum": [
             "UNKNOWN",
             "PENDING",
@@ -1516,7 +1522,7 @@
           "type": "string"
         },
         "stateStartTime": {
-          "description": "Output-only. The time this state was entered.",
+          "description": "Output only. The time this state was entered.",
           "format": "google-datetime",
           "type": "string"
         }
@@ -1527,11 +1533,11 @@
       "description": "The status of a cluster and its instances.",
       "properties": {
         "detail": {
-          "description": "Output-only. Optional details of cluster's state.",
+          "description": "Output only. Optional details of cluster's state.",
           "type": "string"
         },
         "state": {
-          "description": "Output-only. The cluster's state.",
+          "description": "Output only. The cluster's state.",
           "enum": [
             "UNKNOWN",
             "CREATING",
@@ -1543,12 +1549,12 @@
           "type": "string"
         },
         "stateStartTime": {
-          "description": "Output-only. Time when this state was entered.",
+          "description": "Output only. Time when this state was entered.",
           "format": "google-datetime",
           "type": "string"
         },
         "substate": {
-          "description": "Output-only. Additional state information that includes status reported by the agent.",
+          "description": "Output only. Additional state information that includes status reported by the agent.",
           "enum": [
             "UNSPECIFIED",
             "UNHEALTHY",
@@ -1568,7 +1574,7 @@
       "description": "The location of diagnostic output.",
       "properties": {
         "outputUri": {
-          "description": "Output-only. The Google Cloud Storage URI of the diagnostic output. The output report is a plain text file with a summary of collected diagnostics.",
+          "description": "Output only. The Google Cloud Storage URI of the diagnostic output. The output report is a plain text file with a summary of collected diagnostics.",
           "type": "string"
         }
       },
@@ -1749,7 +1755,7 @@
           "description": "Optional. Disk option config settings."
         },
         "imageUri": {
-          "description": "Output-only. The Google Compute Engine image resource used for cluster instances. Inferred from SoftwareConfig.image_version.",
+          "description": "Output only. The Google Compute Engine image resource used for cluster instances. Inferred from SoftwareConfig.image_version.",
           "type": "string"
         },
         "instanceNames": {
@@ -1769,7 +1775,7 @@
         },
         "managedGroupConfig": {
           "$ref": "#/definitions/ManagedGroupConfig",
-          "description": "Output-only. The config for Google Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups."
+          "description": "Output only. The config for Google Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups."
         },
         "numInstances": {
           "description": "Optional. The number of VM instances in the instance group. For master instance groups, must be set to 1.",
@@ -1783,11 +1789,11 @@
       "description": "A Cloud Dataproc job resource.",
       "properties": {
         "driverControlFilesUri": {
-          "description": "Output-only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files may be placed in the same location as driver_output_uri.",
+          "description": "Output only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files may be placed in the same location as driver_output_uri.",
           "type": "string"
         },
         "driverOutputResourceUri": {
-          "description": "Output-only. A URI pointing to the location of the stdout of the job's driver program.",
+          "description": "Output only. A URI pointing to the location of the stdout of the job's driver program.",
           "type": "string"
         },
         "hadoopJob": {
@@ -1835,17 +1841,17 @@
         },
         "status": {
           "$ref": "#/definitions/JobStatus",
-          "description": "Output-only. The job status. Additional application-specific status information may be contained in the <code>type_job</code> and <code>yarn_applications</code> fields."
+          "description": "Output only. The job status. Additional application-specific status information may be contained in the <code>type_job</code> and <code>yarn_applications</code> fields."
         },
         "statusHistory": {
-          "description": "Output-only. The previous job status.",
+          "description": "Output only. The previous job status.",
           "items": {
             "$ref": "#/definitions/JobStatus"
           },
           "type": "array"
         },
         "yarnApplications": {
-          "description": "Output-only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It may be changed before final release.",
+          "description": "Output only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It may be changed before final release.",
           "items": {
             "$ref": "#/definitions/YarnApplication"
           },
@@ -1862,7 +1868,7 @@
           "type": "string"
         },
         "clusterUuid": {
-          "description": "Output-only. A cluster UUID generated by the Cloud Dataproc service when the job is submitted.",
+          "description": "Output only. A cluster UUID generated by the Cloud Dataproc service when the job is submitted.",
           "type": "string"
         }
       },
@@ -1883,7 +1889,7 @@
       "type": "object"
     },
     "JobScheduling": {
-      "description": "Job scheduling options.Beta Feature: These options are available for testing purposes only. They may be changed before final release.",
+      "description": "Job scheduling options.",
       "properties": {
         "maxFailuresPerHour": {
           "description": "Optional. Maximum number of times per hour a driver may be restarted as a result of driver terminating with non-zero code before job is reported failed.A job may be reported as thrashing if driver exits with non-zero code 4 times within 10 minute window.Maximum value is 10.",
@@ -1897,11 +1903,11 @@
       "description": "Cloud Dataproc job status.",
       "properties": {
         "details": {
-          "description": "Output-only. Optional job state details, such as an error description if the state is <code>ERROR</code>.",
+          "description": "Output only. Optional job state details, such as an error description if the state is <code>ERROR</code>.",
           "type": "string"
         },
         "state": {
-          "description": "Output-only. A state message specifying the overall job state.",
+          "description": "Output only. A state message specifying the overall job state.",
           "enum": [
             "STATE_UNSPECIFIED",
             "PENDING",
@@ -1917,12 +1923,12 @@
           "type": "string"
         },
         "stateStartTime": {
-          "description": "Output-only. The time when this state was entered.",
+          "description": "Output only. The time when this state was entered.",
           "format": "google-datetime",
           "type": "string"
         },
         "substate": {
-          "description": "Output-only. Additional state information, which includes status reported by the agent.",
+          "description": "Output only. Additional state information, which includes status reported by the agent.",
           "enum": [
             "UNSPECIFIED",
             "SUBMITTED",
@@ -1938,14 +1944,14 @@
       "description": "The list of all clusters in a project.",
       "properties": {
         "clusters": {
-          "description": "Output-only. The clusters in the project.",
+          "description": "Output only. The clusters in the project.",
           "items": {
             "$ref": "#/definitions/Cluster"
           },
           "type": "array"
         },
         "nextPageToken": {
-          "description": "Output-only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent ListClustersRequest.",
+          "description": "Output only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent ListClustersRequest.",
           "type": "string"
         }
       },
@@ -1955,7 +1961,7 @@
       "description": "A list of jobs in a project.",
       "properties": {
         "jobs": {
-          "description": "Output-only. Jobs list.",
+          "description": "Output only. Jobs list.",
           "items": {
             "$ref": "#/definitions/Job"
           },
@@ -2013,11 +2019,11 @@
       "description": "Specifies the resources used to actively manage an instance group.",
       "properties": {
         "instanceGroupManagerName": {
-          "description": "Output-only. The name of the Instance Group Manager for this group.",
+          "description": "Output only. The name of the Instance Group Manager for this group.",
           "type": "string"
         },
         "instanceTemplateName": {
-          "description": "Output-only. The name of the Instance Template used for the Managed Instance Group.",
+          "description": "Output only. The name of the Instance Template used for the Managed Instance Group.",
           "type": "string"
         }
       },

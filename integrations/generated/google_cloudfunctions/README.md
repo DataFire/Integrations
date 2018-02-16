@@ -371,10 +371,21 @@ google_cloudfunctions.projects.locations.functions.list({
 ### projects.locations.functions.generateUploadUrl
 Returns a signed URL for uploading a function source code.
 For more information about the signed URL usage see:
-https://cloud.google.com/storage/docs/access-control/signed-urls
+https://cloud.google.com/storage/docs/access-control/signed-urls.
 Once the function source code upload is complete, the used signed
 URL should be provided in CreateFunction or UpdateFunction request
 as a reference to the function source code.
+
+When uploading source code to the generated signed URL, please follow
+these restrictions:
+
+* Source file type should be a zip file.
+* Source file size should not exceed 100MB limit.
+
+When making a HTTP PUT request, these two headers need to be specified:
+
+* `content-type: application/zip`
+* `x-google-content-length-range: 0,104857600`
 
 
 ```js
@@ -504,6 +515,7 @@ google_cloudfunctions.projects.locations.functions.generateUploadUrl({
   * request `object`: The original request that started the operation.
   * target `string`: Target of the operation - for example
   * type `string` (values: OPERATION_UNSPECIFIED, CREATE_FUNCTION, UPDATE_FUNCTION, DELETE_FUNCTION): Type of operation.
+  * updateTime `string`: The last update timestamp of the operation.
   * versionId `string`: Version id of the function created or updated by an API call.
 
 ### OperationMetadataV1Beta2
@@ -511,6 +523,7 @@ google_cloudfunctions.projects.locations.functions.generateUploadUrl({
   * request `object`: The original request that started the operation.
   * target `string`: Target of the operation - for example
   * type `string` (values: OPERATION_UNSPECIFIED, CREATE_FUNCTION, UPDATE_FUNCTION, DELETE_FUNCTION): Type of operation.
+  * updateTime `string`: The last update timestamp of the operation.
   * versionId `string`: Version id of the function created or updated by an API call.
 
 ### Retry

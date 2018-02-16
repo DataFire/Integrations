@@ -1,6 +1,6 @@
 # @datafire/wealthport
 
-Client library for Wealthport
+Client library for Wealthport API
 
 ## Installation and Usage
 ```bash
@@ -19,7 +19,7 @@ wealthport.createSource({}).then(data => {
 
 ## Description
 
-Wealthport provides a simple, lightweight and open Web API based on the Open API 2.0 standard (<a href="https://www.openapis.org" target="_blank">https://www.openapis.org</a>). Our APIs offer a variety of operations related to managing Sources, Folders, Orders and Recipes. There are operations to submit and track Jobs, upload and download data files and many more.
+Onedot provides a simple, lightweight and open Web API based on the Open API 2.0 standard (<a href="https://www.openapis.org" target="_blank">https://www.openapis.org</a>). Our APIs offer a variety of operations related to managing Sources, Folders, Orders and Recipes. There are operations to submit and track Jobs, upload and download data files and many more.
 
 ## Actions
 
@@ -51,7 +51,7 @@ wealthport.createFolder({}, context)
   * body [Folder_Request](#folder_request)
 
 #### Output
-* output `string`
+*Output schema unknown*
 
 ### deleteFolder
 Deletes the specified Folder and all contained Sources from the Data Inventory.
@@ -201,7 +201,7 @@ wealthport.createOrder({}, context)
   * body [Order_Request](#order_request)
 
 #### Output
-* output `string`
+*Output schema unknown*
 
 ### deleteOrder
 Deletes the specified Order.
@@ -270,7 +270,7 @@ wealthport.submitOrder({
   * id **required** `string`: Order ID of the order to submit for processing
 
 #### Output
-*Output schema unknown*
+* output `string`
 
 ### retrieveRecipes
 Retrieves all available Recipes.
@@ -367,7 +367,7 @@ wealthport.createSource({}, context)
   * body [Source_Request](#source_request)
 
 #### Output
-* output `string`
+*Output schema unknown*
 
 ### getUploadUrl
 Initiates a file upload and returns the URL where to upload the file to.<p>Calling this API generates a secure, unique and time-restricted URL where the file can be uploaded to. The URL is available in the <pre>Location</pre> HTTP header of the response. The temporal validity of the URL is available in the <pre>Cache-Control</pre> HTTP header of the response.Clients may perform a <pre>HTTP PUT</pre> request on the URL to upload the file using a form where a file <pre>sample.csv</pre> is passed as property <pre>file=sample.csv</pre>. For security reasons, clients must pass all HTTP headers as returned by the <pre>X-WP-Upload-Headers</pre> in the response, together with their values. This procedure ensures a secure, encrypted file upload.</p><p>Note that calling this API automatically generates a Source, there is no need to call the Create Source API.</p>
@@ -469,63 +469,24 @@ wealthport.getDownloadUrl({
   * id **required** `string`
 
 ### Existing_Folder
-* Existing_Folder `object`: Represents an existing folder.
-  * bytes **required** `integer`: Size of the folder (in bytes)
-  * created **required** `string`: ISO 8601 Date when he folder has been created
-  * creator **required** `string`: User ID of the user who created the folder
-  * id **required** `string`: Unique ID of the folder
-  * name **required** `string`: Name of the folder
+
 
 ### Existing_Order
-* Existing_Order `object`: Represents an existing order.
-  * bytes **required** `integer`: Size of the order (in bytes)
-  * created **required** `string`: ISO 8601 Date when the order has been created
-  * creator **required** `string`: User ID of the user who created the order
-  * folders `array`: Array of folder IDs to be referenced by the order
-    * items `string`
-  * id **required** `string`: Unique ID of the order
-  * name **required** `string`: Name of the order
-  * recipe `string`: Recipe to use when processing the order
-  * sources `array`: Array of source IDs to be referenced by the order
-    * items `string`
+
 
 ### Existing_Recipe
-* Existing_Recipe `object`: Represents an existing recipe.
-  * created **required** `string`: ISO 8601 Date when the recipe has been created
-  * creator **required** `string`: User ID of the user who created the recipe
-  * id **required** `string`: Unique ID of the recipe
-  * name **required** `string`: Name of the recipe
+
 
 ### Existing_Source
-* Existing_Source `object`: Represents an existing source.
-  * bytes **required** `integer`: Size of the source (in bytes)
-  * created **required** `string`: ISO 8601 Date when the source has been created
-  * creator **required** `string`: User ID of the user that created the source
-  * encoding `string`: Encoding of the source
-  * folder `string`: Optional folder ID of the folder containing the source
-  * folderName `string`
-  * id **required** `string`: Unique ID of the source
-  * mime **required** `string` (values: text/csv, text/tab-separated-values, text/x-bar-separated-values, text/x-semicolon-separated-values, application/x-ldjson, application/xml, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet): MIME type of the source
-  * name **required** `string`: Name of the source
+
 
 ### Folder_Request
-* Folder_Request `object`: Represents a folder to be created or updated.
-  * name **required** `string`: Name of the folder
+
 
 ### Order_Request
-* Order_Request `object`: Represents an order to be created or updated.
-  * folders `array`: Array of folder IDs to be referenced by the order
-    * items `string`
-  * name **required** `string`: Name of the order
-  * recipe `string`: Recipe to use when processing the order
-  * sources `array`: Array of source IDs to be referenced by the order
-    * items `string`
+
 
 ### Source_Request
-* Source_Request `object`: Represents a source to be created or updated.
-  * encoding `string`: Encoding of the source
-  * folder `string`: Folder ID of the folder containing the source
-  * mime **required** `string` (values: text/csv, text/tab-separated-values, text/x-bar-separated-values, text/x-semicolon-separated-values, application/x-ldjson, application/xml, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet): MIME type of the source
-  * name **required** `string`: Name of the source
+
 
 

@@ -56,6 +56,7 @@ amazonaws_es.CreateElasticsearchDomain({
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
   * ElasticsearchVersion [ElasticsearchVersionString](#elasticsearchversionstring)
+  * EncryptionAtRestOptions [EncryptionAtRestOptions](#encryptionatrestoptions)
   * LogPublishingOptions [LogPublishingOptions](#logpublishingoptions)
   * SnapshotOptions [SnapshotOptions](#snapshotoptions)
   * VPCOptions [VPCOptions](#vpcoptions)
@@ -80,6 +81,23 @@ amazonaws_es.DescribeElasticsearchDomains({
 #### Output
 * output [DescribeElasticsearchDomainsResponse](#describeelasticsearchdomainsresponse)
 
+### DeleteElasticsearchDomain
+
+
+
+```js
+amazonaws_es.DeleteElasticsearchDomain({
+  "DomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+
+#### Output
+* output [DeleteElasticsearchDomainResponse](#deleteelasticsearchdomainresponse)
+
 ### DescribeElasticsearchDomain
 
 
@@ -96,6 +114,23 @@ amazonaws_es.DescribeElasticsearchDomain({
 
 #### Output
 * output [DescribeElasticsearchDomainResponse](#describeelasticsearchdomainresponse)
+
+### DescribeElasticsearchDomainConfig
+
+
+
+```js
+amazonaws_es.DescribeElasticsearchDomainConfig({
+  "DomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+
+#### Output
+* output [DescribeElasticsearchDomainConfigResponse](#describeelasticsearchdomainconfigresponse)
 
 ### UpdateElasticsearchDomainConfig
 
@@ -296,6 +331,7 @@ amazonaws_es.ListTags({}, context)
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
   * ElasticsearchVersion [ElasticsearchVersionString](#elasticsearchversionstring)
+  * EncryptionAtRestOptions [EncryptionAtRestOptions](#encryptionatrestoptions)
   * LogPublishingOptions [LogPublishingOptions](#logpublishingoptions)
   * SnapshotOptions [SnapshotOptions](#snapshotoptions)
   * VPCOptions [VPCOptions](#vpcoptions)
@@ -397,6 +433,7 @@ amazonaws_es.ListTags({}, context)
   * EBSOptions [EBSOptionsStatus](#ebsoptionsstatus)
   * ElasticsearchClusterConfig [ElasticsearchClusterConfigStatus](#elasticsearchclusterconfigstatus)
   * ElasticsearchVersion [ElasticsearchVersionStatus](#elasticsearchversionstatus)
+  * EncryptionAtRestOptions [EncryptionAtRestOptionsStatus](#encryptionatrestoptionsstatus)
   * LogPublishingOptions [LogPublishingOptionsStatus](#logpublishingoptionsstatus)
   * SnapshotOptions [SnapshotOptionsStatus](#snapshotoptionsstatus)
   * VPCOptions [VPCDerivedInfoStatus](#vpcderivedinfostatus)
@@ -413,6 +450,7 @@ amazonaws_es.ListTags({}, context)
   * EBSOptions [EBSOptions](#ebsoptions)
   * ElasticsearchClusterConfig **required** [ElasticsearchClusterConfig](#elasticsearchclusterconfig)
   * ElasticsearchVersion [ElasticsearchVersionString](#elasticsearchversionstring)
+  * EncryptionAtRestOptions [EncryptionAtRestOptions](#encryptionatrestoptions)
   * Endpoint [ServiceUrl](#serviceurl)
   * Endpoints [EndpointsMap](#endpointsmap)
   * LogPublishingOptions [LogPublishingOptions](#logpublishingoptions)
@@ -439,6 +477,16 @@ amazonaws_es.ListTags({}, context)
 
 ### ElasticsearchVersionString
 * ElasticsearchVersionString `string`
+
+### EncryptionAtRestOptions
+* EncryptionAtRestOptions `object`: Specifies the Encryption At Rest Options.
+  * Enabled [Boolean](#boolean)
+  * KmsKeyId [KmsKeyId](#kmskeyid)
+
+### EncryptionAtRestOptionsStatus
+* EncryptionAtRestOptionsStatus `object`:  Status of the Encryption At Rest options for the specified Elasticsearch domain.
+  * Options **required** [EncryptionAtRestOptions](#encryptionatrestoptions)
+  * Status **required** [OptionStatus](#optionstatus)
 
 ### EndpointsMap
 * EndpointsMap `array`
@@ -469,6 +517,9 @@ amazonaws_es.ListTags({}, context)
 
 ### InvalidTypeException
 * InvalidTypeException `object`: An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.
+
+### KmsKeyId
+* KmsKeyId `string`
 
 ### LimitExceededException
 * LimitExceededException `object`: An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.

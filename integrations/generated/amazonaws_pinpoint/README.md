@@ -38,6 +38,40 @@ amazonaws_pinpoint.GetApps({}, context)
 #### Output
 * output [GetAppsResponse](#getappsresponse)
 
+### CreateApp
+
+
+
+```js
+amazonaws_pinpoint.CreateApp({
+  "CreateApplicationRequest": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * CreateApplicationRequest **required** [CreateApplicationRequest](#createapplicationrequest)
+
+#### Output
+*Output schema unknown*
+
+### DeleteApp
+
+
+
+```js
+amazonaws_pinpoint.DeleteApp({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteAppResponse](#deleteappresponse)
+
 ### GetApp
 
 
@@ -71,6 +105,63 @@ amazonaws_pinpoint.GetCampaigns({
 
 #### Output
 * output [GetCampaignsResponse](#getcampaignsresponse)
+
+### CreateCampaign
+
+
+
+```js
+amazonaws_pinpoint.CreateCampaign({
+  "application-id": "",
+  "WriteCampaignRequest": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * WriteCampaignRequest **required** [WriteCampaignRequest](#writecampaignrequest)
+
+#### Output
+*Output schema unknown*
+
+### DeleteCampaign
+
+
+
+```js
+amazonaws_pinpoint.DeleteCampaign({
+  "application-id": "",
+  "campaign-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * campaign-id **required** `string`
+
+#### Output
+* output [DeleteCampaignResponse](#deletecampaignresponse)
+
+### GetCampaign
+
+
+
+```js
+amazonaws_pinpoint.GetCampaign({
+  "application-id": "",
+  "campaign-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * campaign-id **required** `string`
+
+#### Output
+* output [GetCampaignResponse](#getcampaignresponse)
 
 ### UpdateCampaign
 
@@ -152,6 +243,40 @@ amazonaws_pinpoint.GetCampaignVersion({
 #### Output
 * output [GetCampaignVersionResponse](#getcampaignversionresponse)
 
+### DeleteAdmChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteAdmChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteAdmChannelResponse](#deleteadmchannelresponse)
+
+### GetAdmChannel
+
+
+
+```js
+amazonaws_pinpoint.GetAdmChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetAdmChannelResponse](#getadmchannelresponse)
+
 ### UpdateAdmChannel
 
 
@@ -170,6 +295,40 @@ amazonaws_pinpoint.UpdateAdmChannel({
 
 #### Output
 * output [UpdateAdmChannelResponse](#updateadmchannelresponse)
+
+### DeleteApnsChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteApnsChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteApnsChannelResponse](#deleteapnschannelresponse)
+
+### GetApnsChannel
+
+
+
+```js
+amazonaws_pinpoint.GetApnsChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetApnsChannelResponse](#getapnschannelresponse)
 
 ### UpdateApnsChannel
 
@@ -190,6 +349,40 @@ amazonaws_pinpoint.UpdateApnsChannel({
 #### Output
 * output [UpdateApnsChannelResponse](#updateapnschannelresponse)
 
+### DeleteApnsSandboxChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteApnsSandboxChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteApnsSandboxChannelResponse](#deleteapnssandboxchannelresponse)
+
+### GetApnsSandboxChannel
+
+
+
+```js
+amazonaws_pinpoint.GetApnsSandboxChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetApnsSandboxChannelResponse](#getapnssandboxchannelresponse)
+
 ### UpdateApnsSandboxChannel
 
 
@@ -208,6 +401,40 @@ amazonaws_pinpoint.UpdateApnsSandboxChannel({
 
 #### Output
 * output [UpdateApnsSandboxChannelResponse](#updateapnssandboxchannelresponse)
+
+### DeleteApnsVoipChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteApnsVoipChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteApnsVoipChannelResponse](#deleteapnsvoipchannelresponse)
+
+### GetApnsVoipChannel
+
+
+
+```js
+amazonaws_pinpoint.GetApnsVoipChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetApnsVoipChannelResponse](#getapnsvoipchannelresponse)
 
 ### UpdateApnsVoipChannel
 
@@ -228,6 +455,40 @@ amazonaws_pinpoint.UpdateApnsVoipChannel({
 #### Output
 * output [UpdateApnsVoipChannelResponse](#updateapnsvoipchannelresponse)
 
+### DeleteApnsVoipSandboxChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteApnsVoipSandboxChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteApnsVoipSandboxChannelResponse](#deleteapnsvoipsandboxchannelresponse)
+
+### GetApnsVoipSandboxChannel
+
+
+
+```js
+amazonaws_pinpoint.GetApnsVoipSandboxChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetApnsVoipSandboxChannelResponse](#getapnsvoipsandboxchannelresponse)
+
 ### UpdateApnsVoipSandboxChannel
 
 
@@ -246,6 +507,40 @@ amazonaws_pinpoint.UpdateApnsVoipSandboxChannel({
 
 #### Output
 * output [UpdateApnsVoipSandboxChannelResponse](#updateapnsvoipsandboxchannelresponse)
+
+### DeleteBaiduChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteBaiduChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteBaiduChannelResponse](#deletebaiduchannelresponse)
+
+### GetBaiduChannel
+
+
+
+```js
+amazonaws_pinpoint.GetBaiduChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetBaiduChannelResponse](#getbaiduchannelresponse)
 
 ### UpdateBaiduChannel
 
@@ -266,6 +561,40 @@ amazonaws_pinpoint.UpdateBaiduChannel({
 #### Output
 * output [UpdateBaiduChannelResponse](#updatebaiduchannelresponse)
 
+### DeleteEmailChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteEmailChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteEmailChannelResponse](#deleteemailchannelresponse)
+
+### GetEmailChannel
+
+
+
+```js
+amazonaws_pinpoint.GetEmailChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetEmailChannelResponse](#getemailchannelresponse)
+
 ### UpdateEmailChannel
 
 
@@ -285,6 +614,40 @@ amazonaws_pinpoint.UpdateEmailChannel({
 #### Output
 * output [UpdateEmailChannelResponse](#updateemailchannelresponse)
 
+### DeleteGcmChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteGcmChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteGcmChannelResponse](#deletegcmchannelresponse)
+
+### GetGcmChannel
+
+
+
+```js
+amazonaws_pinpoint.GetGcmChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetGcmChannelResponse](#getgcmchannelresponse)
+
 ### UpdateGcmChannel
 
 
@@ -303,6 +666,40 @@ amazonaws_pinpoint.UpdateGcmChannel({
 
 #### Output
 * output [UpdateGcmChannelResponse](#updategcmchannelresponse)
+
+### DeleteSmsChannel
+
+
+
+```js
+amazonaws_pinpoint.DeleteSmsChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteSmsChannelResponse](#deletesmschannelresponse)
+
+### GetSmsChannel
+
+
+
+```js
+amazonaws_pinpoint.GetSmsChannel({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetSmsChannelResponse](#getsmschannelresponse)
 
 ### UpdateSmsChannel
 
@@ -342,6 +739,25 @@ amazonaws_pinpoint.UpdateEndpointsBatch({
 #### Output
 *Output schema unknown*
 
+### GetEndpoint
+
+
+
+```js
+amazonaws_pinpoint.GetEndpoint({
+  "application-id": "",
+  "endpoint-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * endpoint-id **required** `string`
+
+#### Output
+* output [GetEndpointResponse](#getendpointresponse)
+
 ### UpdateEndpoint
 
 
@@ -362,6 +778,40 @@ amazonaws_pinpoint.UpdateEndpoint({
 
 #### Output
 *Output schema unknown*
+
+### DeleteEventStream
+
+
+
+```js
+amazonaws_pinpoint.DeleteEventStream({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [DeleteEventStreamResponse](#deleteeventstreamresponse)
+
+### GetEventStream
+
+
+
+```js
+amazonaws_pinpoint.GetEventStream({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetEventStreamResponse](#geteventstreamresponse)
 
 ### PutEventStream
 
@@ -398,6 +848,25 @@ amazonaws_pinpoint.GetImportJobs({
 
 #### Output
 * output [GetImportJobsResponse](#getimportjobsresponse)
+
+### CreateImportJob
+
+
+
+```js
+amazonaws_pinpoint.CreateImportJob({
+  "application-id": "",
+  "ImportJobRequest": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * ImportJobRequest **required** [ImportJobRequest](#importjobrequest)
+
+#### Output
+*Output schema unknown*
 
 ### GetImportJob
 
@@ -453,6 +922,63 @@ amazonaws_pinpoint.GetSegments({
 
 #### Output
 * output [GetSegmentsResponse](#getsegmentsresponse)
+
+### CreateSegment
+
+
+
+```js
+amazonaws_pinpoint.CreateSegment({
+  "application-id": "",
+  "WriteSegmentRequest": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * WriteSegmentRequest **required** [WriteSegmentRequest](#writesegmentrequest)
+
+#### Output
+*Output schema unknown*
+
+### DeleteSegment
+
+
+
+```js
+amazonaws_pinpoint.DeleteSegment({
+  "application-id": "",
+  "segment-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * segment-id **required** `string`
+
+#### Output
+* output [DeleteSegmentResponse](#deletesegmentresponse)
+
+### GetSegment
+
+
+
+```js
+amazonaws_pinpoint.GetSegment({
+  "application-id": "",
+  "segment-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+  * segment-id **required** `string`
+
+#### Output
+* output [GetSegmentResponse](#getsegmentresponse)
 
 ### UpdateSegment
 
@@ -533,6 +1059,23 @@ amazonaws_pinpoint.GetSegmentVersion({
 
 #### Output
 * output [GetSegmentVersionResponse](#getsegmentversionresponse)
+
+### GetApplicationSettings
+
+
+
+```js
+amazonaws_pinpoint.GetApplicationSettings({
+  "application-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * application-id **required** `string`
+
+#### Output
+* output [GetApplicationSettingsResponse](#getapplicationsettingsresponse)
 
 ### UpdateApplicationSettings
 

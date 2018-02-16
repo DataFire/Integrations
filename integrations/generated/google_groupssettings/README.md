@@ -105,8 +105,8 @@ google_groupssettings.groups.patch({
 
 #### Input
 * input `object`
-  * groupUniqueId **required** `string`: The resource ID
   * body [Groups](#groups)
+  * groupUniqueId **required** `string`: The resource ID
   * alt `string` (values: atom, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -130,8 +130,8 @@ google_groupssettings.groups.update({
 
 #### Input
 * input `object`
-  * groupUniqueId **required** `string`: The resource ID
   * body [Groups](#groups)
+  * groupUniqueId **required** `string`: The resource ID
   * alt `string` (values: atom, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

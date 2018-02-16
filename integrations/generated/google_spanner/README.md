@@ -82,19 +82,19 @@ google_spanner.projects.instances.databases.dropDatabase({
 #### Input
 * input `object`
   * database **required** `string`: Required. The database to be dropped.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -114,19 +114,19 @@ google_spanner.projects.instances.databases.getDdl({
 #### Input
 * input `object`
   * database **required** `string`: Required. The database whose schema we wish to get.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [GetDatabaseDdlResponse](#getdatabaseddlresponse)
@@ -149,21 +149,21 @@ google_spanner.projects.instances.databases.updateDdl({
 
 #### Input
 * input `object`
-  * database **required** `string`: Required. The database to update.
   * body [UpdateDatabaseDdlRequest](#updatedatabaseddlrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * database **required** `string`: Required. The database to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -184,19 +184,19 @@ google_spanner.projects.instances.databases.sessions.list({
   * filter `string`: An expression for filtering the results of the request. Filter rules are
   * pageSize `integer`: Number of sessions to be returned in the response. If 0 or less, defaults
   * pageToken `string`: If non-empty, `page_token` should contain a
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListSessionsResponse](#listsessionsresponse)
@@ -233,52 +233,49 @@ google_spanner.projects.instances.databases.sessions.create({
 * input `object`
   * body [CreateSessionRequest](#createsessionrequest)
   * database **required** `string`: Required. The database in which the new session is created.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Session](#session)
 
-### projects.instances.operations.delete
-Deletes a long-running operation. This method indicates that the client is
-no longer interested in the operation result. It does not cancel the
-operation. If the server doesn't support this method, it returns
-`google.rpc.Code.UNIMPLEMENTED`.
+### projects.instances.databases.sessions.delete
+Ends a session, releasing server resources associated with it.
 
 
 ```js
-google_spanner.projects.instances.operations.delete({
+google_spanner.projects.instances.databases.sessions.delete({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The name of the operation resource to be deleted.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * name **required** `string`: Required. The name of the session to delete.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -296,19 +293,19 @@ google_spanner.projects.instanceConfigs.get({
 #### Input
 * input `object`
   * name **required** `string`: Required. The name of the requested instance configuration. Values are of
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [InstanceConfig](#instanceconfig)
@@ -364,26 +361,26 @@ google_spanner.projects.instances.patch({
 
 #### Input
 * input `object`
-  * name **required** `string`: Required. A unique identifier for the instance, which cannot be changed
   * body [UpdateInstanceRequest](#updateinstancerequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * name **required** `string`: Required. A unique identifier for the instance, which cannot be changed
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### projects.instances.operations.cancel
+### projects.instances.databases.operations.cancel
 Starts asynchronous cancellation on a long-running operation.  The server
 makes a best effort to cancel the operation, but success is not
 guaranteed.  If the server doesn't support this method, it returns
@@ -397,7 +394,7 @@ corresponding to `Code.CANCELLED`.
 
 
 ```js
-google_spanner.projects.instances.operations.cancel({
+google_spanner.projects.instances.databases.operations.cancel({
   "name": ""
 }, context)
 ```
@@ -405,19 +402,19 @@ google_spanner.projects.instances.operations.cancel({
 #### Input
 * input `object`
   * name **required** `string`: The name of the operation resource to be cancelled.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -434,22 +431,22 @@ google_spanner.projects.instances.databases.list({
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The instance whose databases should be listed.
-  * pageToken `string`: If non-empty, `page_token` should contain a
   * pageSize `integer`: Number of databases to be returned in the response. If 0 or less,
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * pageToken `string`: If non-empty, `page_token` should contain a
+  * parent **required** `string`: Required. The instance whose databases should be listed.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListDatabasesResponse](#listdatabasesresponse)
@@ -473,21 +470,21 @@ google_spanner.projects.instances.databases.create({
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The name of the instance that will serve the new database.
   * body [CreateDatabaseRequest](#createdatabaserequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * parent **required** `string`: Required. The name of the instance that will serve the new database.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -504,22 +501,22 @@ google_spanner.projects.instanceConfigs.list({
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The name of the project for which a list of supported instance
-  * pageToken `string`: If non-empty, `page_token` should contain a
   * pageSize `integer`: Number of instance configurations to be returned in the response. If 0 or
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * pageToken `string`: If non-empty, `page_token` should contain a
+  * parent **required** `string`: Required. The name of the project for which a list of supported instance
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListInstanceConfigsResponse](#listinstanceconfigsresponse)
@@ -536,23 +533,23 @@ google_spanner.projects.instances.list({
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The name of the project for which a list of instances is
-  * pageToken `string`: If non-empty, `page_token` should contain a
-  * pageSize `integer`: Number of instances to be returned in the response. If 0 or less, defaults
   * filter `string`: An expression for filtering the results of the request. Filter rules are
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * pageSize `integer`: Number of instances to be returned in the response. If 0 or less, defaults
+  * pageToken `string`: If non-empty, `page_token` should contain a
+  * parent **required** `string`: Required. The name of the project for which a list of instances is
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListInstancesResponse](#listinstancesresponse)
@@ -602,21 +599,21 @@ google_spanner.projects.instances.create({
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The name of the project in which to create the instance. Values
   * body [CreateInstanceRequest](#createinstancerequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * parent **required** `string`: Required. The name of the project in which to create the instance. Values
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -637,21 +634,21 @@ google_spanner.projects.instances.databases.getIamPolicy({
 
 #### Input
 * input `object`
-  * resource **required** `string`: REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for database resources.
   * body [GetIamPolicyRequest](#getiampolicyrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * resource **required** `string`: REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for database resources.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Policy](#policy)
@@ -672,21 +669,21 @@ google_spanner.projects.instances.databases.setIamPolicy({
 
 #### Input
 * input `object`
-  * resource **required** `string`: REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for databases resources.
   * body [SetIamPolicyRequest](#setiampolicyrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * resource **required** `string`: REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for databases resources.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Policy](#policy)
@@ -708,21 +705,21 @@ google_spanner.projects.instances.databases.testIamPermissions({
 
 #### Input
 * input `object`
-  * resource **required** `string`: REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for database resources.
   * body [TestIamPermissionsRequest](#testiampermissionsrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * resource **required** `string`: REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for database resources.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
@@ -742,21 +739,21 @@ google_spanner.projects.instances.databases.sessions.beginTransaction({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the transaction runs.
   * body [BeginTransactionRequest](#begintransactionrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the transaction runs.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Transaction](#transaction)
@@ -780,21 +777,21 @@ google_spanner.projects.instances.databases.sessions.commit({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the transaction to be committed is running.
   * body [CommitRequest](#commitrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the transaction to be committed is running.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [CommitResponse](#commitresponse)
@@ -821,21 +818,21 @@ google_spanner.projects.instances.databases.sessions.executeSql({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the SQL query should be performed.
   * body [ExecuteSqlRequest](#executesqlrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the SQL query should be performed.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ResultSet](#resultset)
@@ -856,21 +853,21 @@ google_spanner.projects.instances.databases.sessions.executeStreamingSql({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the SQL query should be performed.
   * body [ExecuteSqlRequest](#executesqlrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the SQL query should be performed.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [PartialResultSet](#partialresultset)
@@ -899,21 +896,21 @@ google_spanner.projects.instances.databases.sessions.read({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the read should be performed.
   * body [ReadRequest](#readrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the read should be performed.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ResultSet](#resultset)
@@ -937,21 +934,21 @@ google_spanner.projects.instances.databases.sessions.rollback({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the transaction to roll back is running.
   * body [RollbackRequest](#rollbackrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the transaction to roll back is running.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -972,21 +969,21 @@ google_spanner.projects.instances.databases.sessions.streamingRead({
 
 #### Input
 * input `object`
-  * session **required** `string`: Required. The session in which the read should be performed.
   * body [ReadRequest](#readrequest)
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * session **required** `string`: Required. The session in which the read should be performed.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [PartialResultSet](#partialresultset)
@@ -1245,7 +1242,7 @@ google_spanner.projects.instances.databases.sessions.streamingRead({
   * approximateLastUseTime `string`: Output only. The approximate timestamp when the session is last used. It is
   * createTime `string`: Output only. The timestamp when the session is created.
   * labels `object`: The labels for the session.
-  * name `string`: The name of the session.
+  * name `string`: The name of the session. This is always system-assigned; values provided
 
 ### SetIamPolicyRequest
 * SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.

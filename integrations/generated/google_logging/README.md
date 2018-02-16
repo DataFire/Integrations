@@ -78,19 +78,19 @@ google_logging.entries.list({}, context)
 #### Input
 * input `object`
   * body [ListLogEntriesRequest](#listlogentriesrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListLogEntriesResponse](#listlogentriesresponse)
@@ -106,19 +106,19 @@ google_logging.entries.write({}, context)
 #### Input
 * input `object`
   * body [WriteLogEntriesRequest](#writelogentriesrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [WriteLogEntriesResponse](#writelogentriesresponse)
@@ -133,31 +133,31 @@ google_logging.monitoredResourceDescriptors.list({}, context)
 
 #### Input
 * input `object`
-  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
   * pageSize `integer`: Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListMonitoredResourceDescriptorsResponse](#listmonitoredresourcedescriptorsresponse)
 
-### folders.logs.delete
+### billingAccounts.logs.delete
 Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted.
 
 
 ```js
-google_logging.folders.logs.delete({
+google_logging.billingAccounts.logs.delete({
   "logName": ""
 }, context)
 ```
@@ -165,19 +165,19 @@ google_logging.folders.logs.delete({
 #### Input
 * input `object`
   * logName **required** `string`: Required. The resource name of the log to delete:
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -195,19 +195,19 @@ google_logging.projects.metrics.delete({
 #### Input
 * input `object`
   * metricName **required** `string`: The resource name of the metric to delete:
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -225,19 +225,19 @@ google_logging.projects.metrics.get({
 #### Input
 * input `object`
   * metricName **required** `string`: The resource name of the desired metric:
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogMetric](#logmetric)
@@ -254,31 +254,31 @@ google_logging.projects.metrics.update({
 
 #### Input
 * input `object`
-  * metricName **required** `string`: The resource name of the metric to update:
   * body [LogMetric](#logmetric)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * metricName **required** `string`: The resource name of the metric to update:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogMetric](#logmetric)
 
-### folders.exclusions.delete
+### billingAccounts.exclusions.delete
 Deletes an exclusion.
 
 
 ```js
-google_logging.folders.exclusions.delete({
+google_logging.billingAccounts.exclusions.delete({
   "name": ""
 }, context)
 ```
@@ -303,12 +303,12 @@ google_logging.folders.exclusions.delete({
 #### Output
 * output [Empty](#empty)
 
-### folders.exclusions.get
+### billingAccounts.exclusions.get
 Gets the description of an exclusion.
 
 
 ```js
-google_logging.folders.exclusions.get({
+google_logging.billingAccounts.exclusions.get({
   "name": ""
 }, context)
 ```
@@ -333,12 +333,12 @@ google_logging.folders.exclusions.get({
 #### Output
 * output [LogExclusion](#logexclusion)
 
-### folders.exclusions.patch
+### billingAccounts.exclusions.patch
 Changes one or more properties of an existing exclusion.
 
 
 ```js
-google_logging.folders.exclusions.patch({
+google_logging.billingAccounts.exclusions.patch({
   "name": ""
 }, context)
 ```
@@ -365,12 +365,12 @@ google_logging.folders.exclusions.patch({
 #### Output
 * output [LogExclusion](#logexclusion)
 
-### folders.exclusions.list
+### billingAccounts.exclusions.list
 Lists all the exclusions in a parent resource.
 
 
 ```js
-google_logging.folders.exclusions.list({
+google_logging.billingAccounts.exclusions.list({
   "parent": ""
 }, context)
 ```
@@ -397,12 +397,12 @@ google_logging.folders.exclusions.list({
 #### Output
 * output [ListExclusionsResponse](#listexclusionsresponse)
 
-### folders.exclusions.create
+### billingAccounts.exclusions.create
 Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource.
 
 
 ```js
-google_logging.folders.exclusions.create({
+google_logging.billingAccounts.exclusions.create({
   "parent": ""
 }, context)
 ```
@@ -428,34 +428,34 @@ google_logging.folders.exclusions.create({
 #### Output
 * output [LogExclusion](#logexclusion)
 
-### folders.logs.list
+### billingAccounts.logs.list
 Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed.
 
 
 ```js
-google_logging.folders.logs.list({
+google_logging.billingAccounts.logs.list({
   "parent": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The resource name that owns the logs:
-  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
   * pageSize `integer`: Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
+  * parent **required** `string`: Required. The resource name that owns the logs:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListLogsResponse](#listlogsresponse)
@@ -472,22 +472,22 @@ google_logging.projects.metrics.list({
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The name of the project containing the metrics:
-  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
   * pageSize `integer`: Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
+  * parent **required** `string`: Required. The name of the project containing the metrics:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListLogMetricsResponse](#listlogmetricsresponse)
@@ -504,95 +504,95 @@ google_logging.projects.metrics.create({
 
 #### Input
 * input `object`
-  * parent **required** `string`: The resource name of the project in which to create the metric:
   * body [LogMetric](#logmetric)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * parent **required** `string`: The resource name of the project in which to create the metric:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogMetric](#logmetric)
 
-### folders.sinks.list
+### billingAccounts.sinks.list
 Lists sinks.
 
 
 ```js
-google_logging.folders.sinks.list({
+google_logging.billingAccounts.sinks.list({
   "parent": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * parent **required** `string`: Required. The parent resource whose sinks are to be listed:
-  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
   * pageSize `integer`: Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * pageToken `string`: Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
+  * parent **required** `string`: Required. The parent resource whose sinks are to be listed:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListSinksResponse](#listsinksresponse)
 
-### folders.sinks.create
+### billingAccounts.sinks.create
 Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
 
 
 ```js
-google_logging.folders.sinks.create({
+google_logging.billingAccounts.sinks.create({
   "parent": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [LogSink](#logsink)
   * parent **required** `string`: Required. The resource in which to create the sink:
   * uniqueWriterIdentity `boolean`: Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then the value returned as writer_identity is the same group or service account used by Stackdriver Logging before the addition of writer identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
-  * body [LogSink](#logsink)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogSink](#logsink)
 
-### folders.sinks.delete
+### billingAccounts.sinks.delete
 Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted.
 
 
 ```js
-google_logging.folders.sinks.delete({
+google_logging.billingAccounts.sinks.delete({
   "sinkName": ""
 }, context)
 ```
@@ -600,29 +600,29 @@ google_logging.folders.sinks.delete({
 #### Input
 * input `object`
   * sinkName **required** `string`: Required. The full resource name of the sink to delete, including the parent resource and the sink identifier:
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
 
-### folders.sinks.get
+### billingAccounts.sinks.get
 Gets a sink.
 
 
 ```js
-google_logging.folders.sinks.get({
+google_logging.billingAccounts.sinks.get({
   "sinkName": ""
 }, context)
 ```
@@ -630,29 +630,29 @@ google_logging.folders.sinks.get({
 #### Input
 * input `object`
   * sinkName **required** `string`: Required. The resource name of the sink:
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogSink](#logsink)
 
-### folders.sinks.patch
+### billingAccounts.sinks.patch
 Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter. The updated sink might also have a new writer_identity; see the unique_writer_identity field.
 
 
 ```js
-google_logging.folders.sinks.patch({
+google_logging.billingAccounts.sinks.patch({
   "sinkName": ""
 }, context)
 ```
@@ -663,29 +663,29 @@ google_logging.folders.sinks.patch({
   * sinkName **required** `string`: Required. The full resource name of the sink to update, including the parent resource and the sink identifier:
   * uniqueWriterIdentity `boolean`: Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both the old and new values of this field:
   * updateMask `string`: Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:  destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample: updateMask=filter.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogSink](#logsink)
 
-### folders.sinks.update
+### billingAccounts.sinks.update
 Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter. The updated sink might also have a new writer_identity; see the unique_writer_identity field.
 
 
 ```js
-google_logging.folders.sinks.update({
+google_logging.billingAccounts.sinks.update({
   "sinkName": ""
 }, context)
 ```
@@ -696,19 +696,19 @@ google_logging.folders.sinks.update({
   * sinkName **required** `string`: Required. The full resource name of the sink to update, including the parent resource and the sink identifier:
   * uniqueWriterIdentity `boolean`: Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both the old and new values of this field:
   * updateMask `string`: Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:  destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample: updateMask=filter.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogSink](#logsink)
@@ -827,8 +827,9 @@ google_logging.folders.sinks.update({
   * resource [MonitoredResource](#monitoredresource)
   * severity `string` (values: DEFAULT, DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY): Optional. The severity of the log entry. The default value is LogSeverity.DEFAULT.
   * sourceLocation [LogEntrySourceLocation](#logentrysourcelocation)
+  * spanId `string`: Optional. The span ID within the trace associated with the log entry. For Stackdriver Trace spans, this is the same format that the Stackdriver Trace API v2 uses: a 16-character hexadecimal encoding of an 8-byte array, such as <code>"000000000000004a"</code>.
   * textPayload `string`: The log entry payload, represented as a Unicode string (UTF-8).
-  * timestamp `string`: Optional. The time the event described by the log entry occurred. This time is used to compute the log entry's age and to enforce the logs retention period. If this field is omitted in a new log entry, then Stackdriver Logging assigns it the current time.Incoming log entries should have timestamps that are no more than the logs retention period in the past, and no more than 24 hours in the future. See the entries.write API method for more information.
+  * timestamp `string`: Optional. The time the event described by the log entry occurred. This time is used to compute the log entry's age and to enforce the logs retention period. If this field is omitted in a new log entry, then Stackdriver Logging assigns it the current time.Incoming log entries should have timestamps that are no more than the logs retention period in the past, and no more than 24 hours in the future. Log entries outside those time boundaries will not be available when calling entries.list, but those log entries can still be exported with LogSinks.
   * trace `string`: Optional. Resource name of the trace associated with the log entry, if any. If it contains a relative resource name, the name is assumed to be relative to //tracing.googleapis.com. Example: projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824
 
 ### LogEntryOperation
@@ -956,7 +957,8 @@ google_logging.folders.sinks.update({
 
 ### WriteLogEntriesRequest
 * WriteLogEntriesRequest `object`: The parameters to WriteLogEntries.
-  * entries `array`: Required. The log entries to send to Stackdriver Logging. The order of log entries in this list does not matter. Values supplied in this method's log_name, resource, and labels fields are copied into those log entries in this list that do not include values for their corresponding fields. For more information, see the LogEntry type.If the timestamp or insert_id fields are missing in log entries, then this method supplies the current time or a unique identifier, respectively. The supplied values are chosen so that, among the log entries that did not supply their own values, the entries earlier in the list will sort before the entries later in the list. See the entries.list method.Log entries with timestamps that are more than the logs retention period in the past or more than 24 hours in the future might be discarded. Discarding does not return an error.To improve throughput and to avoid exceeding the quota limit for calls to entries.write, you should try to include several log entries in this list, rather than calling this method for each individual log entry.
+  * dryRun `boolean`: Optional. If true, the request should expect normal response, but the entries won't be persisted nor exported. Useful for checking whether the logging API endpoints are working properly before sending valuable data.
+  * entries `array`: Required. The log entries to send to Stackdriver Logging. The order of log entries in this list does not matter. Values supplied in this method's log_name, resource, and labels fields are copied into those log entries in this list that do not include values for their corresponding fields. For more information, see the LogEntry type.If the timestamp or insert_id fields are missing in log entries, then this method supplies the current time or a unique identifier, respectively. The supplied values are chosen so that, among the log entries that did not supply their own values, the entries earlier in the list will sort before the entries later in the list. See the entries.list method.Log entries with timestamps that are more than the logs retention period in the past or more than 24 hours in the future will not be available when calling entries.list. However, those log entries can still be exported with LogSinks.To improve throughput and to avoid exceeding the quota limit for calls to entries.write, you should try to include several log entries in this list, rather than calling this method for each individual log entry.
     * items [LogEntry](#logentry)
   * labels `object`: Optional. Default labels that are added to the labels field of all log entries in entries. If a log entry already has a label with the same key as a label in this parameter, then the log entry's label is not changed. See LogEntry.
   * logName `string`: Optional. A default log resource name that is assigned to all log entries in entries that do not specify a value for log_name:

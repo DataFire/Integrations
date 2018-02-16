@@ -1,6 +1,6 @@
 # @datafire/google_container
 
-Client library for Google Container Engine
+Client library for Google Kubernetes Engine
 
 ## Installation and Usage
 ```bash
@@ -1110,7 +1110,7 @@ google_container.projects.zones.operations.cancel({
 * output [Empty](#empty)
 
 ### projects.zones.getServerconfig
-Returns configuration info about the Container Engine service.
+Returns configuration info about the Kubernetes Engine service.
 
 
 ```js
@@ -1175,7 +1175,7 @@ google_container.projects.zones.getServerconfig({
   * issueClientCertificate `boolean`: Issue a client certificate.
 
 ### Cluster
-* Cluster `object`: A Google Container Engine cluster.
+* Cluster `object`: A Google Kubernetes Engine cluster.
   * addonsConfig [AddonsConfig](#addonsconfig)
   * clusterIpv4Cidr `string`: The IP address range of the container pods in this cluster, in
   * createTime `string`: [Output only] The time the cluster was created, in
@@ -1188,7 +1188,7 @@ google_container.projects.zones.getServerconfig({
   * expireTime `string`: [Output only] The time the cluster will be automatically
   * initialClusterVersion `string`: The initial Kubernetes version for this cluster.  Valid versions are those
   * initialNodeCount `integer`: The number of nodes to create in this cluster. You must ensure that your
-  * instanceGroupUrls `array`: [Output only] The resource URLs of [instance
+  * instanceGroupUrls `array`: Deprecated. Use node_pools.instance_group_urls.
     * items `string`
   * ipAllocationPolicy [IPAllocationPolicy](#ipallocationpolicy)
   * labelFingerprint `string`: The fingerprint of the set of labels for this cluster.
@@ -1357,14 +1357,14 @@ google_container.projects.zones.getServerconfig({
   * autoscaling [NodePoolAutoscaling](#nodepoolautoscaling)
   * config [NodeConfig](#nodeconfig)
   * initialNodeCount `integer`: The initial node count for the pool. You must ensure that your
-  * instanceGroupUrls `array`: [Output only] The resource URLs of [instance
+  * instanceGroupUrls `array`: [Output only] The resource URLs of the [managed instance
     * items `string`
   * management [NodeManagement](#nodemanagement)
   * name `string`: The name of the node pool.
   * selfLink `string`: [Output only] Server-defined URL for the resource.
   * status `string` (values: STATUS_UNSPECIFIED, PROVISIONING, RUNNING, RUNNING_WITH_ERROR, RECONCILING, STOPPING, ERROR): [Output only] The status of the nodes in this pool instance.
   * statusMessage `string`: [Output only] Additional information about the current status of this
-  * version `string`: [Output only] The version of the Kubernetes of this node.
+  * version `string`: The version of the Kubernetes of this node.
 
 ### NodePoolAutoscaling
 * NodePoolAutoscaling `object`: NodePoolAutoscaling contains information required by cluster autoscaler to
@@ -1389,7 +1389,7 @@ google_container.projects.zones.getServerconfig({
 * RollbackNodePoolUpgradeRequest `object`: RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed
 
 ### ServerConfig
-* ServerConfig `object`: Container Engine service configuration.
+* ServerConfig `object`: Kubernetes Engine service configuration.
   * defaultClusterVersion `string`: Version of Kubernetes the service deploys by default.
   * defaultImageType `string`: Default image type.
   * validImageTypes `array`: List of valid image types.
@@ -1459,7 +1459,7 @@ google_container.projects.zones.getServerconfig({
 
 ### UpdateMasterRequest
 * UpdateMasterRequest `object`: UpdateMasterRequest updates the master of the cluster.
-  * masterVersion `string`: The Kubernetes version to change the master to. The only valid value is the
+  * masterVersion `string`: The Kubernetes version to change the master to. Use "-" to have the server
 
 ### UpdateNodePoolRequest
 * UpdateNodePoolRequest `object`: UpdateNodePoolRequests update a node pool's image and/or version.

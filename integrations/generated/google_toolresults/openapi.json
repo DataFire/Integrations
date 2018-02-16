@@ -141,13 +141,6 @@
         "operationId": "projects.histories.list",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "If set, only return histories with the given name.\n\nOptional.",
             "in": "query",
             "name": "filterByName",
@@ -163,6 +156,13 @@
             "description": "A continuation token to resume the query at the next item.\n\nOptional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A Project id.\n\nRequired.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -216,6 +216,13 @@
         "operationId": "projects.histories.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/History"
+            }
+          },
+          {
             "description": "A Project id.\n\nRequired.",
             "in": "path",
             "name": "projectId",
@@ -227,13 +234,6 @@
             "in": "query",
             "name": "requestId",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/History"
-            }
           }
         ],
         "responses": {
@@ -265,16 +265,16 @@
         "operationId": "projects.histories.get",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "description": "A History id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "historyId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "A History id.\n\nRequired.",
+            "description": "A Project id.\n\nRequired.",
             "in": "path",
-            "name": "historyId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           }
@@ -331,13 +331,6 @@
         "operationId": "projects.histories.executions.list",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "A History id.\n\nRequired.",
             "in": "path",
             "name": "historyId",
@@ -354,6 +347,13 @@
             "description": "A continuation token to resume the query at the next item.\n\nOptional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A Project id.\n\nRequired.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -407,11 +407,11 @@
         "operationId": "projects.histories.executions.create",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Execution"
+            }
           },
           {
             "description": "A History id.\n\nRequired.",
@@ -421,17 +421,17 @@
             "type": "string"
           },
           {
+            "description": "A Project id.\n\nRequired.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "A unique request ID for server to detect duplicated requests. For example, a UUID.\n\nOptional, but strongly recommended.",
             "in": "query",
             "name": "requestId",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Execution"
-            }
           }
         ],
         "responses": {
@@ -463,9 +463,9 @@
         "operationId": "projects.histories.executions.get",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "description": "An Execution id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -477,9 +477,9 @@
             "type": "string"
           },
           {
-            "description": "An Execution id.\n\nRequired.",
+            "description": "A Project id.\n\nRequired.",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           }
@@ -534,9 +534,16 @@
         "operationId": "projects.histories.executions.patch",
         "parameters": [
           {
-            "description": "A Project id. Required.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Execution"
+            }
+          },
+          {
+            "description": "Required.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -548,9 +555,9 @@
             "type": "string"
           },
           {
-            "description": "Required.",
+            "description": "A Project id. Required.",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -559,13 +566,6 @@
             "in": "query",
             "name": "requestId",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Execution"
-            }
           }
         ],
         "responses": {
@@ -730,9 +730,9 @@
         "operationId": "projects.histories.executions.steps.list",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "description": "A Execution id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -740,13 +740,6 @@
             "description": "A History id.\n\nRequired.",
             "in": "path",
             "name": "historyId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A Execution id.\n\nRequired.",
-            "in": "path",
-            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -760,6 +753,13 @@
             "description": "A continuation token to resume the query at the next item.\n\nOptional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A Project id.\n\nRequired.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -813,9 +813,16 @@
         "operationId": "projects.histories.executions.steps.create",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Step"
+            }
+          },
+          {
+            "description": "A Execution id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -827,9 +834,9 @@
             "type": "string"
           },
           {
-            "description": "A Execution id.\n\nRequired.",
+            "description": "A Project id.\n\nRequired.",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -838,13 +845,6 @@
             "in": "query",
             "name": "requestId",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Step"
-            }
           }
         ],
         "responses": {
@@ -876,9 +876,9 @@
         "operationId": "projects.histories.executions.steps.get",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "description": "A Execution id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -890,9 +890,9 @@
             "type": "string"
           },
           {
-            "description": "A Execution id.\n\nRequired.",
+            "description": "A Project id.\n\nRequired.",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -954,9 +954,16 @@
         "operationId": "projects.histories.executions.steps.patch",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Step"
+            }
+          },
+          {
+            "description": "A Execution id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -968,16 +975,9 @@
             "type": "string"
           },
           {
-            "description": "A Execution id.\n\nRequired.",
+            "description": "A Project id.\n\nRequired.",
             "in": "path",
-            "name": "executionId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A Step id.\n\nRequired.",
-            "in": "path",
-            "name": "stepId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -988,11 +988,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Step"
-            }
+            "description": "A Step id.\n\nRequired.",
+            "in": "path",
+            "name": "stepId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1024,9 +1024,9 @@
         "operationId": "projects.histories.executions.steps.getPerfMetricsSummary",
         "parameters": [
           {
-            "description": "The cloud project",
+            "description": "A tool results execution ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -1038,9 +1038,9 @@
             "type": "string"
           },
           {
-            "description": "A tool results execution ID.",
+            "description": "The cloud project",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1102,9 +1102,16 @@
         "operationId": "projects.histories.executions.steps.perfMetricsSummary.create",
         "parameters": [
           {
-            "description": "The cloud project",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PerfMetricsSummary"
+            }
+          },
+          {
+            "description": "A tool results execution ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -1116,9 +1123,9 @@
             "type": "string"
           },
           {
-            "description": "A tool results execution ID.",
+            "description": "The cloud project",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1128,13 +1135,6 @@
             "name": "stepId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PerfMetricsSummary"
-            }
           }
         ],
         "responses": {
@@ -1261,9 +1261,16 @@
         "operationId": "projects.histories.executions.steps.perfSampleSeries.create",
         "parameters": [
           {
-            "description": "The cloud project",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PerfSampleSeries"
+            }
+          },
+          {
+            "description": "A tool results execution ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -1275,9 +1282,9 @@
             "type": "string"
           },
           {
-            "description": "A tool results execution ID.",
+            "description": "The cloud project",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1287,13 +1294,6 @@
             "name": "stepId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PerfSampleSeries"
-            }
           }
         ],
         "responses": {
@@ -1325,9 +1325,9 @@
         "operationId": "projects.histories.executions.steps.perfSampleSeries.get",
         "parameters": [
           {
-            "description": "The cloud project",
+            "description": "A tool results execution ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -1339,16 +1339,9 @@
             "type": "string"
           },
           {
-            "description": "A tool results execution ID.",
+            "description": "The cloud project",
             "in": "path",
-            "name": "executionId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A tool results step ID.",
-            "in": "path",
-            "name": "stepId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1356,6 +1349,13 @@
             "description": "A sample series id",
             "in": "path",
             "name": "sampleSeriesId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A tool results step ID.",
+            "in": "path",
+            "name": "stepId",
             "required": true,
             "type": "string"
           }
@@ -1412,20 +1412,6 @@
         "operationId": "projects.histories.executions.steps.perfSampleSeries.samples.list",
         "parameters": [
           {
-            "description": "The cloud project",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A tool results history ID.",
-            "in": "path",
-            "name": "historyId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "A tool results execution ID.",
             "in": "path",
             "name": "executionId",
@@ -1433,16 +1419,9 @@
             "type": "string"
           },
           {
-            "description": "A tool results step ID.",
+            "description": "A tool results history ID.",
             "in": "path",
-            "name": "stepId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A sample series id",
-            "in": "path",
-            "name": "sampleSeriesId",
+            "name": "historyId",
             "required": true,
             "type": "string"
           },
@@ -1456,6 +1435,27 @@
             "description": "Optional, the next_page_token returned in the previous response",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The cloud project",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A sample series id",
+            "in": "path",
+            "name": "sampleSeriesId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A tool results step ID.",
+            "in": "path",
+            "name": "stepId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1534,9 +1534,16 @@
         "operationId": "projects.histories.executions.steps.perfSampleSeries.samples.batchCreate",
         "parameters": [
           {
-            "description": "The cloud project",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BatchCreatePerfSamplesRequest"
+            }
+          },
+          {
+            "description": "A tool results execution ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -1548,16 +1555,9 @@
             "type": "string"
           },
           {
-            "description": "A tool results execution ID.",
+            "description": "The cloud project",
             "in": "path",
-            "name": "executionId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A tool results step ID.",
-            "in": "path",
-            "name": "stepId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1569,11 +1569,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BatchCreatePerfSamplesRequest"
-            }
+            "description": "A tool results step ID.",
+            "in": "path",
+            "name": "stepId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1605,20 +1605,6 @@
         "operationId": "projects.histories.executions.steps.thumbnails.list",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A History id.\n\nRequired.",
-            "in": "path",
-            "name": "historyId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "An Execution id.\n\nRequired.",
             "in": "path",
             "name": "executionId",
@@ -1626,9 +1612,9 @@
             "type": "string"
           },
           {
-            "description": "A Step id.\n\nRequired.",
+            "description": "A History id.\n\nRequired.",
             "in": "path",
-            "name": "stepId",
+            "name": "historyId",
             "required": true,
             "type": "string"
           },
@@ -1642,6 +1628,20 @@
             "description": "A continuation token to resume the query at the next item.\n\nOptional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A Project id.\n\nRequired.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A Step id.\n\nRequired.",
+            "in": "path",
+            "name": "stepId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1720,9 +1720,16 @@
         "operationId": "projects.histories.executions.steps.publishXunitXmlFiles",
         "parameters": [
           {
-            "description": "A Project id.\n\nRequired.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PublishXunitXmlFilesRequest"
+            }
+          },
+          {
+            "description": "A Execution id.\n\nRequired.",
             "in": "path",
-            "name": "projectId",
+            "name": "executionId",
             "required": true,
             "type": "string"
           },
@@ -1734,9 +1741,9 @@
             "type": "string"
           },
           {
-            "description": "A Execution id.\n\nRequired.",
+            "description": "A Project id.\n\nRequired.",
             "in": "path",
-            "name": "executionId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1746,13 +1753,6 @@
             "name": "stepId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PublishXunitXmlFilesRequest"
-            }
           }
         ],
         "responses": {
@@ -2915,7 +2915,9 @@
             "anr",
             "compatibleWithOrchestrator",
             "fatalException",
+            "launcherActivityNotFound",
             "nativeCrash",
+            "startActivityNotFound",
             "unspecifiedType",
             "unusedRoboDirective"
           ],
@@ -2998,7 +3000,7 @@
       "type": "object"
     },
     "Timestamp": {
-      "description": "A Timestamp represents a point in time independent of any time zone or calendar, represented as seconds and fractions of seconds at nanosecond resolution in UTC Epoch time. It is encoded using the Proleptic Gregorian Calendar which extends the Gregorian calendar backwards to year one. It is encoded assuming all minutes are 60 seconds long, i.e. leap seconds are \"smeared\" so that no leap second table is needed for interpretation. Range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from RFC 3339 date strings. See [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).\n\n# Examples\n\nExample 1: Compute Timestamp from POSIX `time()`.\n\nTimestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);\n\nExample 2: Compute Timestamp from POSIX `gettimeofday()`.\n\nstruct timeval tv; gettimeofday(&tv, NULL);\n\nTimestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);\n\nExample 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.\n\nFILETIME ft; GetSystemTimeAsFileTime(&ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;\n\n// A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z. Timestamp timestamp; timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL)); timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));\n\nExample 4: Compute Timestamp from Java `System.currentTimeMillis()`.\n\nlong millis = System.currentTimeMillis();\n\nTimestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000) .setNanos((int) ((millis % 1000) * 1000000)).build();\n\n\n\nExample 5: Compute Timestamp from current time in Python.\n\ntimestamp = Timestamp() timestamp.GetCurrentTime()\n\n# JSON Mapping\n\nIn JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone is required, though only UTC (as indicated by \"Z\") is presently supported.\n\nFor example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past 01:30 UTC on January 15, 2017.\n\nIn JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString] method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use the Joda Time's [`ISODateTimeFormat.dateTime()`]( http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()) to obtain a formatter capable of generating timestamps in this format.",
+      "description": "A Timestamp represents a point in time independent of any time zone or calendar, represented as seconds and fractions of seconds at nanosecond resolution in UTC Epoch time. It is encoded using the Proleptic Gregorian Calendar which extends the Gregorian calendar backwards to year one. It is encoded assuming all minutes are 60 seconds long, i.e. leap seconds are \"smeared\" so that no leap second table is needed for interpretation. Range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from RFC 3339 date strings. See [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).\n\n# Examples\n\nExample 1: Compute Timestamp from POSIX `time()`.\n\nTimestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);\n\nExample 2: Compute Timestamp from POSIX `gettimeofday()`.\n\nstruct timeval tv; gettimeofday(&tv, NULL);\n\nTimestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);\n\nExample 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.\n\nFILETIME ft; GetSystemTimeAsFileTime(&ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;\n\n// A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z. Timestamp timestamp; timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL)); timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));\n\nExample 4: Compute Timestamp from Java `System.currentTimeMillis()`.\n\nlong millis = System.currentTimeMillis();\n\nTimestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000) .setNanos((int) ((millis % 1000) * 1000000)).build();\n\n\n\nExample 5: Compute Timestamp from current time in Python.\n\ntimestamp = Timestamp() timestamp.GetCurrentTime()\n\n# JSON Mapping\n\nIn JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone is required, though only UTC (as indicated by \"Z\") is currently supported.\n\nFor example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past 01:30 UTC on January 15, 2017.\n\nIn JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString] method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use the Joda Time's [`ISODateTimeFormat.dateTime()`]( http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime-- ) to obtain a formatter capable of generating timestamps in this format.",
       "properties": {
         "nanos": {
           "description": "Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive.",

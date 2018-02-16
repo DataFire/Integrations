@@ -34,12 +34,12 @@ google_pagespeedonline.pagespeedapi.runpagespeed({
 
 #### Input
 * input `object`
-  * url **required** `string`: The URL to fetch and analyze
   * filter_third_party_resources `boolean`: Indicates if third party resources should be filtered out before PageSpeed analysis.
   * locale `string`: The locale used to localize formatted results
   * rule `array`: A PageSpeed rule to run; if none are given, all rules are run
   * screenshot `boolean`: Indicates if binary data containing a screenshot should be included
   * strategy `string` (values: desktop, mobile): The analysis strategy to use
+  * url **required** `string`: The URL to fetch and analyze
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -91,6 +91,7 @@ google_pagespeedonline.pagespeedapi.runpagespeed({
 
 ### Result
 * Result `object`
+  * captchaResult `string`: The captcha verify result
   * formattedResults `object`: Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed rule instantiated and run by the server.
     * locale `string`: The locale of the formattedResults, e.g. "en_US".
     * ruleResults `object`: Dictionary of formatted rule results, with one entry for each PageSpeed rule instantiated and run by the server.

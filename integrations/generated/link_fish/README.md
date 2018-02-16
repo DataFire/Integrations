@@ -296,6 +296,7 @@ link_fish.Urls.social_media.get({
   * items **required** `array`: The found data items on the website.
     * items `object`: The properties depend on the type of the item. The field "@type" exists for all.
       * @type `string`: The item type
+  * statusCode **required** `string`: The HTTP status code the URL returned
   * title **required** `string`: The title of the page
   * url **required** `string`: The url of the website. Can be different to requested one if there were redirects
 
@@ -310,6 +311,7 @@ link_fish.Urls.social_media.get({
     * items `object`: The properties depend on the type of the item. The field "@type" exists for all.
       * @type `string`: The item type
   * screenshot `string`: Base64 encoded PNG screenshot of website (if generation got requested)
+  * statusCode **required** `string`: The HTTP status code the URL returned
   * title **required** `string`: The title of the page
   * url **required** `string`: The url of the website. Can be different to requested one if there were redirects
 

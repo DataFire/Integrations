@@ -13,9 +13,8 @@ let amazonaws_data_iot = require('@datafire/amazonaws_data_iot').create({
   region: ""
 });
 
-amazonaws_data_iot.UpdateThingShadow({
-  "thingName": "",
-  "payload": ""
+amazonaws_data_iot.DeleteThingShadow({
+  "thingName": ""
 }).then(data => {
   console.log(data);
 });
@@ -26,6 +25,40 @@ amazonaws_data_iot.UpdateThingShadow({
 <fullname>AWS IoT</fullname> <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p>
 
 ## Actions
+
+### DeleteThingShadow
+
+
+
+```js
+amazonaws_data_iot.DeleteThingShadow({
+  "thingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * thingName **required** `string`
+
+#### Output
+* output [DeleteThingShadowResponse](#deletethingshadowresponse)
+
+### GetThingShadow
+
+
+
+```js
+amazonaws_data_iot.GetThingShadow({
+  "thingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * thingName **required** `string`
+
+#### Output
+* output [GetThingShadowResponse](#getthingshadowresponse)
 
 ### UpdateThingShadow
 

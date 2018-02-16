@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their users.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Admin Reports",
     "version": "reports_v1",
     "x-apiClientRegistration": {
@@ -47,12 +52,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/admin.reports.audit.readonly": "View audit reports for your G Suite domain",
         "https://www.googleapis.com/auth/admin.reports.usage.readonly": "View usage reports for your G Suite domain"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/admin.reports.audit.readonly": "View audit reports for your G Suite domain",
+        "https://www.googleapis.com/auth/admin.reports.usage.readonly": "View usage reports for your G Suite domain"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -127,6 +143,9 @@
       "name": "customerUsageReports"
     },
     {
+      "name": "entityUsageReports"
+    },
+    {
       "name": "userUsageReport"
     }
   ],
@@ -137,10 +156,9 @@
         "operationId": "activities.list",
         "parameters": [
           {
-            "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.",
-            "in": "path",
-            "name": "userKey",
-            "required": true,
+            "description": "IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.",
+            "in": "query",
+            "name": "actorIpAddress",
             "type": "string"
           },
           {
@@ -148,12 +166,6 @@
             "in": "path",
             "name": "applicationName",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.",
-            "in": "query",
-            "name": "actorIpAddress",
             "type": "string"
           },
           {
@@ -199,6 +211,13 @@
             "in": "query",
             "name": "startTime",
             "type": "string"
+          },
+          {
+            "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.",
+            "in": "path",
+            "name": "userKey",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -212,6 +231,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             ]
           }
@@ -273,10 +295,9 @@
         "operationId": "activities.watch",
         "parameters": [
           {
-            "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.",
-            "in": "path",
-            "name": "userKey",
-            "required": true,
+            "description": "IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.",
+            "in": "query",
+            "name": "actorIpAddress",
             "type": "string"
           },
           {
@@ -284,12 +305,6 @@
             "in": "path",
             "name": "applicationName",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.",
-            "in": "query",
-            "name": "actorIpAddress",
             "type": "string"
           },
           {
@@ -331,17 +346,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "resource",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
+          },
+          {
             "description": "Return events which occurred at or after this time.",
             "in": "query",
             "name": "startTime",
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
+            "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.",
+            "in": "path",
+            "name": "userKey",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -355,6 +377,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             ]
           }
@@ -409,6 +434,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             ]
           }
         ],
@@ -423,16 +451,16 @@
         "operationId": "customerUsageReports.get",
         "parameters": [
           {
+            "description": "Represents the customer for which the data is to be fetched.",
+            "in": "query",
+            "name": "customerId",
+            "type": "string"
+          },
+          {
             "description": "Represents the date in yyyy-mm-dd format for which the data is to be fetched.",
             "in": "path",
             "name": "date",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Represents the customer for which the data is to be fetched.",
-            "in": "query",
-            "name": "customerId",
             "type": "string"
           },
           {
@@ -459,6 +487,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/admin.reports.usage.readonly"
             ]
           }
@@ -497,10 +528,9 @@
         "operationId": "userUsageReport.get",
         "parameters": [
           {
-            "description": "Represents the profile id or the user email for which the data should be filtered.",
-            "in": "path",
-            "name": "userKey",
-            "required": true,
+            "description": "Represents the customer for which the data is to be fetched.",
+            "in": "query",
+            "name": "customerId",
             "type": "string"
           },
           {
@@ -511,9 +541,114 @@
             "type": "string"
           },
           {
+            "description": "Represents the set of filters including parameter operator value.",
+            "in": "query",
+            "name": "filters",
+            "type": "string"
+          },
+          {
+            "description": "Maximum number of results to return. Maximum allowed is 1000",
+            "in": "query",
+            "maximum": 1000,
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
+            "description": "Token to specify next page.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.",
+            "in": "query",
+            "name": "parameters",
+            "type": "string"
+          },
+          {
+            "description": "Represents the profile id or the user email for which the data should be filtered.",
+            "in": "path",
+            "name": "userKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/UsageReports"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+            ]
+          }
+        ],
+        "tags": [
+          "userUsageReport"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
+    },
+    "/usage/{entityType}/{entityKey}/dates/{date}": {
+      "get": {
+        "description": "Retrieves a report which is a collection of properties / statistics for a set of objects.",
+        "operationId": "entityUsageReports.get",
+        "parameters": [
+          {
             "description": "Represents the customer for which the data is to be fetched.",
             "in": "query",
             "name": "customerId",
+            "type": "string"
+          },
+          {
+            "description": "Represents the date in yyyy-mm-dd format for which the data is to be fetched.",
+            "in": "path",
+            "name": "date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Represents the key of object for which the data should be filtered.",
+            "in": "path",
+            "name": "entityKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Type of object. Should be one of - gplus_communities.",
+            "in": "path",
+            "name": "entityType",
+            "required": true,
             "type": "string"
           },
           {
@@ -554,11 +689,14 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/admin.reports.usage.readonly"
             ]
           }
         ],
         "tags": [
-          "userUsageReport"
+          "entityUsageReports"
         ]
       },
       "parameters": [
@@ -808,18 +946,23 @@
               "readOnly": true,
               "type": "string"
             },
+            "entityId": {
+              "description": "Object key. Only relevant if entity.type = \"OBJECT\" Note: external-facing name of report is \"Entities\" rather than \"Objects\".",
+              "readOnly": true,
+              "type": "string"
+            },
             "profileId": {
               "description": "Obfuscated user id for the record.",
               "readOnly": true,
               "type": "string"
             },
             "type": {
-              "description": "The type of item, can be a customer or user.",
+              "description": "The type of item, can be customer, user, or entity (aka. object).",
               "readOnly": true,
               "type": "string"
             },
             "userEmail": {
-              "description": "user's email.",
+              "description": "user's email. Only relevant if entity.type = \"USER\"",
               "readOnly": true,
               "type": "string"
             }

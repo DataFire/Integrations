@@ -563,6 +563,35 @@ hetras_certification_hotel.Rooms_PatchRoom({
 #### Output
 * output [Object](#object)
 
+### YieldableRates_SavePrices
+Saves Yieldable Rate Prices for existing Yieldable Rateplan. The rateplan has been created before and with this End Point we 
+            create or update the rate prices. If the Yieldable rateplan prices exist it updates them with the new price if not it creates new price entries.<br />
+            For more details on how the API responds to errors please check our documentation on 
+            <a href="https://developer.hetras.com/docs/errors/" onfocus="this.blur()">Error Handling</a>.
+
+
+```js
+hetras_certification_hotel.YieldableRates_SavePrices({
+  "App-Id": "",
+  "App-Key": "",
+  "hotelId": 0,
+  "rateplanCode": "",
+  "yieldableRatePrices": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * App-Id **required** `string`: Application identifier
+  * App-Key **required** `string`: Application key.
+  * hotelId **required** `integer`: Specifies the hotelId which identifies Hotel for which the operation will be performed.
+  * rateplanCode **required** `string`: Specifies the rateplanCode for which the operation will be performed.
+  * yieldableRatePrices **required** `array`
+    * items [YieldableRateTimeSlice](#yieldableratetimeslice)
+
+#### Output
+* output [Object](#object)
+
 
 
 ## Definitions
@@ -668,6 +697,7 @@ hetras_certification_hotel.Rooms_PatchRoom({
   * group [RateplanGroup](#rateplangroup)
   * included_services `array`: List of codes for the included services sold with this rateplan
     * items `string`
+  * is_yieldable `boolean`: Gives the information if this rateplan is Yieldable rateplan
   * market_code `string`: The code of the market segment the rate plan is linked to
   * name `string`: Name of the rateplan
   * noshow_policy `string`: The code of the noshow policy for this rateplan
@@ -778,6 +808,7 @@ hetras_certification_hotel.Rooms_PatchRoom({
   * group `string`: Code of the rateplan group
   * included_services `array`: List of codes for the included services sold with this rateplan
     * items `string`
+  * is_yieldable `boolean`: Gives the information if this rateplan is Yieldable rateplan
   * market_code `string`: The code of the market segment the rate plan is linked to
   * name `string`: Name of the rateplan
   * room_types `array`: List of all room types sold through this rateplan
@@ -973,5 +1004,12 @@ hetras_certification_hotel.Rooms_PatchRoom({
 ### TotalCountResponse
 * TotalCountResponse `object`
   * _count **required** `integer`: Returns the total count for all items matching the query parameters. If none is matching it will return 0.
+
+### YieldableRateTimeSlice
+* YieldableRateTimeSlice `object`
+  * date `string`
+  * number_of_persons **required** `integer`: Number of persons for which the rate price is saved
+  * rate_value **required** `number`: Rate value amount, which should be unique for the combination of rateplan, date, room type and numer of persons
+  * room_type **required** `string`: Room Type code for which the rate price is saved
 
 

@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p> <p>This API reference provides information about user pools in Amazon Cognito User Pools.</p> <p>For more information, see the Amazon Cognito Documentation.</p>",
     "license": {
@@ -457,7 +458,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to <a href=\"API_CreateUserPool.html\">CreateUserPool</a> or <a href=\"API_UpdateUserPool.html\">UpdateUserPool</a>. This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> <p>Requires developer credentials.</p>",
+        "description": "<p>Creates a new user in the specified user pool.</p> <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p> <note> <p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p> </note> <p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p> <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p> <p>AdminCreateUser requires developer credentials.</p>",
         "operationId": "AdminCreateUser",
         "parameters": [
           {
@@ -781,7 +782,7 @@
         }
       ],
       "post": {
-        "description": "<p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See <a href=\"API_AdminLinkProviderForUser.html\">AdminLinkProviderForUser</a>.</p> <p>This action is enabled only for admin access and requires developer credentials.</p> <p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p> <p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p> <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p> <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the <a href=\"API_AdminLinkProviderForUser.html\">AdminLinkProviderForUser</a> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>",
+        "description": "<p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See .</p> <p>This action is enabled only for admin access and requires developer credentials.</p> <p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p> <p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p> <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p> <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>",
         "operationId": "AdminDisableProviderForUser",
         "parameters": [
           {
@@ -1467,7 +1468,7 @@
         }
       ],
       "post": {
-        "description": "<p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p> <p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p> <important> <p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p> </important> <p>See also <a href=\"API_AdminDisableProviderForUser.html\">AdminDisableProviderForUser</a>.</p> <p>This action is enabled only for admin access and requires developer credentials.</p>",
+        "description": "<p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p> <p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p> <important> <p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p> </important> <p>See also .</p> <p>This action is enabled only for admin access and requires developer credentials.</p>",
         "operationId": "AdminLinkProviderForUser",
         "parameters": [
           {
@@ -1701,6 +1702,101 @@
             }
           },
           "485": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#AdminListUserAuthEvents": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.",
+        "operationId": "AdminListUserAuthEvents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdminListUserAuthEventsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AdminListUserAuthEventsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "484": {
+            "description": "UserNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UserNotFoundException"
+            }
+          },
+          "485": {
+            "description": "UserPoolAddOnNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/UserPoolAddOnNotEnabledException"
+            }
+          },
+          "486": {
             "description": "InternalErrorException",
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
@@ -2089,6 +2185,107 @@
             "schema": {
               "$ref": "#/definitions/UserNotConfirmedException"
             }
+          },
+          "499": {
+            "description": "SoftwareTokenMFANotFoundException",
+            "schema": {
+              "$ref": "#/definitions/SoftwareTokenMFANotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#AdminSetUserMFAPreference": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Sets the user's multi-factor authentication (MFA) preference.",
+        "operationId": "AdminSetUserMFAPreference",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdminSetUserMFAPreferenceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AdminSetUserMFAPreferenceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "483": {
+            "description": "PasswordResetRequiredException",
+            "schema": {
+              "$ref": "#/definitions/PasswordResetRequiredException"
+            }
+          },
+          "484": {
+            "description": "UserNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UserNotFoundException"
+            }
+          },
+          "485": {
+            "description": "UserNotConfirmedException",
+            "schema": {
+              "$ref": "#/definitions/UserNotConfirmedException"
+            }
+          },
+          "486": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
           }
         }
       }
@@ -2168,6 +2365,101 @@
             }
           },
           "484": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#AdminUpdateAuthEventFeedback": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.",
+        "operationId": "AdminUpdateAuthEventFeedback",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdminUpdateAuthEventFeedbackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AdminUpdateAuthEventFeedbackResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "484": {
+            "description": "UserNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UserNotFoundException"
+            }
+          },
+          "485": {
+            "description": "UserPoolAddOnNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/UserPoolAddOnNotEnabledException"
+            }
+          },
+          "486": {
             "description": "InternalErrorException",
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
@@ -2468,6 +2760,89 @@
             "description": "InternalErrorException",
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#AssociateSoftwareToken": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.",
+        "operationId": "AssociateSoftwareToken",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateSoftwareTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateSoftwareTokenResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "484": {
+            "description": "SoftwareTokenMFANotFoundException",
+            "schema": {
+              "$ref": "#/definitions/SoftwareTokenMFANotFoundException"
             }
           }
         }
@@ -4504,6 +4879,95 @@
         }
       }
     },
+    "/#DescribeRiskConfiguration": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes the risk configuration.",
+        "operationId": "DescribeRiskConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRiskConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRiskConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "484": {
+            "description": "UserPoolAddOnNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/UserPoolAddOnNotEnabledException"
+            }
+          },
+          "485": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
     "/#DescribeUserImportJob": {
       "parameters": [
         {
@@ -4971,7 +5435,7 @@
         }
       ],
       "post": {
-        "description": "Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user's password. For the <code>Username</code> parameter, you can use the username or user alias. If a verified phone number exists for the user, the confirmation code is sent to the phone number. Otherwise, if a verified email exists, the confirmation code is sent to the email. If neither a verified phone number nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call <a href=\"API_ConfirmForgotPassword.html\">ConfirmForgotPassword</a>.",
+        "description": "Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user's password. For the <code>Username</code> parameter, you can use the username or user alias. If a verified phone number exists for the user, the confirmation code is sent to the phone number. Otherwise, if a verified email exists, the confirmation code is sent to the email. If neither a verified phone number nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call .",
         "operationId": "ForgotPassword",
         "parameters": [
           {
@@ -5439,6 +5903,71 @@
         }
       }
     },
+    "/#GetSigningCertificate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "This method takes a user pool ID, and returns the signing certificate.",
+        "operationId": "GetSigningCertificate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSigningCertificateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSigningCertificateResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
     "/#GetUICustomization": {
       "parameters": [
         {
@@ -5764,6 +6293,89 @@
             }
           },
           "495": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetUserPoolMfaConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets the user pool multi-factor authentication (MFA) configuration.",
+        "operationId": "GetUserPoolMfaConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetUserPoolMfaConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetUserPoolMfaConfigResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "484": {
             "description": "InternalErrorException",
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
@@ -7057,6 +7669,113 @@
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
             }
+          },
+          "499": {
+            "description": "SoftwareTokenMFANotFoundException",
+            "schema": {
+              "$ref": "#/definitions/SoftwareTokenMFANotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#SetRiskConfiguration": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p> <p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p> <p>See .</p>",
+        "operationId": "SetRiskConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetRiskConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SetRiskConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "484": {
+            "description": "UserPoolAddOnNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/UserPoolAddOnNotEnabledException"
+            }
+          },
+          "485": {
+            "description": "CodeDeliveryFailureException",
+            "schema": {
+              "$ref": "#/definitions/CodeDeliveryFailureException"
+            }
+          },
+          "486": {
+            "description": "InvalidEmailRoleAccessPolicyException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEmailRoleAccessPolicyException"
+            }
+          },
+          "487": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
           }
         }
       }
@@ -7136,6 +7855,196 @@
             }
           },
           "484": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#SetUserMFAPreference": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Set the user's multi-factor authentication (MFA) method preference.",
+        "operationId": "SetUserMFAPreference",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetUserMFAPreferenceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SetUserMFAPreferenceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "483": {
+            "description": "PasswordResetRequiredException",
+            "schema": {
+              "$ref": "#/definitions/PasswordResetRequiredException"
+            }
+          },
+          "484": {
+            "description": "UserNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UserNotFoundException"
+            }
+          },
+          "485": {
+            "description": "UserNotConfirmedException",
+            "schema": {
+              "$ref": "#/definitions/UserNotConfirmedException"
+            }
+          },
+          "486": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#SetUserPoolMfaConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Set the user pool MFA configuration.",
+        "operationId": "SetUserPoolMfaConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetUserPoolMfaConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SetUserPoolMfaConfigResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InvalidSmsRoleAccessPolicyException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSmsRoleAccessPolicyException"
+            }
+          },
+          "484": {
+            "description": "InvalidSmsRoleTrustRelationshipException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSmsRoleTrustRelationshipException"
+            }
+          },
+          "485": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "486": {
             "description": "InternalErrorException",
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
@@ -7549,6 +8458,101 @@
             "description": "NotAuthorizedException",
             "schema": {
               "$ref": "#/definitions/NotAuthorizedException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateAuthEventFeedback": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.",
+        "operationId": "UpdateAuthEventFeedback",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAuthEventFeedbackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAuthEventFeedbackResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "484": {
+            "description": "UserNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UserNotFoundException"
+            }
+          },
+          "485": {
+            "description": "UserPoolAddOnNotEnabledException",
+            "schema": {
+              "$ref": "#/definitions/UserPoolAddOnNotEnabledException"
+            }
+          },
+          "486": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
             }
           }
         }
@@ -8259,9 +9263,110 @@
             }
           },
           "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "483": {
             "description": "TooManyRequestsException",
             "schema": {
               "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "485": {
+            "description": "ScopeDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/ScopeDoesNotExistException"
+            }
+          },
+          "486": {
+            "description": "InvalidOAuthFlowException",
+            "schema": {
+              "$ref": "#/definitions/InvalidOAuthFlowException"
+            }
+          },
+          "487": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#VerifySoftwareToken": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Use this API to register a user's entered TOTP code and mark the user's software token MFA status as \"verified\" if successful,",
+        "operationId": "VerifySoftwareToken",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VerifySoftwareTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VerifySoftwareTokenResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidUserPoolConfigurationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidUserPoolConfigurationException"
             }
           },
           "483": {
@@ -8271,21 +9376,57 @@
             }
           },
           "484": {
-            "description": "ScopeDoesNotExistException",
+            "description": "TooManyRequestsException",
             "schema": {
-              "$ref": "#/definitions/ScopeDoesNotExistException"
+              "$ref": "#/definitions/TooManyRequestsException"
             }
           },
           "485": {
-            "description": "InvalidOAuthFlowException",
+            "description": "PasswordResetRequiredException",
             "schema": {
-              "$ref": "#/definitions/InvalidOAuthFlowException"
+              "$ref": "#/definitions/PasswordResetRequiredException"
             }
           },
           "486": {
+            "description": "UserNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/UserNotFoundException"
+            }
+          },
+          "487": {
+            "description": "UserNotConfirmedException",
+            "schema": {
+              "$ref": "#/definitions/UserNotConfirmedException"
+            }
+          },
+          "488": {
             "description": "InternalErrorException",
             "schema": {
               "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "489": {
+            "description": "EnableSoftwareTokenMFAException",
+            "schema": {
+              "$ref": "#/definitions/EnableSoftwareTokenMFAException"
+            }
+          },
+          "490": {
+            "description": "NotAuthorizedException",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedException"
+            }
+          },
+          "491": {
+            "description": "SoftwareTokenMFANotFoundException",
+            "schema": {
+              "$ref": "#/definitions/SoftwareTokenMFANotFoundException"
+            }
+          },
+          "492": {
+            "description": "CodeMismatchException",
+            "schema": {
+              "$ref": "#/definitions/CodeMismatchException"
             }
           }
         }
@@ -8415,6 +9556,71 @@
     "AWSAccountIdType": {
       "type": "string"
     },
+    "AccountTakeoverActionNotifyType": {
+      "type": "boolean"
+    },
+    "AccountTakeoverActionType": {
+      "description": "Account takeover action type.",
+      "properties": {
+        "EventAction": {
+          "$ref": "#/definitions/AccountTakeoverEventActionType",
+          "description": "<p>The event action.</p> <ul> <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> <li> <p> <code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else allow the request.</p> </li> <li> <p> <code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block the request.</p> </li> <li> <p> <code>NO_ACTION</code> Allow the user sign-in.</p> </li> </ul>"
+        },
+        "Notify": {
+          "$ref": "#/definitions/AccountTakeoverActionNotifyType",
+          "description": "Flag specifying whether to send a notification."
+        }
+      },
+      "required": [
+        "Notify",
+        "EventAction"
+      ],
+      "type": "object"
+    },
+    "AccountTakeoverActionsType": {
+      "description": "Account takeover actions type.",
+      "properties": {
+        "HighAction": {
+          "$ref": "#/definitions/AccountTakeoverActionType",
+          "description": "Action to take for a high risk."
+        },
+        "LowAction": {
+          "$ref": "#/definitions/AccountTakeoverActionType",
+          "description": "Action to take for a low risk."
+        },
+        "MediumAction": {
+          "$ref": "#/definitions/AccountTakeoverActionType",
+          "description": "Action to take for a medium risk."
+        }
+      },
+      "type": "object"
+    },
+    "AccountTakeoverEventActionType": {
+      "enum": [
+        "BLOCK",
+        "MFA_IF_CONFIGURED",
+        "MFA_REQUIRED",
+        "NO_ACTION"
+      ],
+      "type": "string"
+    },
+    "AccountTakeoverRiskConfigurationType": {
+      "description": "Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.",
+      "properties": {
+        "Actions": {
+          "$ref": "#/definitions/AccountTakeoverActionsType",
+          "description": "Account takeover risk configuration actions"
+        },
+        "NotifyConfiguration": {
+          "$ref": "#/definitions/NotifyConfigurationType",
+          "description": "The notify configuration used to construct email notifications."
+        }
+      },
+      "required": [
+        "Actions"
+      ],
+      "type": "object"
+    },
     "AddCustomAttributesRequest": {
       "description": "Represents the request to add custom attributes.",
       "properties": {
@@ -8484,7 +9690,7 @@
       "type": "object"
     },
     "AdminCreateUserConfigType": {
-      "description": "The type of configuration for creating a new user profile.",
+      "description": "The configuration for creating a new user profile.",
       "properties": {
         "AllowAdminCreateUserOnly": {
           "$ref": "#/definitions/BooleanType",
@@ -8492,7 +9698,7 @@
         },
         "InviteMessageTemplate": {
           "$ref": "#/definitions/MessageTemplateType",
-          "description": "The message template to be used for the welcome message to new users."
+          "description": "<p>The message template to be used for the welcome message to new users.</p> <p>See also <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization\">Customizing User Invitation Messages</a>.</p>"
         },
         "UnusedAccountValidityDays": {
           "$ref": "#/definitions/AdminCreateUserUnusedAccountValidityDaysType",
@@ -8522,7 +9728,7 @@
         },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
-          "description": "<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (in <a href=\"API_CreateUserPool.html\">CreateUserPool</a> or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling <a href=\"API_AdminUpdateUserAttributes.html\">AdminUpdateUserAttributes</a>.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>\"EMAIL\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>\"SMS\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> </ul>"
+          "description": "<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (in or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling .)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>\"EMAIL\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>\"SMS\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> </ul>"
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -8554,7 +9760,7 @@
       "type": "object"
     },
     "AdminCreateUserUnusedAccountValidityDaysType": {
-      "maximum": 90,
+      "maximum": 365,
       "minimum": 0,
       "type": "integer"
     },
@@ -8759,6 +9965,10 @@
           "$ref": "#/definitions/MFAOptionListType",
           "description": "Specifies the options for MFA (e.g., email or phone number)."
         },
+        "PreferredMfaSetting": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's preferred MFA setting."
+        },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
           "description": "An array of name-value pairs representing user attributes."
@@ -8770,6 +9980,10 @@
         "UserLastModifiedDate": {
           "$ref": "#/definitions/DateType",
           "description": "The date the user was last modified."
+        },
+        "UserMFASettingList": {
+          "$ref": "#/definitions/UserMFASettingListType",
+          "description": "The list of the user's MFA settings."
         },
         "UserStatus": {
           "$ref": "#/definitions/UserStatusType",
@@ -8788,13 +10002,17 @@
     "AdminInitiateAuthRequest": {
       "description": "Initiates the authorization request, as an administrator.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The analytics metadata for collecting Amazon Pinpoint metrics for <code>AdminInitiateAuth</code> calls."
+        },
         "AuthFlow": {
           "$ref": "#/definitions/AuthFlowType",
-          "description": "<p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> </ul>"
+          "description": "<p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> </ul>"
         },
         "AuthParameters": {
           "$ref": "#/definitions/AuthParametersType",
-          "description": "<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>"
+          "description": "<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>"
         },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
@@ -8803,6 +10021,10 @@
         "ClientMetadata": {
           "$ref": "#/definitions/ClientMetadataType",
           "description": "This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication."
+        },
+        "ContextData": {
+          "$ref": "#/definitions/ContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -8829,7 +10051,7 @@
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "<p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p> <p>The value of the <code>USER_IF_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>"
+          "description": "<p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p> <p>The value of the <code>USER_ID_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>"
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
@@ -8842,7 +10064,7 @@
       "properties": {
         "DestinationUser": {
           "$ref": "#/definitions/ProviderUserIdentifierType",
-          "description": "<p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.</p> <p>The <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> must match the username for the user in the user pool. The <code>ProviderAttributeName</code> will always be ignored.</p>"
+          "description": "<p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.</p> <p>For a native username + password user, the <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> should be the username in the user pool. For a federated user, it should be the provider-specific <code>user_id</code>.</p> <p>The <code>ProviderAttributeName</code> of the <code>DestinationUser</code> is ignored.</p> <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p>"
         },
         "SourceUser": {
           "$ref": "#/definitions/ProviderUserIdentifierType",
@@ -8942,6 +10164,44 @@
       },
       "type": "object"
     },
+    "AdminListUserAuthEventsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The maximum number of authentication events to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user pool username or an alias."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object"
+    },
+    "AdminListUserAuthEventsResponse": {
+      "properties": {
+        "AuthEvents": {
+          "$ref": "#/definitions/AuthEventsType",
+          "description": "The response object. It includes the <code>EventID</code>, <code>EventType</code>, <code>CreationDate</code>, <code>EventRisk</code>, and <code>EventResponse</code>."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token."
+        }
+      },
+      "type": "object"
+    },
     "AdminRemoveUserFromGroupRequest": {
       "properties": {
         "GroupName": {
@@ -8990,9 +10250,13 @@
     "AdminRespondToAuthChallengeRequest": {
       "description": "The request to respond to the authentication challenge, as an administrator.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The analytics metadata for collecting Amazon Pinpoint metrics for <code>AdminRespondToAuthChallenge</code> calls."
+        },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The challenge name. For more information, see <a href=\"API_AdminInitiateAuth.html\">AdminInitiateAuth</a>."
+          "description": "The challenge name. For more information, see ."
         },
         "ChallengeResponses": {
           "$ref": "#/definitions/ChallengeResponsesType",
@@ -9001,6 +10265,10 @@
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The app client ID."
+        },
+        "ContextData": {
+          "$ref": "#/definitions/ContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
@@ -9027,17 +10295,46 @@
         },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The name of the challenge. For more information, see <a href=\"API_AdminInitiateAuth.html\">AdminInitiateAuth</a>."
+          "description": "The name of the challenge. For more information, see ."
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "The challenge parameters. For more information, see <a href=\"API_AdminInitiateAuth.html\">AdminInitiateAuth</a>."
+          "description": "The challenge parameters. For more information, see ."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session which should be passed both ways in challenge-response calls to the service. If the <a href=\"API_InitiateAuth.html\">InitiateAuth</a> or <a href=\"API_RespondToAuthChallenge.html\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
+      "type": "object"
+    },
+    "AdminSetUserMFAPreferenceRequest": {
+      "properties": {
+        "SMSMfaSettings": {
+          "$ref": "#/definitions/SMSMfaSettingsType",
+          "description": "The SMS text message MFA settings."
+        },
+        "SoftwareTokenMfaSettings": {
+          "$ref": "#/definitions/SoftwareTokenMfaSettingsType",
+          "description": "The time-based one-time password software token MFA settings."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user pool username or alias."
+        }
+      },
+      "required": [
+        "Username",
+        "UserPoolId"
+      ],
+      "type": "object"
+    },
+    "AdminSetUserMFAPreferenceResponse": {
+      "properties": {},
       "type": "object"
     },
     "AdminSetUserSettingsRequest": {
@@ -9065,6 +10362,37 @@
     },
     "AdminSetUserSettingsResponse": {
       "description": "Represents the response from the server to set user settings as an administrator.",
+      "properties": {},
+      "type": "object"
+    },
+    "AdminUpdateAuthEventFeedbackRequest": {
+      "properties": {
+        "EventId": {
+          "$ref": "#/definitions/EventIdType",
+          "description": "The authentication event ID."
+        },
+        "FeedbackValue": {
+          "$ref": "#/definitions/FeedbackValueType",
+          "description": "The authentication event feedback value."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user pool username."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "EventId",
+        "FeedbackValue"
+      ],
+      "type": "object"
+    },
+    "AdminUpdateAuthEventFeedbackResponse": {
       "properties": {},
       "type": "object"
     },
@@ -9151,6 +10479,14 @@
       "properties": {},
       "type": "object"
     },
+    "AdvancedSecurityModeType": {
+      "enum": [
+        "OFF",
+        "AUDIT",
+        "ENFORCED"
+      ],
+      "type": "string"
+    },
     "AliasAttributeType": {
       "enum": [
         "phone_number",
@@ -9175,11 +10511,74 @@
       },
       "type": "object"
     },
+    "AnalyticsConfigurationType": {
+      "description": "The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/HexStringType",
+          "description": "The application ID for an Amazon Pinpoint application."
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/StringType",
+          "description": "The external ID."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics."
+        },
+        "UserDataShared": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics."
+        }
+      },
+      "required": [
+        "ApplicationId",
+        "RoleArn",
+        "ExternalId"
+      ],
+      "type": "object"
+    },
+    "AnalyticsMetadataType": {
+      "description": "<p>An Amazon Pinpoint analytics endpoint.</p> <p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p>",
+      "properties": {
+        "AnalyticsEndpointId": {
+          "$ref": "#/definitions/StringType",
+          "description": "The endpoint ID."
+        }
+      },
+      "type": "object"
+    },
     "ArnType": {
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
       "type": "string"
+    },
+    "AssociateSoftwareTokenRequest": {
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process."
+        }
+      },
+      "type": "object"
+    },
+    "AssociateSoftwareTokenResponse": {
+      "properties": {
+        "SecretCode": {
+          "$ref": "#/definitions/SecretCodeType",
+          "description": "A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process."
+        }
+      },
+      "type": "object"
     },
     "AttributeDataType": {
       "enum": [
@@ -9249,13 +10648,58 @@
       "maxLength": 2048,
       "type": "string"
     },
+    "AuthEventType": {
+      "description": "The authentication event type.",
+      "properties": {
+        "ChallengeResponses": {
+          "$ref": "#/definitions/ChallengeResponseListType",
+          "description": "The challenge responses."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date"
+        },
+        "EventContextData": {
+          "$ref": "#/definitions/EventContextDataType",
+          "description": "The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received."
+        },
+        "EventFeedback": {
+          "$ref": "#/definitions/EventFeedbackType",
+          "description": "A flag specifying the user feedback captured at the time of an event request is good or bad. "
+        },
+        "EventId": {
+          "$ref": "#/definitions/StringType",
+          "description": "The event ID."
+        },
+        "EventResponse": {
+          "$ref": "#/definitions/EventResponseType",
+          "description": "The event response."
+        },
+        "EventRisk": {
+          "$ref": "#/definitions/EventRiskType",
+          "description": "The event risk."
+        },
+        "EventType": {
+          "$ref": "#/definitions/EventType",
+          "description": "The event type."
+        }
+      },
+      "type": "object"
+    },
+    "AuthEventsType": {
+      "items": {
+        "$ref": "#/definitions/AuthEventType"
+      },
+      "type": "array"
+    },
     "AuthFlowType": {
       "enum": [
         "USER_SRP_AUTH",
         "REFRESH_TOKEN_AUTH",
         "REFRESH_TOKEN",
         "CUSTOM_AUTH",
-        "ADMIN_NO_SRP_AUTH"
+        "ADMIN_NO_SRP_AUTH",
+        "USER_PASSWORD_AUTH"
       ],
       "type": "string"
     },
@@ -9274,11 +10718,11 @@
       "type": "array"
     },
     "AuthenticationResultType": {
-      "description": "The result type of the authentication result.",
+      "description": "The authentication result.",
       "properties": {
         "AccessToken": {
           "$ref": "#/definitions/TokenModelType",
-          "description": "The access token of the authentication result."
+          "description": "The access token."
         },
         "ExpiresIn": {
           "$ref": "#/definitions/IntegerType",
@@ -9286,7 +10730,7 @@
         },
         "IdToken": {
           "$ref": "#/definitions/TokenModelType",
-          "description": "The ID token of the authentication result."
+          "description": "The ID token."
         },
         "NewDeviceMetadata": {
           "$ref": "#/definitions/NewDeviceMetadataType",
@@ -9294,14 +10738,21 @@
         },
         "RefreshToken": {
           "$ref": "#/definitions/TokenModelType",
-          "description": "The refresh token of the authentication result."
+          "description": "The refresh token."
         },
         "TokenType": {
           "$ref": "#/definitions/StringType",
-          "description": "The token type of the authentication result."
+          "description": "The token type."
         }
       },
       "type": "object"
+    },
+    "BlockedIPRangeListType": {
+      "items": {
+        "$ref": "#/definitions/StringType"
+      },
+      "maxItems": 20,
+      "type": "array"
     },
     "BooleanType": {
       "type": "boolean"
@@ -9320,9 +10771,19 @@
       "minItems": 0,
       "type": "array"
     },
+    "ChallengeName": {
+      "enum": [
+        "Password",
+        "Mfa"
+      ],
+      "type": "string"
+    },
     "ChallengeNameType": {
       "enum": [
         "SMS_MFA",
+        "SOFTWARE_TOKEN_MFA",
+        "SELECT_MFA_TYPE",
+        "MFA_SETUP",
         "PASSWORD_VERIFIER",
         "CUSTOM_CHALLENGE",
         "DEVICE_SRP_AUTH",
@@ -9346,6 +10807,33 @@
       },
       "type": "array"
     },
+    "ChallengeResponse": {
+      "enum": [
+        "Success",
+        "Failure"
+      ],
+      "type": "string"
+    },
+    "ChallengeResponseListType": {
+      "items": {
+        "$ref": "#/definitions/ChallengeResponseType"
+      },
+      "type": "array"
+    },
+    "ChallengeResponseType": {
+      "description": "The challenge response type.",
+      "properties": {
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeName",
+          "description": "The challenge name"
+        },
+        "ChallengeResponse": {
+          "$ref": "#/definitions/ChallengeResponse",
+          "description": "The challenge response."
+        }
+      },
+      "type": "object"
+    },
     "ChallengeResponsesType": {
       "items": {
         "properties": {
@@ -9365,15 +10853,15 @@
       "properties": {
         "AccessToken": {
           "$ref": "#/definitions/TokenModelType",
-          "description": "The access token in the change password request."
+          "description": "The access token."
         },
         "PreviousPassword": {
           "$ref": "#/definitions/PasswordType",
-          "description": "The old password in the change password request."
+          "description": "The old password."
         },
         "ProposedPassword": {
           "$ref": "#/definitions/PasswordType",
-          "description": "The new password in the change password request."
+          "description": "The new password."
         }
       },
       "required": [
@@ -9440,11 +10928,11 @@
       "type": "array"
     },
     "CodeDeliveryDetailsType": {
-      "description": "The type of code delivery details being returned from the server.",
+      "description": "The code delivery details being returned from the server.",
       "properties": {
         "AttributeName": {
           "$ref": "#/definitions/AttributeNameType",
-          "description": "The name of the attribute in the code delivery details type."
+          "description": "The attribute name."
         },
         "DeliveryMedium": {
           "$ref": "#/definitions/DeliveryMediumType",
@@ -9482,6 +10970,43 @@
       "minLength": 1,
       "pattern": "[\\w]+",
       "type": "string"
+    },
+    "CompromisedCredentialsActionsType": {
+      "description": "The compromised credentials actions type",
+      "properties": {
+        "EventAction": {
+          "$ref": "#/definitions/CompromisedCredentialsEventActionType",
+          "description": "The event action."
+        }
+      },
+      "required": [
+        "EventAction"
+      ],
+      "type": "object"
+    },
+    "CompromisedCredentialsEventActionType": {
+      "enum": [
+        "BLOCK",
+        "NO_ACTION"
+      ],
+      "type": "string"
+    },
+    "CompromisedCredentialsRiskConfigurationType": {
+      "description": "The compromised credentials risk configuration type.",
+      "properties": {
+        "Actions": {
+          "$ref": "#/definitions/CompromisedCredentialsActionsType",
+          "description": "The compromised credentials risk configuration actions."
+        },
+        "EventFilter": {
+          "$ref": "#/definitions/EventFiltersType",
+          "description": "Perform the action for these events. The default is to perform all events if no event filter is specified."
+        }
+      },
+      "required": [
+        "Actions"
+      ],
+      "type": "object"
     },
     "ConcurrentModificationException": {
       "description": "This exception is thrown if two or more modifications are happening concurrently.",
@@ -9532,13 +11057,17 @@
     "ConfirmForgotPasswordRequest": {
       "description": "The request representing the confirmation for a password reset.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>ConfirmForgotPassword</code> calls."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The app client ID of the app associated with the user pool."
         },
         "ConfirmationCode": {
           "$ref": "#/definitions/ConfirmationCodeType",
-          "description": "The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href=\"API_ForgotPassword.html\">ForgotPassword</a> "
+          "description": "The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see "
         },
         "Password": {
           "$ref": "#/definitions/PasswordType",
@@ -9547,6 +11076,10 @@
         "SecretHash": {
           "$ref": "#/definitions/SecretHashType",
           "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -9569,6 +11102,10 @@
     "ConfirmSignUpRequest": {
       "description": "Represents the request to confirm registration of a user.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>ConfirmSignUp</code> calls."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The ID of the app client associated with the user pool."
@@ -9584,6 +11121,10 @@
         "SecretHash": {
           "$ref": "#/definitions/SecretHashType",
           "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -9607,6 +11148,38 @@
       "minLength": 1,
       "pattern": "[\\S]+",
       "type": "string"
+    },
+    "ContextDataType": {
+      "description": "Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.",
+      "properties": {
+        "EncodedData": {
+          "$ref": "#/definitions/StringType",
+          "description": "Encoded data containing device fingerprinting details, collected using the Amazon Cognito context data collection library."
+        },
+        "HttpHeaders": {
+          "$ref": "#/definitions/HttpHeaderList",
+          "description": "HttpHeaders received on your server in same order."
+        },
+        "IpAddress": {
+          "$ref": "#/definitions/StringType",
+          "description": "Source IP address of your user."
+        },
+        "ServerName": {
+          "$ref": "#/definitions/StringType",
+          "description": "Your server endpoint where this API is invoked."
+        },
+        "ServerPath": {
+          "$ref": "#/definitions/StringType",
+          "description": "Your server path where this API is invoked. "
+        }
+      },
+      "required": [
+        "IpAddress",
+        "ServerName",
+        "ServerPath",
+        "HttpHeaders"
+      ],
+      "type": "object"
     },
     "CreateGroupRequest": {
       "properties": {
@@ -9779,6 +11352,10 @@
           "$ref": "#/definitions/ScopeListType",
           "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>."
         },
+        "AnalyticsConfiguration": {
+          "$ref": "#/definitions/AnalyticsConfigurationType",
+          "description": "The Amazon Pinpoint analytics configuration for collecting metrics for this user pool."
+        },
         "CallbackURLs": {
           "$ref": "#/definitions/CallbackURLsListType",
           "description": "A list of allowed callback URLs for the identity providers."
@@ -9894,7 +11471,7 @@
         },
         "LambdaConfig": {
           "$ref": "#/definitions/LambdaConfigType",
-          "description": "The Lambda trigger configuration information for the new user pool."
+          "description": "<p>The Lambda trigger configuration information for the new user pool.</p> <note> <p>In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you will need to make an extra call to add permission for these event sources to invoke your Lambda function.</p> <p/> <p>For more information on using the Lambda API to add permission, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html\"> AddPermission </a>. </p> <p>For adding permission using the AWS CLI, see <a href=\"https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html\"> add-permission </a>.</p> </note>"
         },
         "MfaConfiguration": {
           "$ref": "#/definitions/UserPoolMfaType",
@@ -9923,6 +11500,10 @@
         "SmsVerificationMessage": {
           "$ref": "#/definitions/SmsVerificationMessageType",
           "description": "A string representing the SMS verification message."
+        },
+        "UserPoolAddOns": {
+          "$ref": "#/definitions/UserPoolAddOnsType",
+          "description": "Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \"AUDIT\"."
         },
         "UserPoolTags": {
           "$ref": "#/definitions/UserPoolTagsType",
@@ -10187,6 +11768,34 @@
       ],
       "type": "object"
     },
+    "DescribeRiskConfigurationRequest": {
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The app client ID."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object"
+    },
+    "DescribeRiskConfigurationResponse": {
+      "properties": {
+        "RiskConfiguration": {
+          "$ref": "#/definitions/RiskConfigurationType",
+          "description": "The risk configuration."
+        }
+      },
+      "required": [
+        "RiskConfiguration"
+      ],
+      "type": "object"
+    },
     "DescribeUserImportJobRequest": {
       "description": "Represents the request to describe the user import job.",
       "properties": {
@@ -10292,7 +11901,7 @@
       "type": "string"
     },
     "DeviceConfigurationType": {
-      "description": "The type of configuration for the user pool's device tracking.",
+      "description": "The configuration for the user pool's device tracking.",
       "properties": {
         "ChallengeRequiredOnNewDevice": {
           "$ref": "#/definitions/BooleanType",
@@ -10442,7 +12051,7 @@
       "properties": {
         "ReplyToEmailAddress": {
           "$ref": "#/definitions/EmailAddressType",
-          "description": "The REPLY-TO email address."
+          "description": "The destination to which the receiver of the email should reply to."
         },
         "SourceArn": {
           "$ref": "#/definitions/ArnType",
@@ -10450,6 +12059,18 @@
         }
       },
       "type": "object"
+    },
+    "EmailNotificationBodyType": {
+      "maxLength": 20000,
+      "minLength": 6,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]+",
+      "type": "string"
+    },
+    "EmailNotificationSubjectType": {
+      "maxLength": 140,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+      "type": "string"
     },
     "EmailVerificationMessageByLinkType": {
       "maxLength": 20000,
@@ -10475,6 +12096,112 @@
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
       "type": "string"
     },
+    "EnableSoftwareTokenMFAException": {
+      "description": "This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object"
+    },
+    "EventContextDataType": {
+      "description": "Specifies the user context data captured at the time of an event request.",
+      "properties": {
+        "City": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's city."
+        },
+        "Country": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's country."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's device name."
+        },
+        "IpAddress": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's IP address."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's time zone."
+        }
+      },
+      "type": "object"
+    },
+    "EventFeedbackType": {
+      "description": "Specifies the event feedback type.",
+      "properties": {
+        "FeedbackDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The event feedback date."
+        },
+        "FeedbackValue": {
+          "$ref": "#/definitions/FeedbackValueType",
+          "description": "The event feedback value."
+        },
+        "Provider": {
+          "$ref": "#/definitions/StringType",
+          "description": "The provider."
+        }
+      },
+      "required": [
+        "FeedbackValue",
+        "Provider"
+      ],
+      "type": "object"
+    },
+    "EventFilterType": {
+      "enum": [
+        "SIGN_IN",
+        "PASSWORD_CHANGE",
+        "SIGN_UP"
+      ],
+      "type": "string"
+    },
+    "EventFiltersType": {
+      "items": {
+        "$ref": "#/definitions/EventFilterType"
+      },
+      "type": "array"
+    },
+    "EventIdType": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "[\\w+-]+",
+      "type": "string"
+    },
+    "EventResponseType": {
+      "enum": [
+        "Success",
+        "Failure"
+      ],
+      "type": "string"
+    },
+    "EventRiskType": {
+      "description": "The event risk type.",
+      "properties": {
+        "RiskDecision": {
+          "$ref": "#/definitions/RiskDecisionType",
+          "description": "The risk decision."
+        },
+        "RiskLevel": {
+          "$ref": "#/definitions/RiskLevelType",
+          "description": "The risk level."
+        }
+      },
+      "type": "object"
+    },
+    "EventType": {
+      "enum": [
+        "SignIn",
+        "SignUp",
+        "ForgotPassword"
+      ],
+      "type": "string"
+    },
     "ExpiredCodeException": {
       "description": "This exception is thrown if a code has expired.",
       "properties": {
@@ -10494,7 +12221,15 @@
     "ExplicitAuthFlowsType": {
       "enum": [
         "ADMIN_NO_SRP_AUTH",
-        "CUSTOM_AUTH_FLOW_ONLY"
+        "CUSTOM_AUTH_FLOW_ONLY",
+        "USER_PASSWORD_AUTH"
+      ],
+      "type": "string"
+    },
+    "FeedbackValueType": {
+      "enum": [
+        "Valid",
+        "Invalid"
       ],
       "type": "string"
     },
@@ -10521,6 +12256,10 @@
     "ForgotPasswordRequest": {
       "description": "Represents the request to reset a user's password.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>ForgotPassword</code> calls."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The ID of the client associated with the user pool."
@@ -10528,6 +12267,10 @@
         "SecretHash": {
           "$ref": "#/definitions/SecretHashType",
           "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -10665,6 +12408,29 @@
       ],
       "type": "object"
     },
+    "GetSigningCertificateRequest": {
+      "description": "Request to get a signing certificate from Cognito.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object"
+    },
+    "GetSigningCertificateResponse": {
+      "description": "Response from Cognito for a signing certificate request.",
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/StringType",
+          "description": "The signing certificate."
+        }
+      },
+      "type": "object"
+    },
     "GetUICustomizationRequest": {
       "properties": {
         "ClientId": {
@@ -10721,6 +12487,35 @@
       },
       "type": "object"
     },
+    "GetUserPoolMfaConfigRequest": {
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object"
+    },
+    "GetUserPoolMfaConfigResponse": {
+      "properties": {
+        "MfaConfiguration": {
+          "$ref": "#/definitions/UserPoolMfaType",
+          "description": "The multi-factor (MFA) configuration."
+        },
+        "SmsMfaConfiguration": {
+          "$ref": "#/definitions/SmsMfaConfigType",
+          "description": "The SMS text message multi-factor (MFA) configuration."
+        },
+        "SoftwareTokenMfaConfiguration": {
+          "$ref": "#/definitions/SoftwareTokenMfaConfigType",
+          "description": "The software token multi-factor (MFA) configuration."
+        }
+      },
+      "type": "object"
+    },
     "GetUserRequest": {
       "description": "Represents the request to get information about the user.",
       "properties": {
@@ -10741,9 +12536,17 @@
           "$ref": "#/definitions/MFAOptionListType",
           "description": "Specifies the options for MFA (e.g., email or phone number)."
         },
+        "PreferredMfaSetting": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user's preferred MFA setting."
+        },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
           "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
+        },
+        "UserMFASettingList": {
+          "$ref": "#/definitions/UserMFASettingListType",
+          "description": "The list of the user's MFA settings."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -10829,6 +12632,30 @@
       },
       "type": "object"
     },
+    "HexStringType": {
+      "pattern": "^[0-9a-fA-F]+$",
+      "type": "string"
+    },
+    "HttpHeader": {
+      "description": "The HTTP header.",
+      "properties": {
+        "headerName": {
+          "$ref": "#/definitions/StringType",
+          "description": "The header name"
+        },
+        "headerValue": {
+          "$ref": "#/definitions/StringType",
+          "description": "The header value."
+        }
+      },
+      "type": "object"
+    },
+    "HttpHeaderList": {
+      "items": {
+        "$ref": "#/definitions/HttpHeader"
+      },
+      "type": "array"
+    },
     "IdentityProviderType": {
       "description": "A container for information about an identity provider.",
       "properties": {
@@ -10899,13 +12726,17 @@
     "InitiateAuthRequest": {
       "description": "Initiates the authentication request.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>InitiateAuth</code> calls."
+        },
         "AuthFlow": {
           "$ref": "#/definitions/AuthFlowType",
-          "description": "<p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>"
+          "description": "<p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>"
         },
         "AuthParameters": {
           "$ref": "#/definitions/AuthParametersType",
-          "description": "<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>"
+          "description": "<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>"
         },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
@@ -10914,6 +12745,10 @@
         "ClientMetadata": {
           "$ref": "#/definitions/ClientMetadataType",
           "description": "This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication."
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         }
       },
       "required": [
@@ -10939,7 +12774,7 @@
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session which should be passed both ways in challenge-response calls to the service. If the <a href=\"API_InitiateAuth.html\">InitiateAuth</a> or <a href=\"API_RespondToAuthChallenge.html\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
       "type": "object"
@@ -11037,7 +12872,7 @@
       "type": "object"
     },
     "LambdaConfigType": {
-      "description": "Specifies the type of configuration for AWS Lambda triggers.",
+      "description": "Specifies the configuration for AWS Lambda triggers.",
       "properties": {
         "CreateAuthChallenge": {
           "$ref": "#/definitions/ArnType",
@@ -11066,6 +12901,14 @@
         "PreSignUp": {
           "$ref": "#/definitions/ArnType",
           "description": "A pre-registration AWS Lambda trigger."
+        },
+        "PreTokenGeneration": {
+          "$ref": "#/definitions/ArnType",
+          "description": "A Lambda trigger that is invoked before token generation."
+        },
+        "UserMigration": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The user migration Lambda config type."
         },
         "VerifyAuthChallengeResponse": {
           "$ref": "#/definitions/ArnType",
@@ -11385,11 +13228,11 @@
       "properties": {
         "AttributesToGet": {
           "$ref": "#/definitions/SearchedAttributeNamesListType",
-          "description": "An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is empty, all attributes are returned."
+          "description": "An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is null, all attributes are returned."
         },
         "Filter": {
           "$ref": "#/definitions/UserFilterType",
-          "description": "<p>A filter string of the form \"<i>AttributeName</i> <i>Filter-Type</i> \"<i>AttributeValue</i>\"\". Quotation marks within the filter string must be escaped using the backslash (\\) character. For example, \"<code>family_name</code> = \\\"Reddy\\\"\".</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use =, for example, \"<code>given_name</code> = \\\"Jon\\\"\". For a prefix (\"starts with\") match, use ^=, for example, \"<code>given_name</code> ^= \\\"Jon\\\"\". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</p> </li> <li> <p> <code>status</code> (case-insensitive)</p> </li> </ul> <p>Custom attributes are not searchable.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api\">Searching for Users Using the ListUsers API</a> and <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples\">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>"
+          "description": "<p>A filter string of the form \"<i>AttributeName</i> <i>Filter-Type</i> \"<i>AttributeValue</i>\"\". Quotation marks within the filter string must be escaped using the backslash (\\) character. For example, \"<code>family_name</code> = \\\"Reddy\\\"\".</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use =, for example, \"<code>given_name</code> = \\\"Jon\\\"\". For a prefix (\"starts with\") match, use ^=, for example, \"<code>given_name</code> ^= \\\"Jon\\\"\". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</p> </li> <li> <p> <code>status</code> (case-insensitive)</p> </li> <li> <p> <code>sub</code> </p> </li> </ul> <p>Custom attributes are not searchable.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api\">Searching for Users Using the ListUsers API</a> and <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples\">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>"
         },
         "Limit": {
           "$ref": "#/definitions/QueryLimitType",
@@ -11514,6 +13357,60 @@
           "description": "The message returned when the Amazon Cognito service returns a not authorized exception."
         }
       },
+      "type": "object"
+    },
+    "NotifyConfigurationType": {
+      "description": "The notify configuration type.",
+      "properties": {
+        "BlockEmail": {
+          "$ref": "#/definitions/NotifyEmailType",
+          "description": "Email template used when a detected risk event is blocked."
+        },
+        "From": {
+          "$ref": "#/definitions/StringType",
+          "description": "The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES."
+        },
+        "MfaEmail": {
+          "$ref": "#/definitions/NotifyEmailType",
+          "description": "The MFA email template used when MFA is challenged as part of a detected risk."
+        },
+        "NoActionEmail": {
+          "$ref": "#/definitions/NotifyEmailType",
+          "description": "The email template used when a detected risk event is allowed."
+        },
+        "ReplyTo": {
+          "$ref": "#/definitions/StringType",
+          "description": "The destination to which the receiver of an email should reply to."
+        },
+        "SourceArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the <code>From</code> parameter."
+        }
+      },
+      "required": [
+        "SourceArn"
+      ],
+      "type": "object"
+    },
+    "NotifyEmailType": {
+      "description": "The notify email type.",
+      "properties": {
+        "HtmlBody": {
+          "$ref": "#/definitions/EmailNotificationBodyType",
+          "description": "The HTML body."
+        },
+        "Subject": {
+          "$ref": "#/definitions/EmailNotificationSubjectType",
+          "description": "The subject."
+        },
+        "TextBody": {
+          "$ref": "#/definitions/EmailNotificationBodyType",
+          "description": "The text body."
+        }
+      },
+      "required": [
+        "Subject"
+      ],
       "type": "object"
     },
     "NumberAttributeConstraintsType": {
@@ -11726,6 +13623,10 @@
     "ResendConfirmationCodeRequest": {
       "description": "Represents the request to resend the confirmation code.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>ResendConfirmationCode</code> calls."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The ID of the client associated with the user pool."
@@ -11733,6 +13634,10 @@
         "SecretHash": {
           "$ref": "#/definitions/SecretHashType",
           "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -11844,9 +13749,13 @@
     "RespondToAuthChallengeRequest": {
       "description": "The request to respond to an authentication challenge.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>RespondToAuthChallenge</code> calls."
+        },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "<p>The challenge name. For more information, see <a href=\"API_InitiateAuth.html\">InitiateAuth</a>.</p> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>"
+          "description": "<p>The challenge name. For more information, see .</p> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>"
         },
         "ChallengeResponses": {
           "$ref": "#/definitions/ChallengeResponsesType",
@@ -11859,6 +13768,10 @@
         "Session": {
           "$ref": "#/definitions/SessionType",
           "description": "The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         }
       },
       "required": [
@@ -11876,24 +13789,98 @@
         },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The challenge name. For more information, see <a href=\"API_InitiateAuth.html\">InitiateAuth</a>."
+          "description": "The challenge name. For more information, see ."
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "The challenge parameters. For more information, see <a href=\"API_InitiateAuth.html\">InitiateAuth</a>."
+          "description": "The challenge parameters. For more information, see ."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session which should be passed both ways in challenge-response calls to the service. If the <a href=\"API_InitiateAuth.html\">InitiateAuth</a> or <a href=\"API_RespondToAuthChallenge.html\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
       "type": "object"
+    },
+    "RiskConfigurationType": {
+      "description": "The risk configuration type.",
+      "properties": {
+        "AccountTakeoverRiskConfiguration": {
+          "$ref": "#/definitions/AccountTakeoverRiskConfigurationType",
+          "description": "The account takeover risk configuration object including the <code>NotifyConfiguration</code> object and <code>Actions</code> to take in the case of an account takeover."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The app client ID."
+        },
+        "CompromisedCredentialsRiskConfiguration": {
+          "$ref": "#/definitions/CompromisedCredentialsRiskConfigurationType",
+          "description": "The compromised credentials risk configuration object including the <code>EventFilter</code> and the <code>EventAction</code> "
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last modified date."
+        },
+        "RiskExceptionConfiguration": {
+          "$ref": "#/definitions/RiskExceptionConfigurationType",
+          "description": "The configuration to override the risk decision."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "type": "object"
+    },
+    "RiskDecisionType": {
+      "enum": [
+        "NoRisk",
+        "AccountTakeover",
+        "Block"
+      ],
+      "type": "string"
+    },
+    "RiskExceptionConfigurationType": {
+      "description": "The type of the configuration to override the risk decision.",
+      "properties": {
+        "BlockedIPRangeList": {
+          "$ref": "#/definitions/BlockedIPRangeListType",
+          "description": "Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix."
+        },
+        "SkippedIPRangeList": {
+          "$ref": "#/definitions/SkippedIPRangeListType",
+          "description": "Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation."
+        }
+      },
+      "type": "object"
+    },
+    "RiskLevelType": {
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "type": "string"
     },
     "S3BucketType": {
       "maxLength": 1024,
       "minLength": 3,
       "pattern": "^[0-9A-Za-z\\.\\-_]*$",
       "type": "string"
+    },
+    "SMSMfaSettingsType": {
+      "description": "The SMS multi-factor authentication (MFA) settings type.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether SMS text message MFA is enabled."
+        },
+        "PreferredMfa": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "The preferred MFA method."
+        }
+      },
+      "type": "object"
     },
     "SchemaAttributeType": {
       "description": "Contains information about the schema attribute.",
@@ -11970,6 +13957,12 @@
       },
       "type": "array"
     },
+    "SecretCodeType": {
+      "format": "password",
+      "minLength": 16,
+      "pattern": "[A-Za-z0-9]+",
+      "type": "string"
+    },
     "SecretHashType": {
       "format": "password",
       "maxLength": 128,
@@ -11981,6 +13974,46 @@
       "maxLength": 2048,
       "minLength": 20,
       "type": "string"
+    },
+    "SetRiskConfigurationRequest": {
+      "properties": {
+        "AccountTakeoverRiskConfiguration": {
+          "$ref": "#/definitions/AccountTakeoverRiskConfigurationType",
+          "description": "The account takeover risk configuration."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "<p>The app client ID. If <code>ClientId</code> is null, then the risk configuration is mapped to <code>userPoolId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.</p> <p>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.</p>"
+        },
+        "CompromisedCredentialsRiskConfiguration": {
+          "$ref": "#/definitions/CompromisedCredentialsRiskConfigurationType",
+          "description": "The compromised credentials risk configuration."
+        },
+        "RiskExceptionConfiguration": {
+          "$ref": "#/definitions/RiskExceptionConfigurationType",
+          "description": "The configuration to override the risk decision."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID. "
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object"
+    },
+    "SetRiskConfigurationResponse": {
+      "properties": {
+        "RiskConfiguration": {
+          "$ref": "#/definitions/RiskConfigurationType",
+          "description": "The risk configuration."
+        }
+      },
+      "required": [
+        "RiskConfiguration"
+      ],
+      "type": "object"
     },
     "SetUICustomizationRequest": {
       "properties": {
@@ -12018,6 +14051,71 @@
       ],
       "type": "object"
     },
+    "SetUserMFAPreferenceRequest": {
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        },
+        "SMSMfaSettings": {
+          "$ref": "#/definitions/SMSMfaSettingsType",
+          "description": "The SMS text message multi-factor authentication (MFA) settings."
+        },
+        "SoftwareTokenMfaSettings": {
+          "$ref": "#/definitions/SoftwareTokenMfaSettingsType",
+          "description": "The time-based one-time password software token MFA settings."
+        }
+      },
+      "required": [
+        "AccessToken"
+      ],
+      "type": "object"
+    },
+    "SetUserMFAPreferenceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "SetUserPoolMfaConfigRequest": {
+      "properties": {
+        "MfaConfiguration": {
+          "$ref": "#/definitions/UserPoolMfaType",
+          "description": "The MFA configuration."
+        },
+        "SmsMfaConfiguration": {
+          "$ref": "#/definitions/SmsMfaConfigType",
+          "description": "The SMS text message MFA configuration."
+        },
+        "SoftwareTokenMfaConfiguration": {
+          "$ref": "#/definitions/SoftwareTokenMfaConfigType",
+          "description": "The software token MFA configuration."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object"
+    },
+    "SetUserPoolMfaConfigResponse": {
+      "properties": {
+        "MfaConfiguration": {
+          "$ref": "#/definitions/UserPoolMfaType",
+          "description": "The MFA configuration."
+        },
+        "SmsMfaConfiguration": {
+          "$ref": "#/definitions/SmsMfaConfigType",
+          "description": "The SMS text message MFA configuration."
+        },
+        "SoftwareTokenMfaConfiguration": {
+          "$ref": "#/definitions/SoftwareTokenMfaConfigType",
+          "description": "The software token MFA configuration."
+        }
+      },
+      "type": "object"
+    },
     "SetUserSettingsRequest": {
       "description": "Represents the request to set user settings.",
       "properties": {
@@ -12044,6 +14142,10 @@
     "SignUpRequest": {
       "description": "Represents the request to register a user.",
       "properties": {
+        "AnalyticsMetadata": {
+          "$ref": "#/definitions/AnalyticsMetadataType",
+          "description": "The Amazon Pinpoint analytics metadata for collecting metrics for <code>SignUp</code> calls."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The ID of the client associated with the user pool."
@@ -12059,6 +14161,10 @@
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
           "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
+        },
+        "UserContextData": {
+          "$ref": "#/definitions/UserContextDataType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -12098,6 +14204,13 @@
       ],
       "type": "object"
     },
+    "SkippedIPRangeListType": {
+      "items": {
+        "$ref": "#/definitions/StringType"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
     "SmsConfigurationType": {
       "description": "The SMS configuration type.",
       "properties": {
@@ -12115,11 +14228,64 @@
       ],
       "type": "object"
     },
+    "SmsMfaConfigType": {
+      "description": "The SMS text message multi-factor authentication (MFA) configuration type.",
+      "properties": {
+        "SmsAuthenticationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "The SMS authentication message."
+        },
+        "SmsConfiguration": {
+          "$ref": "#/definitions/SmsConfigurationType",
+          "description": "The SMS configuration."
+        }
+      },
+      "type": "object"
+    },
     "SmsVerificationMessageType": {
       "maxLength": 140,
       "minLength": 6,
       "pattern": ".*\\{####\\}.*",
       "type": "string"
+    },
+    "SoftwareTokenMFANotFoundException": {
+      "description": "This exception is thrown when the software token TOTP multi-factor authentication (MFA) is not enabled for the user pool.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object"
+    },
+    "SoftwareTokenMFAUserCodeType": {
+      "maxLength": 6,
+      "minLength": 6,
+      "pattern": "[0-9]+",
+      "type": "string"
+    },
+    "SoftwareTokenMfaConfigType": {
+      "description": "The type used for enabling software token MFA at the user pool level.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether software token MFA is enabled."
+        }
+      },
+      "type": "object"
+    },
+    "SoftwareTokenMfaSettingsType": {
+      "description": "The type used for enabling software token MFA at the user level.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether software token MFA is enabled."
+        },
+        "PreferredMfa": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "The preferred MFA method."
+        }
+      },
+      "type": "object"
     },
     "StartUserImportJobRequest": {
       "description": "Represents the request to start the user import job.",
@@ -12185,15 +14351,15 @@
       "type": "object"
     },
     "StringAttributeConstraintsType": {
-      "description": "The type of constraints associated with an attribute of the string type.",
+      "description": "The constraints associated with a string attribute.",
       "properties": {
         "MaxLength": {
           "$ref": "#/definitions/StringType",
-          "description": "The maximum length of an attribute value of the string type."
+          "description": "The maximum length."
         },
         "MinLength": {
           "$ref": "#/definitions/StringType",
-          "description": "The minimum length of an attribute value of the string type."
+          "description": "The minimum length."
         }
       },
       "type": "object"
@@ -12295,6 +14461,42 @@
       },
       "type": "object"
     },
+    "UpdateAuthEventFeedbackRequest": {
+      "properties": {
+        "EventId": {
+          "$ref": "#/definitions/EventIdType",
+          "description": "The event ID."
+        },
+        "FeedbackToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The feedback token."
+        },
+        "FeedbackValue": {
+          "$ref": "#/definitions/FeedbackValueType",
+          "description": "The authentication event feedback value."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user pool username."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "EventId",
+        "FeedbackToken",
+        "FeedbackValue"
+      ],
+      "type": "object"
+    },
+    "UpdateAuthEventFeedbackResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "UpdateDeviceStatusRequest": {
       "description": "Represents the request to update the device status.",
       "properties": {
@@ -12334,7 +14536,7 @@
         },
         "Precedence": {
           "$ref": "#/definitions/PrecedenceType",
-          "description": "The new precedence value for the group. For more information about this parameter, see <a href=\"API_CreateGroup.html\">CreateGroup</a>."
+          "description": "The new precedence value for the group. For more information about this parameter, see ."
         },
         "RoleArn": {
           "$ref": "#/definitions/ArnType",
@@ -12482,6 +14684,10 @@
           "$ref": "#/definitions/ScopeListType",
           "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>."
         },
+        "AnalyticsConfiguration": {
+          "$ref": "#/definitions/AnalyticsConfigurationType",
+          "description": "The Amazon Pinpoint analytics configuration for collecting metrics for this user pool."
+        },
         "CallbackURLs": {
           "$ref": "#/definitions/CallbackURLsListType",
           "description": "A list of allowed callback URLs for the identity providers."
@@ -12594,6 +14800,10 @@
           "$ref": "#/definitions/SmsVerificationMessageType",
           "description": "A container with information about the SMS verification message."
         },
+        "UserPoolAddOns": {
+          "$ref": "#/definitions/UserPoolAddOnsType",
+          "description": "Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \"AUDIT\"."
+        },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
           "description": "The user pool ID for the user pool you want to update."
@@ -12615,6 +14825,16 @@
     "UpdateUserPoolResponse": {
       "description": "Represents the response from the server when you make a request to update the user pool.",
       "properties": {},
+      "type": "object"
+    },
+    "UserContextDataType": {
+      "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.",
+      "properties": {
+        "EncodedData": {
+          "$ref": "#/definitions/StringType",
+          "description": "Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security."
+        }
+      },
       "type": "object"
     },
     "UserFilterType": {
@@ -12732,6 +14952,12 @@
       },
       "type": "object"
     },
+    "UserMFASettingListType": {
+      "items": {
+        "$ref": "#/definitions/StringType"
+      },
+      "type": "array"
+    },
     "UserNotConfirmedException": {
       "description": "This exception is thrown when a user is not confirmed successfully.",
       "properties": {
@@ -12750,6 +14976,28 @@
           "description": "The message returned when a user is not found."
         }
       },
+      "type": "object"
+    },
+    "UserPoolAddOnNotEnabledException": {
+      "description": "This exception is thrown when user pool add-ons are not enabled.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object"
+    },
+    "UserPoolAddOnsType": {
+      "description": "The user pool add-ons type.",
+      "properties": {
+        "AdvancedSecurityMode": {
+          "$ref": "#/definitions/AdvancedSecurityModeType",
+          "description": "The advanced security mode."
+        }
+      },
+      "required": [
+        "AdvancedSecurityMode"
+      ],
       "type": "object"
     },
     "UserPoolClientDescription": {
@@ -12790,6 +15038,10 @@
         "AllowedOAuthScopes": {
           "$ref": "#/definitions/ScopeListType",
           "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>."
+        },
+        "AnalyticsConfiguration": {
+          "$ref": "#/definitions/AnalyticsConfigurationType",
+          "description": "The Amazon Pinpoint analytics configuration for the user pool client."
         },
         "CallbackURLs": {
           "$ref": "#/definitions/CallbackURLsListType",
@@ -12907,11 +15159,11 @@
       "type": "string"
     },
     "UserPoolPolicyType": {
-      "description": "The type of policy in a user pool.",
+      "description": "The policy associated with a user pool.",
       "properties": {
         "PasswordPolicy": {
           "$ref": "#/definitions/PasswordPolicyType",
-          "description": "A container for information about the user pool password policy."
+          "description": "The password policy."
         }
       },
       "type": "object"
@@ -12940,7 +15192,7 @@
       "type": "array"
     },
     "UserPoolType": {
-      "description": "A container for information about the user pool type.",
+      "description": "A container for information about the user pool.",
       "properties": {
         "AdminCreateUserConfig": {
           "$ref": "#/definitions/AdminCreateUserConfigType",
@@ -12961,6 +15213,10 @@
         "DeviceConfiguration": {
           "$ref": "#/definitions/DeviceConfigurationType",
           "description": "The device configuration."
+        },
+        "Domain": {
+          "$ref": "#/definitions/DomainType",
+          "description": "Holds the domain prefix if the user pool has a domain associated with it."
         },
         "EmailConfiguration": {
           "$ref": "#/definitions/EmailConfigurationType",
@@ -12988,7 +15244,7 @@
         },
         "LambdaConfig": {
           "$ref": "#/definitions/LambdaConfigType",
-          "description": "A container for the AWS Lambda triggers associated with a user pool."
+          "description": "The AWS Lambda triggers associated with tue user pool."
         },
         "LastModifiedDate": {
           "$ref": "#/definitions/DateType",
@@ -13004,7 +15260,7 @@
         },
         "Policies": {
           "$ref": "#/definitions/UserPoolPolicyType",
-          "description": "A container for the policies associated with a user pool."
+          "description": "The policies associated with the user pool."
         },
         "SchemaAttributes": {
           "$ref": "#/definitions/SchemaAttributesListType",
@@ -13029,6 +15285,10 @@
         "Status": {
           "$ref": "#/definitions/StatusType",
           "description": "The status of a user pool."
+        },
+        "UserPoolAddOns": {
+          "$ref": "#/definitions/UserPoolAddOnsType",
+          "description": "The user pool add-ons."
         },
         "UserPoolTags": {
           "$ref": "#/definitions/UserPoolTagsType",
@@ -13169,6 +15429,50 @@
         "$ref": "#/definitions/VerifiedAttributeType"
       },
       "type": "array"
+    },
+    "VerifySoftwareTokenRequest": {
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        },
+        "FriendlyDeviceName": {
+          "$ref": "#/definitions/StringType",
+          "description": "The friendly device name."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session which should be passed both ways in challenge-response calls to the service."
+        },
+        "UserCode": {
+          "$ref": "#/definitions/SoftwareTokenMFAUserCodeType",
+          "description": "The one time password computed using the secret code returned by "
+        }
+      },
+      "required": [
+        "UserCode"
+      ],
+      "type": "object"
+    },
+    "VerifySoftwareTokenResponse": {
+      "properties": {
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session which should be passed both ways in challenge-response calls to the service."
+        },
+        "Status": {
+          "$ref": "#/definitions/VerifySoftwareTokenResponseType",
+          "description": "The status of the verify software token."
+        }
+      },
+      "type": "object"
+    },
+    "VerifySoftwareTokenResponseType": {
+      "enum": [
+        "SUCCESS",
+        "ERROR"
+      ],
+      "type": "string"
     },
     "VerifyUserAttributeRequest": {
       "description": "Represents the request to verify user attributes.",

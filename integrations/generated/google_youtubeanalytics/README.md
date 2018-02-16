@@ -127,8 +127,8 @@ google_youtubeanalytics.groupItems.insert({}, context)
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [GroupItem](#groupitem)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -200,8 +200,8 @@ google_youtubeanalytics.groups.insert({}, context)
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [Group](#group)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -223,8 +223,8 @@ google_youtubeanalytics.groups.update({}, context)
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [Group](#group)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -242,25 +242,25 @@ Retrieve your YouTube Analytics reports.
 
 ```js
 google_youtubeanalytics.reports.query({
-  "ids": "",
-  "start-date": "",
   "end-date": "",
-  "metrics": ""
+  "ids": "",
+  "metrics": "",
+  "start-date": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ids **required** `string`: Identifies the YouTube channel or content owner for which you are retrieving YouTube Analytics data.
-  * start-date **required** `string`: The start date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.
-  * end-date **required** `string`: The end date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.
-  * metrics **required** `string`: A comma-separated list of YouTube Analytics metrics, such as views or likes,dislikes. See the Available Reports document for a list of the reports that you can retrieve and the metrics available in each report, and see the Metrics document for definitions of those metrics.
   * currency `string`: The currency to which financial metrics should be converted. The default is US Dollar (USD). If the result contains no financial metrics, this flag will be ignored. Responds with an error if the specified currency is not recognized.
   * dimensions `string`: A comma-separated list of YouTube Analytics dimensions, such as views or ageGroup,gender. See the Available Reports document for a list of the reports that you can retrieve and the dimensions used for those reports. Also see the Dimensions document for definitions of those dimensions.
+  * end-date **required** `string`: The end date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.
   * filters `string`: A list of filters that should be applied when retrieving YouTube Analytics data. The Available Reports document identifies the dimensions that can be used to filter each report, and the Dimensions document defines those dimensions. If a request uses multiple filters, join them together with a semicolon (;), and the returned result table will satisfy both filters. For example, a filters parameter value of video==dMH0bHeiRNg;country==IT restricts the result set to include data for the given video in Italy.
+  * ids **required** `string`: Identifies the YouTube channel or content owner for which you are retrieving YouTube Analytics data.
   * include-historical-channel-data `boolean`: If set to true historical data (i.e. channel data from before the linking of the channel to the content owner) will be retrieved.
   * max-results `integer`: The maximum number of rows to include in the response.
+  * metrics **required** `string`: A comma-separated list of YouTube Analytics metrics, such as views or likes,dislikes. See the Available Reports document for a list of the reports that you can retrieve and the metrics available in each report, and see the Metrics document for definitions of those metrics.
   * sort `string`: A comma-separated list of dimensions or metrics that determine the sort order for YouTube Analytics data. By default the sort order is ascending. The '-' prefix causes descending sort order.
+  * start-date **required** `string`: The start date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.
   * start-index `integer`: An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter (one-based, inclusive).
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.

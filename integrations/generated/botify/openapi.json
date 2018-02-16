@@ -1179,11 +1179,11 @@
         "operationId": "getUrls",
         "parameters": [
           {
-            "description": "Urls query",
+            "description": "Query",
             "in": "body",
-            "name": "UrlsQuery",
+            "name": "Query",
             "schema": {
-              "$ref": "#/definitions/UrlsQuery"
+              "$ref": "#/definitions/Query"
             }
           },
           {
@@ -1286,15 +1286,15 @@
         }
       ],
       "post": {
-        "description": "Query aggregator. It accepts multiple queries",
+        "description": "Query aggregator. It accepts multiple queries and dispatches them on ES or BQ.",
         "operationId": "getUrlsAggs",
         "parameters": [
           {
-            "description": "UrlsAggs queries",
+            "description": "AggsQueries",
             "in": "body",
-            "name": "UrlsAggsQueries",
+            "name": "AggsQueries",
             "schema": {
-              "$ref": "#/definitions/UrlsAggsQueries"
+              "$ref": "#/definitions/AggsQueries"
             }
           },
           {
@@ -1372,6 +1372,78 @@
           }
         },
         "summary": "Gets an Analysis datamodel",
+        "tags": [
+          "Analysis"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "User's identifier",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Project's identifier",
+          "in": "path",
+          "name": "project_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Analysis' identifier",
+          "in": "path",
+          "name": "analysis_slug",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/analyses/{username}/{project_slug}/{analysis_slug}/urls/datasets": {
+      "get": {
+        "description": "Gets Analysis Datasets",
+        "operationId": "getUrlsDatasets",
+        "parameters": [
+          {
+            "default": "current",
+            "description": "Analysis context",
+            "enum": [
+              "current",
+              "disappeared",
+              "new",
+              "search_engines_orphans",
+              "gsc_keywords"
+            ],
+            "in": "query",
+            "name": "area",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Include deprecated fields",
+            "in": "query",
+            "name": "deprecated_fields",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Datasets"
+            }
+          },
+          "default": {
+            "description": "error payload",
+            "schema": {
+              "$ref": "#/definitions/DefaultPayload"
+            }
+          }
+        },
+        "summary": "Gets Analysis Datasets",
         "tags": [
           "Analysis"
         ]
@@ -1491,11 +1563,11 @@
         "operationId": "createUrlsExport",
         "parameters": [
           {
-            "description": "Urls query",
+            "description": "Query",
             "in": "body",
-            "name": "UrlsQuery",
+            "name": "Query",
             "schema": {
-              "$ref": "#/definitions/UrlsQuery"
+              "$ref": "#/definitions/Query"
             }
           },
           {
@@ -1673,11 +1745,11 @@
         "operationId": "getUrlsSuggestedFilters",
         "parameters": [
           {
-            "description": "UrlsAggs query",
+            "description": "AggsQuery",
             "in": "body",
-            "name": "UrlsAggsQuery",
+            "name": "AggsQuery",
             "schema": {
-              "$ref": "#/definitions/UrlsAggsQuery"
+              "$ref": "#/definitions/AggsQuery"
             }
           },
           {
@@ -1697,7 +1769,7 @@
           "201": {
             "description": "Successful operation",
             "schema": {
-              "$ref": "#/definitions/UrlsAggsQuery"
+              "$ref": "#/definitions/AggsQuery"
             }
           },
           "default": {
@@ -2008,11 +2080,11 @@
         "operationId": "getProjectUrlsAggs",
         "parameters": [
           {
-            "description": "UrlsAggs queries",
+            "description": "AggsQueries",
             "in": "body",
-            "name": "UrlsAggsQueries",
+            "name": "AggsQueries",
             "schema": {
-              "$ref": "#/definitions/UrlsAggsQueries"
+              "$ref": "#/definitions/AggsQueries"
             }
           },
           {
@@ -2171,6 +2243,49 @@
       ],
       "type": "object"
     },
+    "AggsQueries": {
+      "items": {
+        "$ref": "#/definitions/AggsQuery"
+      },
+      "type": "array"
+    },
+    "AggsQuery": {
+      "description": "AggsQuery",
+      "properties": {
+        "aggs": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "filters": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "AnalysesUpdateLaunch": {
+      "description": "Launch Analyses Updates",
+      "properties": {
+        "analyses": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "refresh_features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "analyses",
+        "refresh_features"
+      ],
+      "type": "object"
+    },
     "Analysis": {
       "properties": {
         "computing_revision": {
@@ -2213,11 +2328,6 @@
         "friendly_name": {
           "readOnly": true,
           "type": "string"
-        },
-        "id": {
-          "format": "int64",
-          "readOnly": true,
-          "type": "integer"
         },
         "import_keywords_data": {
           "readOnly": true,
@@ -2306,11 +2416,6 @@
           "readOnly": true,
           "type": "string"
         },
-        "id": {
-          "format": "int64",
-          "readOnly": true,
-          "type": "integer"
-        },
         "import_keywords_data": {
           "readOnly": true,
           "type": "string"
@@ -2388,6 +2493,20 @@
       "required": [
         "add_on_features",
         "features_to_update"
+      ],
+      "type": "object"
+    },
+    "BqlDryRun": {
+      "properties": {
+        "error": {
+          "type": "object"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
       ],
       "type": "object"
     },
@@ -2640,7 +2759,7 @@
           "type": "integer"
         },
         "query": {
-          "$ref": "#/definitions/UrlsQuery"
+          "$ref": "#/definitions/Query"
         },
         "results": {
           "readOnly": true,
@@ -2740,6 +2859,129 @@
       "required": [
         "id",
         "name"
+      ],
+      "type": "object"
+    },
+    "Dataset": {
+      "properties": {
+        "fields": {
+          "items": {
+            "$ref": "#/definitions/DatasetField"
+          },
+          "type": "array"
+        },
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/DatasetGroup"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "groups",
+        "fields"
+      ],
+      "type": "object"
+    },
+    "DatasetField": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "deprecated": {
+          "type": "boolean"
+        },
+        "group": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "settings": {
+          "type": "object"
+        },
+        "subtype": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "multiple",
+        "name",
+        "subtype",
+        "type",
+        "id",
+        "permissions",
+        "optional"
+      ],
+      "type": "object"
+    },
+    "DatasetGroup": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object"
+    },
+    "Datasets": {
+      "properties": {
+        "datasets": {
+          "items": {
+            "$ref": "#/definitions/Dataset"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "datasets"
       ],
       "type": "object"
     },
@@ -3219,6 +3461,42 @@
       ],
       "type": "object"
     },
+    "ProjectsPaths": {
+      "description": "Projects paths",
+      "properties": {
+        "projects": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "projects"
+      ],
+      "type": "object"
+    },
+    "Query": {
+      "description": "Query",
+      "properties": {
+        "fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "filters": {
+          "type": "object"
+        },
+        "sort": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "RewritingRule": {
       "properties": {
         "ignore_case": {
@@ -3399,48 +3677,6 @@
     },
     "UrlHTML": {
       "properties": {},
-      "type": "object"
-    },
-    "UrlsAggsQueries": {
-      "items": {
-        "$ref": "#/definitions/UrlsAggsQuery"
-      },
-      "type": "array"
-    },
-    "UrlsAggsQuery": {
-      "description": "UrlsAggs query",
-      "properties": {
-        "aggs": {
-          "items": {
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "filters": {
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
-    "UrlsQuery": {
-      "description": "Urls query",
-      "properties": {
-        "fields": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "filters": {
-          "type": "object"
-        },
-        "sort": {
-          "items": {
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
       "type": "object"
     },
     "User": {

@@ -152,6 +152,9 @@
       "name": "fullHashes"
     },
     {
+      "name": "threatHits"
+    },
+    {
       "name": "threatListUpdates"
     },
     {
@@ -168,13 +171,6 @@
         "operationId": "encodedFullHashes.get",
         "parameters": [
           {
-            "description": "A serialized FindFullHashesRequest proto.",
-            "in": "path",
-            "name": "encodedRequest",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "A client ID that (hopefully) uniquely identifies the client implementation\nof the Safe Browsing API.",
             "in": "query",
             "name": "clientId",
@@ -184,6 +180,13 @@
             "description": "The version of the client implementation.",
             "in": "query",
             "name": "clientVersion",
+            "type": "string"
+          },
+          {
+            "description": "A serialized FindFullHashesRequest proto.",
+            "in": "path",
+            "name": "encodedRequest",
+            "required": true,
             "type": "string"
           }
         ],
@@ -201,43 +204,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
           "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -246,13 +249,6 @@
         "description": "",
         "operationId": "encodedUpdates.get",
         "parameters": [
-          {
-            "description": "A serialized FetchThreatListUpdatesRequest proto.",
-            "in": "path",
-            "name": "encodedRequest",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "A client ID that uniquely identifies the client implementation of the Safe\nBrowsing API.",
             "in": "query",
@@ -263,6 +259,13 @@
             "description": "The version of the client implementation.",
             "in": "query",
             "name": "clientVersion",
+            "type": "string"
+          },
+          {
+            "description": "A serialized FetchThreatListUpdatesRequest proto.",
+            "in": "path",
+            "name": "encodedRequest",
+            "required": true,
             "type": "string"
           }
         ],
@@ -280,86 +283,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
           "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v4/fullHashes:find": {
       "parameters": [
         {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
           "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -387,46 +390,113 @@
         ]
       }
     },
-    "/v4/threatListUpdates:fetch": {
+    "/v4/threatHits": {
       "parameters": [
         {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
           "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Reports a Safe Browsing threat list hit to Google. Only projects with\nTRUSTED_REPORTER visibility can use this method.",
+        "operationId": "threatHits.create",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ThreatHit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "tags": [
+          "threatHits"
+        ]
+      }
+    },
+    "/v4/threatListUpdates:fetch": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -472,86 +542,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
           "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v4/threatMatches:find": {
       "parameters": [
         {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
           "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -609,6 +679,14 @@
     "Constraints": {
       "description": "The constraints for this update.",
       "properties": {
+        "deviceLocation": {
+          "description": "A client's physical location, expressed as a ISO 31166-1 alpha-2\nregion code.",
+          "type": "string"
+        },
+        "language": {
+          "description": "Requests the lists for a specific language. Expects ISO 639 alpha-2\nformat.",
+          "type": "string"
+        },
         "maxDatabaseEntries": {
           "description": "Sets the maximum number of entries that the client is willing to have\nin the local database. This should be a power of 2 between 2**10 and\n2**20. If zero, no database size limit is set.",
           "format": "int32",
@@ -636,6 +714,11 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "Empty": {
+      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "properties": {},
       "type": "object"
     },
     "FetchThreatListUpdatesRequest": {
@@ -1043,6 +1126,65 @@
       },
       "type": "object"
     },
+    "ThreatHit": {
+      "properties": {
+        "clientInfo": {
+          "$ref": "#/definitions/ClientInfo",
+          "description": "Client-reported identification."
+        },
+        "entry": {
+          "$ref": "#/definitions/ThreatEntry",
+          "description": "The threat entry responsible for the hit. Full hash should be reported for\nhash-based hits."
+        },
+        "platformType": {
+          "description": "The platform type reported.",
+          "enum": [
+            "PLATFORM_TYPE_UNSPECIFIED",
+            "WINDOWS",
+            "LINUX",
+            "ANDROID",
+            "OSX",
+            "IOS",
+            "ANY_PLATFORM",
+            "ALL_PLATFORMS",
+            "CHROME"
+          ],
+          "type": "string"
+        },
+        "resources": {
+          "description": "The resources related to the threat hit.",
+          "items": {
+            "$ref": "#/definitions/ThreatSource"
+          },
+          "type": "array"
+        },
+        "threatType": {
+          "description": "The threat type reported.",
+          "enum": [
+            "THREAT_TYPE_UNSPECIFIED",
+            "MALWARE",
+            "SOCIAL_ENGINEERING",
+            "UNWANTED_SOFTWARE",
+            "POTENTIALLY_HARMFUL_APPLICATION",
+            "SOCIAL_ENGINEERING_INTERNAL",
+            "API_ABUSE",
+            "MALICIOUS_BINARY",
+            "CSD_WHITELIST",
+            "CSD_DOWNLOAD_WHITELIST",
+            "CLIENT_INCIDENT",
+            "CLIENT_INCIDENT_WHITELIST",
+            "APK_MALWARE_OFFLINE",
+            "SUBRESOURCE_FILTER"
+          ],
+          "type": "string"
+        },
+        "userInfo": {
+          "$ref": "#/definitions/UserInfo",
+          "description": "Details about the user that encountered the threat."
+        }
+      },
+      "type": "object"
+    },
     "ThreatInfo": {
       "description": "The information regarding one or more threats that a client submits when\nchecking for matches in threat lists.",
       "properties": {
@@ -1229,6 +1371,50 @@
             "APK_MALWARE_OFFLINE",
             "SUBRESOURCE_FILTER"
           ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ThreatSource": {
+      "description": "A single resource related to a threat hit.",
+      "properties": {
+        "referrer": {
+          "description": "Referrer of the resource. Only set if the referrer is available.",
+          "type": "string"
+        },
+        "remoteIp": {
+          "description": "The remote IP of the resource in ASCII format. Either IPv4 or IPv6.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of source reported.",
+          "enum": [
+            "THREAT_SOURCE_TYPE_UNSPECIFIED",
+            "MATCHING_URL",
+            "TAB_URL",
+            "TAB_REDIRECT",
+            "TAB_RESOURCE"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "The URL of the resource.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserInfo": {
+      "description": "Details about the user that encountered the threat.",
+      "properties": {
+        "regionCode": {
+          "description": "The UN M.49 region code associated with the user's location.",
+          "type": "string"
+        },
+        "userId": {
+          "description": "Unique user identifier defined by the client.",
+          "format": "byte",
           "type": "string"
         }
       },

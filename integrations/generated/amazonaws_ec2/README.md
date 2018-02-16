@@ -22,7 +22,7 @@ amazonaws_ec2.AcceptReservedInstancesExchangeQuote({
 
 ## Description
 
-<fullname>Amazon Elastic Compute Cloud</fullname> <p>Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster.</p>
+<fullname>Amazon Elastic Compute Cloud</fullname> <p>Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the AWS Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster.</p>
 
 ## Actions
 
@@ -44,6 +44,26 @@ amazonaws_ec2.AcceptReservedInstancesExchangeQuote({
 
 #### Output
 * output [AcceptReservedInstancesExchangeQuoteResult](#acceptreservedinstancesexchangequoteresult)
+
+### AcceptVpcEndpointConnections
+
+
+
+```js
+amazonaws_ec2.AcceptVpcEndpointConnections({
+  "ServiceId": "",
+  "VpcEndpointIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * ServiceId **required** [String](#string)
+  * VpcEndpointIds **required** [ValueStringList](#valuestringlist)
+
+#### Output
+* output [AcceptVpcEndpointConnectionsResult](#acceptvpcendpointconnectionsresult)
 
 ### AcceptVpcPeeringConnection
 
@@ -675,6 +695,24 @@ amazonaws_ec2.CreateCustomerGateway({
 #### Output
 * output [CreateCustomerGatewayResult](#createcustomergatewayresult)
 
+### CreateDefaultSubnet
+
+
+
+```js
+amazonaws_ec2.CreateDefaultSubnet({
+  "AvailabilityZone": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AvailabilityZone **required** [String](#string)
+  * DryRun [Boolean](#boolean)
+
+#### Output
+* output [CreateDefaultSubnetResult](#createdefaultsubnetresult)
+
 ### CreateDefaultVpc
 
 
@@ -850,6 +888,51 @@ amazonaws_ec2.CreateKeyPair({
 
 #### Output
 * output [KeyPair](#keypair)
+
+### CreateLaunchTemplate
+
+
+
+```js
+amazonaws_ec2.CreateLaunchTemplate({
+  "LaunchTemplateName": "",
+  "LaunchTemplateData": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateData **required** [RequestLaunchTemplateData](#requestlaunchtemplatedata)
+  * LaunchTemplateName **required** [LaunchTemplateName](#launchtemplatename)
+  * VersionDescription [VersionDescription](#versiondescription)
+
+#### Output
+* output [CreateLaunchTemplateResult](#createlaunchtemplateresult)
+
+### CreateLaunchTemplateVersion
+
+
+
+```js
+amazonaws_ec2.CreateLaunchTemplateVersion({
+  "LaunchTemplateData": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateData **required** [RequestLaunchTemplateData](#requestlaunchtemplatedata)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * SourceVersion [String](#string)
+  * VersionDescription [VersionDescription](#versiondescription)
+
+#### Output
+* output [CreateLaunchTemplateVersionResult](#createlaunchtemplateversionresult)
 
 ### CreateNatGateway
 
@@ -1226,6 +1309,49 @@ amazonaws_ec2.CreateVpcEndpoint({
 #### Output
 * output [CreateVpcEndpointResult](#createvpcendpointresult)
 
+### CreateVpcEndpointConnectionNotification
+
+
+
+```js
+amazonaws_ec2.CreateVpcEndpointConnectionNotification({
+  "ConnectionNotificationArn": "",
+  "ConnectionEvents": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [String](#string)
+  * ConnectionEvents **required** [ValueStringList](#valuestringlist)
+  * ConnectionNotificationArn **required** [String](#string)
+  * DryRun [Boolean](#boolean)
+  * ServiceId [String](#string)
+  * VpcEndpointId [String](#string)
+
+#### Output
+* output [CreateVpcEndpointConnectionNotificationResult](#createvpcendpointconnectionnotificationresult)
+
+### CreateVpcEndpointServiceConfiguration
+
+
+
+```js
+amazonaws_ec2.CreateVpcEndpointServiceConfiguration({
+  "NetworkLoadBalancerArns": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptanceRequired [Boolean](#boolean)
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * NetworkLoadBalancerArns **required** [ValueStringList](#valuestringlist)
+
+#### Output
+* output [CreateVpcEndpointServiceConfigurationResult](#createvpcendpointserviceconfigurationresult)
+
 ### CreateVpcPeeringConnection
 
 
@@ -1238,6 +1364,7 @@ amazonaws_ec2.CreateVpcPeeringConnection({}, context)
 * input `object`
   * DryRun [Boolean](#boolean)
   * PeerOwnerId [String](#string)
+  * PeerRegion [String](#string)
   * PeerVpcId [String](#string)
   * VpcId [String](#string)
 
@@ -1430,6 +1557,43 @@ amazonaws_ec2.DeleteKeyPair({
 
 #### Output
 *Output schema unknown*
+
+### DeleteLaunchTemplate
+
+
+
+```js
+amazonaws_ec2.DeleteLaunchTemplate({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+
+#### Output
+* output [DeleteLaunchTemplateResult](#deletelaunchtemplateresult)
+
+### DeleteLaunchTemplateVersions
+
+
+
+```js
+amazonaws_ec2.DeleteLaunchTemplateVersions({
+  "Versions": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * Versions **required** [VersionStringList](#versionstringlist)
+
+#### Output
+* output [DeleteLaunchTemplateVersionsResult](#deletelaunchtemplateversionsresult)
 
 ### DeleteNatGateway
 
@@ -1704,6 +1868,42 @@ amazonaws_ec2.DeleteVpc({
 #### Output
 *Output schema unknown*
 
+### DeleteVpcEndpointConnectionNotifications
+
+
+
+```js
+amazonaws_ec2.DeleteVpcEndpointConnectionNotifications({
+  "ConnectionNotificationIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectionNotificationIds **required** [ValueStringList](#valuestringlist)
+  * DryRun [Boolean](#boolean)
+
+#### Output
+* output [DeleteVpcEndpointConnectionNotificationsResult](#deletevpcendpointconnectionnotificationsresult)
+
+### DeleteVpcEndpointServiceConfigurations
+
+
+
+```js
+amazonaws_ec2.DeleteVpcEndpointServiceConfigurations({
+  "ServiceIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * ServiceIds **required** [ValueStringList](#valuestringlist)
+
+#### Output
+* output [DeleteVpcEndpointServiceConfigurationsResult](#deletevpcendpointserviceconfigurationsresult)
+
 ### DeleteVpcEndpoints
 
 
@@ -1846,6 +2046,21 @@ amazonaws_ec2.DescribeAddresses({}, context)
 
 #### Output
 * output [DescribeAddressesResult](#describeaddressesresult)
+
+### DescribeAggregateIdFormat
+
+
+
+```js
+amazonaws_ec2.DescribeAggregateIdFormat({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+
+#### Output
+* output [DescribeAggregateIdFormatResult](#describeaggregateidformatresult)
 
 ### DescribeAvailabilityZones
 
@@ -2264,6 +2479,25 @@ amazonaws_ec2.DescribeInstanceAttribute({
 #### Output
 * output [InstanceAttribute](#instanceattribute)
 
+### DescribeInstanceCreditSpecifications
+
+
+
+```js
+amazonaws_ec2.DescribeInstanceCreditSpecifications({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * InstanceIds [InstanceIdStringList](#instanceidstringlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+#### Output
+* output [DescribeInstanceCreditSpecificationsResult](#describeinstancecreditspecificationsresult)
+
 ### DescribeInstanceStatus
 
 
@@ -2340,6 +2574,49 @@ amazonaws_ec2.DescribeKeyPairs({}, context)
 
 #### Output
 * output [DescribeKeyPairsResult](#describekeypairsresult)
+
+### DescribeLaunchTemplateVersions
+
+
+
+```js
+amazonaws_ec2.DescribeLaunchTemplateVersions({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * MaxResults [Integer](#integer)
+  * MaxVersion [String](#string)
+  * MinVersion [String](#string)
+  * NextToken [String](#string)
+  * Versions [VersionStringList](#versionstringlist)
+
+#### Output
+* output [DescribeLaunchTemplateVersionsResult](#describelaunchtemplateversionsresult)
+
+### DescribeLaunchTemplates
+
+
+
+```js
+amazonaws_ec2.DescribeLaunchTemplates({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * LaunchTemplateIds [ValueStringList](#valuestringlist)
+  * LaunchTemplateNames [LaunchTemplateNameStringList](#launchtemplatenamestringlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+#### Output
+* output [DescribeLaunchTemplatesResult](#describelaunchtemplatesresult)
 
 ### DescribeMovingAddresses
 
@@ -2486,6 +2763,24 @@ amazonaws_ec2.DescribePrefixLists({}, context)
 
 #### Output
 * output [DescribePrefixListsResult](#describeprefixlistsresult)
+
+### DescribePrincipalIdFormat
+
+
+
+```js
+amazonaws_ec2.DescribePrincipalIdFormat({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * Resources [ResourceList](#resourcelist)
+
+#### Output
+* output [DescribePrincipalIdFormatResult](#describeprincipalidformatresult)
 
 ### DescribeRegions
 
@@ -3046,6 +3341,83 @@ amazonaws_ec2.DescribeVpcClassicLinkDnsSupport({}, context)
 #### Output
 * output [DescribeVpcClassicLinkDnsSupportResult](#describevpcclassiclinkdnssupportresult)
 
+### DescribeVpcEndpointConnectionNotifications
+
+
+
+```js
+amazonaws_ec2.DescribeVpcEndpointConnectionNotifications({}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectionNotificationId [String](#string)
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+#### Output
+* output [DescribeVpcEndpointConnectionNotificationsResult](#describevpcendpointconnectionnotificationsresult)
+
+### DescribeVpcEndpointConnections
+
+
+
+```js
+amazonaws_ec2.DescribeVpcEndpointConnections({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+#### Output
+* output [DescribeVpcEndpointConnectionsResult](#describevpcendpointconnectionsresult)
+
+### DescribeVpcEndpointServiceConfigurations
+
+
+
+```js
+amazonaws_ec2.DescribeVpcEndpointServiceConfigurations({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * ServiceIds [ValueStringList](#valuestringlist)
+
+#### Output
+* output [DescribeVpcEndpointServiceConfigurationsResult](#describevpcendpointserviceconfigurationsresult)
+
+### DescribeVpcEndpointServicePermissions
+
+
+
+```js
+amazonaws_ec2.DescribeVpcEndpointServicePermissions({
+  "ServiceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * ServiceId **required** [String](#string)
+
+#### Output
+* output [DescribeVpcEndpointServicePermissionsResult](#describevpcendpointservicepermissionsresult)
+
 ### DescribeVpcEndpointServices
 
 
@@ -3516,6 +3888,24 @@ amazonaws_ec2.GetHostReservationPurchasePreview({
 #### Output
 * output [GetHostReservationPurchasePreviewResult](#gethostreservationpurchasepreviewresult)
 
+### GetLaunchTemplateData
+
+
+
+```js
+amazonaws_ec2.GetLaunchTemplateData({
+  "InstanceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * InstanceId **required** [String](#string)
+
+#### Output
+* output [GetLaunchTemplateDataResult](#getlaunchtemplatedataresult)
+
 ### GetPasswordData
 
 
@@ -3810,6 +4200,25 @@ amazonaws_ec2.ModifyInstanceAttribute({
 #### Output
 *Output schema unknown*
 
+### ModifyInstanceCreditSpecification
+
+
+
+```js
+amazonaws_ec2.ModifyInstanceCreditSpecification({
+  "InstanceCreditSpecifications": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * InstanceCreditSpecifications **required** [InstanceCreditSpecificationListRequest](#instancecreditspecificationlistrequest)
+
+#### Output
+* output [ModifyInstanceCreditSpecificationResult](#modifyinstancecreditspecificationresult)
+
 ### ModifyInstancePlacement
 
 
@@ -3829,6 +4238,25 @@ amazonaws_ec2.ModifyInstancePlacement({
 
 #### Output
 * output [ModifyInstancePlacementResult](#modifyinstanceplacementresult)
+
+### ModifyLaunchTemplate
+
+
+
+```js
+amazonaws_ec2.ModifyLaunchTemplate({}, context)
+```
+
+#### Input
+* input `object`
+  * ClientToken [String](#string)
+  * DefaultVersion [String](#string)
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+
+#### Output
+* output [ModifyLaunchTemplateResult](#modifylaunchtemplateresult)
 
 ### ModifyNetworkInterfaceAttribute
 
@@ -4019,6 +4447,67 @@ amazonaws_ec2.ModifyVpcEndpoint({
 #### Output
 * output [ModifyVpcEndpointResult](#modifyvpcendpointresult)
 
+### ModifyVpcEndpointConnectionNotification
+
+
+
+```js
+amazonaws_ec2.ModifyVpcEndpointConnectionNotification({
+  "ConnectionNotificationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConnectionEvents [ValueStringList](#valuestringlist)
+  * ConnectionNotificationArn [String](#string)
+  * ConnectionNotificationId **required** [String](#string)
+  * DryRun [Boolean](#boolean)
+
+#### Output
+* output [ModifyVpcEndpointConnectionNotificationResult](#modifyvpcendpointconnectionnotificationresult)
+
+### ModifyVpcEndpointServiceConfiguration
+
+
+
+```js
+amazonaws_ec2.ModifyVpcEndpointServiceConfiguration({
+  "ServiceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptanceRequired [Boolean](#boolean)
+  * AddNetworkLoadBalancerArns [ValueStringList](#valuestringlist)
+  * DryRun [Boolean](#boolean)
+  * RemoveNetworkLoadBalancerArns [ValueStringList](#valuestringlist)
+  * ServiceId **required** [String](#string)
+
+#### Output
+* output [ModifyVpcEndpointServiceConfigurationResult](#modifyvpcendpointserviceconfigurationresult)
+
+### ModifyVpcEndpointServicePermissions
+
+
+
+```js
+amazonaws_ec2.ModifyVpcEndpointServicePermissions({
+  "ServiceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddAllowedPrincipals [ValueStringList](#valuestringlist)
+  * DryRun [Boolean](#boolean)
+  * RemoveAllowedPrincipals [ValueStringList](#valuestringlist)
+  * ServiceId **required** [String](#string)
+
+#### Output
+* output [ModifyVpcEndpointServicePermissionsResult](#modifyvpcendpointservicepermissionsresult)
+
 ### ModifyVpcPeeringConnectionOptions
 
 
@@ -4203,6 +4692,26 @@ amazonaws_ec2.RegisterImage({
 
 #### Output
 * output [RegisterImageResult](#registerimageresult)
+
+### RejectVpcEndpointConnections
+
+
+
+```js
+amazonaws_ec2.RejectVpcEndpointConnections({
+  "ServiceId": "",
+  "VpcEndpointIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun [Boolean](#boolean)
+  * ServiceId **required** [String](#string)
+  * VpcEndpointIds **required** [ValueStringList](#valuestringlist)
+
+#### Output
+* output [RejectVpcEndpointConnectionsResult](#rejectvpcendpointconnectionsresult)
 
 ### RejectVpcPeeringConnection
 
@@ -4404,8 +4913,6 @@ amazonaws_ec2.ReportInstanceStatus({
 amazonaws_ec2.RequestSpotFleet({
   "SpotFleetRequestConfig": {
     "IamFleetRole": "",
-    "LaunchSpecifications": [],
-    "SpotPrice": "",
     "TargetCapacity": 0
   }
 }, context)
@@ -4424,9 +4931,7 @@ amazonaws_ec2.RequestSpotFleet({
 
 
 ```js
-amazonaws_ec2.RequestSpotInstances({
-  "SpotPrice": ""
-}, context)
+amazonaws_ec2.RequestSpotInstances({}, context)
 ```
 
 #### Input
@@ -4439,7 +4944,7 @@ amazonaws_ec2.RequestSpotInstances({
   * InstanceInterruptionBehavior [InstanceInterruptionBehavior](#instanceinterruptionbehavior)
   * LaunchGroup [String](#string)
   * LaunchSpecification [RequestSpotLaunchSpecification](#requestspotlaunchspecification)
-  * SpotPrice **required** [String](#string)
+  * SpotPrice [String](#string)
   * Type [SpotInstanceType](#spotinstancetype)
   * ValidFrom [DateTime](#datetime)
   * ValidUntil [DateTime](#datetime)
@@ -4618,7 +5123,6 @@ amazonaws_ec2.RevokeSecurityGroupIngress({}, context)
 
 ```js
 amazonaws_ec2.RunInstances({
-  "ImageId": "",
   "MaxCount": 0,
   "MinCount": 0
 }, context)
@@ -4629,18 +5133,21 @@ amazonaws_ec2.RunInstances({
   * AdditionalInfo [String](#string)
   * BlockDeviceMappings [BlockDeviceMappingRequestList](#blockdevicemappingrequestlist)
   * ClientToken [String](#string)
+  * CreditSpecification [CreditSpecificationRequest](#creditspecificationrequest)
   * DisableApiTermination [Boolean](#boolean)
   * DryRun [Boolean](#boolean)
   * EbsOptimized [Boolean](#boolean)
   * ElasticGpuSpecification [ElasticGpuSpecifications](#elasticgpuspecifications)
   * IamInstanceProfile [IamInstanceProfileSpecification](#iaminstanceprofilespecification)
-  * ImageId **required** [String](#string)
+  * ImageId [String](#string)
   * InstanceInitiatedShutdownBehavior [ShutdownBehavior](#shutdownbehavior)
+  * InstanceMarketOptions [InstanceMarketOptionsRequest](#instancemarketoptionsrequest)
   * InstanceType [InstanceType](#instancetype)
   * Ipv6AddressCount [Integer](#integer)
   * Ipv6Addresses [InstanceIpv6AddressList](#instanceipv6addresslist)
   * KernelId [String](#string)
   * KeyName [String](#string)
+  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
   * MaxCount **required** [Integer](#integer)
   * MinCount **required** [Integer](#integer)
   * Monitoring [RunInstancesMonitoringEnabled](#runinstancesmonitoringenabled)
@@ -4847,6 +5354,16 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * AcceptReservedInstancesExchangeQuoteResult `object`: The result of the exchange and whether it was <code>successful</code>.
   * ExchangeId [String](#string)
 
+### AcceptVpcEndpointConnectionsRequest
+* AcceptVpcEndpointConnectionsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * ServiceId **required** [String](#string)
+  * VpcEndpointIds **required** [ValueStringList](#valuestringlist)
+
+### AcceptVpcEndpointConnectionsResult
+* AcceptVpcEndpointConnectionsResult `object`
+  * Unsuccessful [UnsuccessfulItemSet](#unsuccessfulitemset)
+
 ### AcceptVpcPeeringConnectionRequest
 * AcceptVpcPeeringConnectionRequest `object`: Contains the parameters for AcceptVpcPeeringConnection.
   * DryRun [Boolean](#boolean)
@@ -4881,7 +5398,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [AccountAttributeValue](#accountattributevalue)
 
 ### ActiveInstance
-* ActiveInstance `object`: Describes a running instance in a Spot fleet.
+* ActiveInstance `object`: Describes a running instance in a Spot Fleet.
   * InstanceHealth [InstanceHealthStatus](#instancehealthstatus)
   * InstanceId [String](#string)
   * InstanceType [String](#string)
@@ -4904,6 +5421,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * NetworkInterfaceOwnerId [String](#string)
   * PrivateIpAddress [String](#string)
   * PublicIp [String](#string)
+  * Tags [TagList](#taglist)
 
 ### AddressList
 * AddressList `array`
@@ -4945,6 +5463,15 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 
 ### AllocationStrategy
 * AllocationStrategy `string` (values: lowestPrice, diversified)
+
+### AllowedPrincipal
+* AllowedPrincipal `object`: Describes a principal.
+  * Principal [String](#string)
+  * PrincipalType [PrincipalType](#principaltype)
+
+### AllowedPrincipalSet
+* AllowedPrincipalSet `array`
+  * items [AllowedPrincipal](#allowedprincipal)
 
 ### ArchitectureValues
 * ArchitectureValues `string` (values: i386, x86_64)
@@ -5259,12 +5786,12 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * ReservedInstancesListings [ReservedInstancesListingList](#reservedinstanceslistinglist)
 
 ### CancelSpotFleetRequestsError
-* CancelSpotFleetRequestsError `object`: Describes a Spot fleet error.
+* CancelSpotFleetRequestsError `object`: Describes a Spot Fleet error.
   * Code **required** [CancelBatchErrorCode](#cancelbatcherrorcode)
   * Message **required** [String](#string)
 
 ### CancelSpotFleetRequestsErrorItem
-* CancelSpotFleetRequestsErrorItem `object`: Describes a Spot fleet request that was not successfully canceled.
+* CancelSpotFleetRequestsErrorItem `object`: Describes a Spot Fleet request that was not successfully canceled.
   * Error **required** [CancelSpotFleetRequestsError](#cancelspotfleetrequestserror)
   * SpotFleetRequestId **required** [String](#string)
 
@@ -5284,7 +5811,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * UnsuccessfulFleetRequests [CancelSpotFleetRequestsErrorSet](#cancelspotfleetrequestserrorset)
 
 ### CancelSpotFleetRequestsSuccessItem
-* CancelSpotFleetRequestsSuccessItem `object`: Describes a Spot fleet request that was successfully canceled.
+* CancelSpotFleetRequestsSuccessItem `object`: Describes a Spot Fleet request that was successfully canceled.
   * CurrentSpotFleetRequestState **required** [BatchState](#batchstate)
   * PreviousSpotFleetRequestState **required** [BatchState](#batchstate)
   * SpotFleetRequestId **required** [String](#string)
@@ -5306,7 +5833,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * CancelledSpotInstanceRequests [CancelledSpotInstanceRequestList](#cancelledspotinstancerequestlist)
 
 ### CancelledSpotInstanceRequest
-* CancelledSpotInstanceRequest `object`: Describes a request to cancel a Spot instance.
+* CancelledSpotInstanceRequest `object`: Describes a request to cancel a Spot Instance.
   * SpotInstanceRequestId [String](#string)
   * State [CancelSpotInstanceRequestState](#cancelspotinstancerequeststate)
 
@@ -5342,6 +5869,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * ClassicLinkInstanceList `array`
   * items [ClassicLinkInstance](#classiclinkinstance)
 
+### ClassicLoadBalancer
+* ClassicLoadBalancer `object`: Describes a Classic Load Balancer.
+  * Name **required** [String](#string)
+
+### ClassicLoadBalancers
+* ClassicLoadBalancers `array`
+  * items [ClassicLoadBalancer](#classicloadbalancer)
+
+### ClassicLoadBalancersConfig
+* ClassicLoadBalancersConfig `object`: Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
+  * ClassicLoadBalancers **required** [ClassicLoadBalancers](#classicloadbalancers)
+
 ### ClientData
 * ClientData `object`: Describes the client-specific data.
   * Comment [String](#string)
@@ -5359,6 +5898,26 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * ConfirmProductInstanceResult `object`: Contains the output of ConfirmProductInstance.
   * OwnerId [String](#string)
   * Return [Boolean](#boolean)
+
+### ConnectionNotification
+* ConnectionNotification `object`: Describes a connection notification for a VPC endpoint or VPC endpoint service.
+  * ConnectionEvents [ValueStringList](#valuestringlist)
+  * ConnectionNotificationArn [String](#string)
+  * ConnectionNotificationId [String](#string)
+  * ConnectionNotificationState [ConnectionNotificationState](#connectionnotificationstate)
+  * ConnectionNotificationType [ConnectionNotificationType](#connectionnotificationtype)
+  * ServiceId [String](#string)
+  * VpcEndpointId [String](#string)
+
+### ConnectionNotificationSet
+* ConnectionNotificationSet `array`
+  * items [ConnectionNotification](#connectionnotification)
+
+### ConnectionNotificationState
+* ConnectionNotificationState `string` (values: Enabled, Disabled)
+
+### ConnectionNotificationType
+* ConnectionNotificationType `string` (values: Topic)
 
 ### ContainerFormat
 * ContainerFormat `string` (values: ova)
@@ -5433,6 +5992,15 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### CreateCustomerGatewayResult
 * CreateCustomerGatewayResult `object`: Contains the output of CreateCustomerGateway.
   * CustomerGateway [CustomerGateway](#customergateway)
+
+### CreateDefaultSubnetRequest
+* CreateDefaultSubnetRequest `object`
+  * AvailabilityZone **required** [String](#string)
+  * DryRun [Boolean](#boolean)
+
+### CreateDefaultSubnetResult
+* CreateDefaultSubnetResult `object`
+  * Subnet [Subnet](#subnet)
 
 ### CreateDefaultVpcRequest
 * CreateDefaultVpcRequest `object`: Contains the parameters for CreateDefaultVpc.
@@ -5527,6 +6095,32 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * CreateKeyPairRequest `object`: Contains the parameters for CreateKeyPair.
   * DryRun [Boolean](#boolean)
   * KeyName **required** [String](#string)
+
+### CreateLaunchTemplateRequest
+* CreateLaunchTemplateRequest `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateData **required** [RequestLaunchTemplateData](#requestlaunchtemplatedata)
+  * LaunchTemplateName **required** [LaunchTemplateName](#launchtemplatename)
+  * VersionDescription [VersionDescription](#versiondescription)
+
+### CreateLaunchTemplateResult
+* CreateLaunchTemplateResult `object`
+  * LaunchTemplate [LaunchTemplate](#launchtemplate)
+
+### CreateLaunchTemplateVersionRequest
+* CreateLaunchTemplateVersionRequest `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateData **required** [RequestLaunchTemplateData](#requestlaunchtemplatedata)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * SourceVersion [String](#string)
+  * VersionDescription [VersionDescription](#versiondescription)
+
+### CreateLaunchTemplateVersionResult
+* CreateLaunchTemplateVersionResult `object`
+  * LaunchTemplateVersion [LaunchTemplateVersion](#launchtemplateversion)
 
 ### CreateNatGatewayRequest
 * CreateNatGatewayRequest `object`: Contains the parameters for CreateNatGateway.
@@ -5703,6 +6297,20 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * TagSpecifications [TagSpecificationList](#tagspecificationlist)
   * VolumeType [VolumeType](#volumetype)
 
+### CreateVpcEndpointConnectionNotificationRequest
+* CreateVpcEndpointConnectionNotificationRequest `object`
+  * ClientToken [String](#string)
+  * ConnectionEvents **required** [ValueStringList](#valuestringlist)
+  * ConnectionNotificationArn **required** [String](#string)
+  * DryRun [Boolean](#boolean)
+  * ServiceId [String](#string)
+  * VpcEndpointId [String](#string)
+
+### CreateVpcEndpointConnectionNotificationResult
+* CreateVpcEndpointConnectionNotificationResult `object`
+  * ClientToken [String](#string)
+  * ConnectionNotification [ConnectionNotification](#connectionnotification)
+
 ### CreateVpcEndpointRequest
 * CreateVpcEndpointRequest `object`: Contains the parameters for CreateVpcEndpoint.
   * ClientToken [String](#string)
@@ -5721,10 +6329,23 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * ClientToken [String](#string)
   * VpcEndpoint [VpcEndpoint](#vpcendpoint)
 
+### CreateVpcEndpointServiceConfigurationRequest
+* CreateVpcEndpointServiceConfigurationRequest `object`
+  * AcceptanceRequired [Boolean](#boolean)
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * NetworkLoadBalancerArns **required** [ValueStringList](#valuestringlist)
+
+### CreateVpcEndpointServiceConfigurationResult
+* CreateVpcEndpointServiceConfigurationResult `object`
+  * ClientToken [String](#string)
+  * ServiceConfiguration [ServiceConfiguration](#serviceconfiguration)
+
 ### CreateVpcPeeringConnectionRequest
 * CreateVpcPeeringConnectionRequest `object`: Contains the parameters for CreateVpcPeeringConnection.
   * DryRun [Boolean](#boolean)
   * PeerOwnerId [String](#string)
+  * PeerRegion [String](#string)
   * PeerVpcId [String](#string)
   * VpcId [String](#string)
 
@@ -5770,6 +6391,14 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### CreateVpnGatewayResult
 * CreateVpnGatewayResult `object`: Contains the output of CreateVpnGateway.
   * VpnGateway [VpnGateway](#vpngateway)
+
+### CreditSpecification
+* CreditSpecification `object`: Describes the credit option for CPU usage of a T2 instance.
+  * CpuCredits [String](#string)
+
+### CreditSpecificationRequest
+* CreditSpecificationRequest `object`: The credit option for CPU usage of a T2 instance.
+  * CpuCredits **required** [String](#string)
 
 ### CurrencyCodeValues
 * CurrencyCodeValues `string` (values: USD)
@@ -5842,6 +6471,49 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * DeleteKeyPairRequest `object`: Contains the parameters for DeleteKeyPair.
   * DryRun [Boolean](#boolean)
   * KeyName **required** [String](#string)
+
+### DeleteLaunchTemplateRequest
+* DeleteLaunchTemplateRequest `object`
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+
+### DeleteLaunchTemplateResult
+* DeleteLaunchTemplateResult `object`
+  * LaunchTemplate [LaunchTemplate](#launchtemplate)
+
+### DeleteLaunchTemplateVersionsRequest
+* DeleteLaunchTemplateVersionsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * Versions **required** [VersionStringList](#versionstringlist)
+
+### DeleteLaunchTemplateVersionsResponseErrorItem
+* DeleteLaunchTemplateVersionsResponseErrorItem `object`: Describes a launch template version that could not be deleted.
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [String](#string)
+  * ResponseError [ResponseError](#responseerror)
+  * VersionNumber [Long](#long)
+
+### DeleteLaunchTemplateVersionsResponseErrorSet
+* DeleteLaunchTemplateVersionsResponseErrorSet `array`
+  * items [DeleteLaunchTemplateVersionsResponseErrorItem](#deletelaunchtemplateversionsresponseerroritem)
+
+### DeleteLaunchTemplateVersionsResponseSuccessItem
+* DeleteLaunchTemplateVersionsResponseSuccessItem `object`: Describes a launch template version that was successfully deleted.
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [String](#string)
+  * VersionNumber [Long](#long)
+
+### DeleteLaunchTemplateVersionsResponseSuccessSet
+* DeleteLaunchTemplateVersionsResponseSuccessSet `array`
+  * items [DeleteLaunchTemplateVersionsResponseSuccessItem](#deletelaunchtemplateversionsresponsesuccessitem)
+
+### DeleteLaunchTemplateVersionsResult
+* DeleteLaunchTemplateVersionsResult `object`
+  * SuccessfullyDeletedLaunchTemplateVersions [DeleteLaunchTemplateVersionsResponseSuccessSet](#deletelaunchtemplateversionsresponsesuccessset)
+  * UnsuccessfullyDeletedLaunchTemplateVersions [DeleteLaunchTemplateVersionsResponseErrorSet](#deletelaunchtemplateversionsresponseerrorset)
 
 ### DeleteNatGatewayRequest
 * DeleteNatGatewayRequest `object`: Contains the parameters for DeleteNatGateway.
@@ -5926,6 +6598,24 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * DryRun [Boolean](#boolean)
   * VolumeId **required** [String](#string)
 
+### DeleteVpcEndpointConnectionNotificationsRequest
+* DeleteVpcEndpointConnectionNotificationsRequest `object`
+  * ConnectionNotificationIds **required** [ValueStringList](#valuestringlist)
+  * DryRun [Boolean](#boolean)
+
+### DeleteVpcEndpointConnectionNotificationsResult
+* DeleteVpcEndpointConnectionNotificationsResult `object`
+  * Unsuccessful [UnsuccessfulItemSet](#unsuccessfulitemset)
+
+### DeleteVpcEndpointServiceConfigurationsRequest
+* DeleteVpcEndpointServiceConfigurationsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * ServiceIds **required** [ValueStringList](#valuestringlist)
+
+### DeleteVpcEndpointServiceConfigurationsResult
+* DeleteVpcEndpointServiceConfigurationsResult `object`
+  * Unsuccessful [UnsuccessfulItemSet](#unsuccessfulitemset)
+
 ### DeleteVpcEndpointsRequest
 * DeleteVpcEndpointsRequest `object`: Contains the parameters for DeleteVpcEndpoints.
   * DryRun [Boolean](#boolean)
@@ -5988,6 +6678,15 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### DescribeAddressesResult
 * DescribeAddressesResult `object`: Contains the output of DescribeAddresses.
   * Addresses [AddressList](#addresslist)
+
+### DescribeAggregateIdFormatRequest
+* DescribeAggregateIdFormatRequest `object`
+  * DryRun [Boolean](#boolean)
+
+### DescribeAggregateIdFormatResult
+* DescribeAggregateIdFormatResult `object`
+  * Statuses [IdFormatList](#idformatlist)
+  * UseLongIdsAggregated [Boolean](#boolean)
 
 ### DescribeAvailabilityZonesRequest
 * DescribeAvailabilityZonesRequest `object`: Contains the parameters for DescribeAvailabilityZones.
@@ -6242,6 +6941,19 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * DryRun [Boolean](#boolean)
   * InstanceId **required** [String](#string)
 
+### DescribeInstanceCreditSpecificationsRequest
+* DescribeInstanceCreditSpecificationsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * InstanceIds [InstanceIdStringList](#instanceidstringlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+### DescribeInstanceCreditSpecificationsResult
+* DescribeInstanceCreditSpecificationsResult `object`
+  * InstanceCreditSpecifications [InstanceCreditSpecificationList](#instancecreditspecificationlist)
+  * NextToken [String](#string)
+
 ### DescribeInstanceStatusRequest
 * DescribeInstanceStatusRequest `object`: Contains the parameters for DescribeInstanceStatus.
   * DryRun [Boolean](#boolean)
@@ -6288,6 +7000,37 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### DescribeKeyPairsResult
 * DescribeKeyPairsResult `object`: Contains the output of DescribeKeyPairs.
   * KeyPairs [KeyPairList](#keypairlist)
+
+### DescribeLaunchTemplateVersionsRequest
+* DescribeLaunchTemplateVersionsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * MaxResults [Integer](#integer)
+  * MaxVersion [String](#string)
+  * MinVersion [String](#string)
+  * NextToken [String](#string)
+  * Versions [VersionStringList](#versionstringlist)
+
+### DescribeLaunchTemplateVersionsResult
+* DescribeLaunchTemplateVersionsResult `object`
+  * LaunchTemplateVersions [LaunchTemplateVersionSet](#launchtemplateversionset)
+  * NextToken [String](#string)
+
+### DescribeLaunchTemplatesRequest
+* DescribeLaunchTemplatesRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * LaunchTemplateIds [ValueStringList](#valuestringlist)
+  * LaunchTemplateNames [LaunchTemplateNameStringList](#launchtemplatenamestringlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+### DescribeLaunchTemplatesResult
+* DescribeLaunchTemplatesResult `object`
+  * LaunchTemplates [LaunchTemplateSet](#launchtemplateset)
+  * NextToken [String](#string)
 
 ### DescribeMovingAddressesRequest
 * DescribeMovingAddressesRequest `object`: Contains the parameters for DescribeMovingAddresses.
@@ -6382,6 +7125,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * DescribePrefixListsResult `object`: Contains the output of DescribePrefixLists.
   * NextToken [String](#string)
   * PrefixLists [PrefixListSet](#prefixlistset)
+
+### DescribePrincipalIdFormatRequest
+* DescribePrincipalIdFormatRequest `object`
+  * DryRun [Boolean](#boolean)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * Resources [ResourceList](#resourcelist)
+
+### DescribePrincipalIdFormatResult
+* DescribePrincipalIdFormatResult `object`
+  * NextToken [String](#string)
+  * Principals [PrincipalIdFormatList](#principalidformatlist)
 
 ### DescribeRegionsRequest
 * DescribeRegionsRequest `object`: Contains the parameters for DescribeRegions.
@@ -6734,6 +7489,57 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * DescribeVpcClassicLinkResult `object`: Contains the output of DescribeVpcClassicLink.
   * Vpcs [VpcClassicLinkList](#vpcclassiclinklist)
 
+### DescribeVpcEndpointConnectionNotificationsRequest
+* DescribeVpcEndpointConnectionNotificationsRequest `object`
+  * ConnectionNotificationId [String](#string)
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+### DescribeVpcEndpointConnectionNotificationsResult
+* DescribeVpcEndpointConnectionNotificationsResult `object`
+  * ConnectionNotificationSet [ConnectionNotificationSet](#connectionnotificationset)
+  * NextToken [String](#string)
+
+### DescribeVpcEndpointConnectionsRequest
+* DescribeVpcEndpointConnectionsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+
+### DescribeVpcEndpointConnectionsResult
+* DescribeVpcEndpointConnectionsResult `object`
+  * NextToken [String](#string)
+  * VpcEndpointConnections [VpcEndpointConnectionSet](#vpcendpointconnectionset)
+
+### DescribeVpcEndpointServiceConfigurationsRequest
+* DescribeVpcEndpointServiceConfigurationsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * ServiceIds [ValueStringList](#valuestringlist)
+
+### DescribeVpcEndpointServiceConfigurationsResult
+* DescribeVpcEndpointServiceConfigurationsResult `object`
+  * NextToken [String](#string)
+  * ServiceConfigurations [ServiceConfigurationSet](#serviceconfigurationset)
+
+### DescribeVpcEndpointServicePermissionsRequest
+* DescribeVpcEndpointServicePermissionsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * Filters [FilterList](#filterlist)
+  * MaxResults [Integer](#integer)
+  * NextToken [String](#string)
+  * ServiceId **required** [String](#string)
+
+### DescribeVpcEndpointServicePermissionsResult
+* DescribeVpcEndpointServicePermissionsResult `object`
+  * AllowedPrincipals [AllowedPrincipalSet](#allowedprincipalset)
+  * NextToken [String](#string)
+
 ### DescribeVpcEndpointServicesRequest
 * DescribeVpcEndpointServicesRequest `object`: Contains the parameters for DescribeVpcEndpointServices.
   * DryRun [Boolean](#boolean)
@@ -6978,6 +7784,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * DeleteOnTermination [Boolean](#boolean)
   * Encrypted [Boolean](#boolean)
   * Iops [Integer](#integer)
+  * KmsKeyId [String](#string)
   * SnapshotId [String](#string)
   * VolumeSize [Integer](#integer)
   * VolumeType [VolumeType](#volumetype)
@@ -7037,6 +7844,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * ElasticGpuSpecification `object`: A specification for an Elastic GPU.
   * Type **required** [String](#string)
 
+### ElasticGpuSpecificationList
+* ElasticGpuSpecificationList `array`
+  * items [ElasticGpuSpecification](#elasticgpuspecification)
+
+### ElasticGpuSpecificationResponse
+* ElasticGpuSpecificationResponse `object`: Describes an elastic GPU.
+  * Type [String](#string)
+
+### ElasticGpuSpecificationResponseList
+* ElasticGpuSpecificationResponseList `array`
+  * items [ElasticGpuSpecificationResponse](#elasticgpuspecificationresponse)
+
 ### ElasticGpuSpecifications
 * ElasticGpuSpecifications `array`
   * items [ElasticGpuSpecification](#elasticgpuspecification)
@@ -7087,7 +7906,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * EventCode `string` (values: instance-reboot, system-reboot, system-maintenance, instance-retirement, instance-stop)
 
 ### EventInformation
-* EventInformation `object`: Describes a Spot fleet event.
+* EventInformation `object`: Describes a Spot Fleet event.
   * EventDescription [String](#string)
   * EventSubType [String](#string)
   * InstanceId [String](#string)
@@ -7147,6 +7966,12 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### FilterList
 * FilterList `array`
   * items [Filter](#filter)
+
+### FleetLaunchTemplateSpecification
+* FleetLaunchTemplateSpecification `object`: Describes a launch template.
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * Version [String](#string)
 
 ### FleetType
 * FleetType `string` (values: request, maintain)
@@ -7254,6 +8079,15 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * TotalHourlyPrice [String](#string)
   * TotalUpfrontPrice [String](#string)
 
+### GetLaunchTemplateDataRequest
+* GetLaunchTemplateDataRequest `object`
+  * DryRun [Boolean](#boolean)
+  * InstanceId **required** [String](#string)
+
+### GetLaunchTemplateDataResult
+* GetLaunchTemplateDataResult `object`
+  * LaunchTemplateData [ResponseLaunchTemplateData](#responselaunchtemplatedata)
+
 ### GetPasswordDataRequest
 * GetPasswordDataRequest `object`: Contains the parameters for GetPasswordData.
   * DryRun [Boolean](#boolean)
@@ -7309,7 +8143,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [String](#string)
 
 ### HistoryRecord
-* HistoryRecord `object`: Describes an event in the history of the Spot fleet request.
+* HistoryRecord `object`: Describes an event in the history of the Spot Fleet request.
   * EventInformation **required** [EventInformation](#eventinformation)
   * EventType **required** [EventType](#eventtype)
   * Timestamp **required** [DateTime](#datetime)
@@ -7752,6 +8586,24 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * InstanceCountList `array`
   * items [InstanceCount](#instancecount)
 
+### InstanceCreditSpecification
+* InstanceCreditSpecification `object`: Describes the credit option for CPU usage of a T2 instance. 
+  * CpuCredits [String](#string)
+  * InstanceId [String](#string)
+
+### InstanceCreditSpecificationList
+* InstanceCreditSpecificationList `array`
+  * items [InstanceCreditSpecification](#instancecreditspecification)
+
+### InstanceCreditSpecificationListRequest
+* InstanceCreditSpecificationListRequest `array`
+  * items [InstanceCreditSpecificationRequest](#instancecreditspecificationrequest)
+
+### InstanceCreditSpecificationRequest
+* InstanceCreditSpecificationRequest `object`: Describes the credit option for CPU usage of a T2 instance.
+  * CpuCredits [String](#string)
+  * InstanceId [String](#string)
+
 ### InstanceExportDetails
 * InstanceExportDetails `object`: Describes an instance to export.
   * InstanceId [String](#string)
@@ -7769,7 +8621,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [String](#string)
 
 ### InstanceInterruptionBehavior
-* InstanceInterruptionBehavior `string` (values: stop, terminate)
+* InstanceInterruptionBehavior `string` (values: hibernate, stop, terminate)
 
 ### InstanceIpv6Address
 * InstanceIpv6Address `object`: Describes an IPv6 address.
@@ -7779,12 +8631,25 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * InstanceIpv6AddressList `array`
   * items [InstanceIpv6Address](#instanceipv6address)
 
+### InstanceIpv6AddressListRequest
+* InstanceIpv6AddressListRequest `array`
+  * items [InstanceIpv6AddressRequest](#instanceipv6addressrequest)
+
+### InstanceIpv6AddressRequest
+* InstanceIpv6AddressRequest `object`: Describes an IPv6 address.
+  * Ipv6Address [String](#string)
+
 ### InstanceLifecycleType
 * InstanceLifecycleType `string` (values: spot, scheduled)
 
 ### InstanceList
 * InstanceList `array`
   * items [Instance](#instance)
+
+### InstanceMarketOptionsRequest
+* InstanceMarketOptionsRequest `object`: Describes the market (purchasing) option for the instances.
+  * MarketType [MarketType](#markettype)
+  * SpotOptions [SpotMarketOptions](#spotmarketoptions)
 
 ### InstanceMonitoring
 * InstanceMonitoring `object`: Describes the monitoring of an instance.
@@ -7919,7 +8784,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Status [SummaryStatus](#summarystatus)
 
 ### InstanceType
-* InstanceType `string` (values: t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, cr1.8xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, x1.16xlarge, x1.32xlarge, x1e.32xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, hi1.4xlarge, hs1.8xlarge, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.18xlarge, cc1.4xlarge, cc2.8xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, cg1.4xlarge, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, f1.2xlarge, f1.16xlarge)
+* InstanceType `string` (values: t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, cr1.8xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, hi1.4xlarge, hs1.8xlarge, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.18xlarge, cc1.4xlarge, cc2.8xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, cg1.4xlarge, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, f1.2xlarge, f1.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.12xlarge, m5.24xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge)
 
 ### InstanceTypeList
 * InstanceTypeList `array`
@@ -8056,11 +8921,242 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * LaunchSpecsList `array`
   * items [SpotFleetLaunchSpecification](#spotfleetlaunchspecification)
 
+### LaunchTemplate
+* LaunchTemplate `object`: Describes a launch template.
+  * CreateTime [DateTime](#datetime)
+  * CreatedBy [String](#string)
+  * DefaultVersionNumber [Long](#long)
+  * LatestVersionNumber [Long](#long)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * Tags [TagList](#taglist)
+
+### LaunchTemplateBlockDeviceMapping
+* LaunchTemplateBlockDeviceMapping `object`: Describes a block device mapping.
+  * DeviceName [String](#string)
+  * Ebs [LaunchTemplateEbsBlockDevice](#launchtemplateebsblockdevice)
+  * NoDevice [String](#string)
+  * VirtualName [String](#string)
+
+### LaunchTemplateBlockDeviceMappingList
+* LaunchTemplateBlockDeviceMappingList `array`
+  * items [LaunchTemplateBlockDeviceMapping](#launchtemplateblockdevicemapping)
+
+### LaunchTemplateBlockDeviceMappingRequest
+* LaunchTemplateBlockDeviceMappingRequest `object`: Describes a block device mapping.
+  * DeviceName [String](#string)
+  * Ebs [LaunchTemplateEbsBlockDeviceRequest](#launchtemplateebsblockdevicerequest)
+  * NoDevice [String](#string)
+  * VirtualName [String](#string)
+
+### LaunchTemplateBlockDeviceMappingRequestList
+* LaunchTemplateBlockDeviceMappingRequestList `array`
+  * items [LaunchTemplateBlockDeviceMappingRequest](#launchtemplateblockdevicemappingrequest)
+
+### LaunchTemplateConfig
+* LaunchTemplateConfig `object`: Describes a launch template and overrides.
+  * LaunchTemplateSpecification [FleetLaunchTemplateSpecification](#fleetlaunchtemplatespecification)
+  * Overrides [LaunchTemplateOverridesList](#launchtemplateoverrideslist)
+
+### LaunchTemplateConfigList
+* LaunchTemplateConfigList `array`
+  * items [LaunchTemplateConfig](#launchtemplateconfig)
+
+### LaunchTemplateEbsBlockDevice
+* LaunchTemplateEbsBlockDevice `object`: Describes a block device for an EBS volume.
+  * DeleteOnTermination [Boolean](#boolean)
+  * Encrypted [Boolean](#boolean)
+  * Iops [Integer](#integer)
+  * KmsKeyId [String](#string)
+  * SnapshotId [String](#string)
+  * VolumeSize [Integer](#integer)
+  * VolumeType [VolumeType](#volumetype)
+
+### LaunchTemplateEbsBlockDeviceRequest
+* LaunchTemplateEbsBlockDeviceRequest `object`: The parameters for a block device for an EBS volume.
+  * DeleteOnTermination [Boolean](#boolean)
+  * Encrypted [Boolean](#boolean)
+  * Iops [Integer](#integer)
+  * KmsKeyId [String](#string)
+  * SnapshotId [String](#string)
+  * VolumeSize [Integer](#integer)
+  * VolumeType [VolumeType](#volumetype)
+
+### LaunchTemplateErrorCode
+* LaunchTemplateErrorCode `string` (values: launchTemplateIdDoesNotExist, launchTemplateIdMalformed, launchTemplateNameDoesNotExist, launchTemplateNameMalformed, launchTemplateVersionDoesNotExist, unexpectedError)
+
+### LaunchTemplateIamInstanceProfileSpecification
+* LaunchTemplateIamInstanceProfileSpecification `object`: Describes an IAM instance profile.
+  * Arn [String](#string)
+  * Name [String](#string)
+
+### LaunchTemplateIamInstanceProfileSpecificationRequest
+* LaunchTemplateIamInstanceProfileSpecificationRequest `object`: An IAM instance profile.
+  * Arn [String](#string)
+  * Name [String](#string)
+
+### LaunchTemplateInstanceMarketOptions
+* LaunchTemplateInstanceMarketOptions `object`: The market (purchasing) option for the instances.
+  * MarketType [MarketType](#markettype)
+  * SpotOptions [LaunchTemplateSpotMarketOptions](#launchtemplatespotmarketoptions)
+
+### LaunchTemplateInstanceMarketOptionsRequest
+* LaunchTemplateInstanceMarketOptionsRequest `object`: The market (purchasing) option for the instances.
+  * MarketType [MarketType](#markettype)
+  * SpotOptions [LaunchTemplateSpotMarketOptionsRequest](#launchtemplatespotmarketoptionsrequest)
+
+### LaunchTemplateInstanceNetworkInterfaceSpecification
+* LaunchTemplateInstanceNetworkInterfaceSpecification `object`: Describes a network interface.
+  * AssociatePublicIpAddress [Boolean](#boolean)
+  * DeleteOnTermination [Boolean](#boolean)
+  * Description [String](#string)
+  * DeviceIndex [Integer](#integer)
+  * Groups [GroupIdStringList](#groupidstringlist)
+  * Ipv6AddressCount [Integer](#integer)
+  * Ipv6Addresses [InstanceIpv6AddressList](#instanceipv6addresslist)
+  * NetworkInterfaceId [String](#string)
+  * PrivateIpAddress [String](#string)
+  * PrivateIpAddresses [PrivateIpAddressSpecificationList](#privateipaddressspecificationlist)
+  * SecondaryPrivateIpAddressCount [Integer](#integer)
+  * SubnetId [String](#string)
+
+### LaunchTemplateInstanceNetworkInterfaceSpecificationList
+* LaunchTemplateInstanceNetworkInterfaceSpecificationList `array`
+  * items [LaunchTemplateInstanceNetworkInterfaceSpecification](#launchtemplateinstancenetworkinterfacespecification)
+
+### LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+* LaunchTemplateInstanceNetworkInterfaceSpecificationRequest `object`: The parameters for a network interface.
+  * AssociatePublicIpAddress [Boolean](#boolean)
+  * DeleteOnTermination [Boolean](#boolean)
+  * Description [String](#string)
+  * DeviceIndex [Integer](#integer)
+  * Groups [SecurityGroupIdStringList](#securitygroupidstringlist)
+  * Ipv6AddressCount [Integer](#integer)
+  * Ipv6Addresses [InstanceIpv6AddressListRequest](#instanceipv6addresslistrequest)
+  * NetworkInterfaceId [String](#string)
+  * PrivateIpAddress [String](#string)
+  * PrivateIpAddresses [PrivateIpAddressSpecificationList](#privateipaddressspecificationlist)
+  * SecondaryPrivateIpAddressCount [Integer](#integer)
+  * SubnetId [String](#string)
+
+### LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList
+* LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList `array`
+  * items [LaunchTemplateInstanceNetworkInterfaceSpecificationRequest](#launchtemplateinstancenetworkinterfacespecificationrequest)
+
+### LaunchTemplateName
+* LaunchTemplateName `string`
+
+### LaunchTemplateNameStringList
+* LaunchTemplateNameStringList `array`
+  * items [LaunchTemplateName](#launchtemplatename)
+
+### LaunchTemplateOverrides
+* LaunchTemplateOverrides `object`: Describes overrides for a launch template.
+  * AvailabilityZone [String](#string)
+  * InstanceType [InstanceType](#instancetype)
+  * SpotPrice [String](#string)
+  * SubnetId [String](#string)
+  * WeightedCapacity [Double](#double)
+
+### LaunchTemplateOverridesList
+* LaunchTemplateOverridesList `array`
+  * items [LaunchTemplateOverrides](#launchtemplateoverrides)
+
+### LaunchTemplatePlacement
+* LaunchTemplatePlacement `object`: Describes the placement of an instance.
+  * Affinity [String](#string)
+  * AvailabilityZone [String](#string)
+  * GroupName [String](#string)
+  * HostId [String](#string)
+  * SpreadDomain [String](#string)
+  * Tenancy [Tenancy](#tenancy)
+
+### LaunchTemplatePlacementRequest
+* LaunchTemplatePlacementRequest `object`: The placement for the instance.
+  * Affinity [String](#string)
+  * AvailabilityZone [String](#string)
+  * GroupName [String](#string)
+  * HostId [String](#string)
+  * SpreadDomain [String](#string)
+  * Tenancy [Tenancy](#tenancy)
+
+### LaunchTemplateSet
+* LaunchTemplateSet `array`
+  * items [LaunchTemplate](#launchtemplate)
+
+### LaunchTemplateSpecification
+* LaunchTemplateSpecification `object`: The launch template to use. You must specify either the launch template ID or launch template name in the request.
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [String](#string)
+  * Version [String](#string)
+
+### LaunchTemplateSpotMarketOptions
+* LaunchTemplateSpotMarketOptions `object`: The options for Spot Instances.
+  * BlockDurationMinutes [Integer](#integer)
+  * InstanceInterruptionBehavior [InstanceInterruptionBehavior](#instanceinterruptionbehavior)
+  * MaxPrice [String](#string)
+  * SpotInstanceType [SpotInstanceType](#spotinstancetype)
+  * ValidUntil [DateTime](#datetime)
+
+### LaunchTemplateSpotMarketOptionsRequest
+* LaunchTemplateSpotMarketOptionsRequest `object`: The options for Spot Instances.
+  * BlockDurationMinutes [Integer](#integer)
+  * InstanceInterruptionBehavior [InstanceInterruptionBehavior](#instanceinterruptionbehavior)
+  * MaxPrice [String](#string)
+  * SpotInstanceType [SpotInstanceType](#spotinstancetype)
+  * ValidUntil [DateTime](#datetime)
+
+### LaunchTemplateTagSpecification
+* LaunchTemplateTagSpecification `object`: The tag specification for the launch template.
+  * ResourceType [ResourceType](#resourcetype)
+  * Tags [TagList](#taglist)
+
+### LaunchTemplateTagSpecificationList
+* LaunchTemplateTagSpecificationList `array`
+  * items [LaunchTemplateTagSpecification](#launchtemplatetagspecification)
+
+### LaunchTemplateTagSpecificationRequest
+* LaunchTemplateTagSpecificationRequest `object`: The tags specification for the launch template.
+  * ResourceType [ResourceType](#resourcetype)
+  * Tags [TagList](#taglist)
+
+### LaunchTemplateTagSpecificationRequestList
+* LaunchTemplateTagSpecificationRequestList `array`
+  * items [LaunchTemplateTagSpecificationRequest](#launchtemplatetagspecificationrequest)
+
+### LaunchTemplateVersion
+* LaunchTemplateVersion `object`: Describes a launch template version.
+  * CreateTime [DateTime](#datetime)
+  * CreatedBy [String](#string)
+  * DefaultVersion [Boolean](#boolean)
+  * LaunchTemplateData [ResponseLaunchTemplateData](#responselaunchtemplatedata)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+  * VersionDescription [VersionDescription](#versiondescription)
+  * VersionNumber [Long](#long)
+
+### LaunchTemplateVersionSet
+* LaunchTemplateVersionSet `array`
+  * items [LaunchTemplateVersion](#launchtemplateversion)
+
+### LaunchTemplatesMonitoring
+* LaunchTemplatesMonitoring `object`: Describes the monitoring for the instance.
+  * Enabled [Boolean](#boolean)
+
+### LaunchTemplatesMonitoringRequest
+* LaunchTemplatesMonitoringRequest `object`: Describes the monitoring for the instance.
+  * Enabled [Boolean](#boolean)
+
 ### ListingState
 * ListingState `string` (values: available, sold, cancelled, pending)
 
 ### ListingStatus
 * ListingStatus `string` (values: active, pending, cancelled, closed)
+
+### LoadBalancersConfig
+* LoadBalancersConfig `object`: Describes the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+  * ClassicLoadBalancersConfig [ClassicLoadBalancersConfig](#classicloadbalancersconfig)
+  * TargetGroupsConfig [TargetGroupsConfig](#targetgroupsconfig)
 
 ### LoadPermission
 * LoadPermission `object`: Describes a load permission.
@@ -8087,6 +9183,9 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 
 ### Long
 * Long `integer`
+
+### MarketType
+* MarketType `string` (values: spot)
 
 ### MaxResults
 * MaxResults `integer`
@@ -8161,6 +9260,17 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * UserData [BlobAttributeValue](#blobattributevalue)
   * Value [String](#string)
 
+### ModifyInstanceCreditSpecificationRequest
+* ModifyInstanceCreditSpecificationRequest `object`
+  * ClientToken [String](#string)
+  * DryRun [Boolean](#boolean)
+  * InstanceCreditSpecifications **required** [InstanceCreditSpecificationListRequest](#instancecreditspecificationlistrequest)
+
+### ModifyInstanceCreditSpecificationResult
+* ModifyInstanceCreditSpecificationResult `object`
+  * SuccessfulInstanceCreditSpecifications [SuccessfulInstanceCreditSpecificationSet](#successfulinstancecreditspecificationset)
+  * UnsuccessfulInstanceCreditSpecifications [UnsuccessfulInstanceCreditSpecificationSet](#unsuccessfulinstancecreditspecificationset)
+
 ### ModifyInstancePlacementRequest
 * ModifyInstancePlacementRequest `object`: Contains the parameters for ModifyInstancePlacement.
   * Affinity [Affinity](#affinity)
@@ -8171,6 +9281,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### ModifyInstancePlacementResult
 * ModifyInstancePlacementResult `object`: Contains the output of ModifyInstancePlacement.
   * Return [Boolean](#boolean)
+
+### ModifyLaunchTemplateRequest
+* ModifyLaunchTemplateRequest `object`
+  * ClientToken [String](#string)
+  * DefaultVersion [String](#string)
+  * DryRun [Boolean](#boolean)
+  * LaunchTemplateId [String](#string)
+  * LaunchTemplateName [LaunchTemplateName](#launchtemplatename)
+
+### ModifyLaunchTemplateResult
+* ModifyLaunchTemplateResult `object`
+  * LaunchTemplate [LaunchTemplate](#launchtemplate)
 
 ### ModifyNetworkInterfaceAttributeRequest
 * ModifyNetworkInterfaceAttributeRequest `object`: Contains the parameters for ModifyNetworkInterfaceAttribute.
@@ -8241,6 +9363,17 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * EnableDnsSupport [AttributeBooleanValue](#attributebooleanvalue)
   * VpcId **required** [String](#string)
 
+### ModifyVpcEndpointConnectionNotificationRequest
+* ModifyVpcEndpointConnectionNotificationRequest `object`
+  * ConnectionEvents [ValueStringList](#valuestringlist)
+  * ConnectionNotificationArn [String](#string)
+  * ConnectionNotificationId **required** [String](#string)
+  * DryRun [Boolean](#boolean)
+
+### ModifyVpcEndpointConnectionNotificationResult
+* ModifyVpcEndpointConnectionNotificationResult `object`
+  * ReturnValue [Boolean](#boolean)
+
 ### ModifyVpcEndpointRequest
 * ModifyVpcEndpointRequest `object`: Contains the parameters for ModifyVpcEndpoint.
   * AddRouteTableIds [ValueStringList](#valuestringlist)
@@ -8258,6 +9391,29 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### ModifyVpcEndpointResult
 * ModifyVpcEndpointResult `object`
   * Return [Boolean](#boolean)
+
+### ModifyVpcEndpointServiceConfigurationRequest
+* ModifyVpcEndpointServiceConfigurationRequest `object`
+  * AcceptanceRequired [Boolean](#boolean)
+  * AddNetworkLoadBalancerArns [ValueStringList](#valuestringlist)
+  * DryRun [Boolean](#boolean)
+  * RemoveNetworkLoadBalancerArns [ValueStringList](#valuestringlist)
+  * ServiceId **required** [String](#string)
+
+### ModifyVpcEndpointServiceConfigurationResult
+* ModifyVpcEndpointServiceConfigurationResult `object`
+  * Return [Boolean](#boolean)
+
+### ModifyVpcEndpointServicePermissionsRequest
+* ModifyVpcEndpointServicePermissionsRequest `object`
+  * AddAllowedPrincipals [ValueStringList](#valuestringlist)
+  * DryRun [Boolean](#boolean)
+  * RemoveAllowedPrincipals [ValueStringList](#valuestringlist)
+  * ServiceId **required** [String](#string)
+
+### ModifyVpcEndpointServicePermissionsResult
+* ModifyVpcEndpointServicePermissionsResult `object`
+  * ReturnValue [Boolean](#boolean)
 
 ### ModifyVpcPeeringConnectionOptionsRequest
 * ModifyVpcPeeringConnectionOptionsRequest `object`
@@ -8491,7 +9647,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [NetworkInterfacePrivateIpAddress](#networkinterfaceprivateipaddress)
 
 ### NetworkInterfaceStatus
-* NetworkInterfaceStatus `string` (values: available, attaching, in-use, detaching)
+* NetworkInterfaceStatus `string` (values: available, associated, attaching, in-use, detaching)
 
 ### NetworkInterfaceType
 * NetworkInterfaceType `string` (values: interface, natGateway)
@@ -8581,7 +9737,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [String](#string)
 
 ### PlacementStrategy
-* PlacementStrategy `string` (values: cluster)
+* PlacementStrategy `string` (values: cluster, spread)
 
 ### PlatformValues
 * PlatformValues `string` (values: Windows)
@@ -8598,7 +9754,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * PrefixListName [String](#string)
 
 ### PrefixListId
-* PrefixListId `object`: The ID of the prefix.
+* PrefixListId `object`: [EC2-VPC only] The ID of the prefix.
   * Description [String](#string)
   * PrefixListId [String](#string)
 
@@ -8643,6 +9799,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### PricingDetailsList
 * PricingDetailsList `array`
   * items [PricingDetail](#pricingdetail)
+
+### PrincipalIdFormat
+* PrincipalIdFormat `object`: PrincipalIdFormat description
+  * Arn [String](#string)
+  * Statuses [IdFormatList](#idformatlist)
+
+### PrincipalIdFormatList
+* PrincipalIdFormatList `array`
+  * items [PrincipalIdFormat](#principalidformat)
+
+### PrincipalType
+* PrincipalType `string` (values: All, Service, OrganizationUnit, Account, User, Role)
 
 ### PrivateIpAddressConfigSet
 * PrivateIpAddressConfigSet `array`
@@ -8823,6 +9991,16 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * RegisterImageResult `object`: Contains the output of RegisterImage.
   * ImageId [String](#string)
 
+### RejectVpcEndpointConnectionsRequest
+* RejectVpcEndpointConnectionsRequest `object`
+  * DryRun [Boolean](#boolean)
+  * ServiceId **required** [String](#string)
+  * VpcEndpointIds **required** [ValueStringList](#valuestringlist)
+
+### RejectVpcEndpointConnectionsResult
+* RejectVpcEndpointConnectionsResult `object`
+  * Unsuccessful [UnsuccessfulItemSet](#unsuccessfulitemset)
+
 ### RejectVpcPeeringConnectionRequest
 * RejectVpcPeeringConnectionRequest `object`: Contains the parameters for RejectVpcPeeringConnection.
   * DryRun [Boolean](#boolean)
@@ -8926,6 +10104,29 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * RequestHostIdSet `array`
   * items [String](#string)
 
+### RequestLaunchTemplateData
+* RequestLaunchTemplateData `object`: The information to include in the launch template.
+  * BlockDeviceMappings [LaunchTemplateBlockDeviceMappingRequestList](#launchtemplateblockdevicemappingrequestlist)
+  * CreditSpecification [CreditSpecificationRequest](#creditspecificationrequest)
+  * DisableApiTermination [Boolean](#boolean)
+  * EbsOptimized [Boolean](#boolean)
+  * ElasticGpuSpecifications [ElasticGpuSpecificationList](#elasticgpuspecificationlist)
+  * IamInstanceProfile [LaunchTemplateIamInstanceProfileSpecificationRequest](#launchtemplateiaminstanceprofilespecificationrequest)
+  * ImageId [String](#string)
+  * InstanceInitiatedShutdownBehavior [ShutdownBehavior](#shutdownbehavior)
+  * InstanceMarketOptions [LaunchTemplateInstanceMarketOptionsRequest](#launchtemplateinstancemarketoptionsrequest)
+  * InstanceType [InstanceType](#instancetype)
+  * KernelId [String](#string)
+  * KeyName [String](#string)
+  * Monitoring [LaunchTemplatesMonitoringRequest](#launchtemplatesmonitoringrequest)
+  * NetworkInterfaces [LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList](#launchtemplateinstancenetworkinterfacespecificationrequestlist)
+  * Placement [LaunchTemplatePlacementRequest](#launchtemplateplacementrequest)
+  * RamDiskId [String](#string)
+  * SecurityGroupIds [SecurityGroupIdStringList](#securitygroupidstringlist)
+  * SecurityGroups [SecurityGroupStringList](#securitygroupstringlist)
+  * TagSpecifications [LaunchTemplateTagSpecificationRequestList](#launchtemplatetagspecificationrequestlist)
+  * UserData [String](#string)
+
 ### RequestSpotFleetRequest
 * RequestSpotFleetRequest `object`: Contains the parameters for RequestSpotFleet.
   * DryRun [Boolean](#boolean)
@@ -8945,7 +10146,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * InstanceInterruptionBehavior [InstanceInterruptionBehavior](#instanceinterruptionbehavior)
   * LaunchGroup [String](#string)
   * LaunchSpecification [RequestSpotLaunchSpecification](#requestspotlaunchspecification)
-  * SpotPrice **required** [String](#string)
+  * SpotPrice [String](#string)
   * Type [SpotInstanceType](#spotinstancetype)
   * ValidFrom [DateTime](#datetime)
   * ValidUntil [DateTime](#datetime)
@@ -9180,8 +10381,17 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * ResourceIdList `array`
   * items [String](#string)
 
+### ResourceList
+* ResourceList `array`
+  * items [String](#string)
+
 ### ResourceType
 * ResourceType `string` (values: customer-gateway, dhcp-options, image, instance, internet-gateway, network-acl, network-interface, reserved-instances, route-table, snapshot, spot-instances-request, subnet, security-group, volume, vpc, vpn-connection, vpn-gateway)
+
+### ResponseError
+* ResponseError `object`: Describes the error that's returned when you cannot delete a launch template version.
+  * Code [LaunchTemplateErrorCode](#launchtemplateerrorcode)
+  * Message [String](#string)
 
 ### ResponseHostIdList
 * ResponseHostIdList `array`
@@ -9190,6 +10400,29 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### ResponseHostIdSet
 * ResponseHostIdSet `array`
   * items [String](#string)
+
+### ResponseLaunchTemplateData
+* ResponseLaunchTemplateData `object`: The information for a launch template. 
+  * BlockDeviceMappings [LaunchTemplateBlockDeviceMappingList](#launchtemplateblockdevicemappinglist)
+  * CreditSpecification [CreditSpecification](#creditspecification)
+  * DisableApiTermination [Boolean](#boolean)
+  * EbsOptimized [Boolean](#boolean)
+  * ElasticGpuSpecifications [ElasticGpuSpecificationResponseList](#elasticgpuspecificationresponselist)
+  * IamInstanceProfile [LaunchTemplateIamInstanceProfileSpecification](#launchtemplateiaminstanceprofilespecification)
+  * ImageId [String](#string)
+  * InstanceInitiatedShutdownBehavior [ShutdownBehavior](#shutdownbehavior)
+  * InstanceMarketOptions [LaunchTemplateInstanceMarketOptions](#launchtemplateinstancemarketoptions)
+  * InstanceType [InstanceType](#instancetype)
+  * KernelId [String](#string)
+  * KeyName [String](#string)
+  * Monitoring [LaunchTemplatesMonitoring](#launchtemplatesmonitoring)
+  * NetworkInterfaces [LaunchTemplateInstanceNetworkInterfaceSpecificationList](#launchtemplateinstancenetworkinterfacespecificationlist)
+  * Placement [LaunchTemplatePlacement](#launchtemplateplacement)
+  * RamDiskId [String](#string)
+  * SecurityGroupIds [ValueStringList](#valuestringlist)
+  * SecurityGroups [ValueStringList](#valuestringlist)
+  * TagSpecifications [LaunchTemplateTagSpecificationList](#launchtemplatetagspecificationlist)
+  * UserData [String](#string)
 
 ### RestorableByStringList
 * RestorableByStringList `array`
@@ -9291,18 +10524,21 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * AdditionalInfo [String](#string)
   * BlockDeviceMappings [BlockDeviceMappingRequestList](#blockdevicemappingrequestlist)
   * ClientToken [String](#string)
+  * CreditSpecification [CreditSpecificationRequest](#creditspecificationrequest)
   * DisableApiTermination [Boolean](#boolean)
   * DryRun [Boolean](#boolean)
   * EbsOptimized [Boolean](#boolean)
   * ElasticGpuSpecification [ElasticGpuSpecifications](#elasticgpuspecifications)
   * IamInstanceProfile [IamInstanceProfileSpecification](#iaminstanceprofilespecification)
-  * ImageId **required** [String](#string)
+  * ImageId [String](#string)
   * InstanceInitiatedShutdownBehavior [ShutdownBehavior](#shutdownbehavior)
+  * InstanceMarketOptions [InstanceMarketOptionsRequest](#instancemarketoptionsrequest)
   * InstanceType [InstanceType](#instancetype)
   * Ipv6AddressCount [Integer](#integer)
   * Ipv6Addresses [InstanceIpv6AddressList](#instanceipv6addresslist)
   * KernelId [String](#string)
   * KeyName [String](#string)
+  * LaunchTemplate [LaunchTemplateSpecification](#launchtemplatespecification)
   * MaxCount **required** [Integer](#integer)
   * MinCount **required** [Integer](#integer)
   * Monitoring [RunInstancesMonitoringEnabled](#runinstancesmonitoringenabled)
@@ -9523,8 +10759,24 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * SecurityGroupStringList `array`
   * items [String](#string)
 
+### ServiceConfiguration
+* ServiceConfiguration `object`: Describes a service configuration for a VPC endpoint service.
+  * AcceptanceRequired [Boolean](#boolean)
+  * AvailabilityZones [ValueStringList](#valuestringlist)
+  * BaseEndpointDnsNames [ValueStringList](#valuestringlist)
+  * NetworkLoadBalancerArns [ValueStringList](#valuestringlist)
+  * PrivateDnsName [String](#string)
+  * ServiceId [String](#string)
+  * ServiceName [String](#string)
+  * ServiceState [ServiceState](#servicestate)
+  * ServiceType [ServiceTypeDetailSet](#servicetypedetailset)
+
+### ServiceConfigurationSet
+* ServiceConfigurationSet `array`
+  * items [ServiceConfiguration](#serviceconfiguration)
+
 ### ServiceDetail
-* ServiceDetail `object`: Describes a service.
+* ServiceDetail `object`: Describes a VPC endpoint service.
   * AcceptanceRequired [Boolean](#boolean)
   * AvailabilityZones [ValueStringList](#valuestringlist)
   * BaseEndpointDnsNames [ValueStringList](#valuestringlist)
@@ -9537,6 +10789,9 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### ServiceDetailSet
 * ServiceDetailSet `array`
   * items [ServiceDetail](#servicedetail)
+
+### ServiceState
+* ServiceState `string` (values: Pending, Available, Deleting, Deleted, Failed)
 
 ### ServiceType
 * ServiceType `string` (values: Interface, Gateway)
@@ -9630,7 +10885,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * UserBucket [UserBucketDetails](#userbucketdetails)
 
 ### SpotDatafeedSubscription
-* SpotDatafeedSubscription `object`: Describes the data feed for a Spot instance.
+* SpotDatafeedSubscription `object`: Describes the data feed for a Spot Instance.
   * Bucket [String](#string)
   * Fault [SpotInstanceStateFault](#spotinstancestatefault)
   * OwnerId [String](#string)
@@ -9638,7 +10893,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * State [DatafeedSubscriptionState](#datafeedsubscriptionstate)
 
 ### SpotFleetLaunchSpecification
-* SpotFleetLaunchSpecification `object`: Describes the launch specification for one or more Spot instances.
+* SpotFleetLaunchSpecification `object`: Describes the launch specification for one or more Spot Instances.
   * AddressingType [String](#string)
   * BlockDeviceMappings [BlockDeviceMappingList](#blockdevicemappinglist)
   * EbsOptimized [Boolean](#boolean)
@@ -9663,7 +10918,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Enabled [Boolean](#boolean)
 
 ### SpotFleetRequestConfig
-* SpotFleetRequestConfig `object`: Describes a Spot fleet request.
+* SpotFleetRequestConfig `object`: Describes a Spot Fleet request.
   * ActivityStatus [ActivityStatus](#activitystatus)
   * CreateTime **required** [DateTime](#datetime)
   * SpotFleetRequestConfig **required** [SpotFleetRequestConfigData](#spotfleetrequestconfigdata)
@@ -9671,16 +10926,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * SpotFleetRequestState **required** [BatchState](#batchstate)
 
 ### SpotFleetRequestConfigData
-* SpotFleetRequestConfigData `object`: Describes the configuration of a Spot fleet request.
+* SpotFleetRequestConfigData `object`: Describes the configuration of a Spot Fleet request.
   * AllocationStrategy [AllocationStrategy](#allocationstrategy)
   * ClientToken [String](#string)
   * ExcessCapacityTerminationPolicy [ExcessCapacityTerminationPolicy](#excesscapacityterminationpolicy)
   * FulfilledCapacity [Double](#double)
   * IamFleetRole **required** [String](#string)
   * InstanceInterruptionBehavior [InstanceInterruptionBehavior](#instanceinterruptionbehavior)
-  * LaunchSpecifications **required** [LaunchSpecsList](#launchspecslist)
+  * LaunchSpecifications [LaunchSpecsList](#launchspecslist)
+  * LaunchTemplateConfigs [LaunchTemplateConfigList](#launchtemplateconfiglist)
+  * LoadBalancersConfig [LoadBalancersConfig](#loadbalancersconfig)
   * ReplaceUnhealthyInstances [Boolean](#boolean)
-  * SpotPrice **required** [String](#string)
+  * SpotPrice [String](#string)
   * TargetCapacity **required** [Integer](#integer)
   * TerminateInstancesWithExpiration [Boolean](#boolean)
   * Type [FleetType](#fleettype)
@@ -9692,7 +10949,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [SpotFleetRequestConfig](#spotfleetrequestconfig)
 
 ### SpotFleetTagSpecification
-* SpotFleetTagSpecification `object`: The tags for a Spot fleet resource.
+* SpotFleetTagSpecification `object`: The tags for a Spot Fleet resource.
   * ResourceType [ResourceType](#resourcetype)
   * Tags [TagList](#taglist)
 
@@ -9701,7 +10958,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [SpotFleetTagSpecification](#spotfleettagspecification)
 
 ### SpotInstanceRequest
-* SpotInstanceRequest `object`: Describes a Spot instance request.
+* SpotInstanceRequest `object`: Describes a Spot Instance request.
   * ActualBlockHourlyPrice [String](#string)
   * AvailabilityZoneGroup [String](#string)
   * BlockDurationMinutes [Integer](#integer)
@@ -9734,12 +10991,12 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * SpotInstanceState `string` (values: open, active, closed, cancelled, failed)
 
 ### SpotInstanceStateFault
-* SpotInstanceStateFault `object`: Describes a Spot instance state change.
+* SpotInstanceStateFault `object`: Describes a Spot Instance state change.
   * Code [String](#string)
   * Message [String](#string)
 
 ### SpotInstanceStatus
-* SpotInstanceStatus `object`: Describes the status of a Spot instance request.
+* SpotInstanceStatus `object`: Describes the status of a Spot Instance request.
   * Code [String](#string)
   * Message [String](#string)
   * UpdateTime [DateTime](#datetime)
@@ -9747,14 +11004,22 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### SpotInstanceType
 * SpotInstanceType `string` (values: one-time, persistent)
 
+### SpotMarketOptions
+* SpotMarketOptions `object`: The options for Spot Instances.
+  * BlockDurationMinutes [Integer](#integer)
+  * InstanceInterruptionBehavior [InstanceInterruptionBehavior](#instanceinterruptionbehavior)
+  * MaxPrice [String](#string)
+  * SpotInstanceType [SpotInstanceType](#spotinstancetype)
+  * ValidUntil [DateTime](#datetime)
+
 ### SpotPlacement
-* SpotPlacement `object`: Describes Spot instance placement.
+* SpotPlacement `object`: Describes Spot Instance placement.
   * AvailabilityZone [String](#string)
   * GroupName [String](#string)
   * Tenancy [Tenancy](#tenancy)
 
 ### SpotPrice
-* SpotPrice `object`: Describes the maximum hourly price (bid) for any Spot instance launched to fulfill the request.
+* SpotPrice `object`: Describes the maximum price per hour that you are willing to pay for a Spot Instance.
   * AvailabilityZone [String](#string)
   * InstanceType [InstanceType](#instancetype)
   * ProductDescription [RIProductDescription](#riproductdescription)
@@ -9883,6 +11148,14 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### SubnetState
 * SubnetState `string` (values: pending, available)
 
+### SuccessfulInstanceCreditSpecificationItem
+* SuccessfulInstanceCreditSpecificationItem `object`: Describes the T2 instance whose credit option for CPU usage was successfully modified.
+  * InstanceId [String](#string)
+
+### SuccessfulInstanceCreditSpecificationSet
+* SuccessfulInstanceCreditSpecificationSet `array`
+  * items [SuccessfulInstanceCreditSpecificationItem](#successfulinstancecreditspecificationitem)
+
 ### SummaryStatus
 * SummaryStatus `string` (values: ok, impaired, insufficient-data, not-applicable, initializing)
 
@@ -9928,6 +11201,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### TargetConfigurationRequestSet
 * TargetConfigurationRequestSet `array`
   * items [TargetConfigurationRequest](#targetconfigurationrequest)
+
+### TargetGroup
+* TargetGroup `object`: Describes a load balancer target group.
+  * Arn **required** [String](#string)
+
+### TargetGroups
+* TargetGroups `array`
+  * items [TargetGroup](#targetgroup)
+
+### TargetGroupsConfig
+* TargetGroupsConfig `object`: Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+  * TargetGroups **required** [TargetGroups](#targetgroups)
 
 ### TargetReservationValue
 * TargetReservationValue `object`: The total value of the new Convertible Reserved Instances.
@@ -9983,6 +11268,23 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 ### UnmonitorInstancesResult
 * UnmonitorInstancesResult `object`: Contains the output of UnmonitorInstances.
   * InstanceMonitorings [InstanceMonitoringList](#instancemonitoringlist)
+
+### UnsuccessfulInstanceCreditSpecificationErrorCode
+* UnsuccessfulInstanceCreditSpecificationErrorCode `string` (values: InvalidInstanceID.Malformed, InvalidInstanceID.NotFound, IncorrectInstanceState, InstanceCreditSpecification.NotSupported)
+
+### UnsuccessfulInstanceCreditSpecificationItem
+* UnsuccessfulInstanceCreditSpecificationItem `object`: Describes the T2 instance whose credit option for CPU usage was not modified.
+  * Error [UnsuccessfulInstanceCreditSpecificationItemError](#unsuccessfulinstancecreditspecificationitemerror)
+  * InstanceId [String](#string)
+
+### UnsuccessfulInstanceCreditSpecificationItemError
+* UnsuccessfulInstanceCreditSpecificationItemError `object`: Information about the error for the T2 instance whose credit option for CPU usage was not modified.
+  * Code [UnsuccessfulInstanceCreditSpecificationErrorCode](#unsuccessfulinstancecreditspecificationerrorcode)
+  * Message [String](#string)
+
+### UnsuccessfulInstanceCreditSpecificationSet
+* UnsuccessfulInstanceCreditSpecificationSet `array`
+  * items [UnsuccessfulInstanceCreditSpecificationItem](#unsuccessfulinstancecreditspecificationitem)
 
 ### UnsuccessfulItem
 * UnsuccessfulItem `object`: Information about items that were not successfully processed in a batch call.
@@ -10068,6 +11370,13 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
 * ValueStringList `array`
   * items [String](#string)
 
+### VersionDescription
+* VersionDescription `string`
+
+### VersionStringList
+* VersionStringList `array`
+  * items [String](#string)
+
 ### VgwTelemetry
 * VgwTelemetry `object`: Describes telemetry for a VPN tunnel.
   * AcceptedRouteCount [Integer](#integer)
@@ -10112,7 +11421,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * items [VolumeAttachment](#volumeattachment)
 
 ### VolumeAttachmentState
-* VolumeAttachmentState `string` (values: attaching, attached, detaching, detached)
+* VolumeAttachmentState `string` (values: attaching, attached, detaching, detached, busy)
 
 ### VolumeAttributeName
 * VolumeAttributeName `string` (values: autoEnableIO, productCodes)
@@ -10284,6 +11593,18 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * VpcEndpointType [VpcEndpointType](#vpcendpointtype)
   * VpcId [String](#string)
 
+### VpcEndpointConnection
+* VpcEndpointConnection `object`: Describes a VPC endpoint connection to a service.
+  * CreationTimestamp [DateTime](#datetime)
+  * ServiceId [String](#string)
+  * VpcEndpointId [String](#string)
+  * VpcEndpointOwner [String](#string)
+  * VpcEndpointState [State](#state)
+
+### VpcEndpointConnectionSet
+* VpcEndpointConnectionSet `array`
+  * items [VpcEndpointConnection](#vpcendpointconnection)
+
 ### VpcEndpointSet
 * VpcEndpointSet `array`
   * items [VpcEndpoint](#vpcendpoint)
@@ -10343,6 +11664,7 @@ amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
   * Ipv6CidrBlockSet [Ipv6CidrBlockSet](#ipv6cidrblockset)
   * OwnerId [String](#string)
   * PeeringOptions [VpcPeeringConnectionOptionsDescription](#vpcpeeringconnectionoptionsdescription)
+  * Region [String](#string)
   * VpcId [String](#string)
 
 ### VpcState

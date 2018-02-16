@@ -738,7 +738,7 @@
     "/v2beta1/{name}": {
       "delete": {
         "description": "This method is not supported and the server returns `UNIMPLEMENTED`.",
-        "operationId": "riskAnalysis.operations.delete",
+        "operationId": "inspect.operations.delete",
         "parameters": [
           {
             "description": "The name of the operation resource to be deleted.",
@@ -768,12 +768,12 @@
           }
         ],
         "tags": [
-          "riskAnalysis"
+          "inspect"
         ]
       },
       "get": {
         "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
-        "operationId": "riskAnalysis.operations.get",
+        "operationId": "inspect.operations.get",
         "parameters": [
           {
             "description": "The name of the operation resource.",
@@ -803,7 +803,7 @@
           }
         ],
         "tags": [
-          "riskAnalysis"
+          "inspect"
         ]
       },
       "parameters": [
@@ -988,7 +988,7 @@
       ],
       "post": {
         "description": "Cancels an operation. Use the `inspect.operations.get` to check whether the cancellation succeeded or the operation completed despite cancellation.",
-        "operationId": "riskAnalysis.operations.cancel",
+        "operationId": "inspect.operations.cancel",
         "parameters": [
           {
             "in": "body",
@@ -1025,7 +1025,7 @@
           }
         ],
         "tags": [
-          "riskAnalysis"
+          "inspect"
         ]
       }
     }
@@ -1095,6 +1095,27 @@
         "sourceTable": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1BigQueryTable",
           "description": "Input dataset to compute metrics over."
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1AuxiliaryTable": {
+      "description": "An auxiliary table contains statistical information on the relative\nfrequency of different quasi-identifiers values. It has one or several\nquasi-identifiers columns, and one column that indicates the relative\nfrequency of each quasi-identifier tuple.\nIf a tuple is present in the data but not in the auxiliary table, the\ncorresponding relative frequency is assumed to be zero (and thus, the\ntuple is highly reidentifiable).",
+      "properties": {
+        "quasiIds": {
+          "description": "Quasi-identifier columns. [required]",
+          "items": {
+            "$ref": "#/definitions/GooglePrivacyDlpV2beta1QuasiIdField"
+          },
+          "type": "array"
+        },
+        "relativeFrequency": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1FieldId",
+          "description": "The relative frequency column must contain a floating-point number\nbetween 0 and 1 (inclusive). Null values are assumed to be zero.\n[required]"
+        },
+        "table": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1BigQueryTable",
+          "description": "Auxiliary table location. [required]"
         }
       },
       "type": "object"
@@ -1468,6 +1489,10 @@
           "description": "The native way to select the alphabet. Must be in the range [2, 62].",
           "format": "int32",
           "type": "integer"
+        },
+        "surrogateInfoType": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1InfoType",
+          "description": "The custom info type to annotate the surrogate with.\nThis annotation will be applied to the surrogate by prefixing it with\nthe name of the custom info type followed by the number of\ncharacters comprising the surrogate. The following scheme defines the\nformat: info_type_name(surrogate_character_count):surrogate\n\nFor example, if the name of custom info type is 'MY_TOKEN_INFO_TYPE' and\nthe surrogate is 'abc', the full replacement value\nwill be: 'MY_TOKEN_INFO_TYPE(3):abc'\n\nThis annotation identifies the surrogate when inspecting content using the\ncustom info type\n[`SurrogateType`](/dlp/docs/reference/rest/v2beta1/InspectConfig#surrogatetype).\nThis facilitates reversal of the surrogate when it occurs in free text.\n\nIn order for inspection to work properly, the name of this info type must\nnot occur naturally anywhere in your data; otherwise, inspection may\nfind a surrogate that does not correspond to an actual identifier.\nTherefore, choose your custom info type name carefully after considering\nwhat your data looks like. One way to select a name that has a high chance\nof yielding reliable detection is to include one or more unicode characters\nthat are highly improbable to exist in your data.\nFor example, assuming your data is entered from a regular ASCII keyboard,\nthe symbol with the hex code point 29DD might be used like so:\n⧝MY_TOKEN_TYPE"
         }
       },
       "type": "object"
@@ -1482,6 +1507,10 @@
         "infoType": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1InfoType",
           "description": "Info type configuration. All custom info types must have configurations\nthat do not conflict with built-in info types or other custom info types."
+        },
+        "surrogateType": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1SurrogateType",
+          "description": "Surrogate info type."
         }
       },
       "type": "object"
@@ -1672,7 +1701,7 @@
       "type": "object"
     },
     "GooglePrivacyDlpV2beta1Finding": {
-      "description": "Container structure describing a single finding within a string or image.",
+      "description": "Represents a piece of potentially sensitive content.",
       "properties": {
         "createTime": {
           "description": "Timestamp when finding was detected.",
@@ -1681,10 +1710,10 @@
         },
         "infoType": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1InfoType",
-          "description": "The specific type of info the string might be."
+          "description": "The type of content that might have been found.\nProvided if requested by the `InspectConfig`."
         },
         "likelihood": {
-          "description": "Estimate of how likely it is that the info_type is correct.",
+          "description": "Estimate of how likely it is that the `info_type` is correct.",
           "enum": [
             "LIKELIHOOD_UNSPECIFIED",
             "VERY_UNLIKELY",
@@ -1697,10 +1726,10 @@
         },
         "location": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1Location",
-          "description": "Location of the info found."
+          "description": "Where the content was found."
         },
         "quote": {
-          "description": "The specific string that may be potentially sensitive info.",
+          "description": "The content that was found. Even if the content is not textual, it\nmay be converted to a textual representation here.\nProvided if requested by the `InspectConfig` and the finding is\nless than or equal to 4096 bytes long. If the finding exceeds 4096 bytes\nin length, the quote may be omitted.",
           "type": "string"
         }
       },
@@ -2013,7 +2042,7 @@
       "properties": {
         "entityId": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1EntityId",
-          "description": "Optional message indicating that each distinct `EntityId` should not\ncontribute to the k-anonymity count more than once per equivalence class.\nIf an entity_id appears on several rows with different quasi-identifier\ntuples, it will contribute to each count exactly once. This can lead to\nunexpected results, consider for example the following table:\n  entity_id | quasi_id\n  --------------------\n          1 |    \"foo\"\n          2 |    \"bar\"\n          3 |    \"foo\"\n          3 |    \"bar\"\nThe anonymity value associated to entity_id 3 will be 2, even if it is\nthe only entity_id to be associated to both values \"foo\" and \"bar\"."
+          "description": "Optional message indicating that each distinct entity_id should not\ncontribute to the k-anonymity count more than once per equivalence class.\nIf an entity_id appears on several rows with different quasi-identifier\ntuples, it will contribute to each count exactly once.\n\nThis can lead to unexpected results. Consider a table where ID 1 is\nassociated to quasi-identifier \"foo\", ID 2 to \"bar\", and ID 3 to *both*\nquasi-identifiers \"foo\" and \"bar\" (on separate rows), and where this ID\nis used as entity_id. Then, the anonymity value associated to ID 3 will\nbe 2, even if it is the only ID to be associated to both values \"foo\" and\n\"bar\"."
         },
         "quasiIds": {
           "description": "Set of fields to compute k-anonymity over. When multiple fields are\nspecified, they are considered a single composite key. Structs and\nrepeated data types are not supported; however, nested fields are\nsupported so long as they are not structs themselves or nested within\na repeated field.",
@@ -2078,6 +2107,89 @@
           "description": "Histogram of k-anonymity equivalence classes.",
           "items": {
             "$ref": "#/definitions/GooglePrivacyDlpV2beta1KAnonymityHistogramBucket"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1KMapEstimationConfig": {
+      "description": "Reidentifiability metric. This corresponds to a risk model similar to what\nis called \"journalist risk\" in the literature, except the attack dataset is\nstatistically modeled instead of being perfectly known. This can be done\nusing publicly available data (like the US Census), or using a custom\nstatistical model (indicated as one or several BigQuery tables), or by\nextrapolating from the distribution of values in the input dataset.",
+      "properties": {
+        "auxiliaryTables": {
+          "description": "Several auxiliary tables can be used in the analysis. Each custom_tag\nused to tag a quasi-identifiers column must appear in exactly one column\nof one auxiliary table.",
+          "items": {
+            "$ref": "#/definitions/GooglePrivacyDlpV2beta1AuxiliaryTable"
+          },
+          "type": "array"
+        },
+        "quasiIds": {
+          "description": "Fields considered to be quasi-identifiers. No two columns can have the\nsame tag. [required]",
+          "items": {
+            "$ref": "#/definitions/GooglePrivacyDlpV2beta1TaggedField"
+          },
+          "type": "array"
+        },
+        "regionCode": {
+          "description": "ISO 3166-1 alpha-2 region code to use in the statistical modeling.\nRequired if no column is tagged with a region-specific InfoType (like\nUS_ZIP_5) or a region code.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket": {
+      "description": "A KMapEstimationHistogramBucket message with the following values:\n  min_anonymity: 3\n  max_anonymity: 5\n  frequency: 42\nmeans that there are 42 records whose quasi-identifier values correspond\nto 3, 4 or 5 people in the overlying population. An important particular\ncase is when min_anonymity = max_anonymity = 1: the frequency field then\ncorresponds to the number of uniquely identifiable records.",
+      "properties": {
+        "bucketSize": {
+          "description": "Number of records within these anonymity bounds.",
+          "format": "int64",
+          "type": "string"
+        },
+        "bucketValues": {
+          "description": "Sample of quasi-identifier tuple values in this bucket. The total\nnumber of classes returned per bucket is capped at 20.",
+          "items": {
+            "$ref": "#/definitions/GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues"
+          },
+          "type": "array"
+        },
+        "maxAnonymity": {
+          "description": "Always greater than or equal to min_anonymity.",
+          "format": "int64",
+          "type": "string"
+        },
+        "minAnonymity": {
+          "description": "Always positive.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues": {
+      "description": "A tuple of values for the quasi-identifier columns.",
+      "properties": {
+        "estimatedAnonymity": {
+          "description": "The estimated anonymity for these quasi-identifier values.",
+          "format": "int64",
+          "type": "string"
+        },
+        "quasiIdsValues": {
+          "description": "The quasi-identifier values.",
+          "items": {
+            "$ref": "#/definitions/GooglePrivacyDlpV2beta1Value"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1KMapEstimationResult": {
+      "description": "Result of the reidentifiability analysis. Note that these results are an\nestimation, not exact values.",
+      "properties": {
+        "kMapEstimationHistogram": {
+          "description": "The intervals [min_anonymity, max_anonymity] do not overlap. If a value\ndoesn't correspond to any such interval, the associated frequency is\nzero. For example, the following records:\n  {min_anonymity: 1, max_anonymity: 1, frequency: 17}\n  {min_anonymity: 2, max_anonymity: 3, frequency: 42}\n  {min_anonymity: 5, max_anonymity: 10, frequency: 99}\nmean that there are no record with an estimated anonymity of 4, 5, or\nlarger than 10.",
+          "items": {
+            "$ref": "#/definitions/GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket"
           },
           "type": "array"
         }
@@ -2255,22 +2367,22 @@
       "type": "object"
     },
     "GooglePrivacyDlpV2beta1Location": {
-      "description": "Specifies the location of a finding within its source item.",
+      "description": "Specifies the location of the finding.",
       "properties": {
         "byteRange": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1Range",
-          "description": "Zero-based byte offsets within a content item."
+          "description": "Zero-based byte offsets delimiting the finding.\nThese are relative to the finding's containing element.\nNote that when the content is not textual, this references\nthe UTF-8 encoded textual representation of the content.\nOmitted if content is an image."
         },
         "codepointRange": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1Range",
-          "description": "Character offsets within a content item, included when content type\nis a text. Default charset assumed to be UTF-8."
+          "description": "Unicode character offsets delimiting the finding.\nThese are relative to the finding's containing element.\nProvided when the content is text."
         },
         "fieldId": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1FieldId",
-          "description": "Field id of the field containing the finding."
+          "description": "The pointer to the property or cell that contained the finding.\nProvided when the finding's containing element is a cell in a table\nor a property of storage object."
         },
         "imageBoxes": {
-          "description": "Location within an image's pixels.",
+          "description": "The area within the image that contained the finding.\nProvided when the content is an image.",
           "items": {
             "$ref": "#/definitions/GooglePrivacyDlpV2beta1ImageLocation"
           },
@@ -2278,11 +2390,11 @@
         },
         "recordKey": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1RecordKey",
-          "description": "Key of the finding."
+          "description": "The pointer to the record in storage that contained the field the\nfinding was found in.\nProvided when the finding's containing element is a property\nof a storage object."
         },
         "tableLocation": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1TableLocation",
-          "description": "Location within a `ContentItem.Table`."
+          "description": "The pointer to the row of the table that contained the finding.\nProvided when the finding's containing element is a cell of a table."
         }
       },
       "type": "object"
@@ -2418,6 +2530,9 @@
         "kAnonymityConfig": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1KAnonymityConfig"
         },
+        "kMapEstimationConfig": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1KMapEstimationConfig"
+        },
         "lDiversityConfig": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1LDiversityConfig"
         },
@@ -2443,6 +2558,18 @@
         "name": {
           "description": "The name of the property.\nIf name includes \".\"s, it may be interpreted as a property name path.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1QuasiIdField": {
+      "description": "A quasi-identifier column has a custom_tag, used to know which column\nin the data corresponds to which column in the statistical model.",
+      "properties": {
+        "customTag": {
+          "type": "string"
+        },
+        "field": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1FieldId"
         }
       },
       "type": "object"
@@ -2618,6 +2745,9 @@
         "kAnonymityResult": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1KAnonymityResult"
         },
+        "kMapEstimationResult": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1KMapEstimationResult"
+        },
         "lDiversityResult": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1LDiversityResult"
         },
@@ -2678,6 +2808,11 @@
       },
       "type": "object"
     },
+    "GooglePrivacyDlpV2beta1SurrogateType": {
+      "description": "Message for detecting output from deidentification transformations\nsuch as\n[`CryptoReplaceFfxFpeConfig`](/dlp/docs/reference/rest/v2beta1/content/deidentify#CryptoReplaceFfxFpeConfig).\nThese types of transformations are\nthose that perform pseudonymization, thereby producing a \"surrogate\" as\noutput. This should be used in conjunction with a field on the\ntransformation such as `surrogate_info_type`. This custom info type does\nnot support the use of `detection_rules`.",
+      "properties": {},
+      "type": "object"
+    },
     "GooglePrivacyDlpV2beta1Table": {
       "description": "Structured content to inspect. Up to 50,000 `Value`s per request allowed.",
       "properties": {
@@ -2697,12 +2832,34 @@
       "type": "object"
     },
     "GooglePrivacyDlpV2beta1TableLocation": {
-      "description": "Location of a finding within a `ContentItem.Table`.",
+      "description": "Location of a finding within a table.",
       "properties": {
         "rowIndex": {
           "description": "The zero-based index of the row where the finding is located.",
           "format": "int64",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GooglePrivacyDlpV2beta1TaggedField": {
+      "description": "A column with a semantic tag attached.",
+      "properties": {
+        "customTag": {
+          "description": "A column can be tagged with a custom tag. In this case, the user must\nindicate an auxiliary table that contains statistical information on\nthe possible values of this column (below).",
+          "type": "string"
+        },
+        "field": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1FieldId",
+          "description": "Identifies the column. [required]"
+        },
+        "inferred": {
+          "$ref": "#/definitions/GoogleProtobufEmpty",
+          "description": "If no semantic tag is indicated, we infer the statistical model from\nthe distribution of values in the input data"
+        },
+        "infoType": {
+          "$ref": "#/definitions/GooglePrivacyDlpV2beta1InfoType",
+          "description": "A column can be tagged with a InfoType to use the relevant public\ndataset as a statistical model of population, if available. We\ncurrently support US ZIP codes, region codes, ages and genders."
         }
       },
       "type": "object"
@@ -2726,14 +2883,14 @@
       "type": "object"
     },
     "GooglePrivacyDlpV2beta1TransformationSummary": {
-      "description": "Summary of a single tranformation.",
+      "description": "Summary of a single tranformation.\nOnly one of 'transformation', 'field_transformation', or 'record_suppress'\nwill be set.",
       "properties": {
         "field": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1FieldId",
           "description": "Set if the transformation was limited to a specific FieldId."
         },
         "fieldTransformations": {
-          "description": "The field transformation that was applied. This list will contain\nmultiple only in the case of errors.",
+          "description": "The field transformation that was applied.\nIf multiple field transformations are requested for a single field,\nthis list will contain all of them; otherwise, only one is supplied.",
           "items": {
             "$ref": "#/definitions/GooglePrivacyDlpV2beta1FieldTransformation"
           },
@@ -2756,6 +2913,11 @@
         "transformation": {
           "$ref": "#/definitions/GooglePrivacyDlpV2beta1PrimitiveTransformation",
           "description": "The specific transformation these stats apply to."
+        },
+        "transformedBytes": {
+          "description": "Total size in bytes that were transformed in some way.",
+          "format": "int64",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2782,7 +2944,7 @@
       "type": "object"
     },
     "GooglePrivacyDlpV2beta1Value": {
-      "description": "Set of primitive values supported by the system.",
+      "description": "Set of primitive values supported by the system.\nNote that for the purposes of inspection or transformation, the number\nof bytes considered to comprise a 'Value' is based on its representation\nas a UTF-8 encoded string. For example, if 'integer_value' is set to\n123456789, the number of bytes would be counted as 9, even though an\nint64 only holds up to 8 bytes of data.",
       "properties": {
         "booleanValue": {
           "type": "boolean"

@@ -225,7 +225,7 @@
         }
       ],
       "post": {
-        "description": "After the client finishes uploading the photo with the returned\nUploadRef,\nCreatePhoto\npublishes the uploaded Photo to\nStreet View on Google Maps.\n\nCurrently, the only way to set heading, pitch, and roll in CreatePhoto is\nthrough the [Photo Sphere XMP\nmetadata](https://developers.google.com/streetview/spherical-metadata) in\nthe photo bytes. The `pose.heading`, `pose.pitch`, `pose.roll`,\n`pose.altitude`, and `pose.level` fields in Pose are ignored for\nCreatePhoto.\n\nThis method returns the following error codes:\n\n* google.rpc.Code.INVALID_ARGUMENT if the request is malformed.\n* google.rpc.Code.NOT_FOUND if the upload reference does not exist.\n* google.rpc.Code.RESOURCE_EXHAUSTED if the account has reached the\nstorage limit.",
+        "description": "After the client finishes uploading the photo with the returned\nUploadRef,\nCreatePhoto\npublishes the uploaded Photo to\nStreet View on Google Maps.\n\nCurrently, the only way to set heading, pitch, and roll in CreatePhoto is\nthrough the [Photo Sphere XMP\nmetadata](https://developers.google.com/streetview/spherical-metadata) in\nthe photo bytes. The `pose.heading`, `pose.pitch`, `pose.roll`,\n`pose.altitude`, and `pose.level` fields in Pose are ignored for\nCreatePhoto.\n\nThis method returns the following error codes:\n\n* google.rpc.Code.INVALID_ARGUMENT if the request is malformed or if\nthe uploaded photo is not a 360 photo.\n* google.rpc.Code.NOT_FOUND if the upload reference does not exist.\n* google.rpc.Code.RESOURCE_EXHAUSTED if the account has reached the\nstorage limit.",
         "operationId": "photo.create",
         "parameters": [
           {
@@ -302,7 +302,7 @@
         }
       ],
       "put": {
-        "description": "Updates the metadata of a Photo, such\nas pose, place association, connections, etc. Changing the pixels of a\nphoto is not supported.\n\nOnly the fields specified in the\nupdateMask\nfield are used. If `updateMask` is not present, the update applies to all\nfields.\n\n<aside class=\"note\"><b>Note:</b> To update\nPose.altitude,\nPose.latLngPair has to be\nfilled as well. Otherwise, the request will fail.</aside>\n\nThis method returns the following error codes:\n\n* google.rpc.Code.PERMISSION_DENIED if the requesting user did not\ncreate the requested photo.\n* google.rpc.Code.INVALID_ARGUMENT if the request is malformed.\n* google.rpc.Code.NOT_FOUND if the requested photo does not exist.",
+        "description": "Updates the metadata of a Photo, such\nas pose, place association, connections, etc. Changing the pixels of a\nphoto is not supported.\n\nOnly the fields specified in the\nupdateMask\nfield are used. If `updateMask` is not present, the update applies to all\nfields.\n\n<aside class=\"note\"><b>Note:</b> To update\nPose.altitude,\nPose.latLngPair has to be\nfilled as well. Otherwise, the request will fail.</aside>\n\nThis method returns the following error codes:\n\n* google.rpc.Code.PERMISSION_DENIED if the requesting user did not\ncreate the requested photo.\n* google.rpc.Code.INVALID_ARGUMENT if the request is malformed.\n* google.rpc.Code.NOT_FOUND if the requested photo does not exist.\n* google.rpc.Code.UNAVAILABLE if the requested\nPhoto is still being indexed.",
         "operationId": "photo.update",
         "parameters": [
           {
@@ -385,7 +385,7 @@
         ]
       },
       "get": {
-        "description": "Gets the metadata of the specified\nPhoto.\n\nThis method returns the following error codes:\n\n* google.rpc.Code.PERMISSION_DENIED if the requesting user did not\ncreate the requested Photo.\n* google.rpc.Code.NOT_FOUND if the requested\nPhoto does not exist.",
+        "description": "Gets the metadata of the specified\nPhoto.\n\nThis method returns the following error codes:\n\n* google.rpc.Code.PERMISSION_DENIED if the requesting user did not\ncreate the requested Photo.\n* google.rpc.Code.NOT_FOUND if the requested\nPhoto does not exist.\n* google.rpc.Code.UNAVAILABLE if the requested\nPhoto is still being indexed.",
         "operationId": "photo.get",
         "parameters": [
           {
@@ -549,7 +549,7 @@
     },
     "/v1/photos": {
       "get": {
-        "description": "Lists all the Photos that belong to\nthe user.",
+        "description": "Lists all the Photos that belong to\nthe user.\n\n<aside class=\"note\"><b>Note:</b> Recently created photos that are still\nbeing indexed are not returned in the response.</aside>",
         "operationId": "photos.list",
         "parameters": [
           {

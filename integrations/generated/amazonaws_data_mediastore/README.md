@@ -38,6 +38,57 @@ amazonaws_data_mediastore.ListItems({}, context)
 #### Output
 * output [ListItemsResponse](#listitemsresponse)
 
+### DeleteObject
+
+
+
+```js
+amazonaws_data_mediastore.DeleteObject({
+  "Path": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Path **required** `string`
+
+#### Output
+* output [DeleteObjectResponse](#deleteobjectresponse)
+
+### GetObject
+
+
+
+```js
+amazonaws_data_mediastore.GetObject({
+  "Path": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Path **required** `string`
+
+#### Output
+* output [GetObjectResponse](#getobjectresponse)
+
+### DescribeObject
+
+
+
+```js
+amazonaws_data_mediastore.DescribeObject({
+  "Path": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Path **required** `string`
+
+#### Output
+* output [DescribeObjectResponse](#describeobjectresponse)
+
 ### PutObject
 
 

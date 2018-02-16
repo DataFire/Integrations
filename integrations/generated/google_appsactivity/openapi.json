@@ -52,11 +52,7 @@
       "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
-        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps",
-        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.metadata": "View and manage metadata of files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive"
+        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps"
       },
       "type": "oauth2"
     },
@@ -65,11 +61,7 @@
       "description": "Oauth 2.0 accessCode authentication",
       "flow": "accessCode",
       "scopes": {
-        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps",
-        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.metadata": "View and manage metadata of files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive"
+        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps"
       },
       "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
@@ -78,11 +70,7 @@
       "type": "oauth2",
       "flow": "accessCode",
       "scopes": {
-        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps",
-        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.metadata": "View and manage metadata of files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
-        "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive"
+        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps"
       },
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
       "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
@@ -214,38 +202,6 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/activity"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/drive"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/drive.metadata"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.metadata"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/drive.metadata.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.metadata.readonly"
-            ]
-          },
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/drive.readonly"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/drive.readonly"
             ]
           }
         ],
@@ -442,6 +398,7 @@
           "enum": [
             "commenter",
             "owner",
+            "publishedReader",
             "reader",
             "writer"
           ],

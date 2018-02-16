@@ -143,8 +143,10 @@ amazonaws_ssm.CreateDocument({
 #### Input
 * input `object`
   * Content **required** [DocumentContent](#documentcontent)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentType [DocumentType](#documenttype)
   * Name **required** [DocumentName](#documentname)
+  * TargetType [TargetType](#targettype)
 
 #### Output
 * output [CreateDocumentResult](#createdocumentresult)
@@ -191,12 +193,14 @@ amazonaws_ssm.CreatePatchBaseline({
   * ApprovalRules [PatchRuleGroup](#patchrulegroup)
   * ApprovedPatches [PatchIdList](#patchidlist)
   * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
   * ClientToken [ClientToken](#clienttoken)
   * Description [BaselineDescription](#baselinedescription)
   * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
   * Name **required** [BaselineName](#baselinename)
   * OperatingSystem [OperatingSystem](#operatingsystem)
   * RejectedPatches [PatchIdList](#patchidlist)
+  * Sources [PatchSourceList](#patchsourcelist)
 
 #### Output
 * output [CreatePatchBaselineResult](#createpatchbaselineresult)
@@ -488,6 +492,27 @@ amazonaws_ssm.DescribeAutomationExecutions({}, context)
 
 #### Output
 * output [DescribeAutomationExecutionsResult](#describeautomationexecutionsresult)
+
+### DescribeAutomationStepExecutions
+
+
+
+```js
+amazonaws_ssm.DescribeAutomationStepExecutions({
+  "AutomationExecutionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
+  * Filters [StepExecutionFilterList](#stepexecutionfilterlist)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * ReverseOrder [Boolean](#boolean)
+
+#### Output
+* output [DescribeAutomationStepExecutionsResult](#describeautomationstepexecutionsresult)
 
 ### DescribeAvailablePatches
 
@@ -952,6 +977,7 @@ amazonaws_ssm.GetDocument({
 
 #### Input
 * input `object`
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Name **required** [DocumentARN](#documentarn)
 
@@ -968,6 +994,7 @@ amazonaws_ssm.GetInventory({}, context)
 
 #### Input
 * input `object`
+  * Aggregators [InventoryAggregatorList](#inventoryaggregatorlist)
   * Filters [InventoryFilterList](#inventoryfilterlist)
   * MaxResults [MaxResults](#maxresults)
   * NextToken [NextToken](#nexttoken)
@@ -986,6 +1013,7 @@ amazonaws_ssm.GetInventorySchema({}, context)
 
 #### Input
 * input `object`
+  * Aggregator [AggregatorSchemaOnly](#aggregatorschemaonly)
   * MaxResults [GetInventorySchemaMaxResults](#getinventoryschemamaxresults)
   * NextToken [NextToken](#nexttoken)
   * SubType [IsSubTypeSchema](#issubtypeschema)
@@ -1711,7 +1739,12 @@ amazonaws_ssm.StartAutomationExecution({
   * ClientToken [IdempotencyToken](#idempotencytoken)
   * DocumentName **required** [DocumentARN](#documentarn)
   * DocumentVersion [DocumentVersion](#documentversion)
+  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
+  * MaxErrors [MaxErrors](#maxerrors)
+  * Mode [ExecutionMode](#executionmode)
   * Parameters [AutomationParameterMap](#automationparametermap)
+  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
+  * Targets [Targets](#targets)
 
 #### Output
 * output [StartAutomationExecutionResult](#startautomationexecutionresult)
@@ -1729,6 +1762,7 @@ amazonaws_ssm.StopAutomationExecution({
 #### Input
 * input `object`
   * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
+  * Type [StopType](#stoptype)
 
 #### Output
 * output [StopAutomationExecutionResult](#stopautomationexecutionresult)
@@ -1797,8 +1831,10 @@ amazonaws_ssm.UpdateDocument({
 #### Input
 * input `object`
   * Content **required** [DocumentContent](#documentcontent)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Name **required** [DocumentName](#documentname)
+  * TargetType [TargetType](#targettype)
 
 #### Output
 * output [UpdateDocumentResult](#updatedocumentresult)
@@ -1936,11 +1972,14 @@ amazonaws_ssm.UpdatePatchBaseline({
   * ApprovalRules [PatchRuleGroup](#patchrulegroup)
   * ApprovedPatches [PatchIdList](#patchidlist)
   * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
   * BaselineId **required** [BaselineId](#baselineid)
   * Description [BaselineDescription](#baselinedescription)
   * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
   * Name [BaselineName](#baselinename)
   * RejectedPatches [PatchIdList](#patchidlist)
+  * Replace [Boolean](#boolean)
+  * Sources [PatchSourceList](#patchsourcelist)
 
 #### Output
 * output [UpdatePatchBaselineResult](#updatepatchbaselineresult)
@@ -1992,6 +2031,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### AgentErrorCode
 * AgentErrorCode `string`
+
+### AggregatorSchemaOnly
+* AggregatorSchemaOnly `boolean`
 
 ### AllowedPattern
 * AllowedPattern `string`
@@ -2144,14 +2186,26 @@ amazonaws_ssm.UpdatePatchBaseline({
 * AutomationExecution `object`: Detailed information about the current state of an individual Automation execution.
   * AutomationExecutionId [AutomationExecutionId](#automationexecutionid)
   * AutomationExecutionStatus [AutomationExecutionStatus](#automationexecutionstatus)
+  * CurrentAction [String](#string)
+  * CurrentStepName [String](#string)
   * DocumentName [DocumentName](#documentname)
   * DocumentVersion [DocumentVersion](#documentversion)
+  * ExecutedBy [String](#string)
   * ExecutionEndTime [DateTime](#datetime)
   * ExecutionStartTime [DateTime](#datetime)
   * FailureMessage [String](#string)
+  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
+  * MaxErrors [MaxErrors](#maxerrors)
+  * Mode [ExecutionMode](#executionmode)
   * Outputs [AutomationParameterMap](#automationparametermap)
   * Parameters [AutomationParameterMap](#automationparametermap)
+  * ParentAutomationExecutionId [AutomationExecutionId](#automationexecutionid)
+  * ResolvedTargets [ResolvedTargets](#resolvedtargets)
   * StepExecutions [StepExecutionList](#stepexecutionlist)
+  * StepExecutionsTruncated [Boolean](#boolean)
+  * Target [String](#string)
+  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
+  * Targets [Targets](#targets)
 
 ### AutomationExecutionFilter
 * AutomationExecutionFilter `object`: A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.
@@ -2159,7 +2213,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Values **required** [AutomationExecutionFilterValueList](#automationexecutionfiltervaluelist)
 
 ### AutomationExecutionFilterKey
-* AutomationExecutionFilterKey `string` (values: DocumentNamePrefix, ExecutionStatus)
+* AutomationExecutionFilterKey `string` (values: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter)
 
 ### AutomationExecutionFilterList
 * AutomationExecutionFilterList `array`
@@ -2183,13 +2237,24 @@ amazonaws_ssm.UpdatePatchBaseline({
 * AutomationExecutionMetadata `object`: Details about a specific Automation execution.
   * AutomationExecutionId [AutomationExecutionId](#automationexecutionid)
   * AutomationExecutionStatus [AutomationExecutionStatus](#automationexecutionstatus)
+  * CurrentAction [String](#string)
+  * CurrentStepName [String](#string)
   * DocumentName [DocumentName](#documentname)
   * DocumentVersion [DocumentVersion](#documentversion)
   * ExecutedBy [String](#string)
   * ExecutionEndTime [DateTime](#datetime)
   * ExecutionStartTime [DateTime](#datetime)
+  * FailureMessage [String](#string)
   * LogFile [String](#string)
+  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
+  * MaxErrors [MaxErrors](#maxerrors)
+  * Mode [ExecutionMode](#executionmode)
   * Outputs [AutomationParameterMap](#automationparametermap)
+  * ParentAutomationExecutionId [AutomationExecutionId](#automationexecutionid)
+  * ResolvedTargets [ResolvedTargets](#resolvedtargets)
+  * Target [String](#string)
+  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
+  * Targets [Targets](#targets)
 
 ### AutomationExecutionMetadataList
 * AutomationExecutionMetadataList `array`
@@ -2200,7 +2265,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Message [String](#string)
 
 ### AutomationExecutionStatus
-* AutomationExecutionStatus `string` (values: Pending, InProgress, Waiting, Success, TimedOut, Cancelled, Failed)
+* AutomationExecutionStatus `string` (values: Pending, InProgress, Waiting, Success, TimedOut, Cancelling, Cancelled, Failed)
 
 ### AutomationParameterKey
 * AutomationParameterKey `string`
@@ -2217,6 +2282,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### AutomationParameterValueList
 * AutomationParameterValueList `array`
   * items [AutomationParameterValue](#automationparametervalue)
+
+### AutomationStepNotFoundException
+* AutomationStepNotFoundException `object`: The specified step name and execution ID don't exist. Verify the information and try again.
+  * Message [String](#string)
 
 ### BaselineDescription
 * BaselineDescription `string`
@@ -2534,8 +2603,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### CreateDocumentRequest
 * CreateDocumentRequest `object`
   * Content **required** [DocumentContent](#documentcontent)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentType [DocumentType](#documenttype)
   * Name **required** [DocumentName](#documentname)
+  * TargetType [TargetType](#targettype)
 
 ### CreateDocumentResult
 * CreateDocumentResult `object`
@@ -2560,12 +2631,14 @@ amazonaws_ssm.UpdatePatchBaseline({
   * ApprovalRules [PatchRuleGroup](#patchrulegroup)
   * ApprovedPatches [PatchIdList](#patchidlist)
   * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
   * ClientToken [ClientToken](#clienttoken)
   * Description [BaselineDescription](#baselinedescription)
   * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
   * Name **required** [BaselineName](#baselinename)
   * OperatingSystem [OperatingSystem](#operatingsystem)
   * RejectedPatches [PatchIdList](#patchidlist)
+  * Sources [PatchSourceList](#patchsourcelist)
 
 ### CreatePatchBaselineResult
 * CreatePatchBaselineResult `object`
@@ -2739,6 +2812,19 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DescribeAutomationExecutionsResult `object`
   * AutomationExecutionMetadataList [AutomationExecutionMetadataList](#automationexecutionmetadatalist)
   * NextToken [NextToken](#nexttoken)
+
+### DescribeAutomationStepExecutionsRequest
+* DescribeAutomationStepExecutionsRequest `object`
+  * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
+  * Filters [StepExecutionFilterList](#stepexecutionfilterlist)
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+  * ReverseOrder [Boolean](#boolean)
+
+### DescribeAutomationStepExecutionsResult
+* DescribeAutomationStepExecutionsResult `object`
+  * NextToken [NextToken](#nexttoken)
+  * StepExecutions [StepExecutionList](#stepexecutionlist)
 
 ### DescribeAvailablePatchesRequest
 * DescribeAvailablePatchesRequest `object`
@@ -2991,6 +3077,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * CreatedDate [DateTime](#datetime)
   * DefaultVersion [DocumentVersion](#documentversion)
   * Description [DescriptionInDocument](#descriptionindocument)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentType [DocumentType](#documenttype)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Hash [DocumentHash](#documenthash)
@@ -3004,6 +3091,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Sha1 [DocumentSha1](#documentsha1)
   * Status [DocumentStatus](#documentstatus)
   * Tags [TagList](#taglist)
+  * TargetType [TargetType](#targettype)
 
 ### DocumentFilter
 * DocumentFilter `object`: Describes a filter.
@@ -3020,6 +3108,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### DocumentFilterValue
 * DocumentFilterValue `string`
 
+### DocumentFormat
+* DocumentFormat `string` (values: YAML, JSON)
+
 ### DocumentHash
 * DocumentHash `string`
 
@@ -3028,6 +3119,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### DocumentIdentifier
 * DocumentIdentifier `object`: Describes the name of a Systems Manager document.
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentType [DocumentType](#documenttype)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Name [DocumentARN](#documentarn)
@@ -3035,6 +3127,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * PlatformTypes [PlatformTypeList](#platformtypelist)
   * SchemaVersion [DocumentSchemaVersion](#documentschemaversion)
   * Tags [TagList](#taglist)
+  * TargetType [TargetType](#targettype)
 
 ### DocumentIdentifierList
 * DocumentIdentifierList `array`
@@ -3117,6 +3210,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### DocumentVersionInfo
 * DocumentVersionInfo `object`: Version information about the document.
   * CreatedDate [DateTime](#datetime)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentVersion [DocumentVersion](#documentversion)
   * IsDefaultVersion [Boolean](#boolean)
   * Name [DocumentName](#documentname)
@@ -3133,7 +3227,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * DocumentVersionNumber `string`
 
 ### DoesNotExistException
-* DoesNotExistException `object`: Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't exist.
+* DoesNotExistException `object`: <p>Error returned when the ID specified for a resource, such as a Maintenance Window or Patch baseline, doesn't exist.</p> <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
   * Message [String](#string)
 
 ### DuplicateDocumentContent
@@ -3157,6 +3251,9 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### ErrorCount
 * ErrorCount `integer`
+
+### ExecutionMode
+* ExecutionMode `string` (values: Auto, Interactive)
 
 ### ExpirationDate
 * ExpirationDate `string`
@@ -3239,18 +3336,21 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### GetDocumentRequest
 * GetDocumentRequest `object`
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Name **required** [DocumentARN](#documentarn)
 
 ### GetDocumentResult
 * GetDocumentResult `object`
   * Content [DocumentContent](#documentcontent)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentType [DocumentType](#documenttype)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Name [DocumentARN](#documentarn)
 
 ### GetInventoryRequest
 * GetInventoryRequest `object`
+  * Aggregators [InventoryAggregatorList](#inventoryaggregatorlist)
   * Filters [InventoryFilterList](#inventoryfilterlist)
   * MaxResults [MaxResults](#maxresults)
   * NextToken [NextToken](#nexttoken)
@@ -3266,6 +3366,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### GetInventorySchemaRequest
 * GetInventorySchemaRequest `object`
+  * Aggregator [AggregatorSchemaOnly](#aggregatorschemaonly)
   * MaxResults [GetInventorySchemaMaxResults](#getinventoryschemamaxresults)
   * NextToken [NextToken](#nexttoken)
   * SubType [IsSubTypeSchema](#issubtypeschema)
@@ -3438,6 +3539,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * ApprovalRules [PatchRuleGroup](#patchrulegroup)
   * ApprovedPatches [PatchIdList](#patchidlist)
   * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
   * BaselineId [BaselineId](#baselineid)
   * CreatedDate [DateTime](#datetime)
   * Description [BaselineDescription](#baselinedescription)
@@ -3447,9 +3549,10 @@ amazonaws_ssm.UpdatePatchBaseline({
   * OperatingSystem [OperatingSystem](#operatingsystem)
   * PatchGroups [PatchGroupList](#patchgrouplist)
   * RejectedPatches [PatchIdList](#patchidlist)
+  * Sources [PatchSourceList](#patchsourcelist)
 
 ### HierarchyLevelLimitExceededException
-* HierarchyLevelLimitExceededException `object`: <p>A hierarchy can have a maximum of five levels. For example:</p> <p>/Finance/Prod/IAD/OS/WinServ2016/license15</p> <p>For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working with Systems Manager Parameters</a>. </p>
+* HierarchyLevelLimitExceededException `object`: A hierarchy can have a maximum of 15 levels. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working with Systems Manager Parameters</a>. 
   * message [String](#string)
 
 ### HierarchyTypeMismatchException
@@ -3669,6 +3772,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 * InvalidAutomationSignalException `object`: The signal is not valid for the current Automation execution.
   * Message [String](#string)
 
+### InvalidAutomationStatusUpdateException
+* InvalidAutomationStatusUpdateException `object`: The specified update status operation is not valid.
+  * Message [String](#string)
+
 ### InvalidCommandId
 * InvalidCommandId `object`
 
@@ -3764,7 +3871,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Message [String](#string)
 
 ### InvalidRole
-* InvalidRole `object`: The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.
+* InvalidRole `object`: The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.
   * Message [String](#string)
 
 ### InvalidSchedule
@@ -3782,6 +3889,18 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### InvalidUpdate
 * InvalidUpdate `object`: The update is not valid.
   * Message [String](#string)
+
+### InventoryAggregator
+* InventoryAggregator `object`: Specifies the inventory type and attribute for the aggregation execution.
+  * Aggregators [InventoryAggregatorList](#inventoryaggregatorlist)
+  * Expression [InventoryAggregatorExpression](#inventoryaggregatorexpression)
+
+### InventoryAggregatorExpression
+* InventoryAggregatorExpression `string`
+
+### InventoryAggregatorList
+* InventoryAggregatorList `array`
+  * items [InventoryAggregator](#inventoryaggregator)
 
 ### InventoryAttributeDataType
 * InventoryAttributeDataType `string` (values: string, number)
@@ -3856,6 +3975,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### InventoryItemSchema
 * InventoryItemSchema `object`: The inventory item schema definition. Users can use this to compose inventory query filters.
   * Attributes **required** [InventoryItemAttributeList](#inventoryitemattributelist)
+  * DisplayName [InventoryTypeDisplayName](#inventorytypedisplayname)
   * TypeName **required** [InventoryItemTypeName](#inventoryitemtypename)
   * Version [InventoryItemSchemaVersion](#inventoryitemschemaversion)
 
@@ -3903,6 +4023,9 @@ amazonaws_ssm.UpdatePatchBaseline({
   * items `object`
     * key [InventoryResultItemKey](#inventoryresultitemkey)
     * value [InventoryResultItem](#inventoryresultitem)
+
+### InventoryTypeDisplayName
+* InventoryTypeDisplayName `string`
 
 ### InvocationDoesNotExist
 * InvocationDoesNotExist `object`: The command ID and instance ID you specified did not match any invocations. Verify the command ID adn the instance ID and try again. 
@@ -4084,6 +4207,9 @@ amazonaws_ssm.UpdatePatchBaseline({
   * S3BucketName **required** [S3BucketName](#s3bucketname)
   * S3KeyPrefix [S3KeyPrefix](#s3keyprefix)
   * S3Region **required** [S3Region](#s3region)
+
+### Long
+* Long `integer`
 
 ### MaintenanceWindowAllowUnassociatedTargets
 * MaintenanceWindowAllowUnassociatedTargets `boolean`
@@ -4408,7 +4534,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * NotificationType `string` (values: Command, Invocation)
 
 ### OperatingSystem
-* OperatingSystem `string` (values: WINDOWS, AMAZON_LINUX, UBUNTU, REDHAT_ENTERPRISE_LINUX)
+* OperatingSystem `string` (values: WINDOWS, AMAZON_LINUX, UBUNTU, REDHAT_ENTERPRISE_LINUX, SUSE)
 
 ### OwnerInformation
 * OwnerInformation `string`
@@ -4541,7 +4667,7 @@ amazonaws_ssm.UpdatePatchBaseline({
     * value [ParameterValueList](#parametervaluelist)
 
 ### ParametersFilter
-* ParametersFilter `object`: One or more filters. Use a filter to return a more specific list of results.
+* ParametersFilter `object`: This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.
   * Key **required** [ParametersFilterKey](#parametersfilterkey)
   * Values **required** [ParametersFilterValueList](#parametersfiltervaluelist)
 
@@ -4628,7 +4754,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * PatchFailedCount `integer`
 
 ### PatchFilter
-* PatchFilter `object`: Defines a patch filter.
+* PatchFilter `object`: <p>Defines a patch filter.</p> <p>A patch filter consists of key/value pairs, but not all keys are valid for all operating system types. For example, the key <code>PRODUCT</code> is valid for all supported operating system types. The key <code>MSRC_SEVERITY</code>, however, is valid only for Windows operating systems, and the key <code>SECTION</code> is valid only for Ubuntu operating systems.</p> <p>Refer to the following sections for information about which keys may be used with each major operating system, and which values are valid for each key.</p> <p> <b>Windows Operating Systems</b> </p> <p>The supported keys for Windows operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>MSRC_SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Windows7</code> </p> </li> <li> <p> <code>Windows8</code> </p> </li> <li> <p> <code>Windows8.1</code> </p> </li> <li> <p> <code>Windows8Embedded</code> </p> </li> <li> <p> <code>Windows10</code> </p> </li> <li> <p> <code>Windows10LTSB</code> </p> </li> <li> <p> <code>WindowsServer2008</code> </p> </li> <li> <p> <code>WindowsServer2008R2</code> </p> </li> <li> <p> <code>WindowsServer2012</code> </p> </li> <li> <p> <code>WindowsServer2012R2</code> </p> </li> <li> <p> <code>WindowsServer2016</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>CriticalUpdates</code> </p> </li> <li> <p> <code>DefinitionUpdates</code> </p> </li> <li> <p> <code>Drivers</code> </p> </li> <li> <p> <code>FeaturePacks</code> </p> </li> <li> <p> <code>SecurityUpdates</code> </p> </li> <li> <p> <code>ServicePacks</code> </p> </li> <li> <p> <code>Tools</code> </p> </li> <li> <p> <code>UpdateRollups</code> </p> </li> <li> <p> <code>Updates</code> </p> </li> <li> <p> <code>Upgrades</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>MSRC_SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> <li> <p> <code>Unspecified</code> </p> </li> </ul> <p> <b>Ubuntu Operating Systems</b> </p> <p>The supported keys for Ubuntu operating systems are <code>PRODUCT</code>, <code>PRIORITY</code>, and <code>SECTION</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Ubuntu14.04</code> </p> </li> <li> <p> <code>Ubuntu16.04</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>PRIORITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Required</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Standard</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Extra</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SECTION</code> </p> <p>Only the length of the key value is validated. Minimum length is 1. Maximum length is 64.</p> <p> <b>Amazon Linux Operating Systems</b> </p> <p>The supported keys for Amazon Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>AmazonLinux2012.03</code> </p> </li> <li> <p> <code>AmazonLinux2012.09</code> </p> </li> <li> <p> <code>AmazonLinux2013.03</code> </p> </li> <li> <p> <code>AmazonLinux2013.09</code> </p> </li> <li> <p> <code>AmazonLinux2014.03</code> </p> </li> <li> <p> <code>AmazonLinux2014.09</code> </p> </li> <li> <p> <code>AmazonLinux2015.03</code> </p> </li> <li> <p> <code>AmazonLinux2015.09</code> </p> </li> <li> <p> <code>AmazonLinux2016.03</code> </p> </li> <li> <p> <code>AmazonLinux2016.09</code> </p> </li> <li> <p> <code>AmazonLinux2017.03</code> </p> </li> <li> <p> <code>AmazonLinux2017.09</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>RedHat Enterprise Linux (RHEL) Operating Systems</b> </p> <p>The supported keys for RedHat Enterprise Linux operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>RedhatEnterpriseLinux6.5</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.6</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.7</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.8</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux6.9</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.0</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.1</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.2</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.3</code> </p> </li> <li> <p> <code>RedhatEnterpriseLinux7.4</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Bugfix</code> </p> </li> <li> <p> <code>Enhancement</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Newpackage</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Medium</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul> <p> <b>SUSE Linux Enterprise Server (SUSE) Operating Systems</b> </p> <p>The supported keys for SUSE operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and <code>SEVERITY</code>. See the following lists for valid values for each of these keys.</p> <p> <i>Supported key:</i> <code>PRODUCT</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Suse12.0</code> </p> </li> <li> <p> <code>Suse12.1</code> </p> </li> <li> <p> <code>Suse12.2</code> </p> </li> <li> <p> <code>Suse12.3</code> </p> </li> <li> <p> <code>Suse12.4</code> </p> </li> <li> <p> <code>Suse12.5</code> </p> </li> <li> <p> <code>Suse12.6</code> </p> </li> <li> <p> <code>Suse12.7</code> </p> </li> <li> <p> <code>Suse12.8</code> </p> </li> <li> <p> <code>Suse12.9</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>CLASSIFICATION</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Security</code> </p> </li> <li> <p> <code>Recommended</code> </p> </li> <li> <p> <code>Optional</code> </p> </li> <li> <p> <code>Feature</code> </p> </li> <li> <p> <code>Document</code> </p> </li> <li> <p> <code>Yast</code> </p> </li> </ul> <p> <i>Supported key:</i> <code>SEVERITY</code> </p> <p> <i>Supported values:</i> </p> <ul> <li> <p> <code>Critical</code> </p> </li> <li> <p> <code>Important</code> </p> </li> <li> <p> <code>Moderate</code> </p> </li> <li> <p> <code>Low</code> </p> </li> </ul>
   * Key **required** [PatchFilterKey](#patchfilterkey)
   * Values **required** [PatchFilterValueList](#patchfiltervaluelist)
 
@@ -4733,6 +4859,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 * PatchRule `object`: Defines an approval rule for a patch baseline.
   * ApproveAfterDays **required** [ApproveAfterDays](#approveafterdays)
   * ComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * EnableNonSecurity [Boolean](#boolean)
   * PatchFilterGroup **required** [PatchFilterGroup](#patchfiltergroup)
 
 ### PatchRuleGroup
@@ -4745,6 +4872,29 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### PatchSeverity
 * PatchSeverity `string`
+
+### PatchSource
+* PatchSource `object`: Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+  * Configuration **required** [PatchSourceConfiguration](#patchsourceconfiguration)
+  * Name **required** [PatchSourceName](#patchsourcename)
+  * Products **required** [PatchSourceProductList](#patchsourceproductlist)
+
+### PatchSourceConfiguration
+* PatchSourceConfiguration `string`
+
+### PatchSourceList
+* PatchSourceList `array`
+  * items [PatchSource](#patchsource)
+
+### PatchSourceName
+* PatchSourceName `string`
+
+### PatchSourceProduct
+* PatchSourceProduct `string`
+
+### PatchSourceProductList
+* PatchSourceProductList `array`
+  * items [PatchSourceProduct](#patchsourceproduct)
 
 ### PatchStatus
 * PatchStatus `object`: Information about the approval status of a patch.
@@ -4873,6 +5023,11 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### RemoveTagsFromResourceResult
 * RemoveTagsFromResourceResult `object`
 
+### ResolvedTargets
+* ResolvedTargets `object`: Information about targets that resolved during the Automation execution.
+  * ParameterValues [TargetParameterList](#targetparameterlist)
+  * Truncated [Boolean](#boolean)
+
 ### ResourceComplianceSummaryItem
 * ResourceComplianceSummaryItem `object`: Compliance summary information for a specific resource. 
   * ComplianceType [ComplianceTypeName](#compliancetypename)
@@ -4954,7 +5109,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Message [String](#string)
 
 ### ResourceLimitExceededException
-* ResourceLimitExceededException `object`: Error returned when the caller has exceeded the default resource limits (e.g. too many Maintenance Windows have been created).
+* ResourceLimitExceededException `object`: <p>Error returned when the caller has exceeded the default resource limits. For example, too many Maintenance Windows or Patch baselines have been created.</p> <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
   * Message [String](#string)
 
 ### ResourceType
@@ -5040,7 +5195,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * UnspecifiedCount [ComplianceSummaryCount](#compliancesummarycount)
 
 ### SignalType
-* SignalType `string` (values: Approve, Reject)
+* SignalType `string` (values: Approve, Reject, StartStep, StopStep, Resume)
 
 ### SnapshotDownloadUrl
 * SnapshotDownloadUrl `string`
@@ -5059,7 +5214,12 @@ amazonaws_ssm.UpdatePatchBaseline({
   * ClientToken [IdempotencyToken](#idempotencytoken)
   * DocumentName **required** [DocumentARN](#documentarn)
   * DocumentVersion [DocumentVersion](#documentversion)
+  * MaxConcurrency [MaxConcurrency](#maxconcurrency)
+  * MaxErrors [MaxErrors](#maxerrors)
+  * Mode [ExecutionMode](#executionmode)
   * Parameters [AutomationParameterMap](#automationparametermap)
+  * TargetParameterName [AutomationParameterKey](#automationparameterkey)
+  * Targets [Targets](#targets)
 
 ### StartAutomationExecutionResult
 * StartAutomationExecutionResult `object`
@@ -5088,11 +5248,35 @@ amazonaws_ssm.UpdatePatchBaseline({
   * FailureDetails [FailureDetails](#failuredetails)
   * FailureMessage [String](#string)
   * Inputs [NormalStringMap](#normalstringmap)
+  * MaxAttempts [Integer](#integer)
+  * OnFailure [String](#string)
   * Outputs [AutomationParameterMap](#automationparametermap)
+  * OverriddenParameters [AutomationParameterMap](#automationparametermap)
   * Response [String](#string)
   * ResponseCode [String](#string)
+  * StepExecutionId [String](#string)
   * StepName [String](#string)
   * StepStatus [AutomationExecutionStatus](#automationexecutionstatus)
+  * TimeoutSeconds [Long](#long)
+
+### StepExecutionFilter
+* StepExecutionFilter `object`: A filter to limit the amount of step execution information returned by the call.
+  * Key **required** [StepExecutionFilterKey](#stepexecutionfilterkey)
+  * Values **required** [StepExecutionFilterValueList](#stepexecutionfiltervaluelist)
+
+### StepExecutionFilterKey
+* StepExecutionFilterKey `string` (values: StartTimeBefore, StartTimeAfter, StepExecutionStatus, StepExecutionId, StepName, Action)
+
+### StepExecutionFilterList
+* StepExecutionFilterList `array`
+  * items [StepExecutionFilter](#stepexecutionfilter)
+
+### StepExecutionFilterValue
+* StepExecutionFilterValue `string`
+
+### StepExecutionFilterValueList
+* StepExecutionFilterValueList `array`
+  * items [StepExecutionFilterValue](#stepexecutionfiltervalue)
 
 ### StepExecutionList
 * StepExecutionList `array`
@@ -5101,9 +5285,13 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### StopAutomationExecutionRequest
 * StopAutomationExecutionRequest `object`
   * AutomationExecutionId **required** [AutomationExecutionId](#automationexecutionid)
+  * Type [StopType](#stoptype)
 
 ### StopAutomationExecutionResult
 * StopAutomationExecutionResult `object`
+
+### StopType
+* StopType `string` (values: Complete, Cancel)
 
 ### String
 * String `string`
@@ -5148,6 +5336,13 @@ amazonaws_ssm.UpdatePatchBaseline({
 
 ### TargetKey
 * TargetKey `string`
+
+### TargetParameterList
+* TargetParameterList `array`
+  * items [ParameterValue](#parametervalue)
+
+### TargetType
+* TargetType `string`
 
 ### TargetValue
 * TargetValue `string`
@@ -5233,8 +5428,10 @@ amazonaws_ssm.UpdatePatchBaseline({
 ### UpdateDocumentRequest
 * UpdateDocumentRequest `object`
   * Content **required** [DocumentContent](#documentcontent)
+  * DocumentFormat [DocumentFormat](#documentformat)
   * DocumentVersion [DocumentVersion](#documentversion)
   * Name **required** [DocumentName](#documentname)
+  * TargetType [TargetType](#targettype)
 
 ### UpdateDocumentResult
 * UpdateDocumentResult `object`
@@ -5328,17 +5525,21 @@ amazonaws_ssm.UpdatePatchBaseline({
   * ApprovalRules [PatchRuleGroup](#patchrulegroup)
   * ApprovedPatches [PatchIdList](#patchidlist)
   * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
   * BaselineId **required** [BaselineId](#baselineid)
   * Description [BaselineDescription](#baselinedescription)
   * GlobalFilters [PatchFilterGroup](#patchfiltergroup)
   * Name [BaselineName](#baselinename)
   * RejectedPatches [PatchIdList](#patchidlist)
+  * Replace [Boolean](#boolean)
+  * Sources [PatchSourceList](#patchsourcelist)
 
 ### UpdatePatchBaselineResult
 * UpdatePatchBaselineResult `object`
   * ApprovalRules [PatchRuleGroup](#patchrulegroup)
   * ApprovedPatches [PatchIdList](#patchidlist)
   * ApprovedPatchesComplianceLevel [PatchComplianceLevel](#patchcompliancelevel)
+  * ApprovedPatchesEnableNonSecurity [Boolean](#boolean)
   * BaselineId [BaselineId](#baselineid)
   * CreatedDate [DateTime](#datetime)
   * Description [BaselineDescription](#baselinedescription)
@@ -5347,6 +5548,7 @@ amazonaws_ssm.UpdatePatchBaseline({
   * Name [BaselineName](#baselinename)
   * OperatingSystem [OperatingSystem](#operatingsystem)
   * RejectedPatches [PatchIdList](#patchidlist)
+  * Sources [PatchSourceList](#patchsourcelist)
 
 ### Url
 * Url `string`

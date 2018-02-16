@@ -9,9 +9,7 @@ npm install --save @datafire/epa_gov_dfr
 ```js
 let epa_gov_dfr = require('@datafire/epa_gov_dfr').create();
 
-epa_gov_dfr.dfr_rest_services.get_air_compliance.get({
-  "p_id": ""
-}).then(data => {
+epa_gov_dfr.dfr_rest_services.get_demographics.post({}).then(data => {
   console.log(data);
 });
 ```
@@ -503,7 +501,47 @@ Returns a complex object with Demographics from the 2010 Census and 2010 America
 
 
 ```js
-epa_gov_dfr.dfr_rest_services.get_demographics.get({
+epa_gov_dfr.dfr_rest_services.get_demographics.get({}, context)
+```
+
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * p_lat `number`: Latitude location in decimal degrees.
+  * p_long `number`: Longitude location in decimal degrees.
+  * p_radius `string`
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [dfrY_Results](#dfry_results)
+
+### dfr_rest_services.get_demographics.post
+Returns a complex object with Demographics from the 2010 Census and 2010 American Community Survey based on a 3 mile radius around the facility spatial coordinates.
+
+
+```js
+epa_gov_dfr.dfr_rest_services.get_demographics.post({}, context)
+```
+
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * p_lat `number`: Latitude location in decimal degrees.
+  * p_long `number`: Longitude location in decimal degrees.
+  * p_radius `string`
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [dfrY_Results](#dfry_results)
+
+### dfr_rest_services.get_demographics_by_id.get
+Returns a complex object with Demographics from the 2010 Census and 2010 American Community Survey.
+
+
+```js
+epa_gov_dfr.dfr_rest_services.get_demographics_by_id.get({
   "p_id": ""
 }, context)
 ```
@@ -519,12 +557,12 @@ epa_gov_dfr.dfr_rest_services.get_demographics.get({
 * output `object`: Root Object
   * Results **required** [dfrY_Results](#dfry_results)
 
-### dfr_rest_services.get_demographics.post
-Returns a complex object with Demographics from the 2010 Census and 2010 American Community Survey based on a 3 mile radius around the facility spatial coordinates.
+### dfr_rest_services.get_demographics_by_id.post
+Returns a complex object with Demographics from the 2010 Census and 2010 American Community Survey.
 
 
 ```js
-epa_gov_dfr.dfr_rest_services.get_demographics.post({
+epa_gov_dfr.dfr_rest_services.get_demographics_by_id.post({
   "p_id": ""
 }, context)
 ```
@@ -1866,6 +1904,7 @@ epa_gov_dfr.dfr_rest_services.get_water_quality.post({
 
 ### dfrC_Sources.Violation
 * dfrC_Sources.Violation `object`: CWA SE Compliance Violation Object
+  * Agency **required** `string`: Identifies the lead agency (e.g., EPA, State) conducting the inspection. 
   * NPDESViolationId **required** `string`: The unique identifier in ICIS-NPDES for the NPDES Violation
   * Qtr10Status **required** `string`: The relevant status for the quarter.
   * Qtr10Value **required** `string`
@@ -2029,6 +2068,7 @@ epa_gov_dfr.dfr_rest_services.get_water_quality.post({
   * CompActionCost **required** `string`
   * FederalPenalty **required** `string`: For civil judicial Enforcement Actions, this amount is the Federal penalty assessed against the defendant(s) as specified in the final entered Consent Decree or Court Order.  For administrative Enforcement Actions, it is the penalty assessed in the Consent/Final Order.  It does not include the amount of the penalty mitigated due to a SEP or the amount shared with the state or local entities.  Interest payments associated with a penalty paid over time are not to be included in this amount.  It is the total Federal amount for each Final Order.
   * IssueDate **required** `string`: For administrative cases, this field indicates the date that the complaint or Administrative Order (AO) was signed by the appropriate authority and issued to the respondent. For judicial cases, this field indicates the date that the complaint was filed with the Clerk of the Court.
+  * LatestSettlementEnteredDate **required** `string`
   * LawSectionCode **required** `string`: The unique identifier for the Section(s) of law violated and cited in the activity.
   * LeadAgency **required** `string`: The lead agency (e.g., EPA, State) conducting the inspection
   * NumberSettlements **required** `string`

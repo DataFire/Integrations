@@ -80,19 +80,19 @@ google_slides.presentations.create({}, context)
 #### Input
 * input `object`
   * body [Presentation](#presentation)
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Presentation](#presentation)
@@ -110,19 +110,19 @@ google_slides.presentations.get({
 #### Input
 * input `object`
   * presentationId **required** `string`: The ID of the presentation to retrieve.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Presentation](#presentation)
@@ -133,28 +133,28 @@ Gets the latest version of the specified page in the presentation.
 
 ```js
 google_slides.presentations.pages.get({
-  "presentationId": "",
-  "pageObjectId": ""
+  "pageObjectId": "",
+  "presentationId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * presentationId **required** `string`: The ID of the presentation to retrieve.
   * pageObjectId **required** `string`: The object ID of the page to retrieve.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * presentationId **required** `string`: The ID of the presentation to retrieve.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Page](#page)
@@ -162,6 +162,8 @@ google_slides.presentations.pages.get({
 ### presentations.pages.getThumbnail
 Generates a thumbnail of the latest version of the specified page in the
 presentation and returns a URL to the thumbnail image.
+
+This request counts as an expensive read request for quota purposes.
 
 
 ```js
@@ -226,21 +228,21 @@ google_slides.presentations.batchUpdate({
 
 #### Input
 * input `object`
-  * presentationId **required** `string`: The presentation to apply the updates to.
   * body [BatchUpdatePresentationRequest](#batchupdatepresentationrequest)
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * presentationId **required** `string`: The presentation to apply the updates to.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [BatchUpdatePresentationResponse](#batchupdatepresentationresponse)
@@ -665,6 +667,7 @@ google_slides.presentations.batchUpdate({
 ### ReplaceAllShapesWithImageRequest
 * ReplaceAllShapesWithImageRequest `object`: Replaces all shapes that match the given criteria with the provided image.
   * containsText [SubstringMatchCriteria](#substringmatchcriteria)
+  * imageReplaceMethod `string` (values: IMAGE_REPLACE_METHOD_UNSPECIFIED, CENTER_INSIDE, CENTER_CROP): The image replace method.
   * imageUrl `string`: The image URL.
   * pageObjectIds `array`: If non-empty, limits the matches to page elements only on the given pages.
     * items `string`
@@ -727,6 +730,7 @@ google_slides.presentations.batchUpdate({
   * unmergeTableCells [UnmergeTableCellsRequest](#unmergetablecellsrequest)
   * updateImageProperties [UpdateImagePropertiesRequest](#updateimagepropertiesrequest)
   * updateLineProperties [UpdateLinePropertiesRequest](#updatelinepropertiesrequest)
+  * updatePageElementAltText [UpdatePageElementAltTextRequest](#updatepageelementalttextrequest)
   * updatePageElementTransform [UpdatePageElementTransformRequest](#updatepageelementtransformrequest)
   * updatePageProperties [UpdatePagePropertiesRequest](#updatepagepropertiesrequest)
   * updateParagraphStyle [UpdateParagraphStyleRequest](#updateparagraphstylerequest)
@@ -785,6 +789,7 @@ google_slides.presentations.batchUpdate({
 
 ### ShapeProperties
 * ShapeProperties `object`: The properties of a Shape.
+  * contentAlignment `string` (values: CONTENT_ALIGNMENT_UNSPECIFIED, CONTENT_ALIGNMENT_UNSUPPORTED, TOP, MIDDLE, BOTTOM): The alignment of the content in the shape. If unspecified,
   * link [Link](#link)
   * outline [Outline](#outline)
   * shadow [Shadow](#shadow)
@@ -880,6 +885,7 @@ google_slides.presentations.batchUpdate({
 
 ### TableCellProperties
 * TableCellProperties `object`: The properties of the TableCell.
+  * contentAlignment `string` (values: CONTENT_ALIGNMENT_UNSPECIFIED, CONTENT_ALIGNMENT_UNSUPPORTED, TOP, MIDDLE, BOTTOM): The alignment of the content in the table cell. The default alignment
   * tableCellBackgroundFill [TableCellBackgroundFill](#tablecellbackgroundfill)
 
 ### TableColumnProperties
@@ -969,6 +975,12 @@ google_slides.presentations.batchUpdate({
   * fields `string`: The fields that should be updated.
   * lineProperties [LineProperties](#lineproperties)
   * objectId `string`: The object ID of the line the update is applied to.
+
+### UpdatePageElementAltTextRequest
+* UpdatePageElementAltTextRequest `object`: Updates the alt text title and/or description of a
+  * description `string`: The updated alt text description of the page element. If unset the existing
+  * objectId `string`: The object ID of the page element the updates are applied to.
+  * title `string`: The updated alt text title of the page element. If unset the
 
 ### UpdatePageElementTransformRequest
 * UpdatePageElementTransformRequest `object`: Updates the transform of a page element.

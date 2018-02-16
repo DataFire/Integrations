@@ -23,7 +23,7 @@ Build applications using the world's most powerful imagery
 ## Actions
 
 ### Artists_GetImagesByArtist
-***BETA*** Search for images by a photographer
+Search for images by a photographer
 
 
 ```js
@@ -45,7 +45,7 @@ gettyimages.Artists_GetImagesByArtist({
 * output [GettyImages.Models.Artists.ImageSearchResults](#gettyimages.models.artists.imagesearchresults)
 
 ### Artists_GetVideosByArtist
-***BETA*** Search for videos by a photographer
+Search for videos by a photographer
 
 
 ```js
@@ -67,7 +67,21 @@ gettyimages.Artists_GetVideosByArtist({
 * output [GettyImages.Models.Artists.VideoSearchResults](#gettyimages.models.artists.videosearchresults)
 
 ### AssetChanges_PutAssetChanges
-Generates asset changes.
+# Asset Changes
+
+Get notifications about new, updated or deleted assets.
+
+##  Quickstart
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource.
+Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+    
+Partner channels that have not been checked within the last 120 days will be removed and that partner will no longer be able 
+to get change notifications from that channel.
+Partners who would like to start using the Asset Changes API again after a period of dormancy should contact their sales
+representative to be set up again.
+
 
 
 ```js
@@ -87,7 +101,15 @@ gettyimages.AssetChanges_PutAssetChanges({
 * output [AssetChanges](#assetchanges)
 
 ### AssetChanges_DeleteAssetChanges
-Confirm asset changes acknowledges receipt of asset changes.
+# Delete Asset Changes
+
+Confirm asset changes acknowledges receipt of asset changes (from the PUT asset changes endpoint).
+
+##  Quickstart
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource.
+Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -106,7 +128,19 @@ gettyimages.AssetChanges_DeleteAssetChanges({
 *Output schema unknown*
 
 ### AssetChanges_GetPartnerChannel
+# Get Partner Channels
+
 Retrieves the channel data for the partner. This data can be used to populate the channel_id parameter in the Put Asset Changes query.
+
+##  Quickstart
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource.
+Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+Only channels that have been queried in the last 120 days will be included in the list of channels.
+Partners who have a channel that has been removed should contact their sales representative to be set up again.
+
+
 
 
 ```js
@@ -123,7 +157,20 @@ gettyimages.AssetChanges_GetPartnerChannel({
 * output [PartnerChannelList](#partnerchannellist)
 
 ### AssetRegistration_Register
-Register a list of customer assets.
+# Register Assets
+
+Registers a list of assets that a customer has stored in their system.
+
+##  Quickstart
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource.
+Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+_Note_: In the event of a successful query (response code 200) there will be nothing in the response body.
+
+
+
+
 
 
 ```js
@@ -140,7 +187,10 @@ gettyimages.AssetRegistration_Register({
 * output [Object](#object)
 
 ### Boards_GetAllBoards
-***BETA*** Get all boards that the user participates in
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to retrieve all Boards available for a user.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -162,7 +212,12 @@ gettyimages.Boards_GetAllBoards({
 * output [BoardList](#boardlist)
 
 ### Boards_CreateBoard
-***BETA*** Create a new board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to create a Board by a specific id.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+**NOTE:** *The input to this endpoint is not sanitized in any way, so it is the responsibility of the client to ensure that it is properly formatted and guards against malicious data (for example cross-site scripting attacks or HTML injection) when accessing the data.*
+
 
 
 ```js
@@ -184,7 +239,11 @@ gettyimages.Boards_CreateBoard({
 * output [BoardCreated](#boardcreated)
 
 ### Boards_DeleteBoard
-***BETA*** Delete a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to delete a Board by a specific id.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+
 
 
 ```js
@@ -204,7 +263,10 @@ gettyimages.Boards_DeleteBoard({
 *Output schema unknown*
 
 ### Boards_GetBoard
-***BETA*** Get assets and metadata for a specific board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to retrieve a Board by a specific id.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -224,7 +286,12 @@ gettyimages.Boards_GetBoard({
 * output [BoardDetail](#boarddetail)
 
 ### Boards_UpdateBoard
-***BETA*** Update a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to update a Board by a specific id.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+**NOTE:** *The input to this endpoint is not sanitized in any way, so it is the responsibility of the client to ensure that it is properly formatted and guards against malicious data (for example cross-site scripting attacks or HTML injection) when accessing the data.*
+
 
 
 ```js
@@ -248,7 +315,11 @@ gettyimages.Boards_UpdateBoard({
 *Output schema unknown*
 
 ### Boards_RemoveAssets
-***BETA*** Remove assets from a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq).
+Use this endpoint to remove a set of assets from a board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -270,7 +341,13 @@ gettyimages.Boards_RemoveAssets({
 *Output schema unknown*
 
 ### Boards_AddAssets
-***BETA*** Add assets to a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq).
+Use this endpoint to add a set of assets to a board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+	
+	
+
 
 
 ```js
@@ -293,7 +370,10 @@ gettyimages.Boards_AddAssets({
 * output [AddBoardAssetsResult](#addboardassetsresult)
 
 ### Boards_RemoveAsset
-***BETA*** Remove an asset from a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to remove an asset from a board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -315,7 +395,14 @@ gettyimages.Boards_RemoveAsset({
 *Output schema unknown*
 
 ### Boards_AddAsset
-***BETA*** Add an asset to a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place.
+More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to add an asset to a board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource.
+Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+
+
 
 
 ```js
@@ -337,7 +424,10 @@ gettyimages.Boards_AddAsset({
 * output [Object](#object)
 
 ### Boards_GetComments
-***BETA*** Get comments from a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq). Use this endpoint to retrieve all comments for a specific board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -357,7 +447,11 @@ gettyimages.Boards_GetComments({
 * output [CommentsList](#commentslist)
 
 ### Boards_AddComment
-***BETA*** Add a comment to a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq).
+Use this endpoint to add a comment to a board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -379,7 +473,11 @@ gettyimages.Boards_AddComment({
 * output [CommentCreated](#commentcreated)
 
 ### Boards_DeleteComment
-***BETA*** Delete a comment from a board
+Boards are where you collect, curate, collaborate on and manage photo and video assets in one place. More information on the [Boards FAQ](http://www.gettyimages.com/boards/faq).
+Use this endpoint to delete a comment from a board.
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -401,7 +499,10 @@ gettyimages.Boards_DeleteComment({
 * output [Object](#object)
 
 ### Collections_GetCollections
-Gets collections applicable for the customer.
+Use this endpoint to retrieve collections associated with your Getty Images account. To browse available collections see our [Image collections page]( http://www.gettyimages.com/creative-images/collections).
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -419,7 +520,10 @@ gettyimages.Collections_GetCollections({
 * output [GettyImages.Models.Collections.CollectionsList](#gettyimages.models.collections.collectionslist)
 
 ### Countries_GetCountries
-Gets countries codes and names.
+Returns a list of country objects that contains country name, two letter ISO abbreviation and three letter ISO abbreviation.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -435,7 +539,15 @@ gettyimages.Countries_GetCountries({}, context)
 * output [GettyImages.Models.Countries.CountriesList](#gettyimages.models.countries.countrieslist)
 
 ### Downloads_GetDownloads
-Returns information about a customer's downloaded assets.
+Returns information about a customer's previously downloaded assets.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+ 
+	
+This endpoint requires being a Getty Images customer to limit your results to only assets that you have a license to use, 
+you need to also include an authorization token in the header of your request. 
+Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens.
+
 
 
 ```js
@@ -459,9 +571,48 @@ gettyimages.Downloads_GetDownloads({
 * output [GettyImages.Models.Downloads.GetDownloadsResponse](#gettyimages.models.downloads.getdownloadsresponse)
 
 ### Downloads_PostDownloads
-The single step download call returns either a redirect or a response message with the URI to download the largest
-                image available.
-                Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.
+Use this endpoint to generate download URLs and related data for images you are authorized to download.
+
+Most product offerings have enforced periodic download limits such as monthly, weekly, and daily. When this operation executes, the count of allowed downloads is decremented by one for the product offering. Once the download limit is reached for a given product offering, no further downloads may be requested for that product offering until the next download period.
+
+The download limit for a given download period is covered in your product agreement established with Getty Images.
+
+You'll need an API key and a [Resource Owner Grant or Implicit Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+## Auto Downloads
+The `auto_download` request query parameter specifies whether to automatically download the image.
+
+If the `auto_download` request query parameter is set to _true_, the API will return an HTTP status code 303 *See Other*. Your client code will need to process this response and redirect to the URI specified in the *Location* header to enable you to automatically download the file. The redirection workflow follows the [HTTP 1.1 protocol](https://tools.ietf.org/html/rfc7231#section-6.4.4).
+
+Client Request:
+
+```
+https://api.gettyimages.com/v3/downloads/images/[asset_id]?auto_download=true
+```
+
+Server Response:
+
+```
+HTTP/1.1 303 See Other
+Location: https://delivery.gettyimages.com/...
+```
+
+If the `auto_download` request query parameter is set to false, the API will return a HTTP status code 200, along with the URI in the response body which can be used to download the image. 
+
+Client Request:
+
+```
+https://api.gettyimages.com/v3/downloads/images/[asset_id]?auto_download=false
+```
+
+Server Response:
+
+```
+HTTP/1.1 200 OK
+{
+	"uri": "https://delivery.gettyimages.com/..."
+}
+```
 
 
 ```js
@@ -487,9 +638,48 @@ gettyimages.Downloads_PostDownloads({
 * output [System.Object](#system.object)
 
 ### Downloads_PostVideoDownloads
-The single step download call returns either a redirect or a response message with the URI to download the largest
-                video available.
-                Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.
+Use this endpoint to generate download URLs and related data for videos you are authorized to download.
+
+Most product offerings have enforced periodic download limits such as monthly, weekly, and daily. When this operation executes, the count of allowed downloads is decremented by one for the product offering. Once the download limit is reached for a given product offering, no further downloads may be requested for that product offering until the next download period.
+
+The download limit for a given download period is covered in your product agreement established with Getty Images.
+
+You'll need an API key and a [Resource Owner Grant or Implicit Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+## Auto Downloads
+The `auto_download` request query parameter specifies whether to automatically download the video.
+
+If the `auto_download` request query parameter is set to _true_, the API will return an HTTP status code 303 *See Other*. Your client code will need to process this response and redirect to the URI specified in the *Location* header to enable you to automatically download the file. The redirection workflow follows the [HTTP 1.1 protocol](https://tools.ietf.org/html/rfc7231#section-6.4.4).
+
+Client Request:
+
+```
+https://api.gettyimages.com/v3/downloads/videos/[asset_id]?auto_download=true
+```
+
+Server Response:
+
+```
+HTTP/1.1 303 See Other
+Location: https://delivery.gettyimages.com/...
+```
+
+If the `auto_download` request query parameter is set to false, the API will return a HTTP status code 200, along with the URI in the response body which can be used to download the video. 
+
+Client Request:
+
+```
+https://api.gettyimages.com/v3/downloads/videos/[asset_id]?auto_download=false
+```
+
+Server Response:
+
+```
+HTTP/1.1 200 OK
+{
+	"uri": "https://delivery.gettyimages.com/..."
+}
+```
 
 
 ```js
@@ -501,6 +691,7 @@ gettyimages.Downloads_PostVideoDownloads({
 
 #### Input
 * input `object`
+  * download_details [GettyImages.Models.Downloads.PremiumAccessDownloadData](#gettyimages.models.downloads.premiumaccessdownloaddata)
   * Authorization **required** `string`: Provide access token in the format of 'Bearer {token}'.
   * Accept-Language `string`: Provide a header to specify the language of result values.
   * id **required** `string`: <remarks>
@@ -512,7 +703,15 @@ gettyimages.Downloads_PostVideoDownloads({
 * output [System.Object](#system.object)
 
 ### Events_GetBatch
-Returns an array of event metadata
+This endpoint returns the detailed event metadata for all specified events. Getty Images news, sports and entertainment photographers and
+videographers cover editorially relevant events occurring around the world.  All images or video clips produced in association with 
+an event, are assigned the same EventID. EventIDs are part of the meta-data returned in SearchForImages Results. Only content 
+produced under a Getty Images brand name (Getty Images News, Getty Images Sports, Getty Images Entertainment, Film Magic, Wire Image) 
+will be consistently assigned an EventID. The Event framework may also be used to group similar content, such as 
+"Hats from the Royal Wedding" or "Odd-ballOffbeat images of the week". 
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -530,7 +729,17 @@ gettyimages.Events_GetBatch({}, context)
 * output [GettyImages.Models.Events.EventsResult](#gettyimages.models.events.eventsresult)
 
 ### Events_Get
-Returns an array of event metadata
+This endpoint returns the detailed event metadata for a specified event. Getty Images news, sports and entertainment 
+photographers and videographers cover editorially relevant events occurring around the world.  
+All images or video clips produced in association with an event, are assigned the same EventID. 
+EventIDs are part of the meta-data returned in SearchForImages Results. Only content produced under a Getty Images 
+brand name (Getty Images News, Getty Images Sports, Getty Images Entertainment, Film Magic, Wire Image) will be 
+consistently assigned an EventID. The Event framework may also be used to group similar content, such as 
+"Hats from the Royal Wedding" or "Odd-ballOffbeat images of the week". 
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html)
+page for more information on how to sign up for an API key. 
+
 
 
 ```js
@@ -550,7 +759,110 @@ gettyimages.Events_Get({
 * output [GettyImages.Models.Events.Event](#gettyimages.models.events.event)
 
 ### Images_GetBatch
-Get metadata for multiple images by supplying multiple image ids
+This endpoint returns the detailed image metadata for all specified images. Due to a wide variety of available image resolutions,
+the images are grouped into a handful of size categories for simplicity. 
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) 
+page for more information on how to sign up for an API key. 
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build 
+search response results. The following fields are provided for every image in your result set when you include **summary_set** in your request.
+
+```
+{
+    "images":
+    [
+        "artist",
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "license_model",
+        "max_dimensions",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a 
+detailed view of images. The following fields are provided for every image in your result set when you include **detail_set** in your request.
+
+```
+{
+    "images":
+    [
+        "allowed_use",
+        "artist", 
+        "artist_title", 
+        "asset_family",
+        "call_for_image",
+        "caption", 
+        "city",
+        "collection_code",
+        "collection_id", 
+        "collection_name",
+        "color_type", 
+        "copyright", 
+        "country", 
+        "credit_line", 
+        "date_created", 
+        "date_submitted",
+        "download_sizes", 
+        "editorial_segments",
+        "event_ids",
+        "graphical_style",
+        "license_model",
+        "max_dimensions",
+        "orientation",
+        "prestige",
+        "product_types",
+        "quality_rank",
+        "referral_destinations",
+        "state_province", 
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution
+files that are most frequently used to build a UI displaying search results. The following fields are provided for every image 
+in your result set when you include **display_set** in your request.
+
+```
+{
+    "images":
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -570,7 +882,112 @@ gettyimages.Images_GetBatch({
 * output [GettyImages.Models.Images.ImagesDetail](#gettyimages.models.images.imagesdetail)
 
 ### Images_Get
-Get metadata for a single image by supplying one image id
+This endpoint returns the detailed image metadata for a specified image. Due to a wide variety of available image resolutions, 
+the images are grouped into a handful of size categories for simplicity. 
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) 
+page for more information on how to sign up for an API key. 
+ 
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that
+are often used to build search response results. The following fields are provided for every image in your
+result set when you include **summary_set** in your request.
+
+```
+{
+    "images":
+    [
+        "artist",
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "license_model",
+        "max_dimensions",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are 
+often used to build a detailed view of images. The following fields are provided for every image in your 
+result set when you include **detail_set** in your request.
+
+```
+{
+    "images":
+    [
+        "allowed_use",
+        "artist", 
+        "artist_title", 
+        "asset_family",
+        "call_for_image",
+        "caption", 
+        "city",
+        "collection_code",
+        "collection_id", 
+        "collection_name",
+        "color_type", 
+        "copyright", 
+        "country", 
+        "credit_line", 
+        "date_created", 
+        "date_submitted",
+        "download_sizes", 
+        "editorial_segments",
+        "event_ids",
+        "graphical_style",
+        "license_model",
+        "max_dimensions",
+        "orientation",
+        "prestige",
+        "product_types",
+        "quality_rank",
+        "referral_destinations",
+        "state_province", 
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low
+resolution files that are most frequently used to build a UI displaying search results. The following fields are provided 
+for every image in your result set when you include **display_set** in your request.
+
+```
+{
+    "images":
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -590,7 +1007,113 @@ gettyimages.Images_Get({
 * output [GettyImages.Models.Images.ImagesDetail](#gettyimages.models.images.imagesdetail)
 
 ### Images_GetSimilarImages
-Search for images similar to an image
+This endpoint will search our asset database for images similar to the specified asset id. Due to a wide variety of available 
+image resolutions, the images are grouped into a handful of size categories for simplicity. 
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) 
+page for more information on how to sign up for an API key. 
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build
+search response results. The following fields are provided for every image in your result set when you include **summary_set** in your request.
+
+```
+{
+    "images":
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "display_sizes": 
+        [
+            {
+                "name": "thumb"
+            }
+        ]
+        "license_model",
+        "max_dimensions",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a 
+detailed view of images. The following fields are provided for every image in your result set when you include **detail_set** in your request.
+
+```
+{
+    "images":
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "call_for_image",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "copyright",
+        "date_created",
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "editorial_segments",
+        "event_ids",
+        "graphical_style",
+        "license_model",
+        "max_dimensions",
+        "orientation",
+        "product_types",
+        "quality_rank",
+        "referral_destinations",
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files 
+that are most frequently used to build a UI displaying search results. The following fields are provided for every image in your result
+set when you include **display_set** in your request.
+
+```
+{
+    "images":
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
 
 
 ```js
@@ -612,7 +1135,12 @@ gettyimages.Images_GetSimilarImages({
 * output [GettyImages.Models.Search.SearchResults[GettyImages.Models.Search.ImageSearchItem]](#gettyimages.models.search.searchresults[gettyimages.models.search.imagesearchitem])
 
 ### Products_GetProducts
-Get Products
+This endpoint returns all products available to the username used during authentication. As such, this endpoint requires the use of
+a fully authorized access_token. The product data can then be used as search filters, restricting results to images from a specific product.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html)
+page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -631,7 +1159,13 @@ gettyimages.Products_GetProducts({
 * output [GettyImages.Models.Products.ProductsResult](#gettyimages.models.products.productsresult)
 
 ### Purchases_GetPreviousAssetPurchases
-Get Previously Purchased Images and Video
+This endpoint returns a list of all assets purchased on gettyimages.com by the username used for authentication. 
+Use of this endpoint requires configuration changes to your API key. 
+Please contact [developersupport@gettyimages.com](mailto:developersupport@gettyimages.com) to learn more.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html)
+page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -653,7 +1187,13 @@ gettyimages.Purchases_GetPreviousAssetPurchases({
 * output [GettyImages.Models.Purchases.PreviousAssetPurchases](#gettyimages.models.purchases.previousassetpurchases)
 
 ### Purchases_GetPreviousPurchases
-Get Previously Purchased Images
+This endpoint returns a list of all images purchased on gettyimages.com by the username used for authentication.
+Use of this endpoint requires configuration changes to your API key. Please contact [developersupport@gettyimages.com](mailto:developersupport@gettyimages.com)
+to learn more.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html)
+page for more information on how to sign up for an API key.
+
 
 
 ```js
@@ -675,7 +1215,14 @@ gettyimages.Purchases_GetPreviousPurchases({
 * output [GettyImages.Models.Purchases.PreviousPurchases](#gettyimages.models.purchases.previouspurchases)
 
 ### Search_GetEvents
-Search for events
+Use this endpoint to search Getty Images news, sports and entertainment events. Getty Images photographers and videographers cover editorially relevant events occurring around the world.  All images or video clips produced in association with an event, are assigned the same EventID. EventIDs are part of the meta-data returned in Search Results. Only content produced under a Getty Images brand name (Getty Images News, Getty Images Sports, Getty Images Entertainment, Film Magic, Wire Image) will be consistently assigned an EventID. The Event framework may also be used to group similar content, such as "Hats from the Royal Wedding" or "Odd-ballOffbeat images of the week".   
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+
 
 
 ```js
@@ -698,7 +1245,122 @@ gettyimages.Search_GetEvents({}, context)
 * output [GettyImages.Models.Search.EventsSearchResult](#gettyimages.models.search.eventssearchresult)
 
 ### Search_GetImagesByPhrase
-Search for both creative and editorial images
+Use this endpoint to search over a blend of our contemporary stock photos, illustrations, archival images, editorial photos, illustrations and archival images.  
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+To include your API token in the search request, add it to the headers as a Bearer token (example in curl):
+
+	-H "Authorization: Bearer <your-token>"
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search response results. The following fields are provided for every image in your result set when you include **summary_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "display_sizes": 
+        [
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "max_dimensions",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a detailed view of images. 
+The following fields are provided for every image in your result set when you include **detail_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "call_for_image",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "copyright",
+        "date_created",
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "editorial_segments",
+        "event_ids",
+        "graphical_style",
+        "license_model",
+        "max_dimensions",
+        "orientation",
+        "product_types",
+        "quality_rank",
+        "referral_destinations",
+        "title"
+    ]
+]
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files that are most 
+frequently used to build a UI displaying search results. The following fields are provided for every image in your result set when you include **display_set**
+in your request.
+
+```
+{
+    "images": 
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -731,7 +1393,7 @@ gettyimages.Search_GetImagesByPhrase({}, context)
   * page_size `integer`: Request number of images to return in each page.
   * phrase `string`: Search images using a search phrase.
   * prestige_content_only `boolean`: Restrict search results to prestige images. The default is false.
-  * product_types `array`: Filter images to those having product types from the selected list.
+  * product_types `array`: Filter images to those from one of your product types. 
   * sort_order `string` (values: best_match, most_popular, newest): Select sort order of results.
   * specific_people `array`: Return only images associated with specific people (using a comma-delimited list).
 
@@ -739,7 +1401,116 @@ gettyimages.Search_GetImagesByPhrase({}, context)
 * output [GettyImages.Models.Search.SearchResults[GettyImages.Models.Search.ImageSearchItem]](#gettyimages.models.search.searchresults[gettyimages.models.search.imagesearchitem])
 
 ### Search_GetCreativeImagesByPhrase
-Search for creative images only
+Use this endpoint to search our contemporary stock photos, illustrations and archival images.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) 
+page for more information on how to sign up for an API key. 
+ 
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to 
+build search response results. The following fields are provided for every image in your result set when you include **summary_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "display_sizes": 
+        [
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "max_dimensions",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to 
+build a detailed view of images. The following fields are provided for every image in your result set when you include **detail_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "call_for_image",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "copyright",
+        "date_created",
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "editorial_segments",
+        "event_ids",
+        "graphical_style",
+        "license_model",
+        "max_dimensions",
+        "orientation",
+        "product_types",
+        "quality_rank",
+        "referral_destinations",
+        "title"
+    ]
+]
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution
+files that are most frequently used to build a UI displaying search results. The following fields are provided for every image 
+in your result set when you include **display_set** in your request.
+
+```Go
+{
+    "images": 
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
 
 
 ```js
@@ -771,14 +1542,162 @@ gettyimages.Search_GetCreativeImagesByPhrase({}, context)
   * page_size `integer`: Request number of images to return in each page.
   * phrase `string`: Search images using a search phrase.
   * prestige_content_only `boolean`: Restrict search results to prestige images. The default is false.
-  * product_types `array`: Filter images to those having product types from the selected list.
+  * product_types `array`: Filter images to those from one of your product types. 
   * sort_order `string` (values: best_match, most_popular, newest): Select sort order of results.
 
 #### Output
 * output [GettyImages.Models.Search.CreativeImageSearchResults](#gettyimages.models.search.creativeimagesearchresults)
 
+### Search_GetCreativeImagesByUrl
+Allows searching for similar creative images by passing the URL to an existing image.
+
+Before calling the search by image endpoint, an image must be uploaded to a specific AWS S3 bucket. The bucket name is `search-by-image.s3.amazonaws.com`.
+For example, using cURL:
+```sh
+curl -i -X PUT https://search-by-image.s3.amazonaws.com/my-test-image.jpg -H "Content-Type: image/jpeg" --data-binary "@testimage.jpg"
+```
+
+Uploads can be overwritten if the names are the same, so using a prefix like the API Key, application name or company name would help keep that
+from happening.
+
+Once the image has been uploaded, use the full URL in the `image_url` parameter, e.g. `image_url=https://search-by-image.s3.amazonaws.com/my-test-image.jpg`.
+
+Subsequent searches for the same image can be executed using the `image_fingerprint` that is returned by the inital search.
+
+
+
+```js
+gettyimages.Search_GetCreativeImagesByUrl({}, context)
+```
+
+#### Input
+* input `object`
+  * Accept-Language `string`: Provide a header to specify the language of result values.
+  * Authorization `string`: Provide access token in the format of 'Bearer {token}'.
+  * fields `array`: Specifies fields to return. Defaults to 'summary_set'.
+  * image_fingerprint `string`: Specifies the fingerprint of the image to use in the search.
+  * image_url `string`: Specifies the location of the image to use in the search.
+  * page `integer`: Request results starting at a page number (default is 1).
+  * page_size `integer`: Request number of images to return in each page.
+  * product_types `array`: Filter images to those from one of your product types. 
+
+#### Output
+* output [System.Object](#system.object)
+
 ### Search_GetEditorialImagesByPhrase
-Search for editorial images only
+Use this endpoint to search our editorial stock photos, illustrations and archival images.  Editorial images represent newsworthy events or illustrate matters of general interest, such as news, sport and entertainment and are generally intended for editorial use.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) 
+page for more information on how to sign up for an API key.
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+To include your API token in the search request, add it to the headers as a Bearer token (example in curl):
+
+	-H "Authorization: Bearer <your-token>"
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search response results. The following fields are provided for every image in your result set when you include **summary_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "display_sizes": 
+        [
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "max_dimensions",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a detailed view of images. The following fields are provided for every image in your result set when you include **detail_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "call_for_image",
+        "caption",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "copyright",
+        "date_created",
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "editorial_segments",
+        "event_ids",
+        "graphical_style",
+        "license_model",
+        "max_dimensions",
+        "orientation",
+        "product_types",
+        "quality_rank",
+        "referral_destinations",
+        "title"
+    ]
+]
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files that are most frequently used to build a UI displaying search results. The following fields are provided for every image in your result set when you include **display_set** in your request.
+
+```
+{
+    "images": 
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -812,7 +1731,7 @@ gettyimages.Search_GetEditorialImagesByPhrase({}, context)
   * page `integer`: Request results starting at a page number (default is 1).
   * page_size `integer`: Request number of images to return in each page.
   * phrase `string`: Search images using a search phrase.
-  * product_types `array`: Filter images to those having product types from the selected list.
+  * product_types `array`: Filter images to those from one of your product types. 
   * sort_order `string` (values: best_match, most_popular, newest, oldest): Select sort order of results.
   * specific_people `array`: Return only images associated with specific people (using a comma-delimited list).
   * start_date `string`: Return only images that are created on or after this date. Use ISO 8601 format (e.g., 1999-12-31).
@@ -821,7 +1740,119 @@ gettyimages.Search_GetEditorialImagesByPhrase({}, context)
 * output [GettyImages.Models.Search.EditorialImageSearchResults](#gettyimages.models.search.editorialimagesearchresults)
 
 ### Search_GetVideosByPhrase
-Search for both creative and editorial videos
+Use this endpoint to search over a blend of our premium stock, contemporary 4K and HD footage, celebrities, news, newsmakers, entertainment, events and archival videos.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search response results. The following fields are provided for every video in your result set when you include **summary_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_name",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a detailed view of videos. The following fields are provided for every video in your result set when you include **detail_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "caption",
+        "clip_length",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "color_type",
+        "copyright",
+        "date_created",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "era",
+        "license_model",
+        "mastered_to",
+        "originally_shot_on",
+        "product_types",
+        "shot_speed",
+        "source",
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files that are most frequently used to build a UI displaying search results. The following fields are provided for every video in your result set when you include **display_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -845,7 +1876,7 @@ gettyimages.Search_GetVideosByPhrase({}, context)
   * page `integer`: Identifies page to return. Default is 1.
   * page_size `integer`: Specifies page size. Default is 30, maximum page_size is 100.
   * phrase `string`: Free-text search query.
-  * product_types `array`: Provides filtering by a list of product types.
+  * product_types `array`: Filter images to those from one of your product types. 
   * sort_order `string` (values: best_match, most_popular, newest, oldest): Allows sorting of results.
   * specific_people `array`: Provides filtering by specific peoples' names.
 
@@ -853,7 +1884,121 @@ gettyimages.Search_GetVideosByPhrase({}, context)
 * output [GettyImages.Models.Search.VideoSearchResults[GettyImages.Models.Artists.VideoSearchItem]](#gettyimages.models.search.videosearchresults[gettyimages.models.artists.videosearchitem])
 
 ### Search_GetCreativeVideosByPhrase
-Search for creative videos
+Use this endpoint to search premium stock video, from archival film to contemporary 4K and HD footage.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html)
+page for more information on how to sign up for an API key.
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without
+being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only 
+assets that you have a license to use, you need to also include an authorization token in the header of your request.
+Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens.
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search
+response results. The following fields are provided for every video in your result set when you include **summary_set** in your request.
+
+```
+{
+    "videos": 
+    [
+        "asset_family", 
+        "caption",
+        "collection_code",
+        "collection_name",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a 
+detailed view of videos. The following fields are provided for every video in your result set when you include **detail_set** in your request.
+
+```
+{
+    "videos": 
+    [
+        "allowed_use",
+        "artist",
+        "asset_family", 
+        "caption", 
+        "clip_length",
+        "collection_code",
+        "collection_id",
+        "collection_name", 
+        "color_type",
+        "copyright",
+        "date_created",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "era",
+        "license_model",
+        "mastered_to",
+        "originally_shot_on",
+        "product_types",
+        "shot_speed",
+        "source",
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files 
+that are most frequently used to build a UI displaying search results. The following fields are provided for every video in your result 
+set when you include **display_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
 
 
 ```js
@@ -876,14 +2021,125 @@ gettyimages.Search_GetCreativeVideosByPhrase({}, context)
   * page `integer`: Identifies page to return. Default is 1.
   * page_size `integer`: Specifies page size. Default is 30, maximum page_size is 100.
   * phrase `string`: Free-text search query.
-  * product_types `array`: Allows filtering by a list of product types.
+  * product_types `array`: Filter images to those from one of your product types. 
   * sort_order `string` (values: best_match, most_popular, newest): Allows sorting of results.
 
 #### Output
 * output [GettyImages.Models.Search.CreativeVideoSearchResults](#gettyimages.models.search.creativevideosearchresults)
 
 ### Search_GetEditorialVideosByPhrase
-Search for editorial videos
+Use this endpoint to search current and archival video clips of celebrities, newsmakers, and events.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search response results. The following fields are provided for every video in your result set when you include **summary_set** in your request.
+
+```
+{
+    "videos": 
+    [
+        "asset_family", 
+        "caption",
+        "collection_code",
+        "collection_name",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a detailed view of videos. The following fields are provided for every video in your result set when you include **detail_set** in your request.
+
+```
+{
+    "videos": 
+    [
+        "allowed_use",
+        "artist",
+        "asset_family", 
+        "caption", 
+        "clip_length",
+        "collection_code",
+        "collection_id",
+        "collection_name", 
+        "color_type",
+        "copyright",
+        "date_created",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "era",
+        "license_model",
+        "mastered_to",
+        "originally_shot_on",
+        "product_types",
+        "shot_speed",
+        "source",
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files that are most frequently used to build a UI displaying search results. The following fields are provided for every video in your result set when you include **display_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -907,7 +2163,7 @@ gettyimages.Search_GetEditorialVideosByPhrase({}, context)
   * page `integer`: Identifies page to return. Default is 1.
   * page_size `integer`: Specifies page size. Default is 30, maximum page_size is 100.
   * phrase `string`: Free-text search query.
-  * product_types `array`: Allows filtering by a list of product types.
+  * product_types `array`: Filter images to those from one of your product types. 
   * sort_order `string` (values: best_match, most_popular, newest, oldest): Allows sorting of results.
   * specific_people `array`: Allows filtering by specific peoples' names.
 
@@ -915,7 +2171,18 @@ gettyimages.Search_GetEditorialVideosByPhrase({}, context)
 * output [GettyImages.Models.Search.EditorialVideoSearchResults](#gettyimages.models.search.editorialvideosearchresults)
 
 ### Usage_Put
-Report usage of assets via a batch format.
+# Report Usage
+
+Use this endpoint to report the usages of a set of assets. The count of assets submitted in a single batch to this endpoint is limited to 1000. Note that all asset Ids specified must be valid or the operation will fail causing no usages to be recorded. In this case, you will need to remove the invalid asset Ids from the query request and re-submit the query.
+
+##  Quickstart
+
+You'll need an API key and a [Resource Owner Grant](http://developers.gettyimages.com/en/authorization-faq.html) access token to use this resource.
+Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key. 
+
+
+_Note_: Date of use can be in any unambiguous date format.
+
 
 
 ```js
@@ -936,7 +2203,119 @@ gettyimages.Usage_Put({
 * output [report_usage_batch_response](#report_usage_batch_response)
 
 ### Videos_GetBatch
-Get metadata for multiple videos by supplying multiple video ids
+Use this endpoint to return detailed video metadata for all the specified video ids.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search response results. The following fields are provided for every video in your result set when you include **summary_set** in your request.
+
+```
+{
+    "videos": 
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_name",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a detailed view of videos. The following fields are provided for every video in your result set when you include **detail_set** in your request.
+
+```
+{
+    "videos": 
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "caption",
+        "clip_length",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "color_type",
+        "copyright",
+        "date_created",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "download_sizes",
+        "era",
+        "license_model",
+        "mastered_to",
+        "originally_shot_on",
+        "product_types",
+        "shot_speed",
+        "source",
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files that are most frequently used to build a UI displaying search results. The following fields are provided for every video in your result set when you include **display_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "display_sizes": 
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -956,7 +2335,119 @@ gettyimages.Videos_GetBatch({
 * output [GettyImages.Models.Videos.VideosDetail](#gettyimages.models.videos.videosdetail)
 
 ### Videos_Get
-Get metadata for a single video by supplying one video id
+Use this endpoint to return detailed video metadata for the specified video id.
+
+You'll need an API key and access token to use this resource. Please see our [Getting Started](http://developers.gettyimages.com/en/getting-started.html) page for more information on how to sign up for an API key.
+
+You can show different information in the response by specifying values on the "fields" parameter (see details below).
+You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com site without being logged in (anonymous search).  If you are a Getty Images API customer and would like to ensure that your API searches return only assets that you have a license to use, you need to also include an authorization token in the header of your request.  Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens, and our [Authorization Workflows](https://github.com/gettyimages/gettyimages-api/blob/master/OAuth2Workflow.md) for code examples of getting a token.
+
+## Working with Fields Sets
+
+Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available:
+
+#### Summary Fields Set
+
+The **summary_set** query string parameter fields value represents a small batch of metadata fields that are often used to build search response results. The following fields are provided for every video in your result set when you include **summary_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "asset_family",
+        "caption",
+        "collection_code",
+        "collection_name",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "license_model",
+        "title"
+    ]
+}
+```
+
+#### Detail Fields Set
+
+The **detail_set** query string parameter fields value represents a large batch of metadata fields that are often used to build a detailed view of videos. The following fields are provided for every video in your result set when you include **detail_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "allowed_use",
+        "artist",
+        "asset_family",
+        "caption",
+        "clip_length",
+        "collection_code",
+        "collection_id",
+        "collection_name",
+        "color_type",
+        "copyright",
+        "date_created",
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ],
+        "download_sizes",
+        "era",
+        "license_model",
+        "mastered_to",
+        "originally_shot_on",
+        "product_types",
+        "shot_speed",
+        "source",
+        "title"
+    ]
+}
+```
+
+#### Display Fields Set
+
+The **display_set** query string parameter fields value represents the fields that provide you with URLs for the low resolution files that are most frequently used to build a UI displaying search results. The following fields are provided for every video in your result set when you include **display_set** in your request.
+
+```
+{
+    "videos":
+    [
+        "display_sizes":
+        [
+            {
+                "name": "comp"
+            },
+            {
+                "name": "preview"
+            },
+            {
+                "name": "thumb"
+            }
+        ]
+    ]
+}
+```
+
+## Request Usage Considerations
+
+- Specifying the "entity_details" response field can have significant performance implications. The field should be used only when necessary.
+
 
 
 ```js
@@ -976,7 +2467,7 @@ gettyimages.Videos_Get({
 * output [GettyImages.Models.Videos.VideoDetail](#gettyimages.models.videos.videodetail)
 
 ### Videos_GetSimilarVideos
-***BETA*** Get videos similar to a video by supplying one video id
+Get videos similar to a video by supplying one video id
 
 
 ```js
@@ -1250,6 +2741,7 @@ gettyimages.Videos_GetSimilarVideos({
 ### GettyImages.Models.Downloads.GetDownloadsResponse.Download
 * GettyImages.Models.Downloads.GetDownloadsResponse.Download `object`
   * agreement_name `string`
+  * asset_type `string`
   * date_downloaded `string`
   * download_details [GettyImages.Models.Downloads.GetDownloadsResponse.DownloadDetails](#gettyimages.models.downloads.getdownloadsresponse.downloaddetails)
   * id `string`
@@ -1474,6 +2966,8 @@ gettyimages.Videos_GetSimilarVideos({
   * asset_id `string`
   * asset_type `string`
   * date_purchased `string`
+  * download_uri `string`
+  * file_size_in_bytes `string`
   * license_model `string`
   * order_id `string`
   * size_name `string`

@@ -17,7 +17,7 @@
       "url": "https://github.com/APIs-guru/openapi-directory#licenses"
     },
     "title": "APIs.guru",
-    "version": "2.0",
+    "version": "2.0.1",
     "x-apisguru-categories": [
       "open_data",
       "developer_tools"
@@ -51,13 +51,20 @@
     "url": "https://github.com/APIs-guru/openapi-directory/blob/master/API.md"
   },
   "produces": [
+    "application/json; charset=utf-8",
     "application/json"
   ],
   "security": [],
+  "tags": [
+    {
+      "description": "Actions relating to APIs in the collection",
+      "name": "APIs"
+    }
+  ],
   "paths": {
     "/list.json": {
       "get": {
-        "description": "List all APIs in the directory.\nReturns links to OpenAPI specification for each API in the directory.\nIf API exist in multiply versions `preferred` one is explicitly marked.\n\nSome basic info from OpenAPI spec is cached inside each object.\nThis allows to generate some simple views without need to fetch OpenAPI spec for each API.\n",
+        "description": "List all APIs in the directory.\nReturns links to OpenAPI specification for each API in the directory.\nIf API exist in multiple versions `preferred` one is explicitly marked.\n\nSome basic info from OpenAPI spec is cached inside each object.\nThis allows to generate some simple views without need to fetch OpenAPI spec for each API.\n",
         "operationId": "listAPIs",
         "responses": {
           "200": {
@@ -67,7 +74,10 @@
             }
           }
         },
-        "summary": "List all APIs"
+        "summary": "List all APIs",
+        "tags": [
+          "APIs"
+        ]
       }
     },
     "/metrics.json": {
@@ -82,7 +92,10 @@
             }
           }
         },
-        "summary": "Get basic metrics"
+        "summary": "Get basic metrics",
+        "tags": [
+          "APIs"
+        ]
       }
     }
   },
@@ -187,6 +200,11 @@
           "description": "Timestamp when the version was added",
           "format": "date-time",
           "type": "string"
+        },
+        "externalDocs": {
+          "description": "Copy of `externalDocs` section from Swagger spec",
+          "minProperties": 1,
+          "type": "object"
         },
         "info": {
           "description": "Copy of `info` section from Swagger spec",

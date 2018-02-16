@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<p>Amazon Glacier is a storage solution for \"cold data.\"</p> <p>Amazon Glacier is an extremely low-cost storage service that provides secure, durable, and easy-to-use storage for data backup and archival. With Amazon Glacier, customers can store their data cost effectively for months, years, or decades. Amazon Glacier also enables customers to offload the administrative burdens of operating and scaling storage to AWS, so they don't have to worry about capacity planning, hardware provisioning, data replication, hardware failure and recovery, or time-consuming hardware migrations.</p> <p>Amazon Glacier is a great storage choice when low storage cost is paramount, your data is rarely retrieved, and retrieval latency of several hours is acceptable. If your application requires fast or frequent access to your data, consider using Amazon S3. For more information, see <a href=\"http://aws.amazon.com/s3/\">Amazon Simple Storage Service (Amazon S3)</a>.</p> <p>You can store any kind of data in any format. There is no maximum limit on the total amount of data you can store in Amazon Glacier.</p> <p>If you are a first-time user of Amazon Glacier, we recommend that you begin by reading the following sections in the <i>Amazon Glacier Developer Guide</i>:</p> <ul> <li> <p> <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html\">What is Amazon Glacier</a> - This section of the Developer Guide describes the underlying data model, the operations it supports, and the AWS SDKs that you can use to interact with the service.</p> </li> <li> <p> <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html\">Getting Started with Amazon Glacier</a> - The Getting Started section walks you through the process of creating a vault, uploading archives, creating jobs to download archives, retrieving the job output, and deleting archives.</p> </li> </ul>",
     "license": {
@@ -133,6 +134,52 @@
   },
   "paths": {
     "/{accountId}/policies/data-retrieval": {
+      "get": {
+        "description": "This operation returns the current data retrieval policy for the account and region specified in the GET request. For more information about data retrieval policies, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html\">Amazon Glacier Data Retrieval Policies</a>.",
+        "operationId": "GetDataRetrievalPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDataRetrievalPolicyInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDataRetrievalPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "481": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -207,6 +254,52 @@
       }
     },
     "/{accountId}/provisioned-capacity": {
+      "get": {
+        "description": "This operation lists the provisioned capacity units for the specified AWS account.",
+        "operationId": "ListProvisionedCapacity",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListProvisionedCapacityInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProvisionedCapacityOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "481": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -237,7 +330,7 @@
         }
       ],
       "post": {
-        "description": "This operation purchases a provisioned capacity unit for an AWS account.",
+        "description": "This operation purchases a provisioned capacity unit for an AWS account. ",
         "operationId": "PurchaseProvisionedCapacity",
         "parameters": [
           {
@@ -387,6 +480,61 @@
       ]
     },
     "/{accountId}/vaults/{vaultName}": {
+      "delete": {
+        "description": "<p>This operation deletes a vault. Amazon Glacier will delete a vault only if there are no archives in the vault as of the last inventory and there have been no writes to the vault since the last inventory. If either of these conditions is not satisfied, the vault deletion fails (that is, the vault is not removed) and Amazon Glacier returns an error. You can use <a>DescribeVault</a> to return the number of archives in a vault, and you can use <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html\">Initiate a Job (POST jobs)</a> to initiate a new inventory retrieval for a vault. The inventory contains the archive IDs you use to delete archives using <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html\">Delete Archive (DELETE archive)</a>.</p> <p>This operation is idempotent.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html\">Deleting a Vault in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html\">Delete Vault </a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
+        "operationId": "DeleteVault",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVaultInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "<p>This operation returns information about a vault, including the vault's Amazon Resource Name (ARN), the date the vault was created, the number of archives it contains, and the total size of all the archives in the vault. The number of archives and their total size are as of the last inventory generation. This means that if you add or remove an archive from a vault, and then immediately use Describe Vault, the change in contents will not be immediately reflected. If you want to retrieve the latest inventory of the vault, use <a>InitiateJob</a>. Amazon Glacier generates vault inventories approximately daily. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html\">Downloading a Vault Inventory in Amazon Glacier</a>. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html\">Retrieving Vault Metadata in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html\">Describe Vault </a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
         "operationId": "DescribeVault",
@@ -509,9 +657,180 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "<p>This operation creates a new vault with the specified name. The name of the vault must be unique within a region for an AWS account. You can create up to 1,000 vaults per account. If you need to create more vaults, contact Amazon Glacier.</p> <p>You must use the following guidelines when naming a vault.</p> <ul> <li> <p>Names can be between 1 and 255 characters long.</p> </li> <li> <p>Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).</p> </li> </ul> <p>This operation is idempotent.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html\">Creating a Vault in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html\">Create Vault </a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
+        "operationId": "CreateVault",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateVaultInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateVaultOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "481": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
     },
     "/{accountId}/vaults/{vaultName}/access-policy": {
+      "delete": {
+        "description": "<p>This operation deletes the access policy associated with the specified vault. The operation is eventually consistent; that is, it might take some time for Amazon Glacier to completely remove the access policy, and you might still see the effect of the policy for a short time after you send the delete request.</p> <p>This operation is idempotent. You can invoke delete multiple times, even if there is no policy associated with the vault. For more information about vault access policies, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html\">Amazon Glacier Access Control with Vault Access Policies</a>. </p>",
+        "operationId": "DeleteVaultAccessPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVaultAccessPolicyInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "This operation retrieves the <code>access-policy</code> subresource set on the vault; for more information on setting this subresource, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html\">Set Vault Access Policy (PUT access-policy)</a>. If there is no access policy set on the vault, the operation returns a <code>404 Not found</code> error. For more information about vault access policies, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html\">Amazon Glacier Access Control with Vault Access Policies</a>.",
+        "operationId": "GetVaultAccessPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetVaultAccessPolicyInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetVaultAccessPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -786,7 +1105,7 @@
     },
     "/{accountId}/vaults/{vaultName}/jobs": {
       "get": {
-        "description": "<p>This operation lists jobs for a vault, including jobs that are in-progress and jobs that have recently finished.</p> <note> <p>Amazon Glacier retains recently completed jobs for a period before deleting them; however, it eventually removes completed jobs. The output of completed jobs can be retrieved. Retaining completed jobs for a period of time after they have completed enables you to get a job output in the event you miss the job completion notification or your first attempt to download it fails. For example, suppose you start an archive retrieval job to download an archive. After the job completes, you start to download the archive but encounter a network error. In this scenario, you can retry and download the archive while the job exists.</p> </note> <p>To retrieve an archive or retrieve a vault inventory from Amazon Glacier, you first initiate a job, and after the job completes, you download the data. For an archive retrieval, the output is the archive data. For an inventory retrieval, it is the inventory list. The List Job operation returns a list of these jobs sorted by job initiation time.</p> <p>The List Jobs operation supports pagination. You should always check the response <code>Marker</code> field. If there are no more jobs to list, the <code>Marker</code> field is set to <code>null</code>. If there are more jobs to list, the <code>Marker</code> field is set to a non-null value, which you can use to continue the pagination of the list. To return a list of jobs that begins at a specific job, set the marker request parameter to the <code>Marker</code> value for that job that you obtained from a previous List Jobs request.</p> <p>You can set a maximum limit for the number of jobs returned in the response by specifying the <code>limit</code> parameter in the request. The default limit is 1000. The number of jobs returned might be fewer than the limit, but the number of returned jobs never exceeds the limit.</p> <p>Additionally, you can filter the jobs list returned by specifying the optional <code>statuscode</code> parameter or <code>completed</code> parameter, or both. Using the <code>statuscode</code> parameter, you can specify to return only jobs that match either the <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code> status. Using the <code>completed</code> parameter, you can specify to return only jobs that were completed (<code>true</code>) or jobs that were not completed (<code>false</code>).</p> <p>For the underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html\">List Jobs</a>. </p>",
+        "description": "<p>This operation lists jobs for a vault, including jobs that are in-progress and jobs that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation time.</p> <note> <p>Amazon Glacier retains recently completed jobs for a period before deleting them; however, it eventually removes completed jobs. The output of completed jobs can be retrieved. Retaining completed jobs for a period of time after they have completed enables you to get a job output in the event you miss the job completion notification or your first attempt to download it fails. For example, suppose you start an archive retrieval job to download an archive. After the job completes, you start to download the archive but encounter a network error. In this scenario, you can retry and download the archive while the job exists.</p> </note> <p>The List Jobs operation supports pagination. You should always check the response <code>Marker</code> field. If there are no more jobs to list, the <code>Marker</code> field is set to <code>null</code>. If there are more jobs to list, the <code>Marker</code> field is set to a non-null value, which you can use to continue the pagination of the list. To return a list of jobs that begins at a specific job, set the marker request parameter to the <code>Marker</code> value for that job that you obtained from a previous List Jobs request.</p> <p>You can set a maximum limit for the number of jobs returned in the response by specifying the <code>limit</code> parameter in the request. The default limit is 1000. The number of jobs returned might be fewer than the limit, but the number of returned jobs never exceeds the limit.</p> <p>Additionally, you can filter the jobs list returned by specifying the optional <code>statuscode</code> parameter or <code>completed</code> parameter, or both. Using the <code>statuscode</code> parameter, you can specify to return only jobs that match either the <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code> status. Using the <code>completed</code> parameter, you can specify to return only jobs that were completed (<code>true</code>) or jobs that were not completed (<code>false</code>).</p> <p>For more information about using this operation, see the documentation for the underlying REST API <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html\">List Jobs</a>. </p>",
         "operationId": "ListJobs",
         "parameters": [
           {
@@ -885,11 +1204,81 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "This operation initiates a job of the specified type, which can be a select, an archival retrieval, or a vault retrieval. For more information about using this operation, see the documentation for the underlying REST API <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html\">Initiate a Job</a>. ",
+        "operationId": "InitiateJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InitiateJobInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InitiateJobOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "PolicyEnforcedException",
+            "schema": {
+              "$ref": "#/definitions/PolicyEnforcedException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "484": {
+            "description": "InsufficientCapacityException",
+            "schema": {
+              "$ref": "#/definitions/InsufficientCapacityException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     },
     "/{accountId}/vaults/{vaultName}/jobs/{jobId}": {
       "get": {
-        "description": "<p>This operation returns information about a job you previously initiated, including the job initiation date, the user who initiated the job, the job status code/message and the Amazon SNS topic to notify after Amazon Glacier completes the job. For more information about initiating a job, see <a>InitiateJob</a>. </p> <note> <p>This operation enables you to check the status of your job. However, it is strongly recommended that you set up an Amazon SNS topic and specify it in your initiate job request so that Amazon Glacier can notify the topic after it completes the job.</p> </note> <p>A job ID will not expire for at least 24 hours after Amazon Glacier completes the job.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For information about the underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html\">Working with Archives in Amazon Glacier</a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
+        "description": "<p>This operation returns information about a job you previously initiated, including the job initiation date, the user who initiated the job, the job status code/message and the Amazon SNS topic to notify after Amazon Glacier completes the job. For more information about initiating a job, see <a>InitiateJob</a>. </p> <note> <p>This operation enables you to check the status of your job. However, it is strongly recommended that you set up an Amazon SNS topic and specify it in your initiate job request so that Amazon Glacier can notify the topic after it completes the job.</p> </note> <p>A job ID will not expire for at least 24 hours after Amazon Glacier completes the job.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For more information about using this operation, see the documentation for the underlying REST API <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html\">Describe Job</a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
         "operationId": "DescribeJob",
         "parameters": [
           {
@@ -1078,6 +1467,119 @@
       ]
     },
     "/{accountId}/vaults/{vaultName}/lock-policy": {
+      "delete": {
+        "description": "<p>This operation aborts the vault locking process if the vault lock is not in the <code>Locked</code> state. If the vault lock is in the <code>Locked</code> state when this operation is requested, the operation returns an <code>AccessDeniedException</code> error. Aborting the vault locking process removes the vault lock policy from the specified vault. </p> <p>A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. A vault lock is put into the <code>Locked</code> state by calling <a>CompleteVaultLock</a>. You can get the state of a vault lock by calling <a>GetVaultLock</a>. For more information about the vault locking process, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html\">Amazon Glacier Vault Lock</a>. For more information about vault lock policies, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html\">Amazon Glacier Access Control with Vault Lock Policies</a>. </p> <p>This operation is idempotent. You can successfully invoke this operation multiple times, if the vault lock is in the <code>InProgress</code> state or if there is no policy associated with the vault.</p>",
+        "operationId": "AbortVaultLock",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AbortVaultLockInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "<p>This operation retrieves the following attributes from the <code>lock-policy</code> subresource set on the specified vault: </p> <ul> <li> <p>The vault lock policy set on the vault.</p> </li> <li> <p>The state of the vault lock, which is either <code>InProgess</code> or <code>Locked</code>.</p> </li> <li> <p>When the lock ID expires. The lock ID is used to complete the vault locking process.</p> </li> <li> <p>When the vault lock was initiated and put into the <code>InProgress</code> state.</p> </li> </ul> <p>A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. A vault lock is put into the <code>Locked</code> state by calling <a>CompleteVaultLock</a>. You can abort the vault locking process by calling <a>AbortVaultLock</a>. For more information about the vault locking process, <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html\">Amazon Glacier Vault Lock</a>. </p> <p>If there is no vault lock policy set on the vault, the operation returns a <code>404 Not found</code> error. For more information about vault lock policies, <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html\">Amazon Glacier Access Control with Vault Lock Policies</a>. </p>",
+        "operationId": "GetVaultLock",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetVaultLockInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetVaultLockOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1359,9 +1861,206 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>This operation initiates a multipart upload. Amazon Glacier creates a multipart upload resource and returns its ID in the response. The multipart upload ID is used in subsequent requests to upload parts of an archive (see <a>UploadMultipartPart</a>).</p> <p>When you initiate a multipart upload, you specify the part size in number of bytes. The part size must be a megabyte (1024 KB) multiplied by a power of 2-for example, 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB.</p> <p>Every part you upload to this resource (see <a>UploadMultipartPart</a>), except the last one, must have the same size. The last one can be the same size or smaller. For example, suppose you want to upload a 16.2 MB file. If you initiate the multipart upload with a part size of 4 MB, you will upload four parts of 4 MB each and one part of 0.2 MB. </p> <note> <p>You don't need to know the size of the archive when you start a multipart upload because Amazon Glacier does not require you to specify the overall archive size.</p> </note> <p>After you complete the multipart upload, Amazon Glacier removes the multipart upload resource referenced by the ID. Amazon Glacier also removes the multipart upload resource if you cancel the multipart upload or it may be removed if there is no activity for a period of 24 hours.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html\">Uploading Large Archives in Parts (Multipart Upload)</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html\">Initiate Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>.</p>",
+        "operationId": "InitiateMultipartUpload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InitiateMultipartUploadInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InitiateMultipartUploadOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     },
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}": {
+      "delete": {
+        "description": "<p>This operation aborts a multipart upload identified by the upload ID.</p> <p>After the Abort Multipart Upload request succeeds, you cannot upload any more parts to the multipart upload or complete the multipart upload. Aborting a completed upload fails. However, aborting an already-aborted upload will succeed, for a short time. For more information about uploading a part and completing a multipart upload, see <a>UploadMultipartPart</a> and <a>CompleteMultipartUpload</a>.</p> <p>This operation is idempotent.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html\">Working with Archives in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html\">Abort Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
+        "operationId": "AbortMultipartUpload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AbortMultipartUploadInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "uploadId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "<p>This operation lists the parts of an archive that have been uploaded in a specific multipart upload. You can make this request at any time during an in-progress multipart upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List Parts returns an error for completed uploads. The list returned in the List Parts response is sorted by part range. </p> <p>The List Parts operation supports pagination. By default, this operation returns up to 1,000 uploaded parts in the response. You should always check the response for a <code>marker</code> at which to continue the list; if there are no more items the <code>marker</code> is <code>null</code>. To return a list of parts that begins at a specific part, set the <code>marker</code> request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the <code>limit</code> parameter in the request. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and the underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html\">Working with Archives in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html\">List Parts</a> in the <i>Amazon Glacier Developer Guide</i>.</p>",
+        "operationId": "ListParts",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPartsInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "marker",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "uploadId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPartsOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1391,6 +2090,70 @@
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
       ],
+      "post": {
+        "description": "<p>You call this operation to inform Amazon Glacier that all the archive parts have been uploaded and that Amazon Glacier can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Amazon Glacier returns the URI path of the newly created archive resource. Using the URI path, you can then access the archive. After you upload an archive, you should save the archive ID returned to retrieve the archive at a later point. You can also get the vault inventory to obtain a list of archive IDs in a vault. For more information, see <a>InitiateJob</a>.</p> <p>In the request, you must include the computed SHA256 tree hash of the entire archive you have uploaded. For information about computing a SHA256 tree hash, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html\">Computing Checksums</a>. On the server side, Amazon Glacier also constructs the SHA256 tree hash of the assembled archive. If the values match, Amazon Glacier saves the archive to the vault; otherwise, it returns an error, and the operation fails. The <a>ListParts</a> operation returns a list of parts uploaded for a specific multipart upload. It includes checksum information for each uploaded part that can be used to debug a bad checksum issue.</p> <p>Additionally, Amazon Glacier also checks for any missing content ranges when assembling the archive, if missing content ranges are found, Amazon Glacier returns an error and the operation fails.</p> <p>Complete Multipart Upload is an idempotent operation. After your first successful complete multipart upload, if you call the operation again within a short period, the operation will succeed and return the same archive ID. This is useful in the event you experience a network issue that causes an aborted connection or receive a 500 server error, in which case you can repeat your Complete Multipart Upload request and get the same archive ID without creating duplicate archives. Note, however, that after the multipart upload completes, you cannot call the List Parts operation and the multipart upload will not appear in List Multipart Uploads response, even if idempotent complete is possible.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html\">Uploading Large Archives in Parts (Multipart Upload)</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html\">Complete Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
+        "operationId": "CompleteMultipartUpload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CompleteMultipartUploadInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "uploadId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ArchiveCreationOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "put": {
         "description": "<p>This operation uploads a part of an archive. You can upload archive parts in any order. You can also upload them in parallel. You can upload up to 10,000 parts for a multipart upload.</p> <p>Amazon Glacier rejects your upload part request if any of the following conditions is true:</p> <ul> <li> <p> <b>SHA256 tree hash does not match</b>To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don't match, the operation fails. For information about computing a SHA256 tree hash, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html\">Computing Checksums</a>.</p> </li> <li> <p> <b>Part size does not match</b>The size of each part except the last must match the size specified in the corresponding <a>InitiateMultipartUpload</a> request. The size of the last part must be the same size as, or smaller than, the specified size.</p> <note> <p>If you upload a part whose size is smaller than the part size you specified in your initiate multipart upload request and that part is not the last part, then the upload part request will succeed. However, the subsequent Complete Multipart Upload request will fail.</p> </note> </li> <li> <p> <b>Range does not align</b>The byte range value in the request does not align with the part size specified in the corresponding initiate request. For example, if you specify a part size of 4194304 bytes (4 MB), then 0 to 4194303 bytes (4 MB - 1) and 4194304 (4 MB) to 8388607 (8 MB - 1) are valid part ranges. However, if you set a range value of 2 MB to 6 MB, the range does not align with the part size and the upload will fail. </p> </li> </ul> <p>This operation is idempotent. If you upload the same part multiple times, the data included in the most recent request overwrites the previously uploaded data.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html\">Uploading Large Archives in Parts (Multipart Upload)</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html\">Upload Part </a> in the <i>Amazon Glacier Developer Guide</i>.</p>",
         "operationId": "UploadMultipartPart",
@@ -1463,6 +2226,119 @@
       }
     },
     "/{accountId}/vaults/{vaultName}/notification-configuration": {
+      "delete": {
+        "description": "<p>This operation deletes the notification configuration set for a vault. The operation is eventually consistent; that is, it might take some time for Amazon Glacier to completely disable the notifications and you might still receive some notifications for a short time after you send the delete request.</p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p> For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html\">Delete Vault Notification Configuration </a> in the Amazon Glacier Developer Guide. </p>",
+        "operationId": "DeleteVaultNotifications",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVaultNotificationsInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "<p>This operation retrieves the <code>notification-configuration</code> subresource of the specified vault.</p> <p>For information about setting a notification configuration on a vault, see <a>SetVaultNotifications</a>. If a notification configuration for a vault is not set, the operation returns a <code>404 Not Found</code> error. For more information about vault notifications, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a>. </p> <p>An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html\">Access Control Using AWS Identity and Access Management (IAM)</a>.</p> <p>For conceptual information and underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html\">Configuring Vault Notifications in Amazon Glacier</a> and <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html\">Get Vault Notification Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>",
+        "operationId": "GetVaultNotifications",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetVaultNotificationsInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "vaultName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetVaultNotificationsOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "MissingParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/MissingParameterValueException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1836,10 +2712,17 @@
       "properties": {},
       "type": "object"
     },
+    "AccessControlPolicyList": {
+      "items": {
+        "$ref": "#/definitions/Grant"
+      },
+      "type": "array"
+    },
     "ActionCode": {
       "enum": [
         "ArchiveRetrieval",
-        "InventoryRetrieval"
+        "InventoryRetrieval",
+        "Select"
       ],
       "type": "string"
     },
@@ -1870,6 +2753,74 @@
       },
       "properties": {},
       "type": "object"
+    },
+    "CSVInput": {
+      "description": "Contains information about the comma-separated value (CSV) file to select from.",
+      "properties": {
+        "Comments": {
+          "$ref": "#/definitions/string",
+          "description": "A single character used to indicate that a row should be ignored when the character is present at the start of that row."
+        },
+        "FieldDelimiter": {
+          "$ref": "#/definitions/string",
+          "description": "A value used to separate individual fields from each other within a record."
+        },
+        "FileHeaderInfo": {
+          "$ref": "#/definitions/FileHeaderInfo",
+          "description": "Describes the first line of input. Valid values are <code>None</code>, <code>Ignore</code>, and <code>Use</code>."
+        },
+        "QuoteCharacter": {
+          "$ref": "#/definitions/string",
+          "description": "A value used as an escape character where the field delimiter is part of the value."
+        },
+        "QuoteEscapeCharacter": {
+          "$ref": "#/definitions/string",
+          "description": "A single character used for escaping the quotation-mark character inside an already escaped value."
+        },
+        "RecordDelimiter": {
+          "$ref": "#/definitions/string",
+          "description": "A value used to separate individual records from each other."
+        }
+      },
+      "type": "object"
+    },
+    "CSVOutput": {
+      "description": "Contains information about the comma-separated value (CSV) file that the job results are stored in.",
+      "properties": {
+        "FieldDelimiter": {
+          "$ref": "#/definitions/string",
+          "description": "A value used to separate individual fields from each other within a record."
+        },
+        "QuoteCharacter": {
+          "$ref": "#/definitions/string",
+          "description": "A value used as an escape character where the field delimiter is part of the value."
+        },
+        "QuoteEscapeCharacter": {
+          "$ref": "#/definitions/string",
+          "description": "A single character used for escaping the quotation-mark character inside an already escaped value."
+        },
+        "QuoteFields": {
+          "$ref": "#/definitions/QuoteFields",
+          "description": "A value that indicates whether all output fields should be contained within quotation marks."
+        },
+        "RecordDelimiter": {
+          "$ref": "#/definitions/string",
+          "description": "A value used to separate individual records from each other."
+        }
+      },
+      "type": "object"
+    },
+    "CannedACL": {
+      "enum": [
+        "private",
+        "public-read",
+        "public-read-write",
+        "aws-exec-read",
+        "authenticated-read",
+        "bucket-owner-read",
+        "bucket-owner-full-control"
+      ],
+      "type": "string"
     },
     "CompleteMultipartUploadInput": {
       "description": "Provides options to complete a multipart upload operation. This informs Amazon Glacier that all the archive parts have been uploaded and Amazon Glacier can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Amazon Glacier returns the URI path of the newly created archive resource.",
@@ -2036,6 +2987,45 @@
       },
       "type": "object"
     },
+    "Encryption": {
+      "description": "Contains information about the encryption used to store the job results in Amazon S3. ",
+      "properties": {
+        "EncryptionType": {
+          "$ref": "#/definitions/EncryptionType",
+          "description": "The server-side encryption algorithm used when storing job results in Amazon S3, for example <code>AES256</code> or <code>aws:kms</code>."
+        },
+        "KMSContext": {
+          "$ref": "#/definitions/string",
+          "description": "Optional. If the encryption type is <code>aws:kms</code>, you can use this value to specify the encryption context for the job results."
+        },
+        "KMSKeyId": {
+          "$ref": "#/definitions/string",
+          "description": "The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4. "
+        }
+      },
+      "type": "object"
+    },
+    "EncryptionType": {
+      "enum": [
+        "aws:kms",
+        "AES256"
+      ],
+      "type": "string"
+    },
+    "ExpressionType": {
+      "enum": [
+        "SQL"
+      ],
+      "type": "string"
+    },
+    "FileHeaderInfo": {
+      "enum": [
+        "USE",
+        "IGNORE",
+        "NONE"
+      ],
+      "type": "string"
+    },
     "GetDataRetrievalPolicyInput": {
       "description": "Input for GetDataRetrievalPolicy.",
       "example": {
@@ -2181,7 +3171,7 @@
       "type": "object"
     },
     "GlacierJobDescription": {
-      "description": "Describes an Amazon Glacier job.",
+      "description": "Contains the description of an Amazon Glacier job.",
       "example": {
         "Action": "InventoryRetrieval",
         "Completed": false,
@@ -2196,31 +3186,31 @@
       "properties": {
         "Action": {
           "$ref": "#/definitions/ActionCode",
-          "description": "The job type. It is either ArchiveRetrieval or InventoryRetrieval."
+          "description": "The job type. This value is either <code>ArchiveRetrieval</code>, <code>InventoryRetrieval</code>, or <code>Select</code>. "
         },
         "ArchiveId": {
           "$ref": "#/definitions/string",
-          "description": "For an ArchiveRetrieval job, this is the archive ID requested for download. Otherwise, this field is null."
+          "description": "The archive ID requested for a select job or archive retrieval. Otherwise, this field is null."
         },
         "ArchiveSHA256TreeHash": {
           "$ref": "#/definitions/string",
-          "description": "The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval jobs, this field is null."
+          "description": "The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null."
         },
         "ArchiveSizeInBytes": {
           "$ref": "#/definitions/Size",
-          "description": "For an ArchiveRetrieval job, this is the size in bytes of the archive being requested for download. For the InventoryRetrieval job, the value is null."
+          "description": "For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null."
         },
         "Completed": {
           "$ref": "#/definitions/boolean",
-          "description": "The job status. When a job is completed, you get the job's output."
+          "description": "The job status. When a job is completed, you get the job's output using Get Job Output (GET output)."
         },
         "CompletionDate": {
           "$ref": "#/definitions/string",
-          "description": "The UTC time that the archive retrieval request completed. While the job is in progress, the value will be null."
+          "description": "The UTC time that the job request completed. While the job is in progress, the value is null."
         },
         "CreationDate": {
           "$ref": "#/definitions/string",
-          "description": "The UTC date when the job was created. A string representation of ISO 8601 date format, for example, \"2012-03-20T17:03:43.221Z\"."
+          "description": "The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example <code>\"2012-03-20T17:03:43.221Z\"</code>."
         },
         "InventoryRetrievalParameters": {
           "$ref": "#/definitions/InventoryRetrievalJobDescription",
@@ -2228,31 +3218,43 @@
         },
         "InventorySizeInBytes": {
           "$ref": "#/definitions/Size",
-          "description": "For an InventoryRetrieval job, this is the size in bytes of the inventory requested for download. For the ArchiveRetrieval job, the value is null."
+          "description": "For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null."
         },
         "JobDescription": {
           "$ref": "#/definitions/string",
-          "description": "The job description you provided when you initiated the job."
+          "description": "The job description provided when initiating the job."
         },
         "JobId": {
           "$ref": "#/definitions/string",
           "description": "An opaque string that identifies an Amazon Glacier job."
         },
+        "JobOutputPath": {
+          "$ref": "#/definitions/string",
+          "description": "Contains the job output location."
+        },
+        "OutputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Contains the location where the data from the select job is stored."
+        },
         "RetrievalByteRange": {
           "$ref": "#/definitions/string",
-          "description": "The retrieved byte range for archive retrieval jobs in the form \"<i>StartByteValue</i>-<i>EndByteValue</i>\" If no range was specified in the archive retrieval, then the whole archive is retrieved and <i>StartByteValue</i> equals 0 and <i>EndByteValue</i> equals the size of the archive minus 1. For inventory retrieval jobs this field is null. "
+          "description": "The retrieved byte range for archive retrieval jobs in the form <i>StartByteValue</i>-<i>EndByteValue</i>. If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i> equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null. "
         },
         "SHA256TreeHash": {
           "$ref": "#/definitions/string",
-          "description": "<p>For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null.</p> <p>The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value.</p> <p>For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.</p> <p>This field is null in the following situations:</p> <ul> <li> <p>Archive retrieval jobs that specify a range that is not tree-hash aligned.</p> </li> </ul> <ul> <li> <p>Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.</p> </li> </ul> <ul> <li> <p>Inventory jobs.</p> </li> </ul>"
+          "description": "<p>For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null.</p> <p>The SHA256 tree hash value for the requested range of an archive. If the <b>InitiateJob</b> request for an archive specified a tree-hash aligned range, then this field returns a value.</p> <p>If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.</p> <p>This field is null for the following:</p> <ul> <li> <p>Archive retrieval jobs that specify a range that is not tree-hash aligned</p> </li> </ul> <ul> <li> <p>Archival jobs that specify a range that is equal to the whole archive, when the job status is <code>InProgress</code> </p> </li> </ul> <ul> <li> <p>Inventory jobs</p> </li> <li> <p>Select jobs</p> </li> </ul>"
         },
         "SNSTopic": {
           "$ref": "#/definitions/string",
-          "description": "An Amazon Simple Notification Service (Amazon SNS) topic that receives notification."
+          "description": "An Amazon SNS topic that receives notification."
+        },
+        "SelectParameters": {
+          "$ref": "#/definitions/SelectParameters",
+          "description": "Contains the parameters used for a select."
         },
         "StatusCode": {
           "$ref": "#/definitions/StatusCode",
-          "description": "The status code can be InProgress, Succeeded, or Failed, and indicates the status of the job."
+          "description": "The status code can be <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code>, and indicates the status of the job."
         },
         "StatusMessage": {
           "$ref": "#/definitions/string",
@@ -2260,13 +3262,56 @@
         },
         "Tier": {
           "$ref": "#/definitions/string",
-          "description": "The retrieval option to use for the archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default."
+          "description": "The tier to use for a select or an archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default."
         },
         "VaultARN": {
           "$ref": "#/definitions/string",
-          "description": "The Amazon Resource Name (ARN) of the vault from which the archive retrieval was requested."
+          "description": "The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested."
         }
       },
+      "type": "object"
+    },
+    "Grant": {
+      "description": "Contains information about a grant.",
+      "properties": {
+        "Grantee": {
+          "$ref": "#/definitions/Grantee",
+          "description": "The grantee."
+        },
+        "Permission": {
+          "$ref": "#/definitions/Permission",
+          "description": "Specifies the permission given to the grantee. "
+        }
+      },
+      "type": "object"
+    },
+    "Grantee": {
+      "description": "Contains information about the grantee.",
+      "properties": {
+        "DisplayName": {
+          "$ref": "#/definitions/string",
+          "description": "Screen name of the grantee."
+        },
+        "EmailAddress": {
+          "$ref": "#/definitions/string",
+          "description": "Email address of the grantee."
+        },
+        "ID": {
+          "$ref": "#/definitions/string",
+          "description": "The canonical user ID of the grantee."
+        },
+        "Type": {
+          "$ref": "#/definitions/Type",
+          "description": "Type of grantee"
+        },
+        "URI": {
+          "$ref": "#/definitions/string",
+          "description": "URI of the grantee group."
+        }
+      },
+      "required": [
+        "Type"
+      ],
       "type": "object"
     },
     "InitiateJobInput": {
@@ -2340,6 +3385,16 @@
         "lockId": "AE863rKkWZU53SLW5be4DUcW"
       },
       "properties": {},
+      "type": "object"
+    },
+    "InputSerialization": {
+      "description": "Describes how the archive is serialized.",
+      "properties": {
+        "csv": {
+          "$ref": "#/definitions/CSVInput",
+          "description": "Describes the serialization of a CSV-encoded object."
+        }
+      },
       "type": "object"
     },
     "InsufficientCapacityException": {
@@ -2434,7 +3489,7 @@
       "properties": {
         "ArchiveId": {
           "$ref": "#/definitions/string",
-          "description": "The ID of the archive that you want to retrieve. This field is required only if <code>Type</code> is set to archive-retrieval. An error occurs if you specify this request parameter for an inventory retrieval job request. "
+          "description": "The ID of the archive that you want to retrieve. This field is required only if <code>Type</code> is set to <code>select</code> or <code>archive-retrieval</code>code&gt;. An error occurs if you specify this request parameter for an inventory retrieval job request. "
         },
         "Description": {
           "$ref": "#/definitions/string",
@@ -2448,6 +3503,10 @@
           "$ref": "#/definitions/InventoryRetrievalJobInput",
           "description": "Input parameters used for range inventory retrieval."
         },
+        "OutputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Contains information about the location where the select job results are stored."
+        },
         "RetrievalByteRange": {
           "$ref": "#/definitions/string",
           "description": "<p>The byte range to retrieve for an archive retrieval. in the form \"<i>StartByteValue</i>-<i>EndByteValue</i>\" If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that <i>StartByteValue</i> must be divisible by 1 MB and <i>EndByteValue</i> plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response. </p> <p>An error occurs if you specify this field for an inventory retrieval job request.</p>"
@@ -2456,13 +3515,17 @@
           "$ref": "#/definitions/string",
           "description": "The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the job is completed and the output is ready for you to download. The specified topic publishes the notification to its subscribers. The SNS topic must exist."
         },
+        "SelectParameters": {
+          "$ref": "#/definitions/SelectParameters",
+          "description": "Contains the parameters that define a job."
+        },
         "Tier": {
           "$ref": "#/definitions/string",
-          "description": "The retrieval option to use for the archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default."
+          "description": "The tier to use for a select or an archive retrieval job. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default."
         },
         "Type": {
           "$ref": "#/definitions/string",
-          "description": "The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are \"archive-retrieval\" and \"inventory-retrieval\"."
+          "description": "The job type. You can initiate a job to perform a select query on an archive, retrieve an archive, or get an inventory of a vault. Valid values are \"select\", \"archive-retrieval\" and \"inventory-retrieval\"."
         }
       },
       "type": "object"
@@ -2767,6 +3830,26 @@
     "NullableLong": {
       "type": "integer"
     },
+    "OutputLocation": {
+      "description": "Contains information about the location where the select job results are stored.",
+      "properties": {
+        "S3": {
+          "$ref": "#/definitions/S3Location",
+          "description": "Describes an S3 location that will receive the results of the job request."
+        }
+      },
+      "type": "object"
+    },
+    "OutputSerialization": {
+      "description": "Describes how the select output is serialized.",
+      "properties": {
+        "csv": {
+          "$ref": "#/definitions/CSVOutput",
+          "description": "Describes the serialization of CSV-encoded query results."
+        }
+      },
+      "type": "object"
+    },
     "PartList": {
       "items": {
         "$ref": "#/definitions/PartListElement"
@@ -2786,6 +3869,16 @@
         }
       },
       "type": "object"
+    },
+    "Permission": {
+      "enum": [
+        "FULL_CONTROL",
+        "WRITE",
+        "WRITE_ACP",
+        "READ",
+        "READ_ACP"
+      ],
+      "type": "string"
     },
     "PolicyEnforcedException": {
       "description": "Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,",
@@ -2843,6 +3936,13 @@
       "properties": {},
       "type": "object"
     },
+    "QuoteFields": {
+      "enum": [
+        "ALWAYS",
+        "ASNEEDED"
+      ],
+      "type": "string"
+    },
     "RemoveTagsFromVaultInput": {
       "description": "The input value for <code>RemoveTagsFromVaultInput</code>.",
       "example": {
@@ -2893,6 +3993,66 @@
         "type": {
           "$ref": "#/definitions/string",
           "description": "Client"
+        }
+      },
+      "type": "object"
+    },
+    "S3Location": {
+      "description": "Contains information about the location in Amazon S3 where the select job results are stored.",
+      "properties": {
+        "AccessControlList": {
+          "$ref": "#/definitions/AccessControlPolicyList",
+          "description": "A list of grants that control access to the staged results."
+        },
+        "BucketName": {
+          "$ref": "#/definitions/string",
+          "description": "The name of the Amazon S3 bucket where the job results are stored."
+        },
+        "CannedACL": {
+          "$ref": "#/definitions/CannedACL",
+          "description": "The canned access control list (ACL) to apply to the job results."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "Contains information about the encryption used to store the job results in Amazon S3."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/string",
+          "description": "The prefix that is prepended to the results for this request."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The storage class used to store the job results."
+        },
+        "Tagging": {
+          "$ref": "#/definitions/hashmap",
+          "description": "The tag-set that is applied to the job results."
+        },
+        "UserMetadata": {
+          "$ref": "#/definitions/hashmap",
+          "description": "A map of metadata to store with the job results in Amazon S3."
+        }
+      },
+      "type": "object"
+    },
+    "SelectParameters": {
+      "description": "Contains information about the parameters used for a select.",
+      "properties": {
+        "Expression": {
+          "$ref": "#/definitions/string",
+          "description": "The expression that is used to select the object."
+        },
+        "ExpressionType": {
+          "$ref": "#/definitions/ExpressionType",
+          "description": "The type of the provided expression, for example <code>SQL</code>."
+        },
+        "InputSerialization": {
+          "$ref": "#/definitions/InputSerialization",
+          "description": "Describes the serialization format of the object."
+        },
+        "OutputSerialization": {
+          "$ref": "#/definitions/OutputSerialization",
+          "description": "Describes how the results of the select job are serialized."
         }
       },
       "type": "object"
@@ -2985,6 +4145,14 @@
       ],
       "type": "string"
     },
+    "StorageClass": {
+      "enum": [
+        "STANDARD",
+        "REDUCED_REDUNDANCY",
+        "STANDARD_IA"
+      ],
+      "type": "string"
+    },
     "Stream": {
       "type": "string"
     },
@@ -3012,6 +4180,14 @@
       "type": "array"
     },
     "TagValue": {
+      "type": "string"
+    },
+    "Type": {
+      "enum": [
+        "AmazonCustomerByEmail",
+        "CanonicalUser",
+        "Group"
+      ],
       "type": "string"
     },
     "UploadArchiveInput": {
@@ -3131,6 +4307,20 @@
     },
     "boolean": {
       "type": "boolean"
+    },
+    "hashmap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/string"
+          },
+          "value": {
+            "$ref": "#/definitions/string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "httpstatus": {
       "type": "integer"

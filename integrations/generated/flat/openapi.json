@@ -14,7 +14,7 @@
     "description": "The Flat API allows you to easily extend the abilities of the [Flat Platform](https://flat.io), with a wide range of use cases including the following:\n\n* Creating and importing new music scores using MusicXML or MIDI files\n* Browsing, updating, copying, exporting the user's scores (for example in MP3, WAV or MIDI)\n* Managing educational resources with Flat for Education: creating & updating the organization accounts, the classes, rosters and assignments.\n\nThe Flat API is built on HTTP. Our API is RESTful It has predictable resource URLs. It returns HTTP response codes to indicate errors. It also accepts and returns JSON in the HTTP body.\nThe [schema](/swagger.yaml) of this API follows the [OpenAPI Initiative (OAI) specification](https://www.openapis.org/), you can use and work with [compatible Swagger tools](http://swagger.io/open-source-integrations/).\nThis API features Cross-Origin Resource Sharing (CORS) implemented in compliance with [W3C spec](https://www.w3.org/TR/cors/).\n\nYou can use your favorite HTTP/REST library for your programming language to use Flat's API. This specification and reference is [available on Github](https://github.com/FlatIO/api-reference).\n\nGetting Started and learn more:\n\n* [API Overview and interoduction](https://flat.io/developers/docs/api/)\n* [Authentication (Personal Access Tokens or OAuth2)](https://flat.io/developers/docs/api/authentication.html)\n* [SDKs](https://flat.io/developers/docs/api/sdks.html)\n* [Rate Limits](https://flat.io/developers/docs/api/rate-limits.html)\n* [Changelog](https://flat.io/developers/docs/api/changelog.html)\n",
     "termsOfService": "https://flat.io/legal",
     "title": "Flat",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "x-apisguru-categories": [
       "media",
       "collaboration"
@@ -5452,7 +5452,7 @@
         },
         "username": {
           "description": "Username of the new account",
-          "pattern": "^[A-Za-z0-9-_.]+$",
+          "pattern": "^[A-Za-z0-9\\-_.]+$",
           "type": "string"
         }
       },

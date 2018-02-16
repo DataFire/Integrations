@@ -73,6 +73,21 @@
       "required": true,
       "type": "string"
     },
+    "all": {
+      "default": false,
+      "description": "Include not only `successful`, but also jobs with `failed`, and\n`cancelled` status.",
+      "in": "query",
+      "name": "all",
+      "type": "boolean"
+    },
+    "artifactFileName": {
+      "description": "File name (or path) of a build artifact file.\nCorresponds to the `fileName` property of `ArtifactModel`.\nURL-encoding of slashes in parameter values is optional.",
+      "in": "path",
+      "minLength": 1,
+      "name": "artifactFileName",
+      "required": true,
+      "type": "string"
+    },
     "badgeRepoProvider": {
       "description": "Repository provider supported for badges",
       "enum": [
@@ -128,6 +143,12 @@
       "name": "failingText",
       "type": "string"
     },
+    "job": {
+      "description": "Name of the build job.",
+      "in": "query",
+      "name": "job",
+      "type": "string"
+    },
     "jobId": {
       "description": "Build ID (`jobId` property of `BuildJob`)",
       "in": "path",
@@ -148,6 +169,12 @@
       "minLength": 1,
       "name": "pendingText",
       "type": "string"
+    },
+    "pr": {
+      "description": "Include PR builds in the search results?\n`true` - take artifact from PR builds only;\n`false` - do not look for artifact in PR builds;\ndefault/unspecified - look for artifact in both PR an non-PR builds.\n",
+      "in": "query",
+      "name": "pr",
+      "type": "boolean"
     },
     "projectSlug": {
       "description": "Project Slug",
@@ -216,6 +243,13 @@
       "in": "query",
       "name": "svg",
       "type": "boolean"
+    },
+    "tag": {
+      "description": "A git (or other VCS) tag",
+      "in": "query",
+      "minLength": 1,
+      "name": "tag",
+      "type": "string"
     },
     "userId": {
       "description": "User ID",
@@ -314,6 +348,89 @@
           "Project"
         ]
       }
+    },
+    "/buildjobs/{jobId}/artifacts": {
+      "get": {
+        "externalDocs": {
+          "url": "https://www.appveyor.com/docs/api/samples/download-artifacts-advanced-ps/"
+        },
+        "operationId": "getBuildArtifacts",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": [
+                {
+                  "fileName": "README.md",
+                  "name": "README.md",
+                  "size": 3600,
+                  "type": "File"
+                },
+                {
+                  "fileName": "out/example.Release.x64.zip",
+                  "name": "out\\example.zip",
+                  "size": 15600,
+                  "type": "Zip"
+                }
+              ]
+            },
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ArtifactModel"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        },
+        "security": [],
+        "summary": "Get build artifacts",
+        "tags": [
+          "Build"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/jobId"
+        }
+      ]
+    },
+    "/buildjobs/{jobId}/artifacts/{artifactFileName}": {
+      "get": {
+        "externalDocs": {
+          "url": "https://www.appveyor.com/docs/api/samples/download-artifacts-advanced-ps/"
+        },
+        "operationId": "getBuildArtifact",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        },
+        "security": [],
+        "summary": "Download build artifact",
+        "tags": [
+          "Build"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/jobId"
+        },
+        {
+          "$ref": "#/parameters/artifactFileName"
+        }
+      ]
     },
     "/buildjobs/{jobId}/log": {
       "get": {
@@ -1651,6 +1768,60 @@
         }
       ]
     },
+    "/projects/{accountName}/{projectSlug}/artifacts/{artifactFileName}": {
+      "get": {
+        "description": "The `job` parameter is mandatory if the build contains multiple jobs.",
+        "externalDocs": {
+          "url": "https://www.appveyor.com/docs/packaging-artifacts/#permalink-to-the-last-successful-build-artifact"
+        },
+        "operationId": "getProjectArtifact",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        },
+        "security": [],
+        "summary": "Get last successful build artifact",
+        "tags": [
+          "Project"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountName"
+        },
+        {
+          "$ref": "#/parameters/projectSlug"
+        },
+        {
+          "$ref": "#/parameters/artifactFileName"
+        },
+        {
+          "$ref": "#/parameters/branch"
+        },
+        {
+          "$ref": "#/parameters/tag"
+        },
+        {
+          "$ref": "#/parameters/job"
+        },
+        {
+          "$ref": "#/parameters/all"
+        },
+        {
+          "$ref": "#/parameters/pr"
+        }
+      ]
+    },
     "/projects/{accountName}/{projectSlug}/branch/{buildBranch}": {
       "get": {
         "externalDocs": {
@@ -2403,6 +2574,89 @@
         ]
       }
     },
+    "/projects/{accountName}/{projectSlug}/settings/environment-variables": {
+      "get": {
+        "externalDocs": {
+          "url": "https://www.appveyor.com/docs/api/projects-builds/#get-project-environment-variables"
+        },
+        "operationId": "getProjectEnvironmentVariables",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": [
+                {
+                  "name": "api_key",
+                  "value": {
+                    "isEncrypted": true,
+                    "value": "very-secret-key-in-clear-text"
+                  }
+                },
+                {
+                  "name": "var1",
+                  "value": {
+                    "isEncrypted": false,
+                    "value": "current-value"
+                  }
+                }
+              ]
+            },
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/StoredNameValue"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        },
+        "summary": "Get project environment variables",
+        "tags": [
+          "Project"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountName"
+        },
+        {
+          "$ref": "#/parameters/projectSlug"
+        }
+      ],
+      "put": {
+        "externalDocs": {
+          "url": "https://www.appveyor.com/docs/api/projects-builds/#update-project-environment-variables"
+        },
+        "operationId": "updateProjectEnvironmentVariables",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/StoredNameValue"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "$ref": "#/responses/Error"
+          }
+        },
+        "summary": "Update project environment variables",
+        "tags": [
+          "Project"
+        ]
+      }
+    },
     "/projects/{accountName}/{projectSlug}/settings/yaml": {
       "get": {
         "externalDocs": {
@@ -2968,6 +3222,7 @@
           "type": "string"
         },
         "path": {
+          "description": "Path glob of artifact files.\nNote that updateProject does not require path, but omitting path\nresults in post-build error \"Collecting artifacts... Value cannot\nbe null.  Parameter name: input\"\n",
           "type": "string"
         },
         "type": {
@@ -2975,14 +3230,44 @@
         }
       },
       "required": [
-        "path",
-        "name"
+        "path"
       ],
       "type": "object"
     },
+    "ArtifactModel": {
+      "properties": {
+        "fileName": {
+          "type": "string"
+        },
+        "name": {
+          "title": "Deployment name",
+          "type": "string"
+        },
+        "size": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "type": {
+          "$ref": "#/definitions/ArtifactType"
+        },
+        "url": {
+          "description": "This property has not been observed in JSON responses, but is\npresent and nil in XML responses.\n",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ArtifactType": {
+      "description": "Possible values from `Push-AppveyorArtifact` cmdlet `-Type` parameter.\n\nThe web UI only allows selection of `Auto`, `WebDeployPackage`, and\nunspecified (which it sends as the empty string but functions like\nomitting the property) for `updateProject`.\n\nAny string can be sent and will be saved/returned, but only these\nvalues have a function (as far as I am aware).",
       "enum": [
-        "WebDeployPackage"
+        "Auto",
+        "AzureCloudService",
+        "AzureCloudServiceConfig",
+        "File",
+        "NuGetPackage",
+        "SsdtPackage",
+        "WebDeployPackage",
+        "Zip"
       ],
       "type": "string"
     },
@@ -3374,6 +3659,10 @@
             },
             "securityDescriptor": {
               "$ref": "#/definitions/SecurityDescriptor"
+            },
+            "tags": {
+              "description": "Comma-separated list of environment tags for dynamic grouping.\nAppears that any input is accepted.  The returned value only\ncontains case-preserving but insensitive unique values where\nspaces around \",\" are removed but otherwise preserved.  Empty\nvalues and items are allowed.",
+              "type": "string"
             }
           },
           "type": "object"
@@ -4021,6 +4310,9 @@
             "id": {
               "type": "string"
             },
+            "isPrivateProject": {
+              "type": "boolean"
+            },
             "name": {
               "type": "string"
             },
@@ -4182,6 +4474,7 @@
               "type": "boolean"
             },
             "tags": {
+              "description": "Comma-separated list of project tags for dynamic grouping.\nAppears that any input is accepted.  The returned value only\ncontains case-preserving but insensitive unique values where\nspaces around \",\" are removed but otherwise preserved.  Empty\nvalues and items are allowed.",
               "type": "string"
             }
           },

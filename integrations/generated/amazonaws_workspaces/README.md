@@ -308,10 +308,10 @@ amazonaws_workspaces.TerminateWorkspaces({
 * BundleOwner `string`
 
 ### Compute
-* Compute `string` (values: VALUE, STANDARD, PERFORMANCE)
+* Compute `string` (values: VALUE, STANDARD, PERFORMANCE, POWER, GRAPHICS)
 
 ### ComputeType
-* ComputeType `object`: Contains information about the compute type of a WorkSpace bundle.
+* ComputeType `object`: Information about the compute type.
   * Name [Compute](#compute)
 
 ### ComputerName
@@ -321,19 +321,19 @@ amazonaws_workspaces.TerminateWorkspaces({
 * ConnectionState `string` (values: CONNECTED, DISCONNECTED, UNKNOWN)
 
 ### CreateTagsRequest
-* CreateTagsRequest `object`: The request of the <a>CreateTags</a> operation.
+* CreateTagsRequest `object`
   * ResourceId **required** [NonEmptyString](#nonemptystring)
   * Tags **required** [TagList](#taglist)
 
 ### CreateTagsResult
-* CreateTagsResult `object`: The result of the <a>CreateTags</a> operation.
+* CreateTagsResult `object`
 
 ### CreateWorkspacesRequest
-* CreateWorkspacesRequest `object`: Contains the inputs for the <a>CreateWorkspaces</a> operation.
+* CreateWorkspacesRequest `object`
   * Workspaces **required** [WorkspaceRequestList](#workspacerequestlist)
 
 ### CreateWorkspacesResult
-* CreateWorkspacesResult `object`: Contains the result of the <a>CreateWorkspaces</a> operation.
+* CreateWorkspacesResult `object`
   * FailedRequests [FailedCreateWorkspaceRequests](#failedcreateworkspacerequests)
   * PendingRequests [WorkspaceList](#workspacelist)
 
@@ -341,7 +341,7 @@ amazonaws_workspaces.TerminateWorkspaces({
 * DefaultOu `string`
 
 ### DefaultWorkspaceCreationProperties
-* DefaultWorkspaceCreationProperties `object`: Contains default WorkSpace creation information.
+* DefaultWorkspaceCreationProperties `object`: Information about defaults used to create a WorkSpace.
   * CustomSecurityGroupId [SecurityGroupId](#securitygroupid)
   * DefaultOu [DefaultOu](#defaultou)
   * EnableInternetAccess [BooleanObject](#booleanobject)
@@ -349,39 +349,39 @@ amazonaws_workspaces.TerminateWorkspaces({
   * UserEnabledAsLocalAdministrator [BooleanObject](#booleanobject)
 
 ### DeleteTagsRequest
-* DeleteTagsRequest `object`: The request of the <a>DeleteTags</a> operation.
+* DeleteTagsRequest `object`
   * ResourceId **required** [NonEmptyString](#nonemptystring)
   * TagKeys **required** [TagKeyList](#tagkeylist)
 
 ### DeleteTagsResult
-* DeleteTagsResult `object`: The result of the <a>DeleteTags</a> operation.
+* DeleteTagsResult `object`
 
 ### DescribeTagsRequest
-* DescribeTagsRequest `object`: The request of the <a>DescribeTags</a> operation.
+* DescribeTagsRequest `object`
   * ResourceId **required** [NonEmptyString](#nonemptystring)
 
 ### DescribeTagsResult
-* DescribeTagsResult `object`: The result of the <a>DescribeTags</a> operation.
+* DescribeTagsResult `object`
   * TagList [TagList](#taglist)
 
 ### DescribeWorkspaceBundlesRequest
-* DescribeWorkspaceBundlesRequest `object`: Contains the inputs for the <a>DescribeWorkspaceBundles</a> operation.
+* DescribeWorkspaceBundlesRequest `object`
   * BundleIds [BundleIdList](#bundleidlist)
   * NextToken [PaginationToken](#paginationtoken)
   * Owner [BundleOwner](#bundleowner)
 
 ### DescribeWorkspaceBundlesResult
-* DescribeWorkspaceBundlesResult `object`: Contains the results of the <a>DescribeWorkspaceBundles</a> operation.
+* DescribeWorkspaceBundlesResult `object`
   * Bundles [BundleList](#bundlelist)
   * NextToken [PaginationToken](#paginationtoken)
 
 ### DescribeWorkspaceDirectoriesRequest
-* DescribeWorkspaceDirectoriesRequest `object`: Contains the inputs for the <a>DescribeWorkspaceDirectories</a> operation.
+* DescribeWorkspaceDirectoriesRequest `object`
   * DirectoryIds [DirectoryIdList](#directoryidlist)
   * NextToken [PaginationToken](#paginationtoken)
 
 ### DescribeWorkspaceDirectoriesResult
-* DescribeWorkspaceDirectoriesResult `object`: Contains the results of the <a>DescribeWorkspaceDirectories</a> operation.
+* DescribeWorkspaceDirectoriesResult `object`
   * Directories [DirectoryList](#directorylist)
   * NextToken [PaginationToken](#paginationtoken)
 
@@ -396,7 +396,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * WorkspacesConnectionStatus [WorkspaceConnectionStatusList](#workspaceconnectionstatuslist)
 
 ### DescribeWorkspacesRequest
-* DescribeWorkspacesRequest `object`: Contains the inputs for the <a>DescribeWorkspaces</a> operation.
+* DescribeWorkspacesRequest `object`
   * BundleId [BundleId](#bundleid)
   * DirectoryId [DirectoryId](#directoryid)
   * Limit [Limit](#limit)
@@ -405,7 +405,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * WorkspaceIds [WorkspaceIdList](#workspaceidlist)
 
 ### DescribeWorkspacesResult
-* DescribeWorkspacesResult `object`: Contains the results for the <a>DescribeWorkspaces</a> operation.
+* DescribeWorkspacesResult `object`
   * NextToken [PaginationToken](#paginationtoken)
   * Workspaces [WorkspaceList](#workspacelist)
 
@@ -437,7 +437,7 @@ amazonaws_workspaces.TerminateWorkspaces({
 * ExceptionMessage `string`
 
 ### FailedCreateWorkspaceRequest
-* FailedCreateWorkspaceRequest `object`: Contains information about a WorkSpace that could not be created.
+* FailedCreateWorkspaceRequest `object`: Information about a WorkSpace that could not be created.
   * ErrorCode [ErrorType](#errortype)
   * ErrorMessage [Description](#description)
   * WorkspaceRequest [WorkspaceRequest](#workspacerequest)
@@ -467,7 +467,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [FailedWorkspaceChangeRequest](#failedworkspacechangerequest)
 
 ### FailedWorkspaceChangeRequest
-* FailedWorkspaceChangeRequest `object`: Contains information about a WorkSpace that could not be rebooted (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).
+* FailedWorkspaceChangeRequest `object`: Information about a WorkSpace that could not be rebooted (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).
   * ErrorCode [ErrorType](#errortype)
   * ErrorMessage [Description](#description)
   * WorkspaceId [WorkspaceId](#workspaceid)
@@ -485,6 +485,21 @@ amazonaws_workspaces.TerminateWorkspaces({
 
 ### Limit
 * Limit `integer`
+
+### ModificationResourceEnum
+* ModificationResourceEnum `string` (values: ROOT_VOLUME, USER_VOLUME, COMPUTE_TYPE)
+
+### ModificationState
+* ModificationState `object`: Information about a WorkSpace modification.
+  * Resource [ModificationResourceEnum](#modificationresourceenum)
+  * State [ModificationStateEnum](#modificationstateenum)
+
+### ModificationStateEnum
+* ModificationStateEnum `string` (values: UPDATE_INITIATED, UPDATE_IN_PROGRESS)
+
+### ModificationStateList
+* ModificationStateList `array`
+  * items [ModificationState](#modificationstate)
 
 ### ModifyWorkspacePropertiesRequest
 * ModifyWorkspacePropertiesRequest `object`
@@ -505,7 +520,7 @@ amazonaws_workspaces.TerminateWorkspaces({
 * PaginationToken `string`
 
 ### RebootRequest
-* RebootRequest `object`: Contains information used with the <a>RebootWorkspaces</a> operation to reboot a WorkSpace.
+* RebootRequest `object`: Information used to reboot a WorkSpace.
   * WorkspaceId **required** [WorkspaceId](#workspaceid)
 
 ### RebootWorkspaceRequests
@@ -513,15 +528,15 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [RebootRequest](#rebootrequest)
 
 ### RebootWorkspacesRequest
-* RebootWorkspacesRequest `object`: Contains the inputs for the <a>RebootWorkspaces</a> operation.
+* RebootWorkspacesRequest `object`
   * RebootWorkspaceRequests **required** [RebootWorkspaceRequests](#rebootworkspacerequests)
 
 ### RebootWorkspacesResult
-* RebootWorkspacesResult `object`: Contains the results of the <a>RebootWorkspaces</a> operation.
+* RebootWorkspacesResult `object`
   * FailedRequests [FailedRebootWorkspaceRequests](#failedrebootworkspacerequests)
 
 ### RebuildRequest
-* RebuildRequest `object`: Contains information used with the <a>RebuildWorkspaces</a> operation to rebuild a WorkSpace.
+* RebuildRequest `object`: Information used to rebuild a WorkSpace.
   * WorkspaceId **required** [WorkspaceId](#workspaceid)
 
 ### RebuildWorkspaceRequests
@@ -529,11 +544,11 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [RebuildRequest](#rebuildrequest)
 
 ### RebuildWorkspacesRequest
-* RebuildWorkspacesRequest `object`: Contains the inputs for the <a>RebuildWorkspaces</a> operation.
+* RebuildWorkspacesRequest `object`
   * RebuildWorkspaceRequests **required** [RebuildWorkspaceRequests](#rebuildworkspacerequests)
 
 ### RebuildWorkspacesResult
-* RebuildWorkspacesResult `object`: Contains the results of the <a>RebuildWorkspaces</a> operation.
+* RebuildWorkspacesResult `object`
   * FailedRequests [FailedRebuildWorkspaceRequests](#failedrebuildworkspacerequests)
 
 ### RegistrationCode
@@ -553,6 +568,13 @@ amazonaws_workspaces.TerminateWorkspaces({
   * ResourceId [NonEmptyString](#nonemptystring)
   * message [ExceptionMessage](#exceptionmessage)
 
+### RootStorage
+* RootStorage `object`: Information about the root volume for a WorkSpace bundle.
+  * Capacity [NonEmptyString](#nonemptystring)
+
+### RootVolumeSizeGib
+* RootVolumeSizeGib `integer`
+
 ### RunningMode
 * RunningMode `string` (values: AUTO_STOP, ALWAYS_ON)
 
@@ -563,7 +585,7 @@ amazonaws_workspaces.TerminateWorkspaces({
 * SecurityGroupId `string`
 
 ### StartRequest
-* StartRequest `object`: Describes the start request.
+* StartRequest `object`: Information used to start a WorkSpace.
   * WorkspaceId [WorkspaceId](#workspaceid)
 
 ### StartWorkspaceRequests
@@ -579,7 +601,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * FailedRequests [FailedStartWorkspaceRequests](#failedstartworkspacerequests)
 
 ### StopRequest
-* StopRequest `object`: Describes the stop request.
+* StopRequest `object`: Information used to stop a WorkSpace.
   * WorkspaceId [WorkspaceId](#workspaceid)
 
 ### StopWorkspaceRequests
@@ -602,7 +624,7 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [SubnetId](#subnetid)
 
 ### Tag
-* Tag `object`: Describes the tag of the WorkSpace.
+* Tag `object`: Information about a tag.
   * Key **required** [TagKey](#tagkey)
   * Value [TagValue](#tagvalue)
 
@@ -621,7 +643,7 @@ amazonaws_workspaces.TerminateWorkspaces({
 * TagValue `string`
 
 ### TerminateRequest
-* TerminateRequest `object`: Contains information used with the <a>TerminateWorkspaces</a> operation to terminate a WorkSpace.
+* TerminateRequest `object`: Information used to terminate a WorkSpace.
   * WorkspaceId **required** [WorkspaceId](#workspaceid)
 
 ### TerminateWorkspaceRequests
@@ -629,11 +651,11 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [TerminateRequest](#terminaterequest)
 
 ### TerminateWorkspacesRequest
-* TerminateWorkspacesRequest `object`: Contains the inputs for the <a>TerminateWorkspaces</a> operation.
+* TerminateWorkspacesRequest `object`
   * TerminateWorkspaceRequests **required** [TerminateWorkspaceRequests](#terminateworkspacerequests)
 
 ### TerminateWorkspacesResult
-* TerminateWorkspacesResult `object`: Contains the results of the <a>TerminateWorkspaces</a> operation.
+* TerminateWorkspacesResult `object`
   * FailedRequests [FailedTerminateWorkspaceRequests](#failedterminateworkspacerequests)
 
 ### Timestamp
@@ -647,20 +669,24 @@ amazonaws_workspaces.TerminateWorkspaces({
 * UserName `string`
 
 ### UserStorage
-* UserStorage `object`: Contains information about the user storage for a WorkSpace bundle.
+* UserStorage `object`: Information about the user storage for a WorkSpace bundle.
   * Capacity [NonEmptyString](#nonemptystring)
+
+### UserVolumeSizeGib
+* UserVolumeSizeGib `integer`
 
 ### VolumeEncryptionKey
 * VolumeEncryptionKey `string`
 
 ### Workspace
-* Workspace `object`: Contains information about a WorkSpace.
+* Workspace `object`: Information about a WorkSpace.
   * BundleId [BundleId](#bundleid)
   * ComputerName [ComputerName](#computername)
   * DirectoryId [DirectoryId](#directoryid)
   * ErrorCode [WorkspaceErrorCode](#workspaceerrorcode)
   * ErrorMessage [Description](#description)
   * IpAddress [IpAddress](#ipaddress)
+  * ModificationStates [ModificationStateList](#modificationstatelist)
   * RootVolumeEncryptionEnabled [BooleanObject](#booleanobject)
   * State [WorkspaceState](#workspacestate)
   * SubnetId [SubnetId](#subnetid)
@@ -671,12 +697,13 @@ amazonaws_workspaces.TerminateWorkspaces({
   * WorkspaceProperties [WorkspaceProperties](#workspaceproperties)
 
 ### WorkspaceBundle
-* WorkspaceBundle `object`: Contains information about a WorkSpace bundle.
+* WorkspaceBundle `object`: Information about a WorkSpace bundle.
   * BundleId [BundleId](#bundleid)
   * ComputeType [ComputeType](#computetype)
   * Description [Description](#description)
   * Name [NonEmptyString](#nonemptystring)
   * Owner [BundleOwner](#bundleowner)
+  * RootStorage [RootStorage](#rootstorage)
   * UserStorage [UserStorage](#userstorage)
 
 ### WorkspaceConnectionStatus
@@ -726,12 +753,15 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [Workspace](#workspace)
 
 ### WorkspaceProperties
-* WorkspaceProperties `object`: Describes the properties of a WorkSpace.
+* WorkspaceProperties `object`: Information about a WorkSpace.
+  * ComputeTypeName [Compute](#compute)
+  * RootVolumeSizeGib [RootVolumeSizeGib](#rootvolumesizegib)
   * RunningMode [RunningMode](#runningmode)
   * RunningModeAutoStopTimeoutInMinutes [RunningModeAutoStopTimeoutInMinutes](#runningmodeautostoptimeoutinminutes)
+  * UserVolumeSizeGib [UserVolumeSizeGib](#uservolumesizegib)
 
 ### WorkspaceRequest
-* WorkspaceRequest `object`: Contains information about a WorkSpace creation request.
+* WorkspaceRequest `object`: Information used to create a WorkSpace.
   * BundleId **required** [BundleId](#bundleid)
   * DirectoryId **required** [DirectoryId](#directoryid)
   * RootVolumeEncryptionEnabled [BooleanObject](#booleanobject)
@@ -746,6 +776,6 @@ amazonaws_workspaces.TerminateWorkspaces({
   * items [WorkspaceRequest](#workspacerequest)
 
 ### WorkspaceState
-* WorkspaceState `string` (values: PENDING, AVAILABLE, IMPAIRED, UNHEALTHY, REBOOTING, STARTING, REBUILDING, MAINTENANCE, TERMINATING, TERMINATED, SUSPENDED, STOPPING, STOPPED, ERROR)
+* WorkspaceState `string` (values: PENDING, AVAILABLE, IMPAIRED, UNHEALTHY, REBOOTING, STARTING, REBUILDING, MAINTENANCE, TERMINATING, TERMINATED, SUSPENDED, UPDATING, STOPPING, STOPPED, ERROR)
 
 

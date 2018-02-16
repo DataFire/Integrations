@@ -1,8 +1,8 @@
 {
   "name": "@datafire/naviplancentral_plan",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Narrator Connect powered by NaviPlan",
+  "description": "DataFire integration for Published Plan Service",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

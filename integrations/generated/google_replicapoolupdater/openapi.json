@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "[Deprecated. Please use compute.instanceGroupManagers.update method. replicapoolupdater API will be disabled after December 30th, 2016] Updates groups of Compute Engine instances.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Compute Engine Instance Group Updater",
     "version": "v1beta1",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -55,6 +60,19 @@
         "https://www.googleapis.com/auth/replicapool": "View and manage replica pools",
         "https://www.googleapis.com/auth/replicapool.readonly": "View replica pools"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/replicapool": "View and manage replica pools",
+        "https://www.googleapis.com/auth/replicapool.readonly": "View replica pools"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -135,20 +153,6 @@
         "operationId": "zoneOperations.list",
         "parameters": [
           {
-            "description": "Name of the project scoping this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the zone scoping this request.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Optional. Filter expression for filtering listed resources.",
             "in": "query",
             "name": "filter",
@@ -168,6 +172,20 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Name of the project scoping this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of the zone scoping this request.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -182,10 +200,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }
@@ -224,6 +248,13 @@
         "operationId": "zoneOperations.get",
         "parameters": [
           {
+            "description": "Name of the operation resource to return.",
+            "in": "path",
+            "name": "operation",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Name of the project scoping this request.",
             "in": "path",
             "name": "project",
@@ -234,13 +265,6 @@
             "description": "Name of the zone scoping this request.",
             "in": "path",
             "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the operation resource to return.",
-            "in": "path",
-            "name": "operation",
             "required": true,
             "type": "string"
           }
@@ -257,10 +281,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }
@@ -299,20 +329,6 @@
         "operationId": "rollingUpdates.list",
         "parameters": [
           {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the update's target resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Optional. Filter expression for filtering listed resources.",
             "in": "query",
             "name": "filter",
@@ -332,6 +348,20 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "The Google Developers Console project name.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the zone in which the update's target resides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -346,20 +376,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
@@ -396,6 +438,13 @@
         "operationId": "rollingUpdates.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RollingUpdate"
+            }
+          },
+          {
             "description": "The Google Developers Console project name.",
             "in": "path",
             "name": "project",
@@ -408,13 +457,6 @@
             "name": "zone",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RollingUpdate"
-            }
           }
         ],
         "responses": {
@@ -429,10 +471,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }
@@ -455,16 +503,16 @@
             "type": "string"
           },
           {
-            "description": "The name of the zone in which the update's target resides.",
+            "description": "The name of the update.",
             "in": "path",
-            "name": "zone",
+            "name": "rollingUpdate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the update.",
+            "description": "The name of the zone in which the update's target resides.",
             "in": "path",
-            "name": "rollingUpdate",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -481,20 +529,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
@@ -563,16 +623,16 @@
             "type": "string"
           },
           {
-            "description": "The name of the zone in which the update's target resides.",
+            "description": "The name of the update.",
             "in": "path",
-            "name": "zone",
+            "name": "rollingUpdate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the update.",
+            "description": "The name of the zone in which the update's target resides.",
             "in": "path",
-            "name": "rollingUpdate",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -589,10 +649,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }
@@ -607,27 +673,6 @@
         "description": "Lists the current status for each instance within a given update.",
         "operationId": "rollingUpdates.listInstanceUpdates",
         "parameters": [
-          {
-            "description": "The Google Developers Console project name.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the zone in which the update's target resides.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the update.",
-            "in": "path",
-            "name": "rollingUpdate",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Optional. Filter expression for filtering listed resources.",
             "in": "query",
@@ -648,6 +693,27 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "The Google Developers Console project name.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the update.",
+            "in": "path",
+            "name": "rollingUpdate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the zone in which the update's target resides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -662,20 +728,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/replicapool"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool.readonly"
             ]
           }
@@ -744,16 +822,16 @@
             "type": "string"
           },
           {
-            "description": "The name of the zone in which the update's target resides.",
+            "description": "The name of the update.",
             "in": "path",
-            "name": "zone",
+            "name": "rollingUpdate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the update.",
+            "description": "The name of the zone in which the update's target resides.",
             "in": "path",
-            "name": "rollingUpdate",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -770,10 +848,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }
@@ -819,16 +903,16 @@
             "type": "string"
           },
           {
-            "description": "The name of the zone in which the update's target resides.",
+            "description": "The name of the update.",
             "in": "path",
-            "name": "zone",
+            "name": "rollingUpdate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the update.",
+            "description": "The name of the zone in which the update's target resides.",
             "in": "path",
-            "name": "rollingUpdate",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -845,10 +929,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }
@@ -894,16 +984,16 @@
             "type": "string"
           },
           {
-            "description": "The name of the zone in which the update's target resides.",
+            "description": "The name of the update.",
             "in": "path",
-            "name": "zone",
+            "name": "rollingUpdate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the update.",
+            "description": "The name of the zone in which the update's target resides.",
             "in": "path",
-            "name": "rollingUpdate",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -920,10 +1010,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/replicapool"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/replicapool"
             ]
           }

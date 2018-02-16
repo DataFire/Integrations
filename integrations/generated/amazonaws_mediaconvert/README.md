@@ -54,6 +54,59 @@ amazonaws_mediaconvert.ListJobTemplates({}, context)
 #### Output
 * output [ListJobTemplatesResponse](#listjobtemplatesresponse)
 
+### CreateJobTemplate
+
+
+
+```js
+amazonaws_mediaconvert.CreateJobTemplate({}, context)
+```
+
+#### Input
+* input `object`
+  * Category [__string](#__string)
+  * Description [__string](#__string)
+  * Name [__string](#__string)
+  * Queue [__string](#__string)
+  * Settings [JobTemplateSettings](#jobtemplatesettings)
+
+#### Output
+*Output schema unknown*
+
+### DeleteJobTemplate
+
+
+
+```js
+amazonaws_mediaconvert.DeleteJobTemplate({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetJobTemplate
+
+
+
+```js
+amazonaws_mediaconvert.GetJobTemplate({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+
+#### Output
+* output [GetJobTemplateResponse](#getjobtemplateresponse)
+
 ### UpdateJobTemplate
 
 
@@ -89,6 +142,43 @@ amazonaws_mediaconvert.ListJobs({}, context)
 #### Output
 * output [ListJobsResponse](#listjobsresponse)
 
+### CreateJob
+
+
+
+```js
+amazonaws_mediaconvert.CreateJob({}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken [__string](#__string)
+  * JobTemplate [__string](#__string)
+  * Queue [__string](#__string)
+  * Role [__string](#__string)
+  * Settings [JobSettings](#jobsettings)
+  * UserMetadata [MapOf__string](#mapof__string)
+
+#### Output
+*Output schema unknown*
+
+### CancelJob
+
+
+
+```js
+amazonaws_mediaconvert.CancelJob({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetJob
 
 
@@ -119,6 +209,58 @@ amazonaws_mediaconvert.ListPresets({}, context)
 
 #### Output
 * output [ListPresetsResponse](#listpresetsresponse)
+
+### CreatePreset
+
+
+
+```js
+amazonaws_mediaconvert.CreatePreset({}, context)
+```
+
+#### Input
+* input `object`
+  * Category [__string](#__string)
+  * Description [__string](#__string)
+  * Name [__string](#__string)
+  * Settings [PresetSettings](#presetsettings)
+
+#### Output
+*Output schema unknown*
+
+### DeletePreset
+
+
+
+```js
+amazonaws_mediaconvert.DeletePreset({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetPreset
+
+
+
+```js
+amazonaws_mediaconvert.GetPreset({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+
+#### Output
+* output [GetPresetResponse](#getpresetresponse)
 
 ### UpdatePreset
 
@@ -153,6 +295,56 @@ amazonaws_mediaconvert.ListQueues({}, context)
 
 #### Output
 * output [ListQueuesResponse](#listqueuesresponse)
+
+### CreateQueue
+
+
+
+```js
+amazonaws_mediaconvert.CreateQueue({}, context)
+```
+
+#### Input
+* input `object`
+  * Description [__string](#__string)
+  * Name [__string](#__string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteQueue
+
+
+
+```js
+amazonaws_mediaconvert.DeleteQueue({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetQueue
+
+
+
+```js
+amazonaws_mediaconvert.GetQueue({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+
+#### Output
+* output [GetQueueResponse](#getqueueresponse)
 
 ### UpdateQueue
 
@@ -400,7 +592,7 @@ amazonaws_mediaconvert.UpdateQueue({
   * TtmlDestinationSettings [TtmlDestinationSettings](#ttmldestinationsettings)
 
 ### CaptionDestinationType
-* CaptionDestinationType `string` (values: BURN_IN, DVB_SUB, EMBEDDED, SCC, SRT, TELETEXT, TTML, WEBVTT)
+* CaptionDestinationType `string` (values: BURN_IN, DVB_SUB, EMBEDDED, SCC, SRT, TELETEXT, TTML, WEBVTT): Type of Caption output, including Burn-In, Embedded, SCC, SRT, TTML, WebVTT, DVB-Sub, Teletext.
 
 ### CaptionSelector
 * CaptionSelector `object`: Caption inputs to be mapped to caption outputs.
@@ -1367,6 +1559,9 @@ amazonaws_mediaconvert.UpdateQueue({
 ### M2tsEsRateInPes
 * M2tsEsRateInPes `string` (values: INCLUDE, EXCLUDE): Controls whether to include the ES Rate field in the PES header.
 
+### M2tsNielsenId3
+* M2tsNielsenId3 `string` (values: INSERT, NONE): If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+
 ### M2tsPcrControl
 * M2tsPcrControl `string` (values: PCR_EVERY_PES_PACKET, CONFIGURED_PCR_PERIOD): When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
 
@@ -1374,7 +1569,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * M2tsRateMode `string` (values: VBR, CBR): When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
 
 ### M2tsScte35Source
-* M2tsScte35Source `string` (values: PASSTHROUGH, NONE): Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from input to output. This is only available for certain containers.
+* M2tsScte35Source `string` (values: PASSTHROUGH, NONE): Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from input to output.
 
 ### M2tsSegmentationMarkers
 * M2tsSegmentationMarkers `string` (values: NONE, RAI_SEGSTART, RAI_ADAPT, PSI_SEGSTART, EBP, EBP_LEGACY): Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
@@ -1400,6 +1595,7 @@ amazonaws_mediaconvert.UpdateQueue({
   * FragmentTime [__double](#__double)
   * MaxPcrInterval [__integer](#__integer)
   * MinEbpInterval [__integer](#__integer)
+  * NielsenId3 [M2tsNielsenId3](#m2tsnielsenid3)
   * NullPacketBitrate [__double](#__double)
   * PatInterval [__integer](#__integer)
   * PcrControl [M2tsPcrControl](#m2tspcrcontrol)
@@ -1414,19 +1610,24 @@ amazonaws_mediaconvert.UpdateQueue({
   * SegmentationMarkers [M2tsSegmentationMarkers](#m2tssegmentationmarkers)
   * SegmentationStyle [M2tsSegmentationStyle](#m2tssegmentationstyle)
   * SegmentationTime [__double](#__double)
+  * TimedMetadataPid [__integer](#__integer)
   * TransportStreamId [__integer](#__integer)
   * VideoPid [__integer](#__integer)
+
+### M3u8NielsenId3
+* M3u8NielsenId3 `string` (values: INSERT, NONE): If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
 
 ### M3u8PcrControl
 * M3u8PcrControl `string` (values: PCR_EVERY_PES_PACKET, CONFIGURED_PCR_PERIOD): When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
 
 ### M3u8Scte35Source
-* M3u8Scte35Source `string` (values: PASSTHROUGH, NONE): Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from input to output. This is only available for certain containers.
+* M3u8Scte35Source `string` (values: PASSTHROUGH, NONE): Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from input to output.
 
 ### M3u8Settings
 * M3u8Settings `object`: Settings for TS segments in HLS
   * AudioFramesPerPes [__integer](#__integer)
   * AudioPids [ListOf__integer](#listof__integer)
+  * NielsenId3 [M3u8NielsenId3](#m3u8nielsenid3)
   * PatInterval [__integer](#__integer)
   * PcrControl [M3u8PcrControl](#m3u8pcrcontrol)
   * PcrPid [__integer](#__integer)
@@ -1683,10 +1884,10 @@ amazonaws_mediaconvert.UpdateQueue({
   * Type [OutputGroupType](#outputgrouptype)
 
 ### OutputGroupType
-* OutputGroupType `string` (values: HLS_GROUP_SETTINGS, DASH_ISO_GROUP_SETTINGS, FILE_GROUP_SETTINGS, MS_SMOOTH_GROUP_SETTINGS)
+* OutputGroupType `string` (values: HLS_GROUP_SETTINGS, DASH_ISO_GROUP_SETTINGS, FILE_GROUP_SETTINGS, MS_SMOOTH_GROUP_SETTINGS): Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming)
 
 ### OutputSdt
-* OutputSdt `string` (values: SDT_FOLLOW, SDT_FOLLOW_IF_PRESENT, SDT_MANUAL, SDT_NONE): Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input,  otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
+* OutputSdt `string` (values: SDT_FOLLOW, SDT_FOLLOW_IF_PRESENT, SDT_MANUAL, SDT_NONE): Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
 
 ### OutputSettings
 * OutputSettings `object`: Specific settings for this type of output.
@@ -1831,7 +2032,7 @@ amazonaws_mediaconvert.UpdateQueue({
 * TimecodeSource `string` (values: EMBEDDED, ZEROBASED, SPECIFIEDSTART): Use Timecode source (TimecodeSource) to set how timecodes are handled within this input. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
 
 ### TimedMetadata
-* TimedMetadata `string` (values: PASSTHROUGH, NONE): If PASSTHROUGH, inserts ID3 timed metadata from the timed_metadata REST command into this output. Only available for certain containers.
+* TimedMetadata `string` (values: PASSTHROUGH, NONE): If PASSTHROUGH, inserts ID3 timed metadata from the timed_metadata REST command into this output.
 
 ### TimedMetadataInsertion
 * TimedMetadataInsertion `object`: Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in your job. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
@@ -1848,7 +2049,7 @@ amazonaws_mediaconvert.UpdateQueue({
   * Message [__string](#__string)
 
 ### TtmlDestinationSettings
-* TtmlDestinationSettings `object`: Settings for TTML caption output
+* TtmlDestinationSettings `object`: Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
   * StylePassthrough [TtmlStylePassthrough](#ttmlstylepassthrough)
 
 ### TtmlStylePassthrough

@@ -539,6 +539,7 @@ tfl_gov_uk.Line_StopPoints({
 #### Input
 * input `object`
   * id **required** `string`: A single line id e.g. victoria
+  * tflOperatedNationalRailStationsOnly `boolean`: If the national-rail line is requested, this flag will filter the national rail stations so that only those operated by TfL are returned
 
 #### Output
 * output `array`
@@ -1251,6 +1252,7 @@ tfl_gov_uk.StopPoint.Search.get({
   * maxResults `integer`: An optional result limit, defaulting to and with a maximum of 50. Since children of the stop point heirarchy are returned for matches,
   * lines `array`: An optional, parameter separated list of the lines to filter by
   * includeHubs `boolean`: If true, returns results including HUBs.
+  * tflOperatedNationalRailStationsOnly `boolean`: If the national-rail mode is included, this flag will filter the national rail stations so that only those operated by TfL are returned
 
 #### Output
 * output [SearchResponse](#searchresponse)
@@ -1273,6 +1275,7 @@ tfl_gov_uk.StopPoint.Search.query.get({
   * maxResults `integer`: An optional result limit, defaulting to and with a maximum of 50. Since children of the stop point heirarchy are returned for matches,
   * lines `array`: An optional, parameter separated list of the lines to filter by
   * includeHubs `boolean`: If true, returns results including HUBs.
+  * tflOperatedNationalRailStationsOnly `boolean`: If the national-rail mode is included, this flag will filter the national rail stations so that only those operated by TfL are returned
 
 #### Output
 * output [SearchResponse](#searchresponse)
@@ -1961,7 +1964,7 @@ tfl_gov_uk.Vehicle_Get({
   * skyDirection `integer`
   * skyDirectionDescription `string` (values: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest)
   * streetName `string`
-  * trackType `string` (values: CycleSuperHighway, CanalTowpath, QuietRoad, ProvisionForCyclists, BusyRoads, None, PushBike)
+  * trackType `string` (values: CycleSuperHighway, CanalTowpath, QuietRoad, ProvisionForCyclists, BusyRoads, None, PushBike, Quietway)
   * turnDirection `string`
 
 ### Interval
@@ -2115,15 +2118,17 @@ tfl_gov_uk.Vehicle_Get({
     * items [ValidityPeriod](#validityperiod)
 
 ### MatchedRoute
-* MatchedRoute `object`
-  * destination `string`: eg: Destination
-  * destinationName `string`: eg: Destination Name
-  * direction `string`: eg: N or S or I or O
+* MatchedRoute `object`: Description of a Route used in Route search results.
+  * destination `string`: The Id (NaPTAN code) or the Destination StopPoint
+  * destinationName `string`: The name of the Destination StopPoint
+  * direction `string`: Inbound or Outbound
   * name `string`: Name such as "72"
-  * originationName `string`: eg: Origination Name
-  * originator `string`: eg: Origination
+  * originationName `string`: The name of the Origin StopPoint
+  * originator `string`: The Id (NaPTAN code) of the Origin StopPoint
   * routeCode `string`: The route code
-  * serviceType `string`: eg: Regular, Night
+  * serviceType `string`: Regular or Night
+  * validFrom `string`: The DateTime that the Service containing this Route is valid from.
+  * validTo `string`: The DateTime that the Service containing this Route is valid until.
 
 ### MatchedRouteSections
 * MatchedRouteSections `object`
@@ -2461,16 +2466,18 @@ tfl_gov_uk.Vehicle_Get({
 
 ### RouteSection
 * RouteSection `object`
-  * destinationName `string`: eg: Destination Name
-  * direction `string`: eg: N or S or I or O
+  * destinationName `string`: The name of the Destination StopPoint
+  * direction `string`: Inbound or Outbound
   * id `string`: The Id of the route
   * lineId `string`: The Id of the Line
-  * lineString `string`: eg: Path coordindates
+  * lineString `string`: The co-ordinates of the route's path as a geoJSON lineString
   * name `string`: Name such as "72"
-  * originationName `string`: eg: Origination Name
+  * originationName `string`: The name of the Origin StopPoint
   * routeCode `string`: The route code
   * routeSectionNaptanEntrySequence `array`
     * items [RouteSectionNaptanEntrySequence](#routesectionnaptanentrysequence)
+  * validFrom `string`: The DateTime that the Service containing this Route is valid from.
+  * validTo `string`: The DateTime that the Service containing this Route is valid until.
 
 ### RouteSectionNaptanEntrySequence
 * RouteSectionNaptanEntrySequence `object`

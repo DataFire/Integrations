@@ -174,6 +174,9 @@
   },
   "tags": [
     {
+      "name": "iamPolicies"
+    },
+    {
       "name": "organizations"
     },
     {
@@ -187,6 +190,83 @@
     }
   ],
   "paths": {
+    "/v1/iamPolicies:queryAuditableServices": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of services that support service level audit logging\nconfiguration for the given resource.",
+        "operationId": "iamPolicies.queryAuditableServices",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/QueryAuditableServicesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/QueryAuditableServicesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "iamPolicies"
+        ]
+      }
+    },
     "/v1/permissions:queryTestablePermissions": {
       "parameters": [
         {
@@ -371,43 +451,43 @@
     "/v1/roles:queryGrantableRoles": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -535,43 +615,43 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -718,43 +798,43 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -814,16 +894,16 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "Optional pagination token returned in an earlier\nListServiceAccountsResponse.next_page_token.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
             "description": "Optional limit on the number of service accounts to include in the\nresponse. Further accounts can subsequently be obtained by including the\nListServiceAccountsResponse.next_page_token\nin a subsequent request.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
+          },
+          {
+            "description": "Optional pagination token returned in an earlier\nListServiceAccountsResponse.next_page_token.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
           }
         ],
         "responses": {
@@ -850,43 +930,43 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -894,19 +974,19 @@
         "operationId": "projects.serviceAccounts.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateServiceAccountRequest"
+            }
+          },
+          {
             "description": "Required. The resource name of the project associated with the service\naccounts, such as `projects/my-project-123`.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CreateServiceAccountRequest"
-            }
           }
         ],
         "responses": {
@@ -935,43 +1015,43 @@
     "/v1/{name}:signBlob": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1020,43 +1100,43 @@
     "/v1/{name}:signJwt": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1200,10 +1280,6 @@
           },
           {
             "description": "Optional pagination token returned in an earlier ListRolesResponse.",
-            "enum": [
-              "BASIC",
-              "FULL"
-            ],
             "in": "query",
             "name": "pageToken",
             "type": "string"
@@ -1342,43 +1418,43 @@
     "/v1/{resource}:getIamPolicy": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1420,43 +1496,43 @@
     "/v1/{resource}:setIamPolicy": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1505,43 +1581,43 @@
     "/v1/{resource}:testIamPermissions": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1599,6 +1675,16 @@
       },
       "type": "object"
     },
+    "AuditableService": {
+      "description": "Contains information about an auditable service.",
+      "properties": {
+        "name": {
+          "description": "Public name of the service.\nFor example, the service name for Cloud IAM is 'iam.googleapis.com'.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Binding": {
       "description": "Associates `members` with a `role`.",
       "properties": {
@@ -1627,10 +1713,6 @@
             "REMOVE"
           ],
           "type": "string"
-        },
-        "condition": {
-          "$ref": "#/definitions/Expr",
-          "description": "The condition that is associated with this binding.\nThis field is GOOGLE_INTERNAL.\nThis field is not logged in IAM side because it's only for audit logging.\nOptional"
         },
         "member": {
           "description": "A single identity requesting access for a Cloud Platform resource.\nFollows the same format of Binding.members.\nRequired",
@@ -1665,13 +1747,12 @@
           "enum": [
             "KEY_ALG_UNSPECIFIED",
             "KEY_ALG_RSA_1024",
-            "KEY_ALG_RSA_2048",
-            "KEY_ALG_GCS_SYMMETRIC_HMAC"
+            "KEY_ALG_RSA_2048"
           ],
           "type": "string"
         },
         "privateKeyType": {
-          "description": "The output format of the private key. `GOOGLE_CREDENTIALS_FILE` is the\ndefault output format.",
+          "description": "The output format of the private key. The default value is\n`TYPE_GOOGLE_CREDENTIALS_FILE`, which is the Google Credentials File\nformat.",
           "enum": [
             "TYPE_UNSPECIFIED",
             "TYPE_PKCS12_FILE",
@@ -1699,28 +1780,6 @@
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
-    },
-    "Expr": {
-      "description": "Represents an expression text. Example:\n\n    title: \"User account presence\"\n    description: \"Determines whether the request has a user account\"\n    expression: \"size(request.user) > 0\"",
-      "properties": {
-        "description": {
-          "description": "An optional description of the expression. This is a longer text which\ndescribes the expression, e.g. when hovered over it in a UI.",
-          "type": "string"
-        },
-        "expression": {
-          "description": "Textual representation of an expression in\nCommon Expression Language syntax.\n\nThe application context of the containing message determines which\nwell-known feature set of CEL is supported.",
-          "type": "string"
-        },
-        "location": {
-          "description": "An optional string indicating the location of the expression for error\nreporting, e.g. a file name and a position in the file.",
-          "type": "string"
-        },
-        "title": {
-          "description": "An optional title for the expression, i.e. a short string describing\nits purpose. This can be used e.g. in UIs which allow to enter the\nexpression.",
-          "type": "string"
-        }
-      },
       "type": "object"
     },
     "ListRolesResponse": {
@@ -1773,6 +1832,10 @@
     "Permission": {
       "description": "A permission which can be included by a role.",
       "properties": {
+        "apiDisabled": {
+          "description": "The service API associated with the permission is not enabled.",
+          "type": "boolean"
+        },
         "customRolesSupportLevel": {
           "description": "The current custom role support level.",
           "enum": [
@@ -1812,7 +1875,7 @@
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
         "bindings": {
           "description": "Associates a list of `members` to a `role`.\n`bindings` with no members will result in an error.",
@@ -1827,7 +1890,7 @@
           "type": "string"
         },
         "version": {
-          "description": "Version of the `Policy`. The default version is 0.",
+          "description": "Deprecated.",
           "format": "int32",
           "type": "integer"
         }
@@ -1841,6 +1904,29 @@
           "description": "The delta for Bindings between two policies.",
           "items": {
             "$ref": "#/definitions/BindingDelta"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "QueryAuditableServicesRequest": {
+      "description": "A request to get the list of auditable services for a resource.",
+      "properties": {
+        "fullResourceName": {
+          "description": "Required. The full resource name to query from the list of auditable\nservices.\n\nThe name follows the Google Cloud Platform resource format.\nFor example, a Cloud Platform project with id `my-project` will be named\n`//cloudresourcemanager.googleapis.com/projects/my-project`.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "QueryAuditableServicesResponse": {
+      "description": "A response containing a list of auditable services for a resource.",
+      "properties": {
+        "services": {
+          "description": "The auditable services for a resource.",
+          "items": {
+            "$ref": "#/definitions/AuditableService"
           },
           "type": "array"
         }
@@ -1973,7 +2059,7 @@
       "type": "object"
     },
     "ServiceAccount": {
-      "description": "A service account in the Identity and Access Management API.\n\nTo create a service account, specify the `project_id` and the `account_id`\nfor the account.  The `account_id` is unique within the project, and is used\nto generate the service account email address and a stable\n`unique_id`.\n\nIf the account already exists, the account's resource name is returned\nin util::Status's ResourceInfo.resource_name in the format of\nprojects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}. The caller can\nuse the name in other methods to access the account.\n\nAll other methods can identify the service account using the format\n`projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.\nUsing `-` as a wildcard for the `PROJECT_ID` will infer the project from\nthe account. The `ACCOUNT` value can be the `email` address or the\n`unique_id` of the service account.",
+      "description": "A service account in the Identity and Access Management API.\n\nTo create a service account, specify the `project_id` and the `account_id`\nfor the account.  The `account_id` is unique within the project, and is used\nto generate the service account email address and a stable\n`unique_id`.\n\nIf the account already exists, the account's resource name is returned\nin the format of projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}. The caller\ncan use the name in other methods to access the account.\n\nAll other methods can identify the service account using the format\n`projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.\nUsing `-` as a wildcard for the `PROJECT_ID` will infer the project from\nthe account. The `ACCOUNT` value can be the `email` address or the\n`unique_id` of the service account.",
       "properties": {
         "displayName": {
           "description": "Optional. A user-specified description of the service account.  Must be\nfewer than 100 UTF-8 bytes.",
@@ -1993,7 +2079,7 @@
           "type": "string"
         },
         "oauth2ClientId": {
-          "description": "@OutputOnly. The OAuth2 client id for the service account.\nThis is used in conjunction with the OAuth2 clientconfig API to make\nthree legged OAuth2 (3LO) flows to access the data of Google users.",
+          "description": "@OutputOnly The OAuth2 client id for the service account.\nThis is used in conjunction with the OAuth2 clientconfig API to make\nthree legged OAuth2 (3LO) flows to access the data of Google users.",
           "type": "string"
         },
         "projectId": {
@@ -2015,8 +2101,7 @@
           "enum": [
             "KEY_ALG_UNSPECIFIED",
             "KEY_ALG_RSA_1024",
-            "KEY_ALG_RSA_2048",
-            "KEY_ALG_GCS_SYMMETRIC_HMAC"
+            "KEY_ALG_RSA_2048"
           ],
           "type": "string"
         },

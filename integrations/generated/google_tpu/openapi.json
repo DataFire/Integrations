@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "TPU API provides customers with access to Google TPU technology.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Cloud TPU",
     "version": "v1alpha1",
     "x-apiClientRegistration": {
@@ -44,11 +49,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -186,6 +201,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -217,6 +235,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -311,6 +332,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -403,6 +427,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -520,6 +547,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -571,7 +601,7 @@
         }
       ],
       "post": {
-        "description": "Reimage a node's OS.",
+        "description": "Reimages a node's OS.",
         "operationId": "projects.locations.nodes.reimage",
         "parameters": [
           {
@@ -601,6 +631,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -684,6 +717,179 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1alpha1/{name}:start": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Starts a node.",
+        "operationId": "projects.locations.nodes.start",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StartNodeRequest"
+            }
+          },
+          {
+            "description": "The resource name.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1alpha1/{name}:stop": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Stops a node.",
+        "operationId": "projects.locations.nodes.stop",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StopNodeRequest"
+            }
+          },
+          {
+            "description": "The resource name.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -729,6 +935,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -816,6 +1025,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -823,6 +1035,108 @@
           "projects"
         ]
       }
+    },
+    "/v1alpha1/{parent}/tensorflowVersions": {
+      "get": {
+        "description": "Lists TensorFlow versions supported by this API.",
+        "operationId": "projects.locations.tensorflowVersions.list",
+        "parameters": [
+          {
+            "description": "List filter.",
+            "in": "query",
+            "name": "filter",
+            "type": "string"
+          },
+          {
+            "description": "Sort results.",
+            "in": "query",
+            "name": "orderBy",
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of items to return.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "The next_page_token value returned from a previous List request, if any.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The parent resource name.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ListTensorFlowVersionsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ]
     }
   },
   "definitions": {
@@ -882,6 +1196,23 @@
       },
       "type": "object"
     },
+    "ListTensorFlowVersionsResponse": {
+      "description": "Response for ListTensorFlowVersions.",
+      "properties": {
+        "nextPageToken": {
+          "description": "The next page token or empty if none.",
+          "type": "string"
+        },
+        "tensorflowVersions": {
+          "description": "The listed nodes.",
+          "items": {
+            "$ref": "#/definitions/TensorFlowVersion"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Location": {
       "description": "A resource that represents Google Cloud Platform location.",
       "properties": {
@@ -933,11 +1264,11 @@
           "type": "string"
         },
         "cidrBlock": {
-          "description": "The CIDR block that the TPU node will use when selecting //an IP address.\nThis CIDR block must be a /29 block; the GCE networks API forbids a smaller\nblock, and using a larger block would be wasteful (a node can only consume\none IP address). Errors will occur if the CIDR block has already been used\nfor a currently existing TPU node, the CIDR block conflicts with any\nsubnetworks in the user's provided network, or the provided network is\npeered with another network that is using that CIDR block.\nRequired.",
+          "description": "The CIDR block that the TPU node will use when selecting an IP address.\nThis CIDR block must be a /29 block; the Compute Engine networks API\nforbids a smaller block, and using a larger block would be wasteful (a\nnode can only consume one IP address). Errors will occur if the CIDR block\nhas already been used for a currently existing TPU node, the CIDR block\nconflicts with any subnetworks in the user's provided network, or the\nprovided network is peered with another network that is using that CIDR\nblock.\nRequired.",
           "type": "string"
         },
         "createTime": {
-          "description": "The time when the node was created.\nOutput only.",
+          "description": "Output only.\nThe time when the node was created.",
           "format": "google-datetime",
           "type": "string"
         },
@@ -945,20 +1276,37 @@
           "description": "The user-supplied description of the TPU. Maximum of 512 characters.",
           "type": "string"
         },
+        "health": {
+          "description": "The health status of the TPU node.",
+          "enum": [
+            "HEALTH_UNSPECIFIED",
+            "HEALTHY",
+            "UNHEALTHY",
+            "TIMEOUT"
+          ],
+          "type": "string"
+        },
         "healthDescription": {
-          "description": "If this field is populated, it contains a description of why the TPU Node\nis unhealthy.\nOutput only.",
+          "description": "Output only.\nIf this field is populated, it contains a description of why the TPU Node\nis unhealthy.",
           "type": "string"
         },
         "ipAddress": {
-          "description": "Output only.\nDEPRECATED! Use network_endpoints instead.\nThe network address for the TPU Node as visible to GCE instances.",
+          "description": "Output only.\nDEPRECATED! Use network_endpoints instead.\nThe network address for the TPU Node as visible to Compute Engine\ninstances.",
           "type": "string"
         },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource labels to represent user-provided metadata.",
+          "type": "object"
+        },
         "name": {
-          "description": "The immutable name of the TPU",
+          "description": "Output only.\nThe immutable name of the TPU",
           "type": "string"
         },
         "network": {
-          "description": "The name of a network they wish to peer the TPU node to. It must be a\npreexisting GCE network inside of the project on which this API has been\nactivated. If none is provided, \"default\" will be used.",
+          "description": "The name of a network they wish to peer the TPU node to. It must be a\npreexisting Compute Engine network inside of the project on which this API\nhas been activated. If none is provided, \"default\" will be used.",
           "type": "string"
         },
         "networkEndpoints": {
@@ -969,15 +1317,15 @@
           "type": "array"
         },
         "port": {
-          "description": "Output only.\nDEPRECATED! Use network_endpoints instead.\nThe network port for the TPU Node as visible to GCE instances.",
+          "description": "Output only.\nDEPRECATED! Use network_endpoints instead.\nThe network port for the TPU Node as visible to Compute Engine instances.",
           "type": "string"
         },
         "serviceAccount": {
-          "description": "The service account used to run the tensor flow services within the node.\nTo share resources, including Google Cloud Storage data, with the\nTensorflow job running in the Node, this account must have permissions to\nthat data.\nOutput only.",
+          "description": "Output only.\nThe service account used to run the tensor flow services within the node.\nTo share resources, including Google Cloud Storage data, with the\nTensorflow job running in the Node, this account must have permissions to\nthat data.",
           "type": "string"
         },
         "state": {
-          "description": "The current state for the TPU Node.\nOutput only.",
+          "description": "Output only.\nThe current state for the TPU Node.",
           "enum": [
             "STATE_UNSPECIFIED",
             "CREATING",
@@ -985,7 +1333,8 @@
             "RESTARTING",
             "REIMAGING",
             "DELETING",
-            "REPAIRING"
+            "REPAIRING",
+            "STOPPED"
           ],
           "type": "string"
         },
@@ -1079,6 +1428,11 @@
       "properties": {},
       "type": "object"
     },
+    "StartNodeRequest": {
+      "description": "Request for StartNode.",
+      "properties": {},
+      "type": "object"
+    },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` that can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
       "properties": {
@@ -1099,6 +1453,25 @@
         },
         "message": {
           "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StopNodeRequest": {
+      "description": "Request for StopNode.",
+      "properties": {},
+      "type": "object"
+    },
+    "TensorFlowVersion": {
+      "description": "A tensorflow version that a Node can be configured with.",
+      "properties": {
+        "name": {
+          "description": "The resource name.",
+          "type": "string"
+        },
+        "version": {
+          "description": "the tensorflow version.",
           "type": "string"
         }
       },

@@ -11,7 +11,7 @@
     },
     "description": "Open, scableable, transparent payroll API.",
     "title": "PayRun.IO",
-    "version": "17.18.6.71",
+    "version": "17.18.6.206",
     "x-apisguru-categories": [
       "financial"
     ],
@@ -928,6 +928,418 @@
         "summary": "Updates the Employee",
         "tags": [
           "Employee"
+        ]
+      }
+    },
+    "/Employer/{EmployerId}/Employee/{EmployeeId}/AEAssessment/{AEAssessmentId}": {
+      "delete": {
+        "description": "Deletes an existing auto enrolment assessment for the employee. Used to remove historical assessments",
+        "operationId": "DeleteAEAssessment",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee's unique identifier. E.g EE001",
+            "in": "path",
+            "name": "EmployeeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The auto enrolment assessment unique identifier. E.g. AE001",
+            "in": "path",
+            "name": "AEAssessmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Delete auto enrolment assessment",
+        "tags": [
+          "AEAssessment"
+        ]
+      },
+      "get": {
+        "description": "Gets the auto enrolment assessment from the specified employee",
+        "operationId": "GetAEAssessmentFromEmployee",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee's unique identifier. E.g EE001",
+            "in": "path",
+            "name": "EmployeeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The auto enrolment assessment unique identifier. E.g. AE001",
+            "in": "path",
+            "name": "AEAssessmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The a e assessment object.",
+            "schema": {
+              "$ref": "#/definitions/AEAssessment"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get the auto enrolment assessment",
+        "tags": [
+          "AEAssessment",
+          "Employee"
+        ]
+      },
+      "put": {
+        "description": "Creates a new auto enrolment assessment for the employee. Used to insert historical assessments",
+        "operationId": "PutNewAEAssessment",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee's unique identifier. E.g EE001",
+            "in": "path",
+            "name": "EmployeeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The auto enrolment assessment unique identifier. E.g. AE001",
+            "in": "path",
+            "name": "AEAssessmentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The auto enrolment assessment object.",
+            "in": "body",
+            "name": "AEAssessment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AEAssessment"
+            }
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The a e assessment object.",
+            "schema": {
+              "$ref": "#/definitions/AEAssessment"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Insert new auto enrolment assessment",
+        "tags": [
+          "AEAssessment"
+        ]
+      }
+    },
+    "/Employer/{EmployerId}/Employee/{EmployeeId}/AEAssessments": {
+      "get": {
+        "description": "Gets all auto enrolment assessments from the specified employee",
+        "operationId": "GetAEAssessmentsFromEmployee",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee's unique identifier. E.g EE001",
+            "in": "path",
+            "name": "EmployeeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get the auto enrolment assessments",
+        "tags": [
+          "AEAssessment",
+          "Employee"
+        ]
+      },
+      "post": {
+        "description": "Creates a new auto enrolment assessment for the employee. Used to insert historical assessments",
+        "operationId": "PostNewAEAssessment",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The employee's unique identifier. E.g EE001",
+            "in": "path",
+            "name": "EmployeeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The auto enrolment assessment object.",
+            "in": "body",
+            "name": "AEAssessment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AEAssessment"
+            }
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link object.",
+            "schema": {
+              "$ref": "#/definitions/Link"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Insert new auto enrolment assessment",
+        "tags": [
+          "AEAssessment"
         ]
       }
     },
@@ -4857,6 +5269,90 @@
         ]
       }
     },
+    "/Employer/{EmployerId}/PaySchedule/{PayScheduleId}/PayRun/{PayRunId}/AEAssessments": {
+      "get": {
+        "description": "Gets all auto enrolment assessments from the specified pay run",
+        "operationId": "GetAEAssessmentsFromPayRun",
+        "parameters": [
+          {
+            "description": "The employer's unique identifier. E.g ER001",
+            "in": "path",
+            "name": "EmployerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay schedule's unique identifier. E.g SCH001",
+            "in": "path",
+            "name": "PayScheduleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pay run's unique identifier. E.g. PR001",
+            "in": "path",
+            "name": "PayRunId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get the auto enrolment assessments",
+        "tags": [
+          "AEAssessment",
+          "PayRun"
+        ]
+      }
+    },
     "/Employer/{EmployerId}/PaySchedule/{PayScheduleId}/PayRun/{PayRunId}/Employee/{EmployeeId}": {
       "delete": {
         "description": "Delete pay run results for a single employee",
@@ -5023,7 +5519,8 @@
         },
         "summary": "Get employees from the pay run",
         "tags": [
-          "Employee"
+          "Employee",
+          "PayRun"
         ]
       }
     },
@@ -8627,6 +9124,66 @@
       }
     },
     "/Jobs/Dps": {
+      "get": {
+        "description": "Gets all the DPS jobs",
+        "operationId": "GetDpsJobs",
+        "parameters": [
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get all DPS jobs",
+        "tags": [
+          "Jobs"
+        ]
+      },
       "post": {
         "description": "Creates the new DPS job to the queue and returns the job info",
         "operationId": "PostNewDpsJob",
@@ -8965,6 +9522,66 @@
       }
     },
     "/Jobs/PayRuns": {
+      "get": {
+        "description": "Gets all the pay run jobs",
+        "operationId": "GetPayRunJobs",
+        "parameters": [
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get all PayRun jobs",
+        "tags": [
+          "Jobs"
+        ]
+      },
       "post": {
         "description": "Creates the new pay run job to the queue and returns the job info",
         "operationId": "PostNewPayRunJob",
@@ -9303,6 +9920,66 @@
       }
     },
     "/Jobs/Rti": {
+      "get": {
+        "description": "Gets all the RTI jobs",
+        "operationId": "GetRtiJobs",
+        "parameters": [
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get all RTI jobs",
+        "tags": [
+          "Jobs"
+        ]
+      },
       "post": {
         "description": "Creates the new RTI job to the queue and returns the job info",
         "operationId": "PostNewRtiJob",
@@ -9921,7 +10598,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10013,7 +10690,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10105,7 +10782,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10190,7 +10867,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10267,7 +10944,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10351,6 +11028,13 @@
             "type": "string"
           },
           {
+            "description": "The transform definition unique key. E.g. P45-Pdf",
+            "in": "query",
+            "name": "TransformDefinitionKey",
+            "required": false,
+            "type": "string"
+          },
+          {
             "default": "Auto",
             "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
             "format": "string",
@@ -10420,7 +11104,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10431,6 +11115,13 @@
             "description": "A comma separated list of the employee codes. E.g. EMP001,EMP002",
             "in": "query",
             "name": "EmployeeCodes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The transform definition unique key. E.g. P45-Pdf",
+            "in": "query",
+            "name": "TransformDefinitionKey",
             "required": false,
             "type": "string"
           },
@@ -10504,7 +11195,7 @@
             "type": "string"
           },
           {
-            "description": "The tax year. E.g. 2016 = 2016/17 year.",
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
             "format": "integer",
             "in": "query",
             "name": "TaxYear",
@@ -10578,6 +11269,90 @@
           }
         },
         "summary": "Runs the payslip report",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
+    "/Report/PENLIABILITY/run": {
+      "get": {
+        "description": "Returns the result of the executed pension liability report for the given query parameters",
+        "operationId": "GetPensionLiabilityReportOutput",
+        "parameters": [
+          {
+            "description": "The employer unique key. E.g. ER001",
+            "in": "query",
+            "name": "EmployerKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The tax year. E.g. 2017 = 2017/18 year.",
+            "format": "integer",
+            "in": "query",
+            "name": "TaxYear",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pension scheme unique key. E.g. PENSCH001",
+            "in": "query",
+            "name": "PensionKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the pension liability report execution",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Runs the pension liability report",
         "tags": [
           "Reports"
         ]
@@ -17377,9 +18152,442 @@
           "Templates"
         ]
       }
+    },
+    "/Transform/{TransformDefinitionId}": {
+      "delete": {
+        "description": "Delete the specified transform definition",
+        "operationId": "DeleteTransformDefinition",
+        "parameters": [
+          {
+            "description": "The transform definition unique identifier.",
+            "in": "path",
+            "name": "TransformDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Deletes a transform definition",
+        "tags": [
+          "Reports"
+        ]
+      },
+      "get": {
+        "description": "Returns the specified transform definition from the authroised application",
+        "operationId": "GetTransformDefinitionFromApplication",
+        "parameters": [
+          {
+            "description": "The transform definition unique identifier.",
+            "in": "path",
+            "name": "TransformDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The transform definition object.",
+            "schema": {
+              "$ref": "#/definitions/TransformDefinition"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Get the transform definition",
+        "tags": [
+          "Reports"
+        ]
+      },
+      "put": {
+        "description": "Updates the existing specified transform definition object",
+        "operationId": "PutTransformDefinition",
+        "parameters": [
+          {
+            "description": "The transform definition unique identifier.",
+            "in": "path",
+            "name": "TransformDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The transform definition object to be executed against the report data.",
+            "in": "body",
+            "name": "TransformDefinition",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransformDefinition"
+            }
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The transform definition object.",
+            "schema": {
+              "$ref": "#/definitions/TransformDefinition"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Updates a transform definition",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
+    "/Transforms": {
+      "get": {
+        "description": "Get links to all saved transform definitions under authorised application",
+        "operationId": "GetTransformDefinitionsFromApplication",
+        "parameters": [
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link collection object.",
+            "schema": {
+              "$ref": "#/definitions/LinkCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Gets all transform definitions",
+        "tags": [
+          "Reports"
+        ]
+      },
+      "post": {
+        "description": "Creates a new transform defintion object",
+        "operationId": "PostTransformDefinition",
+        "parameters": [
+          {
+            "description": "The transform definition object to be executed against the report data.",
+            "in": "body",
+            "name": "TransformDefinition",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransformDefinition"
+            }
+          },
+          {
+            "default": "Auto",
+            "description": "The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.",
+            "format": "string",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "default",
+            "description": "The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.",
+            "format": "string",
+            "in": "header",
+            "name": "Api-Version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The link object.",
+            "schema": {
+              "$ref": "#/definitions/Link"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        },
+        "summary": "Create a new transform definition",
+        "tags": [
+          "Reports"
+        ]
+      }
     }
   },
   "definitions": {
+    "AEAssessment": {
+      "properties": {
+        "AEAssessment": {
+          "properties": {
+            "Age": {
+              "description": "The a e assessment's age",
+              "format": "int32",
+              "title": "Age",
+              "type": "integer"
+            },
+            "AssessmentCode": {
+              "description": "The a e assessment's assessment code",
+              "enum": [
+                "Excluded",
+                "EligibleJobHolder",
+                "NonEligibleJobHolder",
+                "EntitledWorker"
+              ],
+              "title": "AssessmentCode",
+              "type": "string"
+            },
+            "AssessmentDate": {
+              "description": "The a e assessment's assessment date",
+              "format": "date",
+              "title": "AssessmentDate",
+              "type": "string"
+            },
+            "AssessmentEvent": {
+              "description": "The a e assessment's assessment event",
+              "enum": [
+                "NonEnrolmentEvent",
+                "AutomaticEnrolment",
+                "OptIn",
+                "VoluntaryJoiner",
+                "ContractualEnrolment"
+              ],
+              "title": "AssessmentEvent",
+              "type": "string"
+            },
+            "AssessmentOverride": {
+              "description": "The a e assessment's assessment override",
+              "enum": [
+                "None",
+                "OptOut",
+                "OptIn",
+                "VoluntaryJoiner",
+                "ContractualPension",
+                "CeasedMembership",
+                "Leaver",
+                "Excluded"
+              ],
+              "title": "AssessmentOverride",
+              "type": "string"
+            },
+            "AssessmentResult": {
+              "description": "The a e assessment's assessment result",
+              "enum": [
+                "Inconclusive",
+                "NoChange",
+                "Enrol",
+                "Exit"
+              ],
+              "title": "AssessmentResult",
+              "type": "string"
+            },
+            "QualifyingEarnings": {
+              "description": "The a e assessment's qualifying earnings",
+              "format": "double",
+              "title": "QualifyingEarnings",
+              "type": "number"
+            },
+            "StatePensionAge": {
+              "description": "The a e assessment's state pension age",
+              "format": "int32",
+              "title": "StatePensionAge",
+              "type": "integer"
+            },
+            "StatePensionDate": {
+              "description": "The a e assessment's state pension date",
+              "format": "date",
+              "title": "StatePensionDate",
+              "type": "string"
+            }
+          },
+          "title": "AEAssessment",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "AEAssessment"
+      }
+    },
     "Commentary": {
       "properties": {
         "Commentary": {
@@ -17579,6 +18787,33 @@
       "properties": {
         "Employee": {
           "properties": {
+            "AEAssessmentOverride": {
+              "description": "The employee's a e assessment override",
+              "enum": [
+                "None",
+                "OptOut",
+                "OptIn",
+                "VoluntaryJoiner",
+                "ContractualPension",
+                "CeasedMembership",
+                "Leaver",
+                "Excluded"
+              ],
+              "title": "AEAssessmentOverride",
+              "type": "string"
+            },
+            "AEAssessmentOverrideDate": {
+              "description": "The employee's a e assessment override date",
+              "format": "date",
+              "title": "AEAssessmentOverrideDate",
+              "type": "string"
+            },
+            "AEPostponementDate": {
+              "description": "The employee's a e postponement date",
+              "format": "date",
+              "title": "AEPostponementDate",
+              "type": "string"
+            },
             "Address": {
               "description": "The employee's address",
               "properties": {
@@ -17886,7 +19121,8 @@
                 "P45TaxInstructionRule",
                 "P45YtdTaxRule",
                 "YtdInstructionRule",
-                "TaxCodeRegionChangeRule"
+                "TaxCodeRegionChangeRule",
+                "AutoEnrolmentStatusChangeRule"
               ],
               "title": "RuleExclusions",
               "type": "string"
@@ -18005,6 +19241,109 @@
               "format": "double",
               "title": "ApprenticeshipLevyAllowance",
               "type": "number"
+            },
+            "AutoEnrolment": {
+              "description": "The employer's auto enrolment",
+              "properties": {
+                "Pension": {
+                  "description": "The employer auto enrolment's pension",
+                  "properties": {
+                    "@href": {
+                      "description": "The link's href",
+                      "title": "@href",
+                      "type": "string"
+                    },
+                    "@rel": {
+                      "description": "The link's target type",
+                      "title": "@rel",
+                      "type": "string"
+                    },
+                    "@title": {
+                      "description": "The link's title",
+                      "title": "@title",
+                      "type": "string"
+                    }
+                  },
+                  "title": "Pension",
+                  "type": "object"
+                },
+                "PostponementDate": {
+                  "description": "The employer auto enrolment's postponement date",
+                  "format": "date",
+                  "title": "PostponementDate",
+                  "type": "string"
+                },
+                "PrimaryEmail": {
+                  "description": "The employer auto enrolment's primary email",
+                  "title": "PrimaryEmail",
+                  "type": "string"
+                },
+                "PrimaryFirstName": {
+                  "description": "The employer auto enrolment's primary first name",
+                  "title": "PrimaryFirstName",
+                  "type": "string"
+                },
+                "PrimaryJobTitle": {
+                  "description": "The employer auto enrolment's primary job title",
+                  "title": "PrimaryJobTitle",
+                  "type": "string"
+                },
+                "PrimaryLastName": {
+                  "description": "The employer auto enrolment's primary last name",
+                  "title": "PrimaryLastName",
+                  "type": "string"
+                },
+                "PrimaryTelephone": {
+                  "description": "The employer auto enrolment's primary telephone",
+                  "title": "PrimaryTelephone",
+                  "type": "string"
+                },
+                "ReEnrolmentDayOffset": {
+                  "description": "The employer auto enrolment's re enrolment day offset",
+                  "format": "int32",
+                  "title": "ReEnrolmentDayOffset",
+                  "type": "integer"
+                },
+                "ReEnrolmentMonthOffset": {
+                  "description": "The employer auto enrolment's re enrolment month offset",
+                  "format": "int32",
+                  "title": "ReEnrolmentMonthOffset",
+                  "type": "integer"
+                },
+                "SecondaryEmail": {
+                  "description": "The employer auto enrolment's secondary email",
+                  "title": "SecondaryEmail",
+                  "type": "string"
+                },
+                "SecondaryFirstName": {
+                  "description": "The employer auto enrolment's secondary first name",
+                  "title": "SecondaryFirstName",
+                  "type": "string"
+                },
+                "SecondaryJobTitle": {
+                  "description": "The employer auto enrolment's secondary job title",
+                  "title": "SecondaryJobTitle",
+                  "type": "string"
+                },
+                "SecondaryLastName": {
+                  "description": "The employer auto enrolment's secondary last name",
+                  "title": "SecondaryLastName",
+                  "type": "string"
+                },
+                "SecondaryTelephone": {
+                  "description": "The employer auto enrolment's secondary telephone",
+                  "title": "SecondaryTelephone",
+                  "type": "string"
+                },
+                "StagingDate": {
+                  "description": "The employer auto enrolment's staging date",
+                  "format": "date",
+                  "title": "StagingDate",
+                  "type": "string"
+                }
+              },
+              "title": "AutoEnrolment",
+              "type": "object"
             },
             "BacsServiceUserNumber": {
               "description": "The employer's bacs service user number",
@@ -18172,7 +19511,8 @@
                 "P45TaxInstructionRule",
                 "P45YtdTaxRule",
                 "YtdInstructionRule",
-                "TaxCodeRegionChangeRule"
+                "TaxCodeRegionChangeRule",
+                "AutoEnrolmentStatusChangeRule"
               ],
               "title": "RuleExclusions",
               "type": "string"
@@ -18307,6 +19647,11 @@
                 "OnHold"
               ],
               "title": "JobStatus",
+              "type": "string"
+            },
+            "JobType": {
+              "description": "The job info's job type",
+              "title": "JobType",
               "type": "string"
             },
             "LastUpdated": {
@@ -18873,6 +20218,11 @@
       "properties": {
         "Pension": {
           "properties": {
+            "AECompatible": {
+              "description": "The pension's a e compatible",
+              "title": "AECompatible",
+              "type": "boolean"
+            },
             "Code": {
               "description": "The pension's code",
               "title": "Code",
@@ -18925,6 +20275,19 @@
               "title": "LowerThreshold",
               "type": "number"
             },
+            "ProRataMethod": {
+              "description": "The pension's pro rata method",
+              "enum": [
+                "NotSet",
+                "Annual260Days",
+                "Annual365Days",
+                "AnnualQualifyingDays",
+                "DaysPerCalenderMonth",
+                "DaysPerTaxPeriod"
+              ],
+              "title": "ProRataMethod",
+              "type": "string"
+            },
             "ProviderEmployerRef": {
               "description": "The pension's provider employer ref",
               "title": "ProviderEmployerRef",
@@ -18940,6 +20303,11 @@
               "format": "int32",
               "title": "Revision",
               "type": "integer"
+            },
+            "SalarySacrifice": {
+              "description": "The pension's salary sacrifice",
+              "title": "SalarySacrifice",
+              "type": "boolean"
             },
             "SchemeName": {
               "description": "The pension's scheme name",
@@ -18967,6 +20335,11 @@
               "format": "double",
               "title": "UpperThreshold",
               "type": "number"
+            },
+            "UseAEThresholds": {
+              "description": "The pension's use a e thresholds",
+              "title": "UseAEThresholds",
+              "type": "boolean"
             }
           },
           "title": "Pension",
@@ -19016,7 +20389,18 @@
                       "Condition": {
                         "description": "The entity group's conditions",
                         "items": {
-                          "properties": {},
+                          "properties": {
+                            "@ValueA": {
+                              "description": "The compare condition base's value a",
+                              "title": "@ValueA",
+                              "type": "string"
+                            },
+                            "@ValueB": {
+                              "description": "The compare condition base's value b",
+                              "title": "@ValueB",
+                              "type": "string"
+                            }
+                          },
                           "type": "object"
                         },
                         "title": "Condition",
@@ -19068,7 +20452,9 @@
                                 "Attribute",
                                 "Variable",
                                 "VariableSum",
-                                "VariableAppend"
+                                "VariableAppend",
+                                "VariablePrepend",
+                                "ElementDatePart"
                               ],
                               "title": "@Output",
                               "type": "string"
@@ -19172,7 +20558,18 @@
                           "Condition": {
                             "description": "The entity group's conditions",
                             "items": {
-                              "properties": {},
+                              "properties": {
+                                "@ValueA": {
+                                  "description": "The compare condition base's value a",
+                                  "title": "@ValueA",
+                                  "type": "string"
+                                },
+                                "@ValueB": {
+                                  "description": "The compare condition base's value b",
+                                  "title": "@ValueB",
+                                  "type": "string"
+                                }
+                              },
                               "type": "object"
                             },
                             "title": "Condition",
@@ -19224,7 +20621,9 @@
                                     "Attribute",
                                     "Variable",
                                     "VariableSum",
-                                    "VariableAppend"
+                                    "VariableAppend",
+                                    "VariablePrepend",
+                                    "ElementDatePart"
                                   ],
                                   "title": "@Output",
                                   "type": "string"
@@ -19662,6 +21061,56 @@
       "type": "object",
       "xml": {
         "name": "Tag"
+      }
+    },
+    "TransformDefinition": {
+      "properties": {
+        "TransformDefinition": {
+          "properties": {
+            "ContentType": {
+              "description": "The transform definition's content type",
+              "title": "ContentType",
+              "type": "string"
+            },
+            "Definition": {
+              "description": "The transform definition's definition",
+              "title": "Definition",
+              "type": "string"
+            },
+            "DefinitionType": {
+              "description": "The transform definition's definition type",
+              "title": "DefinitionType",
+              "type": "string"
+            },
+            "Readonly": {
+              "description": "The transform definition's readonly",
+              "title": "Readonly",
+              "type": "boolean"
+            },
+            "SupportedReports": {
+              "description": "The transform definition's supported reports",
+              "title": "SupportedReports",
+              "type": "string"
+            },
+            "TaxYear": {
+              "description": "The transform definition's tax year",
+              "format": "int32",
+              "title": "TaxYear",
+              "type": "integer"
+            },
+            "Title": {
+              "description": "The transform definition's title",
+              "title": "Title",
+              "type": "string"
+            }
+          },
+          "title": "TransformDefinition",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "TransformDefinition"
       }
     }
   }

@@ -665,6 +665,36 @@ wikimedia.metrics.pageviews.per_article.project.access.agent.article.granularity
 #### Output
 * output [pageview-article](#pageview-article)
 
+### metrics.pageviews.top_by_country.project.access.year.month.get
+Lists the pageviews to this project, split by country of origin for a given month.
+Because of privacy reasons, pageviews are given in a bucketed format, and countries
+with less than 100 views do not get reported.
+Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
+- Rate limit: 100 req/s
+- License: Data accessible via this endpoint is available under the
+  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+```js
+wikimedia.metrics.pageviews.top_by_country.project.access.year.month.get({
+  "project": "",
+  "access": "",
+  "year": "",
+  "month": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * project **required** `string`: If you want to filter by project, use the domain of any Wikimedia project,
+  * access **required** `string` (values: all-access, desktop, mobile-app, mobile-web): If you want to filter by access method, use one of desktop, mobile-app or mobile-web.
+  * year **required** `string`: The year of the date for which to retrieve top countries, in YYYY format.
+  * month **required** `string`: The month of the date for which to retrieve top countries, in MM format.
+
+#### Output
+* output [by-country](#by-country)
+
 ### metrics.pageviews.top.project.access.year.month.day.get
 Lists the 1000 most viewed articles for a given project and timespan (month or day).
 You can filter by access method.
@@ -941,6 +971,20 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
           * abs_bytes_diff `integer`
           * timestamp `string`
 
+### by-country
+* by-country `object`
+  * items `array`
+    * items `object`
+      * access `string`
+      * countries `array`
+        * items `object`
+          * country `string`
+          * rank `integer`
+          * views `integer`
+      * month `string`
+      * project `string`
+      * year `string`
+
 ### cx_dict
 * cx_dict `object`
   * source `string`: the original word to look up
@@ -1096,7 +1140,11 @@ wikimedia.transform.word.from.from_lang.to.to_lang.word.provider.get({
   * items `array`
     * items `object`
       * access `string`
-      * articles `string`
+      * articles `array`
+        * items `object`
+          * article `string`
+          * rank `integer`
+          * views `integer`
       * day `string`
       * month `string`
       * project `string`

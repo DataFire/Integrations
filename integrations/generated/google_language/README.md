@@ -80,19 +80,19 @@ google_language.documents.analyzeEntities({}, context)
 #### Input
 * input `object`
   * body [AnalyzeEntitiesRequest](#analyzeentitiesrequest)
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [AnalyzeEntitiesResponse](#analyzeentitiesresponse)
@@ -137,19 +137,19 @@ google_language.documents.analyzeSentiment({}, context)
 #### Input
 * input `object`
   * body [AnalyzeSentimentRequest](#analyzesentimentrequest)
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [AnalyzeSentimentResponse](#analyzesentimentresponse)
@@ -167,19 +167,19 @@ google_language.documents.analyzeSyntax({}, context)
 #### Input
 * input `object`
   * body [AnalyzeSyntaxRequest](#analyzesyntaxrequest)
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [AnalyzeSyntaxResponse](#analyzesyntaxresponse)
@@ -196,19 +196,19 @@ google_language.documents.annotateText({}, context)
 #### Input
 * input `object`
   * body [AnnotateTextRequest](#annotatetextrequest)
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [AnnotateTextResponse](#annotatetextresponse)

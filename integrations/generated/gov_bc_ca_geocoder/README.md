@@ -7,9 +7,7 @@ Client library for Geocoder
 npm install --save @datafire/gov_bc_ca_geocoder
 ```
 ```js
-let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create({
-  apikey: ""
-});
+let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create();
 
 gov_bc_ca_geocoder.addresses.outputFormat.get({
   "outputFormat": ""

@@ -64,6 +64,27 @@ amazonaws_codecommit.CreateBranch({
 #### Output
 *Output schema unknown*
 
+### CreatePullRequest
+
+
+
+```js
+amazonaws_codecommit.CreatePullRequest({
+  "title": "",
+  "targets": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * description [Description](#description)
+  * targets **required** [TargetList](#targetlist)
+  * title **required** [Title](#title)
+
+#### Output
+* output [CreatePullRequestOutput](#createpullrequestoutput)
+
 ### CreateRepository
 
 
@@ -101,6 +122,23 @@ amazonaws_codecommit.DeleteBranch({
 #### Output
 * output [DeleteBranchOutput](#deletebranchoutput)
 
+### DeleteCommentContent
+
+
+
+```js
+amazonaws_codecommit.DeleteCommentContent({
+  "commentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * commentId **required** [CommentId](#commentid)
+
+#### Output
+* output [DeleteCommentContentOutput](#deletecommentcontentoutput)
+
 ### DeleteRepository
 
 
@@ -117,6 +155,29 @@ amazonaws_codecommit.DeleteRepository({
 
 #### Output
 * output [DeleteRepositoryOutput](#deleterepositoryoutput)
+
+### DescribePullRequestEvents
+
+
+
+```js
+amazonaws_codecommit.DescribePullRequestEvents({
+  "pullRequestId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * actorArn [Arn](#arn)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestEventType [PullRequestEventType](#pullrequesteventtype)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+
+#### Output
+* output [DescribePullRequestEventsOutput](#describepullrequesteventsoutput)
 
 ### GetBlob
 
@@ -152,6 +213,71 @@ amazonaws_codecommit.GetBranch({}, context)
 
 #### Output
 * output [GetBranchOutput](#getbranchoutput)
+
+### GetComment
+
+
+
+```js
+amazonaws_codecommit.GetComment({
+  "commentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * commentId **required** [CommentId](#commentid)
+
+#### Output
+* output [GetCommentOutput](#getcommentoutput)
+
+### GetCommentsForComparedCommit
+
+
+
+```js
+amazonaws_codecommit.GetCommentsForComparedCommit({
+  "repositoryName": "",
+  "afterCommitId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * afterCommitId **required** [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+#### Output
+* output [GetCommentsForComparedCommitOutput](#getcommentsforcomparedcommitoutput)
+
+### GetCommentsForPullRequest
+
+
+
+```js
+amazonaws_codecommit.GetCommentsForPullRequest({
+  "pullRequestId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * afterCommitId [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * repositoryName [RepositoryName](#repositoryname)
+
+#### Output
+* output [GetCommentsForPullRequestOutput](#getcommentsforpullrequestoutput)
 
 ### GetCommit
 
@@ -197,6 +323,46 @@ amazonaws_codecommit.GetDifferences({
 
 #### Output
 * output [GetDifferencesOutput](#getdifferencesoutput)
+
+### GetMergeConflicts
+
+
+
+```js
+amazonaws_codecommit.GetMergeConflicts({
+  "repositoryName": "",
+  "destinationCommitSpecifier": "",
+  "sourceCommitSpecifier": "",
+  "mergeOption": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * destinationCommitSpecifier **required** [CommitName](#commitname)
+  * mergeOption **required** [MergeOptionTypeEnum](#mergeoptiontypeenum)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+  * sourceCommitSpecifier **required** [CommitName](#commitname)
+
+#### Output
+* output [GetMergeConflictsOutput](#getmergeconflictsoutput)
+
+### GetPullRequest
+
+
+
+```js
+amazonaws_codecommit.GetPullRequest({
+  "pullRequestId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+
+#### Output
+* output [GetPullRequestOutput](#getpullrequestoutput)
 
 ### GetRepository
 
@@ -251,6 +417,29 @@ amazonaws_codecommit.ListBranches({
 #### Output
 * output [ListBranchesOutput](#listbranchesoutput)
 
+### ListPullRequests
+
+
+
+```js
+amazonaws_codecommit.ListPullRequests({
+  "repositoryName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * maxResults `string`
+  * nextToken `string`
+  * authorArn [Arn](#arn)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestStatus [PullRequestStatusEnum](#pullrequeststatusenum)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+#### Output
+* output [ListPullRequestsOutput](#listpullrequestsoutput)
+
 ### ListRepositories
 
 
@@ -268,6 +457,97 @@ amazonaws_codecommit.ListRepositories({}, context)
 
 #### Output
 * output [ListRepositoriesOutput](#listrepositoriesoutput)
+
+### MergePullRequestByFastForward
+
+
+
+```js
+amazonaws_codecommit.MergePullRequestByFastForward({
+  "pullRequestId": "",
+  "repositoryName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+  * sourceCommitId [CommitId](#commitid)
+
+#### Output
+* output [MergePullRequestByFastForwardOutput](#mergepullrequestbyfastforwardoutput)
+
+### PostCommentForComparedCommit
+
+
+
+```js
+amazonaws_codecommit.PostCommentForComparedCommit({
+  "repositoryName": "",
+  "afterCommitId": "",
+  "content": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * afterCommitId **required** [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * content **required** [Content](#content)
+  * location [Location](#location)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+#### Output
+* output [PostCommentForComparedCommitOutput](#postcommentforcomparedcommitoutput)
+
+### PostCommentForPullRequest
+
+
+
+```js
+amazonaws_codecommit.PostCommentForPullRequest({
+  "pullRequestId": "",
+  "repositoryName": "",
+  "beforeCommitId": "",
+  "afterCommitId": "",
+  "content": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * afterCommitId **required** [CommitId](#commitid)
+  * beforeCommitId **required** [CommitId](#commitid)
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * content **required** [Content](#content)
+  * location [Location](#location)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+#### Output
+* output [PostCommentForPullRequestOutput](#postcommentforpullrequestoutput)
+
+### PostCommentReply
+
+
+
+```js
+amazonaws_codecommit.PostCommentReply({
+  "inReplyTo": "",
+  "content": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * content **required** [Content](#content)
+  * inReplyTo **required** [CommentId](#commentid)
+
+#### Output
+* output [PostCommentReplyOutput](#postcommentreplyoutput)
 
 ### PutRepositoryTriggers
 
@@ -307,6 +587,25 @@ amazonaws_codecommit.TestRepositoryTriggers({
 #### Output
 * output [TestRepositoryTriggersOutput](#testrepositorytriggersoutput)
 
+### UpdateComment
+
+
+
+```js
+amazonaws_codecommit.UpdateComment({
+  "commentId": "",
+  "content": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * commentId **required** [CommentId](#commentid)
+  * content **required** [Content](#content)
+
+#### Output
+* output [UpdateCommentOutput](#updatecommentoutput)
+
 ### UpdateDefaultBranch
 
 
@@ -325,6 +624,63 @@ amazonaws_codecommit.UpdateDefaultBranch({
 
 #### Output
 *Output schema unknown*
+
+### UpdatePullRequestDescription
+
+
+
+```js
+amazonaws_codecommit.UpdatePullRequestDescription({
+  "pullRequestId": "",
+  "description": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * description **required** [Description](#description)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+
+#### Output
+* output [UpdatePullRequestDescriptionOutput](#updatepullrequestdescriptionoutput)
+
+### UpdatePullRequestStatus
+
+
+
+```js
+amazonaws_codecommit.UpdatePullRequestStatus({
+  "pullRequestId": "",
+  "pullRequestStatus": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * pullRequestStatus **required** [PullRequestStatusEnum](#pullrequeststatusenum)
+
+#### Output
+* output [UpdatePullRequestStatusOutput](#updatepullrequeststatusoutput)
+
+### UpdatePullRequestTitle
+
+
+
+```js
+amazonaws_codecommit.UpdatePullRequestTitle({
+  "pullRequestId": "",
+  "title": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * title **required** [Title](#title)
+
+#### Output
+* output [UpdatePullRequestTitleOutput](#updatepullrequesttitleoutput)
 
 ### UpdateRepositoryDescription
 
@@ -370,11 +726,17 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### AccountId
 * AccountId `string`
 
+### ActorDoesNotExistException
+* ActorDoesNotExistException `object`: The specified Amazon Resource Name (ARN) does not exist in the AWS account.
+
 ### AdditionalData
 * AdditionalData `string`
 
 ### Arn
 * Arn `string`
+
+### AuthorDoesNotExistException
+* AuthorDoesNotExistException `object`: The specified Amazon Resource Name (ARN) does not exist in the AWS account.
 
 ### BatchGetRepositoriesInput
 * BatchGetRepositoriesInput `object`: Represents the input of a batch get repositories operation.
@@ -384,6 +746,9 @@ amazonaws_codecommit.UpdateRepositoryName({
 * BatchGetRepositoriesOutput `object`: Represents the output of a batch get repositories operation.
   * repositories [RepositoryMetadataList](#repositorymetadatalist)
   * repositoriesNotFound [RepositoryNotFoundList](#repositorynotfoundlist)
+
+### BeforeCommitIdAndAfterCommitIdAreSameException
+* BeforeCommitIdAndAfterCommitIdAreSameException `object`: The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.
 
 ### BlobIdDoesNotExistException
 * BlobIdDoesNotExistException `object`: The specified blob does not exist.
@@ -421,11 +786,82 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### ChangeTypeEnum
 * ChangeTypeEnum `string` (values: A, M, D)
 
+### ClientRequestToken
+* ClientRequestToken `string`
+
+### ClientRequestTokenRequiredException
+* ClientRequestTokenRequiredException `object`: A client request token is required. A client request token is an unique, client-generated idempotency token that when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request will return information about the initial request that used that token.
+
 ### CloneUrlHttp
 * CloneUrlHttp `string`
 
 ### CloneUrlSsh
 * CloneUrlSsh `string`
+
+### Comment
+* Comment `object`: Returns information about a specific comment.
+  * authorArn [Arn](#arn)
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * commentId [CommentId](#commentid)
+  * content [Content](#content)
+  * creationDate [CreationDate](#creationdate)
+  * deleted [IsCommentDeleted](#iscommentdeleted)
+  * inReplyTo [CommentId](#commentid)
+  * lastModifiedDate [LastModifiedDate](#lastmodifieddate)
+
+### CommentContentRequiredException
+* CommentContentRequiredException `object`: The comment is empty. You must provide some content for a comment. The content cannot be null.
+
+### CommentContentSizeLimitExceededException
+* CommentContentSizeLimitExceededException `object`: The comment is too large. Comments are limited to 1,000 characters.
+
+### CommentDeletedException
+* CommentDeletedException `object`: This comment has already been deleted. You cannot edit or delete a deleted comment.
+
+### CommentDoesNotExistException
+* CommentDoesNotExistException `object`: No comment exists with the provided ID. Verify that you have provided the correct ID, and then try again.
+
+### CommentId
+* CommentId `string`
+
+### CommentIdRequiredException
+* CommentIdRequiredException `object`: The comment ID is missing or null. A comment ID is required.
+
+### CommentNotCreatedByCallerException
+* CommentNotCreatedByCallerException `object`: You cannot modify or delete this comment. Only comment authors can modify or delete their comments.
+
+### Comments
+* Comments `array`
+  * items [Comment](#comment)
+
+### CommentsForComparedCommit
+* CommentsForComparedCommit `object`: Returns information about comments on the comparison between two commits.
+  * afterBlobId [ObjectId](#objectid)
+  * afterCommitId [CommitId](#commitid)
+  * beforeBlobId [ObjectId](#objectid)
+  * beforeCommitId [CommitId](#commitid)
+  * comments [Comments](#comments)
+  * location [Location](#location)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### CommentsForComparedCommitData
+* CommentsForComparedCommitData `array`
+  * items [CommentsForComparedCommit](#commentsforcomparedcommit)
+
+### CommentsForPullRequest
+* CommentsForPullRequest `object`: Returns information about comments on a pull request.
+  * afterBlobId [ObjectId](#objectid)
+  * afterCommitId [CommitId](#commitid)
+  * beforeBlobId [ObjectId](#objectid)
+  * beforeCommitId [CommitId](#commitid)
+  * comments [Comments](#comments)
+  * location [Location](#location)
+  * pullRequestId [PullRequestId](#pullrequestid)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### CommentsForPullRequestData
+* CommentsForPullRequestData `array`
+  * items [CommentsForPullRequest](#commentsforpullrequest)
 
 ### Commit
 * Commit `object`: Returns information about a specific commit.
@@ -455,11 +891,25 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### CommitRequiredException
 * CommitRequiredException `object`: A commit was not specified.
 
+### Content
+* Content `string`
+
 ### CreateBranchInput
 * CreateBranchInput `object`: Represents the input of a create branch operation.
   * branchName **required** [BranchName](#branchname)
   * commitId **required** [CommitId](#commitid)
   * repositoryName **required** [RepositoryName](#repositoryname)
+
+### CreatePullRequestInput
+* CreatePullRequestInput `object`
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * description [Description](#description)
+  * targets **required** [TargetList](#targetlist)
+  * title **required** [Title](#title)
+
+### CreatePullRequestOutput
+* CreatePullRequestOutput `object`
+  * pullRequest **required** [PullRequest](#pullrequest)
 
 ### CreateRepositoryInput
 * CreateRepositoryInput `object`: Represents the input of a create repository operation.
@@ -488,6 +938,14 @@ amazonaws_codecommit.UpdateRepositoryName({
 * DeleteBranchOutput `object`: Represents the output of a delete branch operation.
   * deletedBranch [BranchInfo](#branchinfo)
 
+### DeleteCommentContentInput
+* DeleteCommentContentInput `object`
+  * commentId **required** [CommentId](#commentid)
+
+### DeleteCommentContentOutput
+* DeleteCommentContentOutput `object`
+  * comment [Comment](#comment)
+
 ### DeleteRepositoryInput
 * DeleteRepositoryInput `object`: Represents the input of a delete repository operation.
   * repositoryName **required** [RepositoryName](#repositoryname)
@@ -495,6 +953,22 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### DeleteRepositoryOutput
 * DeleteRepositoryOutput `object`: Represents the output of a delete repository operation.
   * repositoryId [RepositoryId](#repositoryid)
+
+### DescribePullRequestEventsInput
+* DescribePullRequestEventsInput `object`
+  * actorArn [Arn](#arn)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestEventType [PullRequestEventType](#pullrequesteventtype)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+
+### DescribePullRequestEventsOutput
+* DescribePullRequestEventsOutput `object`
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestEvents **required** [PullRequestEventList](#pullrequesteventlist)
+
+### Description
+* Description `string`
 
 ### Difference
 * Difference `object`: Returns information about a set of differences for a commit specifier.
@@ -524,6 +998,9 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### EncryptionKeyUnavailableException
 * EncryptionKeyUnavailableException `object`: The encryption key is not available.
 
+### EventDate
+* EventDate `string`
+
 ### FileTooLargeException
 * FileTooLargeException `object`: The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.
 
@@ -544,6 +1021,41 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### GetBranchOutput
 * GetBranchOutput `object`: Represents the output of a get branch operation.
   * branch [BranchInfo](#branchinfo)
+
+### GetCommentInput
+* GetCommentInput `object`
+  * commentId **required** [CommentId](#commentid)
+
+### GetCommentOutput
+* GetCommentOutput `object`
+  * comment [Comment](#comment)
+
+### GetCommentsForComparedCommitInput
+* GetCommentsForComparedCommitInput `object`
+  * afterCommitId **required** [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+### GetCommentsForComparedCommitOutput
+* GetCommentsForComparedCommitOutput `object`
+  * commentsForComparedCommitData [CommentsForComparedCommitData](#commentsforcomparedcommitdata)
+  * nextToken [NextToken](#nexttoken)
+
+### GetCommentsForPullRequestInput
+* GetCommentsForPullRequestInput `object`
+  * afterCommitId [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### GetCommentsForPullRequestOutput
+* GetCommentsForPullRequestOutput `object`
+  * commentsForPullRequestData [CommentsForPullRequestData](#commentsforpullrequestdata)
+  * nextToken [NextToken](#nexttoken)
 
 ### GetCommitInput
 * GetCommitInput `object`: Represents the input of a get commit operation.
@@ -569,6 +1081,27 @@ amazonaws_codecommit.UpdateRepositoryName({
   * NextToken [NextToken](#nexttoken)
   * differences [DifferenceList](#differencelist)
 
+### GetMergeConflictsInput
+* GetMergeConflictsInput `object`
+  * destinationCommitSpecifier **required** [CommitName](#commitname)
+  * mergeOption **required** [MergeOptionTypeEnum](#mergeoptiontypeenum)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+  * sourceCommitSpecifier **required** [CommitName](#commitname)
+
+### GetMergeConflictsOutput
+* GetMergeConflictsOutput `object`
+  * destinationCommitId **required** [CommitId](#commitid)
+  * mergeable **required** [IsMergeable](#ismergeable)
+  * sourceCommitId **required** [CommitId](#commitid)
+
+### GetPullRequestInput
+* GetPullRequestInput `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+
+### GetPullRequestOutput
+* GetPullRequestOutput `object`
+  * pullRequest **required** [PullRequest](#pullrequest)
+
 ### GetRepositoryInput
 * GetRepositoryInput `object`: Represents the input of a get repository operation.
   * repositoryName **required** [RepositoryName](#repositoryname)
@@ -586,11 +1119,26 @@ amazonaws_codecommit.UpdateRepositoryName({
   * configurationId [RepositoryTriggersConfigurationId](#repositorytriggersconfigurationid)
   * triggers [RepositoryTriggersList](#repositorytriggerslist)
 
+### IdempotencyParameterMismatchException
+* IdempotencyParameterMismatchException `object`: The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be re-used.
+
+### InvalidActorArnException
+* InvalidActorArnException `object`: The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request, and then try again.
+
+### InvalidAuthorArnException
+* InvalidAuthorArnException `object`: The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.
+
 ### InvalidBlobIdException
 * InvalidBlobIdException `object`: The specified blob is not valid.
 
 ### InvalidBranchNameException
-* InvalidBranchNameException `object`: The specified branch name is not valid.
+* InvalidBranchNameException `object`: The specified reference name is not valid.
+
+### InvalidClientRequestTokenException
+* InvalidClientRequestTokenException `object`: The client request token is not valid.
+
+### InvalidCommentIdException
+* InvalidCommentIdException `object`: The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
 
 ### InvalidCommitException
 * InvalidCommitException `object`: The specified commit is not valid.
@@ -601,14 +1149,47 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### InvalidContinuationTokenException
 * InvalidContinuationTokenException `object`: The specified continuation token is not valid.
 
+### InvalidDescriptionException
+* InvalidDescriptionException `object`: The pull request description is not valid. Descriptions are limited to 1,000 characters in length.
+
+### InvalidDestinationCommitSpecifierException
+* InvalidDestinationCommitSpecifierException `object`: The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. 
+
+### InvalidFileLocationException
+* InvalidFileLocationException `object`: The location of the file is not valid. Make sure that you include the extension of the file as well as the file name.
+
+### InvalidFilePositionException
+* InvalidFilePositionException `object`: The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.
+
 ### InvalidMaxResultsException
 * InvalidMaxResultsException `object`: The specified number of maximum results is not valid.
+
+### InvalidMergeOptionException
+* InvalidMergeOptionException `object`: The specified merge option is not valid. The only valid value is FAST_FORWARD_MERGE.
 
 ### InvalidOrderException
 * InvalidOrderException `object`: The specified sort order is not valid.
 
 ### InvalidPathException
 * InvalidPathException `object`: The specified path is not valid.
+
+### InvalidPullRequestEventTypeException
+* InvalidPullRequestEventTypeException `object`: The pull request event type is not valid. 
+
+### InvalidPullRequestIdException
+* InvalidPullRequestIdException `object`: The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.
+
+### InvalidPullRequestStatusException
+* InvalidPullRequestStatusException `object`: The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.
+
+### InvalidPullRequestStatusUpdateException
+* InvalidPullRequestStatusUpdateException `object`: The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.
+
+### InvalidReferenceNameException
+* InvalidReferenceNameException `object`: The specified reference name format is not valid. Reference names must conform to the Git references format, for example refs/heads/master. For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals - Git References</a> or consult your Git documentation.
+
+### InvalidRelativeFileVersionEnumException
+* InvalidRelativeFileVersionEnumException `object`: Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.
 
 ### InvalidRepositoryDescriptionException
 * InvalidRepositoryDescriptionException `object`: The specified repository description is not valid.
@@ -637,6 +1218,27 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### InvalidSortByException
 * InvalidSortByException `object`: The specified sort by value is not valid.
 
+### InvalidSourceCommitSpecifierException
+* InvalidSourceCommitSpecifierException `object`: The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.
+
+### InvalidTargetException
+* InvalidTargetException `object`: The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.
+
+### InvalidTargetsException
+* InvalidTargetsException `object`: The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for the repository name, source branch, and destination branch for a pull request.
+
+### InvalidTitleException
+* InvalidTitleException `object`: The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.
+
+### IsCommentDeleted
+* IsCommentDeleted `boolean`
+
+### IsMergeable
+* IsMergeable `boolean`
+
+### IsMerged
+* IsMerged `boolean`
+
 ### LastModifiedDate
 * LastModifiedDate `string`
 
@@ -653,6 +1255,19 @@ amazonaws_codecommit.UpdateRepositoryName({
   * branches [BranchNameList](#branchnamelist)
   * nextToken [NextToken](#nexttoken)
 
+### ListPullRequestsInput
+* ListPullRequestsInput `object`
+  * authorArn [Arn](#arn)
+  * maxResults [MaxResults](#maxresults)
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestStatus [PullRequestStatusEnum](#pullrequeststatusenum)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+### ListPullRequestsOutput
+* ListPullRequestsOutput `object`
+  * nextToken [NextToken](#nexttoken)
+  * pullRequestIds **required** [PullRequestIdList](#pullrequestidlist)
+
 ### ListRepositoriesInput
 * ListRepositoriesInput `object`: Represents the input of a list repositories operation.
   * nextToken [NextToken](#nexttoken)
@@ -664,8 +1279,23 @@ amazonaws_codecommit.UpdateRepositoryName({
   * nextToken [NextToken](#nexttoken)
   * repositories [RepositoryNameIdPairList](#repositorynameidpairlist)
 
+### Location
+* Location `object`: Returns information about the location of a change or comment in the comparison between two commits or a pull request.
+  * filePath [Path](#path)
+  * filePosition [Position](#position)
+  * relativeFileVersion [RelativeFileVersionEnum](#relativefileversionenum)
+
+### ManualMergeRequiredException
+* ManualMergeRequiredException `object`: The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.
+
+### MaxResults
+* MaxResults `integer`
+
 ### MaximumBranchesExceededException
 * MaximumBranchesExceededException `object`: The number of branches for the trigger was exceeded.
+
+### MaximumOpenPullRequestsExceededException
+* MaximumOpenPullRequestsExceededException `object`: You cannot create the pull request because the repository has too many open pull requests. The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.
 
 ### MaximumRepositoryNamesExceededException
 * MaximumRepositoryNamesExceededException `object`: The maximum number of allowed repository names was exceeded. Currently, this number is 25.
@@ -673,11 +1303,35 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### MaximumRepositoryTriggersExceededException
 * MaximumRepositoryTriggersExceededException `object`: The number of triggers allowed for the repository was exceeded.
 
+### MergeMetadata
+* MergeMetadata `object`: Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.
+  * isMerged [IsMerged](#ismerged)
+  * mergedBy [Arn](#arn)
+
+### MergeOptionRequiredException
+* MergeOptionRequiredException `object`: A merge option or stategy is required, and none was provided.
+
+### MergeOptionTypeEnum
+* MergeOptionTypeEnum `string` (values: FAST_FORWARD_MERGE)
+
+### MergePullRequestByFastForwardInput
+* MergePullRequestByFastForwardInput `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+  * sourceCommitId [CommitId](#commitid)
+
+### MergePullRequestByFastForwardOutput
+* MergePullRequestByFastForwardOutput `object`
+  * pullRequest [PullRequest](#pullrequest)
+
 ### Message
 * Message `string`
 
 ### Mode
 * Mode `string`
+
+### MultipleRepositoriesInPullRequestException
+* MultipleRepositoriesInPullRequestException `object`: You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.
 
 ### Name
 * Name `string`
@@ -701,6 +1355,142 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### PathDoesNotExistException
 * PathDoesNotExistException `object`: The specified path does not exist.
 
+### PathRequiredException
+* PathRequiredException `object`: The filePath for a location cannot be empty or null.
+
+### Position
+* Position `integer`
+
+### PostCommentForComparedCommitInput
+* PostCommentForComparedCommitInput `object`
+  * afterCommitId **required** [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * content **required** [Content](#content)
+  * location [Location](#location)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+### PostCommentForComparedCommitOutput
+* PostCommentForComparedCommitOutput `object`
+  * afterBlobId [ObjectId](#objectid)
+  * afterCommitId [CommitId](#commitid)
+  * beforeBlobId [ObjectId](#objectid)
+  * beforeCommitId [CommitId](#commitid)
+  * comment [Comment](#comment)
+  * location [Location](#location)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### PostCommentForPullRequestInput
+* PostCommentForPullRequestInput `object`
+  * afterCommitId **required** [CommitId](#commitid)
+  * beforeCommitId **required** [CommitId](#commitid)
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * content **required** [Content](#content)
+  * location [Location](#location)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+
+### PostCommentForPullRequestOutput
+* PostCommentForPullRequestOutput `object`
+  * afterBlobId [ObjectId](#objectid)
+  * afterCommitId [CommitId](#commitid)
+  * beforeBlobId [ObjectId](#objectid)
+  * beforeCommitId [CommitId](#commitid)
+  * comment [Comment](#comment)
+  * location [Location](#location)
+  * pullRequestId [PullRequestId](#pullrequestid)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### PostCommentReplyInput
+* PostCommentReplyInput `object`
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * content **required** [Content](#content)
+  * inReplyTo **required** [CommentId](#commentid)
+
+### PostCommentReplyOutput
+* PostCommentReplyOutput `object`
+  * comment [Comment](#comment)
+
+### PullRequest
+* PullRequest `object`: Returns information about a pull request.
+  * authorArn [Arn](#arn)
+  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
+  * creationDate [CreationDate](#creationdate)
+  * description [Description](#description)
+  * lastActivityDate [LastModifiedDate](#lastmodifieddate)
+  * pullRequestId [PullRequestId](#pullrequestid)
+  * pullRequestStatus [PullRequestStatusEnum](#pullrequeststatusenum)
+  * pullRequestTargets [PullRequestTargetList](#pullrequesttargetlist)
+  * title [Title](#title)
+
+### PullRequestAlreadyClosedException
+* PullRequestAlreadyClosedException `object`: The pull request status cannot be updated because it is already closed.
+
+### PullRequestDoesNotExistException
+* PullRequestDoesNotExistException `object`: The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.
+
+### PullRequestEvent
+* PullRequestEvent `object`: Returns information about a pull request event.
+  * actorArn [Arn](#arn)
+  * eventDate [EventDate](#eventdate)
+  * pullRequestEventType [PullRequestEventType](#pullrequesteventtype)
+  * pullRequestId [PullRequestId](#pullrequestid)
+  * pullRequestMergedStateChangedEventMetadata [PullRequestMergedStateChangedEventMetadata](#pullrequestmergedstatechangedeventmetadata)
+  * pullRequestSourceReferenceUpdatedEventMetadata [PullRequestSourceReferenceUpdatedEventMetadata](#pullrequestsourcereferenceupdatedeventmetadata)
+  * pullRequestStatusChangedEventMetadata [PullRequestStatusChangedEventMetadata](#pullrequeststatuschangedeventmetadata)
+
+### PullRequestEventList
+* PullRequestEventList `array`
+  * items [PullRequestEvent](#pullrequestevent)
+
+### PullRequestEventType
+* PullRequestEventType `string` (values: PULL_REQUEST_CREATED, PULL_REQUEST_STATUS_CHANGED, PULL_REQUEST_SOURCE_REFERENCE_UPDATED, PULL_REQUEST_MERGE_STATE_CHANGED)
+
+### PullRequestId
+* PullRequestId `string`
+
+### PullRequestIdList
+* PullRequestIdList `array`
+  * items [PullRequestId](#pullrequestid)
+
+### PullRequestIdRequiredException
+* PullRequestIdRequiredException `object`: A pull request ID is required, but none was provided.
+
+### PullRequestMergedStateChangedEventMetadata
+* PullRequestMergedStateChangedEventMetadata `object`: Returns information about the change in the merge state for a pull request event. 
+  * destinationReference [ReferenceName](#referencename)
+  * mergeMetadata [MergeMetadata](#mergemetadata)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### PullRequestSourceReferenceUpdatedEventMetadata
+* PullRequestSourceReferenceUpdatedEventMetadata `object`: Information about an update to the source branch of a pull request.
+  * afterCommitId [CommitId](#commitid)
+  * beforeCommitId [CommitId](#commitid)
+  * repositoryName [RepositoryName](#repositoryname)
+
+### PullRequestStatusChangedEventMetadata
+* PullRequestStatusChangedEventMetadata `object`: Information about a change to the status of a pull request.
+  * pullRequestStatus [PullRequestStatusEnum](#pullrequeststatusenum)
+
+### PullRequestStatusEnum
+* PullRequestStatusEnum `string` (values: OPEN, CLOSED)
+
+### PullRequestStatusRequiredException
+* PullRequestStatusRequiredException `object`: A pull request status is required, but none was provided.
+
+### PullRequestTarget
+* PullRequestTarget `object`: Returns information about a pull request target.
+  * destinationCommit [CommitId](#commitid)
+  * destinationReference [ReferenceName](#referencename)
+  * mergeMetadata [MergeMetadata](#mergemetadata)
+  * repositoryName [RepositoryName](#repositoryname)
+  * sourceCommit [CommitId](#commitid)
+  * sourceReference [ReferenceName](#referencename)
+
+### PullRequestTargetList
+* PullRequestTargetList `array`
+  * items [PullRequestTarget](#pullrequesttarget)
+
 ### PutRepositoryTriggersInput
 * PutRepositoryTriggersInput `object`: Represents the input ofa put repository triggers operation.
   * repositoryName **required** [RepositoryName](#repositoryname)
@@ -709,6 +1499,21 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### PutRepositoryTriggersOutput
 * PutRepositoryTriggersOutput `object`: Represents the output of a put repository triggers operation.
   * configurationId [RepositoryTriggersConfigurationId](#repositorytriggersconfigurationid)
+
+### ReferenceDoesNotExistException
+* ReferenceDoesNotExistException `object`: The specified reference does not exist. You must provide a full commit ID.
+
+### ReferenceName
+* ReferenceName `string`
+
+### ReferenceNameRequiredException
+* ReferenceNameRequiredException `object`: A reference name is required, but none was provided.
+
+### ReferenceTypeNotSupportedException
+* ReferenceTypeNotSupportedException `object`: The specified reference is not a supported type. 
+
+### RelativeFileVersionEnum
+* RelativeFileVersionEnum `string` (values: BEFORE, AFTER)
 
 ### RepositoryDescription
 * RepositoryDescription `string`
@@ -763,6 +1568,9 @@ amazonaws_codecommit.UpdateRepositoryName({
 
 ### RepositoryNamesRequiredException
 * RepositoryNamesRequiredException `object`: A repository names object is required but was not specified.
+
+### RepositoryNotAssociatedWithPullRequestException
+* RepositoryNotAssociatedWithPullRequestException `object`: The repository does not contain any pull requests with that pull request ID. Check to make sure you have provided the correct repository name for the pull request.
 
 ### RepositoryNotFoundList
 * RepositoryNotFoundList `array`
@@ -830,6 +1638,25 @@ amazonaws_codecommit.UpdateRepositoryName({
 ### SortByEnum
 * SortByEnum `string` (values: repositoryName, lastModifiedDate)
 
+### SourceAndDestinationAreSameException
+* SourceAndDestinationAreSameException `object`: The source branch and the destination branch for the pull request are the same. You must specify different branches for the source and destination.
+
+### Target
+* Target `object`: Returns information about a target for a pull request.
+  * destinationReference [ReferenceName](#referencename)
+  * repositoryName **required** [RepositoryName](#repositoryname)
+  * sourceReference **required** [ReferenceName](#referencename)
+
+### TargetList
+* TargetList `array`
+  * items [Target](#target)
+
+### TargetRequiredException
+* TargetRequiredException `object`: A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.
+
+### TargetsRequiredException
+* TargetsRequiredException `object`: An array of target objects is required. It cannot be empty or null.
+
 ### TestRepositoryTriggersInput
 * TestRepositoryTriggersInput `object`: Represents the input of a test repository triggers operation.
   * repositoryName **required** [RepositoryName](#repositoryname)
@@ -840,10 +1667,58 @@ amazonaws_codecommit.UpdateRepositoryName({
   * failedExecutions [RepositoryTriggerExecutionFailureList](#repositorytriggerexecutionfailurelist)
   * successfulExecutions [RepositoryTriggerNameList](#repositorytriggernamelist)
 
+### TipOfSourceReferenceIsDifferentException
+* TipOfSourceReferenceIsDifferentException `object`: The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.
+
+### TipsDivergenceExceededException
+* TipsDivergenceExceededException `object`: The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.
+
+### Title
+* Title `string`
+
+### TitleRequiredException
+* TitleRequiredException `object`: A pull request title is required. It cannot be empty or null.
+
+### UpdateCommentInput
+* UpdateCommentInput `object`
+  * commentId **required** [CommentId](#commentid)
+  * content **required** [Content](#content)
+
+### UpdateCommentOutput
+* UpdateCommentOutput `object`
+  * comment [Comment](#comment)
+
 ### UpdateDefaultBranchInput
 * UpdateDefaultBranchInput `object`: Represents the input of an update default branch operation.
   * defaultBranchName **required** [BranchName](#branchname)
   * repositoryName **required** [RepositoryName](#repositoryname)
+
+### UpdatePullRequestDescriptionInput
+* UpdatePullRequestDescriptionInput `object`
+  * description **required** [Description](#description)
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+
+### UpdatePullRequestDescriptionOutput
+* UpdatePullRequestDescriptionOutput `object`
+  * pullRequest **required** [PullRequest](#pullrequest)
+
+### UpdatePullRequestStatusInput
+* UpdatePullRequestStatusInput `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * pullRequestStatus **required** [PullRequestStatusEnum](#pullrequeststatusenum)
+
+### UpdatePullRequestStatusOutput
+* UpdatePullRequestStatusOutput `object`
+  * pullRequest **required** [PullRequest](#pullrequest)
+
+### UpdatePullRequestTitleInput
+* UpdatePullRequestTitleInput `object`
+  * pullRequestId **required** [PullRequestId](#pullrequestid)
+  * title **required** [Title](#title)
+
+### UpdatePullRequestTitleOutput
+* UpdatePullRequestTitleOutput `object`
+  * pullRequest **required** [PullRequest](#pullrequest)
 
 ### UpdateRepositoryDescriptionInput
 * UpdateRepositoryDescriptionInput `object`: Represents the input of an update repository description operation.

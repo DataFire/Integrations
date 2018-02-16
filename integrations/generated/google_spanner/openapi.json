@@ -231,43 +231,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -317,43 +317,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -361,19 +361,19 @@
         "operationId": "projects.instances.databases.updateDdl",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateDatabaseDdlRequest"
+            }
+          },
+          {
             "description": "Required. The database to update.",
             "in": "path",
             "name": "database",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UpdateDatabaseDdlRequest"
-            }
           }
         ],
         "responses": {
@@ -421,7 +421,7 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "An expression for filtering the results of the request. Filter rules are\ncase insensitive. The fields eligible for filtering are:\n\n  * labels.key where key is the name of a label\n\nSome examples of using filters are:\n\n  * labels.env:* --> The session has the label \"env\".\n  * labels.env:dev --> The session has the label \"env\" and the value of\n                       the label contains the string \"dev\".",
+            "description": "An expression for filtering the results of the request. Filter rules are\ncase insensitive. The fields eligible for filtering are:\n\n  * `labels.key` where key is the name of a label\n\nSome examples of using filters are:\n\n  * `labels.env:*` --> The session has the label \"env\".\n  * `labels.env:dev` --> The session has the label \"env\" and the value of\n                       the label contains the string \"dev\".",
             "in": "query",
             "name": "filter",
             "type": "string"
@@ -471,43 +471,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -563,11 +563,11 @@
     },
     "/v1/{name}": {
       "delete": {
-        "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
-        "operationId": "projects.instances.operations.delete",
+        "description": "Ends a session, releasing server resources associated with it.",
+        "operationId": "projects.instances.databases.sessions.delete",
         "parameters": [
           {
-            "description": "The name of the operation resource to be deleted.",
+            "description": "Required. The name of the session to delete.",
             "in": "path",
             "name": "name",
             "required": true,
@@ -594,10 +594,10 @@
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/spanner.admin"
+              "https://www.googleapis.com/auth/spanner.data"
             ],
             "Oauth2c": [
-              "https://www.googleapis.com/auth/spanner.admin"
+              "https://www.googleapis.com/auth/spanner.data"
             ]
           }
         ],
@@ -650,43 +650,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -694,19 +694,19 @@
         "operationId": "projects.instances.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateInstanceRequest"
+            }
+          },
+          {
             "description": "Required. A unique identifier for the instance, which cannot be changed\nafter the instance is created. Values are of the form\n`projects/<project>/instances/a-z*[a-z0-9]`. The final\nsegment of the name must be between 6 and 30 characters in length.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UpdateInstanceRequest"
-            }
           }
         ],
         "responses": {
@@ -743,48 +743,48 @@
     "/v1/{name}:cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
         "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
-        "operationId": "projects.instances.operations.cancel",
+        "operationId": "projects.instances.databases.operations.cancel",
         "parameters": [
           {
             "description": "The name of the operation resource to be cancelled.",
@@ -832,12 +832,10 @@
         "operationId": "projects.instances.databases.list",
         "parameters": [
           {
-            "description": "Required. The instance whose databases should be listed.\nValues are of the form `projects/<project>/instances/<instance>`.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "description": "Number of databases to be returned in the response. If 0 or less,\ndefaults to the server's maximum allowed page size.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "If non-empty, `page_token` should contain a\nnext_page_token from a\nprevious ListDatabasesResponse.",
@@ -846,10 +844,12 @@
             "type": "string"
           },
           {
-            "description": "Number of databases to be returned in the response. If 0 or less,\ndefaults to the server's maximum allowed page size.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "Required. The instance whose databases should be listed.\nValues are of the form `projects/<project>/instances/<instance>`.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -884,43 +884,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -928,19 +928,19 @@
         "operationId": "projects.instances.databases.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateDatabaseRequest"
+            }
+          },
+          {
             "description": "Required. The name of the instance that will serve the new database.\nValues are of the form `projects/<project>/instances/<instance>`.",
             "in": "path",
             "name": "parent",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CreateDatabaseRequest"
-            }
           }
         ],
         "responses": {
@@ -980,12 +980,10 @@
         "operationId": "projects.instanceConfigs.list",
         "parameters": [
           {
-            "description": "Required. The name of the project for which a list of supported instance\nconfigurations is requested. Values are of the form\n`projects/<project>`.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "description": "Number of instance configurations to be returned in the response. If 0 or\nless, defaults to the server's maximum allowed page size.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "If non-empty, `page_token` should contain a\nnext_page_token\nfrom a previous ListInstanceConfigsResponse.",
@@ -994,10 +992,12 @@
             "type": "string"
           },
           {
-            "description": "Number of instance configurations to be returned in the response. If 0 or\nless, defaults to the server's maximum allowed page size.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "Required. The name of the project for which a list of supported instance\nconfigurations is requested. Values are of the form\n`projects/<project>`.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -1032,43 +1032,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -1078,17 +1078,9 @@
         "operationId": "projects.instances.list",
         "parameters": [
           {
-            "description": "Required. The name of the project for which a list of instances is\nrequested. Values are of the form `projects/<project>`.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
-          },
-          {
-            "description": "If non-empty, `page_token` should contain a\nnext_page_token from a\nprevious ListInstancesResponse.",
+            "description": "An expression for filtering the results of the request. Filter rules are\ncase insensitive. The fields eligible for filtering are:\n\n  * `name`\n  * `display_name`\n  * `labels.key` where key is the name of a label\n\nSome examples of using filters are:\n\n  * `name:*` --> The instance has a name.\n  * `name:Howl` --> The instance's name contains the string \"howl\".\n  * `name:HOWL` --> Equivalent to above.\n  * `NAME:howl` --> Equivalent to above.\n  * `labels.env:*` --> The instance has the label \"env\".\n  * `labels.env:dev` --> The instance has the label \"env\" and the value of\n                       the label contains the string \"dev\".\n  * `name:howl labels.env:dev` --> The instance's name contains \"howl\" and\n                                 it has the label \"env\" with its value\n                                 containing \"dev\".",
             "in": "query",
-            "name": "pageToken",
+            "name": "filter",
             "type": "string"
           },
           {
@@ -1098,10 +1090,18 @@
             "type": "integer"
           },
           {
-            "description": "An expression for filtering the results of the request. Filter rules are\ncase insensitive. The fields eligible for filtering are:\n\n  * name\n  * display_name\n  * labels.key where key is the name of a label\n\nSome examples of using filters are:\n\n  * name:* --> The instance has a name.\n  * name:Howl --> The instance's name contains the string \"howl\".\n  * name:HOWL --> Equivalent to above.\n  * NAME:howl --> Equivalent to above.\n  * labels.env:* --> The instance has the label \"env\".\n  * labels.env:dev --> The instance has the label \"env\" and the value of\n                       the label contains the string \"dev\".\n  * name:howl labels.env:dev --> The instance's name contains \"howl\" and\n                                 it has the label \"env\" with its value\n                                 containing \"dev\".",
+            "description": "If non-empty, `page_token` should contain a\nnext_page_token from a\nprevious ListInstancesResponse.",
             "in": "query",
-            "name": "filter",
+            "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Required. The name of the project for which a list of instances is\nrequested. Values are of the form `projects/<project>`.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -1136,43 +1136,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1180,19 +1180,19 @@
         "operationId": "projects.instances.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateInstanceRequest"
+            }
+          },
+          {
             "description": "Required. The name of the project in which to create the instance. Values\nare of the form `projects/<project>`.",
             "in": "path",
             "name": "parent",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CreateInstanceRequest"
-            }
           }
         ],
         "responses": {
@@ -1229,43 +1229,43 @@
     "/v1/{resource}:getIamPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1273,19 +1273,19 @@
         "operationId": "projects.instances.databases.getIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GetIamPolicyRequest"
+            }
+          },
+          {
             "description": "REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for database resources.",
             "in": "path",
             "name": "resource",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/GetIamPolicyRequest"
-            }
           }
         ],
         "responses": {
@@ -1322,43 +1322,43 @@
     "/v1/{resource}:setIamPolicy": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1366,19 +1366,19 @@
         "operationId": "projects.instances.databases.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetIamPolicyRequest"
+            }
+          },
+          {
             "description": "REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for databases resources.",
             "in": "path",
             "name": "resource",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SetIamPolicyRequest"
-            }
           }
         ],
         "responses": {
@@ -1415,43 +1415,43 @@
     "/v1/{resource}:testIamPermissions": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1459,19 +1459,19 @@
         "operationId": "projects.instances.databases.testIamPermissions",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TestIamPermissionsRequest"
+            }
+          },
+          {
             "description": "REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects/<project ID>/instances/<instance ID>` for instance resources and `projects/<project ID>/instances/<instance ID>/databases/<database ID>` for database resources.",
             "in": "path",
             "name": "resource",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TestIamPermissionsRequest"
-            }
           }
         ],
         "responses": {
@@ -1508,43 +1508,43 @@
     "/v1/{session}:beginTransaction": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1552,19 +1552,19 @@
         "operationId": "projects.instances.databases.sessions.beginTransaction",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BeginTransactionRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the transaction runs.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BeginTransactionRequest"
-            }
           }
         ],
         "responses": {
@@ -1601,43 +1601,43 @@
     "/v1/{session}:commit": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1645,19 +1645,19 @@
         "operationId": "projects.instances.databases.sessions.commit",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CommitRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the transaction to be committed is running.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CommitRequest"
-            }
           }
         ],
         "responses": {
@@ -1694,43 +1694,43 @@
     "/v1/{session}:executeSql": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1738,19 +1738,19 @@
         "operationId": "projects.instances.databases.sessions.executeSql",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExecuteSqlRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the SQL query should be performed.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ExecuteSqlRequest"
-            }
           }
         ],
         "responses": {
@@ -1787,43 +1787,43 @@
     "/v1/{session}:executeStreamingSql": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1831,19 +1831,19 @@
         "operationId": "projects.instances.databases.sessions.executeStreamingSql",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExecuteSqlRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the SQL query should be performed.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ExecuteSqlRequest"
-            }
           }
         ],
         "responses": {
@@ -1880,43 +1880,43 @@
     "/v1/{session}:read": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1924,19 +1924,19 @@
         "operationId": "projects.instances.databases.sessions.read",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReadRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the read should be performed.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ReadRequest"
-            }
           }
         ],
         "responses": {
@@ -1973,43 +1973,43 @@
     "/v1/{session}:rollback": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2017,19 +2017,19 @@
         "operationId": "projects.instances.databases.sessions.rollback",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RollbackRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the transaction to roll back is running.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RollbackRequest"
-            }
           }
         ],
         "responses": {
@@ -2066,43 +2066,43 @@
     "/v1/{session}:streamingRead": {
       "parameters": [
         {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2110,19 +2110,19 @@
         "operationId": "projects.instances.databases.sessions.streamingRead",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReadRequest"
+            }
+          },
+          {
             "description": "Required. The session in which the read should be performed.",
             "in": "path",
             "name": "session",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ReadRequest"
-            }
           }
         ],
         "responses": {
@@ -2448,7 +2448,7 @@
           "type": "string"
         },
         "nodeCount": {
-          "description": "Required. The number of nodes allocated to this instance. This may be zero\nin API responses for instances that are not yet in state `READY`.\n\nEach Spanner node can provide up to 10,000 QPS of reads or 2000 QPS of\nwrites (writing single rows at 1KB data per row), and 2 TiB storage.\n\nFor optimal performance, we recommend provisioning enough nodes to keep\noverall CPU utilization under 75%.\n\nA minimum of 3 nodes is recommended for production environments.  This\nminimum is required for SLAs to apply to your instance.\n\nNote that Cloud Spanner performance is highly dependent on workload, schema\ndesign, and dataset characteristics. The performance numbers above are\nestimates, and assume [best practices](https://cloud.google.com/spanner/docs/bulk-loading)\nare followed.",
+          "description": "Required. The number of nodes allocated to this instance. This may be zero\nin API responses for instances that are not yet in state `READY`.\n\nSee [the documentation](https://cloud.google.com/spanner/docs/instances#node_count)\nfor more information about nodes.",
           "format": "int32",
           "type": "integer"
         },
@@ -2799,12 +2799,12 @@
           "type": "string"
         },
         "minReadTimestamp": {
-          "description": "Executes all reads at a timestamp >= `min_read_timestamp`.\n\nThis is useful for requesting fresher data than some previous\nread, or data that is fresh enough to observe the effects of some\npreviously committed transaction whose timestamp is known.\n\nNote that this option can only be used in single-use transactions.",
+          "description": "Executes all reads at a timestamp >= `min_read_timestamp`.\n\nThis is useful for requesting fresher data than some previous\nread, or data that is fresh enough to observe the effects of some\npreviously committed transaction whose timestamp is known.\n\nNote that this option can only be used in single-use transactions.\n\nA timestamp in RFC3339 UTC \\\"Zulu\\\" format, accurate to nanoseconds.\nExample: `\"2014-10-02T15:01:23.045123456Z\"`.",
           "format": "google-datetime",
           "type": "string"
         },
         "readTimestamp": {
-          "description": "Executes all reads at the given timestamp. Unlike other modes,\nreads at a specific timestamp are repeatable; the same read at\nthe same timestamp always returns the same data. If the\ntimestamp is in the future, the read will block until the\nspecified timestamp, modulo the read's deadline.\n\nUseful for large scale consistent reads such as mapreduces, or\nfor coordinating many reads against a consistent snapshot of the\ndata.",
+          "description": "Executes all reads at the given timestamp. Unlike other modes,\nreads at a specific timestamp are repeatable; the same read at\nthe same timestamp always returns the same data. If the\ntimestamp is in the future, the read will block until the\nspecified timestamp, modulo the read's deadline.\n\nUseful for large scale consistent reads such as mapreduces, or\nfor coordinating many reads against a consistent snapshot of the\ndata.\n\nA timestamp in RFC3339 UTC \\\"Zulu\\\" format, accurate to nanoseconds.\nExample: `\"2014-10-02T15:01:23.045123456Z\"`.",
           "format": "google-datetime",
           "type": "string"
         },
@@ -2838,7 +2838,7 @@
           "description": "Required. `key_set` identifies the rows to be yielded. `key_set` names the\nprimary keys of the rows in table to be yielded, unless index\nis present. If index is present, then key_set instead names\nindex keys in index.\n\nRows are yielded in table primary key order (if index is empty)\nor index key order (if index is non-empty).\n\nIt is not an error for the `key_set` to name rows that do not\nexist in the database. Read yields nothing for nonexistent rows."
         },
         "limit": {
-          "description": "If greater than zero, only the first `limit` rows are yielded. If `limit`\nis zero, the default is no limit.\nA limit cannot be specified if partition_token is set.",
+          "description": "If greater than zero, only the first `limit` rows are yielded. If `limit`\nis zero, the default is no limit.",
           "format": "int64",
           "type": "string"
         },
@@ -2944,11 +2944,11 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "The labels for the session.\n\n * Label keys must be between 1 and 63 characters long and must conform to\n   the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.\n * Label values must be between 0 and 63 characters long and must conform\n   to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.\n * No more than 20 labels can be associated with a given session.",
+          "description": "The labels for the session.\n\n * Label keys must be between 1 and 63 characters long and must conform to\n   the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.\n * Label values must be between 0 and 63 characters long and must conform\n   to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.\n * No more than 64 labels can be associated with a given session.\n\nSee https://goo.gl/xmQnxf for more information on and examples of labels.",
           "type": "object"
         },
         "name": {
-          "description": "The name of the session.",
+          "description": "The name of the session. This is always system-assigned; values provided\nwhen creating a session are ignored.",
           "type": "string"
         }
       },
@@ -3055,7 +3055,7 @@
           "type": "string"
         },
         "readTimestamp": {
-          "description": "For snapshot read-only transactions, the read timestamp chosen\nfor the transaction. Not returned by default: see\nTransactionOptions.ReadOnly.return_read_timestamp.",
+          "description": "For snapshot read-only transactions, the read timestamp chosen\nfor the transaction. Not returned by default: see\nTransactionOptions.ReadOnly.return_read_timestamp.\n\nA timestamp in RFC3339 UTC \\\"Zulu\\\" format, accurate to nanoseconds.\nExample: `\"2014-10-02T15:01:23.045123456Z\"`.",
           "format": "google-datetime",
           "type": "string"
         }

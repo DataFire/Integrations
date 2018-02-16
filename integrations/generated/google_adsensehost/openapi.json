@@ -863,20 +863,6 @@
             "type": "string"
           },
           {
-            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "startDate",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "endDate",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Dimensions to base the report on.",
             "in": "query",
@@ -885,6 +871,13 @@
             },
             "name": "dimension",
             "type": "array"
+          },
+          {
+            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -929,6 +922,13 @@
             },
             "name": "sort",
             "type": "array"
+          },
+          {
+            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Index of the first row of report data to return.",
@@ -1194,18 +1194,18 @@
             "type": "string"
           },
           {
-            "description": "Custom channel to get.",
-            "in": "query",
-            "name": "customChannelId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CustomChannel"
             }
+          },
+          {
+            "description": "Custom channel to get.",
+            "in": "query",
+            "name": "customChannelId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1624,13 +1624,6 @@
             "type": "array"
           },
           {
-            "description": "The URL of the user's hosted website.",
-            "in": "query",
-            "name": "websiteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The preferred locale of the user.",
             "in": "query",
             "name": "userLocale",
@@ -1640,6 +1633,13 @@
             "description": "The locale of the user's hosted website.",
             "in": "query",
             "name": "websiteLocale",
+            "type": "string"
+          },
+          {
+            "description": "The URL of the user's hosted website.",
+            "in": "query",
+            "name": "websiteUrl",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1754,20 +1754,6 @@
         "operationId": "reports.generate",
         "parameters": [
           {
-            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "startDate",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
-            "in": "query",
-            "name": "endDate",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Dimensions to base the report on.",
             "in": "query",
@@ -1776,6 +1762,13 @@
             },
             "name": "dimension",
             "type": "array"
+          },
+          {
+            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -1820,6 +1813,13 @@
             },
             "name": "sort",
             "type": "array"
+          },
+          {
+            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Index of the first row of report data to return.",

@@ -9,7 +9,7 @@ npm install --save @datafire/watchful_li
 ```js
 let watchful_li = require('@datafire/watchful_li').create();
 
-watchful_li.getVersions({}).then(data => {
+watchful_li.tags.get({}).then(data => {
   console.log(data);
 });
 ```
@@ -33,23 +33,6 @@ watchful_li.getAudits({}, context)
   * limit `integer`: Number of object to return (max 100, default 25)
   * limitstart `integer`: Start of the return (default 0)
   * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
-
-#### Output
-* output [Audit](#audit)
-
-### CreateAudits
-Create a audit
-
-
-```js
-watchful_li.CreateAudits({
-  "body": null
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Audit](#audit)
 
 #### Output
 * output [Audit](#audit)
@@ -328,22 +311,19 @@ watchful_li.deleteLogById({
 #### Output
 * output `string`
 
-### uploadZipPackage
-Upload a ZIP package
+### packages.post
+
 
 
 ```js
-watchful_li.uploadZipPackage({
-  "file": ""
-}, context)
+watchful_li.packages.post(null, context)
 ```
 
 #### Input
-* input `object`
-  * file **required** `string`: ZIP package
+*This action has no parameters*
 
 #### Output
-* output [Tag](#tag)
+*Output schema unknown*
 
 ### reports.sites.id.get
 Returns a PDF report based on a site ID
@@ -761,6 +741,23 @@ watchful_li.scanner({
 #### Output
 * output `string`
 
+### seoAnalyze
+SEO analyze for a page
+
+
+```js
+watchful_li.seoAnalyze({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output `string`
+
 ### sites.id.tags.get
 Return tags for a specific website
 
@@ -1090,39 +1087,6 @@ watchful_li.getSitesByTags({
 
 #### Output
 * output [Site](#site)
-
-### getVersions
-Get list of versions
-
-
-```js
-watchful_li.getVersions({}, context)
-```
-
-#### Input
-* input `object`
-  * fields `string`: Fields to return separate by comas: name,id
-
-#### Output
-* output [Version](#version)
-
-### getVersion
-Find a version by ID
-
-
-```js
-watchful_li.getVersion({
-  "id": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `integer`: ID of version that needs to be fetched
-  * fields `string`: Fields to return separate by commas: name,id
-
-#### Output
-* output [Version](#version)
 
 
 

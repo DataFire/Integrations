@@ -1000,6 +1000,44 @@ apacta.expenses.expense_id.put({
   * data [Expense](#expense)
   * success `boolean`
 
+### expenses.expense_id.original_files.get
+Show list of all OIOUBL files for the expense
+
+
+```js
+apacta.expenses.expense_id.original_files.get({
+  "expense_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * expense_id **required** `string`
+
+#### Output
+* output `object`
+  * success `boolean`
+
+### expenses.expense_id.original_files.file_id.get
+Show OIOUBL file
+
+
+```js
+apacta.expenses.expense_id.original_files.file_id.get({
+  "expense_id": "",
+  "file_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * expense_id **required** `string`
+  * file_id **required** `string`
+
+#### Output
+* output `object`
+  * success `boolean`
+
 ### form_field_types.get
 Get list of form field types
 

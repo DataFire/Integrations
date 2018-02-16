@@ -256,21 +256,31 @@ google_storagetransfer.transferOperations.delete({
 #### Output
 * output [Empty](#empty)
 
-### transferOperations.get
-Gets the latest state of a long-running operation.  Clients can use this
-method to poll the operation result at intervals as recommended by the API
-service.
+### transferOperations.list
+Lists operations that match the specified filter in the request. If the
+server doesn't support this method, it returns `UNIMPLEMENTED`.
+
+NOTE: the `name` binding allows API services to override the binding
+to use different resource name schemes, such as `users/*/operations`. To
+override the binding, API services can add a binding such as
+`"/v1/{name=users/*}/operations"` to their service configuration.
+For backwards compatibility, the default name includes the operations
+collection id, however overriding users must ensure the name binding
+is the parent resource, without the operations collection id.
 
 
 ```js
-google_storagetransfer.transferOperations.get({
+google_storagetransfer.transferOperations.list({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The name of the operation resource.
+  * filter `string`: A list of query parameters specified as JSON text in the form of {\"project_id\" : \"my_project_id\", \"job_names\" : [\"jobid1\", \"jobid2\",...], \"operation_names\" : [\"opid1\", \"opid2\",...], \"transfer_statuses\":[\"status1\", \"status2\",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values, they must be specified with array notation. `job_names`, `operation_names`, and `transfer_statuses` are optional.
+  * name **required** `string`: The value `transferOperations`.
+  * pageSize `integer`: The list page size. The max allowed value is 256.
+  * pageToken `string`: The list page token.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -286,7 +296,7 @@ google_storagetransfer.transferOperations.get({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Operation](#operation)
+* output [ListOperationsResponse](#listoperationsresponse)
 
 ### transferOperations.cancel
 Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.
@@ -491,7 +501,7 @@ google_storagetransfer.transferOperations.resume({
   * bytesFailedToDeleteFromSink `string`: Bytes that failed to be deleted from the data sink.
   * bytesFoundFromSource `string`: Bytes found in the data source that are scheduled to be transferred,
   * bytesFoundOnlyFromSink `string`: Bytes found only in the data sink that are scheduled to be deleted.
-  * bytesFromSourceFailed `string`: Bytes in the data source that failed during the transfer.
+  * bytesFromSourceFailed `string`: Bytes in the data source that failed to be transferred or that failed to
   * bytesFromSourceSkippedBySync `string`: Bytes in the data source that are not transferred because they already
   * objectsCopiedToSink `string`: Objects that are copied to the data sink.
   * objectsDeletedFromSink `string`: Objects that are deleted from the data sink.
@@ -499,7 +509,7 @@ google_storagetransfer.transferOperations.resume({
   * objectsFailedToDeleteFromSink `string`: Objects that failed to be deleted from the data sink.
   * objectsFoundFromSource `string`: Objects found in the data source that are scheduled to be transferred,
   * objectsFoundOnlyFromSink `string`: Objects found only in the data sink that are scheduled to be deleted.
-  * objectsFromSourceFailed `string`: Objects in the data source that failed during the transfer.
+  * objectsFromSourceFailed `string`: Objects in the data source that failed to be transferred or that failed
   * objectsFromSourceSkippedBySync `string`: Objects in the data source that are not transferred because they already
 
 ### TransferJob

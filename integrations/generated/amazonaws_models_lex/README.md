@@ -80,6 +80,27 @@ amazonaws_models_lex.GetBotChannelAssociations({
 #### Output
 * output [GetBotChannelAssociationsResponse](#getbotchannelassociationsresponse)
 
+### DeleteBotChannelAssociation
+
+
+
+```js
+amazonaws_models_lex.DeleteBotChannelAssociation({
+  "name": "",
+  "botName": "",
+  "aliasName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+  * botName **required** `string`
+  * aliasName **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetBotChannelAssociation
 
 
@@ -100,6 +121,44 @@ amazonaws_models_lex.GetBotChannelAssociation({
 
 #### Output
 * output [GetBotChannelAssociationResponse](#getbotchannelassociationresponse)
+
+### DeleteBotAlias
+
+
+
+```js
+amazonaws_models_lex.DeleteBotAlias({
+  "name": "",
+  "botName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+  * botName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetBotAlias
+
+
+
+```js
+amazonaws_models_lex.GetBotAlias({
+  "name": "",
+  "botName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+  * botName **required** `string`
+
+#### Output
+* output [GetBotAliasResponse](#getbotaliasresponse)
 
 ### PutBotAlias
 
@@ -233,6 +292,7 @@ amazonaws_models_lex.PutBot({
   * checksum [String](#string)
   * childDirected **required** [Boolean](#boolean)
   * clarificationPrompt [Prompt](#prompt)
+  * createVersion [Boolean](#boolean)
   * description [Description](#description)
   * idleSessionTTLInSeconds [SessionTTL](#sessionttl)
   * intents [IntentList](#intentlist)
@@ -344,6 +404,44 @@ amazonaws_models_lex.GetExport({}, context)
 #### Output
 * output [GetExportResponse](#getexportresponse)
 
+### StartImport
+
+
+
+```js
+amazonaws_models_lex.StartImport({
+  "payload": "",
+  "resourceType": "",
+  "mergeStrategy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * mergeStrategy **required** [MergeStrategy](#mergestrategy)
+  * payload **required** [Blob](#blob)
+  * resourceType **required** [ResourceType](#resourcetype)
+
+#### Output
+*Output schema unknown*
+
+### GetImport
+
+
+
+```js
+amazonaws_models_lex.GetImport({
+  "importId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * importId **required** `string`
+
+#### Output
+* output [GetImportResponse](#getimportresponse)
+
 ### GetIntents
 
 
@@ -430,6 +528,7 @@ amazonaws_models_lex.PutIntent({
   * checksum [String](#string)
   * conclusionStatement [Statement](#statement)
   * confirmationPrompt [Prompt](#prompt)
+  * createVersion [Boolean](#boolean)
   * description [Description](#description)
   * dialogCodeHook [CodeHook](#codehook)
   * followUpPrompt [FollowUpPrompt](#followupprompt)
@@ -441,6 +540,25 @@ amazonaws_models_lex.PutIntent({
 
 #### Output
 * output [PutIntentResponse](#putintentresponse)
+
+### DeleteIntentVersion
+
+
+
+```js
+amazonaws_models_lex.DeleteIntentVersion({
+  "name": "",
+  "version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`
+  * version **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### GetIntent
 
@@ -564,6 +682,7 @@ amazonaws_models_lex.PutSlotType({
 * input `object`
   * name **required** `string`
   * checksum [String](#string)
+  * createVersion [Boolean](#boolean)
   * description [Description](#description)
   * enumerationValues [EnumerationValues](#enumerationvalues)
   * valueSelectionStrategy [SlotValueSelectionStrategy](#slotvalueselectionstrategy)
@@ -604,6 +723,9 @@ amazonaws_models_lex.GetSlotType({
 * BadRequestException `object`: The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
   * message [String](#string)
 
+### Blob
+* Blob `string`
+
 ### Boolean
 * Boolean `boolean`
 
@@ -628,7 +750,9 @@ amazonaws_models_lex.GetSlotType({
   * botName [BotName](#botname)
   * createdDate [Timestamp](#timestamp)
   * description [Description](#description)
+  * failureReason [String](#string)
   * name [BotChannelName](#botchannelname)
+  * status [ChannelStatus](#channelstatus)
   * type [ChannelType](#channeltype)
 
 ### BotChannelAssociationList
@@ -696,8 +820,11 @@ amazonaws_models_lex.GetSlotType({
     * key [String](#string)
     * value [String](#string)
 
+### ChannelStatus
+* ChannelStatus `string` (values: IN_PROGRESS, CREATED, FAILED)
+
 ### ChannelType
-* ChannelType `string` (values: Facebook, Slack, Twilio-Sms)
+* ChannelType `string` (values: Facebook, Slack, Twilio-Sms, Kik)
 
 ### CodeHook
 * CodeHook `object`: Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot..
@@ -712,7 +839,7 @@ amazonaws_models_lex.GetSlotType({
 * ContentString `string`
 
 ### ContentType
-* ContentType `string` (values: PlainText, SSML)
+* ContentType `string` (values: PlainText, SSML, CustomPayload)
 
 ### Count
 * Count `integer`
@@ -822,7 +949,7 @@ amazonaws_models_lex.GetSlotType({
 * ExportStatus `string` (values: IN_PROGRESS, READY, FAILED)
 
 ### ExportType
-* ExportType `string` (values: ALEXA_SKILLS_KIT)
+* ExportType `string` (values: ALEXA_SKILLS_KIT, LEX)
 
 ### FollowUpPrompt
 * FollowUpPrompt `object`: A prompt for additional activity after an intent is fulfilled. For example, after the <code>OrderPizza</code> intent is fulfilled, you might prompt the user to find out whether the user wants to order drinks.
@@ -868,7 +995,9 @@ amazonaws_models_lex.GetSlotType({
   * botName [BotName](#botname)
   * createdDate [Timestamp](#timestamp)
   * description [Description](#description)
+  * failureReason [String](#string)
   * name [BotChannelName](#botchannelname)
+  * status [ChannelStatus](#channelstatus)
   * type [ChannelType](#channeltype)
 
 ### GetBotChannelAssociationsRequest
@@ -954,6 +1083,19 @@ amazonaws_models_lex.GetSlotType({
   * url [String](#string)
   * version [NumericalVersion](#numericalversion)
 
+### GetImportRequest
+* GetImportRequest `object`
+
+### GetImportResponse
+* GetImportResponse `object`
+  * createdDate [Timestamp](#timestamp)
+  * failureReason [StringList](#stringlist)
+  * importId [String](#string)
+  * importStatus [ImportStatus](#importstatus)
+  * mergeStrategy [MergeStrategy](#mergestrategy)
+  * name [Name](#name)
+  * resourceType [ResourceType](#resourcetype)
+
 ### GetIntentRequest
 * GetIntentRequest `object`
 
@@ -1029,6 +1171,12 @@ amazonaws_models_lex.GetSlotType({
   * botName [BotName](#botname)
   * utterances [ListsOfUtterances](#listsofutterances)
 
+### GroupNumber
+* GroupNumber `integer`
+
+### ImportStatus
+* ImportStatus `string` (values: IN_PROGRESS, COMPLETE, FAILED)
+
 ### Intent
 * Intent `object`: Identifies the specific version of an intent.
   * intentName **required** [IntentName](#intentname)
@@ -1077,7 +1225,7 @@ amazonaws_models_lex.GetSlotType({
   * items [UtteranceList](#utterancelist)
 
 ### Locale
-* Locale `string` (values: en-US)
+* Locale `string` (values: en-US, en-GB, de-DE)
 
 ### LocaleList
 * LocaleList `array`
@@ -1086,10 +1234,14 @@ amazonaws_models_lex.GetSlotType({
 ### MaxResults
 * MaxResults `integer`
 
+### MergeStrategy
+* MergeStrategy `string` (values: OVERWRITE_LATEST, FAIL_ON_CONFLICT)
+
 ### Message
 * Message `object`: The message object that provides the message text and its type.
   * content **required** [ContentString](#contentstring)
   * contentType **required** [ContentType](#contenttype)
+  * groupNumber [GroupNumber](#groupnumber)
 
 ### MessageList
 * MessageList `array`
@@ -1152,6 +1304,7 @@ amazonaws_models_lex.GetSlotType({
   * checksum [String](#string)
   * childDirected **required** [Boolean](#boolean)
   * clarificationPrompt [Prompt](#prompt)
+  * createVersion [Boolean](#boolean)
   * description [Description](#description)
   * idleSessionTTLInSeconds [SessionTTL](#sessionttl)
   * intents [IntentList](#intentlist)
@@ -1165,6 +1318,7 @@ amazonaws_models_lex.GetSlotType({
   * checksum [String](#string)
   * childDirected [Boolean](#boolean)
   * clarificationPrompt [Prompt](#prompt)
+  * createVersion [Boolean](#boolean)
   * createdDate [Timestamp](#timestamp)
   * description [Description](#description)
   * failureReason [String](#string)
@@ -1182,6 +1336,7 @@ amazonaws_models_lex.GetSlotType({
   * checksum [String](#string)
   * conclusionStatement [Statement](#statement)
   * confirmationPrompt [Prompt](#prompt)
+  * createVersion [Boolean](#boolean)
   * description [Description](#description)
   * dialogCodeHook [CodeHook](#codehook)
   * followUpPrompt [FollowUpPrompt](#followupprompt)
@@ -1196,6 +1351,7 @@ amazonaws_models_lex.GetSlotType({
   * checksum [String](#string)
   * conclusionStatement [Statement](#statement)
   * confirmationPrompt [Prompt](#prompt)
+  * createVersion [Boolean](#boolean)
   * createdDate [Timestamp](#timestamp)
   * description [Description](#description)
   * dialogCodeHook [CodeHook](#codehook)
@@ -1212,6 +1368,7 @@ amazonaws_models_lex.GetSlotType({
 ### PutSlotTypeRequest
 * PutSlotTypeRequest `object`
   * checksum [String](#string)
+  * createVersion [Boolean](#boolean)
   * description [Description](#description)
   * enumerationValues [EnumerationValues](#enumerationvalues)
   * valueSelectionStrategy [SlotValueSelectionStrategy](#slotvalueselectionstrategy)
@@ -1219,6 +1376,7 @@ amazonaws_models_lex.GetSlotType({
 ### PutSlotTypeResponse
 * PutSlotTypeResponse `object`
   * checksum [String](#string)
+  * createVersion [Boolean](#boolean)
   * createdDate [Timestamp](#timestamp)
   * description [Description](#description)
   * enumerationValues [EnumerationValues](#enumerationvalues)
@@ -1241,7 +1399,7 @@ amazonaws_models_lex.GetSlotType({
   * version [Version](#version)
 
 ### ResourceType
-* ResourceType `string` (values: BOT)
+* ResourceType `string` (values: BOT, INTENT, SLOT_TYPE)
 
 ### ResponseCard
 * ResponseCard `string`
@@ -1293,6 +1451,21 @@ amazonaws_models_lex.GetSlotType({
 ### SlotValueSelectionStrategy
 * SlotValueSelectionStrategy `string` (values: ORIGINAL_VALUE, TOP_RESOLUTION)
 
+### StartImportRequest
+* StartImportRequest `object`
+  * mergeStrategy **required** [MergeStrategy](#mergestrategy)
+  * payload **required** [Blob](#blob)
+  * resourceType **required** [ResourceType](#resourcetype)
+
+### StartImportResponse
+* StartImportResponse `object`
+  * createdDate [Timestamp](#timestamp)
+  * importId [String](#string)
+  * importStatus [ImportStatus](#importstatus)
+  * mergeStrategy [MergeStrategy](#mergestrategy)
+  * name [Name](#name)
+  * resourceType [ResourceType](#resourcetype)
+
 ### Statement
 * Statement `object`: A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey. 
   * messages **required** [MessageList](#messagelist)
@@ -1306,6 +1479,10 @@ amazonaws_models_lex.GetSlotType({
 
 ### String
 * String `string`
+
+### StringList
+* StringList `array`
+  * items [String](#string)
 
 ### SynonymList
 * SynonymList `array`

@@ -1407,6 +1407,13 @@
             "name": "id",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "If the national-rail line is requested, this flag will filter the national rail stations so that only those operated by TfL are returned",
+            "in": "query",
+            "name": "tflOperatedNationalRailStationsOnly",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -3056,6 +3063,13 @@
             "name": "includeHubs",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "description": "If the national-rail mode is included, this flag will filter the national rail stations so that only those operated by TfL are returned",
+            "in": "query",
+            "name": "tflOperatedNationalRailStationsOnly",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -3131,6 +3145,13 @@
             "description": "If true, returns results including HUBs.",
             "in": "query",
             "name": "includeHubs",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "If the national-rail mode is included, this flag will filter the national rail stations so that only those operated by TfL are returned",
+            "in": "query",
+            "name": "tflOperatedNationalRailStationsOnly",
             "required": false,
             "type": "boolean"
           }
@@ -5012,7 +5033,8 @@
             "ProvisionForCyclists",
             "BusyRoads",
             "None",
-            "PushBike"
+            "PushBike",
+            "Quietway"
           ],
           "type": "string"
         },
@@ -5442,17 +5464,18 @@
       "type": "object"
     },
     "MatchedRoute": {
+      "description": "Description of a Route used in Route search results.",
       "properties": {
         "destination": {
-          "description": "eg: Destination",
+          "description": "The Id (NaPTAN code) or the Destination StopPoint",
           "type": "string"
         },
         "destinationName": {
-          "description": "eg: Destination Name",
+          "description": "The name of the Destination StopPoint",
           "type": "string"
         },
         "direction": {
-          "description": "eg: N or S or I or O",
+          "description": "Inbound or Outbound",
           "type": "string"
         },
         "name": {
@@ -5460,11 +5483,11 @@
           "type": "string"
         },
         "originationName": {
-          "description": "eg: Origination Name",
+          "description": "The name of the Origin StopPoint",
           "type": "string"
         },
         "originator": {
-          "description": "eg: Origination",
+          "description": "The Id (NaPTAN code) of the Origin StopPoint",
           "type": "string"
         },
         "routeCode": {
@@ -5472,7 +5495,17 @@
           "type": "string"
         },
         "serviceType": {
-          "description": "eg: Regular, Night",
+          "description": "Regular or Night",
+          "type": "string"
+        },
+        "validFrom": {
+          "description": "The DateTime that the Service containing this Route is valid from.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "validTo": {
+          "description": "The DateTime that the Service containing this Route is valid until.",
+          "format": "date-time",
           "type": "string"
         }
       },
@@ -6494,11 +6527,11 @@
     "RouteSection": {
       "properties": {
         "destinationName": {
-          "description": "eg: Destination Name",
+          "description": "The name of the Destination StopPoint",
           "type": "string"
         },
         "direction": {
-          "description": "eg: N or S or I or O",
+          "description": "Inbound or Outbound",
           "type": "string"
         },
         "id": {
@@ -6510,7 +6543,7 @@
           "type": "string"
         },
         "lineString": {
-          "description": "eg: Path coordindates",
+          "description": "The co-ordinates of the route's path as a geoJSON lineString",
           "type": "string"
         },
         "name": {
@@ -6518,7 +6551,7 @@
           "type": "string"
         },
         "originationName": {
-          "description": "eg: Origination Name",
+          "description": "The name of the Origin StopPoint",
           "type": "string"
         },
         "routeCode": {
@@ -6530,6 +6563,16 @@
             "$ref": "#/definitions/RouteSectionNaptanEntrySequence"
           },
           "type": "array"
+        },
+        "validFrom": {
+          "description": "The DateTime that the Service containing this Route is valid from.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "validTo": {
+          "description": "The DateTime that the Service containing this Route is valid until.",
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"

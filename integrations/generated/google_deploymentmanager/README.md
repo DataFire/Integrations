@@ -109,9 +109,9 @@ google_deploymentmanager.deployments.insert({
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
-  * preview `boolean`: If set to true, creates a deployment and creates "shell" resources but does not actually instantiate these resources. This allows you to preview what your deployment looks like. After previewing a deployment, you can deploy your resources by making a request with the update() method or you can use the cancelPreview() method to cancel the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
   * body [Deployment](#deployment)
+  * preview `boolean`: If set to true, creates a deployment and creates "shell" resources but does not actually instantiate these resources. This allows you to preview what your deployment looks like. After previewing a deployment, you can deploy your resources by making a request with the update() method or you can use the cancelPreview() method to cancel the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -129,16 +129,16 @@ Deletes a deployment and all of the resources in the deployment.
 
 ```js
 google_deploymentmanager.deployments.delete({
-  "project": "",
-  "deployment": ""
+  "deployment": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
-  * deployment **required** `string`: The name of the deployment for this request.
   * deletePolicy `string` (values: ABANDON, DELETE): Sets the policy to use for deleting resources.
+  * deployment **required** `string`: The name of the deployment for this request.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -156,15 +156,15 @@ Gets information about a specific deployment.
 
 ```js
 google_deploymentmanager.deployments.get({
-  "project": "",
-  "deployment": ""
+  "deployment": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
   * deployment **required** `string`: The name of the deployment for this request.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -182,19 +182,19 @@ Updates a deployment and all of the resources described by the deployment manife
 
 ```js
 google_deploymentmanager.deployments.patch({
-  "project": "",
-  "deployment": ""
+  "deployment": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
-  * deployment **required** `string`: The name of the deployment for this request.
+  * body [Deployment](#deployment)
   * createPolicy `string` (values: ACQUIRE, CREATE_OR_ACQUIRE): Sets the policy to use for creating new resources.
   * deletePolicy `string` (values: ABANDON, DELETE): Sets the policy to use for deleting resources.
+  * deployment **required** `string`: The name of the deployment for this request.
   * preview `boolean`: If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
-  * body [Deployment](#deployment)
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -212,19 +212,19 @@ Updates a deployment and all of the resources described by the deployment manife
 
 ```js
 google_deploymentmanager.deployments.update({
-  "project": "",
-  "deployment": ""
+  "deployment": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
-  * deployment **required** `string`: The name of the deployment for this request.
+  * body [Deployment](#deployment)
   * createPolicy `string` (values: ACQUIRE, CREATE_OR_ACQUIRE): Sets the policy to use for creating new resources.
   * deletePolicy `string` (values: ABANDON, DELETE): Sets the policy to use for deleting resources.
+  * deployment **required** `string`: The name of the deployment for this request.
   * preview `boolean`: If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
-  * body [Deployment](#deployment)
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -242,16 +242,16 @@ Cancels and removes the preview currently associated with the deployment.
 
 ```js
 google_deploymentmanager.deployments.cancelPreview({
-  "project": "",
-  "deployment": ""
+  "deployment": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
-  * deployment **required** `string`: The name of the deployment for this request.
   * body [DeploymentsCancelPreviewRequest](#deploymentscancelpreviewrequest)
+  * deployment **required** `string`: The name of the deployment for this request.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -299,17 +299,17 @@ Gets information about a specific manifest.
 
 ```js
 google_deploymentmanager.manifests.get({
-  "project": "",
   "deployment": "",
-  "manifest": ""
+  "manifest": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
   * deployment **required** `string`: The name of the deployment for this request.
   * manifest **required** `string`: The name of the manifest for this request.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -357,16 +357,16 @@ Gets information about a single resource.
 
 ```js
 google_deploymentmanager.resources.get({
-  "project": "",
   "deployment": "",
+  "project": "",
   "resource": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
   * deployment **required** `string`: The name of the deployment for this request.
+  * project **required** `string`: The project ID for this request.
   * resource **required** `string`: The name of the resource for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -385,16 +385,16 @@ Stops an ongoing operation. This does not roll back any work that has already be
 
 ```js
 google_deploymentmanager.deployments.stop({
-  "project": "",
-  "deployment": ""
+  "deployment": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
-  * deployment **required** `string`: The name of the deployment for this request.
   * body [DeploymentsStopRequest](#deploymentsstoprequest)
+  * deployment **required** `string`: The name of the deployment for this request.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -445,9 +445,9 @@ google_deploymentmanager.deployments.setIamPolicy({
 
 #### Input
 * input `object`
+  * body [Policy](#policy)
   * project **required** `string`: Project ID for this request.
   * resource **required** `string`: Name of the resource for this request.
-  * body [Policy](#policy)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -472,9 +472,9 @@ google_deploymentmanager.deployments.testIamPermissions({
 
 #### Input
 * input `object`
+  * body [TestPermissionsRequest](#testpermissionsrequest)
   * project **required** `string`: Project ID for this request.
   * resource **required** `string`: Name of the resource for this request.
-  * body [TestPermissionsRequest](#testpermissionsrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -520,15 +520,15 @@ Gets information about a specific operation.
 
 ```js
 google_deploymentmanager.operations.get({
-  "project": "",
-  "operation": ""
+  "operation": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project ID for this request.
   * operation **required** `string`: The name of the operation for this request.
+  * project **required** `string`: The project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -708,7 +708,7 @@ google_deploymentmanager.types.list({
   * nextPageToken `string`: Output only. A token used to continue a truncated list request.
 
 ### Operation
-* Operation `object`: An Operation resource, used to manage asynchronous API requests.
+* Operation `object`: An Operation resource, used to manage asynchronous API requests. (== resource_for v1.globalOperations ==) (== resource_for beta.globalOperations ==) (== resource_for v1.regionOperations ==) (== resource_for beta.regionOperations ==) (== resource_for v1.zoneOperations ==) (== resource_for beta.zoneOperations ==)
   * clientOperationId `string`: [Output Only] Reserved for future use.
   * creationTimestamp `string`: [Deprecated] This field is deprecated.
   * description `string`: [Output Only] A textual description of the operation, which is set when the operation is created.
@@ -727,7 +727,7 @@ google_deploymentmanager.types.list({
   * name `string`: [Output Only] Name of the resource.
   * operationType `string`: [Output Only] The type of operation, such as insert, update, or delete, and so on.
   * progress `integer`: [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses.
-  * region `string`: [Output Only] The URL of the region where the operation resides. Only available when performing regional operations.
+  * region `string`: [Output Only] The URL of the region where the operation resides. Only available when performing regional operations. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * startTime `string`: [Output Only] The time that this operation was started by the server. This value is in RFC3339 text format.
   * status `string`: [Output Only] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
@@ -743,7 +743,7 @@ google_deploymentmanager.types.list({
           * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
           * value `string`: [Output Only] A warning data value corresponding to the key.
       * message `string`: [Output Only] A human-readable description of the warning code.
-  * zone `string`: [Output Only] The URL of the zone where the operation resides. Only available when performing per-zone operations.
+  * zone `string`: [Output Only] The URL of the zone where the operation resides. Only available when performing per-zone operations. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### OperationsListResponse
 * OperationsListResponse `object`: A response containing a partial list of operations and a page token used to build the next request if the request has been truncated.
@@ -761,7 +761,7 @@ google_deploymentmanager.types.list({
   * iamOwned `boolean`
   * rules `array`: If more than one rule is specified, the rules are applied in the following manner: - All matching LOG rules are always applied. - If any DENY/DENY_WITH_LOG rule matches, permission is denied. Logging will be applied if one or more matching rule requires logging. - Otherwise, if any ALLOW/ALLOW_WITH_LOG rule matches, permission is granted. Logging will be applied if one or more matching rule requires logging. - Otherwise, if no rule applies, permission is denied.
     * items [Rule](#rule)
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
 
 ### Resource
 * Resource `object`

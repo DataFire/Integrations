@@ -118,6 +118,27 @@ owler.v1.company.competitorpremium.url.website.get({
 #### Output
 * output [competitors](#competitors)
 
+### fuzzyCompanySearch
+The Company Fuzzy Search API searches for a company based on the input and will return results containing basic details about matching companies. By default the API returns at most top 10 available results unless the limit is specified. The maximum limit is restricted to 30.
+
+
+```js
+owler.fuzzyCompanySearch({
+  "q": "",
+  "fields": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * q **required** `string`: Search term
+  * fields **required** `array`: Fields to be searched - name, website, ticker, permid, address, phone. Each field and its corresponding value has to be specified
+  * limit `string`: Number of results to be displayed - 10 (by default, if not specified) to 30
+  * format `string` (values: xml, json): Format of the response content - json (by default if not specified), xml
+
+#### Output
+* output [fuzzy_results](#fuzzy_results)
+
 ### v1.company.id.companyId.get
 The Company Data API provides complete information about a company for the specified Company Id 
 
@@ -391,6 +412,9 @@ owler.getFeeds({
   * competitor `array`
     * items [CompetitorBasicVO](#competitorbasicvo)
   * pagination_id `string`
+
+### fuzzy_results
+
 
 ### results
 * results `object`

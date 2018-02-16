@@ -184,40 +184,40 @@
     "/v1/projects/{projectId}:allocateIds": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -228,18 +228,18 @@
         "operationId": "projects.allocateIds",
         "parameters": [
           {
-            "description": "The ID of the project against which to make the request.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AllocateIdsRequest"
             }
+          },
+          {
+            "description": "The ID of the project against which to make the request.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -276,40 +276,40 @@
     "/v1/projects/{projectId}:beginTransaction": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -320,18 +320,18 @@
         "operationId": "projects.beginTransaction",
         "parameters": [
           {
-            "description": "The ID of the project against which to make the request.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BeginTransactionRequest"
             }
+          },
+          {
+            "description": "The ID of the project against which to make the request.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -368,40 +368,40 @@
     "/v1/projects/{projectId}:commit": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -412,18 +412,18 @@
         "operationId": "projects.commit",
         "parameters": [
           {
-            "description": "The ID of the project against which to make the request.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CommitRequest"
             }
+          },
+          {
+            "description": "The ID of the project against which to make the request.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -460,40 +460,40 @@
     "/v1/projects/{projectId}:lookup": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -504,18 +504,18 @@
         "operationId": "projects.lookup",
         "parameters": [
           {
-            "description": "The ID of the project against which to make the request.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/LookupRequest"
             }
+          },
+          {
+            "description": "The ID of the project against which to make the request.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -644,40 +644,40 @@
     "/v1/projects/{projectId}:rollback": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -688,18 +688,18 @@
         "operationId": "projects.rollback",
         "parameters": [
           {
-            "description": "The ID of the project against which to make the request.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/RollbackRequest"
             }
+          },
+          {
+            "description": "The ID of the project against which to make the request.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -736,40 +736,40 @@
     "/v1/projects/{projectId}:runQuery": {
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -780,18 +780,18 @@
         "operationId": "projects.runQuery",
         "parameters": [
           {
-            "description": "The ID of the project against which to make the request.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/RunQueryRequest"
             }
+          },
+          {
+            "description": "The ID of the project against which to make the request.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1592,7 +1592,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",

@@ -79,12 +79,12 @@ google_youtube.activities.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.
   * channelId `string`: The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities.
   * home `boolean`: Set this parameter's value to true to retrieve the activity feed that displays on the YouTube home page for the currently authenticated user.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * mine `boolean`: Set this parameter's value to true to retrieve a feed of the authenticated user's activities.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.
   * publishedAfter `string`: The publishedAfter parameter specifies the earliest date and time that an activity could have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be included in the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
   * publishedBefore `string`: The publishedBefore parameter specifies the date and time before which an activity must have occurred for that activity to be included in the API response. If the parameter value specifies a day, but not a time, then any activities that occurred that day will be excluded from the result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
   * regionCode `string`: The regionCode parameter instructs the API to return results for the specified country. The parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the authorized user's previous activity on YouTube does not provide enough information to generate the activity feed.
@@ -113,8 +113,8 @@ google_youtube.activities.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * body [Activity](#activity)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -165,11 +165,11 @@ google_youtube.captions.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet.
-  * videoId **required** `string`: The videoId parameter specifies the YouTube video ID of the video for which the API should return caption tracks.
   * id `string`: The id parameter specifies a comma-separated list of IDs that identify the caption resources that should be retrieved. Each ID must identify a caption track associated with the specified video.
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is on behalf of.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet.
+  * videoId **required** `string`: The videoId parameter specifies the YouTube video ID of the video for which the API should return caption tracks.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -193,11 +193,11 @@ google_youtube.captions.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the caption resource parts that the API response will include. Set the parameter value to snippet.
+  * body [Caption](#caption)
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is be on behalf of
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter specifies the caption resource parts that the API response will include. Set the parameter value to snippet.
   * sync `boolean`: The sync parameter indicates whether YouTube should automatically synchronize the caption file with the audio track of the video. If you set the value to true, YouTube will disregard any time codes that are in the uploaded caption file and generate new time codes for the captions.
-  * body [Caption](#caption)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -221,11 +221,11 @@ google_youtube.captions.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the property value to snippet if you are updating the track's draft status. Otherwise, set the property value to id.
+  * body [Caption](#caption)
   * onBehalfOf `string`: ID of the Google+ Page for the channel that the request is be on behalf of
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the property value to snippet if you are updating the track's draft status. Otherwise, set the property value to id.
   * sync `boolean`: Note: The API server only processes the parameter value if the request contains an updated caption file.
-  * body [Caption](#caption)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -330,12 +330,12 @@ google_youtube.channelSections.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more channelSection resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, and contentDetails.
   * channelId `string`: The channelId parameter specifies a YouTube channel ID. The API will only return that channel's channelSections.
   * hl `string`: The hl parameter indicates that the snippet.localized property values in the returned channelSection resources should be in the specified language if localized values for that language are available. For example, if the API request specifies hl=de, the snippet.localized properties in the API response will contain German titles if German titles are available. Channel owners can provide localized channel section titles using either the channelSections.insert or channelSections.update method.
   * id `string`: The id parameter specifies a comma-separated list of the YouTube channelSection ID(s) for the resource(s) that are being retrieved. In a channelSection resource, the id property specifies the YouTube channelSection ID.
   * mine `boolean`: Set this parameter's value to true to retrieve a feed of the authenticated user's channelSections.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more channelSection resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, and contentDetails.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -359,10 +359,10 @@ google_youtube.channelSections.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [ChannelSection](#channelsection)
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * body [ChannelSection](#channelsection)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -386,9 +386,9 @@ google_youtube.channelSections.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [ChannelSection](#channelsection)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -412,7 +412,6 @@ google_youtube.channels.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more channel resource properties that the API response will include.
   * categoryId `string`: The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels associated with that category.
   * forUsername `string`: The forUsername parameter specifies a YouTube username, thereby requesting the channel associated with that username.
   * hl `string`: The hl parameter should be used for filter out the properties that are not in the given language. Used for the brandingSettings part.
@@ -423,6 +422,7 @@ google_youtube.channels.list({
   * mySubscribers `boolean`: Use the subscriptions.list method and its mySubscribers parameter to retrieve a list of subscribers to the authenticated user's channel.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more channel resource properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -446,9 +446,9 @@ google_youtube.channels.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * onBehalfOfContentOwner `string`: The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
   * body [Channel](#channel)
+  * onBehalfOfContentOwner `string`: The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -472,7 +472,6 @@ google_youtube.commentThreads.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include.
   * allThreadsRelatedToChannelId `string`: The allThreadsRelatedToChannelId parameter instructs the API to return all comment threads associated with the specified channel. The response can include comments about the channel or about the channel's videos.
   * channelId `string`: The channelId parameter instructs the API to return comment threads containing comments about the specified channel. (The response will not include comments left on videos that the channel uploaded.)
   * id `string`: The id parameter specifies a comma-separated list of comment thread IDs for the resources that should be retrieved.
@@ -480,6 +479,7 @@ google_youtube.commentThreads.list({
   * moderationStatus `string` (values: heldForReview, likelySpam, published): Set this parameter to limit the returned comment threads to a particular moderation state.
   * order `string` (values: relevance, time): The order parameter specifies the order in which the API response should list comment threads. Valid values are: 
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identifies the next page of the result that can be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include.
   * searchTerms `string`: The searchTerms parameter instructs the API to limit the API response to only contain comments that contain the specified search terms.
   * textFormat `string` (values: html, plainText): Set this parameter's value to html or plainText to instruct the API to return the comments left by users in html formatted or in plain text.
   * videoId `string`: The videoId parameter instructs the API to return comment threads associated with the specified video ID.
@@ -506,8 +506,8 @@ google_youtube.commentThreads.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
   * body [CommentThread](#commentthread)
+  * part **required** `string`: The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -531,8 +531,8 @@ google_youtube.commentThreads.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
   * body [CommentThread](#commentthread)
+  * part **required** `string`: The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -580,11 +580,11 @@ google_youtube.comments.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more comment resource properties that the API response will include.
   * id `string`: The id parameter specifies a comma-separated list of comment IDs for the resources that are being retrieved. In a comment resource, the id property specifies the comment's ID.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identifies the next page of the result that can be retrieved.
   * parentId `string`: The parentId parameter specifies the ID of the comment for which replies should be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more comment resource properties that the API response will include.
   * textFormat `string` (values: html, plainText): This parameter indicates whether the API should return comments formatted as HTML or as plain text.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -609,8 +609,8 @@ google_youtube.comments.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
   * body [Comment](#comment)
+  * part **required** `string`: The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -634,8 +634,8 @@ google_youtube.comments.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter identifies the properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
   * body [Comment](#comment)
+  * part **required** `string`: The part parameter identifies the properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -684,9 +684,9 @@ google_youtube.comments.setModerationStatus({
 
 #### Input
 * input `object`
+  * banAuthor `boolean`: The banAuthor parameter lets you indicate that you want to automatically reject any additional comments written by the comment's author. Set the parameter value to true to ban the author.
   * id **required** `string`: The id parameter specifies a comma-separated list of IDs that identify the comments for which you are updating the moderation status.
   * moderationStatus **required** `string` (values: heldForReview, published, rejected): Identifies the new moderation status of the specified comments.
-  * banAuthor `boolean`: The banAuthor parameter lets you indicate that you want to automatically reject any additional comments written by the comment's author. Set the parameter value to true to ban the author.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -710,10 +710,10 @@ google_youtube.fanFundingEvents.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the fanFundingEvent resource parts that the API response will include. Supported values are id and snippet.
   * hl `string`: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies the fanFundingEvent resource parts that the API response will include. Supported values are id and snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -737,9 +737,9 @@ google_youtube.guideCategories.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the guideCategory resource properties that the API response will include. Set the parameter value to snippet.
   * hl `string`: The hl parameter specifies the language that will be used for text values in the API response.
   * id `string`: The id parameter specifies a comma-separated list of the YouTube channel category ID(s) for the resource(s) that are being retrieved. In a guideCategory resource, the id property specifies the YouTube channel category ID.
+  * part **required** `string`: The part parameter specifies the guideCategory resource properties that the API response will include. Set the parameter value to snippet.
   * regionCode `string`: The regionCode parameter instructs the API to return the list of guide categories available in the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -764,8 +764,8 @@ google_youtube.i18nLanguages.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet.
   * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
+  * part **required** `string`: The part parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -789,8 +789,8 @@ google_youtube.i18nRegions.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the i18nRegion resource properties that the API response will include. Set the parameter value to snippet.
   * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
+  * part **required** `string`: The part parameter specifies the i18nRegion resource properties that the API response will include. Set the parameter value to snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -840,7 +840,6 @@ google_youtube.liveBroadcasts.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * broadcastStatus `string` (values: active, all, completed, upcoming): The broadcastStatus parameter filters the API response to only include broadcasts with the specified status.
   * broadcastType `string` (values: all, event, persistent): The broadcastType parameter filters the API response to only include broadcasts with the specified type. This is only compatible with the mine filter for now.
   * id `string`: The id parameter specifies a comma-separated list of YouTube broadcast IDs that identify the broadcasts being retrieved. In a liveBroadcast resource, the id property specifies the broadcast's ID.
@@ -849,6 +848,7 @@ google_youtube.liveBroadcasts.list({
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -872,10 +872,10 @@ google_youtube.liveBroadcasts.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [LiveBroadcast](#livebroadcast)
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * body [LiveBroadcast](#livebroadcast)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -899,10 +899,10 @@ google_youtube.liveBroadcasts.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [LiveBroadcast](#livebroadcast)
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * body [LiveBroadcast](#livebroadcast)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -928,9 +928,9 @@ google_youtube.liveBroadcasts.bind({
 #### Input
 * input `object`
   * id **required** `string`: The id parameter specifies the unique ID of the broadcast that is being bound to a video stream.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * streamId `string`: The streamId parameter specifies the unique ID of the video stream that is being bound to a broadcast. If this parameter is omitted, the API will remove any existing binding between the broadcast and a video stream.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -956,12 +956,12 @@ google_youtube.liveBroadcasts.control({
 
 #### Input
 * input `object`
-  * id **required** `string`: The id parameter specifies the YouTube live broadcast ID that uniquely identifies the broadcast in which the slate is being updated.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * displaySlate `boolean`: The displaySlate parameter specifies whether the slate is being enabled or disabled.
+  * id **required** `string`: The id parameter specifies the YouTube live broadcast ID that uniquely identifies the broadcast in which the slate is being updated.
   * offsetTimeMs `string`: The offsetTimeMs parameter specifies a positive time offset when the specified slate change will occur. The value is measured in milliseconds from the beginning of the broadcast's monitor stream, which is the time that the testing phase for the broadcast began. Even though it is specified in milliseconds, the value is actually an approximation, and YouTube completes the requested action as closely as possible to that time.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * walltime `string`: The walltime parameter specifies the wall clock time at which the specified slate change will occur. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -990,9 +990,9 @@ google_youtube.liveBroadcasts.transition({
 * input `object`
   * broadcastStatus **required** `string` (values: complete, live, testing): The broadcastStatus parameter identifies the state to which the broadcast is changing. Note that to transition a broadcast to either the testing or live state, the status.streamStatus must be active for the stream that the broadcast is bound to.
   * id **required** `string`: The id parameter specifies the unique ID of the broadcast that is transitioning to another status.
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1040,8 +1040,8 @@ google_youtube.liveChatBans.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
   * body [LiveChatBan](#livechatban)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1090,11 +1090,11 @@ google_youtube.liveChatMessages.list({
 
 #### Input
 * input `object`
-  * liveChatId **required** `string`: The liveChatId parameter specifies the ID of the chat whose messages will be returned.
-  * part **required** `string`: The part parameter specifies the liveChatComment resource parts that the API response will include. Supported values are id and snippet.
   * hl `string`: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
+  * liveChatId **required** `string`: The liveChatId parameter specifies the ID of the chat whose messages will be returned.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of messages that should be returned in the result set.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies the liveChatComment resource parts that the API response will include. Supported values are id and snippet.
   * profileImageSize `integer`: The profileImageSize parameter specifies the size of the user profile pictures that should be returned in the result set. Default: 88.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1119,8 +1119,8 @@ google_youtube.liveChatMessages.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the parameter value to snippet.
   * body [LiveChatMessage](#livechatmessage)
+  * part **required** `string`: The part parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the parameter value to snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1170,9 +1170,9 @@ google_youtube.liveChatModerators.list({
 #### Input
 * input `object`
   * liveChatId **required** `string`: The liveChatId parameter specifies the YouTube live chat for which the API should return moderators.
-  * part **required** `string`: The part parameter specifies the liveChatModerator resource parts that the API response will include. Supported values are id and snippet.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies the liveChatModerator resource parts that the API response will include. Supported values are id and snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1196,8 +1196,8 @@ google_youtube.liveChatModerators.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
   * body [LiveChatModerator](#livechatmoderator)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1247,13 +1247,13 @@ google_youtube.liveStreams.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveStream resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, cdn, and status.
   * id `string`: The id parameter specifies a comma-separated list of YouTube stream IDs that identify the streams being retrieved. In a liveStream resource, the id property specifies the stream's ID.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * mine `boolean`: The mine parameter can be used to instruct the API to only return streams owned by the authenticated user. Set the parameter value to true to only retrieve your own streams.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more liveStream resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, cdn, and status.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1277,10 +1277,10 @@ google_youtube.liveStreams.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [LiveStream](#livestream)
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * body [LiveStream](#livestream)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1304,10 +1304,10 @@ google_youtube.liveStreams.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [LiveStream](#livestream)
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * body [LiveStream](#livestream)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1356,11 +1356,11 @@ google_youtube.playlistItems.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more playlistItem resource properties that the API response will include.
   * id `string`: The id parameter specifies a comma-separated list of one or more unique playlist item IDs.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more playlistItem resource properties that the API response will include.
   * playlistId `string`: The playlistId parameter specifies the unique ID of the playlist for which you want to retrieve playlist items. Note that even though this is an optional parameter, every request to retrieve playlist items must specify a value for either the id parameter or the playlistId parameter.
   * videoId `string`: The videoId parameter specifies that the request should return only the playlist items that contain the specified video.
   * alt `string` (values: json): Data format for the response.
@@ -1386,9 +1386,9 @@ google_youtube.playlistItems.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [PlaylistItem](#playlistitem)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1412,9 +1412,9 @@ google_youtube.playlistItems.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [PlaylistItem](#playlistitem)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1463,7 +1463,6 @@ google_youtube.playlists.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more playlist resource properties that the API response will include.
   * channelId `string`: This value indicates that the API should only return the specified channel's playlists.
   * hl `string`: The hl parameter should be used for filter out the properties that are not in the given language. Used for the snippet part.
   * id `string`: The id parameter specifies a comma-separated list of the YouTube playlist ID(s) for the resource(s) that are being retrieved. In a playlist resource, the id property specifies the playlist's YouTube playlist ID.
@@ -1472,6 +1471,7 @@ google_youtube.playlists.list({
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more playlist resource properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1495,10 +1495,10 @@ google_youtube.playlists.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
+  * body [Playlist](#playlist)
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
-  * body [Playlist](#playlist)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1522,9 +1522,9 @@ google_youtube.playlists.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [Playlist](#playlist)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1548,7 +1548,6 @@ google_youtube.search.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet.
   * channelId `string`: The channelId parameter indicates that the API response should only contain resources created by the channel
   * channelType `string` (values: any, show): The channelType parameter lets you restrict a search to a particular type of channel.
   * eventType `string` (values: completed, live, upcoming): The eventType parameter restricts a search to broadcast events. If you specify a value for this parameter, you must also set the type parameter's value to video.
@@ -1561,6 +1560,7 @@ google_youtube.search.list({
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * order `string` (values: date, rating, relevance, title, videoCount, viewCount): The order parameter specifies the method that will be used to order resources in the API response.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet.
   * publishedAfter `string`: The publishedAfter parameter indicates that the API response should only contain resources created after the specified time. The value is an RFC 3339 formatted date-time value (1970-01-01T00:00:00Z).
   * publishedBefore `string`: The publishedBefore parameter indicates that the API response should only contain resources created before the specified time. The value is an RFC 3339 formatted date-time value (1970-01-01T00:00:00Z).
   * q `string`: The q parameter specifies the query term to search for.
@@ -1602,10 +1602,10 @@ google_youtube.sponsors.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the sponsor resource parts that the API response will include. Supported values are id and snippet.
   * filter `string` (values: all, newest): The filter parameter specifies which channel sponsors to return.
   * maxResults `integer`: The maxResults parameter specifies the maximum number of items that should be returned in the result set.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies the sponsor resource parts that the API response will include. Supported values are id and snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1653,7 +1653,6 @@ google_youtube.subscriptions.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more subscription resource properties that the API response will include.
   * channelId `string`: The channelId parameter specifies a YouTube channel ID. The API will only return that channel's subscriptions.
   * forChannelId `string`: The forChannelId parameter specifies a comma-separated list of channel IDs. The API response will then only contain subscriptions matching those channels.
   * id `string`: The id parameter specifies a comma-separated list of the YouTube subscription ID(s) for the resource(s) that are being retrieved. In a subscription resource, the id property specifies the YouTube subscription ID.
@@ -1665,6 +1664,7 @@ google_youtube.subscriptions.list({
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
   * order `string` (values: alphabetical, relevance, unread): The order parameter specifies the method that will be used to sort resources in the API response.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more subscription resource properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1688,8 +1688,8 @@ google_youtube.subscriptions.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * body [Subscription](#subscription)
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1740,8 +1740,8 @@ google_youtube.thumbnails.set({
 
 #### Input
 * input `object`
-  * videoId **required** `string`: The videoId parameter specifies a YouTube video ID for which the custom video thumbnail is being provided.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * videoId **required** `string`: The videoId parameter specifies a YouTube video ID for which the custom video thumbnail is being provided.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1765,8 +1765,8 @@ google_youtube.videoAbuseReportReasons.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet.
   * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
+  * part **required** `string`: The part parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1790,9 +1790,9 @@ google_youtube.videoCategories.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies the videoCategory resource properties that the API response will include. Set the parameter value to snippet.
   * hl `string`: The hl parameter specifies the language that should be used for text values in the API response.
   * id `string`: The id parameter specifies a comma-separated list of video category IDs for the resources that you are retrieving.
+  * part **required** `string`: The part parameter specifies the videoCategory resource properties that the API response will include. Set the parameter value to snippet.
   * regionCode `string`: The regionCode parameter instructs the API to return the list of video categories available in the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1842,7 +1842,6 @@ google_youtube.videos.list({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter specifies a comma-separated list of one or more video resource properties that the API response will include.
   * chart `string` (values: mostPopular): The chart parameter identifies the chart that you want to retrieve.
   * hl `string`: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
   * id `string`: The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s) that are being retrieved. In a video resource, the id property specifies the video's ID.
@@ -1853,6 +1852,7 @@ google_youtube.videos.list({
   * myRating `string` (values: dislike, like): Set this parameter's value to like or dislike to instruct the API to only return videos liked or disliked by the authenticated user.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * pageToken `string`: The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+  * part **required** `string`: The part parameter specifies a comma-separated list of one or more video resource properties that the API response will include.
   * regionCode `string`: The regionCode parameter instructs the API to select a video chart available in the specified region. This parameter can only be used in conjunction with the chart parameter. The parameter value is an ISO 3166-1 alpha-2 country code.
   * videoCategoryId `string`: The videoCategoryId parameter identifies the video category for which the chart should be retrieved. This parameter can only be used in conjunction with the chart parameter. By default, charts are not restricted to a particular category.
   * alt `string` (values: json): Data format for the response.
@@ -1878,13 +1878,13 @@ google_youtube.videos.insert({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * autoLevels `boolean`: The autoLevels parameter indicates whether YouTube should automatically enhance the video's lighting and color.
+  * body [Video](#video)
   * notifySubscribers `boolean`: The notifySubscribers parameter indicates whether YouTube should send a notification about the new video to users who subscribe to the video's channel. A parameter value of True indicates that subscribers will be notified of newly uploaded videos. However, a channel owner who is uploading many videos might prefer to set the value to False to avoid sending a notification about each new video to the channel's subscribers.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * onBehalfOfContentOwnerChannel `string`: This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * stabilize `boolean`: The stabilize parameter indicates whether YouTube should adjust the video to remove shaky camera motions.
-  * body [Video](#video)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1908,9 +1908,9 @@ google_youtube.videos.update({
 
 #### Input
 * input `object`
-  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [Video](#video)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
+  * part **required** `string`: The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1983,8 +1983,8 @@ google_youtube.videos.reportAbuse({}, context)
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * body [VideoAbuseReport](#videoabusereport)
+  * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2008,9 +2008,9 @@ google_youtube.watermarks.set({
 
 #### Input
 * input `object`
+  * body [InvideoBranding](#invideobranding)
   * channelId **required** `string`: The channelId parameter specifies the YouTube channel ID for which the watermark is being provided.
   * onBehalfOfContentOwner `string`: Note: This parameter is intended exclusively for YouTube content partners.
-  * body [InvideoBranding](#invideobranding)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2201,10 +2201,10 @@ google_youtube.watermarks.unset({
 ### CdnSettings
 * CdnSettings `object`: Brief description of the live stream cdn settings.
   * format `string`: The format of the video stream that you are sending to Youtube.
-  * frameRate `string` (values: 30fps, 60fps): The frame rate of the inbound video data.
+  * frameRate `string` (values: 30fps, 60fps, variable): The frame rate of the inbound video data.
   * ingestionInfo [IngestionInfo](#ingestioninfo)
   * ingestionType `string` (values: dash, rtmp): The method or protocol used to transmit the video stream.
-  * resolution `string` (values: 1080p, 1440p, 2160p, 240p, 360p, 480p, 720p): The resolution of the inbound video data.
+  * resolution `string` (values: 1080p, 1440p, 2160p, 240p, 360p, 480p, 720p, variable): The resolution of the inbound video data.
 
 ### Channel
 * Channel `object`: A channel resource contains information about a YouTube channel.
@@ -2361,7 +2361,7 @@ google_youtube.watermarks.unset({
   * unsubscribedTrailer `string`: The trailer of the channel, for users that are not subscribers.
 
 ### ChannelSnippet
-* ChannelSnippet `object`: Basic details about a channel, including title, description and thumbnails. Next available id: 15.
+* ChannelSnippet `object`: Basic details about a channel, including title, description and thumbnails.
   * country `string`: The country of the channel.
   * customUrl `string`: The custom url of the channel.
   * defaultLanguage `string`: The language of the channel's default title and description.
@@ -2524,7 +2524,7 @@ google_youtube.watermarks.unset({
   * nfrcRating `string` (values: nfrcA, nfrcB, nfrcC, nfrcD, nfrcUnrated, nfrcX): The video's rating from the Bulgarian National Film Center.
   * nfvcbRating `string` (values: nfvcb12, nfvcb12a, nfvcb15, nfvcb18, nfvcbG, nfvcbPg, nfvcbRe, nfvcbUnrated): The video's rating from Nigeria's National Film and Video Censors Board.
   * nkclvRating `string` (values: nkclv12plus, nkclv18plus, nkclv7plus, nkclvU, nkclvUnrated): The video's rating from the Nacionãlais Kino centrs (National Film Centre of Latvia).
-  * oflcRating `string` (values: oflcG, oflcM, oflcPg, oflcR13, oflcR15, oflcR16, oflcR18, oflcRp13, oflcRp16, oflcUnrated): The video's Office of Film and Literature Classification (OFLC - New Zealand) rating.
+  * oflcRating `string` (values: oflcG, oflcM, oflcPg, oflcR13, oflcR15, oflcR16, oflcR18, oflcRp13, oflcRp16, oflcRp18, oflcUnrated): The video's Office of Film and Literature Classification (OFLC - New Zealand) rating.
   * pefilmRating `string` (values: pefilm14, pefilm18, pefilmPg, pefilmPt, pefilmUnrated): The video's rating in Peru.
   * rcnofRating `string` (values: rcnofI, rcnofIi, rcnofIii, rcnofIv, rcnofUnrated, rcnofV, rcnofVi): The video's rating from the Hungarian Nemzeti Filmiroda, the Rating Committee of the National Office of Film.
   * resorteviolenciaRating `string` (values: resorteviolenciaA, resorteviolenciaB, resorteviolenciaC, resorteviolenciaD, resorteviolenciaE, resorteviolenciaUnrated): The video's rating in Venezuela.
@@ -2716,6 +2716,7 @@ google_youtube.watermarks.unset({
   * boundStreamId `string`: This value uniquely identifies the live stream bound to the broadcast.
   * boundStreamLastUpdateTimeMs `string`: The date and time that the live stream referenced by boundStreamId was last updated.
   * closedCaptionsType `string` (values: closedCaptionsDisabled, closedCaptionsEmbedded, closedCaptionsHttpPost)
+  * enableAutoStart `boolean`: This setting indicates whether auto start is enabled for this broadcast.
   * enableClosedCaptions `boolean`: This setting indicates whether HTTP POST closed captioning is enabled for this broadcast. The ingestion URL of the closed captions is returned through the liveStreams API. This is mutually exclusive with using the closed_captions_type property, and is equivalent to setting closed_captions_type to CLOSED_CAPTIONS_HTTP_POST.
   * enableContentEncryption `boolean`: This setting indicates whether YouTube should enable content encryption for the broadcast.
   * enableDvr `boolean`: This setting determines whether viewers can access DVR controls while watching the video. DVR controls enable the viewer to control the video playback experience by pausing, rewinding, or fast forwarding content. The default value for this property is true.
@@ -2934,7 +2935,7 @@ google_youtube.watermarks.unset({
   * description `string`: The long-form description of the issue and how to resolve it.
   * reason `string`: The short-form reason for this issue.
   * severity `string` (values: error, info, warning): How severe this issue is to the stream.
-  * type `string` (values: audioBitrateHigh, audioBitrateLow, audioBitrateMismatch, audioCodec, audioCodecMismatch, audioSampleRate, audioSampleRateMismatch, audioStereoMismatch, audioTooManyChannels, badContainer, bitrateHigh, bitrateLow, frameRateHigh, framerateMismatch, gopMismatch, gopSizeLong, gopSizeOver, gopSizeShort, interlacedVideo, multipleAudioStreams, multipleVideoStreams, noAudioStream, noVideoStream, openGop, resolutionMismatch, videoBitrateMismatch, videoCodec, videoCodecMismatch, videoIngestionStarved, videoInterlaceMismatch, videoProfileMismatch, videoResolutionSuboptimal, videoResolutionUnsupported): The kind of error happening.
+  * type `string` (values: audioBitrateHigh, audioBitrateLow, audioBitrateMismatch, audioCodec, audioCodecMismatch, audioSampleRate, audioSampleRateMismatch, audioStereoMismatch, audioTooManyChannels, badContainer, bitrateHigh, bitrateLow, frameRateHigh, framerateMismatch, gopMismatch, gopSizeLong, gopSizeOver, gopSizeShort, interlacedVideo, multipleAudioStreams, multipleVideoStreams, noAudioStream, noVideoStream, openGop, resolutionMismatch, videoBitrateMismatch, videoCodec, videoCodecMismatch, videoIngestionFasterThanRealtime, videoIngestionStarved, videoInterlaceMismatch, videoProfileMismatch, videoResolutionSuboptimal, videoResolutionUnsupported): The kind of error happening.
 
 ### LiveStreamContentDetails
 * LiveStreamContentDetails `object`: Detailed settings of a stream.

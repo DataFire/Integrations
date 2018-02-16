@@ -131,6 +131,7 @@ amazonaws_acm.ListCertificates({}, context)
   * MaxItems `string`
   * NextToken `string`
   * CertificateStatuses [CertificateStatuses](#certificatestatuses)
+  * Includes [Filters](#filters)
   * MaxItems [MaxItems](#maxitems)
   * NextToken [NextToken](#nexttoken)
 
@@ -189,6 +190,7 @@ amazonaws_acm.RequestCertificate({
   * DomainValidationOptions [DomainValidationOptionList](#domainvalidationoptionlist)
   * IdempotencyToken [IdempotencyToken](#idempotencytoken)
   * SubjectAlternativeNames [DomainList](#domainlist)
+  * ValidationMethod [ValidationMethod](#validationmethod)
 
 #### Output
 * output [RequestCertificateResponse](#requestcertificateresponse)
@@ -239,17 +241,19 @@ amazonaws_acm.ResendValidationEmail({
 * CertificateChainBlob `string`
 
 ### CertificateDetail
-* CertificateDetail `object`: Contains metadata about an ACM certificate. This structure is returned in the response to a <a>DescribeCertificate</a> request.
+* CertificateDetail `object`: Contains metadata about an ACM certificate. This structure is returned in the response to a <a>DescribeCertificate</a> request. 
   * CertificateArn [Arn](#arn)
   * CreatedAt [TStamp](#tstamp)
   * DomainName [DomainNameString](#domainnamestring)
   * DomainValidationOptions [DomainValidationList](#domainvalidationlist)
+  * ExtendedKeyUsages [ExtendedKeyUsageList](#extendedkeyusagelist)
   * FailureReason [FailureReason](#failurereason)
   * ImportedAt [TStamp](#tstamp)
   * InUseBy [InUseList](#inuselist)
   * IssuedAt [TStamp](#tstamp)
   * Issuer [String](#string)
   * KeyAlgorithm [KeyAlgorithm](#keyalgorithm)
+  * KeyUsages [KeyUsageList](#keyusagelist)
   * NotAfter [TStamp](#tstamp)
   * NotBefore [TStamp](#tstamp)
   * RenewalSummary [RenewalSummary](#renewalsummary)
@@ -270,7 +274,7 @@ amazonaws_acm.ResendValidationEmail({
   * items [CertificateStatus](#certificatestatus)
 
 ### CertificateSummary
-* CertificateSummary `object`: This structure is returned in the response object of <a>ListCertificates</a> action.
+* CertificateSummary `object`: This structure is returned in the response object of <a>ListCertificates</a> action. 
   * CertificateArn [Arn](#arn)
   * DomainName [DomainNameString](#domainnamestring)
 
@@ -306,8 +310,10 @@ amazonaws_acm.ResendValidationEmail({
 ### DomainValidation
 * DomainValidation `object`: Contains information about the validation of each domain name in the certificate.
   * DomainName **required** [DomainNameString](#domainnamestring)
+  * ResourceRecord [ResourceRecord](#resourcerecord)
   * ValidationDomain [DomainNameString](#domainnamestring)
   * ValidationEmails [ValidationEmailList](#validationemaillist)
+  * ValidationMethod [ValidationMethod](#validationmethod)
   * ValidationStatus [DomainStatus](#domainstatus)
 
 ### DomainValidationList
@@ -315,7 +321,7 @@ amazonaws_acm.ResendValidationEmail({
   * items [DomainValidation](#domainvalidation)
 
 ### DomainValidationOption
-* DomainValidationOption `object`: Contains information about the domain names that you want ACM to use to send you emails to validate your ownership of the domain.
+* DomainValidationOption `object`: Contains information about the domain names that you want ACM to use to send you emails that enable you to validate domain ownership.
   * DomainName **required** [DomainNameString](#domainnamestring)
   * ValidationDomain **required** [DomainNameString](#domainnamestring)
 
@@ -323,8 +329,30 @@ amazonaws_acm.ResendValidationEmail({
 * DomainValidationOptionList `array`
   * items [DomainValidationOption](#domainvalidationoption)
 
+### ExtendedKeyUsage
+* ExtendedKeyUsage `object`: The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension. 
+  * Name [ExtendedKeyUsageName](#extendedkeyusagename)
+  * OID [String](#string)
+
+### ExtendedKeyUsageFilterList
+* ExtendedKeyUsageFilterList `array`
+  * items [ExtendedKeyUsageName](#extendedkeyusagename)
+
+### ExtendedKeyUsageList
+* ExtendedKeyUsageList `array`
+  * items [ExtendedKeyUsage](#extendedkeyusage)
+
+### ExtendedKeyUsageName
+* ExtendedKeyUsageName `string` (values: TLS_WEB_SERVER_AUTHENTICATION, TLS_WEB_CLIENT_AUTHENTICATION, CODE_SIGNING, EMAIL_PROTECTION, TIME_STAMPING, OCSP_SIGNING, IPSEC_END_SYSTEM, IPSEC_TUNNEL, IPSEC_USER, ANY, NONE, CUSTOM)
+
 ### FailureReason
-* FailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, OTHER)
+* FailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, CAA_ERROR, OTHER)
+
+### Filters
+* Filters `object`: This structure can be used in the <a>ListCertificates</a> action to filter the output of the certificate list. 
+  * extendedKeyUsage [ExtendedKeyUsageFilterList](#extendedkeyusagefilterlist)
+  * keyTypes [KeyAlgorithmList](#keyalgorithmlist)
+  * keyUsage [KeyUsageFilterList](#keyusagefilterlist)
 
 ### GetCertificateRequest
 * GetCertificateRequest `object`
@@ -370,7 +398,26 @@ amazonaws_acm.ResendValidationEmail({
   * message [String](#string)
 
 ### KeyAlgorithm
-* KeyAlgorithm `string` (values: RSA_2048, RSA_1024, EC_prime256v1)
+* KeyAlgorithm `string` (values: RSA_2048, RSA_1024, RSA_4096, EC_prime256v1, EC_secp384r1, EC_secp521r1)
+
+### KeyAlgorithmList
+* KeyAlgorithmList `array`
+  * items [KeyAlgorithm](#keyalgorithm)
+
+### KeyUsage
+* KeyUsage `object`: The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate.
+  * Name [KeyUsageName](#keyusagename)
+
+### KeyUsageFilterList
+* KeyUsageFilterList `array`
+  * items [KeyUsageName](#keyusagename)
+
+### KeyUsageList
+* KeyUsageList `array`
+  * items [KeyUsage](#keyusage)
+
+### KeyUsageName
+* KeyUsageName `string` (values: DIGITAL_SIGNATURE, NON_REPUDIATION, KEY_ENCIPHERMENT, DATA_ENCIPHERMENT, KEY_AGREEMENT, CERTIFICATE_SIGNING, CRL_SIGNING, ENCIPHER_ONLY, DECIPHER_ONLY, ANY, CUSTOM)
 
 ### LimitExceededException
 * LimitExceededException `object`: An ACM limit has been exceeded. For example, you may have input more domains than are allowed or you've requested too many certificates for your account. See the exception message returned by ACM to determine which limit you have violated. For more information about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a> topic.
@@ -379,6 +426,7 @@ amazonaws_acm.ResendValidationEmail({
 ### ListCertificatesRequest
 * ListCertificatesRequest `object`
   * CertificateStatuses [CertificateStatuses](#certificatestatuses)
+  * Includes [Filters](#filters)
   * MaxItems [MaxItems](#maxitems)
   * NextToken [NextToken](#nexttoken)
 
@@ -404,6 +452,9 @@ amazonaws_acm.ResendValidationEmail({
 ### PrivateKeyBlob
 * PrivateKeyBlob `string`
 
+### RecordType
+* RecordType `string` (values: CNAME)
+
 ### RemoveTagsFromCertificateRequest
 * RemoveTagsFromCertificateRequest `object`
   * CertificateArn **required** [Arn](#arn)
@@ -423,6 +474,7 @@ amazonaws_acm.ResendValidationEmail({
   * DomainValidationOptions [DomainValidationOptionList](#domainvalidationoptionlist)
   * IdempotencyToken [IdempotencyToken](#idempotencytoken)
   * SubjectAlternativeNames [DomainList](#domainlist)
+  * ValidationMethod [ValidationMethod](#validationmethod)
 
 ### RequestCertificateResponse
 * RequestCertificateResponse `object`
@@ -445,6 +497,12 @@ amazonaws_acm.ResendValidationEmail({
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: The specified certificate cannot be found in the caller's account, or the caller's account cannot be found.
   * message [String](#string)
+
+### ResourceRecord
+* ResourceRecord `object`: Contains a DNS record value that you can use to can use to validate ownership or control of a domain. This is used by the <a>DescribeCertificate</a> action. 
+  * Name **required** [String](#string)
+  * Type **required** [RecordType](#recordtype)
+  * Value **required** [String](#string)
 
 ### RevocationReason
 * RevocationReason `string` (values: UNSPECIFIED, KEY_COMPROMISE, CA_COMPROMISE, AFFILIATION_CHANGED, SUPERCEDED, CESSATION_OF_OPERATION, CERTIFICATE_HOLD, REMOVE_FROM_CRL, PRIVILEGE_WITHDRAWN, A_A_COMPROMISE)
@@ -477,5 +535,8 @@ amazonaws_acm.ResendValidationEmail({
 ### ValidationEmailList
 * ValidationEmailList `array`
   * items [String](#string)
+
+### ValidationMethod
+* ValidationMethod `string` (values: EMAIL, DNS)
 
 

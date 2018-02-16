@@ -112,23 +112,41 @@ google_videointelligence.videos.annotate({}, context)
   * annotationResults `array`: Annotation results for all videos specified in `AnnotateVideoRequest`.
     * items [GoogleCloudVideointelligenceV1_VideoAnnotationResults](#googlecloudvideointelligencev1_videoannotationresults)
 
+### GoogleCloudVideointelligenceV1_Entity
+* GoogleCloudVideointelligenceV1_Entity `object`: Detected entity from video analysis.
+  * description `string`: Textual description, e.g. `Fixed-gear bicycle`.
+  * entityId `string`: Opaque entity ID. Some IDs may be available in
+  * languageCode `string`: Language code for `description` in BCP-47 format.
+
+### GoogleCloudVideointelligenceV1_ExplicitContentAnnotation
+* GoogleCloudVideointelligenceV1_ExplicitContentAnnotation `object`: Explicit content annotation (based on per-frame visual signals only).
+  * frames `array`: All video frames where explicit content was detected.
+    * items [GoogleCloudVideointelligenceV1_ExplicitContentFrame](#googlecloudvideointelligencev1_explicitcontentframe)
+
+### GoogleCloudVideointelligenceV1_ExplicitContentFrame
+* GoogleCloudVideointelligenceV1_ExplicitContentFrame `object`: Video frame level annotation results for explicit content.
+  * pornographyLikelihood `string` (values: LIKELIHOOD_UNSPECIFIED, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Likelihood of the pornography content..
+  * timeOffset `string`: Time-offset, relative to the beginning of the video, corresponding to the
+
 ### GoogleCloudVideointelligenceV1_LabelAnnotation
 * GoogleCloudVideointelligenceV1_LabelAnnotation `object`: Label annotation.
-  * description `string`: Textual description, e.g. `Fixed-gear bicycle`.
-  * languageCode `string`: Language code for `description` in BCP-47 format.
-  * locations `array`: Where the label was detected and with what confidence.
-    * items [GoogleCloudVideointelligenceV1_LabelLocation](#googlecloudvideointelligencev1_labellocation)
+  * categoryEntities `array`: Common categories for the detected entity.
+    * items [GoogleCloudVideointelligenceV1_Entity](#googlecloudvideointelligencev1_entity)
+  * entity [GoogleCloudVideointelligenceV1_Entity](#googlecloudvideointelligencev1_entity)
+  * frames `array`: All video frames where a label was detected.
+    * items [GoogleCloudVideointelligenceV1_LabelFrame](#googlecloudvideointelligencev1_labelframe)
+  * segments `array`: All video segments where a label was detected.
+    * items [GoogleCloudVideointelligenceV1_LabelSegment](#googlecloudvideointelligencev1_labelsegment)
 
-### GoogleCloudVideointelligenceV1_LabelLocation
-* GoogleCloudVideointelligenceV1_LabelLocation `object`: Label location.
+### GoogleCloudVideointelligenceV1_LabelFrame
+* GoogleCloudVideointelligenceV1_LabelFrame `object`: Video frame level annotation results for label detection.
   * confidence `number`: Confidence that the label is accurate. Range: [0, 1].
-  * level `string` (values: LABEL_LEVEL_UNSPECIFIED, VIDEO_LEVEL, SEGMENT_LEVEL, SHOT_LEVEL, FRAME_LEVEL): Label level.
-  * segment [GoogleCloudVideointelligenceV1_VideoSegment](#googlecloudvideointelligencev1_videosegment)
+  * timeOffset `string`: Time-offset, relative to the beginning of the video, corresponding to the
 
-### GoogleCloudVideointelligenceV1_SafeSearchAnnotation
-* GoogleCloudVideointelligenceV1_SafeSearchAnnotation `object`: Safe search annotation (based on per-frame visual signals only).
-  * adult `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Likelihood of adult content.
-  * time `string`: Time-offset, relative to the beginning of the video,
+### GoogleCloudVideointelligenceV1_LabelSegment
+* GoogleCloudVideointelligenceV1_LabelSegment `object`: Video segment level annotation results for label detection.
+  * confidence `number`: Confidence that the label is accurate. Range: [0, 1].
+  * segment [GoogleCloudVideointelligenceV1_VideoSegment](#googlecloudvideointelligencev1_videosegment)
 
 ### GoogleCloudVideointelligenceV1_VideoAnnotationProgress
 * GoogleCloudVideointelligenceV1_VideoAnnotationProgress `object`: Annotation progress for a single video.
@@ -140,18 +158,21 @@ google_videointelligence.videos.annotate({}, context)
 ### GoogleCloudVideointelligenceV1_VideoAnnotationResults
 * GoogleCloudVideointelligenceV1_VideoAnnotationResults `object`: Annotation results for a single video.
   * error [GoogleRpc_Status](#googlerpc_status)
-  * inputUri `string`: Video file location in
-  * labelAnnotations `array`: Label annotations. There is exactly one element for each unique label.
+  * explicitAnnotation [GoogleCloudVideointelligenceV1_ExplicitContentAnnotation](#googlecloudvideointelligencev1_explicitcontentannotation)
+  * frameLabelAnnotations `array`: Label annotations on frame level.
     * items [GoogleCloudVideointelligenceV1_LabelAnnotation](#googlecloudvideointelligencev1_labelannotation)
-  * safeSearchAnnotations `array`: Safe search annotations.
-    * items [GoogleCloudVideointelligenceV1_SafeSearchAnnotation](#googlecloudvideointelligencev1_safesearchannotation)
+  * inputUri `string`: Video file location in
+  * segmentLabelAnnotations `array`: Label annotations on video level or user specified segment level.
+    * items [GoogleCloudVideointelligenceV1_LabelAnnotation](#googlecloudvideointelligencev1_labelannotation)
   * shotAnnotations `array`: Shot annotations. Each shot is represented as a video segment.
     * items [GoogleCloudVideointelligenceV1_VideoSegment](#googlecloudvideointelligencev1_videosegment)
+  * shotLabelAnnotations `array`: Label annotations on shot level.
+    * items [GoogleCloudVideointelligenceV1_LabelAnnotation](#googlecloudvideointelligencev1_labelannotation)
 
 ### GoogleCloudVideointelligenceV1_VideoSegment
 * GoogleCloudVideointelligenceV1_VideoSegment `object`: Video segment.
-  * endTime `string`: Time-offset, relative to the beginning of the video,
-  * startTime `string`: Time-offset, relative to the beginning of the video,
+  * endTimeOffset `string`: Time-offset, relative to the beginning of the video,
+  * startTimeOffset `string`: Time-offset, relative to the beginning of the video,
 
 ### GoogleCloudVideointelligenceV1beta1_AnnotateVideoProgress
 * GoogleCloudVideointelligenceV1beta1_AnnotateVideoProgress `object`: Video annotation progress. Included in the `metadata`

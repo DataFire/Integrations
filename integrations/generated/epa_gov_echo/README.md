@@ -139,6 +139,7 @@ epa_gov_echo.echo_rest_services.get_facilities.get({}, context)
   * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: A, C, E, G, M, R, S, T, TSCA, W, ALL): Filter Results by Media.- A = Air- C = CAMD (Clean Air Markets Division)- E = EIS (Emissions Inventory Systems)- G = GHG (Greenhouse Gases)- M = RMP (Risk Management Plan)- R = RCRA (Hazardous Waste)- S = SDWA (Public Drinking Water Systems)- T = TRI (Toxic Release Inventory)- TSCA = TSCA (Toxic Substances Control Act)- W = Water- ALL = Air and Water and RCRA
+  * p_istatute `string`
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
   * p_ysly `number` (values: 1, 2, 3, 4, 5): Number of years (1 to 5) since last facility inspection.  A value of 1 means that it has been inspected within the year.
   * p_ysla `string` (values: E, S, A): Facility Last Inspection Code Filter.  If left blank, both agencies are included.  Enter a value to limit results:
@@ -226,6 +227,7 @@ epa_gov_echo.echo_rest_services.get_facilities.post({}, context)
   * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: A, C, E, G, M, R, S, T, TSCA, W, ALL): Filter Results by Media.- A = Air- C = CAMD (Clean Air Markets Division)- E = EIS (Emissions Inventory Systems)- G = GHG (Greenhouse Gases)- M = RMP (Risk Management Plan)- R = RCRA (Hazardous Waste)- S = SDWA (Public Drinking Water Systems)- T = TRI (Toxic Release Inventory)- TSCA = TSCA (Toxic Substances Control Act)- W = Water- ALL = Air and Water and RCRA
+  * p_istatute `string`
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
   * p_ysly `number` (values: 1, 2, 3, 4, 5): Number of years (1 to 5) since last facility inspection.  A value of 1 means that it has been inspected within the year.
   * p_ysla `string` (values: E, S, A): Facility Last Inspection Code Filter.  If left blank, both agencies are included.  Enter a value to limit results:
@@ -313,6 +315,7 @@ epa_gov_echo.echo_rest_services.get_facility_info.get({}, context)
   * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: A, C, E, G, M, R, S, T, TSCA, W, ALL): Filter Results by Media.- A = Air- C = CAMD (Clean Air Markets Division)- E = EIS (Emissions Inventory Systems)- G = GHG (Greenhouse Gases)- M = RMP (Risk Management Plan)- R = RCRA (Hazardous Waste)- S = SDWA (Public Drinking Water Systems)- T = TRI (Toxic Release Inventory)- TSCA = TSCA (Toxic Substances Control Act)- W = Water- ALL = Air and Water and RCRA
+  * p_istatute `string`
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
   * p_ysly `number` (values: 1, 2, 3, 4, 5): Number of years (1 to 5) since last facility inspection.  A value of 1 means that it has been inspected within the year.
   * p_ysla `string` (values: E, S, A): Facility Last Inspection Code Filter.  If left blank, both agencies are included.  Enter a value to limit results:
@@ -397,6 +400,7 @@ epa_gov_echo.echo_rest_services.get_facility_info.post({}, context)
   * p_huc `string`: 2-, 4-, 6-, or 8-character watershed. May contain multiple comma-separated values.
   * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
   * p_med `string` (values: A, C, E, G, M, R, S, T, TSCA, W, ALL): Filter Results by Media.- A = Air- C = CAMD (Clean Air Markets Division)- E = EIS (Emissions Inventory Systems)- G = GHG (Greenhouse Gases)- M = RMP (Risk Management Plan)- R = RCRA (Hazardous Waste)- S = SDWA (Public Drinking Water Systems)- T = TRI (Toxic Release Inventory)- TSCA = TSCA (Toxic Substances Control Act)- W = Water- ALL = Air and Water and RCRA
+  * p_istatute `string`
   * p_ysl `string` (values: W, N, NV): Last Facility Inspection [within / not within] Specified Date Range Indicator. The date range is determined by parameters p_idt1 and p_idt2 or by parameter p_ysly.
   * p_ysly `number` (values: 1, 2, 3, 4, 5): Number of years (1 to 5) since last facility inspection.  A value of 1 means that it has been inspected within the year.
   * p_ysla `string` (values: E, S, A): Facility Last Inspection Code Filter.  If left blank, both agencies are included.  Enter a value to limit results:
@@ -699,11 +703,11 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * CAAInformalCount **required** `string`: Indicates the number of informal enforcement actions/notices of violations (NOVs) taken against the facility within the last five years under the Clean Air Act.
   * CAALastPenaltyAmt **required** `string`
   * CAALastPenaltyDate **required** `string`
-  * CAANaics **required** `string`
+  * CAANAICS **required** `string`
   * CAAPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Air Act.
   * CAAPermitTypes **required** `string`: ICIS AIR Permit Types associated with the FRS Facility:
   * CAAQtrsInNC **required** `string`
-  * CAASics **required** `string`
+  * CAASICs **required** `string`
   * CWA13qtrsComplStatus **required** `string`
   * CWA13qtrsEfflntExceedances **required** `string`
   * CWA3YrQncrCodes **required** `string`
@@ -717,11 +721,11 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * CWAInspectionCount **required** `string`: The number of inspections/compliance evaluations under the Clean Water Act, occurring at the facility within the last five years.
   * CWALastPenaltyAmt **required** `string`
   * CWALastPenaltyDate **required** `string`
-  * CWANaics **required** `string`
+  * CWANAICS **required** `string`
   * CWAPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Water Act.
   * CWAPermitTypes **required** `string`: Indicates the facility's permit type or designation.
   * CWAQtrsInNC **required** `string`
-  * CWASics **required** `string`
+  * CWASICs **required** `string`
   * CamdIDs **required** `string`: Facility identifiers for the Clean Air Markets Division database.
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
   * CurrSvFlag **required** `string`: Indicates if the facility has a current significant violation. 1 = Yes
@@ -781,8 +785,8 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * FacMapFlg **required** `string`: Graphical indicator denoting whether geographical data required to map a facility are available.
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
   * FacMyrtkUniverse **required** `string`
+  * FacNAICSCodes **required** `string`
   * FacNaaFlag **required** `string`
-  * FacNaicsCodes **required** `string`
   * FacName **required** `string`: Name of facility
   * FacPenaltyCount **required** `string`: The total number of penalties assessed (or final) taken against the facility within the last five years
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
@@ -790,7 +794,7 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * FacProgramsInSNC **required** `string`: A count of the number of programs (AIR, CWA, SDWA, RCRA) related to the facility that have a current serious violation
   * FacQtrsInNC **required** `string`: Count of the number of quarters, out of the last twelve quarters, in which the permit or site is considered either in Non-compliance (NC), Significant Non-compliance (SNC) or High Priority violation (HPV) status
   * FacReferencePoint **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacState **required** `string`: Facility state
   * FacStreet **required** `string`: Street address where facility is located, as maintained by each data system. Certain data systems also maintain mailing address information, which is not used in this report. The street address may differ across EPA databases due to differences in reported information (e.g., use of mailing address), change in ownership, use of parent or subsidiary address, etc.
   * FacTotalPenalties **required** `string`: The total dollar amount of either assessed (or final) penalties taken against the facility within the last five years
@@ -836,7 +840,7 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * RCRAInspectionCount **required** `string`: The number of inspections/compliance evaluations under the Resource Conservation and Recovery Act, occurring at the facility within the last five years
   * RCRALastPenaltyAmt **required** `string`
   * RCRALastPenaltyDate **required** `string`
-  * RCRANaics **required** `string`
+  * RCRANAICS **required** `string`
   * RCRAPenalties **required** `string`
   * RCRAPermitTypes **required** `string`: RCRA Facility Types include:
   * RCRAQtrsInNC **required** `string`
@@ -849,8 +853,8 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * SDWAIDs **required** `string`: A unique 9-character ID assigned for each public water system within the Safe Drinking Water Information System (SDWIS).
   * SDWAInformalCount **required** `string`: Indicates the number of informal enforcement actions/notices of violations (NOVs) taken against the facility within the last five years under the Safe Drinking Water Act
   * SDWASystemTypes **required** `string`: SDWIS System Types
+  * SDWISFlag **required** `string`
   * Score **required** `string`
-  * SdwisFlag **required** `string`
   * SourceID **required** `string`: Unique Identifier assigned by EPA.
   * TRIFlag **required** `string`
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
@@ -928,11 +932,11 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * CAAInformalCount **required** `string`: Indicates the number of informal enforcement actions/notices of violations (NOVs) taken against the facility within the last five years under the Clean Air Act.
   * CAALastPenaltyAmt **required** `string`
   * CAALastPenaltyDate **required** `string`
-  * CAANaics **required** `string`
+  * CAANAICS **required** `string`
   * CAAPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Air Act.
   * CAAPermitTypes **required** `string`: ICIS AIR Permit Types associated with the FRS Facility:
   * CAAQtrsInNC **required** `string`
-  * CAASics **required** `string`
+  * CAASICs **required** `string`
   * CWA13qtrsComplStatus **required** `string`
   * CWA13qtrsEfflntExceedances **required** `string`
   * CWA3YrQncrCodes **required** `string`
@@ -946,11 +950,11 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * CWAInspectionCount **required** `string`: The number of inspections/compliance evaluations under the Clean Water Act, occurring at the facility within the last five years.
   * CWALastPenaltyAmt **required** `string`
   * CWALastPenaltyDate **required** `string`
-  * CWANaics **required** `string`
+  * CWANAICS **required** `string`
   * CWAPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Water Act.
   * CWAPermitTypes **required** `string`: Indicates the facility's permit type or designation.
   * CWAQtrsInNC **required** `string`
-  * CWASics **required** `string`
+  * CWASICs **required** `string`
   * CamdIDs **required** `string`: Facility identifiers for the Clean Air Markets Division database.
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
   * CurrSvFlag **required** `string`: Indicates if the facility has a current significant violation. 1 = Yes
@@ -1010,8 +1014,8 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * FacMapFlg **required** `string`: Graphical indicator denoting whether geographical data required to map a facility are available.
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
   * FacMyrtkUniverse **required** `string`
+  * FacNAICSCodes **required** `string`
   * FacNaaFlag **required** `string`
-  * FacNaicsCodes **required** `string`
   * FacName **required** `string`: Name of facility
   * FacPenaltyCount **required** `string`: The total number of penalties assessed (or final) taken against the facility within the last five years
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
@@ -1019,7 +1023,7 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * FacProgramsInSNC **required** `string`: A count of the number of programs (AIR, CWA, SDWA, RCRA) related to the facility that have a current serious violation
   * FacQtrsInNC **required** `string`: Count of the number of quarters, out of the last twelve quarters, in which the permit or site is considered either in Non-compliance (NC), Significant Non-compliance (SNC) or High Priority violation (HPV) status
   * FacReferencePoint **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacState **required** `string`: Facility state
   * FacStreet **required** `string`: Street address where facility is located, as maintained by each data system. Certain data systems also maintain mailing address information, which is not used in this report. The street address may differ across EPA databases due to differences in reported information (e.g., use of mailing address), change in ownership, use of parent or subsidiary address, etc.
   * FacTotalPenalties **required** `string`: The total dollar amount of either assessed (or final) penalties taken against the facility within the last five years
@@ -1066,7 +1070,7 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * RCRAInspectionCount **required** `string`: The number of inspections/compliance evaluations under the Resource Conservation and Recovery Act, occurring at the facility within the last five years
   * RCRALastPenaltyAmt **required** `string`
   * RCRALastPenaltyDate **required** `string`
-  * RCRANaics **required** `string`
+  * RCRANAICS **required** `string`
   * RCRAPenalties **required** `string`
   * RCRAPermitTypes **required** `string`: RCRA Facility Types include:
   * RCRAQtrsInNC **required** `string`
@@ -1079,8 +1083,8 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * SDWAIDs **required** `string`: A unique 9-character ID assigned for each public water system within the Safe Drinking Water Information System (SDWIS).
   * SDWAInformalCount **required** `string`: Indicates the number of informal enforcement actions/notices of violations (NOVs) taken against the facility within the last five years under the Safe Drinking Water Act
   * SDWASystemTypes **required** `string`: SDWIS System Types
+  * SDWISFlag **required** `string`
   * Score **required** `string`
-  * SdwisFlag **required** `string`
   * SourceID **required** `string`: Unique Identifier assigned by EPA.
   * TRIFlag **required** `string`
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
@@ -1152,11 +1156,11 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * CAAInformalCount **required** `string`: Indicates the number of informal enforcement actions/notices of violations (NOVs) taken against the facility within the last five years under the Clean Air Act.
   * CAALastPenaltyAmt **required** `number`
   * CAALastPenaltyDate **required** `string`
-  * CAANaics **required** `string`
+  * CAANAICS **required** `string`
   * CAAPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Air Act.
   * CAAPermitTypes **required** `string`: ICIS AIR Permit Types associated with the FRS Facility:
   * CAAQtrsInNC **required** `number`
-  * CAASics **required** `string`
+  * CAASICs **required** `string`
   * CWA13qtrsComplStatus **required** `string`
   * CWA13qtrsEfflntExceedances **required** `string`
   * CWA3YrQncrCodes **required** `string`
@@ -1170,11 +1174,11 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * CWAInspectionCount **required** `number`: The number of inspections/compliance evaluations under the Clean Water Act, occurring at the facility within the last five years.
   * CWALastPenaltyAmt **required** `string`
   * CWALastPenaltyDate **required** `string`
-  * CWANaics **required** `string`
+  * CWANAICS **required** `string`
   * CWAPenalties **required** `string`: The total dollar amount of assessed (or final) penalties taken against the facility within the last five years under the Clean Water Act.
   * CWAPermitTypes **required** `string`: Indicates the facility's permit type or designation.
   * CWAQtrsInNC **required** `string`
-  * CWASics **required** `string`
+  * CWASICs **required** `string`
   * CamdIDs **required** `string`: Facility identifiers for the Clean Air Markets Division database.
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
   * CurrSvFlag **required** `number`: Indicates if the facility has a current significant violation. 1 = Yes
@@ -1232,8 +1236,8 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * FacMapFlg **required** `string`: Graphical indicator denoting whether geographical data required to map a facility are available.
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
   * FacMyrtkUniverse **required** `string`
+  * FacNAICSCodes **required** `string`
   * FacNaaFlag **required** `string`
-  * FacNaicsCodes **required** `string`
   * FacName **required** `string`: Name of facility
   * FacPenaltyCount **required** `number`: The total number of penalties assessed (or final) taken against the facility within the last five years
   * FacPercentMinority **required** `number`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
@@ -1241,7 +1245,7 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * FacProgramsInSNC **required** `number`: A count of the number of programs (AIR, CWA, SDWA, RCRA) related to the facility that have a current serious violation
   * FacQtrsInNC **required** `number`: Count of the number of quarters, out of the last twelve quarters, in which the permit or site is considered either in Non-compliance (NC), Significant Non-compliance (SNC) or High Priority violation (HPV) status
   * FacReferencePoint **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacState **required** `string`: Facility state
   * FacStreet **required** `string`: Street address where facility is located, as maintained by each data system. Certain data systems also maintain mailing address information, which is not used in this report. The street address may differ across EPA databases due to differences in reported information (e.g., use of mailing address), change in ownership, use of parent or subsidiary address, etc.
   * FacTotalPenalties **required** `number`: The total dollar amount of either assessed (or final) penalties taken against the facility within the last five years
@@ -1287,7 +1291,7 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * RCRAInspectionCount **required** `number`: The number of inspections/compliance evaluations under the Resource Conservation and Recovery Act, occurring at the facility within the last five years
   * RCRALastPenaltyAmt **required** `string`
   * RCRALastPenaltyDate **required** `string`
-  * RCRANaics **required** `string`
+  * RCRANAICS **required** `string`
   * RCRAPenalties **required** `string`
   * RCRAPermitTypes **required** `string`: RCRA Facility Types include:
   * RCRAQtrsInNC **required** `number`
@@ -1300,8 +1304,8 @@ epa_gov_echo.echo_rest_services.metadata.post({}, context)
   * SDWAIDs **required** `string`: A unique 9-character ID assigned for each public water system within the Safe Drinking Water Information System (SDWIS).
   * SDWAInformalCount **required** `string`: Indicates the number of informal enforcement actions/notices of violations (NOVs) taken against the facility within the last five years under the Safe Drinking Water Act
   * SDWASystemTypes **required** `string`: SDWIS System Types
+  * SDWISFlag **required** `string`
   * Score **required** `number`
-  * SdwisFlag **required** `string`
   * SourceID **required** `string`: Unique Identifier assigned by EPA.
   * TRIFlag **required** `string`
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.

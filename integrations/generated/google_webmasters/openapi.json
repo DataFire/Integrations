@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "View Google Search Console data for your verified sites.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Search Console",
     "version": "v3",
     "x-apiClientRegistration": {
@@ -47,12 +52,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
         "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
+        "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -150,10 +166,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -208,6 +230,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -239,10 +264,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -295,6 +326,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -332,18 +366,18 @@
         "operationId": "searchanalytics.query",
         "parameters": [
           {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/SearchAnalyticsQueryRequest"
             }
+          },
+          {
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "in": "path",
+            "name": "siteUrl",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -358,10 +392,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -402,10 +442,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -444,16 +490,16 @@
         "operationId": "sitemaps.delete",
         "parameters": [
           {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
             "in": "path",
-            "name": "siteUrl",
+            "name": "feedpath",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
             "in": "path",
-            "name": "feedpath",
+            "name": "siteUrl",
             "required": true,
             "type": "string"
           }
@@ -467,6 +513,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -479,16 +528,16 @@
         "operationId": "sitemaps.get",
         "parameters": [
           {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
             "in": "path",
-            "name": "siteUrl",
+            "name": "feedpath",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml",
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
             "in": "path",
-            "name": "feedpath",
+            "name": "siteUrl",
             "required": true,
             "type": "string"
           }
@@ -505,10 +554,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -545,16 +600,16 @@
         "operationId": "sitemaps.submit",
         "parameters": [
           {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "description": "The URL of the sitemap to add. For example: http://www.example.com/sitemap.xml",
             "in": "path",
-            "name": "siteUrl",
+            "name": "feedpath",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The URL of the sitemap to add. For example: http://www.example.com/sitemap.xml",
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
             "in": "path",
-            "name": "feedpath",
+            "name": "siteUrl",
             "required": true,
             "type": "string"
           }
@@ -567,6 +622,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters"
             ]
           }
@@ -581,13 +639,6 @@
         "description": "Retrieves a time series of the number of URL crawl errors per error category and platform.",
         "operationId": "urlcrawlerrorscounts.query",
         "parameters": [
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The crawl error category. For example: serverError. If not specified, returns results for all categories.",
             "enum": [
@@ -622,6 +673,13 @@
             "in": "query",
             "name": "platform",
             "type": "string"
+          },
+          {
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "in": "path",
+            "name": "siteUrl",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -636,10 +694,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -678,13 +742,6 @@
         "operationId": "urlcrawlerrorssamples.list",
         "parameters": [
           {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The crawl error category. For example: authPermissions",
             "enum": [
               "authPermissions",
@@ -713,6 +770,13 @@
             "name": "platform",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "in": "path",
+            "name": "siteUrl",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -727,10 +791,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }
@@ -769,20 +839,6 @@
         "operationId": "urlcrawlerrorssamples.markAsFixed",
         "parameters": [
           {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename",
-            "in": "path",
-            "name": "url",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The crawl error category. For example: authPermissions",
             "enum": [
               "authPermissions",
@@ -809,6 +865,20 @@
             ],
             "in": "query",
             "name": "platform",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "in": "path",
+            "name": "siteUrl",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename",
+            "in": "path",
+            "name": "url",
             "required": true,
             "type": "string"
           }
@@ -822,6 +892,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           }
         ],
@@ -833,20 +906,6 @@
         "description": "Retrieves details about crawl errors for a site's sample URL.",
         "operationId": "urlcrawlerrorssamples.get",
         "parameters": [
-          {
-            "description": "The site's URL, including protocol. For example: http://www.example.com/",
-            "in": "path",
-            "name": "siteUrl",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename",
-            "in": "path",
-            "name": "url",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The crawl error category. For example: authPermissions",
             "enum": [
@@ -874,6 +933,20 @@
             ],
             "in": "query",
             "name": "platform",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The site's URL, including protocol. For example: http://www.example.com/",
+            "in": "path",
+            "name": "siteUrl",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The relative path (without the site) of the sample URL. It must be one of the URLs returned by list(). For example, for the URL https://www.example.com/pagename on the site https://www.example.com/, the url value is pagename",
+            "in": "path",
+            "name": "url",
             "required": true,
             "type": "string"
           }
@@ -890,10 +963,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/webmasters"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/webmasters"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/webmasters.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/webmasters.readonly"
             ]
           }

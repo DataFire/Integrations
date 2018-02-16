@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Accesses Tag Manager accounts and containers.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Tag Manager",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/tagmanager.delete.containers": "Delete your Google Tag Manager containers",
@@ -58,6 +63,22 @@
         "https://www.googleapis.com/auth/tagmanager.publish": "Publish your Google Tag Manager container versions",
         "https://www.googleapis.com/auth/tagmanager.readonly": "View your Google Tag Manager container and its subcomponents"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/tagmanager.delete.containers": "Delete your Google Tag Manager containers",
+        "https://www.googleapis.com/auth/tagmanager.edit.containers": "Manage your Google Tag Manager container and its subcomponents, excluding versioning and publishing",
+        "https://www.googleapis.com/auth/tagmanager.edit.containerversions": "Manage your Google Tag Manager container versions",
+        "https://www.googleapis.com/auth/tagmanager.manage.accounts": "View and manage your Google Tag Manager accounts",
+        "https://www.googleapis.com/auth/tagmanager.manage.users": "Manage user permissions of your Google Tag Manager account and container",
+        "https://www.googleapis.com/auth/tagmanager.publish": "Publish your Google Tag Manager container versions",
+        "https://www.googleapis.com/auth/tagmanager.readonly": "View your Google Tag Manager container and its subcomponents"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -148,15 +169,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.manage.accounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.manage.accounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -214,15 +244,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.manage.accounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.manage.accounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -266,17 +305,17 @@
             "type": "string"
           },
           {
-            "description": "When provided, this fingerprint must match the fingerprint of the account in storage.",
-            "in": "query",
-            "name": "fingerprint",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Account"
             }
+          },
+          {
+            "description": "When provided, this fingerprint must match the fingerprint of the account in storage.",
+            "in": "query",
+            "name": "fingerprint",
+            "type": "string"
           }
         ],
         "responses": {
@@ -290,6 +329,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.manage.accounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.manage.accounts"
             ]
           }
@@ -324,10 +366,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -390,6 +438,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
         ],
@@ -426,6 +477,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.delete.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.delete.containers"
             ]
           }
@@ -465,10 +519,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -512,6 +572,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Container"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
@@ -523,13 +590,6 @@
             "in": "query",
             "name": "fingerprint",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Container"
-            }
           }
         ],
         "responses": {
@@ -543,6 +603,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -584,10 +647,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -631,18 +700,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM Container ID.",
-            "in": "path",
-            "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Environment"
             }
+          },
+          {
+            "description": "The GTM Container ID.",
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -656,6 +725,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -700,6 +772,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -746,10 +821,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -793,6 +874,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
@@ -811,13 +899,6 @@
             "in": "query",
             "name": "fingerprint",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
           }
         ],
         "responses": {
@@ -831,6 +912,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -851,6 +935,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
@@ -869,13 +960,6 @@
             "in": "query",
             "name": "fingerprint",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
           }
         ],
         "responses": {
@@ -889,6 +973,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -930,10 +1017,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -977,18 +1070,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM Container ID.",
-            "in": "path",
-            "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Folder"
             }
+          },
+          {
+            "description": "The GTM Container ID.",
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1002,6 +1095,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1046,6 +1142,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1092,10 +1191,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -1139,16 +1244,16 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Folder"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The GTM Folder ID.",
-            "in": "path",
-            "name": "folderId",
             "required": true,
             "type": "string"
           },
@@ -1159,11 +1264,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Folder"
-            }
+            "description": "The GTM Folder ID.",
+            "in": "path",
+            "name": "folderId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1177,6 +1282,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1225,10 +1333,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -1297,6 +1411,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Folder"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
@@ -1339,13 +1460,6 @@
             },
             "name": "variableId",
             "type": "array"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Folder"
-            }
           }
         ],
         "responses": {
@@ -1356,6 +1470,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1401,6 +1518,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
@@ -1413,13 +1537,6 @@
             "name": "environmentId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
           }
         ],
         "responses": {
@@ -1433,6 +1550,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.publish"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.publish"
             ]
           }
@@ -1474,10 +1594,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -1521,18 +1647,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM Container ID.",
-            "in": "path",
-            "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Tag"
             }
+          },
+          {
+            "description": "The GTM Container ID.",
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1546,6 +1672,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1590,6 +1719,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1636,10 +1768,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -1683,16 +1821,16 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The GTM Tag ID.",
-            "in": "path",
-            "name": "tagId",
             "required": true,
             "type": "string"
           },
@@ -1703,11 +1841,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Tag"
-            }
+            "description": "The GTM Tag ID.",
+            "in": "path",
+            "name": "tagId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1721,6 +1859,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1762,10 +1903,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -1809,18 +1956,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM Container ID.",
-            "in": "path",
-            "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Trigger"
             }
+          },
+          {
+            "description": "The GTM Container ID.",
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1834,6 +1981,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1878,6 +2028,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -1924,10 +2077,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -1971,16 +2130,16 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Trigger"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The GTM Trigger ID.",
-            "in": "path",
-            "name": "triggerId",
             "required": true,
             "type": "string"
           },
@@ -1991,11 +2150,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Trigger"
-            }
+            "description": "The GTM Trigger ID.",
+            "in": "path",
+            "name": "triggerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2009,6 +2168,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -2050,10 +2212,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -2097,18 +2265,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM Container ID.",
-            "in": "path",
-            "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Variable"
             }
+          },
+          {
+            "description": "The GTM Container ID.",
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2122,6 +2290,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -2166,6 +2337,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -2212,10 +2386,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -2259,16 +2439,16 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Variable"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The GTM Variable ID.",
-            "in": "path",
-            "name": "variableId",
             "required": true,
             "type": "string"
           },
@@ -2279,11 +2459,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Variable"
-            }
+            "description": "The GTM Variable ID.",
+            "in": "path",
+            "name": "variableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2297,6 +2477,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -2352,15 +2535,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -2404,18 +2596,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM Container ID.",
-            "in": "path",
-            "name": "containerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CreateContainerVersionRequestVersionOptions"
             }
+          },
+          {
+            "description": "The GTM Container ID.",
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2429,6 +2621,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
             ]
           }
@@ -2473,6 +2668,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
             ]
           }
@@ -2519,15 +2717,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.readonly"
             ]
           }
@@ -2571,6 +2778,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ContainerVersion"
+            }
+          },
+          {
             "description": "The GTM Container ID.",
             "in": "path",
             "name": "containerId",
@@ -2589,13 +2803,6 @@
             "in": "query",
             "name": "fingerprint",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ContainerVersion"
-            }
           }
         ],
         "responses": {
@@ -2609,6 +2816,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
             ]
           }
@@ -2686,6 +2896,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.publish"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.publish"
             ]
           }
         ],
@@ -2755,6 +2968,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containers"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.edit.containers"
             ]
           }
@@ -2826,6 +3042,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
             ]
           }
         ],
@@ -2858,6 +3077,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.manage.users"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.manage.users"
             ]
           }
@@ -2920,6 +3142,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/tagmanager.manage.users"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/tagmanager.manage.users"
             ]
           }
         ],
@@ -2956,6 +3181,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.manage.users"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.manage.users"
             ]
           }
@@ -2994,6 +3222,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.manage.users"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.manage.users"
             ]
           }
@@ -3037,18 +3268,18 @@
             "type": "string"
           },
           {
-            "description": "The GTM User ID.",
-            "in": "path",
-            "name": "permissionId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/UserAccess"
             }
+          },
+          {
+            "description": "The GTM User ID.",
+            "in": "path",
+            "name": "permissionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3062,6 +3293,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/tagmanager.manage.users"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/tagmanager.manage.users"
             ]
           }
@@ -3104,6 +3338,7 @@
             "enum": [
               "delete",
               "edit",
+              "editWorkspace",
               "manage",
               "publish",
               "read"
@@ -3119,7 +3354,7 @@
       "description": "Represents a predicate.",
       "properties": {
         "parameter": {
-          "description": "A list of named parameters (key/value), depending on the condition's type. Notes:\n- For binary operators, include parameters named arg0 and arg1 for specifying the left and right operands, respectively.\n- At this time, the left operand (arg0) must be a reference to a variable.\n- For case-insensitive Regex matching, include a boolean parameter named ignore_case that is set to true. If not specified or set to any other value, the matching will be case sensitive.\n- To negate an operator, include a boolean parameter named negate boolean parameter that is set to true.",
+          "description": "A list of named parameters (key/value), depending on the condition's type. Notes: \n- For binary operators, include parameters named arg0 and arg1 for specifying the left and right operands, respectively. \n- At this time, the left operand (arg0) must be a reference to a variable. \n- For case-insensitive Regex matching, include a boolean parameter named ignore_case that is set to true. If not specified or set to any other value, the matching will be case sensitive. \n- To negate an operator, include a boolean parameter named negate boolean parameter that is set to true.",
           "items": {
             "$ref": "#/definitions/Parameter"
           },
@@ -3169,6 +3404,26 @@
             "enum": [
               "advertiserId",
               "advertisingTrackingEnabled",
+              "ampBrowserLanguage",
+              "ampCanonicalHost",
+              "ampCanonicalPath",
+              "ampCanonicalUrl",
+              "ampClientId",
+              "ampClientMaxScrollX",
+              "ampClientMaxScrollY",
+              "ampClientScreenHeight",
+              "ampClientScreenWidth",
+              "ampClientScrollX",
+              "ampClientScrollY",
+              "ampClientTimestamp",
+              "ampClientTimezone",
+              "ampGtmEvent",
+              "ampPageDownloadTime",
+              "ampPageLoadTime",
+              "ampPageViewId",
+              "ampReferrer",
+              "ampTitle",
+              "ampTotalEngagedTime",
               "appId",
               "appName",
               "appVersionCode",
@@ -3183,11 +3438,39 @@
               "containerVersion",
               "debugMode",
               "deviceName",
+              "elementVisibilityFirstTime",
+              "elementVisibilityRatio",
+              "elementVisibilityRecentTime",
+              "elementVisibilityTime",
               "environmentName",
               "errorLine",
               "errorMessage",
               "errorUrl",
               "event",
+              "eventName",
+              "firebaseEventParameterCampaign",
+              "firebaseEventParameterCampaignAclid",
+              "firebaseEventParameterCampaignAnid",
+              "firebaseEventParameterCampaignClickTimestamp",
+              "firebaseEventParameterCampaignContent",
+              "firebaseEventParameterCampaignCp1",
+              "firebaseEventParameterCampaignGclid",
+              "firebaseEventParameterCampaignSource",
+              "firebaseEventParameterCampaignTerm",
+              "firebaseEventParameterCurrency",
+              "firebaseEventParameterDynamicLinkAcceptTime",
+              "firebaseEventParameterDynamicLinkLinkid",
+              "firebaseEventParameterNotificationMessageDeviceTime",
+              "firebaseEventParameterNotificationMessageId",
+              "firebaseEventParameterNotificationMessageName",
+              "firebaseEventParameterNotificationMessageTime",
+              "firebaseEventParameterNotificationTopic",
+              "firebaseEventParameterPreviousAppVersion",
+              "firebaseEventParameterPreviousOsVersion",
+              "firebaseEventParameterPrice",
+              "firebaseEventParameterProductId",
+              "firebaseEventParameterQuantity",
+              "firebaseEventParameterValue",
               "formClasses",
               "formElement",
               "formId",
@@ -3209,7 +3492,18 @@
               "randomNumber",
               "referrer",
               "resolution",
-              "sdkVersion"
+              "scrollDepthDirection",
+              "scrollDepthThreshold",
+              "scrollDepthUnits",
+              "sdkVersion",
+              "videoCurrentTime",
+              "videoDuration",
+              "videoPercent",
+              "videoProvider",
+              "videoStatus",
+              "videoTitle",
+              "videoUrl",
+              "videoVisible"
             ],
             "type": "string"
           },
@@ -3243,6 +3537,7 @@
           "description": "List of Usage Contexts for the Container. Valid values include: web, android, ios.",
           "items": {
             "enum": [
+              "amp",
               "android",
               "androidSdk5",
               "ios",
@@ -3269,6 +3564,7 @@
             "enum": [
               "delete",
               "edit",
+              "editWorkspace",
               "manage",
               "publish",
               "read"
@@ -3767,7 +4063,7 @@
           "type": "array"
         },
         "type": {
-          "description": "The parameter type. Valid values are:\n- boolean: The value represents a boolean, represented as 'true' or 'false'\n- integer: The value represents a 64-bit signed integer value, in base 10\n- list: A list of parameters should be specified\n- map: A map of parameters should be specified\n- template: The value represents any text; this can include variable references (even variable references that might return non-string types)",
+          "description": "The parameter type. Valid values are: \n- boolean: The value represents a boolean, represented as 'true' or 'false' \n- integer: The value represents a 64-bit signed integer value, in base 10 \n- list: A list of parameters should be specified \n- map: A map of parameters should be specified \n- template: The value represents any text; this can include variable references (even variable references that might return non-string types)",
           "enum": [
             "boolean",
             "integer",
@@ -3914,6 +4210,10 @@
           "description": "Parent folder id.",
           "type": "string"
         },
+        "paused": {
+          "description": "True if the tag is paused.",
+          "type": "boolean"
+        },
         "priority": {
           "$ref": "#/definitions/Parameter",
           "description": "User defined numeric priority of the tag. Tags are fired asynchronously in order of priority. Tags with higher numeric value fire first. A tag's priority can be a positive or negative value. The default value is 0."
@@ -3997,16 +4297,16 @@
           "description": "GTM Container ID.",
           "type": "string"
         },
+        "continuousTimeMinMilliseconds": {
+          "$ref": "#/definitions/Parameter",
+          "description": "A visibility trigger minimum continuous visible time (in milliseconds). Only valid for AMP Visibility trigger."
+        },
         "customEventFilter": {
           "description": "Used in the case of custom event, which is fired iff all Conditions are true.",
           "items": {
             "$ref": "#/definitions/Condition"
           },
           "type": "array"
-        },
-        "enableAllVideos": {
-          "$ref": "#/definitions/Parameter",
-          "description": "Reloads the videos in the page that don't already have the YT API enabled. If false, only capture events from videos that already have the API enabled. Only valid for YouTube triggers."
         },
         "eventName": {
           "$ref": "#/definitions/Parameter",
@@ -4023,21 +4323,48 @@
           "description": "The fingerprint of the GTM Trigger as computed at storage time. This value is recomputed whenever the trigger is modified.",
           "type": "string"
         },
+        "horizontalScrollPercentageList": {
+          "$ref": "#/definitions/Parameter",
+          "description": "List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled horizontally. Only valid for AMP scroll triggers."
+        },
         "interval": {
           "$ref": "#/definitions/Parameter",
           "description": "Time between triggering recurring Timer Events (in milliseconds). Only valid for Timer triggers."
+        },
+        "intervalSeconds": {
+          "$ref": "#/definitions/Parameter",
+          "description": "Time between Timer Events to fire (in seconds). Only valid for AMP Timer trigger."
         },
         "limit": {
           "$ref": "#/definitions/Parameter",
           "description": "Limit of the number of GTM events this Timer Trigger will fire. If no limit is set, we will continue to fire GTM events until the user leaves the page. Only valid for Timer triggers."
         },
+        "maxTimerLengthSeconds": {
+          "$ref": "#/definitions/Parameter",
+          "description": "Max time to fire Timer Events (in seconds). Only valid for AMP Timer trigger."
+        },
         "name": {
           "description": "Trigger display name.",
           "type": "string"
         },
+        "parameter": {
+          "description": "Additional parameters.",
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          },
+          "type": "array"
+        },
         "parentFolderId": {
           "description": "Parent folder id.",
           "type": "string"
+        },
+        "selector": {
+          "$ref": "#/definitions/Parameter",
+          "description": "A click trigger CSS selector (i.e. \"a\", \"button\" etc.). Only valid for AMP Click trigger."
+        },
+        "totalTimeMinMilliseconds": {
+          "$ref": "#/definitions/Parameter",
+          "description": "A visibility trigger minimum total visible time (in milliseconds). Only valid for AMP Visibility trigger."
         },
         "triggerId": {
           "description": "The Trigger ID uniquely identifies the GTM Trigger.",
@@ -4046,19 +4373,24 @@
         "type": {
           "description": "Defines the data layer event that causes this trigger.",
           "enum": [
-            "ajaxSubmission",
             "always",
+            "ampClick",
+            "ampScroll",
+            "ampTimer",
+            "ampVisibility",
             "click",
             "customEvent",
             "domReady",
+            "elementVisibility",
             "formSubmission",
             "historyChange",
             "jsError",
             "linkClick",
             "pageview",
+            "scrollDepth",
             "timer",
             "windowLoaded",
-            "youTube"
+            "youTubeVideo"
           ],
           "type": "string"
         },
@@ -4066,9 +4398,21 @@
           "$ref": "#/definitions/Parameter",
           "description": "Globally unique id of the trigger that auto-generates this (a Form Submit, Link Click or Timer listener) if any. Used to make incompatible auto-events work together with trigger filtering based on trigger ids. This value is populated during output generation since the tags implied by triggers don't exist until then. Only valid for Form Submit, Link Click and Timer triggers."
         },
-        "videoPercentageList": {
+        "verticalScrollPercentageList": {
           "$ref": "#/definitions/Parameter",
-          "description": "List of integer percentage values. The trigger will fire as each percentage is reached in any instrumented videos. Only valid for YouTube triggers."
+          "description": "List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled vertically. Only valid for AMP scroll triggers."
+        },
+        "visibilitySelector": {
+          "$ref": "#/definitions/Parameter",
+          "description": "A visibility trigger CSS selector (i.e. \"#id\"). Only valid for AMP Visibility trigger."
+        },
+        "visiblePercentageMax": {
+          "$ref": "#/definitions/Parameter",
+          "description": "A visibility trigger maximum percent visibility. Only valid for AMP Visibility trigger."
+        },
+        "visiblePercentageMin": {
+          "$ref": "#/definitions/Parameter",
+          "description": "A visibility trigger minimum percent visibility. Only valid for AMP Visibility trigger."
         },
         "waitForTags": {
           "$ref": "#/definitions/Parameter",

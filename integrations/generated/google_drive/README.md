@@ -100,11 +100,11 @@ google_drive.changes.list({
 
 #### Input
 * input `object`
-  * pageToken **required** `string`: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.
   * includeCorpusRemovals `boolean`: Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file.
   * includeRemoved `boolean`: Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access.
   * includeTeamDriveItems `boolean`: Whether Team Drive files or changes should be included in results.
   * pageSize `integer`: The maximum number of changes to return per page.
+  * pageToken **required** `string`: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.
   * restrictToMyDrive `boolean`: Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive.
   * spaces `string`: A comma-separated list of spaces to query within the user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
@@ -155,16 +155,16 @@ google_drive.changes.watch({
 
 #### Input
 * input `object`
-  * pageToken **required** `string`: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.
   * includeCorpusRemovals `boolean`: Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file.
   * includeRemoved `boolean`: Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access.
   * includeTeamDriveItems `boolean`: Whether Team Drive files or changes should be included in results.
   * pageSize `integer`: The maximum number of changes to return per page.
+  * pageToken **required** `string`: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.
+  * resource [Channel](#channel)
   * restrictToMyDrive `boolean`: Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive.
   * spaces `string`: A comma-separated list of spaces to query within the user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * teamDriveId `string`: The Team Drive from which changes will be returned. If specified the change IDs will be reflective of the Team Drive; use the combined Team Drive ID and change ID as an identifier.
-  * resource [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -239,12 +239,12 @@ google_drive.files.create({}, context)
 
 #### Input
 * input `object`
+  * body [File](#file)
   * ignoreDefaultVisibility `boolean`: Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.
   * keepRevisionForever `boolean`: Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.
   * ocrLanguage `string`: A language hint for OCR processing during image import (ISO 639-1 code).
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * useContentAsIndexableText `boolean`: Whether to use the uploaded content as indexable text.
-  * body [File](#file)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -337,8 +337,8 @@ google_drive.files.get({
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * acknowledgeAbuse `boolean`: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.
+  * fileId **required** `string`: The ID of the file.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -363,14 +363,14 @@ google_drive.files.update({
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * addParents `string`: A comma-separated list of parent IDs to add.
+  * body [File](#file)
+  * fileId **required** `string`: The ID of the file.
   * keepRevisionForever `boolean`: Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.
   * ocrLanguage `string`: A language hint for OCR processing during image import (ISO 639-1 code).
   * removeParents `string`: A comma-separated list of parent IDs to remove.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * useContentAsIndexableText `boolean`: Whether to use the uploaded content as indexable text.
-  * body [File](#file)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -422,8 +422,8 @@ google_drive.comments.create({
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * body [Comment](#comment)
+  * fileId **required** `string`: The ID of the file.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -441,15 +441,15 @@ Deletes a comment.
 
 ```js
 google_drive.comments.delete({
-  "fileId": "",
-  "commentId": ""
+  "commentId": "",
+  "fileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -467,15 +467,15 @@ Gets a comment by ID.
 
 ```js
 google_drive.comments.get({
-  "fileId": "",
-  "commentId": ""
+  "commentId": "",
+  "fileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
   * includeDeleted `boolean`: Whether to return deleted comments. Deleted comments will not include their original content.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -494,16 +494,16 @@ Updates a comment with patch semantics.
 
 ```js
 google_drive.comments.update({
-  "fileId": "",
-  "commentId": ""
+  "commentId": "",
+  "fileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
-  * commentId **required** `string`: The ID of the comment.
   * body [Comment](#comment)
+  * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -521,15 +521,15 @@ Lists a comment's replies.
 
 ```js
 google_drive.replies.list({
-  "fileId": "",
-  "commentId": ""
+  "commentId": "",
+  "fileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
   * includeDeleted `boolean`: Whether to include deleted replies. Deleted replies will not include their original content.
   * pageSize `integer`: The maximum number of replies to return per page.
   * pageToken `string`: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response.
@@ -550,16 +550,16 @@ Creates a new reply to a comment.
 
 ```js
 google_drive.replies.create({
-  "fileId": "",
-  "commentId": ""
+  "commentId": "",
+  "fileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
-  * commentId **required** `string`: The ID of the comment.
   * body [Reply](#reply)
+  * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -577,16 +577,16 @@ Deletes a reply.
 
 ```js
 google_drive.replies.delete({
-  "fileId": "",
   "commentId": "",
+  "fileId": "",
   "replyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
   * replyId **required** `string`: The ID of the reply.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -605,18 +605,18 @@ Gets a reply by ID.
 
 ```js
 google_drive.replies.get({
-  "fileId": "",
   "commentId": "",
+  "fileId": "",
   "replyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * commentId **required** `string`: The ID of the comment.
-  * replyId **required** `string`: The ID of the reply.
+  * fileId **required** `string`: The ID of the file.
   * includeDeleted `boolean`: Whether to return deleted replies. Deleted replies will not include their original content.
+  * replyId **required** `string`: The ID of the reply.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -634,18 +634,18 @@ Updates a reply with patch semantics.
 
 ```js
 google_drive.replies.update({
-  "fileId": "",
   "commentId": "",
+  "fileId": "",
   "replyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
-  * commentId **required** `string`: The ID of the comment.
-  * replyId **required** `string`: The ID of the reply.
   * body [Reply](#reply)
+  * commentId **required** `string`: The ID of the comment.
+  * fileId **required** `string`: The ID of the file.
+  * replyId **required** `string`: The ID of the reply.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -669,12 +669,12 @@ google_drive.files.copy({
 
 #### Input
 * input `object`
+  * body [File](#file)
   * fileId **required** `string`: The ID of the file.
   * ignoreDefaultVisibility `boolean`: Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.
   * keepRevisionForever `boolean`: Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.
   * ocrLanguage `string`: A language hint for OCR processing during image import (ISO 639-1 code).
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
-  * body [File](#file)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -728,6 +728,7 @@ google_drive.permissions.list({
   * pageSize `integer`: The maximum number of permissions to return per page. When not set for files in a Team Drive, at most 100 results will be returned. When not set for files that are not in a Team Drive, the entire list will be returned.
   * pageToken `string`: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -751,12 +752,13 @@ google_drive.permissions.create({
 
 #### Input
 * input `object`
+  * body [Permission](#permission)
+  * emailMessage `string`: A plain text custom message to include in the notification email.
   * fileId **required** `string`: The ID of the file or Team Drive.
-  * emailMessage `string`: A custom message to include in the notification email.
   * sendNotificationEmail `boolean`: Whether to send a notification email when sharing to users or groups. This defaults to true for users and groups, and is not allowed for other requests. It must not be disabled for ownership transfers.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * transferOwnership `boolean`: Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect.
-  * body [Permission](#permission)
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -784,6 +786,7 @@ google_drive.permissions.delete({
   * fileId **required** `string`: The ID of the file or Team Drive.
   * permissionId **required** `string`: The ID of the permission.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -811,6 +814,7 @@ google_drive.permissions.get({
   * fileId **required** `string`: The ID of the file.
   * permissionId **required** `string`: The ID of the permission.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -835,12 +839,13 @@ google_drive.permissions.update({
 
 #### Input
 * input `object`
+  * body [Permission](#permission)
   * fileId **required** `string`: The ID of the file or Team Drive.
   * permissionId **required** `string`: The ID of the permission.
   * removeExpiration `boolean`: Whether to remove the expiration date.
   * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * transferOwnership `boolean`: Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect.
-  * body [Permission](#permission)
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -917,9 +922,9 @@ google_drive.revisions.get({
 
 #### Input
 * input `object`
+  * acknowledgeAbuse `boolean`: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.
   * fileId **required** `string`: The ID of the file.
   * revisionId **required** `string`: The ID of the revision.
-  * acknowledgeAbuse `boolean`: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -944,9 +949,9 @@ google_drive.revisions.update({
 
 #### Input
 * input `object`
+  * body [Revision](#revision)
   * fileId **required** `string`: The ID of the file.
   * revisionId **required** `string`: The ID of the revision.
-  * body [Revision](#revision)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -970,10 +975,10 @@ google_drive.files.watch({
 
 #### Input
 * input `object`
-  * fileId **required** `string`: The ID of the file.
   * acknowledgeAbuse `boolean`: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.
-  * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
+  * fileId **required** `string`: The ID of the file.
   * resource [Channel](#channel)
+  * supportsTeamDrives `boolean`: Whether the requesting application supports Team Drives.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -997,6 +1002,8 @@ google_drive.teamdrives.list({}, context)
 * input `object`
   * pageSize `integer`: Maximum number of Team Drives to return.
   * pageToken `string`: Page token for Team Drives.
+  * q `string`: Query string for searching Team Drives.
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then all Team Drives of the domain in which the requester is an administrator are returned.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1020,8 +1027,8 @@ google_drive.teamdrives.create({
 
 #### Input
 * input `object`
-  * requestId **required** `string`: An ID, such as a random UUID, which uniquely identifies this user's request for idempotent creation of a Team Drive. A repeated request by the same user and with the same request ID will avoid creating duplicates by attempting to create the same Team Drive. If the Team Drive already exists a 409 error will be returned.
   * body [TeamDrive](#teamdrive)
+  * requestId **required** `string`: An ID, such as a random UUID, which uniquely identifies this user's request for idempotent creation of a Team Drive. A repeated request by the same user and with the same request ID will avoid creating duplicates by attempting to create the same Team Drive. If the Team Drive already exists a 409 error will be returned.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1070,6 +1077,7 @@ google_drive.teamdrives.get({
 #### Input
 * input `object`
   * teamDriveId **required** `string`: The ID of the Team Drive
+  * useDomainAdminAccess `boolean`: Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the Team Drive belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1093,8 +1101,8 @@ google_drive.teamdrives.update({
 
 #### Input
 * input `object`
-  * teamDriveId **required** `string`: The ID of the Team Drive
   * body [TeamDrive](#teamdrive)
+  * teamDriveId **required** `string`: The ID of the Team Drive
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1113,6 +1121,7 @@ google_drive.teamdrives.update({
 ### About
 * About `object`: Information about the user, the user's Drive, and system capabilities.
   * appInstalled `boolean`: Whether the user has installed the requesting app.
+  * canCreateTeamDrives `boolean`: Whether the user can create Team Drives.
   * exportFormats `object`: A map of source MIME type to possible targets for all supported exports.
   * folderColorPalette `array`: The currently supported folder colors as RGB hex strings.
     * items `string`
@@ -1409,6 +1418,7 @@ google_drive.teamdrives.update({
     * canRenameTeamDrive `boolean`: Whether the current user can rename this Team Drive.
     * canShare `boolean`: Whether the current user can share files or folders in this Team Drive.
   * colorRgb `string`: The color of this Team Drive as an RGB hex string. It can only be set on a drive.teamdrives.update request that does not set themeId.
+  * createdTime `string`: The time at which the Team Drive was created (RFC 3339 date-time).
   * id `string`: The ID of this Team Drive which is also the ID of the top level folder for this Team Drive.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "drive#teamDrive".
   * name `string`: The name of this Team Drive.

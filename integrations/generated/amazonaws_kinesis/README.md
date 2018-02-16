@@ -23,7 +23,7 @@ amazonaws_kinesis.AddTagsToStream({
 
 ## Description
 
-<fullname>Amazon Kinesis Streams Service API Reference</fullname> <p>Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.</p>
+<fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
 
 ## Actions
 
@@ -78,7 +78,7 @@ amazonaws_kinesis.DecreaseStreamRetentionPeriod({
 
 #### Input
 * input `object`
-  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
+  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
   * StreamName **required** [StreamName](#streamname)
 
 #### Output
@@ -135,6 +135,23 @@ amazonaws_kinesis.DescribeStream({
 
 #### Output
 * output [DescribeStreamOutput](#describestreamoutput)
+
+### DescribeStreamSummary
+
+
+
+```js
+amazonaws_kinesis.DescribeStreamSummary({
+  "StreamName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * StreamName **required** [StreamName](#streamname)
+
+#### Output
+* output [DescribeStreamSummaryOutput](#describestreamsummaryoutput)
 
 ### DisableEnhancedMonitoring
 
@@ -228,11 +245,30 @@ amazonaws_kinesis.IncreaseStreamRetentionPeriod({
 
 #### Input
 * input `object`
-  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
+  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
   * StreamName **required** [StreamName](#streamname)
 
 #### Output
 *Output schema unknown*
+
+### ListShards
+
+
+
+```js
+amazonaws_kinesis.ListShards({}, context)
+```
+
+#### Input
+* input `object`
+  * ExclusiveStartShardId [ShardId](#shardid)
+  * MaxResults [ListShardsInputLimit](#listshardsinputlimit)
+  * NextToken [NextToken](#nexttoken)
+  * StreamCreationTimestamp [Timestamp](#timestamp)
+  * StreamName [StreamName](#streamname)
+
+#### Output
+* output [ListShardsOutput](#listshardsoutput)
 
 ### ListStreams
 
@@ -459,7 +495,7 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### DecreaseStreamRetentionPeriodInput
 * DecreaseStreamRetentionPeriodInput `object`: Represents the input for <a>DecreaseStreamRetentionPeriod</a>.
-  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
+  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
   * StreamName **required** [StreamName](#streamname)
 
 ### DeleteStreamInput
@@ -486,6 +522,14 @@ amazonaws_kinesis.UpdateShardCount({
 ### DescribeStreamOutput
 * DescribeStreamOutput `object`: Represents the output for <code>DescribeStream</code>.
   * StreamDescription **required** [StreamDescription](#streamdescription)
+
+### DescribeStreamSummaryInput
+* DescribeStreamSummaryInput `object`
+  * StreamName **required** [StreamName](#streamname)
+
+### DescribeStreamSummaryOutput
+* DescribeStreamSummaryOutput `object`
+  * StreamDescriptionSummary **required** [StreamDescriptionSummary](#streamdescriptionsummary)
 
 ### DisableEnhancedMonitoringInput
 * DisableEnhancedMonitoringInput `object`: Represents the input for <a>DisableEnhancedMonitoring</a>.
@@ -524,6 +568,10 @@ amazonaws_kinesis.UpdateShardCount({
 * ExpiredIteratorException `object`: The provided iterator exceeds the maximum age allowed.
   * message [ErrorMessage](#errormessage)
 
+### ExpiredNextTokenException
+* ExpiredNextTokenException `object`: The pagination token passed to the <code>ListShards</code> operation is expired. For more information, see <a>ListShardsInput$NextToken</a>.
+  * message [ErrorMessage](#errormessage)
+
 ### GetRecordsInput
 * GetRecordsInput `object`: Represents the input for <a>GetRecords</a>.
   * Limit [GetRecordsInputLimit](#getrecordsinputlimit)
@@ -560,7 +608,7 @@ amazonaws_kinesis.UpdateShardCount({
 
 ### IncreaseStreamRetentionPeriodInput
 * IncreaseStreamRetentionPeriodInput `object`: Represents the input for <a>IncreaseStreamRetentionPeriod</a>.
-  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
+  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
   * StreamName **required** [StreamName](#streamname)
 
 ### InvalidArgumentException
@@ -572,7 +620,7 @@ amazonaws_kinesis.UpdateShardCount({
   * message [ErrorMessage](#errormessage)
 
 ### KMSDisabledException
-* KMSDisabledException `object`: The request was rejected because the specified CMK isn't enabled.
+* KMSDisabledException `object`: The request was rejected because the specified customer master key (CMK) isn't enabled.
   * message [ErrorMessage](#errormessage)
 
 ### KMSInvalidStateException
@@ -580,7 +628,7 @@ amazonaws_kinesis.UpdateShardCount({
   * message [ErrorMessage](#errormessage)
 
 ### KMSNotFoundException
-* KMSNotFoundException `object`: The request was rejected because the specified entity or resource couldn't be found.
+* KMSNotFoundException `object`: The request was rejected because the specified entity or resource can't be found.
   * message [ErrorMessage](#errormessage)
 
 ### KMSOptInRequired
@@ -595,8 +643,24 @@ amazonaws_kinesis.UpdateShardCount({
 * KeyId `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed (5).
+* LimitExceededException `object`: The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. 
   * message [ErrorMessage](#errormessage)
+
+### ListShardsInput
+* ListShardsInput `object`
+  * ExclusiveStartShardId [ShardId](#shardid)
+  * MaxResults [ListShardsInputLimit](#listshardsinputlimit)
+  * NextToken [NextToken](#nexttoken)
+  * StreamCreationTimestamp [Timestamp](#timestamp)
+  * StreamName [StreamName](#streamname)
+
+### ListShardsInputLimit
+* ListShardsInputLimit `integer`
+
+### ListShardsOutput
+* ListShardsOutput `object`
+  * NextToken [NextToken](#nexttoken)
+  * Shards [ShardList](#shardlist)
 
 ### ListStreamsInput
 * ListStreamsInput `object`: Represents the input for <code>ListStreams</code>.
@@ -641,6 +705,9 @@ amazonaws_kinesis.UpdateShardCount({
 ### MillisBehindLatest
 * MillisBehindLatest `integer`
 
+### NextToken
+* NextToken `string`
+
 ### PartitionKey
 * PartitionKey `string`
 
@@ -648,7 +715,7 @@ amazonaws_kinesis.UpdateShardCount({
 * PositiveIntegerObject `integer`
 
 ### ProvisionedThroughputExceededException
-* ProvisionedThroughputExceededException `object`: The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>, and <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.
+* ProvisionedThroughputExceededException `object`: The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.
   * message [ErrorMessage](#errormessage)
 
 ### PutRecordInput
@@ -698,7 +765,7 @@ amazonaws_kinesis.UpdateShardCount({
   * items [PutRecordsResultEntry](#putrecordsresultentry)
 
 ### Record
-* Record `object`: The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob.
+* Record `object`: The unit of data of the Kinesis data stream, which is composed of a sequence number, a partition key, and a data blob.
   * ApproximateArrivalTimestamp [Timestamp](#timestamp)
   * Data **required** [Data](#data)
   * EncryptionType [EncryptionType](#encryptiontype)
@@ -715,12 +782,15 @@ amazonaws_kinesis.UpdateShardCount({
   * TagKeys **required** [TagKeyList](#tagkeylist)
 
 ### ResourceInUseException
-* ResourceInUseException `object`: The resource is not available for this operation. For successful operation, the resource needs to be in the <code>ACTIVE</code> state.
+* ResourceInUseException `object`: The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.
   * message [ErrorMessage](#errormessage)
 
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: The requested resource could not be found. The stream might not be specified correctly.
   * message [ErrorMessage](#errormessage)
+
+### RetentionPeriodHours
+* RetentionPeriodHours `integer`
 
 ### ScalingType
 * ScalingType `string` (values: UNIFORM_SCALING)
@@ -734,7 +804,7 @@ amazonaws_kinesis.UpdateShardCount({
   * StartingSequenceNumber **required** [SequenceNumber](#sequencenumber)
 
 ### Shard
-* Shard `object`: A uniquely identified group of data records in an Amazon Kinesis stream.
+* Shard `object`: A uniquely identified group of data records in a Kinesis data stream.
   * AdjacentParentShardId [ShardId](#shardid)
   * HashKeyRange **required** [HashKeyRange](#hashkeyrange)
   * ParentShardId [ShardId](#shardid)
@@ -784,8 +854,20 @@ amazonaws_kinesis.UpdateShardCount({
   * EnhancedMonitoring **required** [EnhancedMonitoringList](#enhancedmonitoringlist)
   * HasMoreShards **required** [BooleanObject](#booleanobject)
   * KeyId [KeyId](#keyid)
-  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
+  * RetentionPeriodHours **required** [RetentionPeriodHours](#retentionperiodhours)
   * Shards **required** [ShardList](#shardlist)
+  * StreamARN **required** [StreamARN](#streamarn)
+  * StreamCreationTimestamp **required** [Timestamp](#timestamp)
+  * StreamName **required** [StreamName](#streamname)
+  * StreamStatus **required** [StreamStatus](#streamstatus)
+
+### StreamDescriptionSummary
+* StreamDescriptionSummary `object`: Represents the output for <a>DescribeStreamSummary</a> 
+  * EncryptionType [EncryptionType](#encryptiontype)
+  * EnhancedMonitoring **required** [EnhancedMonitoringList](#enhancedmonitoringlist)
+  * KeyId [KeyId](#keyid)
+  * OpenShardCount **required** [ShardCountObject](#shardcountobject)
+  * RetentionPeriodHours **required** [PositiveIntegerObject](#positiveintegerobject)
   * StreamARN **required** [StreamARN](#streamarn)
   * StreamCreationTimestamp **required** [Timestamp](#timestamp)
   * StreamName **required** [StreamName](#streamname)

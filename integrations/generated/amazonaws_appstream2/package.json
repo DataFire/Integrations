@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_appstream2",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Amazon AppStream",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/appstream2/2016-12-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/appstream/2016-12-01/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

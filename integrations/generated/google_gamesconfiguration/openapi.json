@@ -650,13 +650,6 @@
         "operationId": "imageConfigurations.upload",
         "parameters": [
           {
-            "description": "The ID of the resource used by this method.",
-            "in": "path",
-            "name": "resourceId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Selects which image in a resource for this method.",
             "enum": [
               "ACHIEVEMENT_ICON",
@@ -664,6 +657,13 @@
             ],
             "in": "path",
             "name": "imageType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the resource used by this method.",
+            "in": "path",
+            "name": "resourceId",
             "required": true,
             "type": "string"
           }
@@ -785,18 +785,18 @@
         "operationId": "leaderboardConfigurations.patch",
         "parameters": [
           {
-            "description": "The ID of the leaderboard.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/LeaderboardConfiguration"
             }
+          },
+          {
+            "description": "The ID of the leaderboard.",
+            "in": "path",
+            "name": "leaderboardId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -826,18 +826,18 @@
         "operationId": "leaderboardConfigurations.update",
         "parameters": [
           {
-            "description": "The ID of the leaderboard.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/LeaderboardConfiguration"
             }
+          },
+          {
+            "description": "The ID of the leaderboard.",
+            "in": "path",
+            "name": "leaderboardId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {

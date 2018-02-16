@@ -61,6 +61,40 @@ amazonaws_workdocs.InitiateDocumentVersionUpload({
 #### Output
 *Output schema unknown*
 
+### DeleteDocument
+
+
+
+```js
+amazonaws_workdocs.DeleteDocument({
+  "DocumentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetDocument
+
+
+
+```js
+amazonaws_workdocs.GetDocument({
+  "DocumentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentId **required** `string`
+
+#### Output
+* output [GetDocumentResponse](#getdocumentresponse)
+
 ### UpdateDocument
 
 
@@ -116,6 +150,44 @@ amazonaws_workdocs.DescribeDocumentVersions({
 
 #### Output
 * output [DescribeDocumentVersionsResponse](#describedocumentversionsresponse)
+
+### AbortDocumentVersionUpload
+
+
+
+```js
+amazonaws_workdocs.AbortDocumentVersionUpload({
+  "DocumentId": "",
+  "VersionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentId **required** `string`
+  * VersionId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetDocumentVersion
+
+
+
+```js
+amazonaws_workdocs.GetDocumentVersion({
+  "DocumentId": "",
+  "VersionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DocumentId **required** `string`
+  * VersionId **required** `string`
+
+#### Output
+* output [GetDocumentVersionResponse](#getdocumentversionresponse)
 
 ### UpdateDocumentVersion
 
@@ -220,6 +292,40 @@ amazonaws_workdocs.CreateFolder({
 #### Output
 *Output schema unknown*
 
+### DeleteFolder
+
+
+
+```js
+amazonaws_workdocs.DeleteFolder({
+  "FolderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FolderId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetFolder
+
+
+
+```js
+amazonaws_workdocs.GetFolder({
+  "FolderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FolderId **required** `string`
+
+#### Output
+* output [GetFolderResponse](#getfolderresponse)
+
 ### UpdateFolder
 
 
@@ -236,6 +342,23 @@ amazonaws_workdocs.UpdateFolder({
   * Name [ResourceNameType](#resourcenametype)
   * ParentFolderId [ResourceIdType](#resourceidtype)
   * ResourceState [ResourceStateType](#resourcestatetype)
+
+#### Output
+*Output schema unknown*
+
+### DeleteFolderContents
+
+
+
+```js
+amazonaws_workdocs.DeleteFolderContents({
+  "FolderId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FolderId **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -275,6 +398,20 @@ amazonaws_workdocs.GetFolderPath({
 
 #### Output
 * output [GetFolderPathResponse](#getfolderpathresponse)
+
+### DescribeGroups
+
+
+
+```js
+amazonaws_workdocs.DescribeGroups({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DescribeGroupsResponse](#describegroupsresponse)
 
 ### GetCurrentUser
 
@@ -321,6 +458,29 @@ amazonaws_workdocs.DescribeNotificationSubscriptions({
 #### Output
 * output [DescribeNotificationSubscriptionsResponse](#describenotificationsubscriptionsresponse)
 
+### CreateNotificationSubscription
+
+
+
+```js
+amazonaws_workdocs.CreateNotificationSubscription({
+  "OrganizationId": "",
+  "Endpoint": "",
+  "Protocol": "",
+  "SubscriptionType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * OrganizationId **required** `string`
+  * Endpoint **required** [SubscriptionEndPointType](#subscriptionendpointtype)
+  * Protocol **required** [SubscriptionProtocolType](#subscriptionprotocoltype)
+  * SubscriptionType **required** [SubscriptionType](#subscriptiontype)
+
+#### Output
+* output [CreateNotificationSubscriptionResponse](#createnotificationsubscriptionresponse)
+
 ### DeleteNotificationSubscription
 
 
@@ -357,6 +517,25 @@ amazonaws_workdocs.DeleteCustomMetadata({
 #### Output
 * output [DeleteCustomMetadataResponse](#deletecustommetadataresponse)
 
+### CreateCustomMetadata
+
+
+
+```js
+amazonaws_workdocs.CreateCustomMetadata({
+  "ResourceId": "",
+  "CustomMetadata": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceId **required** `string`
+  * CustomMetadata **required** [CustomMetadataMap](#custommetadatamap)
+
+#### Output
+* output [CreateCustomMetadataResponse](#createcustommetadataresponse)
+
 ### DeleteLabels
 
 
@@ -374,6 +553,25 @@ amazonaws_workdocs.DeleteLabels({
 #### Output
 * output [DeleteLabelsResponse](#deletelabelsresponse)
 
+### CreateLabels
+
+
+
+```js
+amazonaws_workdocs.CreateLabels({
+  "ResourceId": "",
+  "Labels": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceId **required** `string`
+  * Labels **required** [SharedLabels](#sharedlabels)
+
+#### Output
+* output [CreateLabelsResponse](#createlabelsresponse)
+
 ### RemoveAllResourcePermissions
 
 
@@ -387,6 +585,43 @@ amazonaws_workdocs.RemoveAllResourcePermissions({
 #### Input
 * input `object`
   * ResourceId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DescribeResourcePermissions
+
+
+
+```js
+amazonaws_workdocs.DescribeResourcePermissions({
+  "ResourceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceId **required** `string`
+
+#### Output
+* output [DescribeResourcePermissionsResponse](#describeresourcepermissionsresponse)
+
+### AddResourcePermissions
+
+
+
+```js
+amazonaws_workdocs.AddResourcePermissions({
+  "ResourceId": "",
+  "Principals": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceId **required** `string`
+  * NotificationOptions [NotificationOptions](#notificationoptions)
+  * Principals **required** [SharePrincipalList](#shareprincipallist)
 
 #### Output
 *Output schema unknown*
@@ -426,6 +661,50 @@ amazonaws_workdocs.DescribeUsers({}, context)
 #### Output
 * output [DescribeUsersResponse](#describeusersresponse)
 
+### CreateUser
+
+
+
+```js
+amazonaws_workdocs.CreateUser({
+  "Username": "",
+  "GivenName": "",
+  "Surname": "",
+  "Password": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmailAddress [EmailAddressType](#emailaddresstype)
+  * GivenName **required** [UserAttributeValueType](#userattributevaluetype)
+  * OrganizationId [IdType](#idtype)
+  * Password **required** [PasswordType](#passwordtype)
+  * StorageRule [StorageRuleType](#storageruletype)
+  * Surname **required** [UserAttributeValueType](#userattributevaluetype)
+  * TimeZoneId [TimeZoneIdType](#timezoneidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+#### Output
+*Output schema unknown*
+
+### DeleteUser
+
+
+
+```js
+amazonaws_workdocs.DeleteUser({
+  "UserId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserId **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### UpdateUser
 
 
@@ -440,6 +719,7 @@ amazonaws_workdocs.UpdateUser({
 * input `object`
   * UserId **required** `string`
   * GivenName [UserAttributeValueType](#userattributevaluetype)
+  * GrantPoweruserPrivileges [BooleanEnumType](#booleanenumtype)
   * Locale [LocaleType](#localetype)
   * StorageRule [StorageRuleType](#storageruletype)
   * Surname [UserAttributeValueType](#userattributevaluetype)
@@ -465,6 +745,23 @@ amazonaws_workdocs.DeactivateUser({
 
 #### Output
 *Output schema unknown*
+
+### ActivateUser
+
+
+
+```js
+amazonaws_workdocs.ActivateUser({
+  "UserId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserId **required** `string`
+
+#### Output
+* output [ActivateUserResponse](#activateuserresponse)
 
 
 
@@ -496,6 +793,7 @@ amazonaws_workdocs.DeactivateUser({
 
 ### AddResourcePermissionsRequest
 * AddResourcePermissionsRequest `object`
+  * NotificationOptions [NotificationOptions](#notificationoptions)
   * Principals **required** [SharePrincipalList](#shareprincipallist)
 
 ### AddResourcePermissionsResponse
@@ -504,6 +802,9 @@ amazonaws_workdocs.DeactivateUser({
 
 ### AuthenticationHeaderType
 * AuthenticationHeaderType `string`
+
+### BooleanEnumType
+* BooleanEnumType `string` (values: TRUE, FALSE)
 
 ### BooleanType
 * BooleanType `boolean`
@@ -578,7 +879,7 @@ amazonaws_workdocs.DeactivateUser({
 
 ### CreateLabelsRequest
 * CreateLabelsRequest `object`
-  * Labels **required** [Labels](#labels)
+  * Labels **required** [SharedLabels](#sharedlabels)
 
 ### CreateLabelsResponse
 * CreateLabelsResponse `object`
@@ -697,6 +998,14 @@ amazonaws_workdocs.DeactivateUser({
   * Folders [FolderMetadataList](#foldermetadatalist)
   * Marker [PageMarkerType](#pagemarkertype)
 
+### DescribeGroupsRequest
+* DescribeGroupsRequest `object`
+
+### DescribeGroupsResponse
+* DescribeGroupsResponse `object`
+  * Groups [GroupMetadataList](#groupmetadatalist)
+  * Marker [MarkerType](#markertype)
+
 ### DescribeNotificationSubscriptionsRequest
 * DescribeNotificationSubscriptionsRequest `object`
 
@@ -742,7 +1051,7 @@ amazonaws_workdocs.DeactivateUser({
   * CreatedTimestamp [TimestampType](#timestamptype)
   * CreatorId [IdType](#idtype)
   * Id [ResourceIdType](#resourceidtype)
-  * Labels [Labels](#labels)
+  * Labels [SharedLabels](#sharedlabels)
   * LatestVersionMetadata [DocumentVersionMetadata](#documentversionmetadata)
   * ModifiedTimestamp [TimestampType](#timestamptype)
   * ParentFolderId [ResourceIdType](#resourceidtype)
@@ -823,7 +1132,7 @@ amazonaws_workdocs.DeactivateUser({
 * ErrorMessageType `string`
 
 ### FailedDependencyException
-* FailedDependencyException `object`: The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected active directory.
+* FailedDependencyException `object`: The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
   * Message [ErrorMessageType](#errormessagetype)
 
 ### FieldNamesType
@@ -837,7 +1146,7 @@ amazonaws_workdocs.DeactivateUser({
   * CreatedTimestamp [TimestampType](#timestamptype)
   * CreatorId [IdType](#idtype)
   * Id [ResourceIdType](#resourceidtype)
-  * Labels [Labels](#labels)
+  * Labels [SharedLabels](#sharedlabels)
   * LatestVersionSize [SizeType](#sizetype)
   * ModifiedTimestamp [TimestampType](#timestamptype)
   * Name [ResourceNameType](#resourcenametype)
@@ -939,19 +1248,16 @@ amazonaws_workdocs.DeactivateUser({
   * UploadMetadata [UploadMetadata](#uploadmetadata)
 
 ### InvalidArgumentException
-* InvalidArgumentException `object`: The pagination marker and/or limit fields are not valid.
+* InvalidArgumentException `object`: The pagination marker or limit fields are not valid.
   * Message [ErrorMessageType](#errormessagetype)
 
 ### InvalidOperationException
 * InvalidOperationException `object`: The operation is invalid.
   * Message [ErrorMessageType](#errormessagetype)
 
-### Label
-* Label `string`
-
-### Labels
-* Labels `array`
-  * items [Label](#label)
+### InvalidPasswordException
+* InvalidPasswordException `object`: The password is invalid.
+  * Message [ErrorMessageType](#errormessagetype)
 
 ### LimitExceededException
 * LimitExceededException `object`: The maximum of 100,000 folders under the parent folder has been exceeded.
@@ -969,6 +1275,11 @@ amazonaws_workdocs.DeactivateUser({
 ### MessageType
 * MessageType `string`
 
+### NotificationOptions
+* NotificationOptions `object`: Set of options which defines notification preferences of given action.
+  * EmailMessage [MessageType](#messagetype)
+  * SendEmail [BooleanType](#booleantype)
+
 ### OrderType
 * OrderType `string` (values: ASCENDING, DESCENDING)
 
@@ -980,7 +1291,7 @@ amazonaws_workdocs.DeactivateUser({
 * PageMarkerType `string`
 
 ### Participants
-* Participants `object`: Describes the users and/or user groups.
+* Participants `object`: Describes the users or user groups.
   * Groups [GroupMetadataList](#groupmetadatalist)
   * Users [UserMetadataList](#usermetadatalist)
 
@@ -995,6 +1306,9 @@ amazonaws_workdocs.DeactivateUser({
 ### PermissionInfoList
 * PermissionInfoList `array`
   * items [PermissionInfo](#permissioninfo)
+
+### PositiveIntegerType
+* PositiveIntegerType `integer`
 
 ### PositiveSizeType
 * PositiveSizeType `integer`
@@ -1102,6 +1416,13 @@ amazonaws_workdocs.DeactivateUser({
 ### ShareStatusType
 * ShareStatusType `string` (values: SUCCESS, FAILURE)
 
+### SharedLabel
+* SharedLabel `string`
+
+### SharedLabels
+* SharedLabels `array`
+  * items [SharedLabel](#sharedlabel)
+
 ### SignedHeaderMap
 * SignedHeaderMap `array`
   * items `object`
@@ -1186,6 +1507,7 @@ amazonaws_workdocs.DeactivateUser({
 ### UpdateUserRequest
 * UpdateUserRequest `object`
   * GivenName [UserAttributeValueType](#userattributevaluetype)
+  * GrantPoweruserPrivileges [BooleanEnumType](#booleanenumtype)
   * Locale [LocaleType](#localetype)
   * StorageRule [StorageRuleType](#storageruletype)
   * Surname [UserAttributeValueType](#userattributevaluetype)
@@ -1259,7 +1581,7 @@ amazonaws_workdocs.DeactivateUser({
   * StorageUtilizedInBytes [SizeType](#sizetype)
 
 ### UserType
-* UserType `string` (values: USER, ADMIN)
+* UserType `string` (values: USER, ADMIN, POWERUSER, MINIMALUSER, WORKSPACESUSER)
 
 ### UsernameType
 * UsernameType `string`

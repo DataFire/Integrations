@@ -158,8 +158,8 @@ Third-party developers do not have access to this grant type.
 
 For the `refresh_token` grant type, you are **required** to pass in the `refresh_token` parameter. The `scope` parameter can optionally be used to request a different set of scopes than were used in the original request, but it **cannot** contain any scopes that were not previously requested. If not specified, then `scope` will be set to whichever scopes were used for the original access token request. If trading in an old non-expiring access token for a refresh-enabled token, set the value of `refresh_token` to the access token value and `token_type_hint` must be set to `access_token`. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
 
-The `temporary_user` grant type is a custom grant type created by NPR to suit our needs for functionality such as our &quot;try-before-you-buy&quot; experience. If you are a third-party developer, you will not have access to this grant type unless we have explicitly given you permission within our system.
-For this grant type, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
+The `temporary_user` and `anonymous_user` grant types are custom grant types created by NPR to suit our needs for functionality such as our &quot;try-before-you-buy&quot; experience. If you are a third-party developer, you will not have access to these grant types unless we have explicitly given you permission within our system.
+For these grant types, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.
 
 If you are unsure of which grant type to select, assume that `authorization_code` is the one you want.
 
@@ -176,7 +176,7 @@ npr.createToken({
 
 #### Input
 * input `object`
-  * grant_type **required** `string` (values: authorization_code, client_credentials, device_code, password, refresh_token, temporary_user): The type of grant the client is requesting
+  * grant_type **required** `string` (values: authorization_code, client_credentials, device_code, password, refresh_token, temporary_user, anonymous_user): The type of grant the client is requesting
   * client_id **required** `string`: The client's ID, required for all grant types.
   * client_secret **required** `string`: The client's secret, required for all grant types.
   * code `string`: Required for `authorization_code` and `device_code` grant types. The authorization code from a successful call to `/authorization/v2/authorize`, or a device code from a successful call to `/authorization/v2/device`.
@@ -496,25 +496,6 @@ npr.sendDonationEmail({
 
 #### Output
 * output [CollectionDocument](#collectiondocument)
-
-### getOrganizationById
-This endpoint retrieves information about a given organization, based on its numeric ID, which is consistent across all of NPR's APIs. NPR partners, as defined by this service, include member stations as well as third-party content providers. A successful request will return a document with metadata for the requested organization, including branding assets such as links to the organization’s logo and homepage, if such links are available.
-
-
-```js
-npr.getOrganizationById({
-  "Authorization": "",
-  "orgId": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: Your access token from the Authorization Service. Should start with `Bearer`, followed by a space, followed by the token.
-  * orgId **required** `integer`: The numeric ID of an organization
-
-#### Output
-* output [OrganizationDocument](#organizationdocument)
 
 ### getAds
 **Not** for use by NPR One clients (for whom sponsorship is already integrated into the Listening Service), this endpoint is designed to be used by our other client applications to request sponsorship on behalf of a user. Sponsorship units are returned in the form of DAAST XML. It is worth noting that this endpoint attempts to always return XML, even in the case of exceptions.
@@ -1002,16 +983,6 @@ npr.getStationById({
   * items `array`: An array of Audio Items (recommendations)
     * items [AudioItemDocument](#audioitemdocument)
   * links [CategoryLinks](#categorylinks)
-
-### OrganizationDocument
-* OrganizationDocument
-  * _links **required** `object`
-  * _links `object`: A list of links consisting of logos and external URLs related to this organization.
-  * abbreviation `string`: Short name of the organization
-  * guid `string`: Globally unique id for this organization
-  * name `string`: Full name of the organization
-  * orgId `integer`: Unique id for this organization
-  * tagline `string`: Organization tagline
 
 ### OrganizationOverviewData
 * OrganizationOverviewData `object`

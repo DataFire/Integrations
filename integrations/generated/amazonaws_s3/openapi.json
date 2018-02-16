@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "license": {
       "name": "Apache 2.0 License",
@@ -132,7 +133,47 @@
         {
           "$ref": "#/parameters/x-amz-security-token"
         }
-      ]
+      ],
+      "put": {
+        "description": "Creates a new bucket.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUT.html</p>",
+        "operationId": "CreateBucket",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateBucketRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateBucketOutput"
+            }
+          },
+          "480": {
+            "description": "BucketAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/BucketAlreadyExists"
+            }
+          },
+          "481": {
+            "description": "BucketAlreadyOwnedByYou",
+            "schema": {
+              "$ref": "#/definitions/BucketAlreadyOwnedByYou"
+            }
+          }
+        }
+      }
     },
     "/{Bucket}#HeadBucket": {
       "head": {
@@ -270,6 +311,139 @@
     },
     "/{Bucket}/{Key}": {
       "delete": {
+        "description": "<p>Aborts a multipart upload.</p><p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p><p>http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadAbort.html</p>",
+        "operationId": "AbortMultipartUpload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AbortMultipartUploadRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "csv",
+            "in": "path",
+            "items": {
+              "type": "string"
+            },
+            "name": "Key",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AbortMultipartUploadOutput"
+            }
+          },
+          "480": {
+            "description": "NoSuchUpload",
+            "schema": {
+              "$ref": "#/definitions/NoSuchUpload"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ],
+      "post": {
+        "description": "Completes a multipart upload by assembling previously uploaded parts.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadComplete.html</p>",
+        "operationId": "CompleteMultipartUpload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CompleteMultipartUploadRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "csv",
+            "in": "path",
+            "items": {
+              "type": "string"
+            },
+            "name": "Key",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CompleteMultipartUploadOutput"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates a copy of an object that is already stored in Amazon S3.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectCOPY.html</p>",
+        "operationId": "CopyObject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CopyObjectRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "csv",
+            "in": "path",
+            "items": {
+              "type": "string"
+            },
+            "name": "Key",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CopyObjectOutput"
+            }
+          },
+          "480": {
+            "description": "ObjectNotInActiveTierError",
+            "schema": {
+              "$ref": "#/definitions/ObjectNotInActiveTierError"
+            }
+          }
+        }
+      }
+    },
+    "/{Bucket}/{Key}#DeleteObject": {
+      "delete": {
         "description": "Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectDELETE.html</p>",
         "operationId": "DeleteObject",
         "parameters": [
@@ -288,14 +462,10 @@
             "type": "string"
           },
           {
-            "collectionFormat": "csv",
             "in": "path",
-            "items": {
-              "type": "string"
-            },
             "name": "Key",
             "required": true,
-            "type": "array"
+            "type": "string"
           }
         ],
         "responses": {
@@ -757,7 +927,7 @@
         }
       }
     },
-    "/{Bucket}/{Key}?tagging": {
+    "/{Bucket}/{Key}?tagging#DeleteObjectTagging": {
       "delete": {
         "description": "Removes the tag-set from an existing object.",
         "operationId": "DeleteObjectTagging",
@@ -777,14 +947,10 @@
             "type": "string"
           },
           {
-            "collectionFormat": "csv",
             "in": "path",
-            "items": {
-              "type": "string"
-            },
             "name": "Key",
             "required": true,
-            "type": "array"
+            "type": "string"
           }
         ],
         "responses": {
@@ -970,7 +1136,7 @@
         }
       }
     },
-    "/{Bucket}?accelerate": {
+    "/{Bucket}?accelerate#GetBucketAccelerateConfiguration": {
       "get": {
         "description": "Returns the accelerate configuration of a bucket.",
         "operationId": "GetBucketAccelerateConfiguration",
@@ -1037,7 +1203,7 @@
         }
       }
     },
-    "/{Bucket}?acl": {
+    "/{Bucket}?acl#GetBucketAcl": {
       "get": {
         "description": "Gets the access control policy for the bucket.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETacl.html</p>",
         "operationId": "GetBucketAcl",
@@ -1105,6 +1271,38 @@
       }
     },
     "/{Bucket}?analytics": {
+      "delete": {
+        "description": "Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).",
+        "operationId": "DeleteBucketAnalyticsConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBucketAnalyticsConfigurationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ]
+    },
+    "/{Bucket}?analytics#GetBucketAnalyticsConfiguration": {
       "get": {
         "description": "Gets an analytics configuration for the bucket (specified by the analytics configuration ID).",
         "operationId": "GetBucketAnalyticsConfiguration",
@@ -1207,6 +1405,38 @@
       }
     },
     "/{Bucket}?cors": {
+      "delete": {
+        "description": "Deletes the cors configuration information set for the bucket.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEcors.html</p>",
+        "operationId": "DeleteBucketCors",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBucketCorsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ]
+    },
+    "/{Bucket}?cors#GetBucketCors": {
       "get": {
         "description": "Returns the cors configuration for the bucket.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETcors.html</p>",
         "operationId": "GetBucketCors",
@@ -1273,7 +1503,7 @@
         }
       }
     },
-    "/{Bucket}?delete": {
+    "/{Bucket}?delete#DeleteObjects": {
       "parameters": [
         {
           "$ref": "#/parameters/x-amz-security-token"
@@ -1309,6 +1539,38 @@
       }
     },
     "/{Bucket}?encryption": {
+      "delete": {
+        "description": "Deletes the server-side encryption configuration from the bucket.",
+        "operationId": "DeleteBucketEncryption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBucketEncryptionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ]
+    },
+    "/{Bucket}?encryption#GetBucketEncryption": {
       "get": {
         "description": "Returns the server-side encryption configuration of a bucket.",
         "operationId": "GetBucketEncryption",
@@ -1376,6 +1638,38 @@
       }
     },
     "/{Bucket}?inventory": {
+      "delete": {
+        "description": "Deletes an inventory configuration (identified by the inventory ID) from the bucket.",
+        "operationId": "DeleteBucketInventoryConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBucketInventoryConfigurationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ]
+    },
+    "/{Bucket}?inventory#GetBucketInventoryConfiguration": {
       "get": {
         "description": "Returns an inventory configuration (identified by the inventory ID) from the bucket.",
         "operationId": "GetBucketInventoryConfiguration",
@@ -1478,6 +1772,38 @@
       }
     },
     "/{Bucket}?lifecycle": {
+      "delete": {
+        "description": "Deletes the lifecycle configuration from the bucket.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETElifecycle.html</p>",
+        "operationId": "DeleteBucketLifecycle",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBucketLifecycleRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ]
+    },
+    "/{Bucket}?lifecycle#GetBucketLifecycle": {
       "get": {
         "description": "Deprecated, see the GetBucketLifecycleConfiguration operation.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETlifecycle.html</p>",
         "operationId": "GetBucketLifecycle",
@@ -3045,6 +3371,62 @@
         "wrapped": false
       }
     },
+    "CSVInput": {
+      "description": "Describes how a CSV-formatted input object is formatted.",
+      "properties": {
+        "Comments": {
+          "$ref": "#/definitions/Comments",
+          "description": "Single character used to indicate a row should be ignored when present at the start of a row."
+        },
+        "FieldDelimiter": {
+          "$ref": "#/definitions/FieldDelimiter",
+          "description": "Value used to separate individual fields in a record."
+        },
+        "FileHeaderInfo": {
+          "$ref": "#/definitions/FileHeaderInfo",
+          "description": "Describes the first line of input. Valid values: None, Ignore, Use."
+        },
+        "QuoteCharacter": {
+          "$ref": "#/definitions/QuoteCharacter",
+          "description": "Value used for escaping where the field delimiter is part of the value."
+        },
+        "QuoteEscapeCharacter": {
+          "$ref": "#/definitions/QuoteEscapeCharacter",
+          "description": "Single character used for escaping the quote character inside an already escaped value."
+        },
+        "RecordDelimiter": {
+          "$ref": "#/definitions/RecordDelimiter",
+          "description": "Value used to separate individual records."
+        }
+      },
+      "type": "object"
+    },
+    "CSVOutput": {
+      "description": "Describes how CSV-formatted results are formatted.",
+      "properties": {
+        "FieldDelimiter": {
+          "$ref": "#/definitions/FieldDelimiter",
+          "description": "Value used to separate individual fields in a record."
+        },
+        "QuoteCharacter": {
+          "$ref": "#/definitions/QuoteCharacter",
+          "description": "Value used for escaping where the field delimiter is part of the value."
+        },
+        "QuoteEscapeCharacter": {
+          "$ref": "#/definitions/QuoteEscapeCharacter",
+          "description": "Single character used for escaping the quote character inside an already escaped value."
+        },
+        "QuoteFields": {
+          "$ref": "#/definitions/QuoteFields",
+          "description": "Indicates whether or not all output fields should be quoted."
+        },
+        "RecordDelimiter": {
+          "$ref": "#/definitions/RecordDelimiter",
+          "description": "Value used to separate individual records."
+        }
+      },
+      "type": "object"
+    },
     "CacheControl": {
       "type": "string"
     },
@@ -3075,6 +3457,9 @@
       "type": "string"
     },
     "Code": {
+      "type": "string"
+    },
+    "Comments": {
       "type": "string"
     },
     "CommonPrefix": {
@@ -3597,6 +3982,9 @@
     "Delimiter": {
       "type": "string"
     },
+    "Description": {
+      "type": "string"
+    },
     "Destination": {
       "description": "Container for replication destination information.",
       "properties": {
@@ -3641,6 +4029,27 @@
         "url"
       ],
       "type": "string"
+    },
+    "Encryption": {
+      "description": "Describes the server-side encryption that will be applied to the restore results.",
+      "properties": {
+        "EncryptionType": {
+          "$ref": "#/definitions/ServerSideEncryption",
+          "description": "The server-side encryption algorithm used when storing job results in Amazon S3 (e.g., AES256, aws:kms)."
+        },
+        "KMSContext": {
+          "$ref": "#/definitions/KMSContext",
+          "description": "If the encryption type is aws:kms, this optional value can be used to specify the encryption context for the restore results."
+        },
+        "KMSKeyId": {
+          "$ref": "#/definitions/SSEKMSKeyId",
+          "description": "If the encryption type is aws:kms, this optional value specifies the AWS KMS key ID to use for encryption of job results."
+        }
+      },
+      "required": [
+        "EncryptionType"
+      ],
+      "type": "object"
     },
     "EncryptionConfiguration": {
       "description": "Container for information regarding encryption based configuration for replicas.",
@@ -3743,8 +4152,28 @@
         "wrapped": false
       }
     },
+    "Expression": {
+      "type": "string"
+    },
+    "ExpressionType": {
+      "enum": [
+        "SQL"
+      ],
+      "type": "string"
+    },
     "FetchOwner": {
       "type": "boolean"
+    },
+    "FieldDelimiter": {
+      "type": "string"
+    },
+    "FileHeaderInfo": {
+      "enum": [
+        "USE",
+        "IGNORE",
+        "NONE"
+      ],
+      "type": "string"
     },
     "FilterRule": {
       "description": "Container for key value pair that defines the criteria for the filter rule.",
@@ -4432,6 +4861,16 @@
       },
       "type": "object"
     },
+    "InputSerialization": {
+      "description": "Describes the serialization format of the object.",
+      "properties": {
+        "CSV": {
+          "$ref": "#/definitions/CSVInput",
+          "description": "Describes the serialization of a CSV-encoded object."
+        }
+      },
+      "type": "object"
+    },
     "InventoryConfiguration": {
       "properties": {
         "Destination": {
@@ -4521,7 +4960,8 @@
     },
     "InventoryFormat": {
       "enum": [
-        "CSV"
+        "CSV",
+        "ORC"
       ],
       "type": "string"
     },
@@ -4609,6 +5049,9 @@
     },
     "IsTruncated": {
       "type": "boolean"
+    },
+    "KMSContext": {
+      "type": "string"
     },
     "KeyCount": {
       "type": "integer"
@@ -5300,6 +5743,9 @@
     "Location": {
       "type": "string"
     },
+    "LocationPrefix": {
+      "type": "string"
+    },
     "LoggingEnabled": {
       "properties": {
         "TargetBucket": {
@@ -5371,6 +5817,18 @@
         "REPLACE"
       ],
       "type": "string"
+    },
+    "MetadataEntry": {
+      "description": "A metadata key-value pair to store with an object.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/MetadataKey"
+        },
+        "Value": {
+          "$ref": "#/definitions/MetadataValue"
+        }
+      },
+      "type": "object"
     },
     "MetadataKey": {
       "type": "string"
@@ -5752,6 +6210,26 @@
         "STANDARD"
       ],
       "type": "string"
+    },
+    "OutputLocation": {
+      "description": "Describes the location where the restore job's output is stored.",
+      "properties": {
+        "S3": {
+          "$ref": "#/definitions/S3Location",
+          "description": "Describes an S3 location that will receive the results of the restore request."
+        }
+      },
+      "type": "object"
+    },
+    "OutputSerialization": {
+      "description": "Describes how results of the Select job are serialized.",
+      "properties": {
+        "CSV": {
+          "$ref": "#/definitions/CSVOutput",
+          "description": "Describes the serialization of CSV-encoded Select results."
+        }
+      },
+      "type": "object"
     },
     "Owner": {
       "properties": {
@@ -6380,7 +6858,23 @@
     "Quiet": {
       "type": "boolean"
     },
+    "QuoteCharacter": {
+      "type": "string"
+    },
+    "QuoteEscapeCharacter": {
+      "type": "string"
+    },
+    "QuoteFields": {
+      "enum": [
+        "ALWAYS",
+        "ASNEEDED"
+      ],
+      "type": "string"
+    },
     "Range": {
+      "type": "string"
+    },
+    "RecordDelimiter": {
       "type": "string"
     },
     "Redirect": {
@@ -6581,21 +7075,48 @@
         "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
       }
     },
+    "RestoreOutputPath": {
+      "type": "string"
+    },
     "RestoreRequest": {
+      "description": "Container for restore job parameters.",
       "properties": {
         "Days": {
           "$ref": "#/definitions/Days",
-          "description": "Lifetime of the active copy in days"
+          "description": "Lifetime of the active copy in days. Do not use with restores that specify OutputLocation."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The optional description for the job."
         },
         "GlacierJobParameters": {
           "$ref": "#/definitions/GlacierJobParameters",
-          "description": "Glacier related prameters pertaining to this job."
+          "description": "Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation."
+        },
+        "OutputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Describes the location where the restore job's output is stored."
+        },
+        "SelectParameters": {
+          "$ref": "#/definitions/SelectParameters",
+          "description": "Describes the parameters for Select job types."
+        },
+        "Tier": {
+          "$ref": "#/definitions/Tier",
+          "description": "Glacier retrieval tier at which the restore will be processed."
+        },
+        "Type": {
+          "$ref": "#/definitions/RestoreRequestType",
+          "description": "Type of restore request."
         }
       },
-      "required": [
-        "Days"
-      ],
       "type": "object"
+    },
+    "RestoreRequestType": {
+      "enum": [
+        "SELECT"
+      ],
+      "type": "string"
     },
     "Role": {
       "type": "string"
@@ -6676,6 +7197,47 @@
       },
       "type": "object"
     },
+    "S3Location": {
+      "description": "Describes an S3 location that will receive the results of the restore request.",
+      "properties": {
+        "AccessControlList": {
+          "$ref": "#/definitions/Grants",
+          "description": "A list of grants that control access to the staged results."
+        },
+        "BucketName": {
+          "$ref": "#/definitions/BucketName",
+          "description": "The name of the bucket where the restore results will be placed."
+        },
+        "CannedACL": {
+          "$ref": "#/definitions/ObjectCannedACL",
+          "description": "The canned ACL to apply to the restore results."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/Encryption"
+        },
+        "Prefix": {
+          "$ref": "#/definitions/LocationPrefix",
+          "description": "The prefix that is prepended to the restore results for this request."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The class of storage used to store the restore results."
+        },
+        "Tagging": {
+          "$ref": "#/definitions/Tagging",
+          "description": "The tag-set that is applied to the restore results."
+        },
+        "UserMetadata": {
+          "$ref": "#/definitions/UserMetadata",
+          "description": "A list of metadata to store with the restore results in S3."
+        }
+      },
+      "required": [
+        "BucketName",
+        "Prefix"
+      ],
+      "type": "object"
+    },
     "SSECustomerAlgorithm": {
       "type": "string"
     },
@@ -6706,6 +7268,34 @@
     "SSES3": {
       "description": "Specifies the use of SSE-S3 to encrypt delievered Inventory reports.",
       "properties": {},
+      "type": "object"
+    },
+    "SelectParameters": {
+      "description": "Describes the parameters for Select job types.",
+      "properties": {
+        "Expression": {
+          "$ref": "#/definitions/Expression",
+          "description": "The expression that is used to query the object."
+        },
+        "ExpressionType": {
+          "$ref": "#/definitions/ExpressionType",
+          "description": "The type of the provided expression (e.g., SQL)."
+        },
+        "InputSerialization": {
+          "$ref": "#/definitions/InputSerialization",
+          "description": "Describes the serialization format of the object."
+        },
+        "OutputSerialization": {
+          "$ref": "#/definitions/OutputSerialization",
+          "description": "Describes how the results of the Select job are serialized."
+        }
+      },
+      "required": [
+        "InputSerialization",
+        "ExpressionType",
+        "Expression",
+        "OutputSerialization"
+      ],
       "type": "object"
     },
     "ServerSideEncryption": {
@@ -7073,6 +7663,12 @@
         }
       },
       "type": "object"
+    },
+    "UserMetadata": {
+      "items": {
+        "$ref": "#/definitions/MetadataEntry"
+      },
+      "type": "array"
     },
     "Value": {
       "type": "string"

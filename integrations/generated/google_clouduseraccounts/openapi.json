@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Creates and manages users and groups for accessing Google Compute Engine virtual machines.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Cloud User Accounts",
     "version": "vm_alpha",
     "x-apiClientRegistration": {
@@ -44,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -52,6 +57,19 @@
         "https://www.googleapis.com/auth/cloud.useraccounts": "Manage your Google Cloud User Accounts",
         "https://www.googleapis.com/auth/cloud.useraccounts.readonly": "View your Google Cloud User Accounts"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud.useraccounts": "Manage your Google Cloud User Accounts",
+        "https://www.googleapis.com/auth/cloud.useraccounts.readonly": "View your Google Cloud User Accounts"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -138,13 +156,6 @@
         "operationId": "groups.list",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.\n\nThe field_name is the name of the field you want to compare. Only atomic field types are supported (string, number, boolean). The comparison_string must be either eq (equals) or ne (not equals). The literal_string is the string value to filter to. The literal value must be valid for the type of field you are filtering by (string, number, boolean). For string fields, the literal value is interpreted as a regular expression using RE2 syntax. The literal value must match the entire field.\n\nFor example, to filter for instances that do not have a name of example-instance, you would use filter=name ne example-instance.\n\nCompute Engine Beta API Only: If you use filtering in the Beta API, you can also filter on nested fields. For example, you could filter on instances that have set the scheduling.automaticRestart field to true. In particular, use filtering on nested fields to take advantage of instance labels to organize and filter results based on label values.\n\nThe Beta API also supports filtering on multiple expressions by providing each separate expression within parentheses. For example, (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple expressions are treated as AND expressions, meaning that resources must match all expressions to pass the filters.",
             "in": "query",
             "name": "filter",
@@ -170,6 +181,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -184,20 +202,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -234,18 +264,18 @@
         "operationId": "groups.insert",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Group"
             }
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -260,10 +290,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -279,16 +315,16 @@
         "operationId": "groups.delete",
         "parameters": [
           {
-            "description": "Project ID for this request.",
+            "description": "Name of the Group resource to delete.",
             "in": "path",
-            "name": "project",
+            "name": "groupName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name of the Group resource to delete.",
+            "description": "Project ID for this request.",
             "in": "path",
-            "name": "groupName",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -305,10 +341,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -322,16 +364,16 @@
         "operationId": "groups.get",
         "parameters": [
           {
-            "description": "Project ID for this request.",
+            "description": "Name of the Group resource to return.",
             "in": "path",
-            "name": "project",
+            "name": "groupName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name of the Group resource to return.",
+            "description": "Project ID for this request.",
             "in": "path",
-            "name": "groupName",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -348,20 +390,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -423,11 +477,11 @@
         "operationId": "groups.addMember",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GroupsAddMemberRequest"
+            }
           },
           {
             "description": "Name of the group for this request.",
@@ -437,11 +491,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/GroupsAddMemberRequest"
-            }
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -456,10 +510,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -498,11 +558,11 @@
         "operationId": "groups.removeMember",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GroupsRemoveMemberRequest"
+            }
           },
           {
             "description": "Name of the group for this request.",
@@ -512,11 +572,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/GroupsRemoveMemberRequest"
-            }
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -531,10 +591,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -576,20 +642,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -651,6 +729,13 @@
         "operationId": "groups.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Policy"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -663,13 +748,6 @@
             "name": "resource",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Policy"
-            }
           }
         ],
         "responses": {
@@ -684,20 +762,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -736,6 +826,13 @@
         "operationId": "groups.testIamPermissions",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TestPermissionsRequest"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -748,13 +845,6 @@
             "name": "resource",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TestPermissionsRequest"
-            }
           }
         ],
         "responses": {
@@ -769,20 +859,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -797,13 +899,6 @@
         "description": "Retrieves the list of operation resources contained within the specified project.",
         "operationId": "globalAccountsOperations.list",
         "parameters": [
-          {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.\n\nThe field_name is the name of the field you want to compare. Only atomic field types are supported (string, number, boolean). The comparison_string must be either eq (equals) or ne (not equals). The literal_string is the string value to filter to. The literal value must be valid for the type of field you are filtering by (string, number, boolean). For string fields, the literal value is interpreted as a regular expression using RE2 syntax. The literal value must match the entire field.\n\nFor example, to filter for instances that do not have a name of example-instance, you would use filter=name ne example-instance.\n\nCompute Engine Beta API Only: If you use filtering in the Beta API, you can also filter on nested fields. For example, you could filter on instances that have set the scheduling.automaticRestart field to true. In particular, use filtering on nested fields to take advantage of instance labels to organize and filter results based on label values.\n\nThe Beta API also supports filtering on multiple expressions by providing each separate expression within parentheses. For example, (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple expressions are treated as AND expressions, meaning that resources must match all expressions to pass the filters.",
             "in": "query",
@@ -830,6 +925,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -844,20 +946,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -896,16 +1010,16 @@
         "operationId": "globalAccountsOperations.delete",
         "parameters": [
           {
-            "description": "Project ID for this request.",
+            "description": "Name of the Operations resource to delete.",
             "in": "path",
-            "name": "project",
+            "name": "operation",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name of the Operations resource to delete.",
+            "description": "Project ID for this request.",
             "in": "path",
-            "name": "operation",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -919,10 +1033,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -936,16 +1056,16 @@
         "operationId": "globalAccountsOperations.get",
         "parameters": [
           {
-            "description": "Project ID for this request.",
+            "description": "Name of the Operations resource to return.",
             "in": "path",
-            "name": "project",
+            "name": "operation",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name of the Operations resource to return.",
+            "description": "Project ID for this request.",
             "in": "path",
-            "name": "operation",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -962,20 +1082,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1014,13 +1146,6 @@
         "operationId": "users.list",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.\n\nThe field_name is the name of the field you want to compare. Only atomic field types are supported (string, number, boolean). The comparison_string must be either eq (equals) or ne (not equals). The literal_string is the string value to filter to. The literal value must be valid for the type of field you are filtering by (string, number, boolean). For string fields, the literal value is interpreted as a regular expression using RE2 syntax. The literal value must match the entire field.\n\nFor example, to filter for instances that do not have a name of example-instance, you would use filter=name ne example-instance.\n\nCompute Engine Beta API Only: If you use filtering in the Beta API, you can also filter on nested fields. For example, you could filter on instances that have set the scheduling.automaticRestart field to true. In particular, use filtering on nested fields to take advantage of instance labels to organize and filter results based on label values.\n\nThe Beta API also supports filtering on multiple expressions by providing each separate expression within parentheses. For example, (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple expressions are treated as AND expressions, meaning that resources must match all expressions to pass the filters.",
             "in": "query",
             "name": "filter",
@@ -1046,6 +1171,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1060,20 +1192,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1110,18 +1254,18 @@
         "operationId": "users.insert",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/User"
             }
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1136,10 +1280,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -1181,20 +1331,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1256,6 +1418,13 @@
         "operationId": "users.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Policy"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -1268,13 +1437,6 @@
             "name": "resource",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Policy"
-            }
           }
         ],
         "responses": {
@@ -1289,20 +1451,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1341,6 +1515,13 @@
         "operationId": "users.testIamPermissions",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TestPermissionsRequest"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -1353,13 +1534,6 @@
             "name": "resource",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TestPermissionsRequest"
-            }
           }
         ],
         "responses": {
@@ -1374,20 +1548,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1429,10 +1615,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -1472,20 +1664,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1547,6 +1751,13 @@
         "operationId": "users.addPublicKey",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PublicKey"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -1559,13 +1770,6 @@
             "name": "user",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PublicKey"
-            }
           }
         ],
         "responses": {
@@ -1580,10 +1784,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -1622,6 +1832,13 @@
         "operationId": "users.removePublicKey",
         "parameters": [
           {
+            "description": "The fingerprint of the public key to delete. Public keys are identified by their fingerprint, which is defined by RFC4716 to be the MD5 digest of the public key.",
+            "in": "query",
+            "name": "fingerprint",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -1632,13 +1849,6 @@
             "description": "Name of the user for this request.",
             "in": "path",
             "name": "user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The fingerprint of the public key to delete. Public keys are identified by their fingerprint, which is defined by RFC4716 to be the MD5 digest of the public key.",
-            "in": "query",
-            "name": "fingerprint",
             "required": true,
             "type": "string"
           }
@@ -1655,10 +1865,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           }
@@ -1697,27 +1913,6 @@
         "operationId": "linux.getAuthorizedKeysView",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the zone for this request.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The user account for which you want to get a list of authorized public keys.",
-            "in": "path",
-            "name": "user",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The fully-qualified URL of the virtual machine requesting the view.",
             "in": "query",
             "name": "instance",
@@ -1729,6 +1924,27 @@
             "in": "query",
             "name": "login",
             "type": "boolean"
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The user account for which you want to get a list of authorized public keys.",
+            "in": "path",
+            "name": "user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of the zone for this request.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1743,20 +1959,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }
@@ -1795,17 +2023,9 @@
         "operationId": "linux.getLinuxAccountViews",
         "parameters": [
           {
-            "description": "Project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the zone for this request.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
+            "description": "Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.\n\nThe field_name is the name of the field you want to compare. Only atomic field types are supported (string, number, boolean). The comparison_string must be either eq (equals) or ne (not equals). The literal_string is the string value to filter to. The literal value must be valid for the type of field you are filtering by (string, number, boolean). For string fields, the literal value is interpreted as a regular expression using RE2 syntax. The literal value must match the entire field.\n\nFor example, to filter for instances that do not have a name of example-instance, you would use filter=name ne example-instance.\n\nCompute Engine Beta API Only: If you use filtering in the Beta API, you can also filter on nested fields. For example, you could filter on instances that have set the scheduling.automaticRestart field to true. In particular, use filtering on nested fields to take advantage of instance labels to organize and filter results based on label values.\n\nThe Beta API also supports filtering on multiple expressions by providing each separate expression within parentheses. For example, (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple expressions are treated as AND expressions, meaning that resources must match all expressions to pass the filters.",
+            "in": "query",
+            "name": "filter",
             "type": "string"
           },
           {
@@ -1813,12 +2033,6 @@
             "in": "query",
             "name": "instance",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.\n\nThe field_name is the name of the field you want to compare. Only atomic field types are supported (string, number, boolean). The comparison_string must be either eq (equals) or ne (not equals). The literal_string is the string value to filter to. The literal value must be valid for the type of field you are filtering by (string, number, boolean). For string fields, the literal value is interpreted as a regular expression using RE2 syntax. The literal value must match the entire field.\n\nFor example, to filter for instances that do not have a name of example-instance, you would use filter=name ne example-instance.\n\nCompute Engine Beta API Only: If you use filtering in the Beta API, you can also filter on nested fields. For example, you could filter on instances that have set the scheduling.automaticRestart field to true. In particular, use filtering on nested fields to take advantage of instance labels to organize and filter results based on label values.\n\nThe Beta API also supports filtering on multiple expressions by providing each separate expression within parentheses. For example, (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple expressions are treated as AND expressions, meaning that resources must match all expressions to pass the filters.",
-            "in": "query",
-            "name": "filter",
             "type": "string"
           },
           {
@@ -1841,6 +2055,20 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of the zone for this request.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1855,20 +2083,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud.useraccounts"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud.useraccounts"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud.useraccounts.readonly"
             ]
           }

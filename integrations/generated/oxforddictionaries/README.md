@@ -73,7 +73,7 @@ oxforddictionaries.domains.source_language.get({
 
 ### entries.source_language.word_id.sentences.get
 
-Use this to retrieve sentences extracted from  corpora which show how a word is used in the language. This is available for English and Spanish. For English, the sentences are linked to the correct sense of the word in the dictionary. In Spanish, they are linked at the headword level.
+Use this to retrieve sentences extracted from  corpora which show how a word is used in the language. This is available for English and Spanish. For English, the sentences are linked to the correct [sense](documentation/glossary?term=sense) of the word in the dictionary. In Spanish, they are linked at the [headword](documentation/glossary?term=headword) level.
   <div id="sentences"></div>
 
 
@@ -99,7 +99,7 @@ oxforddictionaries.entries.source_language.word_id.sentences.get({
 
 ### entries.source_lang.word_id.get
 
-Use this to retrieve definitions, pronunciations, example sentences, grammatical information and word origins. It only works for dictionary headwords, so you may need to use the Lemmatron first if your input is likely to be an inflected form (e.g., 'swimming'). This would return the linked headword (e.g., 'swim') which you can then use in the Entries endpoint. Unless specified using a region filter, the default lookup will be the Oxford Dictionary of English (GB). 
+Use this to retrieve definitions, [pronunciations](documentation/glossary?term=pronunciation), example sentences, [grammatical information](documentation/glossary?term=grammaticalfeatures) and [word origins](documentation/glossary?term=etymology). It only works for dictionary [headwords](documentation/glossary?term=headword), so you may need to use the [Lemmatron](documentation/glossary?term=lemma) first if your input is likely to be an [inflected](documentation/glossary?term=inflection) form (e.g., 'swimming'). This would return the linked [headword](documentation/glossary?term=headword) (e.g., 'swim') which you can then use in the Entries endpoint. Unless specified using a region filter, the default lookup will be the Oxford Dictionary of English (GB). 
   <div id="dictionary_entries"></div>
 
 
@@ -125,7 +125,7 @@ oxforddictionaries.entries.source_lang.word_id.get({
 
 ### entries.source_lang.word_id.antonyms.get
 
-Retrieve words that are opposite in meaning to the input word (antonym).
+Retrieve words that are opposite in meaning to the input word ([antonym](documentation/glossary?term=thesaurus)).
 
   <div id="antonyms"></div>
 
@@ -179,7 +179,7 @@ oxforddictionaries.entries.source_lang.word_id.regions_region.get({
 
 ### entries.source_lang.word_id.synonyms.get
 
-Use this to retrieve words that are similar in meaning to the input word (synonym).
+Use this to retrieve words that are similar in meaning to the input word ([synonym](documentation/glossary?term=synonym)).
 
   <div id="synonyms"></div>
 
@@ -233,7 +233,7 @@ oxforddictionaries.entries.source_lang.word_id.synonyms_antonyms.get({
 
 ### entries.source_lang.word_id.filters.get
 
-Use filters to limit the entry information that is returned. For example, you may only require definitions and not everything else, or just pronunciations. The full list of filters can be retrieved from the filters Utility endpoint. You can also specify values within the filter using '='. For example 'grammaticalFeatures=singular'. Filters can also be combined using a semicolon.
+Use filters to limit the [entry](documentation/glossary?term=entry) information that is returned. For example, you may only require definitions and not everything else, or just [pronunciations](documentation/glossary?term=pronunciation). The full list of filters can be retrieved from the filters Utility endpoint. You can also specify values within the filter using '='. For example 'grammaticalFeatures=singular'. Filters can also be combined using a semicolon.
 
   <div id="dictionary_entries_filters"></div>
 
@@ -523,7 +523,7 @@ oxforddictionaries.registers.source_register_language.target_register_language.g
 
 ### search.source_lang.get
 
-Use this to retrieve possible headword matches for a given string of text. The results are culculated using headword matching, fuzzy matching, and lemmatization 
+Use this to retrieve possible [headword](documentation/glossary?term=headword) matches for a given string of text. The results are culculated using headword matching, fuzzy matching, and [lemmatization](documentation/glossary?term=lemma) 
 
   <div id="search"></div>
 
@@ -583,8 +583,160 @@ oxforddictionaries.search.source_search_language.translations_target_search_lang
 #### Output
 * output [Wordlist](#wordlist)
 
+### stats.frequency.ngrams.source_lang.corpus.ngram_size.get
+This endpoint returns frequencies of ngrams of size 1-4. That is the number of times a word (ngram size = 1) or words (ngram size > 1) appear in the corpus. Ngrams are case sensitive ("I AM" and "I am" will have different frequency) and frequencies are calculated per word (true case) so "the book" and "the books" are two different ngrams. The results can be filtered based on query parameters. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overriden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). <br> <br> Example for bigrams (ngram of size 2):
+* PATH: /tokens=a word,another word
+* GET: /?tokens=a word&tokens=another word
+* POST (json):
+
+  ```javascript
+    {
+        "tokens": ["a word", "another word"]
+    }
+  ```
+
+
+
+```js
+oxforddictionaries.stats.frequency.ngrams.source_lang.corpus.ngram_size.get({
+  "source_lang": "",
+  "corpus": "",
+  "ngram-size": "",
+  "app_id": "",
+  "app_key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * source_lang **required** `string`: IANA language code
+  * corpus **required** `string`: For corpora other than 'nmc' (New Monitor Corpus) please contact api@oxforddictionaries.com
+  * ngram-size **required** `string`: the size of ngrams requested (1-4)
+  * tokens `string`: List of tokens to filter. The tokens are separated by spaces, the list items are separated by comma (e.g., for bigrams (n=2) tokens=this is,this was, this will)
+  * contains `string`: Find ngrams containing the given token(s). Use comma or space as token separators; the order of tokens is irrelevant.
+  * punctuation `string`: Flag specifying whether to lookup ngrams that include punctuation or not (possible values are "true" and "false"; default is "false")
+  * format `string`: Option specifying whether tokens should be returned as a single string (option "google") or as a list of strings (option "oup")
+  * minFrequency `integer`: Restrict the query to entries with frequency of at least `minFrequency`
+  * maxFrequency `integer`: Restrict the query to entries with frequency of at most `maxFrequency`
+  * minDocumentFrequency `integer`: Restrict the query to entries that appear in at least `minDocumentFrequency` documents
+  * maxDocumentFrequency `integer`: Restrict the query to entries that appera in at most `maxDocumentFrequency` documents
+  * offset `integer`: pagination - results offset
+  * limit `integer`: pagination - results limit
+  * app_id **required** `string`: App ID Authentication Parameter
+  * app_key **required** `string`: App Key Authentication Parameter
+
+#### Output
+* output [NgramsResult](#ngramsresult)
+
+### stats.frequency.word.source_lang.get
+This endpoint provides the frequency of a given word. When multiple database records match the query parameters, the returned frequency is the sum of the individual frequencies. For example, if the query parameters are lemma=test, the returned frequency will include the verb "test", the noun "test" and the adjective "test" in all forms (Test, tested, testing, etc.) <br> <br> If you are interested in the frequency of the word "test" but want to exclude other forms (e.g., tested) use the option trueCase=test. Normally, the word "test" will be spelt with a capital letter at the beginning of a sentence. The option trueCase will ignore this and it will count "Test" and "test" as the same token. If you are interested in frequencies of "Test" and "test", use the option wordform=test or wordform=Test. Note that trueCase is not just a lower case of the word as some words are genuinely spelt with a capital letter such as the word "press" in Oxford University Press. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overriden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). Examples:
+* PATH: /lemma=test;lexicalCategory=noun
+* GET: /?lemma=test&lexicalCategory=noun
+* POST (json):
+
+  ```javascript
+    {
+      "lemma": "test",
+      "lexicalCategory": "noun"
+    }
+  ```
+
+<br> One of the options wordform/trueCase/lemma/lexicalCategory has to be provided.
+
+
+
+```js
+oxforddictionaries.stats.frequency.word.source_lang.get({
+  "source_lang": "",
+  "app_id": "",
+  "app_key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * source_lang **required** `string`: IANA language code
+  * corpus `string`: For corpora other than 'nmc' (New Monitor Corpus) please contact api@oxforddictionaries.com
+  * wordform `string`: The written form of the word to look up (preserving case e.g., Books vs books)
+  * trueCase `string`: The written form of the word to look up with normalised case (Books --> books)
+  * lemma `string`: The lemma of the word to look up (e.g., Book, booked, books all have the lemma "book")
+  * lexicalCategory `string`: The lexical category of the word(s) to look up (e.g., noun or verb)
+  * app_id **required** `string`: App ID Authentication Parameter
+  * app_key **required** `string`: App Key Authentication Parameter
+
+#### Output
+* output [StatsWordResult](#statswordresult)
+
+### stats.frequency.words.source_lang.get
+This endpoint provides a list of frequencies for a given word or words. Unlike the /word/ endpoint, the results are split into the smallest units. <br> <br> To exclude a specific value, prepend it with the minus sign ('-'). For example, to get frequencies of the lemma 'happy' but exclude superlative forms (i.e., happiest) you could use options 'lemma=happy;grammaticalFeatures=-degreeType:superlative'. <br> <br> Parameters can be provided in PATH, GET or POST (form or json). The parameters in PATH are overriden by parameters in GET, POST and json (in that order). In PATH, individual options are separated by semicolon and values are separated by commas (where multiple values can be used). <br> <br> The parameters wordform/trueCase/lemma/lexicalCategory also exist in a plural form, taking a lists of items. Examples:
+* PATH: /wordforms=happy,happier,happiest
+* GET: /?wordforms=happy&wordforms=happier&wordforms=happiest
+* POST (json):
+```javascript
+  {
+    "wordforms": ["happy", "happier", "happiest"]
+  }
+```
+<br> Aside from individual frequency requests, users can also post a list of items for which they would like to get frequencies. The list has to be uploaded in json and the required fields are "items" and "collate". <br> <br> The field "items" is a list of items for which you want the frequencies. The content of the items depends on the option for "collate". The value of "collate" should be a list of "columns" that the items contain. The list is limited to combinations of "wordform", "lemma", "trueCase" and "lexicalCategory". The fields that are listed in the "collate" options have to be present in each item. Here are some examples of queries:
+* ### Get frequencies of provided wordforms:
+```javascript
+  {
+      "collate": ["wordform"],
+      "items": [{"wordform": "test"}, {"wordform": "Test"}]
+  }
+```
+* ### Get frequencies of provided lemmas:
+```javascript
+  {
+      "collate": ["lemma"],
+      "items": [{"lemma": "test"}, {"lemma": "Test"}]
+  }
+```
+* ### Get frequencies of provided lemmas per lexical category:
+```javascript
+  {
+      "collate": ["lemma", "lexicalCategory"],
+      "items": [
+          {"lemma": "test", "lexicalCategory": "verb"},
+          {"lemma": "test", "lexicalCategory": "noun"}
+      ]
+  }
+```
+
+
+
+```js
+oxforddictionaries.stats.frequency.words.source_lang.get({
+  "source_lang": "",
+  "app_id": "",
+  "app_key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * source_lang **required** `string`: IANA language code
+  * corpus `string`: For corpora other than 'nmc' (New Monitor Corpus) please contact api@oxforddictionaries.com
+  * wordform `string`: The written form of the word to look up (preserving case e.g., Book vs book)
+  * trueCase `string`: The written form of the word to look up with normalised case (Books --> books)
+  * lemma `string`: The lemma of the word to look up (e.g., Book, booked, books all have the lemma "book")
+  * lexicalCategory `string`: The lexical category of the word(s) to look up (e.g., adjective or noun)
+  * grammaticalFeatures `string`: The grammatical features of the word(s) to look up entered as a list of k:v (e.g., degree_type:comparative)
+  * sort `string`: sort the resulting list by wordform, trueCase, lemma, lexicalCategory, frequency, normalizedFrequency. Descending order is achieved by prepending the value with the minus sign ('-'). Multiple values can be separated by commas (e.g., sort=lexicalCategory,-frequency)
+  * minFrequency `integer`: Restrict the query to entries with frequency of at least `minFrequency`
+  * maxFrequency `integer`: Restrict the query to entries with frequency of at most `maxFrequency`
+  * minNormalizedFrequency `number`: Restrict the query to entries with frequency of at least `minNormalizedFrequency`
+  * maxNormalizedFrequency `number`: Restrict the query to entries with frequency of at most `maxNormalizedFrequency`
+  * offset `integer`: pagination - results offset
+  * limit `integer`: pagination - results limit
+  * app_id **required** `string`: App ID Authentication Parameter
+  * app_key **required** `string`: App Key Authentication Parameter
+
+#### Output
+* output [StatsWordResultList](#statswordresultlist)
+
 ### wordlist.source_lang.filters_advanced.get
-Use this to apply more complex filters to the list of words. For example, you may only want to filter out words for which all senses match the filter, or only its 'prime sense'. You can also filter by word length or match by substring (prefix). 
+Use this to apply more complex filters to the [list of words](documentation/glossary?term=wordlist). For example, you may only want to filter out words for which all [senses](documentation/glossary?term=sense) match the filter, or only its 'prime sense'. You can also filter by word length or match by substring (prefix). 
 
   <div id="wordlist_advanced"></div>
 
@@ -619,7 +771,7 @@ oxforddictionaries.wordlist.source_lang.filters_advanced.get({
 
 ### wordlist.source_lang.filters_basic.get
 
-Use this to retrieve a list of words for particular [domain](documentation/glossary?term=domain), [lexical category](documentation/glossary?term=lexicalcategory), [register](documentation/glossary?term=registers) and/or [region](documentation/glossary?term=regions). View the full list of possible filters using the filters Utility endpoint.  The response only includes headwords, not all their possible inflections. If you require a full wordlist including inflected forms, contact us and we can help.
+Use this to retrieve a [list of words](documentation/glossary?term=wordlist) for particular [domain](documentation/glossary?term=domain), [lexical category](documentation/glossary?term=lexicalcategory), [register](documentation/glossary?term=registers) and/or [region](documentation/glossary?term=regions). View the full list of possible filters using the filters Utility endpoint.  The response only includes [headwords](documentation/glossary?term=headword), not all their possible [inflections](documentation/glossary?term=inflection). If you require a full [wordlist](documentation/glossary?term=wordlist) including [inflected forms](documentation/glossary?term=inflection), contact us and we can help.
 
   <div id="wordlist"></div>
 
@@ -775,6 +927,16 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
   * lexicalCategory **required** `string`: A linguistic category of words (or more precisely lexical items), generally defined by the syntactic or morphological behaviour of the lexical item in question, such as noun or verb
   * text **required** `string`: A given written or spoken realisation of a an entry.
 
+### NgramsResult
+* NgramsResult `object`: Schema for corpus ngrams.
+  * metadata `object`: Additional Information provided by OUP
+  * results `array`: A list of found ngrams along with their frequencies
+    * items `object`: Ngrams matching the given options
+      * documentFrequency **required** `integer`: The document frequency (number of documents containing the ngram) of the ngram in the given corpus
+      * frequency **required** `integer`: The frequency of the ngram in the given corpus
+      * tokens **required** `array`: A list of tokens
+        * items `string`
+
 ### PronunciationsList
 * PronunciationsList `array`: A list of possible pronunciations of a word
   * items `object`: A grouping of pronunciation information
@@ -834,6 +996,30 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
   * metadata `object`: Additional Information provided by OUP
   * results `array`: A list of entries and all the data related to them
     * items [SentencesEntry](#sentencesentry)
+
+### StatsWordResult
+* StatsWordResult `object`: Schema for LexiStats results for a word/trueCase/lemma/lexicalCategory returned as a frequency
+  * metadata `object`: Additional Information provided by OUP
+  * result `object`: Frequency information for a given entity
+    * frequency **required** `integer`: The frequency of the word calculated from a corpus ("sample_corpus" used by default)
+    * lemma `string`: A lemma of the word (e.g., wordforms "lay", "laid" and "laying" have all lemma "lay").
+    * lexicalCategory `string`: A lexical category such as 'verb' or 'noun'
+    * matchCount **required** `integer`: The number of database records that matched the query params (stated frequency is the sum of the individual frequencies)
+    * normalizedFrequency **required** `integer`: The frequency of the word per million calculated from a corpus ("sample_corpus" used by default)
+    * trueCase `string`: A given written realisation of a an entry (e.g., "lay") usually lower case
+    * wordform `string`: A given written realisation of a an entry (e.g., "Lay") preserving case
+
+### StatsWordResultList
+* StatsWordResultList `object`: Schema for LexiStats results for a word/trueCase/lemma/lexicalCategory returned as a list of frequencies per wordform-trueCase-lemma-lexicalCategory entry.
+  * metadata `object`: Additional Information provided by OUP
+  * results `array`: A list of found words along with their frequencies
+    * items `object`: Statistical information about a word
+      * frequency **required** `integer`: The frequency of the word calculated from a corpus ("sample_corpus" used by default)
+      * lemma **required** `string`: A lemma of the word.
+      * lexicalCategory **required** `string`: A lexical category such as 'verb' or 'noun'
+      * normalizedFrequency **required** `integer`: The frequency of the word per million calculated from a corpus ("sample_corpus" used by default)
+      * trueCase **required** `string`: A given written realisation of a an entry (e.g., "lay") usually lower case
+      * wordform **required** `string`: A given written realisation of a an entry (e.g., "lay") preserving case
 
 ### SynonymsAntonyms
 * SynonymsAntonyms `array`
@@ -919,6 +1105,7 @@ oxforddictionaries.wordlist.source_lang.filters_basic.get({
 ### lexicalEntry
 * lexicalEntry `object`: Description of an entry for a particular part of speech
   * derivativeOf [ArrayOfRelatedEntries](#arrayofrelatedentries)
+  * derivatives [ArrayOfRelatedEntries](#arrayofrelatedentries)
   * entries `array`
     * items [Entry](#entry)
   * grammaticalFeatures [GrammaticalFeaturesList](#grammaticalfeatureslist)

@@ -210,9 +210,123 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a single Amazon GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector must be created in order for GuardDuty to become operational.",
+        "operationId": "CreateDetector",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDetectorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDetectorResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/detector/{detectorId}": {
+      "delete": {
+        "description": "Deletes a Amazon GuardDuty detector specified by the detector ID.",
+        "operationId": "DeleteDetector",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDetectorRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDetectorResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves an Amazon GuardDuty detector specified by the detectorId.",
+        "operationId": "GetDetector",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDetectorRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDetectorResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -877,9 +991,141 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a new IPSet - a list of trusted IP addresses that have been whitelisted for secure communication with AWS infrastructure and applications.",
+        "operationId": "CreateIPSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateIPSetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateIPSetResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/detector/{detectorId}/ipset/{ipSetId}": {
+      "delete": {
+        "description": "Deletes the IPSet specified by the IPSet ID.",
+        "operationId": "DeleteIPSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteIPSetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "ipSetId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteIPSetResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves the IPSet specified by the IPSet ID.",
+        "operationId": "GetIPSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetIPSetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "ipSetId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetIPSetResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1025,7 +1271,47 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Accepts the invitation to be monitored by a master GuardDuty account.",
+        "operationId": "AcceptInvitation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AcceptInvitationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AcceptInvitationResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/detector/{detectorId}/master/disassociate": {
       "parameters": [
@@ -1181,7 +1467,47 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates member accounts of the current AWS account by specifying a list of AWS account IDs. The current AWS account can then invite these members to manage GuardDuty in their accounts.",
+        "operationId": "CreateMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateMembersRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateMembersResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/detector/{detectorId}/member/delete": {
       "parameters": [
@@ -1692,9 +2018,141 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Create a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates findings based on ThreatIntelSets.",
+        "operationId": "CreateThreatIntelSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateThreatIntelSetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateThreatIntelSetResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/detector/{detectorId}/threatintelset/{threatIntelSetId}": {
+      "delete": {
+        "description": "Deletes ThreatIntelSet specified by the ThreatIntelSet ID.",
+        "operationId": "DeleteThreatIntelSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteThreatIntelSetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "threatIntelSetId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteThreatIntelSetResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.",
+        "operationId": "GetThreatIntelSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetThreatIntelSetRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "detectorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "threatIntelSetId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetThreatIntelSetResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2065,6 +2523,28 @@
       "properties": {},
       "type": "object"
     },
+    "AccessKeyDetails": {
+      "description": "The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.",
+      "properties": {
+        "AccessKeyId": {
+          "$ref": "#/definitions/__string",
+          "description": "Access key ID of the user."
+        },
+        "PrincipalId": {
+          "$ref": "#/definitions/__string",
+          "description": "The principal ID of the user."
+        },
+        "UserName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the user."
+        },
+        "UserType": {
+          "$ref": "#/definitions/__string",
+          "description": "The type of the user."
+        }
+      },
+      "type": "object"
+    },
     "AccountDetail": {
       "description": "An object containing the member's accountId and email address.",
       "properties": {
@@ -2115,6 +2595,10 @@
         "NetworkConnectionAction": {
           "$ref": "#/definitions/NetworkConnectionAction",
           "description": "Information about the NETWORK_CONNECTION action described in this finding."
+        },
+        "PortProbeAction": {
+          "$ref": "#/definitions/PortProbeAction",
+          "description": "Information about the PORT_PROBE action described in this finding."
         }
       },
       "type": "object"
@@ -3121,6 +3605,12 @@
       },
       "type": "object"
     },
+    "ListOfPortProbeDetail": {
+      "items": {
+        "$ref": "#/definitions/PortProbeDetail"
+      },
+      "type": "array"
+    },
     "ListThreatIntelSetsRequest": {
       "properties": {},
       "type": "object"
@@ -3377,6 +3867,34 @@
       },
       "type": "object"
     },
+    "PortProbeAction": {
+      "description": "Information about the PORT_PROBE action described in this finding.",
+      "properties": {
+        "Blocked": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Port probe blocked information."
+        },
+        "PortProbeDetails": {
+          "$ref": "#/definitions/ListOfPortProbeDetail",
+          "description": "A list of port probe details objects."
+        }
+      },
+      "type": "object"
+    },
+    "PortProbeDetail": {
+      "description": "Details about the port probe finding.",
+      "properties": {
+        "LocalPortDetails": {
+          "$ref": "#/definitions/LocalPortDetails",
+          "description": "Local port information of the connection."
+        },
+        "RemoteIpDetails": {
+          "$ref": "#/definitions/RemoteIpDetails",
+          "description": "Remote IP information of the connection."
+        }
+      },
+      "type": "object"
+    },
     "PrivateDnsName": {
       "description": "Private DNS name of the EC2 instance.",
       "type": "string"
@@ -3470,6 +3988,9 @@
     "Resource": {
       "description": "The AWS resource associated with the activity that prompted GuardDuty to generate a finding.",
       "properties": {
+        "AccessKeyDetails": {
+          "$ref": "#/definitions/AccessKeyDetails"
+        },
         "InstanceDetails": {
           "$ref": "#/definitions/InstanceDetails"
         },

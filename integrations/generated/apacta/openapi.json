@@ -2121,6 +2121,96 @@
         "operationId": "expenses.expense_id.put"
       }
     },
+    "/expenses/{expense_id}/original_files": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "expense_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "success": {
+                  "default": true,
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Auth-Token": []
+          },
+          {
+            "api_key": []
+          }
+        ],
+        "summary": "Show list of all OIOUBL files for the expense",
+        "tags": [
+          "Expense OIOUBL files"
+        ],
+        "operationId": "expenses.expense_id.original_files.get"
+      }
+    },
+    "/expenses/{expense_id}/original_files/{file_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "expense_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "file_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "success": {
+                  "default": true,
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorNotFound"
+            }
+          }
+        },
+        "security": [
+          {
+            "X-Auth-Token": []
+          },
+          {
+            "api_key": []
+          }
+        ],
+        "summary": "Show OIOUBL file",
+        "tags": [
+          "Expense OIOUBL files"
+        ],
+        "operationId": "expenses.expense_id.original_files.file_id.get"
+      }
+    },
     "/form_field_types": {
       "get": {
         "parameters": [

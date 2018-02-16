@@ -474,6 +474,27 @@ amazonaws_dms.DescribeRefreshSchemasStatus({
 #### Output
 * output [DescribeRefreshSchemasStatusResponse](#describerefreshschemasstatusresponse)
 
+### DescribeReplicationInstanceTaskLogs
+
+
+
+```js
+amazonaws_dms.DescribeReplicationInstanceTaskLogs({
+  "ReplicationInstanceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Marker [String](#string)
+  * MaxRecords [IntegerOptional](#integeroptional)
+  * ReplicationInstanceArn **required** [String](#string)
+
+#### Output
+* output [DescribeReplicationInstanceTaskLogsResponse](#describereplicationinstancetasklogsresponse)
+
 ### DescribeReplicationInstances
 
 
@@ -511,6 +532,25 @@ amazonaws_dms.DescribeReplicationSubnetGroups({}, context)
 
 #### Output
 * output [DescribeReplicationSubnetGroupsResponse](#describereplicationsubnetgroupsresponse)
+
+### DescribeReplicationTaskAssessmentResults
+
+
+
+```js
+amazonaws_dms.DescribeReplicationTaskAssessmentResults({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Marker [String](#string)
+  * MaxRecords [IntegerOptional](#integeroptional)
+  * ReplicationTaskArn [String](#string)
+
+#### Output
+* output [DescribeReplicationTaskAssessmentResultsResponse](#describereplicationtaskassessmentresultsresponse)
 
 ### DescribeReplicationTasks
 
@@ -732,6 +772,24 @@ amazonaws_dms.ModifyReplicationTask({
 #### Output
 * output [ModifyReplicationTaskResponse](#modifyreplicationtaskresponse)
 
+### RebootReplicationInstance
+
+
+
+```js
+amazonaws_dms.RebootReplicationInstance({
+  "ReplicationInstanceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ForceFailover [BooleanOptional](#booleanoptional)
+  * ReplicationInstanceArn **required** [String](#string)
+
+#### Output
+* output [RebootReplicationInstanceResponse](#rebootreplicationinstanceresponse)
+
 ### RefreshSchemas
 
 
@@ -808,6 +866,23 @@ amazonaws_dms.StartReplicationTask({
 
 #### Output
 * output [StartReplicationTaskResponse](#startreplicationtaskresponse)
+
+### StartReplicationTaskAssessment
+
+
+
+```js
+amazonaws_dms.StartReplicationTaskAssessment({
+  "ReplicationTaskArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReplicationTaskArn **required** [String](#string)
+
+#### Output
+* output [StartReplicationTaskAssessmentResponse](#startreplicationtaskassessmentresponse)
 
 ### StopReplicationTask
 
@@ -1161,6 +1236,18 @@ amazonaws_dms.TestConnection({
 * DescribeRefreshSchemasStatusResponse `object`: <p/>
   * RefreshSchemasStatus [RefreshSchemasStatus](#refreshschemasstatus)
 
+### DescribeReplicationInstanceTaskLogsMessage
+* DescribeReplicationInstanceTaskLogsMessage `object`
+  * Marker [String](#string)
+  * MaxRecords [IntegerOptional](#integeroptional)
+  * ReplicationInstanceArn **required** [String](#string)
+
+### DescribeReplicationInstanceTaskLogsResponse
+* DescribeReplicationInstanceTaskLogsResponse `object`
+  * Marker [String](#string)
+  * ReplicationInstanceArn [String](#string)
+  * ReplicationInstanceTaskLogs [ReplicationInstanceTaskLogsList](#replicationinstancetasklogslist)
+
 ### DescribeReplicationInstancesMessage
 * DescribeReplicationInstancesMessage `object`: <p/>
   * Filters [FilterList](#filterlist)
@@ -1182,6 +1269,18 @@ amazonaws_dms.TestConnection({
 * DescribeReplicationSubnetGroupsResponse `object`: <p/>
   * Marker [String](#string)
   * ReplicationSubnetGroups [ReplicationSubnetGroups](#replicationsubnetgroups)
+
+### DescribeReplicationTaskAssessmentResultsMessage
+* DescribeReplicationTaskAssessmentResultsMessage `object`: <p/>
+  * Marker [String](#string)
+  * MaxRecords [IntegerOptional](#integeroptional)
+  * ReplicationTaskArn [String](#string)
+
+### DescribeReplicationTaskAssessmentResultsResponse
+* DescribeReplicationTaskAssessmentResultsResponse `object`: <p/>
+  * BucketName [String](#string)
+  * Marker [String](#string)
+  * ReplicationTaskAssessmentResults [ReplicationTaskAssessmentResultList](#replicationtaskassessmentresultlist)
 
 ### DescribeReplicationTasksMessage
 * DescribeReplicationTasksMessage `object`: <p/>
@@ -1467,6 +1566,15 @@ amazonaws_dms.TestConnection({
 * OrderableReplicationInstanceList `array`
   * items [OrderableReplicationInstance](#orderablereplicationinstance)
 
+### RebootReplicationInstanceMessage
+* RebootReplicationInstanceMessage `object`
+  * ForceFailover [BooleanOptional](#booleanoptional)
+  * ReplicationInstanceArn **required** [String](#string)
+
+### RebootReplicationInstanceResponse
+* RebootReplicationInstanceResponse `object`
+  * ReplicationInstance [ReplicationInstance](#replicationinstance)
+
 ### RefreshSchemasMessage
 * RefreshSchemasMessage `object`: <p/>
   * EndpointArn **required** [String](#string)
@@ -1543,6 +1651,16 @@ amazonaws_dms.TestConnection({
 * ReplicationInstancePublicIpAddressList `array`
   * items [String](#string)
 
+### ReplicationInstanceTaskLog
+* ReplicationInstanceTaskLog `object`: Contains metadata for a replication instance task log.
+  * ReplicationInstanceTaskLogSize [Long](#long)
+  * ReplicationTaskArn [String](#string)
+  * ReplicationTaskName [String](#string)
+
+### ReplicationInstanceTaskLogsList
+* ReplicationInstanceTaskLogsList `array`
+  * items [ReplicationInstanceTaskLog](#replicationinstancetasklog)
+
 ### ReplicationPendingModifiedValues
 * ReplicationPendingModifiedValues `object`: <p/>
   * AllocatedStorage [IntegerOptional](#integeroptional)
@@ -1582,6 +1700,20 @@ amazonaws_dms.TestConnection({
   * StopReason [String](#string)
   * TableMappings [String](#string)
   * TargetEndpointArn [String](#string)
+
+### ReplicationTaskAssessmentResult
+* ReplicationTaskAssessmentResult `object`:  The task assessment report in JSON format. 
+  * AssessmentResults [String](#string)
+  * AssessmentResultsFile [String](#string)
+  * AssessmentStatus [String](#string)
+  * ReplicationTaskArn [String](#string)
+  * ReplicationTaskIdentifier [String](#string)
+  * ReplicationTaskLastAssessmentDate [TStamp](#tstamp)
+  * S3ObjectUrl [String](#string)
+
+### ReplicationTaskAssessmentResultList
+* ReplicationTaskAssessmentResultList `array`
+  * items [ReplicationTaskAssessmentResult](#replicationtaskassessmentresult)
 
 ### ReplicationTaskList
 * ReplicationTaskList `array`
@@ -1639,6 +1771,14 @@ amazonaws_dms.TestConnection({
 
 ### SourceType
 * SourceType `string` (values: replication-instance)
+
+### StartReplicationTaskAssessmentMessage
+* StartReplicationTaskAssessmentMessage `object`: <p/>
+  * ReplicationTaskArn **required** [String](#string)
+
+### StartReplicationTaskAssessmentResponse
+* StartReplicationTaskAssessmentResponse `object`: <p/>
+  * ReplicationTask [ReplicationTask](#replicationtask)
 
 ### StartReplicationTaskMessage
 * StartReplicationTaskMessage `object`: <p/>
@@ -1716,6 +1856,10 @@ amazonaws_dms.TestConnection({
   * TableName [String](#string)
   * TableState [String](#string)
   * Updates [Long](#long)
+  * ValidationFailedRecords [Long](#long)
+  * ValidationPendingRecords [Long](#long)
+  * ValidationState [String](#string)
+  * ValidationSuspendedRecords [Long](#long)
 
 ### TableStatisticsList
 * TableStatisticsList `array`

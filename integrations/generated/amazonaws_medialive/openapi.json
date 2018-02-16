@@ -6,6 +6,7 @@
   ],
   "host": "medialive.amazonaws.com",
   "basePath": "/",
+  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -233,9 +234,155 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a new channel",
+        "operationId": "CreateChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateChannelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateChannelResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "487": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
     },
     "/prod/channels/{channelId}": {
+      "delete": {
+        "description": "Starts deletion of channel. The associated outputs are also deleted.",
+        "operationId": "DeleteChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "channelId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteChannelResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "487": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Gets details about a channel",
         "operationId": "DescribeChannel",
@@ -334,7 +481,77 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Updates a channel.",
+        "operationId": "UpdateChannel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateChannelRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "channelId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateChannelResponse"
+            }
+          },
+          "480": {
+            "description": "UnprocessableEntityException",
+            "schema": {
+              "$ref": "#/definitions/UnprocessableEntityException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
     },
     "/prod/channels/{channelId}/start": {
       "parameters": [
@@ -651,9 +868,137 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a Input Security Group",
+        "operationId": "CreateInputSecurityGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateInputSecurityGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateInputSecurityGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/prod/inputSecurityGroups/{inputSecurityGroupId}": {
+      "delete": {
+        "description": "Deletes an Input Security Group",
+        "operationId": "DeleteInputSecurityGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInputSecurityGroupRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "inputSecurityGroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInputSecurityGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Produces a summary of an Input Security Group",
         "operationId": "DescribeInputSecurityGroup",
@@ -855,9 +1200,143 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Create an input",
+        "operationId": "CreateInput",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateInputRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateInputResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/prod/inputs/{inputId}": {
+      "delete": {
+        "description": "Deletes the input end point",
+        "operationId": "DeleteInput",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInputRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "inputId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInputResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "BadGatewayException",
+            "schema": {
+              "$ref": "#/definitions/BadGatewayException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "GatewayTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/GatewayTimeoutException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "487": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Produces details about an input",
         "operationId": "DescribeInput",
@@ -1748,7 +2227,7 @@
       "properties": {
         "CaptionChannel": {
           "$ref": "#/definitions/__integer",
-          "description": "Channel to insert closed captions.  Each channel mapping must have a unique channel number (maximum of 4)"
+          "description": "The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)"
         },
         "LanguageCode": {
           "$ref": "#/definitions/__string",
@@ -1829,6 +2308,9 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "The name of the channel. (user-mutable)"
@@ -1908,6 +2390,9 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "The name of the channel. (user-mutable)"
@@ -1948,6 +2433,10 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification",
+          "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "Name of channel."
@@ -1958,7 +2447,7 @@
         },
         "Reserved": {
           "$ref": "#/definitions/__string",
-          "description": "Reserved for future use."
+          "description": "Deprecated field that's only usable by whitelisted customers."
         },
         "RoleArn": {
           "$ref": "#/definitions/__string",
@@ -1980,6 +2469,10 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification",
+          "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "Name of channel."
@@ -1990,7 +2483,7 @@
         },
         "Reserved": {
           "$ref": "#/definitions/__string",
-          "description": "Reserved for future use."
+          "description": "Deprecated field that's only usable by whitelisted customers."
         },
         "RoleArn": {
           "$ref": "#/definitions/__string",
@@ -2022,7 +2515,7 @@
       "properties": {
         "Destinations": {
           "$ref": "#/definitions/ListOfInputDestinationRequest",
-          "description": "settings required for PUSH-type inputs; one per redundancy group.\nOnly one of sources and destinations can be specified.\nNote: there are currently no settings required for PUSH-type inputs\n"
+          "description": "Destination settings for PUSH type inputs."
         },
         "InputSecurityGroups": {
           "$ref": "#/definitions/ListOf__string",
@@ -2034,11 +2527,11 @@
         },
         "RequestId": {
           "$ref": "#/definitions/__string",
-          "description": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries\n"
+          "description": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.\n"
         },
         "Sources": {
           "$ref": "#/definitions/ListOfInputSourceRequest",
-          "description": "settings required for PULL-type inputs; one per redundancy group\nOnly one of sources and destinations can be specified\n"
+          "description": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
         "Type": {
           "$ref": "#/definitions/InputType"
@@ -2051,7 +2544,7 @@
       "properties": {
         "Destinations": {
           "$ref": "#/definitions/ListOfInputDestinationRequest",
-          "description": "settings required for PUSH-type inputs; one per redundancy group.\nOnly one of sources and destinations can be specified.\nNote: there are currently no settings required for PUSH-type inputs\n"
+          "description": "Destination settings for PUSH type inputs."
         },
         "InputSecurityGroups": {
           "$ref": "#/definitions/ListOf__string",
@@ -2063,11 +2556,11 @@
         },
         "RequestId": {
           "$ref": "#/definitions/__string",
-          "description": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries\n"
+          "description": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.\n"
         },
         "Sources": {
           "$ref": "#/definitions/ListOfInputSourceRequest",
-          "description": "settings required for PULL-type inputs; one per redundancy group\nOnly one of sources and destinations can be specified\n"
+          "description": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
         "Type": {
           "$ref": "#/definitions/InputType"
@@ -2152,6 +2645,9 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "The name of the channel. (user-mutable)"
@@ -2221,6 +2717,9 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "The name of the channel. (user-mutable)"
@@ -2249,31 +2748,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Unique ARN of input (generated, immutable)"
+          "description": "The Unique ARN of the input (generated, immutable)."
         },
         "AttachedChannels": {
           "$ref": "#/definitions/ListOf__string",
-          "description": "List of channel IDs that that input is attached to (currently an input can only be attached to one channel)"
+          "description": "A list of channel IDs that that input is attached to (currently an input can only be attached to one channel)."
         },
         "Destinations": {
           "$ref": "#/definitions/ListOfInputDestination",
-          "description": "List of destinations of input (PULL-type)"
+          "description": "A list of the destinations of the input (PUSH-type)."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "generated ID of input (unique for user account, immutable)"
+          "description": "The generated ID of the input (unique for user account, immutable)."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "user-assigned name (mutable)"
+          "description": "The user-assigned name (This is a mutable value)."
         },
         "SecurityGroups": {
           "$ref": "#/definitions/ListOf__string",
-          "description": "List of IDs for all the security groups attached to the input."
+          "description": "A list of IDs for all the security groups attached to the input."
         },
         "Sources": {
           "$ref": "#/definitions/ListOfInputSource",
-          "description": "List of sources of input (PULL-type)"
+          "description": "A list of the sources of the input (PULL-type)."
         },
         "State": {
           "$ref": "#/definitions/InputState"
@@ -3426,7 +3925,7 @@
         },
         "IndexNSegments": {
           "$ref": "#/definitions/__integer",
-          "description": "Number of segments to keep in the playlist (.m3u8) file. mode must be \"vod\" for this setting to have an effect, and this number should be less than or equal to keepSegments."
+          "description": "If mode is \"live\", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is \"vod\", this parameter has no effect."
         },
         "InputLossAction": {
           "$ref": "#/definitions/InputLossActionForHlsOut",
@@ -3442,7 +3941,7 @@
         },
         "KeepSegments": {
           "$ref": "#/definitions/__integer",
-          "description": "Number of segments to retain in the destination directory. mode must be \"live\" for this setting to have an effect."
+          "description": "If mode is \"live\", the number of TS segments to retain in the destination directory. If mode is \"vod\", this parameter has no effect."
         },
         "KeyFormat": {
           "$ref": "#/definitions/__string",
@@ -3470,7 +3969,7 @@
         },
         "Mode": {
           "$ref": "#/definitions/HlsMode",
-          "description": "If set to \"vod\", keeps and indexes all segments starting with the first segment.  If set to \"live\" segments will age out and only the last keepSegments number of segments will be retained."
+          "description": "If \"vod\", all segments are indexed and kept permanently in the destination and manifest. If \"live\", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.\n\nVOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a \"VOD\" type manifest on completion of the stream."
         },
         "OutputSelection": {
           "$ref": "#/definitions/HlsOutputSelection",
@@ -3732,31 +4231,31 @@
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
-          "description": "Unique ARN of input (generated, immutable)"
+          "description": "The Unique ARN of the input (generated, immutable)."
         },
         "AttachedChannels": {
           "$ref": "#/definitions/ListOf__string",
-          "description": "List of channel IDs that that input is attached to (currently an input can only be attached to one channel)"
+          "description": "A list of channel IDs that that input is attached to (currently an input can only be attached to one channel)."
         },
         "Destinations": {
           "$ref": "#/definitions/ListOfInputDestination",
-          "description": "List of destinations of input (PULL-type)"
+          "description": "A list of the destinations of the input (PUSH-type)."
         },
         "Id": {
           "$ref": "#/definitions/__string",
-          "description": "generated ID of input (unique for user account, immutable)"
+          "description": "The generated ID of the input (unique for user account, immutable)."
         },
         "Name": {
           "$ref": "#/definitions/__string",
-          "description": "user-assigned name (mutable)"
+          "description": "The user-assigned name (This is a mutable value)."
         },
         "SecurityGroups": {
           "$ref": "#/definitions/ListOf__string",
-          "description": "List of IDs for all the security groups attached to the input."
+          "description": "A list of IDs for all the security groups attached to the input."
         },
         "Sources": {
           "$ref": "#/definitions/ListOfInputSource",
-          "description": "List of sources of input (PULL-type)"
+          "description": "A list of the sources of the input (PULL-type)."
         },
         "State": {
           "$ref": "#/definitions/InputState"
@@ -3795,6 +4294,15 @@
       },
       "type": "object"
     },
+    "InputCodec": {
+      "description": "codec in increasing order of complexity",
+      "enum": [
+        "MPEG2",
+        "AVC",
+        "HEVC"
+      ],
+      "type": "string"
+    },
     "InputDeblockFilter": {
       "description": "Placeholder documentation for InputDeblockFilter",
       "enum": [
@@ -3812,15 +4320,15 @@
       "type": "string"
     },
     "InputDestination": {
-      "description": "Settings for a PUSH type input",
+      "description": "The settings for a PUSH type input.",
       "properties": {
         "Ip": {
           "$ref": "#/definitions/__string",
-          "description": "system-generated static IP address of endpoint.\nRemains fixed for the lifetime of the input\n"
+          "description": "The system-generated static IP address of endpoint.\nIt remains fixed for the lifetime of the input.\n"
         },
         "Port": {
           "$ref": "#/definitions/__string",
-          "description": "port for input"
+          "description": "The port number for the input."
         },
         "Url": {
           "$ref": "#/definitions/__string",
@@ -3830,7 +4338,7 @@
       "type": "object"
     },
     "InputDestinationRequest": {
-      "description": "Endpoint settings for a PUSH type input",
+      "description": "Endpoint settings for a PUSH type input.",
       "properties": {
         "StreamName": {
           "$ref": "#/definitions/__string",
@@ -3925,6 +4433,24 @@
       ],
       "type": "string"
     },
+    "InputMaximumBitrate": {
+      "description": "Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are supported currently.",
+      "enum": [
+        "MAX_10_MBPS",
+        "MAX_20_MBPS",
+        "MAX_50_MBPS"
+      ],
+      "type": "string"
+    },
+    "InputResolution": {
+      "description": "Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines\n",
+      "enum": [
+        "SD",
+        "HD",
+        "UHD"
+      ],
+      "type": "string"
+    },
     "InputSecurityGroup": {
       "description": "An Input Security Group",
       "properties": {
@@ -3996,11 +4522,11 @@
       "type": "object"
     },
     "InputSource": {
-      "description": "Settings for a PULL type input",
+      "description": "The settings for a PULL type input.",
       "properties": {
         "PasswordParam": {
           "$ref": "#/definitions/__string",
-          "description": "key used to extract the password from EC2 Parameter store"
+          "description": "The key used to extract the password from EC2 Parameter store."
         },
         "Url": {
           "$ref": "#/definitions/__string",
@@ -4008,7 +4534,7 @@
         },
         "Username": {
           "$ref": "#/definitions/__string",
-          "description": "username for input source"
+          "description": "The username for the input source."
         }
       },
       "type": "object"
@@ -4022,11 +4548,11 @@
       "type": "string"
     },
     "InputSourceRequest": {
-      "description": "Settings for for a PULL type input",
+      "description": "Settings for for a PULL type input.",
       "properties": {
         "PasswordParam": {
           "$ref": "#/definitions/__string",
-          "description": "key used to extract the password from EC2 Parameter store"
+          "description": "The key used to extract the password from EC2 Parameter store."
         },
         "Url": {
           "$ref": "#/definitions/__string",
@@ -4034,7 +4560,25 @@
         },
         "Username": {
           "$ref": "#/definitions/__string",
-          "description": "username for input source"
+          "description": "The username for the input source."
+        }
+      },
+      "type": "object"
+    },
+    "InputSpecification": {
+      "description": "Placeholder documentation for InputSpecification",
+      "properties": {
+        "Codec": {
+          "$ref": "#/definitions/InputCodec",
+          "description": "Input codec"
+        },
+        "MaximumBitrate": {
+          "$ref": "#/definitions/InputMaximumBitrate",
+          "description": "Maximum input bitrate, categorized coarsely"
+        },
+        "Resolution": {
+          "$ref": "#/definitions/InputResolution",
+          "description": "Input resolution, categorized coarsely"
         }
       },
       "type": "object"
@@ -4622,7 +5166,7 @@
         },
         "EcmPid": {
           "$ref": "#/definitions/__string",
-          "description": "Packet Identifier (PID) for ECM in the transport stream. Only enabled when Simulcrypt is enabled. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6)."
+          "description": "This field is unused and deprecated."
         },
         "EsRateInPes": {
           "$ref": "#/definitions/M2tsEsRateInPes",
@@ -4764,7 +5308,7 @@
         },
         "EcmPid": {
           "$ref": "#/definitions/__string",
-          "description": "ThePlatform-protected transport streams using 'microsoft' as Target Client include an ECM stream. This ECM stream contains the size, IV, and PTS of every sample in the transport stream.  This stream PID is specified here. This PID has no effect on non ThePlatform-protected streams."
+          "description": "This parameter is unused and deprecated."
         },
         "PatInterval": {
           "$ref": "#/definitions/__integer",
@@ -5365,6 +5909,9 @@
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
         },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification"
+        },
         "Name": {
           "$ref": "#/definitions/__string",
           "description": "The name of the channel. (user-mutable)"
@@ -5427,6 +5974,9 @@
         "InputAttachments": {
           "$ref": "#/definitions/ListOfInputAttachment",
           "description": "List of input attachments for channel."
+        },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification"
         },
         "Name": {
           "$ref": "#/definitions/__string",
@@ -5577,6 +6127,76 @@
         "ValidationErrors": {
           "$ref": "#/definitions/ListOfValidationError",
           "description": "A collection of validation error responses from attempting to create a channel with a bouquet of settings."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateChannel": {
+      "description": "Placeholder documentation for UpdateChannel",
+      "properties": {
+        "Destinations": {
+          "$ref": "#/definitions/ListOfOutputDestination",
+          "description": "A list of output destinations for this channel."
+        },
+        "EncoderSettings": {
+          "$ref": "#/definitions/EncoderSettings",
+          "description": "The encoder settings for this channel."
+        },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification",
+          "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the channel."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateChannelRequest": {
+      "description": "A request to update a channel.",
+      "properties": {
+        "Destinations": {
+          "$ref": "#/definitions/ListOfOutputDestination",
+          "description": "A list of output destinations for this channel."
+        },
+        "EncoderSettings": {
+          "$ref": "#/definitions/EncoderSettings",
+          "description": "The encoder settings for this channel."
+        },
+        "InputSpecification": {
+          "$ref": "#/definitions/InputSpecification",
+          "description": "Specification of input for this channel (max. bitrate, resolution, codec, etc.)"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the channel."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateChannelResponse": {
+      "description": "Placeholder documentation for UpdateChannelResponse",
+      "properties": {
+        "Channel": {
+          "$ref": "#/definitions/Channel"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateChannelResultModel": {
+      "description": "The updated channel's description.",
+      "properties": {
+        "Channel": {
+          "$ref": "#/definitions/Channel"
         }
       },
       "type": "object"

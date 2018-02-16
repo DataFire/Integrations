@@ -430,7 +430,7 @@ botify.getUrls({
 
 #### Input
 * input `object`
-  * UrlsQuery [UrlsQuery](#urlsquery)
+  * Query [Query](#query)
   * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
   * page `integer`: Page Number
   * size `integer`: Page Size
@@ -449,7 +449,7 @@ botify.getUrls({
   * size `integer`
 
 ### getUrlsAggs
-Query aggregator. It accepts multiple queries
+Query aggregator. It accepts multiple queries and dispatches them on ES or BQ.
 
 
 ```js
@@ -462,7 +462,7 @@ botify.getUrlsAggs({
 
 #### Input
 * input `object`
-  * UrlsAggsQueries [UrlsAggsQueries](#urlsaggsqueries)
+  * AggsQueries [AggsQueries](#aggsqueries)
   * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
@@ -493,6 +493,29 @@ botify.getUrlsDatamodel({
 
 #### Output
 * output [Datamodel](#datamodel)
+
+### getUrlsDatasets
+Gets Analysis Datasets
+
+
+```js
+botify.getUrlsDatasets({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
+  * deprecated_fields `boolean`: Include deprecated fields
+  * username **required** `string`: User's identifier
+  * project_slug **required** `string`: Project's identifier
+  * analysis_slug **required** `string`: Analysis' identifier
+
+#### Output
+* output [Datasets](#datasets)
 
 ### getUrlsExports
 A list of the CSV Exports requests and their current status
@@ -538,7 +561,7 @@ botify.createUrlsExport({
 
 #### Input
 * input `object`
-  * UrlsQuery [UrlsQuery](#urlsquery)
+  * Query [Query](#query)
   * area `string` (values: current, disappeared, new, search_engines_orphans, gsc_keywords): Analysis context
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
@@ -607,14 +630,14 @@ botify.getUrlsSuggestedFilters({
 
 #### Input
 * input `object`
-  * UrlsAggsQuery [UrlsAggsQuery](#urlsaggsquery)
+  * AggsQuery [AggsQuery](#aggsquery)
   * area `string` (values: current, new): Analysis context
   * username **required** `string`: User's identifier
   * project_slug **required** `string`: Project's identifier
   * analysis_slug **required** `string`: Analysis' identifier
 
 #### Output
-* output [UrlsAggsQuery](#urlsaggsquery)
+* output [AggsQuery](#aggsquery)
 
 ### getUrlDetail
 Gets the detail of an URL for an analysis
@@ -729,7 +752,7 @@ botify.getProjectUrlsAggs({
 
 #### Input
 * input `object`
-  * UrlsAggsQueries [UrlsAggsQueries](#urlsaggsqueries)
+  * AggsQueries [AggsQueries](#aggsqueries)
   * area `string` (values: current, disappeared, new, gsc_keywords): Analyses context
   * last_analysis_slug `string`: Last analysis on the trend
   * nb_analyses `integer`: Max number of analysis to return
@@ -773,6 +796,23 @@ botify.getProjectUrlsAggs({
   * error [ErrorAgg](#erroragg)
   * status **required** `integer`
 
+### AggsQueries
+* AggsQueries `array`
+  * items [AggsQuery](#aggsquery)
+
+### AggsQuery
+* AggsQuery `object`: AggsQuery
+  * aggs `array`
+    * items `object`
+  * filters `object`
+
+### AnalysesUpdateLaunch
+* AnalysesUpdateLaunch `object`: Launch Analyses Updates
+  * analyses **required** `array`
+    * items `string`
+  * refresh_features **required** `array`
+    * items `string`
+
 ### Analysis
 * Analysis `object`
   * computing_revision `string`
@@ -785,7 +825,6 @@ botify.getProjectUrlsAggs({
   * failures `string`
   * features `string`
   * friendly_name `string`
-  * id `integer`
   * import_keywords_data `string`
   * name `string`
   * owner `string`
@@ -809,7 +848,6 @@ botify.getProjectUrlsAggs({
   * failures `string`
   * features `string`
   * friendly_name `string`
-  * id `integer`
   * import_keywords_data `string`
   * name `string`
   * owner `string`
@@ -832,6 +870,11 @@ botify.getProjectUrlsAggs({
     * items [SuggestedUpdatesAddOnFeatures](#suggestedupdatesaddonfeatures)
   * features_to_update **required** `array`
     * items [SuggestedUpdatesFeaturesToUpdate](#suggestedupdatesfeaturestoupdate)
+
+### BqlDryRun
+* BqlDryRun `object`
+  * error `object`
+  * query **required** `string`
 
 ### CheckExternalStorageAccess
 * CheckExternalStorageAccess `object`
@@ -902,7 +945,7 @@ botify.getProjectUrlsAggs({
   * job_status `string`
   * job_url `string`
   * nb_results `integer`
-  * query **required** [UrlsQuery](#urlsquery)
+  * query **required** [Query](#query)
   * results `string`
 
 ### Datamodel
@@ -932,6 +975,45 @@ botify.getProjectUrlsAggs({
 * DatamodelGroup `object`
   * id **required** `string`
   * name **required** `string`
+
+### Dataset
+* Dataset `object`
+  * fields **required** `array`
+    * items [DatasetField](#datasetfield)
+  * groups **required** `array`
+    * items [DatasetGroup](#datasetgroup)
+  * id **required** `string`
+  * multiple `boolean`
+  * name **required** `string`
+
+### DatasetField
+* DatasetField `object`
+  * aliases `array`
+    * items `string`
+  * deprecated `boolean`
+  * group `string`
+  * id **required** `string`
+  * meta `object`
+  * multiple **required** `boolean`
+  * name **required** `string`
+  * optional **required** `boolean`
+  * permissions **required** `array`
+    * items `string`
+  * settings `object`
+  * subtype **required** `string`
+  * type **required** `string`
+
+### DatasetGroup
+* DatasetGroup `object`
+  * id **required** `string`
+  * multiple `boolean`
+  * name **required** `string`
+  * parent `string`
+
+### Datasets
+* Datasets `object`
+  * datasets **required** `array`
+    * items [Dataset](#dataset)
 
 ### Default
 * Default `object`
@@ -1070,6 +1152,19 @@ botify.getProjectUrlsAggs({
     * items `string`
   * user_agent `string`
 
+### ProjectsPaths
+* ProjectsPaths `object`: Projects paths
+  * projects **required** `array`
+    * items `string`
+
+### Query
+* Query `object`: Query
+  * fields `array`
+    * items `string`
+  * filters `object`
+  * sort `array`
+    * items `string`
+
 ### RewritingRule
 * RewritingRule `object`
   * ignore_case **required** `boolean`
@@ -1130,24 +1225,6 @@ botify.getProjectUrlsAggs({
 
 ### UrlHTML
 * UrlHTML `object`
-
-### UrlsAggsQueries
-* UrlsAggsQueries `array`
-  * items [UrlsAggsQuery](#urlsaggsquery)
-
-### UrlsAggsQuery
-* UrlsAggsQuery `object`: UrlsAggs query
-  * aggs `array`
-    * items `object`
-  * filters `object`
-
-### UrlsQuery
-* UrlsQuery `object`: Urls query
-  * fields `array`
-    * items `string`
-  * filters `object`
-  * sort `array`
-    * items `object`
 
 ### User
 * User `object`

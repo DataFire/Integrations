@@ -338,6 +338,74 @@ clever_cloud.logs.appId.get({
 #### Output
 *Output schema unknown*
 
+### logs.appId.drains.get
+Fetch the logs drains for a given application
+
+
+```js
+clever_cloud.logs.appId.drains.get({
+  "appId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### logs.appId.drains.post
+Add a log drain for a given application
+
+
+```js
+clever_cloud.logs.appId.drains.post({
+  "appId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### logs.appId.drains._idOrUrl.delete
+Delete the logs drain by id or url for a given application
+
+
+```js
+clever_cloud.logs.appId.drains._idOrUrl.delete({
+  "appId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### logs.appId.drains._idOrUrl.get
+Fetch the logs drain by id or url for a given application
+
+
+```js
+clever_cloud.logs.appId.drains._idOrUrl.get({
+  "appId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### getNewsfeedsBlog
 
 
@@ -721,7 +789,7 @@ clever_cloud.postOrganisations({}, context)
   * body [WannabeOrganisation](#wannabeorganisation)
 
 #### Output
-*Output schema unknown*
+* output [Organisation](#organisation)
 
 ### deleteOrganisationsId
 
@@ -773,7 +841,7 @@ clever_cloud.putOrganisationsId({
   * body [WannabeOrganisation](#wannabeorganisation)
 
 #### Output
-*Output schema unknown*
+* output [Organisation](#organisation)
 
 ### getOrganisationsIdAddonproviders
 
@@ -809,7 +877,7 @@ clever_cloud.postOrganisationsIdAddonproviders({
   * body [WannabeAddonProvider](#wannabeaddonprovider)
 
 #### Output
-*Output schema unknown*
+* output [Provider](#provider)
 
 ### getOrganisationsIdAddonprovidersProviderId
 
@@ -848,7 +916,7 @@ clever_cloud.putOrganisationsIdAddonprovidersProviderId({
   * body [WannabeAddonProvider](#wannabeaddonprovider)
 
 #### Output
-*Output schema unknown*
+* output [Provider](#provider)
 
 ### getOrganisationsIdAddonprovidersProviderIdFeatures
 
@@ -888,7 +956,7 @@ clever_cloud.postOrganisationsIdAddonprovidersProviderIdFeatures({
   * body [WannabeFeature](#wannabefeature)
 
 #### Output
-*Output schema unknown*
+* output [Feature](#feature)
 
 ### deleteOrganisationsIdAddonprovidersProviderIdFeaturesFeatureId
 
@@ -949,7 +1017,7 @@ clever_cloud.postOrganisationsIdAddonprovidersProviderIdPlans({
   * body [WannabePlan](#wannabeplan)
 
 #### Output
-*Output schema unknown*
+* output [Plan](#plan)
 
 ### deleteOrganisationsIdAddonprovidersProviderIdPlansPlanId
 
@@ -1013,7 +1081,7 @@ clever_cloud.putOrganisationsIdAddonprovidersProviderIdPlansPlanId({
   * body [WannabePlan](#wannabeplan)
 
 #### Output
-*Output schema unknown*
+* output [Plan](#plan)
 
 ### deleteOrganisationsIdAddonprovidersProviderIdPlansPlanIdFeaturesFeatureName
 
@@ -1154,7 +1222,7 @@ clever_cloud.postOrganisationsIdAddons({
   * body [WannabeAddon](#wannabeaddon)
 
 #### Output
-*Output schema unknown*
+* output [Addon](#addon)
 
 ### organisations.id.addons.preorders.post
 
@@ -1240,7 +1308,7 @@ clever_cloud.putOrganisationsIdAddonsAddonId({
   * body [WannabeAddon](#wannabeaddon)
 
 #### Output
-*Output schema unknown*
+* output [Addon](#addon)
 
 ### getOrganisationsIdAddonsAddonIdApplications
 
@@ -1300,7 +1368,7 @@ clever_cloud.putOrganisationsIdAddonsAddonIdPlan({
   * body [WannabePlan](#wannabeplan)
 
 #### Output
-*Output schema unknown*
+* output [Plan](#plan)
 
 ### organisations.id.addons.addonId.sso.get
 
@@ -1418,7 +1486,7 @@ clever_cloud.postOrganisationsIdApplications({
   * body [WannabeApplication](#wannabeapplication)
 
 #### Output
-*Output schema unknown*
+* output [Application](#application)
 
 ### deleteOrganisationsIdApplicationsAppId
 
@@ -1476,7 +1544,7 @@ clever_cloud.putOrganisationsIdApplicationsAppId({
   * body [WannabeApplication](#wannabeapplication)
 
 #### Output
-*Output schema unknown*
+* output [Application](#application)
 
 ### getOrganisationsIdApplicationsAppIdAddons
 
@@ -1616,6 +1684,26 @@ clever_cloud.getOrganisationsIdApplicationsAppIdDependencies({
 #### Output
 * output `array`
   * items [Application](#application)
+
+### organisations.id.applications.appId.dependencies.env.get
+
+
+
+```js
+clever_cloud.organisations.id.applications.appId.dependencies.env.get({
+  "appId": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required** `string`
+  * id **required** `string`
+
+#### Output
+* output `array`
+  * items [LinkedAppEnv](#linkedappenv)
 
 ### deleteOrganisationsIdApplicationsAppIdDependenciesDependencyId
 
@@ -1762,7 +1850,7 @@ clever_cloud.putOrganisationsIdApplicationsAppIdEnv({
   * body [WannabeEnv](#wannabeenv)
 
 #### Output
-*Output schema unknown*
+* output [ListEnv](#listenv)
 
 ### deleteOrganisationsIdApplicationsAppIdEnvEnvName
 
@@ -1805,7 +1893,7 @@ clever_cloud.putOrganisationsIdApplicationsAppIdEnvEnvName({
   * body [WannabeEnv](#wannabeenv)
 
 #### Output
-*Output schema unknown*
+* output [ListEnv](#listenv)
 
 ### organisations.id.applications.appId.exposed_env.get
 
@@ -1843,7 +1931,7 @@ clever_cloud.organisations.id.applications.appId.exposed_env.put({
   * id **required** `string`
 
 #### Output
-*Output schema unknown*
+* output [ListEnv](#listenv)
 
 ### deleteOrganisationsIdApplicationsAppIdInstances
 
@@ -2420,6 +2508,23 @@ clever_cloud.postOrganisationsIdPaymentsBillings({
 #### Output
 *Output schema unknown*
 
+### organisations.id.payments.billings.unpaid.get
+
+
+
+```js
+clever_cloud.organisations.id.payments.billings.unpaid.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### deleteOrganisationsIdPaymentsBillingsBid
 
 
@@ -2604,6 +2709,40 @@ clever_cloud.organisations.id.payments.methods.mId.delete({
 #### Input
 * input `object`
   * mId **required** `string`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### organisations.id.payments.monthlyinvoice.get
+
+
+
+```js
+clever_cloud.organisations.id.payments.monthlyinvoice.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### organisations.id.payments.monthlyinvoice.maxcredit.put
+
+
+
+```js
+clever_cloud.organisations.id.payments.monthlyinvoice.maxcredit.put({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
   * id **required** `string`
 
 #### Output
@@ -3447,6 +3586,24 @@ clever_cloud.getSelfApplicationsAppIdDependencies({
 #### Output
 * output `array`
   * items [Application](#application)
+
+### self.applications.appId.dependencies.env.get
+
+
+
+```js
+clever_cloud.self.applications.appId.dependencies.env.get({
+  "appId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * appId **required** `string`
+
+#### Output
+* output `array`
+  * items [LinkedAppEnv](#linkedappenv)
 
 ### deleteSelfApplicationsAppIdDependenciesDependencyId
 
@@ -4480,6 +4637,34 @@ clever_cloud.deleteSelfPaymentsMethodsMId({
 #### Output
 *Output schema unknown*
 
+### self.payments.monthlyinvoice.get
+
+
+
+```js
+clever_cloud.self.payments.monthlyinvoice.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### self.payments.monthlyinvoice.maxcredit.put
+
+
+
+```js
+clever_cloud.self.payments.monthlyinvoice.maxcredit.put(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
 ### deleteSelfPaymentsRecurring
 
 
@@ -4811,9 +4996,7 @@ clever_cloud.postVendorBillingOwnerId({
   * body **required** `string`
 
 ### Change_Password
-* Change_Password `object`
-  * newPassword **required** `string`
-  * oldPassword **required** `string`
+
 
 ### Conso
 * Conso `object`
@@ -4921,13 +5104,20 @@ clever_cloud.postVendorBillingOwnerId({
     * items `string`
   * type **required** `string`
   * variant **required** [Variant](#variant)
-  * version **required** `integer`
+  * version **required** `string`
 
 ### Key
 * Key `object`
   * fingerprint **required** `string`
   * key **required** `string`
   * name **required** `string`
+
+### LinkedAppEnv
+* LinkedAppEnv `object`
+  * app_id **required** `string`
+  * app_name **required** `string`
+  * env **required** `array`
+    * items [WannabeEnv](#wannabeenv)
 
 ### ListEnv
 * ListEnv `object`
@@ -4963,15 +5153,12 @@ clever_cloud.postVendorBillingOwnerId({
 
 ### PaymentData
 * PaymentData `object`
+  * deviceData `string`
   * token **required** `string`
-  * type **required** `string`
+  * type **required** `string` (values: NEW_CARD, EXISTING_CARD)
 
 ### Payment_Provider
-* Payment_Provider `object`
-  * comingSoon **required** `boolean`
-  * imgUrl **required** `string`
-  * name **required** `string`
-  * title **required** `string`
+
 
 ### Plan
 * Plan `object`
@@ -5091,8 +5278,7 @@ clever_cloud.postVendorBillingOwnerId({
   * token **required** `string`
 
 ### Transaction_Id
-* Transaction_Id `object`: A simple transaction id
-  * transactionId **required** `string`: The transaction Id
+
 
 ### URL
 * URL `object`: Must be a valid HTTP URL
@@ -5174,10 +5360,12 @@ clever_cloud.postVendorBillingOwnerId({
   * enabled **required** `boolean`
   * favourite `boolean`
   * homogeneous `boolean`
-  * instance **required** [Instance](#instance)
-  * maxFlavor [Flavor](#flavor)
+  * instanceType `string`
+  * instanceVariant `string`
+  * instanceVersion `string`
+  * maxFlavor `string`
   * maxInstances **required** `integer`
-  * minFlavor [Flavor](#flavor)
+  * minFlavor `string`
   * minInstances **required** `integer`
   * name **required** `string`
   * oauthApp [WannabeOauthApp](#wannabeoauthapp)

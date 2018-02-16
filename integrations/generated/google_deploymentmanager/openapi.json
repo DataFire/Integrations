@@ -266,11 +266,11 @@
         "operationId": "deployments.insert",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
           },
           {
             "description": "If set to true, creates a deployment and creates \"shell\" resources but does not actually instantiate these resources. This allows you to preview what your deployment looks like. After previewing a deployment, you can deploy your resources by making a request with the update() method or you can use the cancelPreview() method to cancel the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.",
@@ -279,11 +279,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Deployment"
-            }
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -323,10 +323,14 @@
         "operationId": "deployments.delete",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
+            "default": "DELETE",
+            "description": "Sets the policy to use for deleting resources.",
+            "enum": [
+              "ABANDON",
+              "DELETE"
+            ],
+            "in": "query",
+            "name": "deletePolicy",
             "type": "string"
           },
           {
@@ -337,14 +341,10 @@
             "type": "string"
           },
           {
-            "default": "DELETE",
-            "description": "Sets the policy to use for deleting resources.",
-            "enum": [
-              "ABANDON",
-              "DELETE"
-            ],
-            "in": "query",
-            "name": "deletePolicy",
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
             "type": "string"
           }
         ],
@@ -383,16 +383,16 @@
         "operationId": "deployments.get",
         "parameters": [
           {
-            "description": "The project ID for this request.",
+            "description": "The name of the deployment for this request.",
             "in": "path",
-            "name": "project",
+            "name": "deployment",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the deployment for this request.",
+            "description": "The project ID for this request.",
             "in": "path",
-            "name": "deployment",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -471,18 +471,11 @@
         "operationId": "deployments.patch",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the deployment for this request.",
-            "in": "path",
-            "name": "deployment",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
           },
           {
             "default": "CREATE_OR_ACQUIRE",
@@ -507,6 +500,13 @@
             "type": "string"
           },
           {
+            "description": "The name of the deployment for this request.",
+            "in": "path",
+            "name": "deployment",
+            "required": true,
+            "type": "string"
+          },
+          {
             "default": false,
             "description": "If set to true, updates the deployment and creates and updates the \"shell\" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.",
             "in": "query",
@@ -514,11 +514,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Deployment"
-            }
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -556,18 +556,11 @@
         "operationId": "deployments.update",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the deployment for this request.",
-            "in": "path",
-            "name": "deployment",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
           },
           {
             "default": "CREATE_OR_ACQUIRE",
@@ -592,6 +585,13 @@
             "type": "string"
           },
           {
+            "description": "The name of the deployment for this request.",
+            "in": "path",
+            "name": "deployment",
+            "required": true,
+            "type": "string"
+          },
+          {
             "default": false,
             "description": "If set to true, updates the deployment and creates and updates the \"shell\" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.",
             "in": "query",
@@ -599,11 +599,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Deployment"
-            }
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -666,11 +666,11 @@
         "operationId": "deployments.cancelPreview",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DeploymentsCancelPreviewRequest"
+            }
           },
           {
             "description": "The name of the deployment for this request.",
@@ -680,11 +680,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DeploymentsCancelPreviewRequest"
-            }
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -840,13 +840,6 @@
         "operationId": "manifests.get",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The name of the deployment for this request.",
             "in": "path",
             "name": "deployment",
@@ -857,6 +850,13 @@
             "description": "The name of the manifest for this request.",
             "in": "path",
             "name": "manifest",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1053,16 +1053,16 @@
         "operationId": "resources.get",
         "parameters": [
           {
-            "description": "The project ID for this request.",
+            "description": "The name of the deployment for this request.",
             "in": "path",
-            "name": "project",
+            "name": "deployment",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the deployment for this request.",
+            "description": "The project ID for this request.",
             "in": "path",
-            "name": "deployment",
+            "name": "project",
             "required": true,
             "type": "string"
           },
@@ -1173,11 +1173,11 @@
         "operationId": "deployments.stop",
         "parameters": [
           {
-            "description": "The project ID for this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DeploymentsStopRequest"
+            }
           },
           {
             "description": "The name of the deployment for this request.",
@@ -1187,11 +1187,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DeploymentsStopRequest"
-            }
+            "description": "The project ID for this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1328,6 +1328,13 @@
         "operationId": "deployments.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Policy"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -1340,13 +1347,6 @@
             "name": "resource",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Policy"
-            }
           }
         ],
         "responses": {
@@ -1409,6 +1409,13 @@
         "operationId": "deployments.testIamPermissions",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TestPermissionsRequest"
+            }
+          },
+          {
             "description": "Project ID for this request.",
             "in": "path",
             "name": "project",
@@ -1421,13 +1428,6 @@
             "name": "resource",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TestPermissionsRequest"
-            }
           }
         ],
         "responses": {
@@ -1576,16 +1576,16 @@
         "operationId": "operations.get",
         "parameters": [
           {
-            "description": "The project ID for this request.",
+            "description": "The name of the operation for this request.",
             "in": "path",
-            "name": "project",
+            "name": "operation",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the operation for this request.",
+            "description": "The project ID for this request.",
             "in": "path",
-            "name": "operation",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -1772,7 +1772,7 @@
   },
   "definitions": {
     "AuditConfig": {
-      "description": "Specifies the audit configuration for a service. The configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service, the union of the two AuditConfigs is used for that service: the log_types specified in each AuditConfig are enabled, and the exempted_members in each AuditConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n{ \"audit_configs\": [ { \"service\": \"allServices\" \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", \"exempted_members\": [ \"user:foo@gmail.com\" ] }, { \"log_type\": \"DATA_WRITE\", }, { \"log_type\": \"ADMIN_READ\", } ] }, { \"service\": \"fooservice.googleapis.com\" \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", }, { \"log_type\": \"DATA_WRITE\", \"exempted_members\": [ \"user:bar@gmail.com\" ] } ] } ] }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ logging. It also exempts foo@gmail.com from DATA_READ logging, and bar@gmail.com from DATA_WRITE logging.",
+      "description": "Specifies the audit configuration for a service. The configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConfig must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service, the union of the two AuditConfigs is used for that service: the log_types specified in each AuditConfig are enabled, and the exempted_members in each AuditLogConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n{ \"audit_configs\": [ { \"service\": \"allServices\" \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", \"exempted_members\": [ \"user:foo@gmail.com\" ] }, { \"log_type\": \"DATA_WRITE\", }, { \"log_type\": \"ADMIN_READ\", } ] }, { \"service\": \"fooservice.googleapis.com\" \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", }, { \"log_type\": \"DATA_WRITE\", \"exempted_members\": [ \"user:bar@gmail.com\" ] } ] } ] }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ logging. It also exempts foo@gmail.com from DATA_READ logging, and bar@gmail.com from DATA_WRITE logging.",
       "properties": {
         "auditLogConfigs": {
           "description": "The configuration for logging of each type of permission.",
@@ -1827,7 +1827,7 @@
       "properties": {
         "condition": {
           "$ref": "#/definitions/Expr",
-          "description": "The condition that is associated with this binding. NOTE: an unsatisfied condition will not allow user access via current binding. Different bindings, including their conditions, are examined independently. This field is GOOGLE_INTERNAL."
+          "description": "The condition that is associated with this binding. NOTE: an unsatisfied condition will not allow user access via current binding. Different bindings, including their conditions, are examined independently. This field is only visible as GOOGLE_INTERNAL or CONDITION_TRUSTED_TESTER."
         },
         "members": {
           "description": "Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values:\n\n* `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.\n\n* `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.\n\n* `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@gmail.com` or `joe@example.com`.\n\n\n\n* `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.\n\n* `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.\n\n\n\n* `domain:{domain}`: A Google Apps domain name that represents all the users of that domain. For example, `google.com` or `example.com`.",
@@ -2175,7 +2175,7 @@
       "type": "object"
     },
     "Operation": {
-      "description": "An Operation resource, used to manage asynchronous API requests.",
+      "description": "An Operation resource, used to manage asynchronous API requests. (== resource_for v1.globalOperations ==) (== resource_for beta.globalOperations ==) (== resource_for v1.regionOperations ==) (== resource_for beta.regionOperations ==) (== resource_for v1.zoneOperations ==) (== resource_for beta.zoneOperations ==)",
       "properties": {
         "clientOperationId": {
           "description": "[Output Only] Reserved for future use.",
@@ -2257,7 +2257,7 @@
           "type": "integer"
         },
         "region": {
-          "description": "[Output Only] The URL of the region where the operation resides. Only available when performing regional operations.",
+          "description": "[Output Only] The URL of the region where the operation resides. Only available when performing regional operations. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.",
           "type": "string"
         },
         "selfLink": {
@@ -2324,7 +2324,7 @@
           "type": "array"
         },
         "zone": {
-          "description": "[Output Only] The URL of the zone where the operation resides. Only available when performing per-zone operations.",
+          "description": "[Output Only] The URL of the zone where the operation resides. Only available when performing per-zone operations. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.",
           "type": "string"
         }
       },
@@ -2348,7 +2348,7 @@
       "type": "object"
     },
     "Policy": {
-      "description": "Defines an Identity and Access Management (IAM) policy. It is used to specify access control policies for Cloud Platform resources.\n\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of `members` to a `role`, where the members can be user accounts, Google groups, Google domains, and service accounts. A `role` is a named list of permissions defined by IAM.\n\n**Example**\n\n{ \"bindings\": [ { \"role\": \"roles/owner\", \"members\": [ \"user:mike@example.com\", \"group:admins@example.com\", \"domain:google.com\", \"serviceAccount:my-other-app@appspot.gserviceaccount.com\", ] }, { \"role\": \"roles/viewer\", \"members\": [\"user:sean@example.com\"] } ] }\n\nFor a description of IAM and its features, see the [IAM developer's guide](https://cloud.google.com/iam).",
+      "description": "Defines an Identity and Access Management (IAM) policy. It is used to specify access control policies for Cloud Platform resources.\n\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of `members` to a `role`, where the members can be user accounts, Google groups, Google domains, and service accounts. A `role` is a named list of permissions defined by IAM.\n\n**Example**\n\n{ \"bindings\": [ { \"role\": \"roles/owner\", \"members\": [ \"user:mike@example.com\", \"group:admins@example.com\", \"domain:google.com\", \"serviceAccount:my-other-app@appspot.gserviceaccount.com\", ] }, { \"role\": \"roles/viewer\", \"members\": [\"user:sean@example.com\"] } ] }\n\nFor a description of IAM and its features, see the [IAM developer's guide](https://cloud.google.com/iam/docs).",
       "properties": {
         "auditConfigs": {
           "description": "Specifies cloud audit logging configuration for this policy.",
@@ -2381,7 +2381,7 @@
           "type": "array"
         },
         "version": {
-          "description": "Version of the `Policy`. The default version is 0.",
+          "description": "Deprecated.",
           "format": "int32",
           "type": "integer"
         }

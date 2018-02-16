@@ -38,6 +38,50 @@ amazonaws_serverlessrepo.ListApplications({}, context)
 #### Output
 * output [ListApplicationsResponse](#listapplicationsresponse)
 
+### CreateApplication
+
+
+
+```js
+amazonaws_serverlessrepo.CreateApplication({}, context)
+```
+
+#### Input
+* input `object`
+  * Author [__string](#__string)
+  * Description [__string](#__string)
+  * Labels [ListOf__string](#listof__string)
+  * LicenseBody [__string](#__string)
+  * LicenseUrl [__string](#__string)
+  * Name [__string](#__string)
+  * ReadmeBody [__string](#__string)
+  * ReadmeUrl [__string](#__string)
+  * SemanticVersion [__string](#__string)
+  * SourceCodeUrl [__string](#__string)
+  * SpdxLicenseId [__string](#__string)
+  * TemplateBody [__string](#__string)
+  * TemplateUrl [__string](#__string)
+
+#### Output
+*Output schema unknown*
+
+### GetApplication
+
+
+
+```js
+amazonaws_serverlessrepo.GetApplication({
+  "applicationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
+
+#### Output
+* output [GetApplicationResponse](#getapplicationresponse)
+
 ### UpdateApplication
 
 
@@ -79,6 +123,23 @@ amazonaws_serverlessrepo.CreateCloudFormationChangeSet({
 
 #### Output
 *Output schema unknown*
+
+### GetApplicationPolicy
+
+
+
+```js
+amazonaws_serverlessrepo.GetApplicationPolicy({
+  "applicationId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * applicationId **required** `string`
+
+#### Output
+* output [GetApplicationPolicyResponse](#getapplicationpolicyresponse)
 
 ### PutApplicationPolicy
 

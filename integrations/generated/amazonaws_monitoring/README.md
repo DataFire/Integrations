@@ -48,12 +48,14 @@ amazonaws_monitoring.DeleteAlarms({
 
 
 ```js
-amazonaws_monitoring.DeleteDashboards({}, context)
+amazonaws_monitoring.DeleteDashboards({
+  "DashboardNames": []
+}, context)
 ```
 
 #### Input
 * input `object`
-  * DashboardNames [DashboardNames](#dashboardnames)
+  * DashboardNames **required** [DashboardNames](#dashboardnames)
 
 #### Output
 * output [DeleteDashboardsOutput](#deletedashboardsoutput)
@@ -165,12 +167,14 @@ amazonaws_monitoring.EnableAlarmActions({
 
 
 ```js
-amazonaws_monitoring.GetDashboard({}, context)
+amazonaws_monitoring.GetDashboard({
+  "DashboardName": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * DashboardName [DashboardName](#dashboardname)
+  * DashboardName **required** [DashboardName](#dashboardname)
 
 #### Output
 * output [GetDashboardOutput](#getdashboardoutput)
@@ -244,13 +248,16 @@ amazonaws_monitoring.ListMetrics({}, context)
 
 
 ```js
-amazonaws_monitoring.PutDashboard({}, context)
+amazonaws_monitoring.PutDashboard({
+  "DashboardName": "",
+  "DashboardBody": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * DashboardBody [DashboardBody](#dashboardbody)
-  * DashboardName [DashboardName](#dashboardname)
+  * DashboardBody **required** [DashboardBody](#dashboardbody)
+  * DashboardName **required** [DashboardName](#dashboardname)
 
 #### Output
 * output [PutDashboardOutput](#putdashboardoutput)
@@ -278,6 +285,7 @@ amazonaws_monitoring.PutMetricAlarm({
   * AlarmDescription [AlarmDescription](#alarmdescription)
   * AlarmName **required** [AlarmName](#alarmname)
   * ComparisonOperator **required** [ComparisonOperator](#comparisonoperator)
+  * DatapointsToAlarm [DatapointsToAlarm](#datapointstoalarm)
   * Dimensions [Dimensions](#dimensions)
   * EvaluateLowSampleCountPercentile [EvaluateLowSampleCountPercentile](#evaluatelowsamplecountpercentile)
   * EvaluationPeriods **required** [EvaluationPeriods](#evaluationperiods)
@@ -455,13 +463,16 @@ amazonaws_monitoring.SetAlarmState({
 * Datapoints `array`
   * items [Datapoint](#datapoint)
 
+### DatapointsToAlarm
+* DatapointsToAlarm `integer`
+
 ### DeleteAlarmsInput
 * DeleteAlarmsInput `object`
   * AlarmNames **required** [AlarmNames](#alarmnames)
 
 ### DeleteDashboardsInput
 * DeleteDashboardsInput `object`
-  * DashboardNames [DashboardNames](#dashboardnames)
+  * DashboardNames **required** [DashboardNames](#dashboardnames)
 
 ### DeleteDashboardsOutput
 * DeleteDashboardsOutput `object`
@@ -561,7 +572,7 @@ amazonaws_monitoring.SetAlarmState({
 
 ### GetDashboardInput
 * GetDashboardInput `object`
-  * DashboardName [DashboardName](#dashboardname)
+  * DashboardName **required** [DashboardName](#dashboardname)
 
 ### GetDashboardOutput
 * GetDashboardOutput `object`
@@ -665,6 +676,7 @@ amazonaws_monitoring.SetAlarmState({
   * AlarmDescription [AlarmDescription](#alarmdescription)
   * AlarmName [AlarmName](#alarmname)
   * ComparisonOperator [ComparisonOperator](#comparisonoperator)
+  * DatapointsToAlarm [DatapointsToAlarm](#datapointstoalarm)
   * Dimensions [Dimensions](#dimensions)
   * EvaluateLowSampleCountPercentile [EvaluateLowSampleCountPercentile](#evaluatelowsamplecountpercentile)
   * EvaluationPeriods [EvaluationPeriods](#evaluationperiods)
@@ -726,8 +738,8 @@ amazonaws_monitoring.SetAlarmState({
 
 ### PutDashboardInput
 * PutDashboardInput `object`
-  * DashboardBody [DashboardBody](#dashboardbody)
-  * DashboardName [DashboardName](#dashboardname)
+  * DashboardBody **required** [DashboardBody](#dashboardbody)
+  * DashboardName **required** [DashboardName](#dashboardname)
 
 ### PutDashboardOutput
 * PutDashboardOutput `object`
@@ -740,6 +752,7 @@ amazonaws_monitoring.SetAlarmState({
   * AlarmDescription [AlarmDescription](#alarmdescription)
   * AlarmName **required** [AlarmName](#alarmname)
   * ComparisonOperator **required** [ComparisonOperator](#comparisonoperator)
+  * DatapointsToAlarm [DatapointsToAlarm](#datapointstoalarm)
   * Dimensions [Dimensions](#dimensions)
   * EvaluateLowSampleCountPercentile [EvaluateLowSampleCountPercentile](#evaluatelowsamplecountpercentile)
   * EvaluationPeriods **required** [EvaluationPeriods](#evaluationperiods)

@@ -81,8 +81,8 @@ google_fitness.users.dataSources.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * dataTypeName `array`: The names of data types to include in the list. If not specified, all data sources will be returned.
+  * userId **required** `string`: List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -106,8 +106,8 @@ google_fitness.users.dataSources.create({
 
 #### Input
 * input `object`
-  * userId **required** `string`: Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * body [DataSource](#datasource)
+  * userId **required** `string`: Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -125,15 +125,15 @@ Deletes the specified data source. The request will fail if the data source cont
 
 ```js
 google_fitness.users.dataSources.delete({
-  "userId": "",
-  "dataSourceId": ""
+  "dataSourceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * dataSourceId **required** `string`: The data stream ID of the data source to delete.
+  * userId **required** `string`: Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -151,15 +151,15 @@ Returns the specified data source.
 
 ```js
 google_fitness.users.dataSources.get({
-  "userId": "",
-  "dataSourceId": ""
+  "dataSourceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * dataSourceId **required** `string`: The data stream ID of the data source to retrieve.
+  * userId **required** `string`: Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -179,16 +179,16 @@ Data sources are identified by their dataStreamId. This method supports patch se
 
 ```js
 google_fitness.users.dataSources.patch({
-  "userId": "",
-  "dataSourceId": ""
+  "dataSourceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
-  * dataSourceId **required** `string`: The data stream ID of the data source to update.
   * body [DataSource](#datasource)
+  * dataSourceId **required** `string`: The data stream ID of the data source to update.
+  * userId **required** `string`: Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -208,16 +208,16 @@ Data sources are identified by their dataStreamId.
 
 ```js
 google_fitness.users.dataSources.update({
-  "userId": "",
-  "dataSourceId": ""
+  "dataSourceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
-  * dataSourceId **required** `string`: The data stream ID of the data source to update.
   * body [DataSource](#datasource)
+  * dataSourceId **required** `string`: The data stream ID of the data source to update.
+  * userId **required** `string`: Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -263,19 +263,19 @@ Performs an inclusive delete of all data points whose start and end times have a
 
 ```js
 google_fitness.users.dataSources.datasets.delete({
-  "userId": "",
   "dataSourceId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
+  * currentTimeMillis `string`: The client's current time in milliseconds since epoch.
   * dataSourceId **required** `string`: The data stream ID of the data source that created the dataset.
   * datasetId **required** `string`: Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
-  * currentTimeMillis `string`: The client's current time in milliseconds since epoch.
   * modifiedTimeMillis `string`: When the operation was performed on the client.
+  * userId **required** `string`: Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -293,19 +293,19 @@ Returns a dataset containing all data points whose start and end times overlap w
 
 ```js
 google_fitness.users.dataSources.datasets.get({
-  "userId": "",
   "dataSourceId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * dataSourceId **required** `string`: The data stream ID of the data source that created the dataset.
   * datasetId **required** `string`: Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
   * limit `integer`: If specified, no more than this many data points will be included in the dataset. If there are more data points in the dataset, nextPageToken will be set in the dataset response.
   * pageToken `string`: The continuation token, which is used to page through large datasets. To get the next page of a dataset, set this parameter to the value of nextPageToken from the previous response. Each subsequent call will yield a partial dataset with data point end timestamps that are strictly smaller than those in the previous partial response.
+  * userId **required** `string`: Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -323,19 +323,19 @@ Adds data points to a dataset. The dataset need not be previously created. All p
 
 ```js
 google_fitness.users.dataSources.datasets.patch({
-  "userId": "",
   "dataSourceId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
+  * body [Dataset](#dataset)
+  * currentTimeMillis `string`: The client's current time in milliseconds since epoch. Note that the minStartTimeNs and maxEndTimeNs properties in the request body are in nanoseconds instead of milliseconds.
   * dataSourceId **required** `string`: The data stream ID of the data source that created the dataset.
   * datasetId **required** `string`: Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
-  * currentTimeMillis `string`: The client's current time in milliseconds since epoch. Note that the minStartTimeNs and maxEndTimeNs properties in the request body are in nanoseconds instead of milliseconds.
-  * body [Dataset](#dataset)
+  * userId **required** `string`: Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -359,8 +359,8 @@ google_fitness.users.dataset.aggregate({
 
 #### Input
 * input `object`
-  * userId **required** `string`: Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * body [AggregateRequest](#aggregaterequest)
+  * userId **required** `string`: Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -384,11 +384,11 @@ google_fitness.users.sessions.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * endTime `string`: An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response.
   * includeDeleted `boolean`: If true, deleted sessions will be returned. When set to true, sessions returned in this response will only have an ID and will not have any other fields.
   * pageToken `string`: The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of nextPageToken from the previous response.
   * startTime `string`: An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response.
+  * userId **required** `string`: List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -406,16 +406,16 @@ Deletes a session specified by the given session ID.
 
 ```js
 google_fitness.users.sessions.delete({
-  "userId": "",
-  "sessionId": ""
+  "sessionId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
-  * sessionId **required** `string`: The ID of the session to be deleted.
   * currentTimeMillis `string`: The client's current time in milliseconds since epoch.
+  * sessionId **required** `string`: The ID of the session to be deleted.
+  * userId **required** `string`: Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -433,17 +433,17 @@ Updates or insert a given session.
 
 ```js
 google_fitness.users.sessions.update({
-  "userId": "",
-  "sessionId": ""
+  "sessionId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
-  * sessionId **required** `string`: The ID of the session to be created.
-  * currentTimeMillis `string`: The client's current time in milliseconds since epoch.
   * body [Session](#session)
+  * currentTimeMillis `string`: The client's current time in milliseconds since epoch.
+  * sessionId **required** `string`: The ID of the session to be created.
+  * userId **required** `string`: Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

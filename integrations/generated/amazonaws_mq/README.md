@@ -38,6 +38,67 @@ amazonaws_mq.ListBrokers({}, context)
 #### Output
 * output [ListBrokersResponse](#listbrokersresponse)
 
+### CreateBroker
+
+
+
+```js
+amazonaws_mq.CreateBroker({}, context)
+```
+
+#### Input
+* input `object`
+  * AutoMinorVersionUpgrade [__boolean](#__boolean)
+  * BrokerName [__string](#__string)
+  * Configuration [ConfigurationId](#configurationid)
+  * CreatorRequestId [__string](#__string)
+  * DeploymentMode [DeploymentMode](#deploymentmode)
+  * EngineType [EngineType](#enginetype)
+  * EngineVersion [__string](#__string)
+  * HostInstanceType [__string](#__string)
+  * MaintenanceWindowStartTime [WeeklyStartTime](#weeklystarttime)
+  * PubliclyAccessible [__boolean](#__boolean)
+  * SecurityGroups [ListOf__string](#listof__string)
+  * SubnetIds [ListOf__string](#listof__string)
+  * Users [ListOfUser](#listofuser)
+
+#### Output
+* output [CreateBrokerResponse](#createbrokerresponse)
+
+### DeleteBroker
+
+
+
+```js
+amazonaws_mq.DeleteBroker({
+  "broker-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * broker-id **required** `string`
+
+#### Output
+* output [DeleteBrokerResponse](#deletebrokerresponse)
+
+### DescribeBroker
+
+
+
+```js
+amazonaws_mq.DescribeBroker({
+  "broker-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * broker-id **required** `string`
+
+#### Output
+* output [DescribeBrokerResponse](#describebrokerresponse)
+
 ### UpdateBroker
 
 
@@ -90,6 +151,66 @@ amazonaws_mq.ListUsers({
 #### Output
 * output [ListUsersResponse](#listusersresponse)
 
+### DeleteUser
+
+
+
+```js
+amazonaws_mq.DeleteUser({
+  "broker-id": "",
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * broker-id **required** `string`
+  * username **required** `string`
+
+#### Output
+* output [DeleteUserResponse](#deleteuserresponse)
+
+### DescribeUser
+
+
+
+```js
+amazonaws_mq.DescribeUser({
+  "broker-id": "",
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * broker-id **required** `string`
+  * username **required** `string`
+
+#### Output
+* output [DescribeUserResponse](#describeuserresponse)
+
+### CreateUser
+
+
+
+```js
+amazonaws_mq.CreateUser({
+  "broker-id": "",
+  "username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * broker-id **required** `string`
+  * username **required** `string`
+  * ConsoleAccess [__boolean](#__boolean)
+  * Groups [ListOf__string](#listof__string)
+  * Password [__string](#__string)
+
+#### Output
+* output [CreateUserResponse](#createuserresponse)
+
 ### UpdateUser
 
 
@@ -125,6 +246,40 @@ amazonaws_mq.ListConfigurations({}, context)
 
 #### Output
 * output [ListConfigurationsResponse](#listconfigurationsresponse)
+
+### CreateConfiguration
+
+
+
+```js
+amazonaws_mq.CreateConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+  * EngineType [EngineType](#enginetype)
+  * EngineVersion [__string](#__string)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateConfigurationResponse](#createconfigurationresponse)
+
+### DescribeConfiguration
+
+
+
+```js
+amazonaws_mq.DescribeConfiguration({
+  "configuration-id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * configuration-id **required** `string`
+
+#### Output
+* output [DescribeConfigurationResponse](#describeconfigurationresponse)
 
 ### UpdateConfiguration
 

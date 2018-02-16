@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Views and manages licenses for your domain.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Enterprise License Manager",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -47,11 +52,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/apps.licensing": "View and manage G Suite licenses for your domain"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/apps.licensing": "View and manage G Suite licenses for your domain"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -149,6 +164,13 @@
         "operationId": "licenseAssignments.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LicenseAssignmentInsert"
+            }
+          },
+          {
             "description": "Name for product",
             "in": "path",
             "name": "productId",
@@ -161,13 +183,6 @@
             "name": "skuId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LicenseAssignmentInsert"
-            }
           }
         ],
         "responses": {
@@ -181,6 +196,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.licensing"
             ]
           }
@@ -225,6 +243,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.licensing"
             ]
           }
@@ -271,6 +292,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.licensing"
             ]
           }
         ],
@@ -306,6 +330,13 @@
         "operationId": "licenseAssignments.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LicenseAssignment"
+            }
+          },
+          {
             "description": "Name for product",
             "in": "path",
             "name": "productId",
@@ -325,13 +356,6 @@
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LicenseAssignment"
-            }
           }
         ],
         "responses": {
@@ -346,6 +370,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.licensing"
             ]
           }
         ],
@@ -357,6 +384,13 @@
         "description": "Assign License.",
         "operationId": "licenseAssignments.update",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LicenseAssignment"
+            }
+          },
           {
             "description": "Name for product",
             "in": "path",
@@ -377,13 +411,6 @@
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LicenseAssignment"
-            }
           }
         ],
         "responses": {
@@ -397,6 +424,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.licensing"
             ]
           }
@@ -411,20 +441,6 @@
         "description": "List license assignments for given product and sku of the customer.",
         "operationId": "licenseAssignments.listForProductAndSku",
         "parameters": [
-          {
-            "description": "Name for product",
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name for sku",
-            "in": "path",
-            "name": "skuId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "CustomerId represents the customer for whom licenseassignments are queried",
             "in": "query",
@@ -447,6 +463,20 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Name for product",
+            "in": "path",
+            "name": "productId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name for sku",
+            "in": "path",
+            "name": "skuId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -460,6 +490,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.licensing"
             ]
           }
@@ -498,13 +531,6 @@
         "operationId": "licenseAssignments.listForProduct",
         "parameters": [
           {
-            "description": "Name for product",
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "CustomerId represents the customer for whom licenseassignments are queried",
             "in": "query",
             "name": "customerId",
@@ -526,6 +552,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Name for product",
+            "in": "path",
+            "name": "productId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -539,6 +572,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.licensing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.licensing"
             ]
           }

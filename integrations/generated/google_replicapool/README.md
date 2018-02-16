@@ -83,11 +83,11 @@ google_replicapool.instanceGroupManagers.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
   * filter `string`: Optional. Filter expression for filtering listed resources.
   * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
   * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+  * project **required** `string`: The Google Developers Console project name.
+  * zone **required** `string`: The name of the zone in which the instance group manager resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -106,17 +106,17 @@ Creates an instance group manager, as well as the instance group and the specifi
 ```js
 google_replicapool.instanceGroupManagers.insert({
   "project": "",
-  "zone": "",
-  "size": 0
+  "size": 0,
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * size **required** `integer`: Number of instances that should exist.
   * body [InstanceGroupManager](#instancegroupmanager)
+  * project **required** `string`: The Google Developers Console project name.
+  * size **required** `integer`: Number of instances that should exist.
+  * zone **required** `string`: The name of the zone in which the instance group manager resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -134,17 +134,17 @@ Deletes the instance group manager and all instances contained within. If you'd 
 
 ```js
 google_replicapool.instanceGroupManagers.delete({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instanceGroupManager **required** `string`: Name of the Instance Group Manager resource to delete.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: Name of the Instance Group Manager resource to delete.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -162,17 +162,17 @@ Returns the specified Instance Group Manager resource.
 
 ```js
 google_replicapool.instanceGroupManagers.get({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instanceGroupManager **required** `string`: Name of the instance resource to return.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: Name of the instance resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -190,18 +190,18 @@ Removes the specified instances from the managed instance group, and from any ta
 
 ```js
 google_replicapool.instanceGroupManagers.abandonInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [InstanceGroupManagersAbandonInstancesRequest](#instancegroupmanagersabandoninstancesrequest)
+  * instanceGroupManager **required** `string`: The name of the instance group manager.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * body [InstanceGroupManagersAbandonInstancesRequest](#instancegroupmanagersabandoninstancesrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -219,18 +219,18 @@ Deletes the specified instances. The instances are deleted, then removed from th
 
 ```js
 google_replicapool.instanceGroupManagers.deleteInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [InstanceGroupManagersDeleteInstancesRequest](#instancegroupmanagersdeleteinstancesrequest)
+  * instanceGroupManager **required** `string`: The name of the instance group manager.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * body [InstanceGroupManagersDeleteInstancesRequest](#instancegroupmanagersdeleteinstancesrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -248,18 +248,18 @@ Recreates the specified instances. The instances are deleted, then recreated usi
 
 ```js
 google_replicapool.instanceGroupManagers.recreateInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [InstanceGroupManagersRecreateInstancesRequest](#instancegroupmanagersrecreateinstancesrequest)
+  * instanceGroupManager **required** `string`: The name of the instance group manager.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * body [InstanceGroupManagersRecreateInstancesRequest](#instancegroupmanagersrecreateinstancesrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -277,19 +277,19 @@ Resizes the managed instance group up or down. If resized up, new instances are 
 
 ```js
 google_replicapool.instanceGroupManagers.resize({
-  "project": "",
-  "zone": "",
   "instanceGroupManager": "",
-  "size": 0
+  "project": "",
+  "size": 0,
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the instance group manager resides.
   * instanceGroupManager **required** `string`: The name of the instance group manager.
+  * project **required** `string`: The Google Developers Console project name.
   * size **required** `integer`: Number of instances that should exist in this Instance Group Manager.
+  * zone **required** `string`: The name of the zone in which the instance group manager resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -307,18 +307,18 @@ Sets the instance template to use when creating new instances in this group. Exi
 
 ```js
 google_replicapool.instanceGroupManagers.setInstanceTemplate({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [InstanceGroupManagersSetInstanceTemplateRequest](#instancegroupmanagerssetinstancetemplaterequest)
+  * instanceGroupManager **required** `string`: The name of the instance group manager.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * body [InstanceGroupManagersSetInstanceTemplateRequest](#instancegroupmanagerssetinstancetemplaterequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -336,18 +336,18 @@ Modifies the target pools to which all new instances in this group are assigned.
 
 ```js
 google_replicapool.instanceGroupManagers.setTargetPools({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [InstanceGroupManagersSetTargetPoolsRequest](#instancegroupmanagerssettargetpoolsrequest)
+  * instanceGroupManager **required** `string`: The name of the instance group manager.
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the instance group manager resides.
-  * instanceGroupManager **required** `string`: The name of the instance group manager.
-  * body [InstanceGroupManagersSetTargetPoolsRequest](#instancegroupmanagerssettargetpoolsrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -372,11 +372,11 @@ google_replicapool.zoneOperations.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: Name of the project scoping this request.
-  * zone **required** `string`: Name of the zone scoping this request.
   * filter `string`: Optional. Filter expression for filtering listed resources.
   * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
   * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+  * project **required** `string`: Name of the project scoping this request.
+  * zone **required** `string`: Name of the zone scoping this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -394,17 +394,17 @@ Retrieves the specified zone-specific operation resource.
 
 ```js
 google_replicapool.zoneOperations.get({
+  "operation": "",
   "project": "",
-  "zone": "",
-  "operation": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the operation resource to return.
   * project **required** `string`: Name of the project scoping this request.
   * zone **required** `string`: Name of the zone scoping this request.
-  * operation **required** `string`: Name of the operation resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

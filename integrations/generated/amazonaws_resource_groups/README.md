@@ -40,6 +40,64 @@ amazonaws_resource_groups.ListGroups({}, context)
 #### Output
 * output [ListGroupsOutput](#listgroupsoutput)
 
+### CreateGroup
+
+
+
+```js
+amazonaws_resource_groups.CreateGroup({
+  "Name": "",
+  "ResourceQuery": {
+    "Type": "",
+    "Query": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description [GroupDescription](#groupdescription)
+  * Name **required** [GroupName](#groupname)
+  * ResourceQuery **required** [ResourceQuery](#resourcequery)
+  * Tags [Tags](#tags)
+
+#### Output
+* output [CreateGroupOutput](#creategroupoutput)
+
+### DeleteGroup
+
+
+
+```js
+amazonaws_resource_groups.DeleteGroup({
+  "GroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required** `string`
+
+#### Output
+* output [DeleteGroupOutput](#deletegroupoutput)
+
+### GetGroup
+
+
+
+```js
+amazonaws_resource_groups.GetGroup({
+  "GroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required** `string`
+
+#### Output
+* output [GetGroupOutput](#getgroupoutput)
+
 ### UpdateGroup
 
 
@@ -57,6 +115,23 @@ amazonaws_resource_groups.UpdateGroup({
 
 #### Output
 * output [UpdateGroupOutput](#updategroupoutput)
+
+### GetGroupQuery
+
+
+
+```js
+amazonaws_resource_groups.GetGroupQuery({
+  "GroupName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required** `string`
+
+#### Output
+* output [GetGroupQueryOutput](#getgroupqueryoutput)
 
 ### UpdateGroupQuery
 
@@ -123,6 +198,23 @@ amazonaws_resource_groups.SearchResources({
 #### Output
 * output [SearchResourcesOutput](#searchresourcesoutput)
 
+### GetTags
+
+
+
+```js
+amazonaws_resource_groups.GetTags({
+  "Arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Arn **required** `string`
+
+#### Output
+* output [GetTagsOutput](#gettagsoutput)
+
 ### Untag
 
 
@@ -141,6 +233,25 @@ amazonaws_resource_groups.Untag({
 
 #### Output
 * output [UntagOutput](#untagoutput)
+
+### Tag
+
+
+
+```js
+amazonaws_resource_groups.Tag({
+  "Arn": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * Arn **required** `string`
+  * Tags **required** [Tags](#tags)
+
+#### Output
+* output [TagOutput](#tagoutput)
 
 
 

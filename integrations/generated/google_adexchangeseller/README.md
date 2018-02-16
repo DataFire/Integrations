@@ -354,22 +354,22 @@ Generate an Ad Exchange report based on the report request sent in the query par
 ```js
 google_adexchangeseller.accounts.reports.generate({
   "accountId": "",
-  "startDate": "",
-  "endDate": ""
+  "endDate": "",
+  "startDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account which owns the generated report.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * dimension `array`: Dimensions to base the report on.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -422,9 +422,9 @@ google_adexchangeseller.accounts.reports.saved.generate({
 #### Input
 * input `object`
   * accountId **required** `string`: Account owning the saved report.
-  * savedReportId **required** `string`: The saved report to retrieve.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
+  * savedReportId **required** `string`: The saved report to retrieve.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.

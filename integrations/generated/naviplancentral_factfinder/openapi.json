@@ -148,6 +148,9 @@
           "401": {
             "description": "Request is unauthorized for access to Account."
           },
+          "403": {
+            "description": "Request is restricted for access to Account."
+          },
           "404": {
             "description": "Account not found."
           }
@@ -187,6 +190,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Account."
+          },
+          "403": {
+            "description": "Request is restricted for access to Account."
           },
           "404": {
             "description": "Account not found."
@@ -234,6 +240,9 @@
           "401": {
             "description": "Request is unauthorized for access to Account."
           },
+          "403": {
+            "description": "Request is restricted for access to Account."
+          },
           "404": {
             "description": "Account not found."
           }
@@ -268,6 +277,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Account."
+          },
+          "403": {
+            "description": "Request is restricted for access to Account."
           },
           "404": {
             "description": "Account not found."
@@ -304,6 +316,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Account."
+          },
+          "403": {
+            "description": "Request is restricted for access to Account."
           },
           "404": {
             "description": "Account not found."
@@ -353,6 +368,9 @@
           "401": {
             "description": "Request is unauthorized for access to Account."
           },
+          "403": {
+            "description": "Request is restricted for access to Account."
+          },
           "404": {
             "description": "Account not found."
           }
@@ -393,6 +411,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Client."
+          },
+          "403": {
+            "description": "Request is restricted for access to Client."
           }
         },
         "tags": [
@@ -428,6 +449,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Critical Illness Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Critical Illness Insurance Policy."
           },
           "404": {
             "description": "Critical Illness Insurance Policy not found."
@@ -469,6 +493,9 @@
           "401": {
             "description": "Request is unauthorized for access to Critical Illness Insurance Policy."
           },
+          "403": {
+            "description": "Request is restricted for access to Critical Illness Insurance Policy."
+          },
           "404": {
             "description": "Critical Illness Insurance Policy not found."
           }
@@ -503,6 +530,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Critical Illness Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Critical Illness Insurance Policy."
           },
           "404": {
             "description": "Critical Illness Insurance Policy not found."
@@ -539,6 +569,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Critical Illness Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Critical Illness Insurance Policy."
           },
           "404": {
             "description": "Critical Illness Insurance Policy not found."
@@ -587,6 +620,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Critical Illness Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Critical Illness Insurance Policy."
           },
           "404": {
             "description": "Critical Illness Insurance Policy not found."
@@ -699,6 +735,9 @@
           "401": {
             "description": "Request is unauthorized for access to Defined Benefit Pension."
           },
+          "403": {
+            "description": "Request is restricted for access to Defined Benefit Pension."
+          },
           "404": {
             "description": "Defined Benefit Pension not found."
           }
@@ -745,6 +784,9 @@
           "401": {
             "description": "Request is unauthorized for access to Defined Benefit Pension."
           },
+          "403": {
+            "description": "Request is restricted for access to Defined Benefit Pension."
+          },
           "404": {
             "description": "Defined Benefit Pension not found."
           }
@@ -786,6 +828,9 @@
           "401": {
             "description": "Request is unauthorized for access to Defined Benefit Pension."
           },
+          "403": {
+            "description": "Request is restricted for access to Defined Benefit Pension."
+          },
           "404": {
             "description": "Defined Benefit Pension not found."
           }
@@ -821,6 +866,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Defined Benefit Pension."
+          },
+          "403": {
+            "description": "Request is restricted for access to Defined Benefit Pension."
           },
           "404": {
             "description": "Defined Benefit Pension not found."
@@ -870,6 +918,9 @@
           "401": {
             "description": "Request is unauthorized for access to Defined Benefit Pension."
           },
+          "403": {
+            "description": "Request is restricted for access to Defined Benefit Pension."
+          },
           "404": {
             "description": "Defined Benefit Pension not found."
           }
@@ -907,6 +958,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Demographic information."
+          },
+          "403": {
+            "description": "Request is restricted for access to Demographic information."
           },
           "404": {
             "description": "Demographic information not found."
@@ -948,6 +1002,9 @@
           "401": {
             "description": "Request is unauthorized for access to Demographic information."
           },
+          "403": {
+            "description": "Request is restricted for access to Demographic information."
+          },
           "404": {
             "description": "Demographic information not found."
           }
@@ -985,6 +1042,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Dependent information."
+          },
+          "403": {
+            "description": "Request is restricted for access to Dependent information."
           },
           "404": {
             "description": "Dependent information not found."
@@ -1034,6 +1094,9 @@
           "401": {
             "description": "Request is unauthorized for access to Dependent information."
           },
+          "403": {
+            "description": "Request is restricted for access to Dependent information."
+          },
           "404": {
             "description": "Dependent information not found."
           },
@@ -1080,6 +1143,9 @@
           "401": {
             "description": "Request is unauthorized for access to Dependent information."
           },
+          "403": {
+            "description": "Request is restricted for access to Dependent information."
+          },
           "404": {
             "description": "Dependent information not found."
           }
@@ -1123,6 +1189,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Dependent information."
+          },
+          "403": {
+            "description": "Request is restricted for access to Dependent information."
           },
           "404": {
             "description": "Dependent information not found."
@@ -1180,6 +1249,9 @@
           "401": {
             "description": "Request is unauthorized for access to Dependent information."
           },
+          "403": {
+            "description": "Request is restricted for access to Dependent information."
+          },
           "404": {
             "description": "Dependent information not found."
           }
@@ -1217,6 +1289,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Demographic information."
+          },
+          "403": {
+            "description": "Request is restricted for access to Demographic information."
           },
           "404": {
             "description": "Demographic information not found."
@@ -1266,6 +1341,9 @@
           "401": {
             "description": "Request is unauthorized for access to Demographic information."
           },
+          "403": {
+            "description": "Request is restricted for access to Demographic information."
+          },
           "404": {
             "description": "Demographic information not found."
           },
@@ -1307,6 +1385,9 @@
           "401": {
             "description": "Request is unauthorized for access to Disability Insurance Policy."
           },
+          "403": {
+            "description": "Request is restricted for access to Disability Insurance Policy."
+          },
           "404": {
             "description": "Disability Insurance Policy not found."
           }
@@ -1347,6 +1428,9 @@
           "401": {
             "description": "Request is unauthorized for access to Disability Insurance Policy."
           },
+          "403": {
+            "description": "Request is restricted for access to Disability Insurance Policy."
+          },
           "404": {
             "description": "Disability Insurance Policy not found."
           }
@@ -1381,6 +1465,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Disability Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Disability Insurance Policy."
           },
           "404": {
             "description": "Disability Insurance Policy not found."
@@ -1417,6 +1504,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Disability Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Disability Insurance Policy."
           },
           "404": {
             "description": "Disability Insurance Policy not found."
@@ -1465,6 +1555,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Disability Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Disability Insurance Policy."
           },
           "404": {
             "description": "Disability Insurance Policy not found."
@@ -1577,6 +1670,9 @@
           "401": {
             "description": "Request is unauthorized for access to Education Goal."
           },
+          "403": {
+            "description": "Request is restricted for access to Education Goal."
+          },
           "404": {
             "description": "Education Goal not found."
           }
@@ -1617,6 +1713,9 @@
           "401": {
             "description": "Request is unauthorized for access to Education Goal."
           },
+          "403": {
+            "description": "Request is restricted for access to Education Goal."
+          },
           "404": {
             "description": "Education Goal not found."
           }
@@ -1654,6 +1753,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Education Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Education Goal Expense."
           },
           "404": {
             "description": "Education Goal Expense not found."
@@ -1703,6 +1805,9 @@
           "401": {
             "description": "Request is unauthorized for access to Education Goal Expense."
           },
+          "403": {
+            "description": "Request is restricted for access to Education Goal Expense."
+          },
           "404": {
             "description": "Education Goal Expense not found."
           }
@@ -1745,6 +1850,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Education Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Education Goal Expense."
           },
           "404": {
             "description": "Education Goal Expense not found."
@@ -1789,6 +1897,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Education Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Education Goal Expense."
           },
           "404": {
             "description": "Education Goal Expense not found."
@@ -1846,6 +1957,9 @@
           "401": {
             "description": "Request is unauthorized for access to Education Goal Expense."
           },
+          "403": {
+            "description": "Request is restricted for access to Education Goal Expense."
+          },
           "404": {
             "description": "Education Goal Expense not found."
           }
@@ -1880,6 +1994,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Education Goal."
+          },
+          "403": {
+            "description": "Request is restricted for access to Education Goal."
           },
           "404": {
             "description": "Education Goal not found."
@@ -1916,6 +2033,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Education Goal."
+          },
+          "403": {
+            "description": "Request is restricted for access to Education Goal."
           },
           "404": {
             "description": "Education Goal not found."
@@ -1964,6 +2084,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Education Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Education Goal Expense."
           },
           "404": {
             "description": "Education Goal not found."
@@ -2076,6 +2199,9 @@
           "401": {
             "description": "Request is unauthorized for access to Expense."
           },
+          "403": {
+            "description": "Request is restricted for access to Expense."
+          },
           "404": {
             "description": "Expense not found."
           }
@@ -2116,6 +2242,9 @@
           "401": {
             "description": "Request is unauthorized for access to Expense."
           },
+          "403": {
+            "description": "Request is restricted for access to Expense."
+          },
           "404": {
             "description": "Expense not found."
           }
@@ -2150,6 +2279,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Expense."
           },
           "404": {
             "description": "Expense not found."
@@ -2186,6 +2318,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Expense."
           },
           "404": {
             "description": "Expense not found."
@@ -2235,6 +2370,9 @@
           "401": {
             "description": "Request is unauthorized for access to Expense."
           },
+          "403": {
+            "description": "Request is restricted for access to Expense."
+          },
           "404": {
             "description": "Expense not found."
           }
@@ -2282,6 +2420,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Fact Finder."
+          },
+          "403": {
+            "description": "Request is restricted for access to Fact Finder."
           },
           "404": {
             "description": "Fact Finder not found."
@@ -2464,6 +2605,9 @@
           "401": {
             "description": "Unauthorized for Fact Finder data access"
           },
+          "403": {
+            "description": "Request is restricted for access to Fact Finder."
+          },
           "404": {
             "description": "Fact Finder not found."
           }
@@ -2512,6 +2656,9 @@
           "401": {
             "description": "Request is unauthorized for access to Fact Finder."
           },
+          "403": {
+            "description": "Request is restricted for access to Fact Finder."
+          },
           "404": {
             "description": "Fact Finder not found."
           }
@@ -2555,6 +2702,9 @@
           },
           "401": {
             "description": "Unauthorized for Fact Finder data access"
+          },
+          "403": {
+            "description": "Request is restricted for access to Fact Finder."
           },
           "404": {
             "description": "Fact Finder Snapshot not found."
@@ -2832,6 +2982,9 @@
           "401": {
             "description": "Request is unauthorized for access to Income."
           },
+          "403": {
+            "description": "Request is restricted for access to Income."
+          },
           "404": {
             "description": "Income not found."
           }
@@ -2872,6 +3025,9 @@
           "401": {
             "description": "Request is unauthorized for access to Income."
           },
+          "403": {
+            "description": "Request is restricted for access to Income."
+          },
           "404": {
             "description": "Income not found."
           }
@@ -2906,6 +3062,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Income."
+          },
+          "403": {
+            "description": "Request is restricted for access to Income."
           },
           "404": {
             "description": "Income not found."
@@ -2942,6 +3101,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Income."
+          },
+          "403": {
+            "description": "Request is restricted for access to Income."
           },
           "404": {
             "description": "Income not found."
@@ -2991,6 +3153,9 @@
           "401": {
             "description": "Request is unauthorized for access to Income."
           },
+          "403": {
+            "description": "Request is restricted for access to Income."
+          },
           "404": {
             "description": "Income not found."
           }
@@ -3036,6 +3201,9 @@
           "401": {
             "description": "Request is unauthorized for access to Liability."
           },
+          "403": {
+            "description": "Request is restricted for access to Liability."
+          },
           "404": {
             "description": "Liability not found."
           }
@@ -3076,6 +3244,9 @@
           "401": {
             "description": "Request is unauthorized for access to Liability."
           },
+          "403": {
+            "description": "Request is restricted for access to Liability."
+          },
           "404": {
             "description": "Liability not found."
           }
@@ -3110,6 +3281,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Liability."
+          },
+          "403": {
+            "description": "Request is restricted for access to Liability."
           },
           "404": {
             "description": "Liability not found."
@@ -3146,6 +3320,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Liability."
+          },
+          "403": {
+            "description": "Request is restricted for access to Liability."
           },
           "404": {
             "description": "Liability not found."
@@ -3194,6 +3371,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Liability."
+          },
+          "403": {
+            "description": "Request is restricted for access to Liability."
           },
           "404": {
             "description": "Liability not found."
@@ -3306,6 +3486,9 @@
           "401": {
             "description": "Request is unauthorized for access to Life Insurance Policy."
           },
+          "403": {
+            "description": "Request is restricted for access to Life Insurance Policy."
+          },
           "404": {
             "description": "Life Insurance Policy not found."
           }
@@ -3346,6 +3529,9 @@
           "401": {
             "description": "Request is unauthorized for access to Life Insurance Policy."
           },
+          "403": {
+            "description": "Request is restricted for access to Life Insurance Policy."
+          },
           "404": {
             "description": "Life Insurance Policy not found."
           }
@@ -3380,6 +3566,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Life Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Life Insurance Policy."
           },
           "404": {
             "description": "Life Insurance Policy not found."
@@ -3416,6 +3605,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Life Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Life Insurance Policy."
           },
           "404": {
             "description": "Life Insurance Policy not found."
@@ -3464,6 +3656,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Life Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Life Insurance Policy."
           },
           "404": {
             "description": "Life Insurance Policy not found."
@@ -3649,6 +3844,9 @@
           "401": {
             "description": "Request is unauthorized for access to Lifestyle Asset."
           },
+          "403": {
+            "description": "Request is restricted for access to Lifestyle Asset."
+          },
           "404": {
             "description": "Lifestyle Asset not found."
           }
@@ -3689,6 +3887,9 @@
           "401": {
             "description": "Request is unauthorized for access to Lifestyle Asset."
           },
+          "403": {
+            "description": "Request is restricted for access to Lifestyle Asset."
+          },
           "404": {
             "description": "Lifestyle Asset not found."
           }
@@ -3723,6 +3924,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Lifestyle Asset."
+          },
+          "403": {
+            "description": "Request is restricted for access to Lifestyle Asset."
           },
           "404": {
             "description": "Lifestyle Asset not found."
@@ -3759,6 +3963,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Lifestyle Asset."
+          },
+          "403": {
+            "description": "Request is restricted for access to Lifestyle Asset."
           },
           "404": {
             "description": "Lifestyle Asset not found."
@@ -3808,6 +4015,9 @@
           "401": {
             "description": "Request is unauthorized for access to Lifestyle Asset."
           },
+          "403": {
+            "description": "Request is restricted for access to Lifestyle Asset."
+          },
           "404": {
             "description": "Lifestyle Asset not found."
           }
@@ -3845,6 +4055,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Long Term Care Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Long Term Care Insurance Policy."
           },
           "404": {
             "description": "Long Term Care Insurance Policy not found."
@@ -3886,6 +4099,9 @@
           "401": {
             "description": "Request is unauthorized for access to Long Term Care Insurance Policy."
           },
+          "403": {
+            "description": "Request is restricted for access to Long Term Care Insurance Policy."
+          },
           "404": {
             "description": "Long Term Care Insurance Policy not found."
           }
@@ -3920,6 +4136,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Long Term Care Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Long Term Care Insurance Policy."
           },
           "404": {
             "description": "Long Term Care Insurance Policy not found."
@@ -3956,6 +4175,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Long Term Care Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Long Term Care Insurance Policy."
           },
           "404": {
             "description": "Long Term Care Insurance Policy not found."
@@ -4004,6 +4226,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Long Term Care Insurance Policy."
+          },
+          "403": {
+            "description": "Request is restricted for access to Long Term Care Insurance Policy."
           },
           "404": {
             "description": "Long Term Care Insurance Policy not found."
@@ -4116,6 +4341,9 @@
           "401": {
             "description": "Request is unauthorized for access to Major Purchase."
           },
+          "403": {
+            "description": "Request is restricted for access to Major Purchase."
+          },
           "404": {
             "description": "Major Purchase not found."
           }
@@ -4156,6 +4384,9 @@
           "401": {
             "description": "Request is unauthorized for access to Major Purchase."
           },
+          "403": {
+            "description": "Request is restricted for access to Major Purchase."
+          },
           "404": {
             "description": "Major Purchase not found."
           }
@@ -4190,6 +4421,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Major Purchase."
+          },
+          "403": {
+            "description": "Request is restricted for access to Major Purchase."
           },
           "404": {
             "description": "Major Purchase not found."
@@ -4226,6 +4460,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Major Purchase."
+          },
+          "403": {
+            "description": "Request is restricted for access to Major Purchase."
           },
           "404": {
             "description": "Major Purchase not found."
@@ -4275,6 +4512,9 @@
           "401": {
             "description": "Request is unauthorized for access to Major Purchase."
           },
+          "403": {
+            "description": "Request is restricted for access to Major Purchase."
+          },
           "404": {
             "description": "Major Purchase not found."
           }
@@ -4312,6 +4552,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Real Estate Asset."
+          },
+          "403": {
+            "description": "Request is restricted for access to Real Estate Asset."
           },
           "404": {
             "description": "Real Estate Asset not found."
@@ -4353,6 +4596,9 @@
           "401": {
             "description": "Request is unauthorized for access to Real Estate Asset."
           },
+          "403": {
+            "description": "Request is restricted for access to Real Estate Asset."
+          },
           "404": {
             "description": "Real Estate Asset not found."
           }
@@ -4387,6 +4633,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Real Estate Asset."
+          },
+          "403": {
+            "description": "Request is restricted for access to Real Estate Asset."
           },
           "404": {
             "description": "Real Estate Asset not found."
@@ -4423,6 +4672,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Real Estate Asset."
+          },
+          "403": {
+            "description": "Request is restricted for access to Real Estate Asset."
           },
           "404": {
             "description": "Real Estate Asset not found."
@@ -4472,6 +4724,9 @@
           "401": {
             "description": "Request is unauthorized for access to Real Estate Asset."
           },
+          "403": {
+            "description": "Request is restricted for access to Real Estate Asset."
+          },
           "404": {
             "description": "Real Estate Asset not found."
           }
@@ -4509,6 +4764,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal."
           },
           "404": {
             "description": "Retirement Goal not found."
@@ -4550,6 +4808,9 @@
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal."
           },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal."
+          },
           "404": {
             "description": "Retirement Goal not found."
           }
@@ -4584,6 +4845,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal."
           },
           "404": {
             "description": "Retirement Goal not found."
@@ -4620,6 +4884,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal."
           },
           "404": {
             "description": "Retirement Goal not found."
@@ -4669,6 +4936,9 @@
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal."
           },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal."
+          },
           "404": {
             "description": "Retirement Goal not found."
           }
@@ -4706,6 +4976,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal Expense."
           },
           "404": {
             "description": "Retirement Goal Expense not found."
@@ -4755,6 +5028,9 @@
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal Expense."
           },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal Expense."
+          },
           "404": {
             "description": "Retirement Goal Expense not found."
           }
@@ -4797,6 +5073,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal Expense."
           },
           "404": {
             "description": "Retirement Goal Expense not found."
@@ -4841,6 +5120,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal Expense."
           },
           "404": {
             "description": "Retirement Goal Expense not found."
@@ -4897,6 +5179,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to Retirement Goal Expense."
+          },
+          "403": {
+            "description": "Request is restricted for access to Retirement Goal Expense."
           },
           "404": {
             "description": "Retirement Goal Expense not found."
@@ -5030,6 +5315,9 @@
           "401": {
             "description": "Request is unauthorized for access to User."
           },
+          "403": {
+            "description": "Request is restricted for access to User."
+          },
           "404": {
             "description": "User not found."
           }
@@ -5070,6 +5358,9 @@
           "401": {
             "description": "Request is unauthorized for access to User."
           },
+          "403": {
+            "description": "Request is restricted for access to User."
+          },
           "404": {
             "description": "User not found."
           }
@@ -5106,6 +5397,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to User."
+          },
+          "403": {
+            "description": "Request is restricted for access to User."
           },
           "404": {
             "description": "User not found."
@@ -5150,6 +5444,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to User."
+          },
+          "403": {
+            "description": "Request is restricted for access to User."
           },
           "404": {
             "description": "User not found."
@@ -5225,6 +5522,9 @@
           },
           "401": {
             "description": "Request is unauthorized for access to User."
+          },
+          "403": {
+            "description": "Request is restricted for access to User."
           },
           "404": {
             "description": "User not found."

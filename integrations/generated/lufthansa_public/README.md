@@ -15,8 +15,11 @@ let lufthansa_public = require('@datafire/lufthansa_public').create({
   redirect_uri: ""
 });
 
-lufthansa_public.Lounges({
-  "location": "",
+lufthansa_public.CargoGetRouteFromDateProductCodeByOriginAndDestinationGet({
+  "origin": "",
+  "destination": "",
+  "fromDate": "",
+  "productCode": "",
   "Accept": ""
 }).then(data => {
   console.log(data);
@@ -70,12 +73,58 @@ lufthansa_public.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### Lounges
+### CargoGetRouteFromDateProductCodeByOriginAndDestinationGet
+Retrieve a list of all possible flights (both direct and connecting) between two airports on a given date. Routes are available for today and up to days in the future.
+
+
+```js
+lufthansa_public.CargoGetRouteFromDateProductCodeByOriginAndDestinationGet({
+  "origin": "",
+  "destination": "",
+  "fromDate": "",
+  "productCode": "",
+  "Accept": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * origin **required** `string`: Departure Airport : 3-letter IATA airport code, e.g. FRA.
+  * destination **required** `string`: Arrival airport : 3-letter IATA airport code, e.g. HKG.
+  * fromDate **required** `string`: Departure date in the local time of the departure airport. Based on LAT (Latest Acceptance Time). format : yyyy-MM-dd eg : 2017-07-15
+  * productCode **required** `string` (values: FAN, FCO, FCP, FDG, FTF, FUN, FWN, YCO, YCP, YDG, YNB, YNZ, YTF, YUN, ZXB, ZXF, ZXR): Product code for requested service and specials : 3-letter eg: YNZ
+  * Accept **required** `string`: http header: application/json or application/xml (Acceptable values are: "application/json", "application/xml")
+
+#### Output
+* output `object`
+
+### CargoShipmentTrackingByAWBPrefixAndAWBNumberGet
+With this tracking service you can easily retrieve your shipment or flight status information.
+
+
+```js
+lufthansa_public.CargoShipmentTrackingByAWBPrefixAndAWBNumberGet({
+  "aWBPrefix": "",
+  "aWBNumber": "",
+  "Accept": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * aWBPrefix **required** `string`: aWBPrefix : Represents the airline that is the owner of this AWB, i.e. "020" = Lufthansa Cargo, format : [0-9]{3} e.g. 020
+  * aWBNumber **required** `string`: aWBNumber : The Air Waybill Number , format : [0-9]{8} e.g. 08002050
+  * Accept **required** `string`: http header: application/json or application/xml (Acceptable values are: "application/json", "application/xml")
+
+#### Output
+* output `object`
+
+### OffersLoungesByLocationGet
 Lounge information
 
 
 ```js
-lufthansa_public.Lounges({
+lufthansa_public.OffersLoungesByLocationGet({
   "location": "",
   "Accept": ""
 }, context)
@@ -90,14 +139,14 @@ lufthansa_public.Lounges({
   * lang `string`: Language code.
 
 #### Output
-* output `string`
+* output `object`
 
-### offers.seatmaps.flightNumber.origin.destination.date.cabinClass.get
+### OffersSeatmapsDestinationDateCabinClassByFlightNumberAndOriginGet
 Cabin layout and seat characteristics.
 
 
 ```js
-lufthansa_public.offers.seatmaps.flightNumber.origin.destination.date.cabinClass.get({
+lufthansa_public.OffersSeatmapsDestinationDateCabinClassByFlightNumberAndOriginGet({
   "flightNumber": "",
   "origin": "",
   "destination": "",
@@ -117,14 +166,14 @@ lufthansa_public.offers.seatmaps.flightNumber.origin.destination.date.cabinClass
   * Accept **required** `string`: http header: application/json or application/xml (Acceptable values are: "application/json", "application/xml")
 
 #### Output
-* output `string`
+* output `object`
 
-### operations.flightstatus.arrivals.airportCode.fromDateTime.get
+### OperationsFlightstatusArrivalsByAirportCodeAndFromDateTimeGet
 Status of all arrivals at a given airport up to 4 hours from the provided date time.
 
 
 ```js
-lufthansa_public.operations.flightstatus.arrivals.airportCode.fromDateTime.get({
+lufthansa_public.OperationsFlightstatusArrivalsByAirportCodeAndFromDateTimeGet({
   "airportCode": "",
   "fromDateTime": "",
   "Accept": ""
@@ -140,14 +189,14 @@ lufthansa_public.operations.flightstatus.arrivals.airportCode.fromDateTime.get({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### operations.flightstatus.departures.airportCode.fromDateTime.get
+### OperationsFlightstatusDeparturesByAirportCodeAndFromDateTimeGet
 Status of all departures from a given airport up to 4 hours from the provided date time.
 
 
 ```js
-lufthansa_public.operations.flightstatus.departures.airportCode.fromDateTime.get({
+lufthansa_public.OperationsFlightstatusDeparturesByAirportCodeAndFromDateTimeGet({
   "airportCode": "",
   "fromDateTime": "",
   "Accept": ""
@@ -163,14 +212,14 @@ lufthansa_public.operations.flightstatus.departures.airportCode.fromDateTime.get
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### operations.flightstatus.route.origin.destination.date.get
+### OperationsFlightstatusRouteDateByOriginAndDestinationGet
 Status of flights between a given origin and destination on a given date.
 
 
 ```js
-lufthansa_public.operations.flightstatus.route.origin.destination.date.get({
+lufthansa_public.OperationsFlightstatusRouteDateByOriginAndDestinationGet({
   "origin": "",
   "destination": "",
   "date": "",
@@ -188,14 +237,14 @@ lufthansa_public.operations.flightstatus.route.origin.destination.date.get({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### operations.flightstatus.flightNumber.date.get
+### OperationsFlightstatusByFlightNumberAndDateGet
 Status of a particular flight (boarding, delayed, etc.).
 
 
 ```js
-lufthansa_public.operations.flightstatus.flightNumber.date.get({
+lufthansa_public.OperationsFlightstatusByFlightNumberAndDateGet({
   "flightNumber": "",
   "date": "",
   "Accept": ""
@@ -211,14 +260,14 @@ lufthansa_public.operations.flightstatus.flightNumber.date.get({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### operations.schedules.origin.destination.fromDateTime.get
+### OperationsSchedulesFromDateTimeByOriginAndDestinationGet
 Scheduled flights between given airports on a given date.
 
 
 ```js
-lufthansa_public.operations.schedules.origin.destination.fromDateTime.get({
+lufthansa_public.OperationsSchedulesFromDateTimeByOriginAndDestinationGet({
   "origin": "",
   "destination": "",
   "fromDateTime": "",
@@ -237,14 +286,14 @@ lufthansa_public.operations.schedules.origin.destination.fromDateTime.get({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### Aircraft
+### ReferencesAircraftByAircraftCodeGet
 List all aircraft types or one specific aircraft type.
 
 
 ```js
-lufthansa_public.Aircraft({
+lufthansa_public.ReferencesAircraftByAircraftCodeGet({
   "Accept": "",
   "aircraftCode": ""
 }, context)
@@ -258,14 +307,14 @@ lufthansa_public.Aircraft({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### Airlines
+### ReferencesAirlinesByAirlineCodeGet
 List all airlines or one specific airline.
 
 
 ```js
-lufthansa_public.Airlines({
+lufthansa_public.ReferencesAirlinesByAirlineCodeGet({
   "Accept": "",
   "airlineCode": ""
 }, context)
@@ -279,14 +328,14 @@ lufthansa_public.Airlines({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### references.airports.nearest.latitude_longitude.get
+### ReferencesAirportsNearestByLatitudeAndLongitudeGet
 List the 5 closest airports to the given latitude and longitude, irrespective of the radius of the reference point.
 
 
 ```js
-lufthansa_public.references.airports.nearest.latitude_longitude.get({
+lufthansa_public.ReferencesAirportsNearestByLatitudeAndLongitudeGet({
   "latitude": 0,
   "longitude": 0,
   "Accept": ""
@@ -301,14 +350,14 @@ lufthansa_public.references.airports.nearest.latitude_longitude.get({
   * lang `string`: 2 letter ISO 3166-1 language code
 
 #### Output
-* output `string`
+* output `object`
 
-### Airports
+### ReferencesAirportsByAirportCodeGet
 List all airports or one specific airport. All airports response is very large. It is possible to request the response in a specific language.
 
 
 ```js
-lufthansa_public.Airports({
+lufthansa_public.ReferencesAirportsByAirportCodeGet({
   "Accept": "",
   "airportCode": ""
 }, context)
@@ -324,14 +373,14 @@ lufthansa_public.Airports({
   * LHoperated `boolean`: Restrict the results to locations with flights operated by LH (false=0, true=1)
 
 #### Output
-* output `string`
+* output [AirportResponse](#airportresponse)
 
-### Cities
+### ReferencesCitiesByCityCodeGet
 List all cities or one specific city. It is possible to request the response in a specific language.
 
 
 ```js
-lufthansa_public.Cities({
+lufthansa_public.ReferencesCitiesByCityCodeGet({
   "Accept": "",
   "cityCode": ""
 }, context)
@@ -346,14 +395,14 @@ lufthansa_public.Cities({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
-### Countries
+### ReferencesCountriesByCountryCodeGet
 List all countries or one specific country. It is possible to request the response in a specific language.
 
 
 ```js
-lufthansa_public.Countries({
+lufthansa_public.ReferencesCountriesByCountryCodeGet({
   "Accept": "",
   "countryCode": ""
 }, context)
@@ -368,10 +417,53 @@ lufthansa_public.Countries({
   * offset `string`: Number of records skipped. Defaults to 0
 
 #### Output
-* output `string`
+* output `object`
 
 
 
 ## Definitions
 
-*This integration has no definitions*
+### Airport
+* Airport `object`: Array of all available airports or one airport matching the request.
+  * AirportCode `string`: 3-letter IATA airport code, e.g. “TXL”.
+  * CityCode `string`: 3-letter IATA city code, e.g. “BER”.
+  * CountryCode `string`: 2-letter ISO 3166-1 country code, e.g. “DE”.
+  * LocationType `string`:  “Airport”, “RailwayStation” or “BusStation”.
+  * Names `object`: Container for airport names.
+    * Name `array`: Array: language specific full name of airport.
+      * items [Name](#name)
+  * Position `object`: Physical location of an airport. This data section is optional and therefore not always present.
+    * Coordinate [Coordinate](#coordinate)
+  * TimeZoneId `string`: Time zone name airport is in
+  * UtcOffset `number`: Hour offset of airport to UTC time zone
+
+### AirportResource
+* AirportResource `object`: Root element of airport response.
+  * Airports `object`: Container for airport elements.
+    * Airport [Airport](#airport)
+  * Meta `object`: Container for meta links.
+    * @Version `string`
+    * Link `array`: Array: links to resource itself and other related resources.
+      * items [Link](#link)
+    * TotalCount `integer`
+
+### AirportResponse
+* AirportResponse `object`
+  * AirportResource [AirportResource](#airportresource)
+
+### Coordinate
+* Coordinate `object`: Container for coordinates.
+  * Latitude `number`: Decimal latitude. Range: -90 (South Pole) to +90 (North Pole), e.g. “51.540”.
+  * Longitude `number`: Decimal longitude. Range: -180 (West of Prime Meridian) to +180 (East of Prime Meridian).
+
+### Link
+* Link `object`
+  * @Href `string`: Link to actual a resource.
+  * @Rel `string`: Specifying kind of link such as ‘self’ (link that returned this response), ‘alternate’ (link that points to another resource) or ‘related’ (link that points to related resource).
+
+### Name
+* Name `object`: 2-letter ISO 639-1 language code for the corresponding item.
+  * $ `string`
+  * @LanguageCode `string`
+
+

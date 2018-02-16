@@ -238,8 +238,7 @@ taggun.postApiReceiptV1VerboseUrl({
   * keyword `string`
 
 ### Model_1
-* Model_1 `object`
-  * location [location](#location)
+
 
 ### Model_10
 * Model_10 `object`
@@ -274,40 +273,13 @@ taggun.postApiReceiptV1VerboseUrl({
   * text `string`
 
 ### Model_14
-* Model_14 `object`
-  * amounts [amounts](#amounts)
-  * confidenceLevel `number`
-  * currency [Model_10](#model_10)
-  * date [date](#date)
-  * elapsed `number`
-  * entities [entities](#entities)
-  * error `string`
-  * lineAmounts [amounts](#amounts)
-  * location [Model_1](#model_1)
-  * merchantAddress [Model_12](#model_12)
-  * merchantName [Model_11](#model_11)
-  * merchantTypes [Model_13](#model_13)
-  * numbers [amounts](#amounts)
-  * taxAmount [Model_9](#model_9)
-  * text [text](#text)
-  * totalAmount [Model_8](#model_8)
+
 
 ### Model_2
-* Model_2 `object`
-  * confidenceLevel `number`
-  * date [date](#date)
-  * error `string`
-  * match [match](#match)
+
 
 ### Model_3
-* Model_3 `object`
-  * contentType **required** `string`
-  * filename **required** `string`
-  * image **required** `string`
-  * incognito `boolean`: Set true to avoid saving the receipt in storage
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
+
 
 ### Model_4
 * Model_4 `object`
@@ -315,33 +287,13 @@ taggun.postApiReceiptV1VerboseUrl({
   * data `string`
 
 ### Model_5
-* Model_5 `object`
-  * confidenceLevel `number`: Overall confidence level
-  * currency [currency](#currency)
-  * date [Model_4](#model_4)
-  * error `string`
-  * merchantAddress [merchantAddress](#merchantaddress)
-  * merchantName [merchantName](#merchantname)
-  * merchantTypes [merchantTypes](#merchanttypes)
-  * taxAmount [taxAmount](#taxamount)
-  * totalAmount [totalAmount](#totalamount)
+
 
 ### Model_6
-* Model_6 `object`
-  * contentType **required** `string`
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-  * md5 **required** `string`: MD5 hash of the receipt
-  * refresh `boolean`: Refresh cache if exists
+
 
 ### Model_7
-* Model_7 `object`
-  * headers [headers](#headers)
-  * incognito `boolean`: Set true to avoid saving the receipt in storage
-  * ipAddress `string`: IP Address of the end user
-  * language `string` (values: en, es, fr, jp, he, iw, et, lv, lt, fi, el): Set language as a hint. Leave empty for auto detect. Supported languages: , en, es, fr, jp, he, iw, et, lv, lt, fi, el 
-  * refresh `boolean`: Set true to force re-process image transcription if the receipt is already in storage
-  * url **required** `string`: The target URL that contains a receipt file
+
 
 ### Model_8
 * Model_8 `object`

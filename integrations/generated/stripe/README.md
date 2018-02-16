@@ -37,7 +37,7 @@ stripe.Create3DSecure({
     * card `string`: The ID of a card token, or the ID of a card belonging to the given customer.
     * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
     * customer `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * return_url **required** `string`: The URL that the cardholder's browser will be returned to when authentication completes.
 
@@ -56,7 +56,7 @@ stripe.Retrieve3DSecure({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * three_d_secure **required** `string`: The identifier of the 3D Secure object to be retrieved.
 
 #### Output
@@ -74,7 +74,7 @@ stripe.v1.account.delete({}, context)
 * input `object`
   * payload `object`
     * account `string`: The identifier of the account to be deleted. If none is provided, will default to the account of the API key.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -90,14 +90,14 @@ stripe.v1.account.get({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * account `string`: The identifier of the account to be retrieved. If none is provided, will default to the account of the API key.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * account `string`: The identifier of the account to retrieve. If none is provided, the account associated with the API key is returned.
 
 #### Output
 * output [account](#account)
 
 ### v1.account.post
-<p>Updates an account by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p><p><strong>You may only update <a href="/docs/connect/updating-accounts">Custom and Express accounts that you manage</a></strong>. To update your own account, you can currently only do so via the <a href="https://dashboard.stripe.com/account">dashboard</a>.</p>
+<p>Updates a connected <a href="/docs/connect/accounts">Express or Custom account</a> by setting the values of the parameters passed. Any parameters not provided are left unchanged. To update your own account, use the <a href="%= Opus::DaemonCommon.stripe_link('dashboard.stripe.com', '/account') %">Dashboard</a>.</p><p>Refer to our <a href="/docs/connect/updating-accounts">Connect</a> documentation to learn more about updating accounts.</p>
 
 
 ```js
@@ -107,29 +107,666 @@ stripe.v1.account.post({}, context)
 #### Input
 * input `object`
   * payload `object`
+    * account `string`
+    * account_token `string`
     * business_logo `string`
     * business_name `string`: The publicly sharable name for this account.
-    * business_primary_color `string`: A CSS hex color value representing the primary branding color for this account.
-    * business_url `string`: The URL that best shows the service or product provided for this account.
-    * debit_negative_balances `boolean`: A boolean for whether or not Stripe should try to reclaim negative balances from the account holder's bank account. See our [Connect account bank transfer guide](/docs/connect/account-balances) for more information.
-    * decline_charge_on `object`: Account-level settings to automatically decline certain types of charges regardless of the bank's decision.
+    * business_primary_color `string`: A CSS hex color value representing the primary branding color for this account
+    * business_url `string`: The URL that best shows the service or product provided by this account
+    * debit_negative_balances `boolean`: A Boolean indicating if Stripe should try to reclaim negative balances from an attached bank account. See our [Understanding Connect Account Balances](/docs/connect/account-balances) documentation for details.
+    * decline_charge_on `object`: Account-level settings to automatically decline certain types of charges regardless of the decision of the card issuer.
+      * avs_failure `boolean`
+      * cvc_failure `boolean`
     * default_currency `string`: Three-letter ISO currency code representing the default currency for the account. This must be a currency that [Stripe supports in the account's country](https://stripe.com/docs/payouts).
-    * email `string`: Email address of the account holder. For Standard accounts, this is used to email them asking them to claim their Stripe account. For Custom accounts, this is only to make the account easier to identify to you: Stripe will not email the account holder.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * email `string`: Email address of the account representative. For Standard accounts, this is used to ask them to claim their Stripe account. For Custom accounts, this only makes the account easier to identify to platforms; Stripe does not email the account representative.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * external_account `object`, `string`: A card or bank account to attach to the account. You can provide either a token, like the ones returned by [Stripe.js](/docs/stripe.js), or a dictionary as documented in the `external_account` parameter for [bank account](/docs/api#account_create_bank_account) creation. <br><br>This will create a new external account object, make it the new default external account for its currency, and delete the old default if one exists. If you want to add additional external accounts instead of replacing the existing default for this currency, use the bank account or card creation API.
-    * legal_entity `object`: Information about the account holder; varies by [account country](#country_spec_object-verification_fields) and [account status](#account_object-verification-fields_needed).
-    * metadata `object`: A set of key/value pairs that you can attach to an account object. It can be useful for storing additional information about the account in a structured format.
-    * payout_schedule `object`: Details on when this account will make funds from charges available, and when they will be paid out to the account holder's bank account. See our [Connect account bank transfer guide](/docs/connect/bank-transfers#payout-information) for more information.
-    * payout_statement_descriptor `string`: The text that will appear on the account's bank account statement for payouts. If not set, this will default to your platform's bank descriptor set on the Dashboard.
-    * product_description `string`: Internal-only description of the product being sold or service being provided by this account. It's used by Stripe for risk and underwriting purposes.
-    * statement_descriptor `string`: The text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges).
-    * statement_descriptor_kana `string`: The Kana variation of the text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges) (Japan only).
-    * statement_descriptor_kanji `string`: The Kanji variation of the text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges) (Japan only).
-    * support_email `string`: A publicly shareable email address that can be reached for support for this account.
-    * support_phone `string`: A publicly shareable phone number that can be reached for support for this account.
-    * support_url `string`: A publicly shareable URL that can be reached for support for this account.
-    * tos_acceptance `object`: Details on who accepted the Stripe terms of service, and when they accepted it. See our [updating accounts guide](/docs/connect/updating-accounts#tos-acceptance) for more information.
+    * legal_entity `object`: Information about the legal entity itself, including about the associated account representative
+      * additional_owners `object`
+        * 0 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 1 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 2 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 3 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 4 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 5 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 6 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 7 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 8 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 9 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 10 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 11 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 12 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 13 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 14 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 15 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 16 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 17 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 18 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 19 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 20 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 21 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 22 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 23 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 24 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 25 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 26 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 27 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 28 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 29 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 30 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * address_kana `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * address_kanji `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * business_name `string`
+      * business_name_kana `string`
+      * business_name_kanji `string`
+      * business_tax_id `string`
+      * business_vat_id `string`
+      * dob `object`
+        * day **required** `integer`
+        * month **required** `integer`
+        * year **required** `integer`
+      * first_name `string`
+      * first_name_kana `string`
+      * first_name_kanji `string`
+      * gender `string`
+      * last_name `string`
+      * last_name_kana `string`
+      * last_name_kanji `string`
+      * maiden_name `string`
+      * personal_address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * personal_address_kana `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * personal_address_kanji `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * personal_id_number `string`
+      * phone_number `string`
+      * ssn_last_4 `string`
+      * tax_id_registrar `string`
+      * type `string`
+      * verification `object`
+        * document `string`
+    * metadata `object`: A set of key-value pairs that you can attach to an `Account` object. It can be useful for storing additional information about the account in a structured format.
+    * payout_schedule `object`: Details on when funds from charges are available, and when they are paid out to an external account. See our [Setting Bank and Debit Card Payouts](/docs/connect/bank-transfers#payout-information) documentation for details.
+      * delay_days `integer`
+      * interval `string` (values: daily, four_times_monthly, manual, monthly, weekly)
+      * monthly_anchor `integer`
+      * weekly_anchor `string` (values: friday, monday, saturday, sunday, thursday, tuesday, wednesday)
+    * payout_statement_descriptor `string`: The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard.
+    * product_description `string`: Internal-only description of the product sold or service provided by the business. It's used by Stripe for risk and underwriting purposes.
+    * statement_descriptor `string`: The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)
+    * support_email `string`: A publicly shareable support email address for the business
+    * support_phone `string`: A publicly shareable support phone number for the business
+    * support_url `string`: A publicly shareable URL that provides support for this account
+    * tos_acceptance `object`: Details on the [acceptance of the Stripe Services Agreement](/docs/connect/updating-accounts#tos-acceptance)
+      * date **required** `integer`
+      * ip **required** `string`
+      * user_agent `string`
 
 #### Output
 * output [account](#account)
@@ -147,11 +784,10 @@ stripe.v1.account.bank_accounts.post({
 #### Input
 * input `object`
   * payload **required** `object`
-    * default_for_currency `boolean`: If you set this to true (or if this is the first external account being added in this currency) this account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * default_for_currency `boolean`: When set to true, or if this is the first external account added in this currency, this account becomes the default external account for its currency.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * external_account **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-    * metadata `object`: A set of key/value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
+    * metadata `object`: A set of key-value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -170,7 +806,7 @@ stripe.v1.account.bank_accounts.id.delete({
 * input `object`
   * id **required** `string`: The ID of the external account to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -188,7 +824,7 @@ stripe.v1.account.bank_accounts.id.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`
 
 #### Output
@@ -206,12 +842,21 @@ stripe.v1.account.bank_accounts.id.post({
 
 #### Input
 * input `object`
-  * id **required** `string`: The ID of the bank account to be updated.
+  * id **required** `string`: The ID of the bank account to update
   * payload `object`
-    * default_for_currency `boolean`: If set to `true`, this bank account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * address_city `string`: City/District/Suburb/Town/Village.
+    * address_country `string`: Billing address country, if provided when creating card.
+    * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
+    * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
+    * address_state `string`: State/County/Province/Region.
+    * address_zip `string`: ZIP or postal code
+    * default_for_currency `boolean`
+    * exp_month `string`: Two digit number representing the card’s expiration month.
+    * exp_year `string`: Four digit number representing the card’s expiration year.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
+    * name `string`: Cardholder name.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -226,10 +871,10 @@ stripe.v1.account.external_accounts.get({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
 
 #### Output
 * output `object`
@@ -252,11 +897,10 @@ stripe.v1.account.external_accounts.post({
 #### Input
 * input `object`
   * payload **required** `object`
-    * default_for_currency `boolean`: If you set this to true (or if this is the first external account being added in this currency) this account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * default_for_currency `boolean`: When set to true, or if this is the first external account added in this currency, this account becomes the default external account for its currency.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * external_account **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-    * metadata `object`: A set of key/value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
+    * metadata `object`: A set of key-value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -275,7 +919,7 @@ stripe.v1.account.external_accounts.id.delete({
 * input `object`
   * id **required** `string`: The ID of the external account to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -293,7 +937,7 @@ stripe.v1.account.external_accounts.id.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`
 
 #### Output
@@ -311,12 +955,21 @@ stripe.v1.account.external_accounts.id.post({
 
 #### Input
 * input `object`
-  * id **required** `string`: The ID of the bank account to be updated.
+  * id **required** `string`: The ID of the bank account to update
   * payload `object`
-    * default_for_currency `boolean`: If set to `true`, this bank account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * address_city `string`: City/District/Suburb/Town/Village.
+    * address_country `string`: Billing address country, if provided when creating card.
+    * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
+    * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
+    * address_state `string`: State/County/Province/Region.
+    * address_zip `string`: ZIP or postal code
+    * default_for_currency `boolean`
+    * exp_month `string`: Two digit number representing the card’s expiration month.
+    * exp_year `string`: Four digit number representing the card’s expiration year.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
+    * name `string`: Cardholder name.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -335,15 +988,35 @@ stripe.v1.account.login_links.post({
 * input `object`
   * payload **required** `object`
     * account **required** `string`: The identifier of the account to create a login link for.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * redirect_url `string`: Where to redirect the user after they log out of their dashboard.
 
 #### Output
 * output [login_link](#login_link)
 
+### v1.account.logout.put
+<p>Invalidates all sessions for a light account, for a platform to use during platform logout.</p><p><strong>You may only log out <a href="/docs/connect/express-accounts">Express accounts</a> connected to your platform</strong>.</p>
+
+
+```js
+stripe.v1.account.logout.put({
+  "payload": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * payload **required** `object`
+    * account **required** `string`: The identifier of the account to log out.
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
+
+#### Output
+* output [light_account_logout](#light_account_logout)
+
 ### AllAccount
-<p>Returns a list of accounts connected to your platform via <a href="/docs/connect">Connect</a>. If you’re not a platform, the list will be empty.</p>
+<p>Returns a list of accounts connected to your platform via <a href="/docs/connect">Connect</a>. If you’re not a platform, the list is empty.</p>
 
 
 ```js
@@ -352,10 +1025,10 @@ stripe.AllAccount({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
 
 #### Output
 * output `object`
@@ -370,42 +1043,680 @@ stripe.AllAccount({}, context)
 
 
 ```js
-stripe.AccountCreate({
-  "payload": null
-}, context)
+stripe.AccountCreate({}, context)
 ```
 
 #### Input
 * input `object`
-  * payload **required** `object`
+  * payload `object`
+    * account_token `string`
     * business_logo `string`
     * business_name `string`: The publicly sharable name for this account.
-    * business_primary_color `string`: A CSS hex color value representing the primary branding color for this account.
-    * business_url `string`: The URL that best shows the service or product provided for this account.
+    * business_primary_color `string`: A CSS hex color value representing the primary branding color for this account
+    * business_url `string`: The URL that best shows the service or product provided by this account
     * country `string`
-    * debit_negative_balances `boolean`: A boolean for whether or not Stripe should try to reclaim negative balances from the account holder's bank account. See our [Connect account bank transfer guide](/docs/connect/account-balances) for more information.
-    * decline_charge_on `object`: Account-level settings to automatically decline certain types of charges regardless of the bank's decision.
+    * debit_negative_balances `boolean`: A Boolean indicating if Stripe should try to reclaim negative balances from an attached bank account. See our [Understanding Connect Account Balances](/docs/connect/account-balances) documentation for details.
+    * decline_charge_on `object`: Account-level settings to automatically decline certain types of charges regardless of the decision of the card issuer.
+      * avs_failure `boolean`
+      * cvc_failure `boolean`
     * default_currency `string`: Three-letter ISO currency code representing the default currency for the account. This must be a currency that [Stripe supports in the account's country](https://stripe.com/docs/payouts).
-    * email `string`: Email address of the account holder. For Standard accounts, this is used to email them asking them to claim their Stripe account. For Custom accounts, this is only to make the account easier to identify to you: Stripe will not email the account holder.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * display_name `string`
+    * email `string`: Email address of the account representative. For Standard accounts, this is used to ask them to claim their Stripe account. For Custom accounts, this only makes the account easier to identify to platforms; Stripe does not email the account representative.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * external_account `object`, `string`: A card or bank account to attach to the account. You can provide either a token, like the ones returned by [Stripe.js](/docs/stripe.js), or a dictionary as documented in the `external_account` parameter for [bank account](/docs/api#account_create_bank_account) creation. <br><br>This will create a new external account object, make it the new default external account for its currency, and delete the old default if one exists. If you want to add additional external accounts instead of replacing the existing default for this currency, use the bank account or card creation API.
-    * legal_entity `object`: Information about the account holder; varies by [account country](#country_spec_object-verification_fields) and [account status](#account_object-verification-fields_needed).
-    * metadata `object`: A set of key/value pairs that you can attach to an account object. It can be useful for storing additional information about the account in a structured format.
-    * payout_schedule `object`: Details on when this account will make funds from charges available, and when they will be paid out to the account holder's bank account. See our [Connect account bank transfer guide](/docs/connect/bank-transfers#payout-information) for more information.
-    * payout_statement_descriptor `string`: The text that will appear on the account's bank account statement for payouts. If not set, this will default to your platform's bank descriptor set on the Dashboard.
-    * product_description `string`: Internal-only description of the product being sold or service being provided by this account. It's used by Stripe for risk and underwriting purposes.
-    * statement_descriptor `string`: The text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges).
-    * statement_descriptor_kana `string`: The Kana variation of the text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges) (Japan only).
-    * statement_descriptor_kanji `string`: The Kanji variation of the text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges) (Japan only).
-    * support_email `string`: A publicly shareable email address that can be reached for support for this account.
-    * support_phone `string`: A publicly shareable phone number that can be reached for support for this account.
-    * support_url `string`: A publicly shareable URL that can be reached for support for this account.
-    * tos_acceptance `object`: Details on who accepted the Stripe terms of service, and when they accepted it. See our [updating accounts guide](/docs/connect/updating-accounts#tos-acceptance) for more information.
-    * type **required** `string` (values: custom, express, standard)
+    * from_recipient `string`
+    * legal_entity `object`: Information about the legal entity itself, including about the associated account representative
+      * additional_owners `object`
+        * 0 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 1 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 2 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 3 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 4 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 5 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 6 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 7 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 8 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 9 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 10 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 11 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 12 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 13 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 14 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 15 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 16 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 17 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 18 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 19 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 20 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 21 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 22 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 23 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 24 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 25 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 26 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 27 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 28 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 29 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 30 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * address_kana `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * address_kanji `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * business_name `string`
+      * business_name_kana `string`
+      * business_name_kanji `string`
+      * business_tax_id `string`
+      * business_vat_id `string`
+      * dob `object`
+        * day **required** `integer`
+        * month **required** `integer`
+        * year **required** `integer`
+      * first_name `string`
+      * first_name_kana `string`
+      * first_name_kanji `string`
+      * gender `string`
+      * last_name `string`
+      * last_name_kana `string`
+      * last_name_kanji `string`
+      * maiden_name `string`
+      * personal_address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * personal_address_kana `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * personal_address_kanji `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * personal_id_number `string`
+      * phone_number `string`
+      * ssn_last_4 `string`
+      * tax_id_registrar `string`
+      * type `string`
+      * verification `object`
+        * document `string`
+    * make_ready_for_panda `boolean`
+    * metadata `object`: A set of key-value pairs that you can attach to an `Account` object. It can be useful for storing additional information about the account in a structured format.
+    * payout_schedule `object`: Details on when funds from charges are available, and when they are paid out to an external account. See our [Setting Bank and Debit Card Payouts](/docs/connect/bank-transfers#payout-information) documentation for details.
+      * delay_days `integer`
+      * interval `string` (values: daily, four_times_monthly, manual, monthly, weekly)
+      * monthly_anchor `integer`
+      * weekly_anchor `string` (values: friday, monday, saturday, sunday, thursday, tuesday, wednesday)
+    * payout_statement_descriptor `string`: The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard.
+    * primary_user `string`
+    * product_description `string`: Internal-only description of the product sold or service provided by the business. It's used by Stripe for risk and underwriting purposes.
+    * statement_descriptor `string`: The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)
+    * support_email `string`: A publicly shareable support email address for the business
+    * support_phone `string`: A publicly shareable support phone number for the business
+    * support_url `string`: A publicly shareable URL that provides support for this account
+    * tos_acceptance `object`: Details on the [acceptance of the Stripe Services Agreement](/docs/connect/updating-accounts#tos-acceptance)
+      * date **required** `integer`
+      * ip **required** `string`
+      * user_agent `string`
+    * type `string` (values: custom, express, standard)
 
 #### Output
-* output [account_with_keys](#account_with_keys)
+* output [account](#account)
 
 ### v1.accounts.account.delete
 <p>With <a href="/docs/connect">Connect</a>, you may delete Custom accounts you manage.</p><p>Custom accounts created using test-mode keys can be deleted at any time. Custom accounts created using live-mode keys may only be deleted once all balances are zero.</p><p>If you are looking to close your own account, use the <a href="https://dashboard.stripe.com/account/data">data tab in your account settings</a> instead.</p>
@@ -421,7 +1732,7 @@ stripe.v1.accounts.account.delete({
 * input `object`
   * account **required** `string`: The identifier of the account to be deleted. If none is provided, will default to the account of the API key.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -439,14 +1750,14 @@ stripe.v1.accounts.account.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * account **required** `string`: The identifier of the account to be retrieved. If none is provided, will default to the account of the API key.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * account **required** `string`: The identifier of the account to retrieve. If none is provided, the account associated with the API key is returned.
 
 #### Output
 * output [account](#account)
 
 ### v1.accounts.account.post
-<p>Updates an account by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p><p><strong>You may only update <a href="/docs/connect/updating-accounts">Custom and Express accounts that you manage</a></strong>. To update your own account, you can currently only do so via the <a href="https://dashboard.stripe.com/account">dashboard</a>.</p>
+<p>Updates a connected <a href="/docs/connect/accounts">Express or Custom account</a> by setting the values of the parameters passed. Any parameters not provided are left unchanged. To update your own account, use the <a href="%= Opus::DaemonCommon.stripe_link('dashboard.stripe.com', '/account') %">Dashboard</a>.</p><p>Refer to our <a href="/docs/connect/updating-accounts">Connect</a> documentation to learn more about updating accounts.</p>
 
 
 ```js
@@ -457,31 +1768,667 @@ stripe.v1.accounts.account.post({
 
 #### Input
 * input `object`
+  * account **required** `string`
   * payload `object`
+    * account_token `string`
     * business_logo `string`
     * business_name `string`: The publicly sharable name for this account.
-    * business_primary_color `string`: A CSS hex color value representing the primary branding color for this account.
-    * business_url `string`: The URL that best shows the service or product provided for this account.
-    * debit_negative_balances `boolean`: A boolean for whether or not Stripe should try to reclaim negative balances from the account holder's bank account. See our [Connect account bank transfer guide](/docs/connect/account-balances) for more information.
-    * decline_charge_on `object`: Account-level settings to automatically decline certain types of charges regardless of the bank's decision.
+    * business_primary_color `string`: A CSS hex color value representing the primary branding color for this account
+    * business_url `string`: The URL that best shows the service or product provided by this account
+    * debit_negative_balances `boolean`: A Boolean indicating if Stripe should try to reclaim negative balances from an attached bank account. See our [Understanding Connect Account Balances](/docs/connect/account-balances) documentation for details.
+    * decline_charge_on `object`: Account-level settings to automatically decline certain types of charges regardless of the decision of the card issuer.
+      * avs_failure `boolean`
+      * cvc_failure `boolean`
     * default_currency `string`: Three-letter ISO currency code representing the default currency for the account. This must be a currency that [Stripe supports in the account's country](https://stripe.com/docs/payouts).
-    * email `string`: Email address of the account holder. For Standard accounts, this is used to email them asking them to claim their Stripe account. For Custom accounts, this is only to make the account easier to identify to you: Stripe will not email the account holder.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * email `string`: Email address of the account representative. For Standard accounts, this is used to ask them to claim their Stripe account. For Custom accounts, this only makes the account easier to identify to platforms; Stripe does not email the account representative.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * external_account `object`, `string`: A card or bank account to attach to the account. You can provide either a token, like the ones returned by [Stripe.js](/docs/stripe.js), or a dictionary as documented in the `external_account` parameter for [bank account](/docs/api#account_create_bank_account) creation. <br><br>This will create a new external account object, make it the new default external account for its currency, and delete the old default if one exists. If you want to add additional external accounts instead of replacing the existing default for this currency, use the bank account or card creation API.
-    * legal_entity `object`: Information about the account holder; varies by [account country](#country_spec_object-verification_fields) and [account status](#account_object-verification-fields_needed).
-    * metadata `object`: A set of key/value pairs that you can attach to an account object. It can be useful for storing additional information about the account in a structured format.
-    * payout_schedule `object`: Details on when this account will make funds from charges available, and when they will be paid out to the account holder's bank account. See our [Connect account bank transfer guide](/docs/connect/bank-transfers#payout-information) for more information.
-    * payout_statement_descriptor `string`: The text that will appear on the account's bank account statement for payouts. If not set, this will default to your platform's bank descriptor set on the Dashboard.
-    * product_description `string`: Internal-only description of the product being sold or service being provided by this account. It's used by Stripe for risk and underwriting purposes.
-    * statement_descriptor `string`: The text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges).
-    * statement_descriptor_kana `string`: The Kana variation of the text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges) (Japan only).
-    * statement_descriptor_kanji `string`: The Kanji variation of the text that will appear on credit card statements by default if a charge is being made [directly on the account](/docs/connect/direct-charges) (Japan only).
-    * support_email `string`: A publicly shareable email address that can be reached for support for this account.
-    * support_phone `string`: A publicly shareable phone number that can be reached for support for this account.
-    * support_url `string`: A publicly shareable URL that can be reached for support for this account.
-    * tos_acceptance `object`: Details on who accepted the Stripe terms of service, and when they accepted it. See our [updating accounts guide](/docs/connect/updating-accounts#tos-acceptance) for more information.
-  * account **required** `string`
+    * legal_entity `object`: Information about the legal entity itself, including about the associated account representative
+      * additional_owners `object`
+        * 0 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 1 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 2 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 3 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 4 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 5 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 6 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 7 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 8 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 9 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 10 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 11 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 12 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 13 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 14 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 15 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 16 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 17 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 18 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 19 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 20 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 21 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 22 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 23 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 24 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 25 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 26 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 27 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 28 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 29 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+        * 30 `object`
+          * address `object`
+            * city `string`
+            * country `string`
+            * line1 `string`
+            * line2 `string`
+            * postal_code `string`
+            * state `string`
+          * dob `object`
+            * day **required** `integer`
+            * month **required** `integer`
+            * year **required** `integer`
+          * first_name `string`
+          * last_name `string`
+          * maiden_name `string`
+          * personal_id_number `string`
+          * verification `object`
+            * document `string`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * address_kana `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * address_kanji `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * business_name `string`
+      * business_name_kana `string`
+      * business_name_kanji `string`
+      * business_tax_id `string`
+      * business_vat_id `string`
+      * dob `object`
+        * day **required** `integer`
+        * month **required** `integer`
+        * year **required** `integer`
+      * first_name `string`
+      * first_name_kana `string`
+      * first_name_kanji `string`
+      * gender `string`
+      * last_name `string`
+      * last_name_kana `string`
+      * last_name_kanji `string`
+      * maiden_name `string`
+      * personal_address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * personal_address_kana `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * personal_address_kanji `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+        * town `string`
+      * personal_id_number `string`
+      * phone_number `string`
+      * ssn_last_4 `string`
+      * tax_id_registrar `string`
+      * type `string`
+      * verification `object`
+        * document `string`
+    * metadata `object`: A set of key-value pairs that you can attach to an `Account` object. It can be useful for storing additional information about the account in a structured format.
+    * payout_schedule `object`: Details on when funds from charges are available, and when they are paid out to an external account. See our [Setting Bank and Debit Card Payouts](/docs/connect/bank-transfers#payout-information) documentation for details.
+      * delay_days `integer`
+      * interval `string` (values: daily, four_times_monthly, manual, monthly, weekly)
+      * monthly_anchor `integer`
+      * weekly_anchor `string` (values: friday, monday, saturday, sunday, thursday, tuesday, wednesday)
+    * payout_statement_descriptor `string`: The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard.
+    * product_description `string`: Internal-only description of the product sold or service provided by the business. It's used by Stripe for risk and underwriting purposes.
+    * statement_descriptor `string`: The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)
+    * support_email `string`: A publicly shareable support email address for the business
+    * support_phone `string`: A publicly shareable support phone number for the business
+    * support_url `string`: A publicly shareable URL that provides support for this account
+    * tos_acceptance `object`: Details on the [acceptance of the Stripe Services Agreement](/docs/connect/updating-accounts#tos-acceptance)
+      * date **required** `integer`
+      * ip **required** `string`
+      * user_agent `string`
 
 #### Output
 * output [account](#account)
@@ -492,20 +2439,19 @@ stripe.v1.accounts.account.post({
 
 ```js
 stripe.v1.accounts.account.bank_accounts.post({
-  "payload": null,
-  "account": ""
+  "account": "",
+  "payload": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * payload **required** `object`
-    * default_for_currency `boolean`: If you set this to true (or if this is the first external account being added in this currency) this account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
-    * external_account **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-    * metadata `object`: A set of key/value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
   * account **required** `string`
+  * payload **required** `object`
+    * default_for_currency `boolean`: When set to true, or if this is the first external account added in this currency, this account becomes the default external account for its currency.
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
+    * metadata `object`: A set of key-value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -516,18 +2462,18 @@ stripe.v1.accounts.account.bank_accounts.post({
 
 ```js
 stripe.v1.accounts.account.bank_accounts.id.delete({
-  "id": "",
-  "account": ""
+  "account": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * account **required** `string`
   * id **required** `string`: The ID of the external account to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-  * account **required** `string`
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -538,16 +2484,16 @@ stripe.v1.accounts.account.bank_accounts.id.delete({
 
 ```js
 stripe.v1.accounts.account.bank_accounts.id.get({
-  "id": "",
-  "account": ""
+  "account": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * id **required** `string`
+  * expand `array`: Specifies which fields in the response should be expanded.
   * account **required** `string`
+  * id **required** `string`
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -558,20 +2504,29 @@ stripe.v1.accounts.account.bank_accounts.id.get({
 
 ```js
 stripe.v1.accounts.account.bank_accounts.id.post({
-  "id": "",
-  "account": ""
+  "account": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The ID of the bank account to be updated.
+  * account **required** `string`
+  * id **required** `string`: The ID of the bank account to update
   * payload `object`
-    * default_for_currency `boolean`: If set to `true`, this bank account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * address_city `string`: City/District/Suburb/Town/Village.
+    * address_country `string`: Billing address country, if provided when creating card.
+    * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
+    * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
+    * address_state `string`: State/County/Province/Region.
+    * address_zip `string`: ZIP or postal code
+    * default_for_currency `boolean`
+    * exp_month `string`: Two digit number representing the card’s expiration month.
+    * exp_year `string`: Four digit number representing the card’s expiration year.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
-  * account **required** `string`
+    * name `string`: Cardholder name.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -588,11 +2543,11 @@ stripe.v1.accounts.account.external_accounts.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * account **required** `string`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * account **required** `string`
 
 #### Output
 * output `object`
@@ -608,20 +2563,19 @@ stripe.v1.accounts.account.external_accounts.get({
 
 ```js
 stripe.v1.accounts.account.external_accounts.post({
-  "payload": null,
-  "account": ""
+  "account": "",
+  "payload": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * payload **required** `object`
-    * default_for_currency `boolean`: If you set this to true (or if this is the first external account being added in this currency) this account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
-    * external_account **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-    * metadata `object`: A set of key/value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
   * account **required** `string`
+  * payload **required** `object`
+    * default_for_currency `boolean`: When set to true, or if this is the first external account added in this currency, this account becomes the default external account for its currency.
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
+    * metadata `object`: A set of key-value pairs that you can attach to an external account object. It can be useful for storing additional information about the external account in a structured format.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -632,18 +2586,18 @@ stripe.v1.accounts.account.external_accounts.post({
 
 ```js
 stripe.v1.accounts.account.external_accounts.id.delete({
-  "id": "",
-  "account": ""
+  "account": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * account **required** `string`
   * id **required** `string`: The ID of the external account to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-  * account **required** `string`
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -654,16 +2608,16 @@ stripe.v1.accounts.account.external_accounts.id.delete({
 
 ```js
 stripe.v1.accounts.account.external_accounts.id.get({
-  "id": "",
-  "account": ""
+  "account": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * id **required** `string`
+  * expand `array`: Specifies which fields in the response should be expanded.
   * account **required** `string`
+  * id **required** `string`
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -674,20 +2628,29 @@ stripe.v1.accounts.account.external_accounts.id.get({
 
 ```js
 stripe.v1.accounts.account.external_accounts.id.post({
-  "id": "",
-  "account": ""
+  "account": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The ID of the bank account to be updated.
+  * account **required** `string`
+  * id **required** `string`: The ID of the bank account to update
   * payload `object`
-    * default_for_currency `boolean`: If set to `true`, this bank account will become the default external account for its currency.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * address_city `string`: City/District/Suburb/Town/Village.
+    * address_country `string`: Billing address country, if provided when creating card.
+    * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
+    * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
+    * address_state `string`: State/County/Province/Region.
+    * address_zip `string`: ZIP or postal code
+    * default_for_currency `boolean`
+    * exp_month `string`: Two digit number representing the card’s expiration month.
+    * exp_year `string`: Four digit number representing the card’s expiration year.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
-  * account **required** `string`
+    * name `string`: Cardholder name.
 
 #### Output
 * output [external_account_source](#external_account_source)
@@ -706,12 +2669,32 @@ stripe.v1.accounts.account.login_links.post({
 * input `object`
   * account **required** `string`: The identifier of the account to create a login link for.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * redirect_url `string`: Where to redirect the user after they log out of their dashboard.
 
 #### Output
 * output [login_link](#login_link)
+
+### v1.accounts.account.logout.put
+<p>Invalidates all sessions for a light account, for a platform to use during platform logout.</p><p><strong>You may only log out <a href="/docs/connect/express-accounts">Express accounts</a> connected to your platform</strong>.</p>
+
+
+```js
+stripe.v1.accounts.account.logout.put({
+  "account": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * account **required** `string`: The identifier of the account to log out.
+  * payload `object`
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
+
+#### Output
+* output [light_account_logout](#light_account_logout)
 
 ### AccountReject
 <p>With <a href="/docs/connect">Connect</a>, you may flag accounts as suspicious.</p><p>Test-mode Custom and Express accounts can be rejected at any time. Accounts created using live-mode keys may only be rejected once all balances are zero.</p>
@@ -726,11 +2709,11 @@ stripe.AccountReject({
 
 #### Input
 * input `object`
-  * account **required** `string`: The identifier of the account to be rejected.
+  * account **required** `string`: The identifier of the account to reject
   * payload **required** `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * reason **required** `string`: The reason for rejecting the account. May be one of `fraud`, `terms_of_service`, or `other`.
+    * reason **required** `string`: The reason for rejecting the account. Can be `fraud`, `terms_of_service`, or `other`.
 
 #### Output
 * output [account](#account)
@@ -745,11 +2728,11 @@ stripe.AllApplePayDomains({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * domain_name `string`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * domain_name `string`
 
 #### Output
 * output `object`
@@ -773,7 +2756,7 @@ stripe.CreateApplePayDomain({
 * input `object`
   * payload **required** `object`
     * domain_name **required** `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -793,7 +2776,7 @@ stripe.DeleteApplePayDomain({
 * input `object`
   * domain **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -811,7 +2794,7 @@ stripe.RetrieveApplePayDomain({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * domain **required** `string`
 
 #### Output
@@ -827,12 +2810,12 @@ stripe.AllPlatformEarnings({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * charge `string`: Only return application fees for the charge specified by this charge ID.
+  * created `integer`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * created `integer`
-  * charge `string`: Only return application fees for the charge specified by this charge ID.
 
 #### Output
 * output `object`
@@ -855,7 +2838,7 @@ stripe.RetrievePlatformEarningRefund({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * fee **required** `string`: ID of the application fee refunded.
   * id **required** `string`: ID of refund to retrieve.
 
@@ -875,12 +2858,12 @@ stripe.UpdatePlatformEarningRefund({
 
 #### Input
 * input `object`
-  * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
-    * metadata `object`: A set of key/value pairs that you can attach to an application fee refund object. It can be useful for storing additional information about the refund in a structured format.
   * fee **required** `string`
   * id **required** `string`
+  * payload `object`
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
+    * metadata `object`: A set of key/value pairs that you can attach to an application fee refund object. It can be useful for storing additional information about the refund in a structured format.
 
 #### Output
 * output [fee_refund](#fee_refund)
@@ -897,7 +2880,7 @@ stripe.RetrievePlatformEarning({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the fee to be retrieved.
 
 #### Output
@@ -919,7 +2902,7 @@ stripe.RefundPlatformEarning({
   * payload `object`
     * amount `integer`
     * directive `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -937,11 +2920,11 @@ stripe.AllPlatformEarningsRefunds({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * id **required** `string`: The ID of the application fee whose refunds will be retrieved.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -967,7 +2950,7 @@ stripe.CreatePlatformEarningRefund({
   * payload `object`
     * amount `integer`
     * directive `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
 
@@ -984,7 +2967,7 @@ stripe.BalanceRetrieve({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
 
 #### Output
 * output [balance](#balance)
@@ -999,16 +2982,16 @@ stripe.AllBalanceTransactions({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * payout `string`: For automatic Stripe payouts only, only returns transactions that were payed out on the specified payout ID.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * available_on `string`
   * created `integer`
-  * type `string`: Only returns transactions of the given type. One of: `charge`, `refund`, `adjustment`, `application_fee`, `application_fee_refund`, `transfer`, `payment`, `payout`, `payout_failure`, or `stripe_fee`.
-  * source `string`: Only returns the original transaction.
   * currency `string`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * payout `string`: For automatic Stripe payouts only, only returns transactions that were payed out on the specified payout ID.
+  * source `string`: Only returns the original transaction.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * type `string`: Only returns transactions of the given type. One of: `charge`, `refund`, `adjustment`, `application_fee`, `application_fee_refund`, `transfer`, `payment`, `payout`, `payout_failure`, or `stripe_fee`.
 
 #### Output
 * output `object`
@@ -1030,8 +3013,8 @@ stripe.RetrieveBalanceTransaction({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * id **required** `string`: The ID of the desired balance transaction (as found on any API object that affects the balance, e.g. a charge or transfer).
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * id **required** `string`: The ID of the desired balance transaction (as found on any API object that affects the balance, e.g., a charge or transfer).
 
 #### Output
 * output [balance_transaction](#balance_transaction)
@@ -1046,12 +3029,12 @@ stripe.AllReceivers({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * active `boolean`: Filter for active receivers.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * filled `boolean`: Filter for filled receivers.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * active `boolean`: Filter for active receivers.
-  * filled `boolean`: Filter for filled receivers.
   * uncaptured_funds `boolean`: Filter for receivers with uncaptured funds.
 
 #### Output
@@ -1074,7 +3057,7 @@ stripe.RetrieveReceiver({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`
 
 #### Output
@@ -1092,12 +3075,12 @@ stripe.v1.bitcoin.receivers.receiver.transactions.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer `string`: Only return transactions for the customer specified by this customer ID.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * receiver **required** `string`: Only return transactions for the receiver specified by this receiver ID.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -1117,12 +3100,12 @@ stripe.v1.bitcoin.transactions.get({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer `string`: Only return transactions for the customer specified by this customer ID.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * receiver `string`: Only return transactions for the receiver specified by this receiver ID.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -1142,13 +3125,13 @@ stripe.AllCharges({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer `string`: Only return charges for the customer specified by this customer ID.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * created `integer`
+  * customer `string`: Only return charges for the customer specified by this customer ID.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * source `string`
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
   * transfer_group `string`: Only return charges for this transfer group.
 
 #### Output
@@ -1164,41 +3147,81 @@ stripe.AllCharges({}, context)
 
 
 ```js
-stripe.CreateCharge({
-  "payload": null
-}, context)
+stripe.CreateCharge({}, context)
 ```
 
 #### Input
 * input `object`
-  * payload **required** `object`
+  * payload `object`
     * alternate_statement_descriptors `object`
-    * amount **required** `integer`
+      * kana `string`
+      * kanji `string`
+    * amount `integer`
     * application `string`
     * application_fee `integer`
     * capture `boolean`
-    * currency **required** `string`
+    * currency `string`
     * customer `string`
     * description `string`
     * destination `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+      * account **required** `string`
+      * amount `integer`
+    * device_id `string`
+    * exchange_rate `number`
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * external_id `string`
+    * idempotency_key `string`
     * invoice `string`
     * invoice_source `string`
     * ip `string`
     * level3 `object`
+      * customer_reference `string`
+      * line_items **required** `array`
+        * items `object`
+          * discount_amount `integer`
+          * product_code **required** `string`
+          * product_description **required** `string`
+          * quantity `integer`
+          * tax_amount `integer`
+          * unit_cost `integer`
+      * merchant_reference **required** `string`
+      * shipping_address_zip `string`
+      * shipping_amount `integer`
+      * shipping_from_zip `string`
     * metadata `object`
     * on_behalf_of `string`
+    * order `string`
+    * payment_method `string`
     * payment_user_agent `string`
     * receipt_email `string`
     * recurring `boolean`
     * referrer `string`
     * shipping `object`
-    * source `object`, `string`
+      * address **required** `object`
+        * city `string`
+        * country `string`
+        * line1 **required** `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * carrier `string`
+      * name **required** `string`
+      * phone `string`
+      * tracking_number `string`
+    * statement_address `object`
+      * city **required** `string`
+      * line1 **required** `string`
+      * line2 `string`
+      * postal_code **required** `string`
+      * state **required** `string`
     * statement_descriptor `string`
+    * three_d_secure `object`
+      * apple_pay **required** `boolean`
+      * cryptogram **required** `string`
     * transfer_group `string`
     * trust `object`
+      * safety `string` (values: fraudulent, safe)
     * uncaptured `boolean`
     * user_agent `string`
 
@@ -1217,14 +3240,14 @@ stripe.RetrieveCharge({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * charge **required** `string`: The identifier of the charge to be retrieved.
 
 #### Output
 * output [charge](#charge)
 
 ### UpdateCharge
-<p>Updates the specified charge by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p><p>This request accepts only the <code>description</code>, <code>metadata</code>, <code>receipt_email</code>, <code>fraud_details</code>, and <code>shipping</code> as arguments.</p>
+<p>Updates the specified charge by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p><p>This request accepts only the <code>customer</code>, <code>description</code>, <code>fraud_details</code>, <code>metadata</code>, <code>receipt_email</code>, and <code>shipping</code> arguments.</p>
 
 
 ```js
@@ -1235,16 +3258,28 @@ stripe.UpdateCharge({
 
 #### Input
 * input `object`
+  * charge **required** `string`
   * payload `object`
+    * customer `string`: The ID of an existing customer that will be associated with this request. This field may only be updated if there is no existing associated customer with this charge.
     * description `string`: An arbitrary string which you can attach to a charge object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the `description` of the charge(s) that they are describing.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * fraud_details `object`: A set of key/value pairs you can attach to a charge giving information about its riskiness. If you believe a charge is fraudulent, include a `user_report` key with a value of `fraudulent`. If you believe a charge is safe, include a `user_report` key with a value of `safe`. Note that you must refund a charge before setting the `user_report` to `fraudulent`. Stripe will use the information you send to improve our fraud detection algorithms.
     * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to metadata.
     * receipt_email `string`: This is the email address that the receipt for this charge will be sent to. If this field is updated, then a new email receipt will be sent to the updated address.
     * shipping `object`: Shipping information for the charge. Helps prevent fraud on charges for physical goods.
+      * address **required** `object`
+        * city `string`
+        * country `string`
+        * line1 **required** `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * carrier `string`
+      * name **required** `string`
+      * phone `string`
+      * tracking_number `string`
     * transfer_group `string`: A string that identifies this transaction as part of a group. `transfer_group` may only be provided if it has not been set. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.
-  * charge **required** `string`
 
 #### Output
 * output [charge](#charge)
@@ -1266,7 +3301,8 @@ stripe.ChargeCapture({
     * amount `integer`: The amount to capture, which must be less than or equal to the original amount. Any additional amount will be automatically refunded.
     * application_fee `integer`: An application fee to add on to this charge. Can only be used with Stripe Connect.
     * destination `object`: An optional dictionary containing a new destination amount to use. Can only be used with destination charges created with Stripe Connect.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+      * amount `integer`
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * receipt_email `string`: The email address to send this charge's receipt to. This will override the previously-specified email address for this charge, if one was set. Receipts will not be sent in test mode.
     * statement_descriptor `string`: An arbitrary string to be displayed on your customer's credit card statement. This may be up to *22 characters*. As an example, if your website is `RunClub` and the item you're charging for is a race ticket, you may want to specify a `statement_descriptor` of `RunClub 5K race ticket`. The statement description must contain at least one letter, may not include `<>"'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. Updating this value will overwrite the previous statement descriptor of this charge. While most banks display this information consistently, some may display it incorrectly or not at all.
@@ -1286,7 +3322,7 @@ stripe.RetrieveChargeDispute({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * charge **required** `string`
 
 #### Output
@@ -1307,10 +3343,37 @@ stripe.UpdateChargeDispute({
   * charge **required** `string`
   * payload `object`
     * evidence `object`: Evidence to upload to respond to a dispute. Updating any field in the hash will submit all fields in the hash for review.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+      * access_activity_log `string`
+      * billing_address `string`
+      * cancellation_policy `string`
+      * cancellation_policy_disclosure `string`
+      * cancellation_rebuttal `string`
+      * customer_communication `string`
+      * customer_email_address `string`
+      * customer_name `string`
+      * customer_purchase_ip `string`
+      * customer_signature `string`
+      * duplicate_charge_documentation `string`
+      * duplicate_charge_explanation `string`
+      * duplicate_charge_id `string`
+      * product_description `string`
+      * receipt `string`
+      * refund_policy `string`
+      * refund_policy_disclosure `string`
+      * refund_refusal_explanation `string`
+      * service_date `string`
+      * service_documentation `string`
+      * shipping_address `string`
+      * shipping_carrier `string`
+      * shipping_date `string`
+      * shipping_documentation `string`
+      * shipping_tracking_number `string`
+      * uncategorized_file `string`
+      * uncategorized_text `string`
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a dispute object. It can be useful for storing additional information about the dispute in a structured format.
-    * submit `boolean`: Whether or not to immediately submit evidence to the bank. If `false`, evidence is staged on the dispute. Staged evidence is visible in the API and Dashboard, and can be submitted to the bank by making another request with this attribute set to `true` (the default).
+    * submit `boolean`: Whether to immediately submit evidence to the bank. If `false`, evidence is staged on the dispute. Staged evidence is visible in the API and Dashboard, and can be submitted to the bank by making another request with this attribute set to `true` (the default).
 
 #### Output
 * output [dispute](#dispute)
@@ -1329,18 +3392,18 @@ stripe.CloseChargeDispute({
 * input `object`
   * charge **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
 * output [dispute](#dispute)
 
-### CreatePaymentRefundWithPaymentResponse
+### ChargeRefund
 
 
 
 ```js
-stripe.CreatePaymentRefundWithPaymentResponse({
+stripe.ChargeRefund({
   "charge": ""
 }, context)
 ```
@@ -1351,8 +3414,8 @@ stripe.CreatePaymentRefundWithPaymentResponse({
   * payload `object`
     * amount `integer`
     * description `string`
-    * directive `string` (values: risk_refund)
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * directive `string`
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * reason `string` (values: duplicate, fraudulent, requested_by_customer)
@@ -1374,11 +3437,11 @@ stripe.AllChargeRefunds({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * charge **required** `string`: The ID of the charge whose refunds will be retrieved.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * charge **required** `string`: The ID of the charge whose refunds will be retrieved.
 
 #### Output
 * output `object`
@@ -1403,8 +3466,9 @@ stripe.v1.charges.charge.refunds.post({
   * charge **required** `string`
   * payload `object`
     * amount `integer`
+    * description `string`
     * directive `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * reason `string` (values: duplicate, fraudulent, requested_by_customer)
@@ -1420,16 +3484,16 @@ stripe.v1.charges.charge.refunds.post({
 
 ```js
 stripe.RetrieveChargeRefund({
-  "refund": "",
-  "charge": ""
+  "charge": "",
+  "refund": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * refund **required** `string`: ID of refund to retrieve.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * charge **required** `string`
+  * refund **required** `string`: ID of refund to retrieve.
 
 #### Output
 * output [refund](#refund)
@@ -1448,11 +3512,11 @@ stripe.UpdateChargeRefund({
 #### Input
 * input `object`
   * charge **required** `string`
+  * refund **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a refund object. It can be useful for storing additional information about the refund in a structured format.
-  * refund **required** `string`
 
 #### Output
 * output [refund](#refund)
@@ -1467,10 +3531,10 @@ stripe.AllCountrySpecs({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
 
 #### Output
 * output `object`
@@ -1492,7 +3556,7 @@ stripe.RetrieveCountrySpec({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * country **required** `string`: An ISO 3166-1 alpha-2 country code. Available country codes can be listed with the [List Country Specs](/docs/api#list_country_specs) endpoint.
 
 #### Output
@@ -1508,11 +3572,11 @@ stripe.AllCoupons({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `string`: A filter on the list based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * created `string`: A filter on the list based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
 
 #### Output
 * output `object`
@@ -1539,9 +3603,9 @@ stripe.CreateCoupon({
     * currency `string`: Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) of the `amount_off` parameter (required if `amount_off` is passed).
     * duration **required** `string` (values: forever, once, repeating): Specifies how long the discount will be in effect. Can be `forever`, `once`, or `repeating`.
     * duration_in_months `integer`: Required only if `duration` is `repeating`, in which case it must be a positive integer that specifies the number of months the discount will be in effect.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * id `string`: Unique string of your choice that will be used to identify this coupon when applying it to a customer. This is often a specific code you'll give to your customer to use when signing up (e.g. *FALL25OFF*). If you don't want to specify a particular code, you can leave the ID blank and we'll generate a random code for you.
+    * id `string`: Unique string of your choice that will be used to identify this coupon when applying it to a customer. This is often a specific code you'll give to your customer to use when signing up (e.g., `FALL25OFF`). If you don't want to specify a particular code, you can leave the ID blank and we'll generate a random code for you.
     * max_redemptions `integer`: A positive integer specifying the number of times the coupon can be redeemed before it's no longer valid. For example, you might have a 50% off coupon that the first 20 readers of your blog can use.
     * metadata `object`: A set of key/value pairs that you can attach to a coupon object. It can be useful for storing additional information about the coupon in a structured format.
     * percent_off `integer`: A positive integer between 1 and 100 that represents the discount the coupon will apply (required if `amount_off` is not passed).
@@ -1564,7 +3628,7 @@ stripe.DeleteCoupon({
 * input `object`
   * coupon **required** `string`: The identifier of the coupon to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -1582,7 +3646,7 @@ stripe.RetrieveCoupon({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * coupon **required** `string`: The ID of the desired coupon.
 
 #### Output
@@ -1602,7 +3666,7 @@ stripe.UpdateCoupon({
 * input `object`
   * coupon **required** `string`: The identifier of the coupon to be updated.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a coupon object. It can be useful for storing additional information about the coupon in a structured format.
 
@@ -1619,11 +3683,12 @@ stripe.AllCustomers({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `integer`
+  * email `string`: A filter on the list based on the customer's `email` field. The value must be a string.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * created `integer`
 
 #### Output
 * output `object`
@@ -1633,12 +3698,12 @@ stripe.AllCustomers({}, context)
   * object **required** `string` (values: list): String representing the object's type. Objects of the same type share the same value. Always has the value "list".
   * url **required** `string` (values: /v1/customers): The URL where this list can be accessed.
 
-### CustomerCreateWithPlan
+### CustomerCreate
 <p>Creates a new customer object.</p>
 
 
 ```js
-stripe.CustomerCreateWithPlan({}, context)
+stripe.CustomerCreate({}, context)
 ```
 
 #### Input
@@ -1647,14 +3712,23 @@ stripe.CustomerCreateWithPlan({}, context)
     * account_balance `integer`: An integer amount in %s that is the starting account balance for your customer. A negative amount represents a credit that will be used before attempting any charges to the customer's card; a positive amount will be added to the next invoice.
     * business_vat_id `string`: The customer's VAT identification number. If you are using Relay, this field gets passed to tax provider you are using for your orders.
     * coupon `string`: If you provide a coupon code, the customer will have a discount applied on all recurring charges. Charges you create through the API will not have the discount.
+    * customer `string`
     * default_source `string`
     * description `string`: An arbitrary string that you can attach to a customer object. It is displayed alongside the customer in the dashboard.
-    * email `string`: Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * email `string`: Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a customer object. It can be useful for storing additional information about the customer in a structured format.
     * shipping `object`
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens)'s or a [Source](/docs/api#sources)'s ID, as returned by [Elements](/docs/elements), or a dictionary containing a user's credit card details (with the options shown below).
+      * address **required** `object`
+        * city `string`
+        * country `string`
+        * line1 **required** `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * name **required** `string`
+      * phone `string`
 
 #### Output
 * output [customer](#customer)
@@ -1673,7 +3747,7 @@ stripe.DeleteCustomer({
 * input `object`
   * customer **required** `string`: The identifier of the customer to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -1691,18 +3765,18 @@ stripe.RetrieveCustomer({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`: The identifier of the customer to be retrieved.
 
 #### Output
 * output [customer](#customer)
 
-### CustomerUpdateWithPlan
+### CustomerUpdate
 
 
 
 ```js
-stripe.CustomerUpdateWithPlan({
+stripe.CustomerUpdate({
   "customer": ""
 }, context)
 ```
@@ -1716,12 +3790,20 @@ stripe.CustomerUpdateWithPlan({
     * coupon `string`: If you provide a coupon code, the customer will have a discount applied on all recurring charges. Charges you create through the API will not have the discount.
     * default_source `string`
     * description `string`: An arbitrary string that you can attach to a customer object. It is displayed alongside the customer in the dashboard.
-    * email `string`: Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * email `string`: Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a customer object. It can be useful for storing additional information about the customer in a structured format.
     * shipping `object`
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens)'s or a [Source](/docs/api#sources)'s ID, as returned by [Elements](/docs/elements), or a dictionary containing a user's credit card details (with the options shown below).
+      * address **required** `object`
+        * city `string`
+        * country `string`
+        * line1 **required** `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * name **required** `string`
+      * phone `string`
 
 #### Output
 * output [customer](#customer)
@@ -1738,11 +3820,11 @@ stripe.AllCustomerBankAccounts({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * customer **required** `string`: The ID of the customer whose bank accounts will be retrieved.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer **required** `string`: The ID of the customer whose bank accounts will be retrieved.
 
 #### Output
 * output `object`
@@ -1758,19 +3840,18 @@ stripe.AllCustomerBankAccounts({
 
 ```js
 stripe.v1.customers.customer.bank_accounts.post({
-  "payload": null,
-  "customer": ""
+  "customer": "",
+  "payload": null
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * payload **required** `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a card object. It can be useful for storing additional information about the card in a structured format.
-    * source **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-  * customer **required** `string`
 
 #### Output
 * output [customer_source_create](#customer_source_create)
@@ -1781,18 +3862,18 @@ stripe.v1.customers.customer.bank_accounts.post({
 
 ```js
 stripe.v1.customers.customer.bank_accounts.id.delete({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * id **required** `string`: The ID of the source to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-  * customer **required** `string`
 
 #### Output
 * output [customer_source](#customer_source)
@@ -1803,16 +3884,16 @@ stripe.v1.customers.customer.bank_accounts.id.delete({
 
 ```js
 stripe.RetrieveCustomerBankAccount({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * id **required** `string`: ID of bank account to retrieve.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`
+  * id **required** `string`: ID of bank account to retrieve.
 
 #### Output
 * output [bank_account](#bank_account)
@@ -1823,31 +3904,44 @@ stripe.RetrieveCustomerBankAccount({
 
 ```js
 stripe.v1.customers.customer.bank_accounts.id.post({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * id **required** `string`: The ID of the card to be updated.
   * payload `object`
+    * account_holder_name `string`: The name of the person or business that owns the bank account.
+    * account_holder_type `string`: The type of entity that holds the account. This can be either `individual` or `company`.
     * address_city `string`: City/District/Suburb/Town/Village.
     * address_country `string`: Billing address country, if provided when creating card.
     * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
     * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
     * address_state `string`: State/County/Province/Region.
-    * address_zip `string`: Zip/Postal Code.
+    * address_zip `string`: ZIP or postal code
     * exp_month `string`: Two digit number representing the card’s expiration month.
     * exp_year `string`: Four digit number representing the card’s expiration year.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * name `string`: Cardholder name.
-  * customer **required** `string`
+    * owner `object`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * email `string`
+      * name `string`
+      * phone `string`
 
 #### Output
-* output [card](#card)
+* output [bank_account](#bank_account)
 
 ### v1.customers.customer.bank_accounts.id.verify.post
 
@@ -1855,18 +3949,19 @@ stripe.v1.customers.customer.bank_accounts.id.post({
 
 ```js
 stripe.v1.customers.customer.bank_accounts.id.verify.post({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The ID of the source to be verified.
   * customer **required** `string`
+  * id **required** `string`: The ID of the source to be verified.
   * payload `object`
     * amounts `array`: Two positive integers in **cents** equal to the values of the microdeposits sent to the bank account.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * verification_method `string`
 
@@ -1885,11 +3980,11 @@ stripe.AllCustomerCards({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * customer **required** `string`: The ID of the customer whose cards will be retrieved.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer **required** `string`: The ID of the customer whose cards will be retrieved.
 
 #### Output
 * output `object`
@@ -1905,19 +4000,18 @@ stripe.AllCustomerCards({
 
 ```js
 stripe.v1.customers.customer.cards.post({
-  "payload": null,
-  "customer": ""
+  "customer": "",
+  "payload": null
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * payload **required** `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a card object. It can be useful for storing additional information about the card in a structured format.
-    * source **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-  * customer **required** `string`
 
 #### Output
 * output [customer_source_create](#customer_source_create)
@@ -1928,18 +4022,18 @@ stripe.v1.customers.customer.cards.post({
 
 ```js
 stripe.v1.customers.customer.cards.id.delete({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * id **required** `string`: The ID of the source to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-  * customer **required** `string`
 
 #### Output
 * output [customer_source](#customer_source)
@@ -1950,16 +4044,16 @@ stripe.v1.customers.customer.cards.id.delete({
 
 ```js
 stripe.RetrieveCustomerCard({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * id **required** `string`: The ID of the card to be retrieved.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`
+  * id **required** `string`: The ID of the card to be retrieved.
 
 #### Output
 * output [card](#card)
@@ -1970,31 +4064,44 @@ stripe.RetrieveCustomerCard({
 
 ```js
 stripe.v1.customers.customer.cards.id.post({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * id **required** `string`: The ID of the card to be updated.
   * payload `object`
+    * account_holder_name `string`: The name of the person or business that owns the bank account.
+    * account_holder_type `string`: The type of entity that holds the account. This can be either `individual` or `company`.
     * address_city `string`: City/District/Suburb/Town/Village.
     * address_country `string`: Billing address country, if provided when creating card.
     * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
     * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
     * address_state `string`: State/County/Province/Region.
-    * address_zip `string`: Zip/Postal Code.
+    * address_zip `string`: ZIP or postal code
     * exp_month `string`: Two digit number representing the card’s expiration month.
     * exp_year `string`: Four digit number representing the card’s expiration year.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * name `string`: Cardholder name.
-  * customer **required** `string`
+    * owner `object`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * email `string`
+      * name `string`
+      * phone `string`
 
 #### Output
-* output [card](#card)
+* output [bank_account](#bank_account)
 
 ### v1.customers.customer.discount.delete
 <p>Removes the currently applied discount on a customer.</p>
@@ -2008,10 +4115,10 @@ stripe.v1.customers.customer.discount.delete({
 
 #### Input
 * input `object`
-  * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
   * customer **required** `string`
+  * payload `object`
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
 
 #### Output
 * output [discount](#discount)
@@ -2028,7 +4135,7 @@ stripe.v1.customers.customer.discount.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`
 
 #### Output
@@ -2046,11 +4153,11 @@ stripe.AllCustomerSources({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * customer **required** `string`: The ID of the customer whose sources will be retrieved.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer **required** `string`: The ID of the customer whose sources will be retrieved.
   * type `string`
 
 #### Output
@@ -2067,19 +4174,18 @@ stripe.AllCustomerSources({
 
 ```js
 stripe.v1.customers.customer.sources.post({
-  "payload": null,
-  "customer": ""
+  "customer": "",
+  "payload": null
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * payload **required** `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a card object. It can be useful for storing additional information about the card in a structured format.
-    * source **required** `object`, `string`: This string to be replaced by DocSpecGenerator.
-  * customer **required** `string`
 
 #### Output
 * output [customer_source_create](#customer_source_create)
@@ -2090,18 +4196,18 @@ stripe.v1.customers.customer.sources.post({
 
 ```js
 stripe.v1.customers.customer.sources.id.delete({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * id **required** `string`: The ID of the source to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-  * customer **required** `string`
 
 #### Output
 * output [customer_source](#customer_source)
@@ -2112,16 +4218,16 @@ stripe.v1.customers.customer.sources.id.delete({
 
 ```js
 stripe.RetrieveCustomerSource({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * id **required** `string`: The ID of the source to be retrieved.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`
+  * id **required** `string`: The ID of the source to be retrieved.
 
 #### Output
 * output [customer_source](#customer_source)
@@ -2132,31 +4238,44 @@ stripe.RetrieveCustomerSource({
 
 ```js
 stripe.v1.customers.customer.sources.id.post({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * customer **required** `string`
   * id **required** `string`: The ID of the card to be updated.
   * payload `object`
+    * account_holder_name `string`: The name of the person or business that owns the bank account.
+    * account_holder_type `string`: The type of entity that holds the account. This can be either `individual` or `company`.
     * address_city `string`: City/District/Suburb/Town/Village.
     * address_country `string`: Billing address country, if provided when creating card.
     * address_line1 `string`: Address line 1 (Street address/PO Box/Company name).
     * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
     * address_state `string`: State/County/Province/Region.
-    * address_zip `string`: Zip/Postal Code.
+    * address_zip `string`: ZIP or postal code
     * exp_month `string`: Two digit number representing the card’s expiration month.
     * exp_year `string`: Four digit number representing the card’s expiration year.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * name `string`: Cardholder name.
-  * customer **required** `string`
+    * owner `object`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * email `string`
+      * name `string`
+      * phone `string`
 
 #### Output
-* output [card](#card)
+* output [bank_account](#bank_account)
 
 ### v1.customers.customer.sources.id.verify.post
 
@@ -2164,18 +4283,19 @@ stripe.v1.customers.customer.sources.id.post({
 
 ```js
 stripe.v1.customers.customer.sources.id.verify.post({
-  "id": "",
-  "customer": ""
+  "customer": "",
+  "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `string`: The ID of the source to be verified.
   * customer **required** `string`
+  * id **required** `string`: The ID of the source to be verified.
   * payload `object`
     * amounts `array`: Two positive integers in **cents** equal to the values of the microdeposits sent to the bank account.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * verification_method `string`
 
@@ -2194,11 +4314,11 @@ stripe.AllCustomerSubscriptions({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * customer **required** `string`: The ID of the customer whose subscriptions will be retrieved.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer **required** `string`: The ID of the customer whose subscriptions will be retrieved.
 
 #### Output
 * output `object`
@@ -2222,26 +4342,29 @@ stripe.CreateCustomerSubscription({
 * input `object`
   * customer **required** `string`: The identifier of the customer to subscribe.
   * payload `object`
-    * application_fee_percent `number`: A non-negative decimal (with at most two decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
+    * application_fee_percent `number`: A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
+    * billing `string` (values: charge_automatically, send_invoice): Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions. Defaults to `charge_automatically`.
     * coupon `string`: The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * days_until_due `integer`: Number of days a customer has to pay invoices generated by this subscription. Only valid for subscriptions where `billing=send_invoice`.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * items `array`: List of subscription items, each with an attached plan.
+      * items `object`
+        * plan **required** `string`
+        * quantity `integer`
     * metadata `object`: A set of key/value pairs that you can attach to a subscription object. It can be useful for storing additional information about the subscription in a structured format.
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens) or a [Source](/docs/api#sources), as returned by [Elements](https://stripe.com/docs/elements), or a dictionary containing a user's credit card details (with the options shown below). You must provide a source if the customer does not already have a valid source attached, and you are subscribing the customer to be charged automatically for a plan that is not free. Passing `source` will create a new source object, make it the customer default source, and delete the old customer default if one exists. If you want to add an additional source, instead use the [card creation API](https://stripe.com/docs/api#create_card) to add the card and then the [customer update API](https://stripe.com/docs/api#update customer) to set it as the default. Whenever you attach a card to a customer, Stripe will automatically validate the card.
     * tax_percent `number`: A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount each billing period. For example, a plan which charges $10/month with a `tax_percent` of 20.0 will charge $12 per invoice.
-    * trial_end `integer`, `string`: Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. The special value `now` can be provided to end the customer's trial immediately.
     * trial_period_days `integer`: Integer representing the number of trial period days before the customer is charged for the first time.
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.customers.customer.subscriptions.subscription_exposed_id.delete
+### DeleteCustomerSubscription
 <p>Cancels a customer’s subscription. If you set the <code>at_period_end</code> parameter to true, the subscription will remain active until the end of the period, at which point it will be canceled and not renewed. By default, the subscription is terminated immediately. In either case, the customer will not be charged again for the subscription. Note, however, that any pending invoice items that you’ve created will still be charged for at the end of the period unless manually <a href="#delete_invoiceitem">deleted</a>. If you’ve set the subscription to cancel at period end, any pending prorations will also be left in place and collected at the end of the period, but if the subscription is set to cancel immediately, pending prorations will be removed.</p><p>By default, all unpaid invoices for the customer will be closed upon subscription cancellation. We do this in order to prevent unexpected payment attempts once the customer has canceled a subscription. However, you can reopen the invoices manually after subscription cancellation to have us proceed with payment collection, or you could even re-attempt payment yourself on all unpaid invoices before allowing the customer to cancel the subscription at all.</p>
 
 
 ```js
-stripe.v1.customers.customer.subscriptions.subscription_exposed_id.delete({
+stripe.DeleteCustomerSubscription({
   "customer": "",
   "subscription_exposed_id": ""
 }, context)
@@ -2249,22 +4372,22 @@ stripe.v1.customers.customer.subscriptions.subscription_exposed_id.delete({
 
 #### Input
 * input `object`
-  * payload `object`
-    * at_period_end `boolean`: A flag that if set to true will delay the cancellation of the subscription until the end of the current period.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
   * customer **required** `string`
   * subscription_exposed_id **required** `string`
+  * payload `object`
+    * at_period_end `boolean`: A flag that if set to true will delay the cancellation of the subscription until the end of the current period.
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.customers.customer.subscriptions.subscription_exposed_id.get
+### RetrieveCustomerSubscription
 <p>Retrieves the subscription with the given ID.</p>
 
 
 ```js
-stripe.v1.customers.customer.subscriptions.subscription_exposed_id.get({
+stripe.RetrieveCustomerSubscription({
   "customer": "",
   "subscription_exposed_id": ""
 }, context)
@@ -2272,19 +4395,19 @@ stripe.v1.customers.customer.subscriptions.subscription_exposed_id.get({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`
   * subscription_exposed_id **required** `string`
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.customers.customer.subscriptions.subscription_exposed_id.post
+### UpdateCustomerSubscription
 <p>Updates an existing subscription on a customer to match the specified parameters. When changing plans or quantities, we will optionally prorate the price we charge next month to make up for any price changes. To preview how the proration will be calculated, use the <a href="#upcoming_invoice">upcoming invoice</a> endpoint.</p>
 
 
 ```js
-stripe.v1.customers.customer.subscriptions.subscription_exposed_id.post({
+stripe.UpdateCustomerSubscription({
   "customer": "",
   "subscription_exposed_id": ""
 }, context)
@@ -2292,20 +4415,27 @@ stripe.v1.customers.customer.subscriptions.subscription_exposed_id.post({
 
 #### Input
 * input `object`
+  * customer **required** `string`
+  * subscription_exposed_id **required** `string`
   * payload `object`
-    * application_fee_percent `number`: A non-negative decimal (with at most two decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions')}).
+    * application_fee_percent `number`: A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions')}).
+    * billing `string` (values: charge_automatically, send_invoice): Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions.
     * coupon `string`: The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * days_until_due `integer`: Number of days a customer has to pay invoices generated by this subscription. Only valid for subscriptions where `billing=send_invoice`.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * items `array`: List of subscription items, each with an attached plan.
+      * items `object`
+        * clear_usage `boolean`
+        * deleted `boolean`
+        * id `string`
+        * metadata `object`
+        * plan `string`
+        * quantity `integer`
     * metadata `object`: A set of key/value pairs that you can attach to a subscription object. It can be useful for storing additional information about the subscription in a structured format.
     * prorate `boolean`: Flag telling us whether to prorate switching plans during a billing cycle.
     * proration_date `integer`: If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply exactly the same proration that was previewed with [upcoming invoice](#retrieve_customer_invoice) endpoint. It can also be used to implement custom proration logic, such as prorating by day instead of by second, by providing the time that you wish to use for proration calculations.
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens) or a [Source](/docs/api#sources), as returned by [Elements](https://stripe.com/docs/elements), or a dictionary containing a user's credit card details (with the options shown below). You must provide a source if the customer does not already have a valid source attached, and you are subscribing the customer to be charged automatically for a plan that is not free. Passing `source` will create a new source object, make it the customer default source, and delete the old customer default if one exists. If you want to add an additional source, instead use the [card creation API](https://stripe.com/docs/api#create_card) to add the card and then the [customer update API](https://stripe.com/docs/api#update customer) to set it as the default. Whenever you attach a card to a customer, Stripe will automatically validate the card.
     * tax_percent `number`: A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount each billing period. For example, a plan which charges $10/month with a `tax_percent` of 20.0 will charge $12 per invoice.
-    * trial_end `integer`, `string`: Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. The special value `now` can be provided to end the customer's trial immediately.
-  * customer **required** `string`
-  * subscription_exposed_id **required** `string`
 
 #### Output
 * output [subscription](#subscription)
@@ -2323,11 +4453,11 @@ stripe.v1.customers.customer.subscriptions.subscription_exposed_id.discount.dele
 
 #### Input
 * input `object`
-  * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
   * customer **required** `string`
   * subscription_exposed_id **required** `string`
+  * payload `object`
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
 
 #### Output
 * output [discount](#discount)
@@ -2345,7 +4475,7 @@ stripe.v1.customers.customer.subscriptions.subscription_exposed_id.discount.get(
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * customer **required** `string`
   * subscription_exposed_id **required** `string`
 
@@ -2362,11 +4492,11 @@ stripe.AllDisputes({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `integer`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * created `integer`
 
 #### Output
 * output `object`
@@ -2388,7 +4518,7 @@ stripe.RetrieveDispute({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * dispute **required** `string`: ID of dispute to retrieve.
 
 #### Output
@@ -2409,10 +4539,37 @@ stripe.UpdateDispute({
   * dispute **required** `string`: ID of the dispute to update.
   * payload `object`
     * evidence `object`: Evidence to upload to respond to a dispute. Updating any field in the hash will submit all fields in the hash for review.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+      * access_activity_log `string`
+      * billing_address `string`
+      * cancellation_policy `string`
+      * cancellation_policy_disclosure `string`
+      * cancellation_rebuttal `string`
+      * customer_communication `string`
+      * customer_email_address `string`
+      * customer_name `string`
+      * customer_purchase_ip `string`
+      * customer_signature `string`
+      * duplicate_charge_documentation `string`
+      * duplicate_charge_explanation `string`
+      * duplicate_charge_id `string`
+      * product_description `string`
+      * receipt `string`
+      * refund_policy `string`
+      * refund_policy_disclosure `string`
+      * refund_refusal_explanation `string`
+      * service_date `string`
+      * service_documentation `string`
+      * shipping_address `string`
+      * shipping_carrier `string`
+      * shipping_date `string`
+      * shipping_documentation `string`
+      * shipping_tracking_number `string`
+      * uncategorized_file `string`
+      * uncategorized_text `string`
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a dispute object. It can be useful for storing additional information about the dispute in a structured format.
-    * submit `boolean`: Whether or not to immediately submit evidence to the bank. If `false`, evidence is staged on the dispute. Staged evidence is visible in the API and Dashboard, and can be submitted to the bank by making another request with this attribute set to `true` (the default).
+    * submit `boolean`: Whether to immediately submit evidence to the bank. If `false`, evidence is staged on the dispute. Staged evidence is visible in the API and Dashboard, and can be submitted to the bank by making another request with this attribute set to `true` (the default).
 
 #### Output
 * output [dispute](#dispute)
@@ -2431,7 +4588,7 @@ stripe.CloseDispute({
 * input `object`
   * dispute **required** `string`: ID of dispute to close.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -2451,7 +4608,7 @@ stripe.CreateEphemeralKey({
 * input `object`
   * payload **required** `object`
     * customer **required** `string`: The ID of the Customer you'd like to modify using the resulting ephemeral key.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -2471,7 +4628,7 @@ stripe.DeleteEphemeralKey({
 * input `object`
   * key **required** `string`: The ID of the key you'd like to invalidate.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -2487,13 +4644,13 @@ stripe.AllEvents({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `string`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * type `string`: A string containing a specific event name, or group of events using * as a wildcard. The list will be filtered to include only events with a matching event property.
   * types `array`: An array of up to 20 strings containing specific event names. The list will be filtered to include only events with a matching event property. You may pass either `type` or `types`, but not both.
-  * created `string`
 
 #### Output
 * output `object`
@@ -2515,7 +4672,7 @@ stripe.RetrieveEvent({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the event to be retrieved.
 
 #### Output
@@ -2535,14 +4692,14 @@ stripe.RetryEvent({
 * input `object`
   * id **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
 * output [event](#event)
 
 ### AllExchangeRate
-<p>Returns a list objects that contain the rates at which foreign currencies are converted to one another.</p>
+<p>Returns a list of objects that contain the rates at which foreign currencies are converted to one another. Only shows the currencies for which Stripe supports.</p>
 
 
 ```js
@@ -2551,10 +4708,10 @@ stripe.AllExchangeRate({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is the currency that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with the exchange rate for currency X, your subsequent call can include `starting_after=X` in order to fetch the next page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * ending_before `string`: A cursor for use in pagination. `ending_before` is the currency that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with the exchange rate for currency X your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and total number of supported payout currencies, and the default is the max.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is the currency that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with the exchange rate for currency X, your subsequent call can include `starting_after=X` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -2565,7 +4722,7 @@ stripe.AllExchangeRate({}, context)
   * url **required** `string` (values: /v1/exchange_rates): The URL where this list can be accessed.
 
 ### RetrieveExchangeRate
-<p>Returns a list of objects that contain the rates at which foreign currencies are converted to the specified currency.</p>
+<p>Retrieves the exchange rates from the given currency to every supported currency.</p>
 
 
 ```js
@@ -2576,8 +4733,8 @@ stripe.RetrieveExchangeRate({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * currency **required** `string`
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
 
 #### Output
 * output [exchange_rate](#exchange_rate)
@@ -2592,12 +4749,12 @@ stripe.AllInvoiceItems({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `integer`
+  * customer `string`: The identifier of the customer whose invoice items to return. If none is provided, all invoice items will be returned.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer `string`: The identifier of the customer whose invoice items to return. If none is provided, all invoice items will be returned.
-  * created `integer`
 
 #### Output
 * output `object`
@@ -2620,12 +4777,12 @@ stripe.CreateInvoiceItem({
 #### Input
 * input `object`
   * payload **required** `object`
-    * amount **required** `integer`: The integer amount in %s of the charge to be applied to the upcoming invoice. To apply a credit to the customer's account, pass a negative amount.
+    * amount **required** `integer`: The integer amount in **%s** of the charge to be applied to the upcoming invoice. If you want to apply a credit to the customer's account, pass a negative amount.
     * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
     * customer **required** `string`: The ID of the customer who will be billed when this invoice item is billed.
     * description `string`: An arbitrary string which you can attach to the invoice item. The description is displayed in the invoice for easy tracking.
     * discountable `boolean`: Controls whether discounts apply to this invoice item. Defaults to false for prorations or negative invoice items, and true for all other invoice items.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * invoice `string`: The ID of an existing invoice to add this invoice item to. When left blank, the invoice item will be added to the next upcoming scheduled invoice. Use this when adding invoice items in response to an invoice.created webhook. You cannot add an invoice item to an invoice that has already been paid, attempted or closed.
     * metadata `object`: A set of key/value pairs that you can attach to an invoice item object. It can be useful for storing additional information about the invoice item in a structured format.
@@ -2648,7 +4805,7 @@ stripe.DeleteInvoiceItem({
 * input `object`
   * invoiceitem **required** `string`: The identifier of the invoice item to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -2666,7 +4823,7 @@ stripe.RetrieveInvoiceItem({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * invoiceitem **required** `string`: The ID of the desired invoice item.
 
 #### Output
@@ -2684,14 +4841,14 @@ stripe.UpdateInvoiceItem({
 
 #### Input
 * input `object`
+  * invoiceitem **required** `string`
   * payload `object`
     * amount `integer`: The integer amount in **%s** of the charge to be applied to the upcoming invoice. If you want to apply a credit to the customer's account, pass a negative amount.
     * description `string`: An arbitrary string which you can attach to the invoice item. The description is displayed in the invoice for easy tracking.
     * discountable `boolean`: Controls whether discounts apply to this invoice item. Defaults to false for prorations or negative invoice items, and true for all other invoice items. Cannot be set to true for prorations.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to an invoice item object. It can be useful for storing additional information about the invoice item in a structured format.
-  * invoiceitem **required** `string`
 
 #### Output
 * output [invoice_item](#invoice_item)
@@ -2706,13 +4863,15 @@ stripe.AllInvoices({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * billing `string`: The billing mode of the invoice to retrieve. Either `charge_automatically` or `send_invoice`.
+  * customer `string`: Only return invoices for the customer specified by this customer ID.
+  * date `integer`
+  * due_date `integer`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer `string`: Only return invoices for the customer specified by this customer ID.
   * subscription `string`: Only return invoices for the subscription specified by this subscription ID.
-  * date `integer`
 
 #### Output
 * output `object`
@@ -2736,9 +4895,12 @@ stripe.CreateInvoice({
 * input `object`
   * payload **required** `object`
     * application_fee `integer`: A fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the Stripe-Account header in order to take an application fee. For more information, see the application fees [documentation](/docs/connect/subscriptions#working-with-invoices).
+    * billing `string` (values: charge_automatically, send_invoice): Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions. Defaults to `charge_automatically`.
     * customer **required** `string`
+    * days_until_due `integer`: The number of days from which the invoice is created until it is due. Only valid for invoices where `billing=send_invoice`.
     * description `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * due_date `integer`: The date on which payment for this invoice is due. Only valid for invoices where `billing=send_invoice`.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * statement_descriptor `string`: Extra information about a charge for the customer's credit card statement.
@@ -2760,15 +4922,16 @@ stripe.RetrieveCustomerUpcomingInvoice({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * coupon `string`: The code of the coupon to apply. If `subscription` or `subscription_items` is provided, the invoice returned will preview updating or creating a subscription with that coupon. Otherwise, it will preview applying that coupon to the customer for the next upcoming invoice from among the customer's subscriptions. The invoice can be previewed without a coupon by passing this value as an empty string.
   * customer **required** `string`: The identifier of the customer whose upcoming invoice you'd like to retrieve.
+  * invoice_items `array`: List of invoice items to add or update in the upcoming invoice preview.
   * subscription `string`: The identifier of the subscription for which you'd like to retrieve the upcoming invoice. If not provided, but a `subscription_items` is provided, you will preview creating a subscription with those items. If neither `subscription` nor `subscription_items` is provided, you will retrieve the next upcoming invoice from among the customer's subscriptions.
+  * subscription_items `array`: List of subscription items, each with an attached plan.
   * subscription_prorate `boolean`: If previewing an update to a subscription, this decides whether the preview will show the result of applying prorations or not. If set, one of `subscription_items` or `subscription`, and one of `subscription_items` or `subscription_trial_end` are required.
   * subscription_proration_date `integer`: If previewing an update to a subscription, and doing proration, `subscription_proration_date` forces the proration to be calculated as though the update was done at the specified time. The time given must be within the current subscription period, and cannot be before the subscription was on its current plan. If set, `subscription`, and one of `subscription_items`, or `subscription_trial_end` are required. Also, `subscription_proration` cannot be set to false.
-  * subscription_trial_end `integer`: If provided, the invoice returned will preview updating or creating a subscription with that trial end. If set, one of `subscription_items` or `subscription` is required.
   * subscription_tax_percent `number`: If provided, the invoice returned will preview updating or creating a subscription with that tax percent. If set, one of `subscription_items` or `subscription` is required.
-  * coupon `string`: The code of the coupon to apply. If `subscription` or `subscription_items` is provided, the invoice returned will preview updating or creating a subscription with that coupon. Otherwise, it will preview applying that coupon to the customer for the next upcoming invoice from among the customer's subscriptions. The invoice can be previewed without a coupon by passing this value as an empty string.
-  * subscription_items `array`: List of subscription items, each with an attached plan.
+  * subscription_trial_end `integer`: If provided, the invoice returned will preview updating or creating a subscription with that trial end. If set, one of `subscription_items` or `subscription` is required.
 
 #### Output
 * output [upcoming_invoice](#upcoming_invoice)
@@ -2785,7 +4948,7 @@ stripe.RetrieveInvoice({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * invoice **required** `string`: The identifier of the desired invoice.
 
 #### Output
@@ -2803,17 +4966,18 @@ stripe.UpdateInvoice({
 
 #### Input
 * input `object`
+  * invoice **required** `string`
   * payload `object`
     * application_fee `integer`: A fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the Stripe-Account header in order to take an application fee. For more information, see the application fees [documentation](/docs/connect/subscriptions#working-with-invoices).
     * closed `boolean`: Boolean representing whether an invoice is closed or not. To close an invoice, pass true.
     * description `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * forgiven `boolean`: Boolean representing whether an invoice is forgiven or not. To forgive an invoice, pass true. Forgiving an invoice instructs us to update the subscription status as if the invoice were successfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.
     * metadata `object`
+    * paid `boolean`: Boolean representing whether an invoice is paid or not. To mark invoice as paid, pass true. Only applies to invoices where `billing=send_invoice`.
     * statement_descriptor `string`: Extra information about a charge for the customer's credit card statement.
     * tax_percent `number`: The percent tax rate applied to the invoice, represented as a decimal number. The tax rate of an attempted, paid or forgiven invoice cannot be changed.
-  * invoice **required** `string`
 
 #### Output
 * output [invoice](#invoice)
@@ -2830,19 +4994,19 @@ stripe.AllInvoiceLines({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: The maximum number of line items to return.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * coupon `string`: For upcoming invoices, preview applying this coupon to the invoice. If a `subscription` or `subscription_items` is provided, the invoice returned will preview updating or creating a subscription with that coupon. Otherwise, it will preview applying that coupon to the customer for the next upcoming invoice from among the customer's subscriptions. Otherwise this parameter is ignored.
+  * customer `string`: In the case of upcoming invoices, the customer of the upcoming invoice is required. In other cases it is ignored.
   * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * invoice **required** `string`: The ID of the invoice containing the lines to be retrieved. Use a value of **upcoming** to retrieve the upcoming invoice.
-  * customer `string`: In the case of upcoming invoices, the customer of the upcoming invoice is required. In other cases it is ignored.
+  * limit `integer`: The maximum number of line items to return.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
   * subscription `string`: In the case of upcoming invoices, the subscription of the upcoming invoice is optional. In other cases it is ignored.
+  * subscription_items `array`: For upcoming invoices, preview updating the subscription with this list of items. Otherwise this parameter is ignored.
   * subscription_prorate `boolean`: For upcoming invoices, this decides whether the preview will show the result of applying prorations or not. If set, one of `subscription_items` or `subscription`, and one of `subscription_items`, or `subscription_trial_end` are required. Otherwise this parameter is ignored.
   * subscription_proration_date `integer`: For previewing upcoming invoices with proration, `subscription_proration_date` forces the proration to be calculated as though the update was done at the specified time. The time given must be within the current subscription period, and cannot be before the subscription was on its current plan.If set, `subscription`, and one of `subscription_items` or `subscription_trial_end` are required. Also, `subscription_proration` cannot be set to false. Otherwise this parameter is ignored.
-  * subscription_trial_end `integer`: For upcoming invoices, preview updating or creating a subscription with that trial end. If set, one of `subscription_items` or `subscription` is required. Otherwise this parameter is ignored.
   * subscription_tax_percent `number`
-  * coupon `string`: For upcoming invoices, preview applying this coupon to the invoice. If a `subscription` or `subscription_items` is provided, the invoice returned will preview updating or creating a subscription with that coupon. Otherwise, it will preview applying that coupon to the customer for the next upcoming invoice from among the customer's subscriptions. Otherwise this parameter is ignored.
-  * subscription_items `array`: For upcoming invoices, preview updating the subscription with this list of items. Otherwise this parameter is ignored.
+  * subscription_trial_end `integer`: For upcoming invoices, preview updating or creating a subscription with that trial end. If set, one of `subscription_items` or `subscription` is required. Otherwise this parameter is ignored.
 
 #### Output
 * output `object`
@@ -2866,7 +5030,7 @@ stripe.PayInvoice({
 * input `object`
   * invoice **required** `string`: ID of invoice to pay.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * source `string`: A payment source to be charged. The source must be the ID of a source belonging to the customer associated with the invoice being paid.
 
@@ -2883,12 +5047,12 @@ stripe.AllOrderReturns({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * order `string`: The order to retrieve returns for.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * created `integer`: Date this return was created.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
   * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * order `string`: The order to retrieve returns for.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -2910,7 +5074,7 @@ stripe.RetrieveOrderReturn({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the order return to be retrieved.
 
 #### Output
@@ -2926,16 +5090,16 @@ stripe.AllOrders({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `string`: Date this order was created.
+  * customer `string`: Only return orders for the given customer.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * ids `array`: Only return orders with the given IDs.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * status `string`: Only return orders that have the given status. One of `created`, `paid`, `fulfilled`, or `refunded`.
-  * ids `array`: Only return orders with the given IDs.
-  * customer `string`: Only return orders for the given customer.
-  * created `string`: Date this order was created.
-  * upstream_ids `array`: Only return orders with the given upstream order IDs.
   * status_transitions `string`: Filter orders based on when they were paid, fulfilled, canceled, or returned.
+  * upstream_ids `array`: Only return orders with the given upstream order IDs.
 
 #### Output
 * output `object`
@@ -2962,11 +5126,27 @@ stripe.CreateOrder({
     * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
     * customer `string`: The ID of an existing customer to use for this order. If provided, the customer email and shipping address will be used to create the order. Subsequently, the customer will also be charged to pay the order. If `email` or `shipping` are also provided, they will override the values retrieved from the customer object.
     * email `string`: The email address of the customer placing the order.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * items `array`: List of items constituting the order.
-    * metadata `object`: A set of key/value pairs that you can attach to an order object. It can be useful for storing additional information about the order in a structured format.
+      * items `object`
+        * amount `integer`
+        * currency `string`
+        * description `string`
+        * parent `string`
+        * quantity `integer`
+        * type `string` (values: discount, shipping, sku, tax)
+    * metadata `object`: A set of key/value pairs that you can attach to an order object. Limited to 500 characters. Metadata can be useful for storing additional information about the order in a structured format.
     * shipping `object`: Shipping address for the order. Required if any of the SKUs are for products that have `shippable` set to true.
+      * address **required** `object`
+        * city `string`
+        * country `string`
+        * line1 **required** `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * name **required** `string`
+      * phone `string`
 
 #### Output
 * output [order](#order)
@@ -2983,7 +5163,7 @@ stripe.RetrieveOrder({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the order to be retrieved.
 
 #### Output
@@ -3004,11 +5184,13 @@ stripe.UpdateOrder({
   * id **required** `string`
   * payload `object`
     * coupon `string`: A coupon code that represents a discount to be applied to this order. Must be one-time duration and in same currency as the order.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a product object. It can be useful for storing additional information about the order in a structured format.
     * selected_shipping_method `string`: The shipping method to select for fulfilling this order. If specified, must be one of the `id`s of a shipping method in the `shipping_methods` array. If specified, will overwrite the existing selected shipping method, updating `items` as necessary.
     * shipping `object`: Tracking information once the order has been fulfilled.
+      * carrier **required** `string`
+      * tracking_number **required** `string`
     * status `string` (values: canceled, created, fulfilled, paid, returned): Current order status. One of `created`, `paid`, `canceled`, `fulfilled`, or `returned`. More detail in the [Relay API Overview](/docs/orders/guide#understanding-order-statuses).
 
 #### Output
@@ -3031,11 +5213,10 @@ stripe.PayOrder({
     * application_fee `integer`
     * customer `string`: The ID of an existing customer that will be charged for this order. If no customer was attached to the order at creation, either `source` or `customer` is required. Otherwise, the specified customer will be charged instead of the one attached to the order.
     * email `string`: The email address of the customer placing the order. Required if not previously specified for the order.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * metadata `object`: A set of key/value pairs that you can attach to an order object. It can be useful for storing additional information about the order in a structured format.
+    * metadata `object`: A set of key/value pairs that you can attach to an order object. Limited to 500 characters. Metadata can be useful for storing additional information about the order in a structured format.
     * shipping_method `string`
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens)'s or a [Source](/docs/api#sources)'s ID, as returned by [Elements](/docs/elements), or a dictionary containing a user's credit card details (with the options shown below). If no customer was attached to the order at creation, either `source` or `customer is required. Otherwise, the specified source will be charged intead of the customer attached to the order.
 
 #### Output
 * output [order](#order)
@@ -3054,9 +5235,15 @@ stripe.CreateOrderReturn({
 * input `object`
   * id **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * items `array`: List of items to return.
+      * items `object`
+        * amount `integer`
+        * description `string`
+        * parent `string`
+        * quantity `integer`
+        * type `string` (values: discount, shipping, sku, tax)
 
 #### Output
 * output [order_return](#order_return)
@@ -3071,11 +5258,11 @@ stripe.AllPayments({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * customer `string`: Only return payments for the customer specified by this customer ID.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer `string`: Only return payments for the customer specified by this customer ID.
   * transfer_group `string`
 
 #### Output
@@ -3100,6 +5287,8 @@ stripe.CreatePayment({
 * input `object`
   * payload **required** `object`
     * alternate_statement_descriptors `object`
+      * kana `string`
+      * kanji `string`
     * amount **required** `integer`
     * application `string`
     * application_fee `integer`
@@ -3108,8 +5297,11 @@ stripe.CreatePayment({
     * customer `string`
     * description `string`
     * destination `object`
+      * account **required** `string`
+      * amount `integer`
+    * device_id `string`
     * exchange_rate `number`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * external_id `string`
     * idempotency_key `string`
@@ -3117,6 +5309,19 @@ stripe.CreatePayment({
     * invoice_source `string`
     * ip `string`
     * level3 `object`
+      * customer_reference `string`
+      * line_items **required** `array`
+        * items `object`
+          * discount_amount `integer`
+          * product_code **required** `string`
+          * product_description **required** `string`
+          * quantity `integer`
+          * tax_amount `integer`
+          * unit_cost `integer`
+      * merchant_reference **required** `string`
+      * shipping_address_zip `string`
+      * shipping_amount `integer`
+      * shipping_from_zip `string`
     * metadata `object`
     * on_behalf_of `string`
     * order `string`
@@ -3126,12 +5331,31 @@ stripe.CreatePayment({
     * recurring `boolean`
     * referrer `string`
     * shipping `object`
+      * address **required** `object`
+        * city `string`
+        * country `string`
+        * line1 **required** `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * carrier `string`
+      * name **required** `string`
+      * phone `string`
+      * tracking_number `string`
     * source `string`
     * statement_address `object`
+      * city **required** `string`
+      * line1 **required** `string`
+      * line2 `string`
+      * postal_code **required** `string`
+      * state **required** `string`
     * statement_descriptor `string`
     * three_d_secure `object`
+      * apple_pay **required** `boolean`
+      * cryptogram **required** `string`
     * transfer_group `string`
     * trust `object`
+      * safety `string` (values: fraudulent, safe)
     * uncaptured `boolean`
     * user_agent `string`
 
@@ -3150,7 +5374,7 @@ stripe.RetrievePayment({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * payment **required** `string`
 
 #### Output
@@ -3166,13 +5390,13 @@ stripe.PayoutAll({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * arrival_date `string`
   * created `string`
   * destination `string`: The ID of an external account - only return payouts sent to this external account.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
   * status `string`: Only return payouts that have the given status: `pending`, `paid`, `failed`, or `canceled`.
 
 #### Output
@@ -3200,7 +5424,7 @@ stripe.PayoutCreate({
     * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
     * description `string`: An arbitrary string attached to the object. Often useful for displaying to users.
     * destination `string`: The ID of a bank account or a card to send the payout to. If no destination is supplied, the default external account for the specified currency will be used.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a payout object. It can be useful for storing additional information about the payout in a structured format.
     * method `string` (values: instant, standard): The method used to send this payout, which can be `standard` or `instant`. `instant` is only supported for payouts to debit cards. (See [Instant payouts for marketplaces for more information](https://stripe.com/blog/instant-payouts-for-marketplaces).)
@@ -3222,7 +5446,7 @@ stripe.PayoutRetrieve({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * payout **required** `string`: The identifier of the payout to be retrieved.
 
 #### Output
@@ -3242,7 +5466,7 @@ stripe.PayoutUpdate({
 * input `object`
   * payout **required** `string`: The identifier of the payout to be updated.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a payout object. It can be useful for storing additional information about the payout in a structured format.
 
@@ -3263,7 +5487,7 @@ stripe.PayoutCancel({
 * input `object`
   * payout **required** `string`: The identifier of the payout to be canceled.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -3279,11 +5503,11 @@ stripe.AllPlans({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `string`: A filter on the list based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * created `string`: A filter on the list based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.
 
 #### Output
 * output `object`
@@ -3294,7 +5518,7 @@ stripe.AllPlans({}, context)
   * url **required** `string` (values: /v1/plans): The URL where this list can be accessed.
 
 ### CreatePlan
-<p>You can create plans easily via the <a href="https://dashboard.stripe.com/plans">plan management</a> page of the Stripe dashboard. Plan creation is also accessible via the API if you need to create plans on the fly.</p>
+<p>You can create plans using the API, or in the Stripe <a href="https://dashboard.stripe.com/plans">Dashboard</a>.</p>
 
 
 ```js
@@ -3306,22 +5530,24 @@ stripe.CreatePlan({
 #### Input
 * input `object`
   * payload **required** `object`
-    * amount **required** `integer`: A positive integer in **%s** (or 0 for a free plan) representing how much to charge (on a recurring basis).
+    * amount `integer`: A positive integer in %s (or 0 for a free plan) representing how much to charge on a recurring basis.
     * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * id **required** `string`: Unique string of your choice that will be used to identify this plan when subscribing a customer. This could be an identifier like "gold" or a primary key from your own database.
+    * id `string`: An identifier randomly generated by Stripe. Used to identify this plan when subscribing a customer. You can optionally override this ID, but the ID must be unique across all plans in your Stripe account. You can, however, use the same plan ID in both live and test modes.
     * interval **required** `string` (values: day, month, week, year): Specifies billing frequency. Either `day`, `week`, `month` or `year`.
     * interval_count `integer`: The number of intervals between each subscription billing. For example, `interval=month` and `interval_count=3` bills every 3 months. Maximum of one year interval allowed (1 year, 12 months, or 52 weeks).
     * metadata `object`: A set of key/value pairs that you can attach to a plan object. It can be useful for storing additional information about the plan in a structured format.
-    * name **required** `string`: Name of the plan, to be displayed on invoices and in the web interface.
-    * statement_descriptor `string`: An arbitrary string to be displayed on your customer's credit card statement. This may be up to **22 characters**. As an example, if your website is `RunClub` and the item you're charging for is your Silver Plan, you may want to specify a `statement_descriptor` of `RunClub Silver Plan`. The statement description must contain at least one letter, may not include `<>"'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all.
+    * name `string`: The plan name. Customers may see this value on Stripe-generated invoices and receipts.
+    * nickname `string`: A brief description of the plan, hidden from customers.
+    * product `string`: The product whose pricing the created plan will represent.
+    * statement_descriptor `string`: Displayed on customer statements when their card is charged. See the [Creating charges](https://stripe.com/docs/charges#dynamic-statement-descriptor) page for an example.
 
 #### Output
 * output [plan](#plan)
 
 ### DeletePlan
-<p>You can delete plans via the <a href="https://dashboard.stripe.com/plans">plan management</a> page of the Stripe dashboard. However, deleting a plan does not affect any current subscribers to the plan; it merely means that new subscribers can’t be added to that plan. You can also delete plans via the API.</p>
+<p>You can delete plans using the API, or in the Stripe <a href="https://dashboard.stripe.com/plans">Dashboard</a>. Deleting plans means new subscribers can’t be added. Existing subscribers aren’t affected.</p>
 
 
 ```js
@@ -3334,7 +5560,7 @@ stripe.DeletePlan({
 * input `object`
   * plan **required** `string`: The identifier of the plan to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -3352,14 +5578,14 @@ stripe.RetrievePlan({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * plan **required** `string`: The ID of the desired plan.
 
 #### Output
 * output [plan](#plan)
 
 ### UpdatePlan
-<p>Updates the name of a plan. Other plan details (price, interval, etc.) are, by design, not editable.</p>
+<p>Updates the specified plan by setting the values of the parameters passed. Any parameters not provided are left unchanged. By design, you cannot change a plan’s ID, amount, currency, or billing cycle.</p>
 
 
 ```js
@@ -3372,11 +5598,13 @@ stripe.UpdatePlan({
 * input `object`
   * plan **required** `string`: The identifier of the plan to be updated.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a plan object. It can be useful for storing additional information about the plan in a structured format.
-    * name `string`: Name of the plan, to be displayed on invoices and in the web interface.
-    * statement_descriptor `string`: An arbitrary string to be displayed on your customer's credit card statement. This may be up to **22 characters**. As an example, if your website is `RunClub` and the item you're charging for is your Silver Plan, you may want to specify a `statement_descriptor` of `RunClub Silver Plan`. The statement description must contain at least one letter, may not include `<>"'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all.
+    * name `string`: The plan name. Customers may see this value on Stripe-generated invoices and receipts.
+    * nickname `string`: A brief description of the plan, hidden from customers.
+    * product `string`: The product the plan belongs to. Note that after updating, statement descriptors and line items of the plan in active subscriptions will be affected.
+    * statement_descriptor `string`: Displayed on customer statements when their card is charged. See the [Creating charges](https://stripe.com/docs/charges#dynamic-statement-descriptor) page for an example.
 
 #### Output
 * output [plan](#plan)
@@ -3391,14 +5619,14 @@ stripe.AllProducts({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * active `boolean`: Only return products that are active or inactive (e.g. pass `false` to list all inactive products).
-  * ids `array`: Only return products with the given IDs.
-  * shippable `boolean`: Only return products that can be shipped (i.e., physical, not digital products).
-  * url `string`: Only return products with the given url.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * active `boolean`: Only return products that are active or inactive (e.g., pass `false` to list all inactive products).
   * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * ids `array`: Only return products with the given IDs.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * shippable `boolean`: Only return products that can be shipped (i.e., physical, not digital products).
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * url `string`: Only return products with the given url.
 
 #### Output
 * output `object`
@@ -3421,12 +5649,14 @@ stripe.CreateProduct({
 #### Input
 * input `object`
   * payload **required** `object`
-    * active `boolean`: Whether or not the product is currently available for purchase. Defaults to `true`.
-    * attributes `array`: A list of up to 5 alphanumeric attributes that each SKU can provide values for (e.g. `["color", "size"]`).
+    * active `boolean`: Whether the product is currently available for purchase. Defaults to `true`.
+    * attributes `array`: A list of up to 5 alphanumeric attributes that each SKU can provide values for (e.g., `["color", "size"]`).
+      * items `string`
     * caption `string`: A short one-line description of the product, meant to be displayable to the customer.
     * deactivate_on `array`: An array of Connect application names or identifiers that should not be able to order the SKUs for this product.
+      * items `string`
     * description `string`: The product's description, meant to be displayable to the customer.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * id `string`: The identifier for the product. Must be unique. If not provided, an identifier will be randomly generated.
     * images `array`: A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
@@ -3434,7 +5664,11 @@ stripe.CreateProduct({
     * metadata `object`: A set of key/value pairs that you can attach to a product object. It can be useful for storing additional information about the product in a structured format.
     * name **required** `string`: The product's name, meant to be displayable to the customer.
     * package_dimensions `object`: The dimensions of this product for shipping purposes. A SKU associated with this product can override this value by having its own `package_dimensions`.
-    * shippable `boolean`: Whether this product is shipped (i.e. physical goods). Defaults to `true`.
+      * height **required** `number`
+      * length **required** `number`
+      * weight **required** `number`
+      * width **required** `number`
+    * shippable `boolean`: Whether this product is shipped (i.e., physical goods). Defaults to `true`.
     * url `string`: A URL of a publicly-accessible webpage for this product.
 
 #### Output
@@ -3454,7 +5688,7 @@ stripe.DeleteProduct({
 * input `object`
   * id **required** `string`: The ID of the product to delete.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -3472,7 +5706,7 @@ stripe.RetrieveProduct({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the product to be retrieved.
 
 #### Output
@@ -3490,21 +5724,22 @@ stripe.UpdateProduct({
 
 #### Input
 * input `object`
+  * id **required** `string`
   * payload `object`
-    * active `boolean`: Whether or not the product is available for purchase.
-    * attributes `array`, `string`: A list of up to 5 alphanumeric attributes that each SKU can provide values for (e.g. `["color", "size"]`). If a value for `attributes` is specified, the list specified will replace the existing attributes list on this product. Any attributes not present after the update will be deleted from the SKUs for this product.
+    * active `boolean`: Whether the product is available for purchase.
     * caption `string`: A short one-line description of the product, meant to be displayable to the customer.
-    * deactivate_on `array`, `string`: An array of Connect application names or identifiers that should not be able to order the SKUs for this product.
     * description `string`: The product's description, meant to be displayable to the customer.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-    * images `array`, `string`: A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
     * metadata `object`: A set of key/value pairs that you can attach to a product object. It can be useful for storing additional information about the product in a structured format.
     * name `string`: The product's name, meant to be displayable to the customer.
     * package_dimensions `object`: The dimensions of this product for shipping purposes. A SKU associated with this product can override this value by having its own `package_dimensions`.
-    * shippable `boolean`: Whether this product is shipped (i.e. physical goods). Defaults to `true`.
+      * height **required** `number`
+      * length **required** `number`
+      * weight **required** `number`
+      * width **required** `number`
+    * shippable `boolean`: Whether this product is shipped (i.e., physical goods). Defaults to `true`.
     * url `string`: A URL of a publicly-accessible webpage for this product.
-  * id **required** `string`
 
 #### Output
 * output [product](#product)
@@ -3519,13 +5754,13 @@ stripe.AllTransferRecipients({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * created `string`
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * verified `boolean`: Only return recipients that are verified or unverified.
-  * created `string`
   * type `string`
+  * verified `boolean`: Only return recipients that are verified or unverified.
 
 #### Output
 * output `object`
@@ -3548,11 +5783,9 @@ stripe.TransferRecipientCreate({
 #### Input
 * input `object`
   * payload **required** `object`
-    * bank_account `object`, `string`
-    * card `object`, `string`
     * description `string`
     * email `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * name **required** `string`
@@ -3576,7 +5809,7 @@ stripe.TransferRecipientDelete({
 * input `object`
   * id **required** `string`: The identifier of the recipient to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -3594,7 +5827,7 @@ stripe.RetrieveTransferRecipient({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the recipient to be retrieved.
 
 #### Output
@@ -3614,12 +5847,10 @@ stripe.TransferRecipientUpdate({
 * input `object`
   * id **required** `string`
   * payload `object`
-    * bank_account `object`, `string`
-    * card `object`, `string`
     * default_card `string`
     * description `string`
     * email `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * name `string`
@@ -3639,11 +5870,11 @@ stripe.AllRefunds({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * charge `string`: Only return refunds for the charge specified by this charge ID.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * charge `string`: Only return refunds for the charge specified by this charge ID.
 
 #### Output
 * output `object`
@@ -3668,8 +5899,9 @@ stripe.v1.refunds.post({
   * payload **required** `object`
     * amount `integer`
     * charge **required** `string`
+    * description `string`
     * directive `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * reason `string` (values: duplicate, fraudulent, requested_by_customer)
@@ -3691,7 +5923,7 @@ stripe.RetrieveRefund({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * refund **required** `string`: ID of refund to retrieve.
 
 #### Output
@@ -3709,11 +5941,11 @@ stripe.UpdateRefund({
 
 #### Input
 * input `object`
+  * refund **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a refund object. It can be useful for storing additional information about the refund in a structured format.
-  * refund **required** `string`
 
 #### Output
 * output [refund](#refund)
@@ -3728,15 +5960,15 @@ stripe.AllSKUs({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * product `string`: The ID of the product whose SKUs will be retrieved.
-  * active `boolean`: Only return SKUs that are active or inactive (e.g. pass `false` to list all inactive products).
-  * ids `array`: Only return SKUs with the given IDs.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * active `boolean`: Only return SKUs that are active or inactive (e.g., pass `false` to list all inactive products).
   * attributes `string`: Only return SKUs that have the specified key/value pairs in this partially constructed dictionary. Can be specified only if `product` is also supplied. For instance, if the associated product has attributes `["color", "size"]`, passing in `attributes[color]=red` returns all the SKUs for this product that have `color` set to `red`.
-  * in_stock `boolean`: Only return SKUs that are either in stock or out of stock (e.g. pass `false` to list all SKUs that are out of stock). If no value is provided, all SKUs are returned.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * ids `array`: Only return SKUs with the given IDs.
+  * in_stock `boolean`: Only return SKUs that are either in stock or out of stock (e.g., pass `false` to list all SKUs that are out of stock). If no value is provided, all SKUs are returned.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * product `string`: The ID of the product whose SKUs will be retrieved.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -3759,16 +5991,23 @@ stripe.CreateSKU({
 #### Input
 * input `object`
   * payload **required** `object`
-    * active `boolean`: Whether or not the SKU is available for purchase. Default to `true`.
+    * active `boolean`: Whether the SKU is available for purchase. Default to `true`.
     * attributes `object`: A dictionary of attributes and values for the attributes defined by the product. If, for example, a product's attributes are `["size", "gender"]`, a valid SKU has the following dictionary of attributes: `{"size": "Medium", "gender": "Unisex"}`.
     * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * id `string`: The identifier for the SKU. Must be unique. If not provided, an identifier will be randomly generated.
     * image `string`: The URL of an image for this SKU, meant to be displayable to the customer.
     * inventory **required** `object`: Description of the SKU's inventory.
+      * quantity `integer`
+      * type `string` (values: bucket, finite, infinite)
+      * value `string` (values: , in_stock, limited, out_of_stock)
     * metadata `object`: A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format.
     * package_dimensions `object`: The dimensions of this SKU for shipping purposes.
+      * height **required** `number`
+      * length **required** `number`
+      * weight **required** `number`
+      * width **required** `number`
     * price **required** `integer`: The cost of the item as a nonnegative integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).
     * product **required** `string`: The ID of the product this SKU is associated with.
 
@@ -3789,7 +6028,7 @@ stripe.DeleteSKU({
 * input `object`
   * id **required** `string`: The identifier of the SKU to be deleted.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
 
 #### Output
@@ -3807,7 +6046,7 @@ stripe.RetrieveSKU({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: The identifier of the SKU to be retrieved.
 
 #### Output
@@ -3825,19 +6064,26 @@ stripe.UpdateSKU({
 
 #### Input
 * input `object`
+  * id **required** `string`
   * payload `object`
-    * active `boolean`: Whether or not this SKU is available for purchase.
+    * active `boolean`: Whether this SKU is available for purchase.
     * attributes `object`: A dictionary of attributes and values for the attributes defined by the product. When specified, `attributes` will partially update the existing attributes dictionary on the product, with the postcondition that a value must be present for each attribute key on the product, and that all SKUs for the product must have unique sets of attributes.
     * currency `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * image `string`: The URL of an image for this SKU, meant to be displayable to the customer.
     * inventory `object`: Description of the SKU's inventory.
+      * quantity `integer`
+      * type `string` (values: bucket, finite, infinite)
+      * value `string` (values: , in_stock, limited, out_of_stock)
     * metadata `object`: A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format.
     * package_dimensions `object`: The dimensions of this SKU for shipping purposes.
+      * height **required** `number`
+      * length **required** `number`
+      * weight **required** `number`
+      * width **required** `number`
     * price `integer`: The cost of the item as a positive integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).
     * product `string`: The ID of the product that this SKU should belong to. The product must exist and have the same set of attribute names as the SKU's current product.
-  * id **required** `string`
 
 #### Output
 * output [sku](#sku)
@@ -3847,27 +6093,46 @@ stripe.UpdateSKU({
 
 
 ```js
-stripe.CreateSource({
-  "payload": null
-}, context)
+stripe.CreateSource({}, context)
 ```
 
 #### Input
 * input `object`
-  * payload **required** `object`
+  * payload `object`
     * amount `integer`: Amount associated with the source. This is the amount for which the source will be chargeable once ready. Required for `single_use` sources.
     * currency `string`: Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) associated with the source. This is the currency for which the source will be chargeable once ready.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * customer `string`: The `Customer` to whom the original source is attached to. Must be set when the original source is not a `Source` (e.g., `Card`).
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * flow `string` (values: code_verification, none, receiver, redirect): The authentication `flow` of the source to create. `flow` is one of `redirect`, `receiver`, `code_verification`, `none`. It is generally inferred unless a type supports multiple flows.
+    * mandate `object`: Information about a mandate possiblity attached to a source object (generally for bank debits) as well as its acceptance status.
+      * acceptance `object`
+        * date **required** `integer`
+        * ip **required** `string`
+        * status **required** `string` (values: accepted, pending, refused, revoked)
+        * user_agent **required** `string`
+      * notification_method `string` (values: email, manual, none)
     * metadata `object`: A set of key/value pairs that you can attach to a source object. It can be useful for storing additional information about the source in a structured format.
+    * original_source `string`: The source to share.
     * owner `object`: Information about the owner of the payment instrument that may be used or required by particular source types.
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * email `string`
+      * name `string`
+      * phone `string`
     * receiver `object`: Optional parameters for the receiver flow. Can be set only if the source is a receiver (`flow` is `receiver`).
+      * refund_attributes_method `string` (values: email, manual, none)
     * redirect `object`: Parameters required for the redirect flow. Required if the source is authenticated by a redirect (`flow` is `redirect`).
+      * return_url **required** `string`
     * statement_descriptor `string`: An arbitrary string to be displayed on your customer's statement. As an example, if your website is `RunClub` and the item you're charging for is a race ticket, you may want to specify a `statement_descriptor` of `RunClub 5K race ticket.` While many payment types will display this information, some may not display it at all.
     * token `string`: An optional token used to create the source. When passed, token properties will override source parameters.
-    * type **required** `string`: The `type` of the source to create. Required unless `customer` and `orginal_source` are specified (see the [Shared card Sources](/docs/sources/connect#shared-card-sources) guide)
-    * usage `string` (values: reusable, single_use): Either `reusable` or `single_use`. Whether this source should be reusable or not. Some source types may or may not be reusable by construction, while other may leave the option at creation. If an incompatible value is passed, an error will be returned.
+    * type `string`: The `type` of the source to create. Required unless `customer` and `orginal_source` are specified (see the [Shared card Sources](/docs/sources/connect#shared-card-sources) guide)
+    * usage `string` (values: reusable, single_use)
 
 #### Output
 * output [source](#source)
@@ -3884,9 +6149,9 @@ stripe.RetrieveSource({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * source **required** `string`: The identifier of the source to be retrieved.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * client_secret `string`: The client secret of the source. Required if a publishable key is used to retrieve the source.
+  * source **required** `string`: The identifier of the source to be retrieved.
 
 #### Output
 * output [source](#source)
@@ -3903,15 +6168,52 @@ stripe.SourceUpdate({
 
 #### Input
 * input `object`
+  * source **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
+    * mandate `object`: Information about a mandate possiblity attached to a source object (generally for bank debits) as well as its acceptance status.
+      * acceptance `object`
+        * date **required** `integer`
+        * ip **required** `string`
+        * status **required** `string` (values: accepted, pending, refused, revoked)
+        * user_agent **required** `string`
+      * notification_method `string` (values: email, manual, none)
     * metadata `object`: A set of key/value pairs that you can attach to a source object. It can be useful for storing additional information about the source in a structured format.
     * owner `object`: Information about the owner of the payment instrument that may be used or required by particular source types.
-  * source **required** `string`
+      * address `object`
+        * city `string`
+        * country `string`
+        * line1 `string`
+        * line2 `string`
+        * postal_code `string`
+        * state `string`
+      * email `string`
+      * name `string`
+      * phone `string`
 
 #### Output
 * output [source](#source)
+
+### SourceMandateNotificationRetrieve
+<p>Retrieves a new Source MandateNotification.</p>
+
+
+```js
+stripe.SourceMandateNotificationRetrieve({
+  "mandate_notification": "",
+  "source": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * mandate_notification **required** `string`: The ID of the Source MandateNotification.
+  * source **required** `string`: The ID of the Source that received a ManateNotification.
+
+#### Output
+* output [source_mandate_notification](#source_mandate_notification)
 
 ### AllSourceTransactions
 
@@ -3925,11 +6227,11 @@ stripe.AllSourceTransactions({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * source **required** `string`: The ID of the source whose source transactions will be retrieved.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -3952,7 +6254,7 @@ stripe.RetrieveSourceTransaction({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * source **required** `string`: The ID of the source whose source transaction will be retrieved.
   * source_transaction **required** `string`: The ID of the source transaction that will be retrieved.
 
@@ -3974,9 +6276,10 @@ stripe.VerifySource({
 * input `object`
   * source **required** `string`: The ID of the desired source.
   * payload **required** `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * values **required** `array`: The values needed to verify the source.
+
 
 #### Output
 * output [source](#source)
@@ -3993,10 +6296,10 @@ stripe.AllSubscriptionItems({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * subscription **required** `string`: The ID of the subscription whose items will be retrieved.
 
 #### Output
@@ -4020,7 +6323,7 @@ stripe.CreateSubscriptionItem({
 #### Input
 * input `object`
   * payload **required** `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
     * plan **required** `string`: The identifier of the plan to add to the subscription.
@@ -4046,7 +6349,7 @@ stripe.DeleteSubscriptionItem({
 * input `object`
   * item **required** `string`: The identifier of the subscription item to delete.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * prorate `boolean`: Flag indicating whether to [prorate](/docs/subscriptions/upgrading-downgrading#understanding-proration) switching plans during a billing cycle.
     * proration_date `integer`: If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](#retrieve_customer_invoice) endpoint.
@@ -4066,7 +6369,7 @@ stripe.RetrieveSubscriptionItem({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * item **required** `string`: The identifier of the subscription item to retrieve.
 
 #### Output
@@ -4086,7 +6389,7 @@ stripe.UpdateSubscriptionItem({
 * input `object`
   * item **required** `string`: The identifier of the subscription item to modify.
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
     * plan `string`: The identifier of the new plan for this subscription item.
@@ -4107,13 +6410,14 @@ stripe.AllSubscriptions({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
-  * customer `string`: The ID of the customer whose subscriptions will be retrieved.
+  * expand `array`: Specifies which fields in the response should be expanded.
+  * billing `string`: The billing mode of the subscriptions to retrieve. Either `charge_automatically` or `send_invoice`.
   * created `integer`
+  * customer `string`: The ID of the customer whose subscriptions will be retrieved.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
   * plan `string`: The ID of the plan whose subscriptions will be retrieved.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
   * status `string`: The status of the subscriptions to retrieve. One of: `trialing`, `active`, `past_due`, `unpaid`, `canceled`, or `all`. Passing in a value of `canceled` will return all canceled subscriptions, including those belonging to deleted customers. Passing in a value of `all` will return subscriptions of all statuses.
 
 #### Output
@@ -4137,126 +6441,779 @@ stripe.CreateSubscription({
 #### Input
 * input `object`
   * payload **required** `object`
-    * application_fee_percent `number`: A non-negative decimal (with at most two decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
+    * application_fee_percent `number`: A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
+    * billing `string` (values: charge_automatically, send_invoice): Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions. Defaults to `charge_automatically`.
     * coupon `string`: The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.
     * customer **required** `string`: The identifier of the customer to subscribe.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * days_until_due `integer`: Number of days a customer has to pay invoices generated by this subscription. Only valid for subscriptions where `billing=send_invoice`.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * items `array`: List of subscription items, each with an attached plan.
+      * items `object`
+        * plan **required** `string`
+        * quantity `integer`
     * metadata `object`: A set of key/value pairs that you can attach to a subscription object. It can be useful for storing additional information about the subscription in a structured format.
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens) or a [Source](/docs/api#sources), as returned by [Elements](https://stripe.com/docs/elements), or a dictionary containing a user's credit card details (with the options shown below). You must provide a source if the customer does not already have a valid source attached, and you are subscribing the customer to be charged automatically for a plan that is not free. Passing `source` will create a new source object, make it the customer default source, and delete the old customer default if one exists. If you want to add an additional source, instead use the [card creation API](https://stripe.com/docs/api#create_card) to add the card and then the [customer update API](https://stripe.com/docs/api#update customer) to set it as the default. Whenever you attach a card to a customer, Stripe will automatically validate the card.
     * tax_percent `number`: A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount each billing period. For example, a plan which charges $10/month with a `tax_percent` of 20.0 will charge $12 per invoice.
-    * trial_end `integer`, `string`: Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. The special value `now` can be provided to end the customer's trial immediately.
     * trial_period_days `integer`: Integer representing the number of trial period days before the customer is charged for the first time.
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.subscriptions.subscription_exposed_id.delete
+### DeleteSubscription
 <p>Cancels a customer’s subscription. If you set the <code>at_period_end</code> parameter to true, the subscription will remain active until the end of the period, at which point it will be canceled and not renewed. By default, the subscription is terminated immediately. In either case, the customer will not be charged again for the subscription. Note, however, that any pending invoice items that you’ve created will still be charged for at the end of the period unless manually <a href="#delete_invoiceitem">deleted</a>. If you’ve set the subscription to cancel at period end, any pending prorations will also be left in place and collected at the end of the period, but if the subscription is set to cancel immediately, pending prorations will be removed.</p><p>By default, all unpaid invoices for the customer will be closed upon subscription cancellation. We do this in order to prevent unexpected payment attempts once the customer has canceled a subscription. However, you can reopen the invoices manually after subscription cancellation to have us proceed with payment collection, or you could even re-attempt payment yourself on all unpaid invoices before allowing the customer to cancel the subscription at all.</p>
 
 
 ```js
-stripe.v1.subscriptions.subscription_exposed_id.delete({
+stripe.DeleteSubscription({
   "subscription_exposed_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscription_exposed_id **required** `string`
   * payload `object`
     * at_period_end `boolean`: A flag that if set to true will delay the cancellation of the subscription until the end of the current period.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
-  * subscription_exposed_id **required** `string`
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.subscriptions.subscription_exposed_id.get
+### RetrieveSubscription
 <p>Retrieves the subscription with the given ID.</p>
 
 
 ```js
-stripe.v1.subscriptions.subscription_exposed_id.get({
+stripe.RetrieveSubscription({
   "subscription_exposed_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * subscription_exposed_id **required** `string`
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.subscriptions.subscription_exposed_id.post
+### UpdateSubscription
 <p>Updates an existing subscription on a customer to match the specified parameters. When changing plans or quantities, we will optionally prorate the price we charge next month to make up for any price changes. To preview how the proration will be calculated, use the <a href="#upcoming_invoice">upcoming invoice</a> endpoint.</p>
 
 
 ```js
-stripe.v1.subscriptions.subscription_exposed_id.post({
+stripe.UpdateSubscription({
   "subscription_exposed_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscription_exposed_id **required** `string`
   * payload `object`
-    * application_fee_percent `number`: A non-negative decimal (with at most two decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions')}).
+    * application_fee_percent `number`: A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account. The request must be made with an OAuth key in order to set an application fee percentage. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions')}).
+    * billing `string` (values: charge_automatically, send_invoice): Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions.
     * coupon `string`: The code of the coupon to apply to this subscription. A coupon applied to a subscription will only affect invoices created for that particular subscription.
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * days_until_due `integer`: Number of days a customer has to pay invoices generated by this subscription. Only valid for subscriptions where `billing=send_invoice`.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * items `array`: List of subscription items, each with an attached plan.
+      * items `object`
+        * clear_usage `boolean`
+        * deleted `boolean`
+        * id `string`
+        * metadata `object`
+        * plan `string`
+        * quantity `integer`
     * metadata `object`: A set of key/value pairs that you can attach to a subscription object. It can be useful for storing additional information about the subscription in a structured format.
     * prorate `boolean`: Flag telling us whether to prorate switching plans during a billing cycle.
     * proration_date `integer`: If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply exactly the same proration that was previewed with [upcoming invoice](#retrieve_customer_invoice) endpoint. It can also be used to implement custom proration logic, such as prorating by day instead of by second, by providing the time that you wish to use for proration calculations.
-    * source `object`, `string`: The source can either be a [Token](/docs/api#tokens) or a [Source](/docs/api#sources), as returned by [Elements](https://stripe.com/docs/elements), or a dictionary containing a user's credit card details (with the options shown below). You must provide a source if the customer does not already have a valid source attached, and you are subscribing the customer to be charged automatically for a plan that is not free. Passing `source` will create a new source object, make it the customer default source, and delete the old customer default if one exists. If you want to add an additional source, instead use the [card creation API](https://stripe.com/docs/api#create_card) to add the card and then the [customer update API](https://stripe.com/docs/api#update customer) to set it as the default. Whenever you attach a card to a customer, Stripe will automatically validate the card.
     * tax_percent `number`: A non-negative decimal (with at most four decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be calculated and added as tax to the final amount each billing period. For example, a plan which charges $10/month with a `tax_percent` of 20.0 will charge $12 per invoice.
-    * trial_end `integer`, `string`: Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. The special value `now` can be provided to end the customer's trial immediately.
-  * subscription_exposed_id **required** `string`
 
 #### Output
 * output [subscription](#subscription)
 
-### v1.subscriptions.subscription_exposed_id.discount.delete
+### DeleteSubscriptionDiscount
 <p>Removes the currently applied discount on a customer.</p>
 
 
 ```js
-stripe.v1.subscriptions.subscription_exposed_id.discount.delete({
+stripe.DeleteSubscriptionDiscount({
   "subscription_exposed_id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
-      * items `string`
   * subscription_exposed_id **required** `string`
+  * payload `object`
+    * expand `array`: Specifies which fields in the response should be expanded.
+      * items `string`
 
 #### Output
 * output [discount](#discount)
 
-### CreateBankAccountToken
+### CreateToken
 
 
 
 ```js
-stripe.CreateBankAccountToken({}, context)
+stripe.CreateToken({}, context)
 ```
 
 #### Input
 * input `object`
   * payload `object`
-    * bank_account `object`, `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * account `object`
+      * legal_entity **required** `object`
+        * additional_owners `object`
+          * 0 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 1 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 2 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 3 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 4 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 5 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 6 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 7 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 8 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 9 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 10 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 11 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 12 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 13 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 14 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 15 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 16 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 17 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 18 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 19 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 20 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 21 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 22 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 23 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 24 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 25 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 26 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 27 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 28 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 29 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+          * 30 `object`
+            * address `object`
+              * city `string`
+              * country `string`
+              * line1 `string`
+              * line2 `string`
+              * postal_code `string`
+              * state `string`
+            * dob `object`
+              * day **required** `integer`
+              * month **required** `integer`
+              * year **required** `integer`
+            * first_name `string`
+            * last_name `string`
+            * maiden_name `string`
+            * personal_id_number `string`
+            * verification `object`
+              * document `string`
+        * address `object`
+          * city `string`
+          * country `string`
+          * line1 `string`
+          * line2 `string`
+          * postal_code `string`
+          * state `string`
+        * address_kana `object`
+          * city `string`
+          * country `string`
+          * line1 `string`
+          * line2 `string`
+          * postal_code `string`
+          * state `string`
+          * town `string`
+        * address_kanji `object`
+          * city `string`
+          * country `string`
+          * line1 `string`
+          * line2 `string`
+          * postal_code `string`
+          * state `string`
+          * town `string`
+        * business_name `string`
+        * business_name_kana `string`
+        * business_name_kanji `string`
+        * business_tax_id `string`
+        * business_vat_id `string`
+        * dob `object`
+          * day **required** `integer`
+          * month **required** `integer`
+          * year **required** `integer`
+        * first_name `string`
+        * first_name_kana `string`
+        * first_name_kanji `string`
+        * gender `string`
+        * last_name `string`
+        * last_name_kana `string`
+        * last_name_kanji `string`
+        * maiden_name `string`
+        * personal_address `object`
+          * city `string`
+          * country `string`
+          * line1 `string`
+          * line2 `string`
+          * postal_code `string`
+          * state `string`
+        * personal_address_kana `object`
+          * city `string`
+          * country `string`
+          * line1 `string`
+          * line2 `string`
+          * postal_code `string`
+          * state `string`
+          * town `string`
+        * personal_address_kanji `object`
+          * city `string`
+          * country `string`
+          * line1 `string`
+          * line2 `string`
+          * postal_code `string`
+          * state `string`
+          * town `string`
+        * personal_id_number `string`
+        * phone_number `string`
+        * ssn_last_4 `string`
+        * tax_id_registrar `string`
+        * type `string`
+        * verification `object`
+          * document `string`
+      * tos_shown_and_accepted `boolean`
+    * amount `integer`
+    * currency `string`
+    * customer `string`
+    * email `string`
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
+    * external_id `string`
+    * iovation_blackbox `string`
+    * ip `string`
     * payment_user_agent `string`
+    * pii `object`
+      * personal_id_number **required** `string`
+    * recipient `string`
     * referrer `string`
     * request_id `string`
+    * user_agent `string`
+    * validation_type `string`
 
 #### Output
 * output [token](#token)
@@ -4273,7 +7230,7 @@ stripe.RetrieveToken({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * token **required** `string`: The ID of the desired token.
 
 #### Output
@@ -4289,12 +7246,12 @@ stripe.AllTransfers({}, context)
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * created `string`
   * destination `string`: Only return transfers for the destination specified by this account ID.
+  * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
   * transfer_group `string`: Only return transfers with the specified transfer group.
 
 #### Output
@@ -4322,7 +7279,7 @@ stripe.TransferCreate({
     * currency **required** `string`
     * description `string`
     * destination **required** `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * source_transaction `string`
@@ -4344,11 +7301,11 @@ stripe.AllTransferReversals({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
-  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * ending_before `string`: A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
   * id **required** `string`: The ID of the transfer whose reversals will be retrieved.
+  * limit `integer`: A limit on the number of objects to be returned. Limit can range between 1 and 100 items, and the default is 10 items.
+  * starting_after `string`: A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
 
 #### Output
 * output `object`
@@ -4358,12 +7315,12 @@ stripe.AllTransferReversals({
   * object **required** `string` (values: list): String representing the object's type. Objects of the same type share the same value. Always has the value "list".
   * url **required** `string`: The URL where this list can be accessed.
 
-### CreateStripeAccountTransferReversal
+### CreateTransferReversal
 
 
 
 ```js
-stripe.CreateStripeAccountTransferReversal({
+stripe.CreateTransferReversal({
   "id": ""
 }, context)
 ```
@@ -4374,13 +7331,13 @@ stripe.CreateStripeAccountTransferReversal({
   * payload `object`
     * amount `integer`
     * description `string`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
     * refund_application_fee `boolean`
 
 #### Output
-* output [transfer_reversal](#transfer_reversal)
+* output [legacy_transfer_reversal](#legacy_transfer_reversal)
 
 ### RetrieveTransfer
 <p>Retrieves the details of an existing transfer. Supply the unique transfer ID from either a transfer creation request or the transfer list, and Stripe will return the corresponding transfer information.</p>
@@ -4394,7 +7351,7 @@ stripe.RetrieveTransfer({
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * transfer **required** `string`: The identifier of the transfer to be retrieved.
 
 #### Output
@@ -4414,7 +7371,7 @@ stripe.UpdateTransfer({
 * input `object`
   * transfer **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`
 
@@ -4427,16 +7384,16 @@ stripe.UpdateTransfer({
 
 ```js
 stripe.RetrieveTransferReversal({
-  "transfer": "",
-  "id": ""
+  "id": "",
+  "transfer": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * expand `string`: Specifies which fields in the response should be expanded.
-  * transfer **required** `string`: ID of the transfer reversed.
+  * expand `array`: Specifies which fields in the response should be expanded.
   * id **required** `string`: ID of reversal to retrieve.
+  * transfer **required** `string`: ID of the transfer reversed.
 
 #### Output
 * output [transfer_reversal](#transfer_reversal)
@@ -4457,7 +7414,7 @@ stripe.UpdateTransferReversal({
   * id **required** `string`
   * transfer **required** `string`
   * payload `object`
-    * expand `array`, `string`: Specifies which fields in the response should be expanded.
+    * expand `array`: Specifies which fields in the response should be expanded.
       * items `string`
     * metadata `object`: A set of key/value pairs that you can attach to a reversal object. It can be useful for storing additional information about the reversal in a structured format.
 
@@ -4470,17 +7427,18 @@ stripe.UpdateTransferReversal({
 
 ### account
 * Account `object`
-  * business_name `string`: The publicly visible name of the business.
-  * business_url `string`: The publicly visible website of the business.
-  * charges_enabled **required** `boolean`: Whether or not the account can create live charges.
-  * country **required** `string`: The country of the account.
-  * debit_negative_balances `boolean`: Whether or not Stripe will attempt to reclaim negative account balances from this account's bank account.
+  * business_name `string`: The publicly visible name of the business
+  * business_url `string`: The publicly visible website of the business
+  * charges_enabled **required** `boolean`: Whether the account can create live charges
+  * country **required** `string`: The country of the account
+  * created `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
+  * debit_negative_balances `boolean`: A Boolean indicating if Stripe should try to reclaim negative balances from an attached bank account. See our [Understanding Connect Account Balances](/docs/connect/account-balances) documentation for details.
   * decline_charge_on [account_decline_charge_on](#account_decline_charge_on)
-  * default_currency **required** `string`: The currency this account has chosen to use as the default.
-  * details_submitted **required** `boolean`: Whether or not account details have been submitted yet. Standard accounts cannot receive transfers before this is true.
-  * display_name `string`: The display name for this account. This is used on the Stripe dashboard to help you differentiate between accounts.
+  * default_currency **required** `string`: The currency this account has chosen to use as the default
+  * details_submitted **required** `boolean`: Whether account details have been submitted. Standard accounts cannot receive payouts before this is true.
+  * display_name `string`: The display name for this account. This is used on the Stripe Dashboard to differentiate between accounts.
   * email `string`: The primary user's email address.
-  * external_accounts `object`: External accounts (bank accounts and/or cards) currently attached to this account.
+  * external_accounts `object`: External accounts (bank accounts and debit cards) currently attached to this account
     * data **required** `array`: The list contains all external accounts that have been attached to the Stripe account. These may be bank accounts or cards.
       * items [bank_account](#bank_account)
     * has_more **required** `boolean`: True if this list has another page of items after this one that can be fetched.
@@ -4491,15 +7449,15 @@ stripe.UpdateTransferReversal({
   * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
   * object **required** `string` (values: account): String representing the object's type. Objects of the same type share the same value.
   * payout_schedule [transfer_schedule](#transfer_schedule)
-  * payout_statement_descriptor `string`: The text that will appear on the account's bank account statement for payouts. If not set, this will default to your platform's bank descriptor set on the Dashboard.
-  * payouts_enabled **required** `boolean`: Whether or not Stripe will send automatic transfers for this account. This is only false when Stripe is waiting for additional information from the account holder.
-  * product_description `string`: An internal-only description of the product or service provided. This is used by Stripe in the event the account gets flagged for potential fraud.
-  * statement_descriptor `string`: The text that will appear on credit card statements.
-  * support_email `string`: A publicly shareable email address that can be reached for support for this account.
-  * support_phone `string`: The publicly visible support phone number for the business.
-  * timezone `string`: The time zone used in the Stripe dashboard for this account. A list of possible time zone values is maintained at the [IANA Time Zone Database](http://www.iana.org/time-zones).
+  * payout_statement_descriptor `string`: The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard.
+  * payouts_enabled **required** `boolean`: Whether Stripe can send payouts to this account
+  * product_description `string`: Internal-only description of the product sold or service provided by the business. It's used by Stripe for risk and underwriting purposes.
+  * statement_descriptor `string`: The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)
+  * support_email `string`: A publicly shareable support email address for the business
+  * support_phone `string`: A publicly shareable support phone number for the business
+  * timezone `string`: The timezone used in the Stripe Dashboard for this account. A list of possible time zone values is maintained at the [IANA Time Zone Database](http://www.iana.org/time-zones).
   * tos_acceptance [account_tos_acceptance](#account_tos_acceptance)
-  * type **required** `string`: The type of the Stripe account. Can be `standard`, `express`, or `custom`.
+  * type **required** `string`: The Stripe account type. Can be `standard`, `express`, or `custom`.
   * verification [account_verification](#account_verification)
 
 ### account_debit_account
@@ -4509,34 +7467,36 @@ stripe.UpdateTransferReversal({
 
 ### account_decline_charge_on
 * AccountDeclineChargeOn `object`
-  * avs_failure **required** `boolean`: Whether or not Stripe should automatically decline charges with an incorrect zip/postal code. This setting only applies if a card includes a zip code and the bank specifically marks it as failed.
-  * cvc_failure **required** `boolean`: Whether or not Stripe should automatically decline charges with an incorrect CVC. This setting only applies if a card includes a CVC and the bank specifically marks it as failed.
+  * avs_failure **required** `boolean`: Whether Stripe should automatically decline charges with an incorrect ZIP or postal code. This setting only applies when a ZIP or postal code is provided and the bank specifically marks it as failed.
+  * cvc_failure **required** `boolean`: Whether Stripe should automatically decline charges with an incorrect CVC. This setting only applies when a CVC is provided and the bank specifically marks it as failed.
 
 ### account_tos_acceptance
 * AccountTOSAcceptance `object`
-  * date `integer`: The timestamp when the account owner accepted Stripe's terms.
-  * ip `string`: The IP address from which the account owner accepted Stripe's terms.
-  * user_agent `string`: The user agent of the browser from which the user accepted Stripe's terms.
+  * date `integer`: The Unix timestamp marking when the Stripe Services Agreement was accepted by the account representative
+  * ip `string`: The IP address from which the Stripe Services Agreement was accepted by the account representative
+  * user_agent `string`: The user agent of the browser from which the Stripe Services Agreement was accepted by the account representative
 
 ### account_verification
 * AccountVerification `object`
-  * disabled_reason `string`: A string describing the reason for this account being unable to charge and/or transfer, if that is the case. Possible values are `rejected.fraud`, `rejected.terms_of_service`, `rejected.listed`, `rejected.other`, `fields_needed`, `listed`, `under_review`, or `other`.
-  * due_by `integer`: At what time the `fields_needed` must be provided. If this date is in the past, the account is already in bad standing, and providing `fields_needed` is necessary to re-enable transfers and prevent other consequences. If this date is in the future, `fields_needed` must be provided to ensure the account remains in good standing.
-  * fields_needed **required** `array`: Field names that need to be provided for the account to remain in good standing. Nested fields are separated by "." (for example, "legal_entity.first_name").
+  * disabled_reason `string`: A string describing the reason for this account being unable to create charges or receive payouts, if that is the case. Can be `rejected.fraud`, `rejected.terms_of_service`, `rejected.listed`, `rejected.other`, `fields_needed`, `listed`, `under_review`, or `other`.
+  * due_by `integer`: By what time the `fields_needed` must be provided. If this date is in the past, the account is already in bad standing, and providing `fields_needed` is necessary to re-enable payouts and prevent other consequences. If this date is in the future, `fields_needed` must be provided to ensure the account remains in good standing.
+  * fields_needed **required** `array`: Field names that need to be provided for the account to remain in good standing. Nested fields are separated by `.` (for example, `legal_entity.first_name`).
+
 
 ### account_with_keys
 * AccountWithKeys `object`
-  * business_name `string`: The publicly visible name of the business.
-  * business_url `string`: The publicly visible website of the business.
-  * charges_enabled **required** `boolean`: Whether or not the account can create live charges.
-  * country **required** `string`: The country of the account.
-  * debit_negative_balances `boolean`: Whether or not Stripe will attempt to reclaim negative account balances from this account's bank account.
+  * business_name `string`: The publicly visible name of the business
+  * business_url `string`: The publicly visible website of the business
+  * charges_enabled **required** `boolean`: Whether the account can create live charges
+  * country **required** `string`: The country of the account
+  * created `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
+  * debit_negative_balances `boolean`: A Boolean indicating if Stripe should try to reclaim negative balances from an attached bank account. See our [Understanding Connect Account Balances](/docs/connect/account-balances) documentation for details.
   * decline_charge_on [account_decline_charge_on](#account_decline_charge_on)
-  * default_currency **required** `string`: The currency this account has chosen to use as the default.
-  * details_submitted **required** `boolean`: Whether or not account details have been submitted yet. Standard accounts cannot receive transfers before this is true.
-  * display_name `string`: The display name for this account. This is used on the Stripe dashboard to help you differentiate between accounts.
+  * default_currency **required** `string`: The currency this account has chosen to use as the default
+  * details_submitted **required** `boolean`: Whether account details have been submitted. Standard accounts cannot receive payouts before this is true.
+  * display_name `string`: The display name for this account. This is used on the Stripe Dashboard to differentiate between accounts.
   * email `string`: The primary user's email address.
-  * external_accounts `object`: External accounts (bank accounts and/or cards) currently attached to this account.
+  * external_accounts `object`: External accounts (bank accounts and debit cards) currently attached to this account
     * data **required** `array`: The list contains all external accounts that have been attached to the Stripe account. These may be bank accounts or cards.
       * items [bank_account](#bank_account)
     * has_more **required** `boolean`: True if this list has another page of items after this one that can be fetched.
@@ -4548,15 +7508,15 @@ stripe.UpdateTransferReversal({
   * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
   * object **required** `string` (values: account): String representing the object's type. Objects of the same type share the same value.
   * payout_schedule [transfer_schedule](#transfer_schedule)
-  * payout_statement_descriptor `string`: The text that will appear on the account's bank account statement for payouts. If not set, this will default to your platform's bank descriptor set on the Dashboard.
-  * payouts_enabled **required** `boolean`: Whether or not Stripe will send automatic transfers for this account. This is only false when Stripe is waiting for additional information from the account holder.
-  * product_description `string`: An internal-only description of the product or service provided. This is used by Stripe in the event the account gets flagged for potential fraud.
-  * statement_descriptor `string`: The text that will appear on credit card statements.
-  * support_email `string`: A publicly shareable email address that can be reached for support for this account.
-  * support_phone `string`: The publicly visible support phone number for the business.
-  * timezone `string`: The time zone used in the Stripe dashboard for this account. A list of possible time zone values is maintained at the [IANA Time Zone Database](http://www.iana.org/time-zones).
+  * payout_statement_descriptor `string`: The text that appears on the bank account statement for payouts. If not set, this defaults to the platform's bank descriptor as set in the Dashboard.
+  * payouts_enabled **required** `boolean`: Whether Stripe can send payouts to this account
+  * product_description `string`: Internal-only description of the product sold or service provided by the business. It's used by Stripe for risk and underwriting purposes.
+  * statement_descriptor `string`: The default text that appears on credit card statements when a charge is made [directly on the account](/docs/connect/direct-charges)
+  * support_email `string`: A publicly shareable support email address for the business
+  * support_phone `string`: A publicly shareable support phone number for the business
+  * timezone `string`: The timezone used in the Stripe Dashboard for this account. A list of possible time zone values is maintained at the [IANA Time Zone Database](http://www.iana.org/time-zones).
   * tos_acceptance [account_tos_acceptance](#account_tos_acceptance)
-  * type **required** `string`: The type of the Stripe account. Can be `standard`, `express`, or `custom`.
+  * type **required** `string`: The Stripe account type. Can be `standard`, `express`, or `custom`.
   * verification [account_verification](#account_verification)
 
 ### address
@@ -4565,7 +7525,7 @@ stripe.UpdateTransferReversal({
   * country `string`: 2-letter country code.
   * line1 `string`: Address line 1 (Street address/PO Box/Company name).
   * line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
-  * postal_code `string`: Zip/Postal Code.
+  * postal_code `string`: ZIP or postal code
   * state `string`: State/County/Province/Region.
 
 ### alipay_account
@@ -4611,7 +7571,7 @@ stripe.UpdateTransferReversal({
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * object **required** `string` (values: application_fee): String representing the object's type. Objects of the same type share the same value.
   * originating_transaction `string`: ID of the corresponding charge on the platform account, if this fee was the result of a charge using the `destination` parameter.
-  * refunded **required** `boolean`: Whether or not the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.
+  * refunded **required** `boolean`: Whether the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.
   * refunds **required** `object`: A list of refunds that have been applied to the fee.
     * data **required** `array`
       * items [fee_refund](#fee_refund)
@@ -4622,10 +7582,13 @@ stripe.UpdateTransferReversal({
 ### balance
 * Balance `object`
   * available **required** `array`: Funds that are available to be paid out automatically by Stripe or explicitly via the [transfers API](#transfers). The available balance for each currency and payment type can be found in the `source_types` property.
+
   * connect_reserved `array`: Funds held due to negative balances on connected Custom accounts. The connect reserve balance for each currency and payment type can be found in the `source_types` property.
+
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * object **required** `string` (values: balance): String representing the object's type. Objects of the same type share the same value.
   * pending **required** `array`: Funds that are not available in the balance yet, due to the 7-day rolling pay cycle. The pending balance for each currency and payment type can be found in the `source_types` property.
+
 
 ### balance_transaction
 * BalanceTransaction `object`
@@ -4634,6 +7597,7 @@ stripe.UpdateTransferReversal({
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
   * description `string`: An arbitrary string attached to the object. Often useful for displaying to users.
+  * exchange_rate `number`
   * fee **required** `integer`: Fees (in %s) paid for this transaction.
   * fee_details **required** `array`: Detailed breakdown of fees (in %s) paid for this transaction.
     * items [fee](#fee)
@@ -4649,7 +7613,7 @@ stripe.UpdateTransferReversal({
   * account `string`
   * account_holder_name `string`: The name of the person or business that owns the bank account.
   * account_holder_type `string`: The type of entity that holds the account. This can be either `individual` or `company`.
-  * bank_name `string`: Name of the bank associated with the routing number, e.g. `WELLS FARGO`.
+  * bank_name `string`: Name of the bank associated with the routing number (e.g., `WELLS FARGO`).
   * country **required** `string`: Two-letter ISO code representing the country the bank account is located in.
   * currency **required** `string`: Three-letter [ISO code for the currency](https://stripe.com/docs/payouts) paid out to the bank account.
   * customer `string`
@@ -4660,7 +7624,7 @@ stripe.UpdateTransferReversal({
   * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
   * object **required** `string` (values: bank_account): String representing the object's type. Objects of the same type share the same value.
   * routing_number `string`: The routing transit number for the bank account.
-  * status **required** `string`: Possible values are `new`, `validated`, `verified`, `verification_failed`, or `errored`. A bank account that hasn't had any activity or validation performed is `new`. If Stripe can determine that the bank account exists, its status will be `validated`. Note that there often isn’t enough information to know (e.g. for smaller credit unions), and the validation is not always run. If customer bank account verification has succeeded, the bank account status will be `verified`. If the verification failed for any reason, such as microdeposit failure, the status will be `verification_failed`. If a transfer sent to this bank account fails, we'll set the status to `errored` and will not continue to send transfers until the bank details are updated.
+  * status **required** `string`: Possible values are `new`, `validated`, `verified`, `verification_failed`, or `errored`. A bank account that hasn't had any activity or validation performed is `new`. If Stripe can determine that the bank account exists, its status will be `validated`. Note that there often isn’t enough information to know (e.g., for smaller credit unions), and the validation is not always run. If customer bank account verification has succeeded, the bank account status will be `verified`. If the verification failed for any reason, such as microdeposit failure, the status will be `verification_failed`. If a transfer sent to this bank account fails, we'll set the status to `errored` and will not continue to send transfers until the bank details are updated.
 
 ### bitcoin_receiver
 * BitcoinReceiver `object`
@@ -4711,7 +7675,7 @@ stripe.UpdateTransferReversal({
   * address_line1_check `string`: If `address_line1` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.
   * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
   * address_state `string`: State/County/Province/Region.
-  * address_zip `string`: Zip/Postal Code.
+  * address_zip `string`: ZIP or postal code
   * address_zip_check `string`: If `address_zip` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.
   * available_payout_methods `array`: A set of available payout methods for this card. Will be either `["standard"]` or `["standard", "instant"]`. Only values from this set should be passed as the `method` when creating a transfer.
     * items `string`
@@ -4720,7 +7684,7 @@ stripe.UpdateTransferReversal({
   * currency `string`: Three-letter [ISO code for currency](https://stripe.com/docs/payouts). Only applicable on accounts (not customers or recipients). The card can be used as a transfer destination for funds in this currency.
   * customer `string`: The customer that this card belongs to. This attribute will not be in the card object if the card belongs to an account or recipient instead.
   * cvc_check `string`: If a CVC was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.
-  * default_for_currency `boolean`: Only applicable on accounts (not customers or recipients). This indicates whether or not this card is the default external account for its currency.
+  * default_for_currency `boolean`: Only applicable on accounts (not customers or recipients). This indicates whether this card is the default external account for its currency.
   * dynamic_last4 `string`: (For tokenized numbers only.) The last four digits of the device account number.
   * exp_month **required** `integer`: Two digit number representing the card's expiration month.
   * exp_year **required** `integer`: Four digit number representing the card's expiration year.
@@ -4741,7 +7705,7 @@ stripe.UpdateTransferReversal({
   * application `string`: ID of the Connect application that created the charge.
   * application_fee `string`: The application fee (if any) for the charge. [See the Connect documentation](/docs/connect/direct-charges#collecting-fees) for details.
   * balance_transaction `string`: ID of the balance transaction that describes the impact of this charge on your account balance (not including refunds or disputes).
-  * captured **required** `boolean`: If the charge was created without capturing, this boolean represents whether or not it is still uncaptured or has since been captured.
+  * captured **required** `boolean`: If the charge was created without capturing, this Boolean represents whether it is still uncaptured or has since been captured.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
   * customer `string`: ID of the customer this charge is for if one exists.
@@ -4762,7 +7726,7 @@ stripe.UpdateTransferReversal({
   * paid **required** `boolean`: `true` if the charge succeeded, or was successfully authorized for later capture.
   * receipt_email `string`: This is the email address that the receipt for this charge was sent to.
   * receipt_number `string`: This is the transaction number that appears on email receipts sent for this charge. This attribute will be `null` until a receipt has been sent.
-  * refunded **required** `boolean`: Whether or not the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.
+  * refunded **required** `boolean`: Whether the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.
   * refunds **required** `object`: A list of refunds that have been applied to the charge.
     * data **required** `array`
       * items [refund](#refund)
@@ -4804,9 +7768,9 @@ stripe.UpdateTransferReversal({
   * supported_bank_account_currencies **required** `object`: Currencies that can be accepted in the specific country (for transfers).
   * supported_payment_currencies **required** `array`: Currencies that can be accepted in the specified country (for payments).
     * items `string`
-  * supported_payment_methods **required** `array`: Payment methods available in the specified country. You will need to [enable bitcoin](https://dashboard.stripe.com/account/bitcoin/enable) and [ACH](https://stripe.com/docs/guides/ach) payments on your account for those methods to appear in this list. The `stripe` payment method refers to [charging through your platform](https://stripe.com/docs/connect/destination-charges).
+  * supported_payment_methods **required** `array`: Payment methods available in the specified country. You may need to enable some payment methods (e.g., [ACH](https://stripe.com/docs/ach)) on your account before they appear in this list. The `stripe` payment method refers to [charging through your platform](https://stripe.com/docs/connect/destination-charges).
     * items `string`
-  * verification_fields **required** `object`: Lists the types of verification data needed to keep an account open. Includes 'minimum' fields, which every account must eventually provide, as well as a 'additional' fields, which are only required for some merchants.
+  * verification_fields **required** `object`: Lists the types of verification data needed to keep an account open. Includes 'minimum' fields, which every account must eventually provide, as well as a 'additional' fields, which are only required for some users.
 
 ### coupon
 * Coupon `object`
@@ -4828,11 +7792,11 @@ stripe.UpdateTransferReversal({
 ### customer
 * Customer `object`
   * account_balance `integer`: Current balance, if any, being stored on the customer's account. If negative, the customer has credit to apply to the next invoice. If positive, the customer has an amount owed that will be added to the next invoice. The balance does not refer to any unpaid invoices; it solely takes into account amounts that have yet to be successfully applied to any invoice. This balance is only taken into account for recurring billing purposes (i.e., subscriptions, invoices, invoice items).
-  * business_vat_id `string`: The customer's VAT identification number.
+  * business_vat_id `string`: The customer's VAT identification number. Appears on invoices emailed to this customer.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency `string`: Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) the customer can be charged in for recurring billing purposes.
   * default_source `string`: ID of the default source attached to this customer.
-  * delinquent `boolean`: Whether or not the latest charge for the customer's latest invoice has failed.
+  * delinquent `boolean`: When the customer's latest invoice is billed by charging automatically, delinquent is true if the invoice's latest charge is failed. When the customer's latest invoice is billed by sending an invoice, delinquent is true if the invoice is not paid by its due date.
   * description `string`: An arbitrary string attached to the object. Often useful for displaying to users.
   * discount [discount](#discount)
   * email `string`: The customer's email address.
@@ -4905,7 +7869,7 @@ stripe.UpdateTransferReversal({
   * metadata **required** `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
   * object **required** `string` (values: dispute): String representing the object's type. Objects of the same type share the same value.
   * reason **required** `string`: Reason given by cardholder for dispute. Possible values are `duplicate`, `fraudulent`, `subscription_canceled`, `product_unacceptable`, `product_not_received`, `unrecognized`, `credit_not_processed`, `general`, `incorrect_account_details`, `insufficient_funds`, `bank_cannot_process`, `debit_not_authorized`, or `customer_initiated`. Read more about [dispute reasons](https://stripe.com/help/disputes#reasons).
-  * status **required** `string`: Current status of dispute. Possible values are `warning_needs_response`, `warning_under_review`, `warning_closed`, `needs_response`, `under_review`, `charge_refunded`, `won`, or `lost`.
+  * status **required** `string` (values: charge_refunded, lost, needs_response, under_review, warning_closed, warning_needs_response, warning_under_review, won): Current status of dispute. Possible values are `warning_needs_response`, `warning_under_review`, `warning_closed`, `needs_response`, `under_review`, `charge_refunded`, `won`, or `lost`.
 
 ### dispute_evidence
 * DisputeEvidence `object`
@@ -4940,8 +7904,8 @@ stripe.UpdateTransferReversal({
 ### dispute_evidence_details
 * DisputeEvidenceDetails `object`
   * due_by `integer`: Date by which evidence must be submitted in order to successfully challenge dispute. Will be null if the customer's bank or credit card company doesn't allow a response for this particular dispute.
-  * has_evidence **required** `boolean`: Whether or not evidence has been staged for this dispute.
-  * past_due **required** `boolean`: Whether or not the last evidence submission was submitted past the due date. Defaults to `false` if no evidence submissions have occurred. If true, then delivery of the latest evidence is not guaranteed.
+  * has_evidence **required** `boolean`: Whether evidence has been staged for this dispute.
+  * past_due **required** `boolean`: Whether the last evidence submission was submitted past the due date. Defaults to `false` if no evidence submissions have occurred. If true, then delivery of the latest evidence is not guaranteed.
   * submission_count **required** `integer`: The number of times evidence has been submitted. Typically, you may only submit evidence once.
 
 ### ephemeral_key
@@ -4981,7 +7945,7 @@ stripe.UpdateTransferReversal({
   * object **required** `string` (values: event): String representing the object's type. Objects of the same type share the same value.
   * pending_webhooks **required** `integer`: Number of webhooks yet to be delivered successfully (return a 20x response) to the URLs you've specified.
   * request [event_request](#event_request)
-  * type **required** `string`: Description of the event: e.g. `invoice.created`, `charge.refunded`, etc.
+  * type **required** `string`: Description of the event (e.g., `invoice.created` or `charge.refunded`).
 
 ### event_data
 * EventData `object`
@@ -4990,7 +7954,7 @@ stripe.UpdateTransferReversal({
 
 ### event_request
 * EventRequest `object`
-  * id `string`: ID of the API request that caused the event. If null, the event was automatic (e.g. Stripe's automatic subscription handling). Request logs are available in the [dashboard](https://dashboard.stripe.com/logs) but currently not in the API.
+  * id `string`: ID of the API request that caused the event. If null, the event was automatic (e.g., Stripe's automatic subscription handling). Request logs are available in the [dashboard](https://dashboard.stripe.com/logs) but currently not in the API.
   * idempotency_key `string`: The idempotency key transmitted during the request, if any. *Note: this proprety is only populated for events on or after May 23, 2017*.
 
 ### exchange_rate
@@ -5034,11 +7998,12 @@ stripe.UpdateTransferReversal({
 ### file_upload
 * FileUpload `object`
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
+  * filename `string`: A filename for the file, suitable for saving to a filesystem.
   * id **required** `string`: Unique identifier for the object.
   * object **required** `string` (values: file_upload): String representing the object's type. Objects of the same type share the same value.
-  * purpose **required** `string`: The purpose of the uploaded file. Possible values are `dispute_evidence` or `identity_document`.
+  * purpose **required** `string`: The purpose of the uploaded file. Possible values are `customer_signature`, `dispute_evidence`, `identity_document`, or `tax_document_user_upload`.
   * size **required** `integer`: The size in bytes of the file upload object.
-  * type `string`: The type of the file returned. Returns one of the following: `pdf`, `jpg`, or `png`.
+  * type `string`: The type of the file returned. Returns one of the following: `jpg`, `png`, `pdf`, `csv`, `xls`, `xlsx`, or `docx`.
   * url `string`: A read-only URL where the uploaded file can be accessed. Will be nil if the purpose of the uploaded file is `identity_document`. Also nil if retrieved with the publishable API key.
 
 ### inventory
@@ -5052,16 +8017,18 @@ stripe.UpdateTransferReversal({
   * amount_due **required** `integer`: Final amount due at this time for this invoice. If the invoice's total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the `amount_due` may be 0. If there is a positive `starting_balance` for the invoice (the customer owes money), the `amount_due` will also take that into account. The charge that gets generated for the invoice will be for the amount specified in `amount_due`.
   * application_fee `integer`: The fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account when the invoice is paid.
   * attempt_count **required** `integer`: Number of payment attempts made for this invoice, from the perspective of the payment retry schedule. Any payment attempt counts as the first attempt, and subsequently only automatic retries increment the attempt count. In other words, manual payment attempts after the first attempt do not affect the retry schedule.
-  * attempted **required** `boolean`: Whether or not an attempt has been made to pay the invoice. An invoice is not attempted until 1 hour after the `invoice.created` webhook, for example, so you might not want to display that invoice as unpaid to your users.
+  * attempted **required** `boolean`: Whether an attempt has been made to pay the invoice. An invoice is not attempted until 1 hour after the `invoice.created` webhook, for example, so you might not want to display that invoice as unpaid to your users.
+  * billing `string`: Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions.
   * charge `string`: ID of the latest charge generated for this invoice, if any.
-  * closed **required** `boolean`: Whether or not the invoice is still trying to collect payment. An invoice is closed if it's either paid or it has been marked closed. A closed invoice will no longer attempt to collect payment.
+  * closed **required** `boolean`: Whether the invoice is still trying to collect payment. An invoice is closed if it's either paid or it has been marked closed. A closed invoice will no longer attempt to collect payment.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
   * customer **required** `string`
   * date **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * description `string`: An arbitrary string attached to the object. Often useful for displaying to users.
   * discount [discount](#discount)
-  * ending_balance `integer`: Ending customer balance after attempting to pay invoice. If the invoice has not been attempted yet, this will be null.
-  * forgiven **required** `boolean`: Whether or not the invoice has been forgiven. Forgiving an invoice instructs us to update the subscription status as if the invoice were successfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.
+  * due_date `integer`: The date on which payment for this invoice is due. This value will be `null` for invoices where `billing=charge_automatically`.
+  * ending_balance `integer`: Ending customer balance after the invoice is frozen. Invoices are frozen approximately an hour after successful webhook delivery or when payment collection is attempted for the invoice. If the invoice has not been frozen yet, this will be null.
+  * forgiven **required** `boolean`: Whether the invoice has been forgiven. Forgiving an invoice instructs us to update the subscription status as if the invoice were successfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.
   * id **required** `string`: Unique identifier for the object.
   * lines **required** `object`: The individual line items that make up the invoice. `lines` is sorted as follows: invoice items in reverse chronological order, followed by the subscription, if any.
     * data **required** `array`
@@ -5071,13 +8038,14 @@ stripe.UpdateTransferReversal({
     * url **required** `string`: The URL where this list can be accessed.
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
-  * next_payment_attempt `integer`: The time at which payment will next be attempted.
+  * next_payment_attempt `integer`: The time at which payment will next be attempted. This value will be `null` for invoices where `billing=send_invoice`.
+  * number `string`: A unique, identifying string that appears on emails sent to the customer for this invoice.
   * object **required** `string` (values: invoice): String representing the object's type. Objects of the same type share the same value.
-  * paid **required** `boolean`: Whether or not payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer's account balance.
+  * paid **required** `boolean`: Whether payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer's account balance.
   * period_end **required** `integer`: End of the usage period during which invoice items were added to this invoice.
   * period_start **required** `integer`: Start of the usage period during which invoice items were added to this invoice.
   * receipt_number `string`: This is the transaction number that appears on email receipts sent for this invoice.
-  * starting_balance **required** `integer`: Starting customer balance before attempting to pay invoice. If the invoice has not been attempted yet, this will be the current customer balance.
+  * starting_balance **required** `integer`: Starting customer balance before the invoice is frozen. If the invoice has not been frozen yet, this will be the current customer balance.
   * statement_descriptor `string`: Extra information about an invoice for the customer's credit card statement.
   * subscription `string`: The subscription that this invoice was prepared for, if any.
   * subscription_proration_date `integer`: Only set for upcoming invoices that preview prorations. The time used to calculate prorations.
@@ -5102,7 +8070,7 @@ stripe.UpdateTransferReversal({
   * object **required** `string` (values: invoiceitem): String representing the object's type. Objects of the same type share the same value.
   * period `object`
   * plan [plan](#plan)
-  * proration **required** `boolean`: Whether or not the invoice item was created automatically as a proration adjustment when the customer switched plans.
+  * proration **required** `boolean`: Whether the invoice item was created automatically as a proration adjustment when the customer switched plans.
   * quantity `integer`: If the invoice item is a proration, the quantity of the subscription that the proration was computed for.
   * subscription `string`: The subscription that this invoice item has been created for, if any.
   * subscription_item `string`
@@ -5114,16 +8082,27 @@ stripe.UpdateTransferReversal({
   * description `string`: An arbitrary string attached to the object. Often useful for displaying to users.
   * discountable **required** `boolean`: If true, discounts will apply to this line item. Always false for prorations.
   * id **required** `string`: Unique identifier for the object.
-  * livemode **required** `boolean`: Whether or not this is a test line item.
+  * livemode **required** `boolean`: Whether this is a test line item.
   * metadata **required** `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
   * object **required** `string` (values: line_item): String representing the object's type. Objects of the same type share the same value.
   * period **required** `object`: The period this `line_item` covers. For subscription line items, this is the subscription period. For prorations, this starts when the proration was calculated, and ends at the period end of the subscription. For invoice items, this is the time at which the invoice item was created, so the period start and end are the same time.
   * plan [plan](#plan)
-  * proration **required** `boolean`: Whether or not this is a proration.
+  * proration **required** `boolean`: Whether this is a proration.
   * quantity `integer`: The quantity of the subscription, if the line item is a subscription or a proration.
   * subscription `string`: When type is `invoiceitem`, the subscription that the invoice item pertains to, if any. Left blank when `type` is already subscription, as it'd be redundant with `id`.
   * subscription_item `string`
   * type **required** `string`: A string identifying the type of the source of this line item, either an `invoiceitem` or a `subscription`.
+
+### legacy_transfer_reversal
+* LegacyTransferReversal `object`
+  * amount **required** `integer`: Amount, in %s.
+  * balance_transaction `string`: Balance transaction that describes the impact on your account balance.
+  * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
+  * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
+  * id **required** `string`: Unique identifier for the object.
+  * metadata **required** `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
+  * object **required** `string` (values: transfer_reversal): String representing the object's type. Objects of the same type share the same value.
+  * transfer **required** `string`: ID of the transfer that was reversed.
 
 ### legal_entity
 * LegalEntity `object`
@@ -5149,7 +8128,7 @@ stripe.UpdateTransferReversal({
   * personal_address [legal_entity_address](#legal_entity_address)
   * personal_address_kana [legal_entity_japan_address](#legal_entity_japan_address)
   * personal_address_kanji [legal_entity_japan_address](#legal_entity_japan_address)
-  * personal_id_number_provided `boolean`: Whether the personal id number of the individual responsible for the account has been provided.
+  * personal_id_number_provided `boolean`: Whether the personal ID number of the individual responsible for the account has been provided.
   * phone_number `string`: The phone number of the company, used for verification.
   * ssn_last_4_provided `boolean`: Whether the last 4 ssn digits of the individual responsible for the account have been provided.
   * tax_id_registrar `string`
@@ -5163,6 +8142,7 @@ stripe.UpdateTransferReversal({
   * first_name `string`: The first name of this additional owner.
   * last_name `string`: The last name of this additional owner.
   * maiden_name `string`: The maiden name of this additional owner.
+  * personal_id_number_provided `boolean`: Whether the personal ID number of this additional owner has been provided.
   * verification **required** [legal_entity_verification](#legal_entity_verification)
 
 ### legal_entity_address
@@ -5171,7 +8151,7 @@ stripe.UpdateTransferReversal({
   * country `string`: 2-letter country code.
   * line1 `string`: Address line 1 (Street address/PO Box/Company name).
   * line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
-  * postal_code `string`: Zip/Postal Code.
+  * postal_code `string`: ZIP or postal code
   * state `string`: State/County/Province/Region.
 
 ### legal_entity_dob
@@ -5196,6 +8176,9 @@ stripe.UpdateTransferReversal({
   * details_code `string`: One of `scan_corrupt`, `scan_not_readable`, `scan_failed_greyscale`, `scan_not_uploaded`, `scan_id_type_not_supported`, `scan_id_country_not_supported`, `scan_name_mismatch`, `scan_failed_other`, `failed_keyed_identity`, or `failed_other`. A machine-readable code specifying the verification state for this legal entity.
   * document `string`: (ID of a [file upload](https://stripe.com/docs/guides/file-upload)) A photo (jpg or png) of the front of an identifying document, either a passport or local ID card.
   * status **required** `string`: The state of verification for this legal entity. Possible values are `unverified`, `pending`, or `verified`.
+
+### light_account_logout
+* LightAccountLogout `object`
 
 ### limited_account
 * LimitedAccount `object`
@@ -5243,7 +8226,7 @@ stripe.UpdateTransferReversal({
   * status **required** `string`: Current order status. One of `created`, `paid`, `canceled`, `fulfilled`, or `returned`. More detail in the [Relay API Overview](/docs/orders/guide#understanding-order-statuses).
   * status_transitions [status_transitions](#status_transitions)
   * updated `integer`
-  * upstream_id `string`: The merchant's order ID if it is different from the Stripe order ID.
+  * upstream_id `string`: The user's order ID if it is different from the Stripe order ID.
 
 ### order_item
 * OrderItem `object`
@@ -5279,6 +8262,7 @@ stripe.UpdateTransferReversal({
 * Payout `object`
   * amount **required** `integer`: Amount (in %s) to be transferred to your bank account or debit card.
   * arrival_date **required** `integer`: Date the payout is expected to arrive in the bank. This factors in delays like weekends or bank holidays.
+  * automatic **required** `boolean`: Returns `true` if the payout was created by an [automated payout schedule](/docs/payouts#payout-schedule), and `false` if it was [requested manually](https://stripe.com/docs/payouts#manual-payouts).
   * balance_transaction `string`: ID of the balance transaction that describes the impact of this payout on your account balance.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
@@ -5299,7 +8283,7 @@ stripe.UpdateTransferReversal({
 
 ### plan
 * Plan `object`
-  * amount **required** `integer`: The amount in %s to be charged on the interval specified.
+  * amount `integer`: The amount in %s to be charged on the interval specified.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
   * id **required** `string`: Unique identifier for the object.
@@ -5309,7 +8293,7 @@ stripe.UpdateTransferReversal({
   * metadata **required** `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
   * name **required** `string`: Display name of the plan.
   * object **required** `string` (values: plan): String representing the object's type. Objects of the same type share the same value.
-  * statement_descriptor `string`: Extra information about a charge for the customer's credit card statement.
+  * statement_descriptor `string`: Displayed on customer statements when their card is charged.
 
 ### platform_earning
 * PlatformEarning `object`
@@ -5325,7 +8309,7 @@ stripe.UpdateTransferReversal({
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * object **required** `string` (values: application_fee): String representing the object's type. Objects of the same type share the same value.
   * originating_transaction `string`: ID of the corresponding charge on the platform account, if this fee was the result of a charge using the `destination` parameter.
-  * refunded **required** `boolean`: Whether or not the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.
+  * refunded **required** `boolean`: Whether the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.
   * refunds **required** `object`: A list of refunds that have been applied to the fee.
     * data **required** `array`
       * items [fee_refund](#fee_refund)
@@ -5347,7 +8331,7 @@ stripe.UpdateTransferReversal({
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * object **required** `string` (values: application_fee): String representing the object's type. Objects of the same type share the same value.
   * originating_transaction `string`: ID of the corresponding charge on the platform account, if this fee was the result of a charge using the `destination` parameter.
-  * refunded **required** `boolean`: Whether or not the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.
+  * refunded **required** `boolean`: Whether the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.
   * refunds **required** `object`: A list of refunds that have been applied to the fee.
     * data **required** `array`
       * items [fee_refund](#fee_refund)
@@ -5357,12 +8341,13 @@ stripe.UpdateTransferReversal({
 
 ### product
 * Product `object`
-  * active `boolean`: Whether or not the product is currently available for purchase.
-  * attributes `array`: A list of up to 5 attributes that each SKU can provide values for (e.g. `["color", "size"]`).
+  * active `boolean`: Whether the product is currently available for purchase.
+  * attributes `array`: A list of up to 5 attributes that each SKU can provide values for (e.g., `["color", "size"]`).
     * items `string`
   * caption `string`: A short one-line description of the product, meant to be displayable to the customer.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * deactivate_on `array`: An array of connect application identifiers that cannot purchase this product.
+
   * description `string`: The product's description, meant to be displayable to the customer.
   * id **required** `string`: Unique identifier for the object.
   * images **required** `array`: A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
@@ -5396,7 +8381,7 @@ stripe.UpdateTransferReversal({
   * object **required** `string` (values: refund): String representing the object's type. Objects of the same type share the same value.
   * reason `string`: Reason for the refund. If set, possible values are `duplicate`, `fraudulent`, and `requested_by_customer`.
   * receipt_number `string`: This is the transaction number that appears on email receipts sent for this refund.
-  * status `string`: Status of the refund. For credit card refunds, this can be `succeeded` or `failed`. For other types of refunds, it can be `pending`, `succeeded`, `failed`, or `cancelled`. See [refund failures](/docs/refunds#failed-refunds) for details.
+  * status `string`: Status of the refund. For credit card refunds, this can be `succeeded` or `failed`. For other types of refunds, it can be `pending`, `succeeded`, `failed`, or `canceled`. Refer to our [refunds](/docs/refunds#failed-refunds) documentation for more details.
 
 ### reserve_transaction
 * ReserveTransaction `object`
@@ -5440,7 +8425,7 @@ stripe.UpdateTransferReversal({
 
 ### sku
 * SKU `object`
-  * active **required** `boolean`: Whether or not the SKU is available for purchase.
+  * active **required** `boolean`: Whether the SKU is available for purchase.
   * attributes **required** `object`: A dictionary of attributes and values for the attributes defined by the product. If, for example, a product's attributes are `["size", "gender"]`, a valid SKU has the following dictionary of attributes: `{"size": "Medium", "gender": "Unisex"}`.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
@@ -5486,6 +8471,7 @@ stripe.UpdateTransferReversal({
     * address_line1_check `string`
     * address_zip_check `string`
     * brand `string`
+    * card_automatically_updated `boolean`
     * country `string`
     * cvc_check `string`
     * dynamic_last4 `string`
@@ -5543,6 +8529,18 @@ stripe.UpdateTransferReversal({
   * attempts_remaining **required** `integer`: The number of attempts remaining to authenticate the source object with a verification code.
   * status **required** `string`: The status of the code verification, either `pending` (awaiting verification, `attempts_remaining` should be greater than 0), `succeeded` (successful verification) or `failed` (failed verification, cannot be verified anymore as `attempts_remaining` should be 0).
 
+### source_mandate_notification
+* SourceMandateNotification `object`
+  * amount `integer`: Amount associated with the mandate notification. The amount is expressed in the currency of the underlying Source. Set if the notification type is `debit_initiated`.
+  * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
+  * id **required** `string`: Unique identifier for the object.
+  * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
+  * object **required** `string` (values: source_mandate_notification): String representing the object's type. Objects of the same type share the same value.
+  * reason **required** `string`: The reason of the mandate notification.
+  * source **required** [source](#source)
+  * status **required** `string`: The status of the mandate notification.
+  * type **required** `string`: The type of source this mandate notification is attached to.
+
 ### source_owner
 * SourceOwner `object`
   * address [address](#address)
@@ -5599,6 +8597,7 @@ stripe.UpdateTransferReversal({
     * address_line1_check `string`
     * address_zip_check `string`
     * brand `string`
+    * card_automatically_updated `boolean`
     * country `string`
     * cvc_check `string`
     * dynamic_last4 `string`
@@ -5635,7 +8634,7 @@ stripe.UpdateTransferReversal({
     * iban_last4 `string`
     * preferred_language `string`
     * statement_descriptor `string`
-  * source **required** `string`: The id of the source this transaction is attached to.
+  * source **required** `string`: The ID of the source this transaction is attached to.
   * three_d_secure `object`
     * authenticated `boolean`
     * card `string`
@@ -5651,13 +8650,15 @@ stripe.UpdateTransferReversal({
 
 ### subscription
 * Subscription `object`
-  * application_fee_percent `number`: A non-negative decimal (with at most two decimal places) between 0 and 100. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account.
+  * application_fee_percent `number`: A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account.
+  * billing `string`: Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this subscription at the end of the cycle using the default source attached to the customer. When sending an invoice, Stripe will email your customer an invoice with payment instructions.
   * cancel_at_period_end **required** `boolean`: If the subscription has been canceled with the `at_period_end` flag set to `true`, `cancel_at_period_end` on the subscription will be true. You can use this attribute to determine whether a subscription that has a status of active is scheduled to be canceled at the end of the current period.
   * canceled_at `integer`: If the subscription has been canceled, the date of that cancellation. If the subscription was canceled with `cancel_at_period_end`, `canceled_at` will still reflect the date of the initial cancellation request, not the end of the subscription period when the subscription is automatically moved to a canceled state.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * current_period_end `integer`: End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.
   * current_period_start `integer`: Start of the current period that the subscription has been invoiced for.
   * customer **required** `string`: ID of the customer who owns the subscription.
+  * days_until_due `integer`: Number of days a customer has to pay invoices generated by this subscription. This value will be `null` for subscriptions where `billing=charge_automatically`.
   * discount [discount](#discount)
   * ended_at `integer`: If the subscription has ended, the date the subscription ended.
   * id **required** `string`: Unique identifier for the object.
@@ -5673,7 +8674,7 @@ stripe.UpdateTransferReversal({
   * plan [plan](#plan)
   * quantity `integer`: The quantity of the plan to which the customer should be subscribed. For example, if your plan is $10/user/month, and your customer has 5 users, you could pass 5 as the quantity to have the customer charged $50 (5 x $10) monthly.
   * start **required** `integer`: Date the most recent update to this subscription started.
-  * status **required** `string`: Possible values are `trialing`, `active`, `past_due`, `canceled`, or `unpaid`. A subscription still in its trial period is `trialing` and moves to `active` when the trial period is over. When payment to renew the subscription fails, the subscription becomes `past_due`. After Stripe has exhausted all payment retry attempts, the subscription ends up with a status of either `canceled` or `unpaid` depending on your retry settings. Note that when a subscription has a status of `unpaid`, no subsequent invoices will be attempted (invoices will be created, but then immediately automatically closed. Additionally, updating customer card details will not lead to Stripe retrying the latest invoice.). After receiving updated card details from a customer, you may choose to reopen and pay their closed invoices.
+  * status **required** `string`: Possible values are `trialing`, `active`, `past_due`, `canceled`, or `unpaid`. A subscription still in its trial period is `trialing` and moves to `active` when the trial period is over. If subscription `billing=charge_automatically` it becomes `past_due` when payment to renew it fails and `canceled` or `unpaid` (depending on your subscriptions settings) when Stripe has exhausted all payment retry attempts. If subscription `billing=send_invoice` it becomes `past_due` when its invoice is not paid by the due date, and `canceled` or `unpaid` if it is still not paid by an additional deadline after that. Note that when a subscription has a status of `unpaid`, no subsequent invoices will be attempted (invoices will be created, but then immediately automatically closed.) After receiving updated payment information from a customer, you may choose to reopen and pay their closed invoices.
   * tax_percent `number`: If provided, each invoice created by this subscription will apply the tax rate, increasing the amount billed to the customer.
   * trial_end `integer`: If the subscription has a trial, the end of that trial.
   * trial_start `integer`: If the subscription has a trial, the beginning of that trial.
@@ -5686,6 +8687,7 @@ stripe.UpdateTransferReversal({
   * object **required** `string` (values: subscription_item): String representing the object's type. Objects of the same type share the same value.
   * plan **required** [plan](#plan)
   * quantity **required** `integer`: The [quantity](/docs/subscriptions/quantities) of the plan to which the customer should be subscribed.
+  * subscription `string`
 
 ### three_d_secure
 * ThreeDSecure `object`
@@ -5710,13 +8712,13 @@ stripe.UpdateTransferReversal({
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * object **required** `string` (values: token): String representing the object's type. Objects of the same type share the same value.
   * type **required** `string`: Type of the token: `card` or `bank_account`.
-  * used **required** `boolean`: Whether or not this token has already been used (tokens can be used only once).
+  * used **required** `boolean`: Whether this token has already been used (tokens can be used only once).
 
 ### token_bank_account
 * TokenBankAccount `object`
   * account_holder_name `string`: The name of the person or business that owns the bank account.
   * account_holder_type `string`: The type of entity that holds the account. This can be either `individual` or `company`.
-  * bank_name `string`: Name of the bank associated with the routing number, e.g. `WELLS FARGO`.
+  * bank_name `string`: Name of the bank associated with the routing number (e.g., `WELLS FARGO`).
   * country **required** `string`: Two-letter ISO code representing the country the bank account is located in.
   * currency **required** `string`: Three-letter [ISO code for the currency](https://stripe.com/docs/payouts) paid out to the bank account.
   * fingerprint `string`: Uniquely identifies this particular bank account. You can use this attribute to check whether two bank accounts are the same.
@@ -5724,7 +8726,7 @@ stripe.UpdateTransferReversal({
   * last4 **required** `string`
   * object **required** `string` (values: bank_account): String representing the object's type. Objects of the same type share the same value.
   * routing_number `string`: The routing transit number for the bank account.
-  * status **required** `string`: Possible values are `new`, `validated`, `verified`, `verification_failed`, or `errored`. A bank account that hasn't had any activity or validation performed is `new`. If Stripe can determine that the bank account exists, its status will be `validated`. Note that there often isn’t enough information to know (e.g. for smaller credit unions), and the validation is not always run. If customer bank account verification has succeeded, the bank account status will be `verified`. If the verification failed for any reason, such as microdeposit failure, the status will be `verification_failed`. If a transfer sent to this bank account fails, we'll set the status to `errored` and will not continue to send transfers until the bank details are updated.
+  * status **required** `string`: Possible values are `new`, `validated`, `verified`, `verification_failed`, or `errored`. A bank account that hasn't had any activity or validation performed is `new`. If Stripe can determine that the bank account exists, its status will be `validated`. Note that there often isn’t enough information to know (e.g., for smaller credit unions), and the validation is not always run. If customer bank account verification has succeeded, the bank account status will be `verified`. If the verification failed for any reason, such as microdeposit failure, the status will be `verification_failed`. If a transfer sent to this bank account fails, we'll set the status to `errored` and will not continue to send transfers until the bank details are updated.
 
 ### token_card
 * TokenCard `object`
@@ -5734,7 +8736,7 @@ stripe.UpdateTransferReversal({
   * address_line1_check `string`: If `address_line1` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.
   * address_line2 `string`: Address line 2 (Apartment/Suite/Unit/Building).
   * address_state `string`: State/County/Province/Region.
-  * address_zip `string`: Zip/Postal Code.
+  * address_zip `string`: ZIP or postal code
   * address_zip_check `string`: If `address_zip` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.
   * brand **required** `string`: Card brand. Can be `Visa`, `American Express`, `MasterCard`, `Discover`, `JCB`, `Diners Club`, or `Unknown`.
   * country `string`: Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you've collected.
@@ -5781,7 +8783,7 @@ stripe.UpdateTransferReversal({
     * has_more **required** `boolean`: True if this list has another page of items after this one that can be fetched.
     * object **required** `string` (values: list): String representing the object's type. Objects of the same type share the same value. Always has the value "list".
     * url **required** `string`: The URL where this list can be accessed.
-  * reversed **required** `boolean`: Whether or not the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.
+  * reversed **required** `boolean`: Whether the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.
   * source_transaction `string`: ID of the charge or payment that was used to fund the transfer. If null, the transfer was funded from the available balance.
   * source_type `string`: The source balance this transfer came from. One of `card`, `bank_account`, `bitcoin_receiver`, or `alipay_account`.
   * transfer_group `string`: A string that identifies this transaction as part of a group. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.
@@ -5813,6 +8815,7 @@ stripe.UpdateTransferReversal({
   * amount **required** `integer`: Amount (in %s) to be transferred to your bank account.
   * amount_reversed **required** `integer`: Amount in %s reversed (can be less than the amount attribute on the transfer if a partial reversal was issued).
   * application_fee `string`
+  * automatic **required** `boolean`: Returns `true` if the payout was created by an [automated payout schedule](/docs/payouts#payout-schedule), and `false` if it was [requested manually](https://stripe.com/docs/payouts#manual-payouts).
   * balance_transaction `string`: Balance transaction that describes the impact of this transfer on your account balance.
   * created **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
@@ -5833,7 +8836,7 @@ stripe.UpdateTransferReversal({
     * has_more **required** `boolean`: True if this list has another page of items after this one that can be fetched.
     * object **required** `string` (values: list): String representing the object's type. Objects of the same type share the same value. Always has the value "list".
     * url **required** `string`: The URL where this list can be accessed.
-  * reversed **required** `boolean`: Whether or not the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.
+  * reversed **required** `boolean`: Whether the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.
   * source_transaction `string`: ID of the charge (or other transaction) that was used to fund the transfer. If null, the transfer was funded from the available balance.
   * source_type `string`: The source balance this transfer came from. One of `card`, `bank_account`, `bitcoin_receiver`, or `alipay_account`.
   * statement_descriptor `string`: Extra information about a transfer to be displayed on the user's bank statement.
@@ -5864,16 +8867,18 @@ stripe.UpdateTransferReversal({
   * amount_due **required** `integer`: Final amount due at this time for this invoice. If the invoice's total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the `amount_due` may be 0. If there is a positive `starting_balance` for the invoice (the customer owes money), the `amount_due` will also take that into account. The charge that gets generated for the invoice will be for the amount specified in `amount_due`.
   * application_fee `integer`: The fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account when the invoice is paid.
   * attempt_count **required** `integer`: Number of payment attempts made for this invoice, from the perspective of the payment retry schedule. Any payment attempt counts as the first attempt, and subsequently only automatic retries increment the attempt count. In other words, manual payment attempts after the first attempt do not affect the retry schedule.
-  * attempted **required** `boolean`: Whether or not an attempt has been made to pay the invoice. An invoice is not attempted until 1 hour after the `invoice.created` webhook, for example, so you might not want to display that invoice as unpaid to your users.
+  * attempted **required** `boolean`: Whether an attempt has been made to pay the invoice. An invoice is not attempted until 1 hour after the `invoice.created` webhook, for example, so you might not want to display that invoice as unpaid to your users.
+  * billing `string`: Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions.
   * charge `string`: ID of the latest charge generated for this invoice, if any.
-  * closed **required** `boolean`: Whether or not the invoice is still trying to collect payment. An invoice is closed if it's either paid or it has been marked closed. A closed invoice will no longer attempt to collect payment.
+  * closed **required** `boolean`: Whether the invoice is still trying to collect payment. An invoice is closed if it's either paid or it has been marked closed. A closed invoice will no longer attempt to collect payment.
   * currency **required** `string`: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).
   * customer **required** `string`
   * date **required** `integer`: Time at which the object was created. Measured in seconds since the Unix epoch.
   * description `string`: An arbitrary string attached to the object. Often useful for displaying to users.
   * discount [discount](#discount)
-  * ending_balance `integer`: Ending customer balance after attempting to pay invoice. If the invoice has not been attempted yet, this will be null.
-  * forgiven **required** `boolean`: Whether or not the invoice has been forgiven. Forgiving an invoice instructs us to update the subscription status as if the invoice were successfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.
+  * due_date `integer`: The date on which payment for this invoice is due. This value will be `null` for invoices where `billing=charge_automatically`.
+  * ending_balance `integer`: Ending customer balance after the invoice is frozen. Invoices are frozen approximately an hour after successful webhook delivery or when payment collection is attempted for the invoice. If the invoice has not been frozen yet, this will be null.
+  * forgiven **required** `boolean`: Whether the invoice has been forgiven. Forgiving an invoice instructs us to update the subscription status as if the invoice were successfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.
   * lines **required** `object`: The individual line items that make up the invoice. `lines` is sorted as follows: invoice items in reverse chronological order, followed by the subscription, if any.
     * data **required** `array`
       * items [invoice_line_item](#invoice_line_item)
@@ -5882,13 +8887,14 @@ stripe.UpdateTransferReversal({
     * url **required** `string`: The URL where this list can be accessed.
   * livemode **required** `boolean`: Flag indicating whether the object exists in live mode or test mode.
   * metadata `object`: Set of key/value pairs that you can attach to an object. It can be useful for storing additional information about the object in a structured format.
-  * next_payment_attempt `integer`: The time at which payment will next be attempted.
+  * next_payment_attempt `integer`: The time at which payment will next be attempted. This value will be `null` for invoices where `billing=send_invoice`.
+  * number `string`: A unique, identifying string that appears on emails sent to the customer for this invoice.
   * object **required** `string` (values: invoice): String representing the object's type. Objects of the same type share the same value.
-  * paid **required** `boolean`: Whether or not payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer's account balance.
+  * paid **required** `boolean`: Whether payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer's account balance.
   * period_end **required** `integer`: End of the usage period during which invoice items were added to this invoice.
   * period_start **required** `integer`: Start of the usage period during which invoice items were added to this invoice.
   * receipt_number `string`: This is the transaction number that appears on email receipts sent for this invoice.
-  * starting_balance **required** `integer`: Starting customer balance before attempting to pay invoice. If the invoice has not been attempted yet, this will be the current customer balance.
+  * starting_balance **required** `integer`: Starting customer balance before the invoice is frozen. If the invoice has not been frozen yet, this will be the current customer balance.
   * statement_descriptor `string`: Extra information about an invoice for the customer's credit card statement.
   * subscription `string`: The subscription that this invoice was prepared for, if any.
   * subscription_proration_date `integer`: Only set for upcoming invoices that preview prorations. The time used to calculate prorations.

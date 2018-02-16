@@ -1044,7 +1044,7 @@ amazonaws_elasticloadbalancing.SetSubnets({
 * InvalidSubnetException `object`: The specified subnet is out of available addresses.
 
 ### InvalidTargetException
-* InvalidTargetException `object`: The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
+* InvalidTargetException `object`: The specified target does not exist or is not in the same VPC as the target group.
 
 ### IpAddress
 * IpAddress `string`

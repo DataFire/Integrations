@@ -6335,7 +6335,6 @@
           "type": "array"
         },
         "useCustomFields": {
-          "default": false,
           "description": "A flag to indicate how to define property names for contacts. If true, uses the field and property names exactly as defined. If false will assign custom properties and fields to A, B, C, etc",
           "type": "boolean"
         }
@@ -6346,7 +6345,6 @@
       "description": "Request object for adding new Do-Not-Contact records to account.",
       "properties": {
         "call": {
-          "default": false,
           "description": "If set to true add all given numbers to Do-Not-Call list. Default value: true",
           "type": "boolean"
         },
@@ -6362,7 +6360,6 @@
           "type": "string"
         },
         "text": {
-          "default": false,
           "description": "If set to true add all given numbers to Do-Not-Text list. Default value: true",
           "type": "boolean"
         }
@@ -6373,7 +6370,6 @@
       "description": "An object represents API user in CallFire system. Use /me/api/credentials endpoint to manage API users on your account",
       "properties": {
         "enabled": {
-          "default": false,
           "description": "Is credential enabled",
           "type": "boolean"
         },
@@ -6400,32 +6396,23 @@
       "type": "object"
     },
     "ApiCredentialPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/ApiCredential"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/ApiCredential"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "Batch": {
       "description": "A batch represents a group of contacts which can be dialed or texted via call/text broadcast",
@@ -6442,7 +6429,6 @@
           "type": "integer"
         },
         "enabled": {
-          "default": false,
           "description": "An enabled batch. If batch is disabled its contacts remain undialed/untexted",
           "type": "boolean"
         },
@@ -6482,32 +6468,23 @@
       "type": "object"
     },
     "BatchPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Batch"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Batch"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "BatchRequest": {
       "description": "Request object is used for adding new batch to an existing broadcast",
@@ -6529,7 +6506,6 @@
           "type": "array"
         },
         "scrubDuplicates": {
-          "default": false,
           "description": "Removes duplicate recipients from batch if true",
           "type": "boolean"
         }
@@ -6573,7 +6549,6 @@
       "description": "Represents a call action sent or received by Callfire platform",
       "properties": {
         "agentCall": {
-          "default": false,
           "description": "An internal call to an agent",
           "readOnly": true,
           "type": "boolean"
@@ -6639,7 +6614,6 @@
           "type": "integer"
         },
         "inbound": {
-          "default": false,
           "description": "Is action inbound",
           "type": "boolean"
         },
@@ -6760,7 +6734,6 @@
           "type": "array"
         },
         "resumeNextDay": {
-          "default": false,
           "description": "If true resumes the unfinished campaign to the next day",
           "type": "boolean"
         },
@@ -6801,32 +6774,23 @@
       "type": "object"
     },
     "CallBroadcastPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/CallBroadcast"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/CallBroadcast"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "CallBroadcastSounds": {
       "description": "A set of sounds assigned to a voice broadcast to play according to an answering machine configuration. You can add the existing sounds from the account's sound library or to provide a text which will be converted into a speech. There are four sound options available for a Voice Broadcast campaign",
@@ -7051,45 +7015,42 @@
       "type": "object"
     },
     "CallList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Call"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Call"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "CallPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Call"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Call"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "CallRecipient": {
       "description": "Recipient of a campaign action. Can be a phone number, contact, or contact list with attributes added to action. It is required to specify one of this values",
@@ -7331,17 +7292,23 @@
       "type": "object"
     },
     "CallRecordingList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/CallRecording"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/CallRecording"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "CallTrackingConfig": {
       "description": "Call tracking configuration allows you track incoming calls, analyze, respond to customers using sms or voice replies. For more information see [call tracking page](https://www.callfire.com/products/call-tracking)",
@@ -7361,12 +7328,10 @@
           "type": "integer"
         },
         "recorded": {
-          "default": false,
           "description": "Records all inbound calls",
           "type": "boolean"
         },
         "screen": {
-          "default": false,
           "description": "Screens the incoming calls",
           "type": "boolean"
         },
@@ -7378,7 +7343,6 @@
           "type": "array"
         },
         "voicemail": {
-          "default": false,
           "description": "Enables voicemail if call is not transferred",
           "type": "boolean"
         },
@@ -7410,17 +7374,23 @@
       "type": "object"
     },
     "CallerIdList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/CallerId"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/CallerId"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "CallerIdVerificationRequest": {
       "description": "Request which is used to verify a new caller id number",
@@ -7442,7 +7412,6 @@
           "type": "integer"
         },
         "duplicate": {
-          "default": false,
           "description": "True if the same sound file exists in a sound library of account",
           "readOnly": true,
           "type": "boolean"
@@ -7480,38 +7449,28 @@
       "type": "object"
     },
     "CampaignSoundPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/CampaignSound"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/CampaignSound"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "Contact": {
       "description": "Represents a contact in CallFire platform. Contains info about the people you want to contact. It allows you to store a user-defined properties for each contact",
       "properties": {
         "deleted": {
-          "default": false,
           "description": "A deleted contact, deleted contacts are hidden from search results",
           "type": "boolean"
         },
@@ -7639,60 +7598,42 @@
       "type": "object"
     },
     "ContactListPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/ContactList"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/ContactList"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "ContactPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Contact"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Contact"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "CreateContactListRequest": {
       "description": "A request object is used to create a contact list from one of available contact sources",
@@ -7728,7 +7669,6 @@
           "type": "string"
         },
         "useCustomFields": {
-          "default": false,
           "description": "A flag to indicate how to define property names for contacts. If true, uses the field and property names exactly as defined. If false will assign custom properties and fields to A, B, C, etc",
           "type": "boolean"
         }
@@ -7793,7 +7733,6 @@
       "description": "Represents an opted out contact",
       "properties": {
         "call": {
-          "default": false,
           "description": "A number on Do-Not-Call list",
           "type": "boolean"
         },
@@ -7818,7 +7757,6 @@
           "type": "string"
         },
         "text": {
-          "default": false,
           "description": "A number on Do-Not-Text list",
           "type": "boolean"
         }
@@ -7826,32 +7764,23 @@
       "type": "object"
     },
     "DoNotContactPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/DoNotContact"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/DoNotContact"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "ErrorResponse": {
       "description": "Error response containing error info",
@@ -7980,7 +7909,6 @@
       "description": "Represents a lease object for a given keyword",
       "properties": {
         "autoRenew": {
-          "default": false,
           "description": "Enables the auto renewal of a keyword lease at the end of each billing cycle",
           "type": "boolean"
         },
@@ -8016,45 +7944,42 @@
       "type": "object"
     },
     "KeywordLeasePage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/KeywordLease"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/KeywordLease"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "KeywordList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Keyword"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Keyword"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "KeywordPurchaseRequest": {
       "description": "Request object is used to purchase keywords",
@@ -8125,7 +8050,6 @@
           "type": "integer"
         },
         "enabled": {
-          "default": false,
           "description": "A restriction enabled",
           "type": "boolean"
         },
@@ -8211,7 +8135,6 @@
           "description": "~"
         },
         "tollFree": {
-          "default": false,
           "description": "~",
           "type": "boolean"
         }
@@ -8245,38 +8168,28 @@
       "type": "object"
     },
     "NumberConfigPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/NumberConfig"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/NumberConfig"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "NumberLease": {
       "description": "Represents a lease object for a given phone number",
       "properties": {
         "autoRenew": {
-          "default": false,
           "description": "Enables the auto renewal of number lease at end of each billing cycle",
           "type": "boolean"
         },
@@ -8343,7 +8256,6 @@
           "type": "string"
         },
         "tollFree": {
-          "default": false,
           "description": "A  toll-free number",
           "type": "boolean"
         }
@@ -8351,45 +8263,42 @@
       "type": "object"
     },
     "NumberLeasePage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/NumberLease"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/NumberLease"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "NumberList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Number"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Number"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "NumberOrder": {
       "description": "Represents an order created on the CallFire platform",
@@ -8514,6 +8423,35 @@
       },
       "type": "object"
     },
+    "Page": {
+      "description": "Represents a page with results returned by query operation. Check [pagination](https://developers.callfire.com/docs.html#pagination) page for more information about pagination in CallFire API.",
+      "properties": {
+        "items": {
+          "description": "A list of returned items",
+          "items": {
+            "properties": {},
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "description": "A maximum number of returned items. If items.size() < limit assume no more items",
+          "format": "int64",
+          "type": "integer"
+        },
+        "offset": {
+          "description": "An offset from a start of paging source",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalCount": {
+          "description": "Total count of available results. -1 if unknown",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "QuestionResponse": {
       "description": "Object represents the question and client's answer, used in cloud call center / IVR campaign",
       "properties": {
@@ -8603,32 +8541,23 @@
       "type": "object"
     },
     "RegionPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Region"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Region"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "ResourceId": {
       "description": "An id of a resource",
@@ -8642,17 +8571,23 @@
       "type": "object"
     },
     "ResourceIdList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/ResourceId"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/ResourceId"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "RetryConfig": {
       "description": "Retry configuration will help you to resend a call or text if it was not delivered first time",
@@ -8834,7 +8769,6 @@
           "type": "integer"
         },
         "inbound": {
-          "default": false,
           "description": "An action inbound",
           "type": "boolean"
         },
@@ -8922,32 +8856,23 @@
       "type": "object"
     },
     "TextAutoReplyPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/TextAutoReply"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/TextAutoReply"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "TextBroadcast": {
       "description": "A text campaign allows you to send a text message to a number of recipients. It supports scheduling, retry logic and pattern-based messages",
@@ -9016,7 +8941,6 @@
           "type": "array"
         },
         "resumeNextDay": {
-          "default": false,
           "description": "~",
           "type": "boolean"
         },
@@ -9049,32 +8973,23 @@
       "type": "object"
     },
     "TextBroadcastPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/TextBroadcast"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/TextBroadcast"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "TextBroadcastStatsDto": {
       "description": "~",
@@ -9127,45 +9042,42 @@
       "type": "object"
     },
     "TextList": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Text"
+      "allOf": [
+        {
+          "$ref": "#/definitions/ItemList"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Text"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "TextPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Text"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Text"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "TextRecipient": {
       "description": "A recipient of a text message. You should provide either phone number or contact id of existing contact",
@@ -9322,7 +9234,6 @@
           "type": "integer"
         },
         "enabled": {
-          "default": false,
           "description": "A parameter which allows the webhook to send requests to unknown ssl endpoints (ssl certificate verification is disabled)",
           "type": "boolean"
         },
@@ -9352,7 +9263,6 @@
           "type": "string"
         },
         "nonStrictSsl": {
-          "default": false,
           "description": "A parameter which allows the webhook to send requests to unknown ssl endpoints (ssl certificate verification is disabled)",
           "type": "boolean"
         },
@@ -9365,7 +9275,6 @@
           "type": "string"
         },
         "singleUse": {
-          "default": false,
           "description": "If true is set then webhook triggers only once. Afterwards the webhook will be deleted",
           "type": "boolean"
         },
@@ -9379,32 +9288,23 @@
       "type": "object"
     },
     "WebhookPage": {
-      "description": "~",
-      "properties": {
-        "items": {
-          "description": "~",
-          "items": {
-            "$ref": "#/definitions/Webhook"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "items": {
+              "items": {
+                "$ref": "#/definitions/Webhook"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
-        },
-        "limit": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "offset": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
-        },
-        "totalCount": {
-          "description": "~",
-          "format": "int64",
-          "type": "integer"
+          "type": "object"
         }
-      },
-      "type": "object"
+      ],
+      "description": "~"
     },
     "WebhookResource": {
       "description": "WebhookResource describes a resource and a list of supported events, once event is triggered Callfire performs an HTTP POST request to a client's endpoint",

@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Access Gmail mailboxes including sending user email.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Gmail",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://mail.google.com/": "Read, send, delete, and manage your email",
@@ -61,6 +66,25 @@
         "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
         "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://mail.google.com/": "Read, send, delete, and manage your email",
+        "https://www.googleapis.com/auth/gmail.compose": "Manage drafts and send emails",
+        "https://www.googleapis.com/auth/gmail.insert": "Insert mail into your mailbox",
+        "https://www.googleapis.com/auth/gmail.labels": "Manage mailbox labels",
+        "https://www.googleapis.com/auth/gmail.metadata": "View your email message metadata such as labels and headers, but not the email body",
+        "https://www.googleapis.com/auth/gmail.modify": "View and modify but not delete your email",
+        "https://www.googleapis.com/auth/gmail.readonly": "View your email messages and settings",
+        "https://www.googleapis.com/auth/gmail.send": "Send email on your behalf",
+        "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
+        "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -144,14 +168,6 @@
         "operationId": "users.drafts.list",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": false,
             "description": "Include drafts from SPAM and TRASH in the results.",
             "in": "query",
@@ -176,6 +192,14 @@
             "in": "query",
             "name": "q",
             "type": "string"
+          },
+          {
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -190,20 +214,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -243,19 +279,19 @@
         "operationId": "users.drafts.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Draft"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Draft"
-            }
           }
         ],
         "responses": {
@@ -270,15 +306,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -320,19 +365,19 @@
         "operationId": "users.drafts.send",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Draft"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Draft"
-            }
           }
         ],
         "responses": {
@@ -347,15 +392,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -371,17 +425,17 @@
         "operationId": "users.drafts.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the draft to delete.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the draft to delete.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -395,15 +449,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -417,21 +480,6 @@
         "operationId": "users.drafts.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the draft to retrieve.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": "full",
             "description": "The format to return the draft in.",
             "enum": [
@@ -442,6 +490,21 @@
             ],
             "in": "query",
             "name": "format",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the draft to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -457,20 +520,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -510,12 +585,11 @@
         "operationId": "users.drafts.update",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Draft"
+            }
           },
           {
             "description": "The ID of the draft to update.",
@@ -525,11 +599,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Draft"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -544,15 +619,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -567,14 +651,6 @@
         "description": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).",
         "operationId": "users.history.list",
         "parameters": [
-          {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "description": "History types to be returned by the function",
@@ -615,6 +691,14 @@
             "in": "query",
             "name": "startHistoryId",
             "type": "string"
+          },
+          {
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -629,20 +713,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -701,25 +797,40 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.labels"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -756,19 +867,19 @@
         "operationId": "users.labels.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Label"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Label"
-            }
           }
         ],
         "responses": {
@@ -783,15 +894,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -807,17 +927,17 @@
         "operationId": "users.labels.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the label to delete.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the label to delete.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -831,15 +951,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -853,17 +982,17 @@
         "operationId": "users.labels.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the label to retrieve.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the label to retrieve.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -880,25 +1009,40 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.labels"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -935,12 +1079,11 @@
         "operationId": "users.labels.patch",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Label"
+            }
           },
           {
             "description": "The ID of the label to update.",
@@ -950,11 +1093,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Label"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -969,15 +1113,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -991,12 +1144,11 @@
         "operationId": "users.labels.update",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Label"
+            }
           },
           {
             "description": "The ID of the label to update.",
@@ -1006,11 +1158,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Label"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1025,15 +1178,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.labels"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.labels"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1105,20 +1267,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -1158,12 +1332,11 @@
         "operationId": "users.messages.insert",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
           },
           {
             "default": false,
@@ -1184,11 +1357,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1203,15 +1377,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.insert"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.insert"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1250,19 +1433,19 @@
         "operationId": "users.messages.batchDelete",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BatchDeleteMessagesRequest"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BatchDeleteMessagesRequest"
-            }
           }
         ],
         "responses": {
@@ -1273,6 +1456,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://mail.google.com/"
+            ],
+            "Oauth2c": [
               "https://mail.google.com/"
             ]
           }
@@ -1311,19 +1497,19 @@
         "operationId": "users.messages.batchModify",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BatchModifyMessagesRequest"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BatchModifyMessagesRequest"
-            }
           }
         ],
         "responses": {
@@ -1335,10 +1521,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1380,12 +1572,11 @@
         "operationId": "users.messages.import",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
           },
           {
             "default": false,
@@ -1420,11 +1611,12 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1439,15 +1631,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.insert"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.insert"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1489,19 +1690,19 @@
         "operationId": "users.messages.send",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
           }
         ],
         "responses": {
@@ -1516,20 +1717,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.send"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.send"
             ]
           }
@@ -1545,17 +1758,17 @@
         "operationId": "users.messages.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the message to delete.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the message to delete.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -1569,6 +1782,9 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           }
         ],
@@ -1580,21 +1796,6 @@
         "description": "Gets the specified message.",
         "operationId": "users.messages.get",
         "parameters": [
-          {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the message to retrieve.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
-          },
           {
             "default": "full",
             "description": "The format to return the message in.",
@@ -1609,6 +1810,13 @@
             "type": "string"
           },
           {
+            "description": "The ID of the message to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
             "collectionFormat": "multi",
             "description": "When given and format is METADATA, only include headers specified.",
             "in": "query",
@@ -1617,6 +1825,14 @@
             },
             "name": "metadataHeaders",
             "type": "array"
+          },
+          {
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1631,20 +1847,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -1706,12 +1934,11 @@
         "operationId": "users.messages.modify",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ModifyMessageRequest"
+            }
           },
           {
             "description": "The ID of the message to modify.",
@@ -1721,11 +1948,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ModifyMessageRequest"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1740,10 +1968,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1782,17 +2016,17 @@
         "operationId": "users.messages.trash",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the message to Trash.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the message to Trash.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -1809,10 +2043,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1851,17 +2091,17 @@
         "operationId": "users.messages.untrash",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the message to remove from Trash.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the message to remove from Trash.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -1878,10 +2118,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -1897,10 +2143,9 @@
         "operationId": "users.messages.attachments.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the attachment.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
@@ -1912,9 +2157,10 @@
             "type": "string"
           },
           {
-            "description": "The ID of the attachment.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -1931,15 +2177,24 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -1998,25 +2253,40 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.compose"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.compose"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -2075,20 +2345,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2125,19 +2407,19 @@
         "operationId": "users.settings.updateAutoForwarding",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AutoForwarding"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AutoForwarding"
-            }
           }
         ],
         "responses": {
@@ -2151,6 +2433,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -2186,20 +2471,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2236,19 +2533,19 @@
         "operationId": "users.settings.filters.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Filter"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Filter"
-            }
           }
         ],
         "responses": {
@@ -2262,6 +2559,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2277,17 +2577,17 @@
         "operationId": "users.settings.filters.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The ID of the filter to be deleted.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the filter to be deleted.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -2301,6 +2601,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
         ],
@@ -2313,17 +2616,17 @@
         "operationId": "users.settings.filters.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The ID of the filter to be fetched.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the filter to be fetched.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -2340,20 +2643,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2412,20 +2727,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2462,19 +2789,19 @@
         "operationId": "users.settings.forwardingAddresses.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ForwardingAddress"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ForwardingAddress"
-            }
           }
         ],
         "responses": {
@@ -2488,6 +2815,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -2503,17 +2833,17 @@
         "operationId": "users.settings.forwardingAddresses.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The forwarding address to be deleted.",
             "in": "path",
-            "name": "userId",
+            "name": "forwardingEmail",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The forwarding address to be deleted.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "forwardingEmail",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -2527,6 +2857,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
         ],
@@ -2539,17 +2872,17 @@
         "operationId": "users.settings.forwardingAddresses.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The forwarding address to be retrieved.",
             "in": "path",
-            "name": "userId",
+            "name": "forwardingEmail",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The forwarding address to be retrieved.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "forwardingEmail",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -2566,20 +2899,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2638,20 +2983,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2688,19 +3045,19 @@
         "operationId": "users.settings.updateImap",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ImapSettings"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ImapSettings"
-            }
           }
         ],
         "responses": {
@@ -2714,6 +3071,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2749,20 +3109,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2799,19 +3171,19 @@
         "operationId": "users.settings.updatePop",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PopSettings"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PopSettings"
-            }
           }
         ],
         "responses": {
@@ -2825,6 +3197,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2860,20 +3235,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -2910,19 +3297,19 @@
         "operationId": "users.settings.sendAs.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SendAs"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SendAs"
-            }
           }
         ],
         "responses": {
@@ -2936,6 +3323,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -2951,17 +3341,17 @@
         "operationId": "users.settings.sendAs.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The send-as alias to be deleted.",
             "in": "path",
-            "name": "userId",
+            "name": "sendAsEmail",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The send-as alias to be deleted.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "sendAsEmail",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -2975,6 +3365,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
         ],
@@ -2987,17 +3380,17 @@
         "operationId": "users.settings.sendAs.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The send-as alias to be retrieved.",
             "in": "path",
-            "name": "userId",
+            "name": "sendAsEmail",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The send-as alias to be retrieved.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "sendAsEmail",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3014,20 +3407,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3064,12 +3469,11 @@
         "operationId": "users.settings.sendAs.patch",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SendAs"
+            }
           },
           {
             "description": "The send-as alias to be updated.",
@@ -3079,11 +3483,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SendAs"
-            }
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3098,10 +3503,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3115,12 +3526,11 @@
         "operationId": "users.settings.sendAs.update",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SendAs"
+            }
           },
           {
             "description": "The send-as alias to be updated.",
@@ -3130,11 +3540,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SendAs"
-            }
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3149,10 +3560,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3168,17 +3585,17 @@
         "operationId": "users.settings.sendAs.smimeInfo.list",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The email address that appears in the \"From:\" header for mail sent using this alias.",
             "in": "path",
-            "name": "userId",
+            "name": "sendAsEmail",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The email address that appears in the \"From:\" header for mail sent using this alias.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "sendAsEmail",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3195,25 +3612,40 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3250,12 +3682,11 @@
         "operationId": "users.settings.sendAs.smimeInfo.insert",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SmimeInfo"
+            }
           },
           {
             "description": "The email address that appears in the \"From:\" header for mail sent using this alias.",
@@ -3265,11 +3696,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SmimeInfo"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3284,10 +3716,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3303,10 +3741,9 @@
         "operationId": "users.settings.sendAs.smimeInfo.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The immutable ID for the SmimeInfo.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
@@ -3318,9 +3755,10 @@
             "type": "string"
           },
           {
-            "description": "The immutable ID for the SmimeInfo.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3334,10 +3772,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3351,10 +3795,9 @@
         "operationId": "users.settings.sendAs.smimeInfo.get",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The immutable ID for the SmimeInfo.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
@@ -3366,9 +3809,10 @@
             "type": "string"
           },
           {
-            "description": "The immutable ID for the SmimeInfo.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3385,25 +3829,40 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3465,10 +3924,9 @@
         "operationId": "users.settings.sendAs.smimeInfo.setDefault",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The immutable ID for the SmimeInfo.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
@@ -3480,9 +3938,10 @@
             "type": "string"
           },
           {
-            "description": "The immutable ID for the SmimeInfo.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3496,10 +3955,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3538,17 +4003,17 @@
         "operationId": "users.settings.sendAs.verify",
         "parameters": [
           {
-            "default": "me",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "description": "The send-as alias to be verified.",
             "in": "path",
-            "name": "userId",
+            "name": "sendAsEmail",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The send-as alias to be verified.",
+            "default": "me",
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "sendAsEmail",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3561,6 +4026,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.sharing"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.sharing"
             ]
           }
@@ -3596,20 +4064,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3646,19 +4126,19 @@
         "operationId": "users.settings.updateVacation",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/VacationSettings"
+            }
+          },
+          {
             "default": "me",
             "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/VacationSettings"
-            }
           }
         ],
         "responses": {
@@ -3672,6 +4152,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.settings.basic"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.settings.basic"
             ]
           }
@@ -3727,20 +4210,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -3755,14 +4250,6 @@
         "description": "Lists the threads in the user's mailbox.",
         "operationId": "users.threads.list",
         "parameters": [
-          {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
           {
             "default": false,
             "description": "Include threads from SPAM and TRASH in the results.",
@@ -3798,6 +4285,14 @@
             "in": "query",
             "name": "q",
             "type": "string"
+          },
+          {
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3812,20 +4307,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -3864,17 +4371,17 @@
         "operationId": "users.threads.delete",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "ID of the Thread to delete.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "ID of the Thread to delete.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3888,6 +4395,9 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           }
         ],
@@ -3899,21 +4409,6 @@
         "description": "Gets the specified thread.",
         "operationId": "users.threads.get",
         "parameters": [
-          {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the thread to retrieve.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
-          },
           {
             "default": "full",
             "description": "The format to return the messages in.",
@@ -3927,6 +4422,13 @@
             "type": "string"
           },
           {
+            "description": "The ID of the thread to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
             "collectionFormat": "multi",
             "description": "When given and format is METADATA, only include headers specified.",
             "in": "query",
@@ -3935,6 +4437,14 @@
             },
             "name": "metadataHeaders",
             "type": "array"
+          },
+          {
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3949,20 +4459,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -4024,12 +4546,11 @@
         "operationId": "users.threads.modify",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ModifyThreadRequest"
+            }
           },
           {
             "description": "The ID of the thread to modify.",
@@ -4039,11 +4560,12 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ModifyThreadRequest"
-            }
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4058,10 +4580,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -4100,17 +4628,17 @@
         "operationId": "users.threads.trash",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the thread to Trash.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the thread to Trash.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -4127,10 +4655,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -4169,17 +4703,17 @@
         "operationId": "users.threads.untrash",
         "parameters": [
           {
-            "default": "me",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "description": "The ID of the thread to remove from Trash.",
             "in": "path",
-            "name": "userId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the thread to remove from Trash.",
+            "default": "me",
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
-            "name": "id",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -4196,10 +4730,16 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           }
@@ -4238,19 +4778,19 @@
         "operationId": "users.watch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/WatchRequest"
+            }
+          },
+          {
             "default": "me",
             "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
             "in": "path",
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/WatchRequest"
-            }
           }
         ],
         "responses": {
@@ -4265,20 +4805,32 @@
           {
             "Oauth2": [
               "https://mail.google.com/"
+            ],
+            "Oauth2c": [
+              "https://mail.google.com/"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.metadata"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/gmail.modify"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/gmail.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/gmail.readonly"
             ]
           }
@@ -4600,6 +5152,10 @@
     "Label": {
       "description": "Labels are used to categorize messages and threads within the user's mailbox.",
       "properties": {
+        "color": {
+          "$ref": "#/definitions/LabelColor",
+          "description": "The color to assign to the label. Color is only available for labels that have their type set to user."
+        },
         "id": {
           "description": "The immutable ID of the label.",
           "type": "string"
@@ -4651,6 +5207,19 @@
             "system",
             "user"
           ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LabelColor": {
+      "properties": {
+        "backgroundColor": {
+          "description": "The background color represented as hex string #RRGGBB (ex #000000). This field is required in order to set the color of a label. Only the following predefined set of color values are allowed:\n#000000, #434343, #666666, #999999, #cccccc, #efefef, #f3f3f3, #ffffff, #fb4c2f, #ffad47, #fad165, #16a766, #43d692, #4a86e8, #a479e2, #f691b3, #f6c5be, #ffe6c7, #fef1d1, #b9e4d0, #c6f3de, #c9daf8, #e4d7f5, #fcdee8, #efa093, #ffd6a2, #fce8b3, #89d3b2, #a0eac9, #a4c2f4, #d0bcf1, #fbc8d9, #e66550, #ffbc6b, #fcda83, #44b984, #68dfa9, #6d9eeb, #b694e8, #f7a7c0, #cc3a21, #eaa041, #f2c960, #149e60, #3dc789, #3c78d8, #8e63ce, #e07798, #ac2b16, #cf8933, #d5ae49, #0b804b, #2a9c68, #285bac, #653e9b, #b65775, #822111, #a46a21, #aa8831, #076239, #1a764d, #1c4587, #41236d, #83334c",
+          "type": "string"
+        },
+        "textColor": {
+          "description": "The text color of the label, represented as hex string. This field is required in order to set the color of a label. Only the following predefined set of color values are allowed:\n#000000, #434343, #666666, #999999, #cccccc, #efefef, #f3f3f3, #ffffff, #fb4c2f, #ffad47, #fad165, #16a766, #43d692, #4a86e8, #a479e2, #f691b3, #f6c5be, #ffe6c7, #fef1d1, #b9e4d0, #c6f3de, #c9daf8, #e4d7f5, #fcdee8, #efa093, #ffd6a2, #fce8b3, #89d3b2, #a0eac9, #a4c2f4, #d0bcf1, #fbc8d9, #e66550, #ffbc6b, #fcda83, #44b984, #68dfa9, #6d9eeb, #b694e8, #f7a7c0, #cc3a21, #eaa041, #f2c960, #149e60, #3dc789, #3c78d8, #8e63ce, #e07798, #ac2b16, #cf8933, #d5ae49, #0b804b, #2a9c68, #285bac, #653e9b, #b65775, #822111, #a46a21, #aa8831, #076239, #1a764d, #1c4587, #41236d, #83334c",
           "type": "string"
         }
       },

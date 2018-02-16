@@ -28,7 +28,7 @@ Client sample: [[Demo]](https://apis.guru/simple-ui) [[Repo]](https://github.com
 ### listAPIs
 List all APIs in the directory.
 Returns links to OpenAPI specification for each API in the directory.
-If API exist in multiply versions `preferred` one is explicitly marked.
+If API exist in multiple versions `preferred` one is explicitly marked.
 
 Some basic info from OpenAPI spec is cached inside each object.
 This allows to generate some simple views without need to fetch OpenAPI spec for each API.
@@ -77,6 +77,7 @@ apis_guru.getMetrics(null, context)
 ### ApiVersion
 * ApiVersion `object`
   * added **required** `string`: Timestamp when the version was added
+  * externalDocs `object`: Copy of `externalDocs` section from Swagger spec
   * info **required** `object`: Copy of `info` section from Swagger spec
   * swaggerUrl **required** `string`: URL to Swagger spec in JSON format
   * swaggerYamlUrl **required** `string`: URL to Swagger spec in YAML format

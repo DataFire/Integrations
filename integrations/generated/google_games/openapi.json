@@ -189,12 +189,6 @@
         "operationId": "achievementDefinitions.list",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
@@ -298,12 +292,6 @@
         "operationId": "achievements.updateMultiple",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
@@ -378,24 +366,18 @@
             "type": "string"
           },
           {
+            "description": "A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries.",
+            "in": "query",
+            "name": "requestId",
+            "type": "string"
+          },
+          {
             "description": "The number of steps to increment.",
             "in": "query",
             "minimum": 1,
             "name": "stepsToIncrement",
             "required": true,
             "type": "integer"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries.",
-            "in": "query",
-            "name": "requestId",
-            "type": "string"
           }
         ],
         "responses": {
@@ -462,12 +444,6 @@
             "in": "path",
             "name": "achievementId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
             "type": "string"
           }
         ],
@@ -544,12 +520,6 @@
             "name": "steps",
             "required": true,
             "type": "integer"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -617,12 +587,6 @@
             "name": "achievementId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -683,14 +647,6 @@
       "post": {
         "description": "Indicate that the the currently authenticated user is playing your application.",
         "operationId": "applications.played",
-        "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful response"
@@ -729,12 +685,6 @@
             "in": "path",
             "name": "applicationId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
             "type": "string"
           },
           {
@@ -820,12 +770,6 @@
             "name": "applicationId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -887,12 +831,6 @@
         "description": "Returns a list of the event definitions in this application.",
         "operationId": "events.listDefinitions",
         "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
@@ -974,12 +912,6 @@
         "operationId": "events.listByPlayer",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
@@ -1058,23 +990,17 @@
         "operationId": "events.record",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EventRecordRequest"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/EventRecordRequest"
-            }
           }
         ],
         "responses": {
@@ -1113,12 +1039,6 @@
         "description": "Lists all the leaderboard metadata for your application.",
         "operationId": "leaderboards.list",
         "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
@@ -1223,23 +1143,17 @@
         "operationId": "scores.submitMultiple",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PlayerScoreSubmissionList"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/PlayerScoreSubmissionList"
-            }
           }
         ],
         "responses": {
@@ -1279,22 +1193,16 @@
         "operationId": "leaderboards.get",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the leaderboard.",
             "in": "path",
             "name": "leaderboardId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -1381,6 +1289,12 @@
         "operationId": "scores.submit",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the leaderboard.",
             "in": "path",
             "name": "leaderboardId",
@@ -1392,18 +1306,6 @@
             "in": "query",
             "name": "score",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           },
           {
@@ -1450,13 +1352,6 @@
         "operationId": "scores.list",
         "parameters": [
           {
-            "description": "The ID of the leaderboard.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The collection of scores you're requesting.",
             "enum": [
               "PUBLIC",
@@ -1469,27 +1364,16 @@
             "type": "string"
           },
           {
-            "description": "The time span for the scores and ranks you're requesting.",
-            "enum": [
-              "ALL_TIME",
-              "DAILY",
-              "WEEKLY"
-            ],
-            "in": "query",
-            "name": "timeSpan",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the leaderboard.",
+            "in": "path",
+            "name": "leaderboardId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1504,6 +1388,18 @@
             "description": "The token returned by the previous request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The time span for the scores and ranks you're requesting.",
+            "enum": [
+              "ALL_TIME",
+              "DAILY",
+              "WEEKLY"
+            ],
+            "in": "query",
+            "name": "timeSpan",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1567,13 +1463,6 @@
         "operationId": "scores.listWindow",
         "parameters": [
           {
-            "description": "The ID of the leaderboard.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The collection of scores you're requesting.",
             "enum": [
               "PUBLIC",
@@ -1586,27 +1475,16 @@
             "type": "string"
           },
           {
-            "description": "The time span for the scores and ranks you're requesting.",
-            "enum": [
-              "ALL_TIME",
-              "DAILY",
-              "WEEKLY"
-            ],
-            "in": "query",
-            "name": "timeSpan",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the leaderboard.",
+            "in": "path",
+            "name": "leaderboardId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1634,6 +1512,18 @@
             "in": "query",
             "name": "returnTopIfAbsent",
             "type": "boolean"
+          },
+          {
+            "description": "The time span for the scores and ranks you're requesting.",
+            "enum": [
+              "ALL_TIME",
+              "DAILY",
+              "WEEKLY"
+            ],
+            "in": "query",
+            "name": "timeSpan",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1694,14 +1584,6 @@
       "get": {
         "description": "Return the metagame configuration data for the calling application.",
         "operationId": "metagame.getMetagameConfig",
-        "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -1772,12 +1654,6 @@
             "in": "path",
             "name": "collection",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
             "type": "string"
           },
           {
@@ -1861,22 +1737,16 @@
         "operationId": "players.get",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
             "in": "path",
             "name": "playerId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -1940,19 +1810,6 @@
         "operationId": "achievements.list",
         "parameters": [
           {
-            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
-            "in": "path",
-            "name": "playerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
@@ -1970,6 +1827,13 @@
             "description": "The token returned by the previous request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
+            "in": "path",
+            "name": "playerId",
+            "required": true,
             "type": "string"
           },
           {
@@ -2045,13 +1909,6 @@
         "operationId": "metagame.listCategoriesByPlayer",
         "parameters": [
           {
-            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
-            "in": "path",
-            "name": "playerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The collection of categories for which data will be returned.",
             "enum": [
               "all"
@@ -2059,12 +1916,6 @@
             "in": "path",
             "name": "collection",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
             "type": "string"
           },
           {
@@ -2085,6 +1936,13 @@
             "description": "The token returned by the previous request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
+            "in": "path",
+            "name": "playerId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2148,39 +2006,6 @@
         "operationId": "scores.get",
         "parameters": [
           {
-            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
-            "in": "path",
-            "name": "playerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application.",
-            "in": "path",
-            "name": "leaderboardId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The time span for the scores and ranks you're requesting.",
-            "enum": [
-              "ALL",
-              "ALL_TIME",
-              "DAILY",
-              "WEEKLY"
-            ],
-            "in": "path",
-            "name": "timeSpan",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The types of ranks to return. If the parameter is omitted, no ranks will be returned.",
             "enum": [
               "ALL",
@@ -2198,6 +2023,13 @@
             "type": "string"
           },
           {
+            "description": "The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application.",
+            "in": "path",
+            "name": "leaderboardId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.",
             "in": "query",
             "maximum": 30,
@@ -2209,6 +2041,26 @@
             "description": "The token returned by the previous request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
+            "in": "path",
+            "name": "playerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The time span for the scores and ranks you're requesting.",
+            "enum": [
+              "ALL",
+              "ALL_TIME",
+              "DAILY",
+              "WEEKLY"
+            ],
+            "in": "path",
+            "name": "timeSpan",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2272,19 +2124,6 @@
         "operationId": "quests.list",
         "parameters": [
           {
-            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
-            "in": "path",
-            "name": "playerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
@@ -2302,6 +2141,13 @@
             "description": "The token returned by the previous request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
+            "in": "path",
+            "name": "playerId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2365,19 +2211,6 @@
         "operationId": "snapshots.list",
         "parameters": [
           {
-            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
-            "in": "path",
-            "name": "playerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
@@ -2395,6 +2228,13 @@
             "description": "The token returned by the previous request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
+            "in": "path",
+            "name": "playerId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2489,12 +2329,6 @@
         "operationId": "pushtokens.update",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
@@ -2558,12 +2392,6 @@
         "description": "Removes a push token for the current user and application. Removing a non-existent push token will report success.",
         "operationId": "pushtokens.remove",
         "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "body",
@@ -2629,22 +2457,16 @@
         "operationId": "quests.accept",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the quest.",
             "in": "path",
             "name": "questId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -2708,16 +2530,16 @@
         "operationId": "questMilestones.claim",
         "parameters": [
           {
-            "description": "The ID of the quest.",
+            "description": "The ID of the milestone.",
             "in": "path",
-            "name": "questId",
+            "name": "milestoneId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the milestone.",
+            "description": "The ID of the quest.",
             "in": "path",
-            "name": "milestoneId",
+            "name": "questId",
             "required": true,
             "type": "string"
           },
@@ -2726,12 +2548,6 @@
             "in": "query",
             "name": "requestId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
             "type": "string"
           }
         ],
@@ -2773,12 +2589,6 @@
             "in": "query",
             "name": "clientRevision",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
             "type": "string"
           }
         ],
@@ -2841,12 +2651,6 @@
         "description": "Returns invitations to join rooms.",
         "operationId": "rooms.list",
         "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
@@ -2951,23 +2755,17 @@
         "operationId": "rooms.create",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomCreateRequest"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RoomCreateRequest"
-            }
           }
         ],
         "responses": {
@@ -3007,22 +2805,16 @@
         "operationId": "rooms.get",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the room.",
             "in": "path",
             "name": "roomId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -3109,22 +2901,16 @@
         "operationId": "rooms.decline",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the room.",
             "in": "path",
             "name": "roomId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -3193,12 +2979,6 @@
             "name": "roomId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -3258,17 +3038,11 @@
         "operationId": "rooms.join",
         "parameters": [
           {
-            "description": "The ID of the room.",
-            "in": "path",
-            "name": "roomId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomJoinRequest"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
@@ -3277,11 +3051,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RoomJoinRequest"
-            }
+            "description": "The ID of the room.",
+            "in": "path",
+            "name": "roomId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3344,17 +3118,11 @@
         "operationId": "rooms.leave",
         "parameters": [
           {
-            "description": "The ID of the room.",
-            "in": "path",
-            "name": "roomId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomLeaveRequest"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
@@ -3363,11 +3131,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RoomLeaveRequest"
-            }
+            "description": "The ID of the room.",
+            "in": "path",
+            "name": "roomId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3430,17 +3198,11 @@
         "operationId": "rooms.reportStatus",
         "parameters": [
           {
-            "description": "The ID of the room.",
-            "in": "path",
-            "name": "roomId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomP2PStatuses"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
@@ -3449,11 +3211,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RoomP2PStatuses"
-            }
+            "description": "The ID of the room.",
+            "in": "path",
+            "name": "roomId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3493,22 +3255,16 @@
         "operationId": "snapshots.get",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the snapshot.",
             "in": "path",
             "name": "snapshotId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -3579,12 +3335,6 @@
         "description": "Returns turn-based matches the player is or was involved in.",
         "operationId": "turnBasedMatches.list",
         "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
           {
             "description": "True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.",
             "in": "query",
@@ -3703,23 +3453,17 @@
         "operationId": "turnBasedMatches.create",
         "parameters": [
           {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TurnBasedMatchCreateRequest"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TurnBasedMatchCreateRequest"
-            }
           }
         ],
         "responses": {
@@ -3758,12 +3502,6 @@
         "description": "Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.",
         "operationId": "turnBasedMatches.sync",
         "parameters": [
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
           {
             "description": "True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.",
             "in": "query",
@@ -3859,19 +3597,6 @@
         "operationId": "turnBasedMatches.get",
         "parameters": [
           {
-            "description": "The ID of the match.",
-            "in": "path",
-            "name": "matchId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
             "description": "Get match data along with metadata.",
             "in": "query",
             "name": "includeMatchData",
@@ -3881,6 +3606,13 @@
             "description": "The preferred language to use for strings returned by this method.",
             "in": "query",
             "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the match.",
+            "in": "path",
+            "name": "matchId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -3972,12 +3704,6 @@
             "name": "matchId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -4037,22 +3763,16 @@
         "operationId": "turnBasedMatches.decline",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the match.",
             "in": "path",
             "name": "matchId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -4121,12 +3841,6 @@
             "name": "matchId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
           }
         ],
         "responses": {
@@ -4186,17 +3900,11 @@
         "operationId": "turnBasedMatches.finish",
         "parameters": [
           {
-            "description": "The ID of the match.",
-            "in": "path",
-            "name": "matchId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TurnBasedMatchResults"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
@@ -4205,11 +3913,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TurnBasedMatchResults"
-            }
+            "description": "The ID of the match.",
+            "in": "path",
+            "name": "matchId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4272,22 +3980,16 @@
         "operationId": "turnBasedMatches.join",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the match.",
             "in": "path",
             "name": "matchId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -4351,22 +4053,16 @@
         "operationId": "turnBasedMatches.leave",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the match.",
             "in": "path",
             "name": "matchId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -4430,6 +4126,12 @@
         "operationId": "turnBasedMatches.leaveTurn",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the match.",
             "in": "path",
             "name": "matchId",
@@ -4442,18 +4144,6 @@
             "name": "matchVersion",
             "required": true,
             "type": "integer"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
-            "type": "string"
           },
           {
             "description": "The ID of another participant who should take their turn next. If not set, the match will wait for other player(s) to join via automatching; this is only valid if automatch criteria is set on the match with remaining slots for automatched players.",
@@ -4522,22 +4212,16 @@
         "operationId": "turnBasedMatches.rematch",
         "parameters": [
           {
+            "description": "The preferred language to use for strings returned by this method.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the match.",
             "in": "path",
             "name": "matchId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
-          },
-          {
-            "description": "The preferred language to use for strings returned by this method.",
-            "in": "query",
-            "name": "language",
             "type": "string"
           },
           {
@@ -4607,17 +4291,11 @@
         "operationId": "turnBasedMatches.takeTurn",
         "parameters": [
           {
-            "description": "The ID of the match.",
-            "in": "path",
-            "name": "matchId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The last-seen mutation timestamp.",
-            "in": "query",
-            "name": "consistencyToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TurnBasedMatchTurn"
+            }
           },
           {
             "description": "The preferred language to use for strings returned by this method.",
@@ -4626,11 +4304,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TurnBasedMatchTurn"
-            }
+            "description": "The ID of the match.",
+            "in": "path",
+            "name": "matchId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {

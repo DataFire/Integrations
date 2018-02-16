@@ -31,28 +31,28 @@ google_partners.analytics.list({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * pageToken `string`: A token identifying a page of results that the server returns.
   * pageSize `integer`: Requested page size. Server may return fewer analytics than requested.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * pageToken `string`: A token identifying a page of results that the server returns.
   * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListAnalyticsResponse](#listanalyticsresponse)
@@ -70,19 +70,19 @@ google_partners.clientMessages.log({}, context)
 #### Input
 * input `object`
   * body [LogMessageRequest](#logmessagerequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogMessageResponse](#logmessageresponse)
@@ -97,44 +97,44 @@ google_partners.companies.list({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * pageToken `string`: A token identifying a page of results that the server returns.
-  * companyName `string`: Company name to search for.
-  * industries `array`: List of industries the company can help with.
-  * websiteUrl `string`: Website URL that will help to find a better matched company.
-  * gpsMotivations `array`: List of reasons for using Google Partner Search to get companies.
-  * languageCodes `array`: List of language codes that company can support. Only primary language
-  * pageSize `integer`: Requested page size. Server may return fewer companies than requested.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
-  * orderBy `string`: How to order addresses within the returned companies. Currently, only
-  * specializations `array`: List of specializations that the returned agencies should provide. If this
-  * maxMonthlyBudget.currencyCode `string`: The 3-letter currency code defined in ISO 4217.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * minMonthlyBudget.currencyCode `string`: The 3-letter currency code defined in ISO 4217.
-  * view `string` (values: COMPANY_VIEW_UNSPECIFIED, CV_GOOGLE_PARTNER_SEARCH): The view of the `Company` resource to be returned. This must not be
-  * requestMetadata.locale `string`: Locale to use for the current request.
   * address `string`: The address to use when searching for companies.
-  * minMonthlyBudget.units `string`: The whole units of the amount.
+  * companyName `string`: Company name to search for.
+  * gpsMotivations `array`: List of reasons for using Google Partner Search to get companies.
+  * industries `array`: List of industries the company can help with.
+  * languageCodes `array`: List of language codes that company can support. Only primary language
+  * maxMonthlyBudget.currencyCode `string`: The 3-letter currency code defined in ISO 4217.
   * maxMonthlyBudget.nanos `integer`: Number of nano (10^-9) units of the amount.
-  * services `array`: List of services that the returned agencies should provide. If this is
   * maxMonthlyBudget.units `string`: The whole units of the amount.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * minMonthlyBudget.currencyCode `string`: The 3-letter currency code defined in ISO 4217.
   * minMonthlyBudget.nanos `integer`: Number of nano (10^-9) units of the amount.
+  * minMonthlyBudget.units `string`: The whole units of the amount.
+  * orderBy `string`: How to order addresses within the returned companies. Currently, only
+  * pageSize `integer`: Requested page size. Server may return fewer companies than requested.
+  * pageToken `string`: A token identifying a page of results that the server returns.
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * services `array`: List of services that the returned agencies should provide. If this is
+  * specializations `array`: List of specializations that the returned agencies should provide. If this
+  * view `string` (values: COMPANY_VIEW_UNSPECIFIED, CV_GOOGLE_PARTNER_SEARCH): The view of the `Company` resource to be returned. This must not be
+  * websiteUrl `string`: Website URL that will help to find a better matched company.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListCompaniesResponse](#listcompaniesresponse)
@@ -150,28 +150,28 @@ google_partners.updateCompanies({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * updateMask `string`: Standard field mask for the set of fields to be updated.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
   * body [Company](#company)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * updateMask `string`: Standard field mask for the set of fields to be updated.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Company](#company)
@@ -188,31 +188,31 @@ google_partners.companies.get({
 
 #### Input
 * input `object`
+  * address `string`: The address to use for sorting the company's addresses by proximity.
   * companyId **required** `string`: The ID of the company to retrieve.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * currencyCode `string`: If the company's budget is in a different currency code than this one, then
   * orderBy `string`: How to order addresses within the returned company. Currently, only
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * view `string` (values: COMPANY_VIEW_UNSPECIFIED, CV_GOOGLE_PARTNER_SEARCH): The view of `Company` resource to be returned. This must not be
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * requestMetadata.locale `string`: Locale to use for the current request.
-  * address `string`: The address to use for sorting the company's addresses by proximity.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * view `string` (values: COMPANY_VIEW_UNSPECIFIED, CV_GOOGLE_PARTNER_SEARCH): The view of `Company` resource to be returned. This must not be
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [GetCompanyResponse](#getcompanyresponse)
@@ -229,61 +229,24 @@ google_partners.companies.leads.create({
 
 #### Input
 * input `object`
-  * companyId **required** `string`: The ID of the company to contact.
   * body [CreateLeadRequest](#createleadrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * companyId **required** `string`: The ID of the company to contact.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [CreateLeadResponse](#createleadresponse)
-
-### exams.getToken
-Gets an Exam Token for a Partner's user to take an exam in the Exams System
-
-
-```js
-google_partners.exams.getToken({
-  "examType": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * examType **required** `string` (values: CERTIFICATION_EXAM_TYPE_UNSPECIFIED, CET_ADWORDS_FUNDAMENTALS, CET_ADWORDS_ADVANCED_SEARCH, CET_ADWORDS_ADVANCED_DISPLAY, CET_VIDEO_ADS, CET_DOUBLECLICK, CET_ANALYTICS, CET_SHOPPING, CET_MOBILE, CET_DIGITAL_SALES, CET_MOBILE_SITES): The exam type we are requesting a token for.
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * access_token `string`: OAuth access token.
-
-#### Output
-* output [ExamToken](#examtoken)
 
 ### leads.list
 Lists advertiser leads for a user's associated company.
@@ -296,29 +259,29 @@ google_partners.leads.list({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
   * orderBy `string`: How to order Leads. Currently, only `create_time`
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * pageToken `string`: A token identifying a page of results that the server returns.
   * pageSize `integer`: Requested page size. Server may return fewer leads than requested.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * pageToken `string`: A token identifying a page of results that the server returns.
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * requestMetadata.locale `string`: Locale to use for the current request.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListLeadsResponse](#listleadsresponse)
@@ -333,28 +296,28 @@ google_partners.updateLeads({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * updateMask `string`: Standard field mask for the set of fields to be updated.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
   * body [Lead](#lead)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * updateMask `string`: Standard field mask for the set of fields to be updated.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Lead](#lead)
@@ -369,26 +332,26 @@ google_partners.offers.list({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
   * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListOffersResponse](#listoffersresponse)
@@ -403,30 +366,30 @@ google_partners.offers.history.list({}, context)
 
 #### Input
 * input `object`
-  * pageToken `string`: Token to retrieve a specific page.
-  * pageSize `integer`: Maximum number of rows to return per page.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
   * entireCompany `boolean`: if true, show history for the entire company.  Requires user to be admin.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * orderBy `string`: Comma-separated list of fields to order by, e.g.: "foo,bar,baz".
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * pageSize `integer`: Maximum number of rows to return per page.
+  * pageToken `string`: Token to retrieve a specific page.
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
   * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListOffersHistoryResponse](#listoffershistoryresponse)
@@ -442,26 +405,26 @@ google_partners.getPartnersstatus({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
   * requestMetadata.partnersSessionId `string`: Google Partners session ID.
   * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [GetPartnersStatusResponse](#getpartnersstatusresponse)
@@ -477,19 +440,19 @@ google_partners.userEvents.log({}, context)
 #### Input
 * input `object`
   * body [LogUserEventRequest](#logusereventrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [LogUserEventResponse](#logusereventresponse)
@@ -504,26 +467,26 @@ google_partners.userStates.list({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
   * requestMetadata.partnersSessionId `string`: Google Partners session ID.
   * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListUserStatesResponse](#listuserstatesresponse)
@@ -539,27 +502,27 @@ google_partners.users.updateProfile({}, context)
 
 #### Input
 * input `object`
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * body [UserProfile](#userprofile)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [UserProfile](#userprofile)
@@ -576,28 +539,28 @@ google_partners.users.get({
 
 #### Input
 * input `object`
-  * userId **required** `string`: Identifier of the user. Can be set to <code>me</code> to mean the currently
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
-  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
-  * userView `string` (values: BASIC, PROFILE, PUBLIC_PROFILE): Specifies what parts of the user information to return.
-  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
   * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.partnersSessionId `string`: Google Partners session ID.
+  * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * userId **required** `string`: Identifier of the user. Can be set to <code>me</code> to mean the currently
+  * userView `string` (values: BASIC, PROFILE, PUBLIC_PROFILE): Specifies what parts of the user information to return.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [User](#user)
@@ -614,27 +577,27 @@ google_partners.users.deleteCompanyRelation({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user. Can be set to <code>me</code> to mean
-  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
   * requestMetadata.partnersSessionId `string`: Google Partners session ID.
   * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
+  * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
   * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * userId **required** `string`: The ID of the user. Can be set to <code>me</code> to mean
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -651,28 +614,28 @@ google_partners.users.createCompanyRelation({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user. Can be set to <code>me</code> to mean
-  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * body [CompanyRelation](#companyrelation)
+  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
+  * requestMetadata.locale `string`: Locale to use for the current request.
   * requestMetadata.partnersSessionId `string`: Google Partners session ID.
   * requestMetadata.trafficSource.trafficSourceId `string`: Identifier to indicate where the traffic comes from.
-  * requestMetadata.locale `string`: Locale to use for the current request.
-  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
-  * requestMetadata.experimentIds `array`: Experiment IDs the current request belongs to.
   * requestMetadata.trafficSource.trafficSubId `string`: Second level identifier to indicate where the traffic comes from.
-  * body [CompanyRelation](#companyrelation)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * requestMetadata.userOverrides.ipAddress `string`: IP address to use instead of the user's geo-located IP address.
+  * requestMetadata.userOverrides.userId `string`: Logged-in user ID to impersonate instead of the user's ID.
+  * userId **required** `string`: The ID of the user. Can be set to <code>me</code> to mean
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [CompanyRelation](#companyrelation)
@@ -849,12 +812,6 @@ google_partners.users.createCompanyRelation({
   * passed `boolean`: Whether this exam has been passed and not expired.
   * taken `string`: The date the user last taken this exam.
   * warning `boolean`: Whether this exam is in the state of warning.
-
-### ExamToken
-* ExamToken `object`: A token that allows a user to take an exam.
-  * examId `string`: The id of the exam the token is for.
-  * examType `string` (values: CERTIFICATION_EXAM_TYPE_UNSPECIFIED, CET_ADWORDS_FUNDAMENTALS, CET_ADWORDS_ADVANCED_SEARCH, CET_ADWORDS_ADVANCED_DISPLAY, CET_VIDEO_ADS, CET_DOUBLECLICK, CET_ANALYTICS, CET_SHOPPING, CET_MOBILE, CET_DIGITAL_SALES, CET_MOBILE_SITES): The type of the exam the token belongs to.
-  * token `string`: The token, only present if the user has access to the exam.
 
 ### GetCompanyResponse
 * GetCompanyResponse `object`: Response message for GetCompany.

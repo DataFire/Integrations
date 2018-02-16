@@ -184,17 +184,16 @@
         "operationId": "projects.builds.list",
         "parameters": [
           {
-            "description": "ID of the project.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The raw filter text to constrain the results.",
             "in": "query",
             "name": "filter",
             "type": "string"
+          },
+          {
+            "description": "Number of results to return in the list.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "Token to provide to skip to a particular spot in the list.",
@@ -203,10 +202,11 @@
             "type": "string"
           },
           {
-            "description": "Number of results to return in the list.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "ID of the project.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -233,43 +233,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -277,18 +277,18 @@
         "operationId": "projects.builds.create",
         "parameters": [
           {
-            "description": "ID of the project.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Build"
             }
+          },
+          {
+            "description": "ID of the project.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -320,16 +320,16 @@
         "operationId": "projects.builds.get",
         "parameters": [
           {
-            "description": "ID of the project.",
+            "description": "ID of the build.",
             "in": "path",
-            "name": "projectId",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "ID of the build.",
+            "description": "ID of the project.",
             "in": "path",
-            "name": "id",
+            "name": "projectId",
             "required": true,
             "type": "string"
           }
@@ -358,86 +358,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1/projects/{projectId}/builds/{id}:cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -445,11 +445,11 @@
         "operationId": "projects.builds.cancel",
         "parameters": [
           {
-            "description": "ID of the project.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CancelBuildRequest"
+            }
           },
           {
             "description": "ID of the build.",
@@ -459,11 +459,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CancelBuildRequest"
-            }
+            "description": "ID of the project.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -617,43 +617,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -661,18 +661,18 @@
         "operationId": "projects.triggers.create",
         "parameters": [
           {
-            "description": "ID of the project for which to configure automatic builds.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BuildTrigger"
             }
+          },
+          {
+            "description": "ID of the project for which to configure automatic builds.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -783,49 +783,56 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
         "description": "Updates an BuildTrigger by its project ID and trigger ID.\n\nThis API is experimental.",
         "operationId": "projects.triggers.patch",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BuildTrigger"
+            }
+          },
           {
             "description": "ID of the project that owns the trigger.",
             "in": "path",
@@ -839,13 +846,6 @@
             "name": "triggerId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BuildTrigger"
-            }
           }
         ],
         "responses": {
@@ -964,41 +964,23 @@
     },
     "/v1/{name}": {
       "get": {
-        "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
-        "operationId": "operations.list",
+        "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+        "operationId": "operations.get",
         "parameters": [
           {
-            "description": "The standard list filter.",
-            "in": "query",
-            "name": "filter",
-            "type": "string"
-          },
-          {
-            "description": "The name of the operation's parent resource.",
+            "description": "The name of the operation resource.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "description": "The standard list page size.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
-          },
-          {
-            "description": "The standard list page token.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/ListOperationsResponse"
+              "$ref": "#/definitions/Operation"
             }
           }
         },
@@ -1018,86 +1000,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1/{name}:cancel": {
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1105,19 +1087,19 @@
         "operationId": "operations.cancel",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CancelOperationRequest"
+            }
+          },
+          {
             "description": "The name of the operation resource to be cancelled.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CancelOperationRequest"
-            }
           }
         ],
         "responses": {
@@ -1256,6 +1238,13 @@
           "description": "Amount of time that this build should be allowed to run, to second\ngranularity. If this amount of time elapses, work on the build will cease\nand the build status will be TIMEOUT.\n\nDefault time is ten minutes.",
           "format": "google-duration",
           "type": "string"
+        },
+        "timing": {
+          "additionalProperties": {
+            "$ref": "#/definitions/TimeSpan"
+          },
+          "description": "Stores timing information for phases of the build. Valid keys are:\n\n* BUILD: time to execute all build steps\n* PUSH: time to push all specified images.\n* FETCHSOURCE: time to fetch source.\n\nIf the build does not specify source, or does not specify images,\nthese keys will not be included.\n@OutputOnly",
+          "type": "object"
         }
       },
       "type": "object"
@@ -1273,12 +1262,26 @@
     "BuildOptions": {
       "description": "Optional arguments to enable specific features of builds.",
       "properties": {
+        "diskSizeGb": {
+          "description": "Requested disk size for the VM that runs the build. Note that this is *NOT*\n\"disk free\"; some of the space will be used by the operating system and\nbuild utilities. Also note that this is the minimum disk size that will be\nallocated for the build -- the build may run with a larger disk than\nrequested. At present, the maximum disk size is 1000GB; builds that request\nmore than the maximum are rejected with an error.",
+          "format": "int64",
+          "type": "string"
+        },
         "logStreamingOption": {
           "description": "LogStreamingOption to define build log streaming behavior to Google Cloud\nStorage.",
           "enum": [
             "STREAM_DEFAULT",
             "STREAM_ON",
             "STREAM_OFF"
+          ],
+          "type": "string"
+        },
+        "machineType": {
+          "description": "Compute Engine machine type on which to run the build.",
+          "enum": [
+            "UNSPECIFIED",
+            "N1_HIGHCPU_8",
+            "N1_HIGHCPU_32"
           ],
           "type": "string"
         },
@@ -1323,7 +1326,7 @@
           "type": "array"
         },
         "dir": {
-          "description": "Working directory (relative to project source root) to use when running\nthis operation's container.",
+          "description": "Working directory to use when running this step's container.\n\nIf this value is a relative path, it is relative to the build's working\ndirectory. If this value is absolute, it may be outside the build's working\ndirectory, in which case the contents of the path may not be persisted\nacross build step executions, unless a volume for that path is specified.\n\nIf the build specifies a RepoSource with dir and a step with a dir which\nspecifies an absolute path, the RepoSource dir is ignored for the step's\nexecution.",
           "type": "string"
         },
         "entrypoint": {
@@ -1351,6 +1354,10 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "timing": {
+          "$ref": "#/definitions/TimeSpan",
+          "description": "Stores timing information for executing this build step.\n@OutputOnly"
         },
         "volumes": {
           "description": "List of volumes to mount into the build step.\n\nEach volume will be created as an empty volume prior to execution of the\nbuild step. Upon completion of the build, volumes and their contents will\nbe discarded.\n\nUsing a named volume in only one step is not valid as it is indicative\nof a mis-configured build request.",
@@ -1421,6 +1428,10 @@
         "name": {
           "description": "Name used to push the container image to Google Container Registry, as\npresented to `docker push`.",
           "type": "string"
+        },
+        "pushTiming": {
+          "$ref": "#/definitions/TimeSpan",
+          "description": "Stores timing information for pushing the specified image.\n@OutputOnly"
         }
       },
       "type": "object"
@@ -1562,6 +1573,10 @@
           "description": "Explicit commit SHA to build.",
           "type": "string"
         },
+        "dir": {
+          "description": "Directory, relative to the source root, in which to run the build.\n\nThis must be a relative path. If a step's dir is specified and is an\nabsolute path, this value is ignored for that step's execution.",
+          "type": "string"
+        },
         "projectId": {
           "description": "ID of the project that owns the repo. If omitted, the project ID requesting\nthe build is assumed.",
           "type": "string"
@@ -1694,6 +1709,22 @@
         },
         "object": {
           "description": "Google Cloud Storage object containing source.\n\nThis object must be a gzipped archive file (.tar.gz) containing source to\nbuild.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TimeSpan": {
+      "description": "Stores start and end times for a build execution phase.",
+      "properties": {
+        "endTime": {
+          "description": "End of time span.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start of time span.",
+          "format": "google-datetime",
           "type": "string"
         }
       },

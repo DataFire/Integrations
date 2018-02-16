@@ -149,9 +149,9 @@ google_appstate.states.update({
 
 #### Input
 * input `object`
-  * stateKey **required** `integer`: The key for the data to be retrieved.
-  * currentStateVersion `string`: The version of the app state your application is attempting to update. If this does not match the current version, this method will return a conflict error. If there is no data stored on the server for this key, the update will succeed irrespective of the value of this parameter.
   * body [UpdateRequest](#updaterequest)
+  * currentStateVersion `string`: The version of the app state your application is attempting to update. If this does not match the current version, this method will return a conflict error. If there is no data stored on the server for this key, the update will succeed irrespective of the value of this parameter.
+  * stateKey **required** `integer`: The key for the data to be retrieved.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -175,8 +175,8 @@ google_appstate.states.clear({
 
 #### Input
 * input `object`
-  * stateKey **required** `integer`: The key for the data to be retrieved.
   * currentDataVersion `string`: The version of the data to be cleared. Version strings are returned by the server.
+  * stateKey **required** `integer`: The key for the data to be retrieved.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

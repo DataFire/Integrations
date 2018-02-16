@@ -77,6 +77,27 @@ smart_me.Actions_Get({
 * output `array`
   * items [ActionInformation](#actioninformation)
 
+### ChargingUser_Get
+Gets the informations for the user.
+
+
+```js
+smart_me.ChargingUser_Get({
+  "userId": 0,
+  "date": 0,
+  "passwordToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * userId **required** `integer`: The ID of the user
+  * date **required** `integer`: The current Date
+  * passwordToken **required** `string`: The Password token
+
+#### Output
+* output [User](#user)
+
 ### api.CustomDevice.get
 Gets all Devices
 
@@ -255,6 +276,23 @@ smart_me.DevicesBySubType_Get({
 * output `array`
   * items [Device](#device)
 
+### Folder_Get
+Gets the Values for a folder or a meter
+
+
+```js
+smart_me.Folder_Get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [FolderData](#folderdata)
+
 ### MBus_Post
 M-BUS API: Adds data of a M-BUS Meter to the smart-me Cloud.
             Just send us the M-BUS Telegram (RSP_UD) and we will do the Rest.
@@ -358,6 +396,66 @@ smart_me.User_Get(null, context)
 #### Output
 * output [User](#user)
 
+### Values_Get
+Gets all (last) values of a device
+
+
+```js
+smart_me.Values_Get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The ID of the device
+
+#### Output
+* output [ValuesData](#valuesdata)
+
+### ValuesInPast_Get
+Gets the Values for a device at a given Date. The first Value found before the given Date is returned.
+
+
+```js
+smart_me.ValuesInPast_Get({
+  "id": "",
+  "date": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The ID of the device
+  * date **required** `string`: the date of the value
+
+#### Output
+* output [ValuesData](#valuesdata)
+
+### ValuesInPastMultiple_Get
+Gets multiple values of a device. This call needs a smart-me professional licence.
+
+
+```js
+smart_me.ValuesInPastMultiple_Get({
+  "id": "",
+  "startDate": "",
+  "endDate": "",
+  "interval": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The ID of the device
+  * startDate **required** `string`: The date when the first value should start
+  * endDate **required** `string`: The date when the last value should start
+  * interval **required** `integer`: The interval in minutes betwenn the values. 0 means as fast as possible. Only 1000 values can be get in one call.
+
+#### Output
+* output `array`
+  * items [ValuesData](#valuesdata)
+
 ### VirtualBillingMeterActive_Get
 Beta: Gets all active virtual meters.
 
@@ -448,6 +546,60 @@ smart_me.VirtualMeterCalculateFormula_Get({
 #### Output
 * output [Device](#device)
 
+### api.VirtualTariff.get
+Gets all Virtual Tariffs of a user
+
+
+```js
+smart_me.api.VirtualTariff.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [VirtualTariffsOfFolder](#virtualtariffsoffolder)
+
+### api.VirtualTariff.id.get
+Gets all virtual tariffs of a folder
+
+
+```js
+smart_me.api.VirtualTariff.id.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The ID of the Folder
+
+#### Output
+* output [VirtualTariffsOfFolder](#virtualtariffsoffolder)
+
+### VirtualTariffConsumption_Get
+Gets the consumption of a folder with a virtuall tariffs.
+
+
+```js
+smart_me.VirtualTariffConsumption_Get({
+  "folderId": "",
+  "startDate": "",
+  "endDate": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * folderId **required** `string`: The ID of the Folder
+  * startDate **required** `string`: The start date (UTC)
+  * endDate **required** `string`: The end date (UTC)
+
+#### Output
+* output `array`
+  * items [VirtualTariffConsumptionData](#virtualtariffconsumptiondata)
+
 
 
 ## Definitions
@@ -498,6 +650,8 @@ smart_me.VirtualMeterCalculateFormula_Get({
   * ActivePowerL3 `number`: The Actvie Power Phase L3
   * ActivePowerUnit `string`: The Unit of the Active Power Value
   * ActiveTariff `integer`: The Number of the Active Tariff
+  * AnalogOutput1 `integer`: The analog output number 1 (PWM signal) (0 - 32183)
+  * AnalogOutput2 `integer`: The analog output number 2 (PWM signal) (0 - 32183)
   * CounterReading `number`: The Meter Counter Reading (Total Energy used)
   * CounterReadingT1 `number`: The Meter Counter Reading Tariff 1
   * CounterReadingT2 `number`: The Meter Counter Reading Tariff 2
@@ -568,6 +722,17 @@ smart_me.VirtualMeterCalculateFormula_Get({
   * Temperature `number`: The Temperature (in degree celsius)
   * ValueDate `string`: The Date of the Value (in UTC). If this is null the Server Time is used.
 
+### FolderData
+* FolderData `object`: Container class for the folder API
+  * ElectricityCounterValue `number`: The Counter values for electricity (kWh)
+  * ElectricityPower `number`: The Power for electricity (kW)
+  * GasCounterValue `number`: The Counter values for Gas (m3)
+  * GasFlowRate `number`: The Flow Rate for Gas (m3/h)
+  * HeatCounterValue `number`: The Counter values for Heat (kWh)
+  * HeatPower `number`: The Power for Heat (kW)
+  * WaterCounterValue `number`: The Counter values for Water (m3)
+  * WaterFlowRate `number`: The Flow Rate for Water (m3/h)
+
 ### InputInformation
 * InputInformation `object`: Informations about the Inputs of a Meter or Folder
   * Name `string`: The Name of the Input
@@ -599,6 +764,7 @@ smart_me.VirtualMeterCalculateFormula_Get({
 
 ### OutputInformation
 * OutputInformation `object`: Informations about the Outputs of a Meter or Folder
+  * ActionType `string` (values: OnOffAction, AnalogAction): The type of the Output
   * Name `string`: The Name of the Output
   * Number `integer`: The Number of this Output. Use this as ID to switch it on or off.
   * ObisCode `string`: The Obis Code for this Output
@@ -624,5 +790,42 @@ smart_me.VirtualMeterCalculateFormula_Get({
 ### VMeterToDeactivate
 * VMeterToDeactivate `object`: Deactivates a virtual Meter
   * ID `string`: The ID of the Virtual meter to deactivate
+
+### ValueData
+* ValueData `object`: API Container for a (Device) Value
+  * Obis `string`: The Obis code of this value. 
+  * Value `number`: The Value
+
+### ValuesData
+* ValuesData `object`: API Container for a Meter Value
+  * Date `string`: The Date of the Value
+  * DeviceId `string`: The ID of the device
+  * Values `array`: All values
+    * items [ValueData](#valuedata)
+
+### VirtualTariff
+* VirtualTariff `object`: Container class for the virtual tariffs
+  * Factor `number`: Says how many of the active power is used in this tariff. This is calculated from the last meter values.
+  * Id `string`: The ID of the virtual tariff
+  * Name `string`: The name of this tariff
+  * Type `string` (values: Battery, Solar, Normal): The Type of the tariff
+  * Unit `string`: The Unit of this value
+  * Value `number`: The Counter Value of this tariff
+
+### VirtualTariffConsumptionData
+* VirtualTariffConsumptionData `object`: Container class for the virtual tariff consumption
+  * Consumption `number`: The consumption (e.g. kWh) of this tariff
+  * Currency `string`: The currency of the price
+  * Name `string`: The Name of this virtual tariff
+  * Price `number`: The price of the energy in this timerange
+  * TariffType `string` (values: Battery, Solar, Normal): The type of the virtual tariff (e.g. solar)
+
+### VirtualTariffsOfFolder
+* VirtualTariffsOfFolder `object`: Container class for a Virtual Tariff
+  * Date `string`: The DateTime (UTC) of this virtual tarfifs
+  * FolderId `string`: The ID of the Folder
+  * Name `string`: The name of this folder
+  * VirtualTariffs `array`: The Name of the Virtual Tariff
+    * items [VirtualTariff](#virtualtariff)
 
 

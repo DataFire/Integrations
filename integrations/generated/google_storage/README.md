@@ -644,6 +644,33 @@ google_storage.buckets.testIamPermissions({
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
 
+### buckets.lockRetentionPolicy
+Locks retention policy on a bucket.
+
+
+```js
+google_storage.buckets.lockRetentionPolicy({
+  "bucket": "",
+  "ifMetagenerationMatch": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bucket **required** `string`: Name of a bucket.
+  * ifMetagenerationMatch **required** `string`: Makes the operation conditional on whether bucket's current metageneration matches the given value.
+  * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [Bucket](#bucket)
+
 ### notifications.list
 Retrieves a list of notification subscriptions for a given bucket.
 
@@ -799,7 +826,7 @@ google_storage.objects.insert({
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the operation conditional on whether the object's current metageneration does not match the given value.
-  * kmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
+  * kmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. Limited availability; usable only by enabled projects.
   * name `string`: Name of the object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * predefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to this object.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
@@ -913,7 +940,7 @@ google_storage.objects.get({
 * output [Object](#object)
 
 ### objects.patch
-Updates an object's metadata. This method supports patch semantics.
+Patches an object's metadata.
 
 
 ```js
@@ -935,7 +962,7 @@ google_storage.objects.patch({
   * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * predefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to this object.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to full.
-  * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * userProject `string`: The project to be billed for this request, for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1425,7 +1452,7 @@ google_storage.projects.serviceAccount.get({
   * acl `array`: Access controls on the bucket.
     * items [BucketAccessControl](#bucketaccesscontrol)
   * billing `object`: The bucket's billing configuration.
-    * requesterPays `boolean`: When set to true, bucket is requester pays.
+    * requesterPays `boolean`: When set to true, Requester Pays is enabled for this bucket.
   * cors `array`: The bucket's Cross-Origin Resource Sharing (CORS) configuration.
     * items `object`
       * maxAgeSeconds `integer`: The value, in seconds, to return in the  Access-Control-Max-Age header used in preflight responses.
@@ -1435,12 +1462,13 @@ google_storage.projects.serviceAccount.get({
         * items `string`
       * responseHeader `array`: The list of HTTP headers other than the simple response headers to give permission for the user-agent to share across domains.
         * items `string`
+  * defaultEventBasedHold `boolean`: Defines the default value for Event-Based hold on newly created objects in this bucket. Event-Based hold is a way to retain objects indefinitely until an event occurs, signified by the hold's release. After being released, such objects will be subject to bucket-level retention (if any). One sample use case of this flag is for banks to hold loan documents for at least 3 years after loan is paid in full. Here bucket-level retention is 3 years and the event is loan being paid in full. In this example these objects will be held intact for any number of years until the event has occurred (hold is released) and then 3 more years after that. Objects under Event-Based hold cannot be deleted, overwritten or archived until the hold is removed.
   * defaultObjectAcl `array`: Default access controls to apply to new objects when no ACL is provided.
     * items [ObjectAccessControl](#objectaccesscontrol)
   * encryption `object`: Encryption configuration used by default for newly inserted objects, when no encryption config is specified.
-    * defaultKmsKeyName `string`
+    * defaultKmsKeyName `string`: A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified. Limited availability; usable only by enabled projects.
   * etag `string`: HTTP 1.1 Entity tag for the bucket.
-  * id `string`: The ID of the bucket. For buckets, the id and name properities are the same.
+  * id `string`: The ID of the bucket. For buckets, the id and name properties are the same.
   * kind `string`: The kind of item this is. For buckets, this is always storage#bucket.
   * labels `object`: User-provided labels, in key/value pairs.
   * lifecycle `object`: The bucket's lifecycle configuration. See lifecycle management for more information.
@@ -1466,6 +1494,10 @@ google_storage.projects.serviceAccount.get({
     * entity `string`: The entity, in the form project-owner-projectId.
     * entityId `string`: The ID for the entity.
   * projectNumber `string`: The project number of the project the bucket belongs to.
+  * retentionPolicy `object`: Defines the retention policy for a bucket. The Retention policy enforces a minimum retention time for all objects contained in the bucket, based on their creation time. Any attempt to overwrite or delete objects younger than the retention period will result in a PERMISSION_DENIED error. An unlocked retention policy can be modified or removed from the bucket via the UpdateBucketMetadata RPC. A locked retention policy cannot be removed or shortened in duration for the lifetime of the bucket. Attempting to remove or decrease period of a locked retention policy will result in a PERMISSION_DENIED error.
+    * effectiveTime `string`: The time from which policy was enforced and effective. RFC 3339 format.
+    * isLocked `boolean`: Once locked, an object retention policy cannot be modified.
+    * retentionPeriod `string`: Specifies the duration that objects need to be retained. Retention duration must be greater than zero and less than 100 years. Note that enforcement of retention periods less than a day is not guaranteed. Such periods should only be used for testing purposes.
   * selfLink `string`: The URI of this bucket.
   * storageClass `string`: The bucket's default storage class, used whenever no storageClass is specified for a newly-created object. This defines how objects in the bucket are stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, and DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket is created, it will default to STANDARD. For more information, see storage classes.
   * timeCreated `string`: The creation time of the bucket in RFC 3339 format.
@@ -1564,10 +1596,11 @@ google_storage.projects.serviceAccount.get({
     * encryptionAlgorithm `string`: The encryption algorithm.
     * keySha256 `string`: SHA256 hash value of the encryption key.
   * etag `string`: HTTP 1.1 Entity tag for the object.
+  * eventBasedHold `boolean`: Defines the Event-Based hold for an object. Event-Based hold is a way to retain objects indefinitely until an event occurs, signified by the hold's release. After being released, such objects will be subject to bucket-level retention (if any). One sample use case of this flag is for banks to hold loan documents for at least 3 years after loan is paid in full. Here bucket-level retention is 3 years and the event is loan being paid in full. In this example these objects will be held intact for any number of years until the event has occurred (hold is released) and then 3 more years after that.
   * generation `string`: The content generation of this object. Used for object versioning.
   * id `string`: The ID of the object, including the bucket name, object name, and generation number.
   * kind `string`: The kind of item this is. For objects, this is always storage#object.
-  * kmsKeyName `string`: Cloud KMS Key used to encrypt this object, if the object is encrypted by such a key.
+  * kmsKeyName `string`: Cloud KMS Key used to encrypt this object, if the object is encrypted by such a key. Limited availability; usable only by enabled projects.
   * md5Hash `string`: MD5 hash of the data; encoded using base64. For more information about using the MD5 hash, see Hashes and ETags: Best Practices.
   * mediaLink `string`: Media download link.
   * metadata `object`: User-provided metadata, in key/value pairs.
@@ -1576,9 +1609,11 @@ google_storage.projects.serviceAccount.get({
   * owner `object`: The owner of the object. This will always be the uploader of the object.
     * entity `string`: The entity, in the form user-userId.
     * entityId `string`: The ID for the entity.
+  * retentionExpirationTime `string`: Specifies the earliest time that the object's retention period expires. This value is server-determined and is in RFC 3339 format. Note 1: This field is not provided for objects with an active Event-Based hold, since retention expiration is unknown until the hold is removed. Note 2: This value can be provided even when TemporaryHold is set (so that the user can reason about policy without having to first unset the TemporaryHold).
   * selfLink `string`: The link to this object.
   * size `string`: Content-Length of the data in bytes.
   * storageClass `string`: Storage class of the object.
+  * temporaryHold `boolean`: Defines the temporary hold for an object. This flag is used to enforce a temporary hold on an object. While it is set to true, the object is protected against deletion and overwrites. A common use case of this flag is regulatory investigations where objects need to be retained while the investigation is ongoing.
   * timeCreated `string`: The creation time of the object in RFC 3339 format.
   * timeDeleted `string`: The deletion time of the object in RFC 3339 format. Will be returned if and only if this version of the object has been deleted.
   * timeStorageClassUpdated `string`: The time at which the object's storage class was last changed. When the object is initially created, it will be set to timeCreated.

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_resource_groups",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS Resource Groups",
   "repository": {

@@ -1050,6 +1050,44 @@
         "operationId": "customers.json.post"
       }
     },
+    "/customers/email/{email}.json": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/LoginParam"
+          },
+          {
+            "$ref": "#/parameters/AuthtokenParam"
+          },
+          {
+            "description": "Email of the Customer",
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Customer"
+            }
+          },
+          "404": {
+            "description": "Customer Not Found.",
+            "schema": {
+              "$ref": "#/definitions/NotFound"
+            }
+          }
+        },
+        "summary": "Retrieve a single Customer.",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "customers.email.email.json.get"
+      }
+    },
     "/customers/{id}.json": {
       "delete": {
         "parameters": [
@@ -1619,8 +1657,7 @@
               "Abandoned",
               "Canceled",
               "Pending Payment",
-              "Paid",
-              "Shipped"
+              "Paid"
             ],
             "in": "path",
             "name": "status",
@@ -1691,7 +1728,7 @@
         "operationId": "orders.id.json.get"
       },
       "put": {
-        "description": "Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ \"order\": {\"status\": \"Shipped\", \"tracking_company\": \"other\", \"tracking_number\": \"123456789\", \"additional_information\": \"My custom message.\", \"additional_fields\": [{\"label\": \"Gift Name\", \"value\": \"Duarte\"}, {\"label\": \"Gift Wrapping Color\", \"value\": \"Green\"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ \"order\": {\"status\": \"Paid\", \"additional_information\": \"My custom message.\"}}' \"https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX\" -H \"Content-Type:application/json\" ",
+        "description": "Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ \"order\": {\"status\": \"Paid\", \"tracking_company\": \"other\", \"tracking_number\": \"123456789\", \"additional_information\": \"My custom message.\", \"additional_fields\": [{\"label\": \"Gift Name\", \"value\": \"Duarte\"}, {\"label\": \"Gift Wrapping Color\", \"value\": \"Green\"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ \"order\": {\"status\": \"Paid\", \"additional_information\": \"My custom message.\"}}' \"https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX\" -H \"Content-Type:application/json\" ",
         "parameters": [
           {
             "$ref": "#/parameters/LoginParam"
@@ -3244,10 +3281,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/ProductOptionValue"
-              },
-              "type": "array"
+              "$ref": "#/definitions/ProductOptionValue"
             }
           },
           "404": {
@@ -4018,6 +4052,13 @@
           ],
           "type": "string"
         },
+        "custom_field_select_options": {
+          "description": "The values for the CheckoutCustomField selection",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "deletable": {
           "default": false,
           "description": "True if the CheckoutCustomField can be removed from the store",
@@ -4060,6 +4101,13 @@
             "other"
           ],
           "type": "string"
+        },
+        "custom_field_select_options": {
+          "description": "The values for the CheckoutCustomField selection",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "deletable": {
           "default": false,
@@ -4534,8 +4582,7 @@
             "Abandoned",
             "Canceled",
             "Pending Payment",
-            "Paid",
-            "Shipped"
+            "Paid"
           ],
           "type": "string"
         },
@@ -4593,6 +4640,16 @@
           },
           "type": "array"
         },
+        "shipment_status": {
+          "description": "Shipment Status for Order Fulfillment.",
+          "enum": [
+            "delivered",
+            "requested",
+            "in_transit",
+            "failed"
+          ],
+          "type": "string"
+        },
         "shipping": {
           "description": "Shipping value for the given Order",
           "format": "float",
@@ -4616,8 +4673,7 @@
             "Abandoned",
             "Canceled",
             "Pending Payment",
-            "Paid",
-            "Shipped"
+            "Paid"
           ],
           "type": "string"
         },
@@ -4637,15 +4693,15 @@
           "type": "number"
         },
         "tracking_company": {
-          "description": "Company Used for the Shipment.",
+          "description": "Company Used for Order Fulfillment.",
           "type": "string"
         },
         "tracking_number": {
-          "description": "Tracking Number for the Shipment.",
+          "description": "Tracking Number for Order Fulfillment.",
           "type": "string"
         },
         "tracking_url": {
-          "description": "URL to track the Shipment.",
+          "description": "Tracking URL for Order Fulfillment.",
           "type": "string"
         }
       }
@@ -5500,6 +5556,10 @@
         },
         "name": {
           "description": "Store Name",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Store Timezone",
           "type": "string"
         },
         "url": {

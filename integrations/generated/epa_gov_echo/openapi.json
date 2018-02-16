@@ -371,6 +371,12 @@
       "required": false,
       "type": "string"
     },
+    "p_istatute": {
+      "in": "query",
+      "name": "p_istatute",
+      "required": false,
+      "type": "string"
+    },
     "p_lat": {
       "description": "Latitude location in decimal degrees.",
       "in": "query",
@@ -1045,6 +1051,9 @@
             "$ref": "#/parameters/p_med"
           },
           {
+            "$ref": "#/parameters/p_istatute"
+          },
+          {
             "$ref": "#/parameters/p_ysl"
           },
           {
@@ -1301,6 +1310,9 @@
             "$ref": "#/parameters/p_med"
           },
           {
+            "$ref": "#/parameters/p_istatute"
+          },
+          {
             "$ref": "#/parameters/p_ysl"
           },
           {
@@ -1554,6 +1566,9 @@
             "$ref": "#/parameters/p_med"
           },
           {
+            "$ref": "#/parameters/p_istatute"
+          },
+          {
             "$ref": "#/parameters/p_ysl"
           },
           {
@@ -1794,6 +1809,9 @@
           },
           {
             "$ref": "#/parameters/p_med"
+          },
+          {
+            "$ref": "#/parameters/p_istatute"
           },
           {
             "$ref": "#/parameters/p_ysl"
@@ -2637,7 +2655,7 @@
         "CAALastPenaltyDate": {
           "type": "string"
         },
-        "CAANaics": {
+        "CAANAICS": {
           "type": "string"
         },
         "CAAPenalties": {
@@ -2653,7 +2671,7 @@
           "example": "0",
           "type": "string"
         },
-        "CAASics": {
+        "CAASICs": {
           "type": "string"
         },
         "CWA13qtrsComplStatus": {
@@ -2707,7 +2725,7 @@
         "CWALastPenaltyDate": {
           "type": "string"
         },
-        "CWANaics": {
+        "CWANAICS": {
           "type": "string"
         },
         "CWAPenalties": {
@@ -2723,7 +2741,7 @@
         "CWAQtrsInNC": {
           "type": "string"
         },
-        "CWASics": {
+        "CWASICs": {
           "type": "string"
         },
         "CamdIDs": {
@@ -2980,11 +2998,11 @@
         "FacMyrtkUniverse": {
           "type": "string"
         },
-        "FacNaaFlag": {
+        "FacNAICSCodes": {
+          "title": "Facility NAICS Codes",
           "type": "string"
         },
-        "FacNaicsCodes": {
-          "title": "Facility NAICS Codes",
+        "FacNaaFlag": {
           "type": "string"
         },
         "FacName": {
@@ -3026,7 +3044,7 @@
         "FacReferencePoint": {
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacState": {
@@ -3240,7 +3258,7 @@
         "RCRALastPenaltyDate": {
           "type": "string"
         },
-        "RCRANaics": {
+        "RCRANAICS": {
           "type": "string"
         },
         "RCRAPenalties": {
@@ -3295,13 +3313,13 @@
           "description": "SDWIS System Types",
           "type": "string"
         },
+        "SDWISFlag": {
+          "title": "SDWIS Flag",
+          "type": "string"
+        },
         "Score": {
           "example": "1",
           "title": "Score",
-          "type": "string"
-        },
-        "SdwisFlag": {
-          "title": "SDWIS Flag",
           "type": "string"
         },
         "SourceID": {
@@ -3423,14 +3441,14 @@
         "Fac3yrComplianceStatus",
         "AIRFlag",
         "NPDESFlag",
-        "SdwisFlag",
+        "SDWISFlag",
         "RCRAFlag",
         "TRIFlag",
         "GHGFlag",
         "AIRIDs",
         "CAAPermitTypes",
-        "CAANaics",
-        "CAASics",
+        "CAANAICS",
+        "CAASICs",
         "CAAEvaluationCount",
         "CAADaysLastEvaluation",
         "CAAInformalCount",
@@ -3446,8 +3464,8 @@
         "NPDESIDs",
         "CWAPermitTypes",
         "CWAComplianceTracking",
-        "CWANaics",
-        "CWASics",
+        "CWANAICS",
+        "CWASICs",
         "CWAInspectionCount",
         "CWADaysLastInspection",
         "CWAInformalCount",
@@ -3464,7 +3482,7 @@
         "CWA3YrQncrCodes",
         "RCRAIDs",
         "RCRAPermitTypes",
-        "RCRANaics",
+        "RCRANAICS",
         "RCRAInspectionCount",
         "RCRADaysLastEvaluation",
         "RCRAInformalCount",
@@ -3495,8 +3513,8 @@
         "GHGIDs",
         "GHGCO2Releases",
         "DfrUrl",
-        "FacSicCodes",
-        "FacNaicsCodes",
+        "FacSICCodes",
+        "FacNAICSCodes",
         "FacDateLastInspectionEPA",
         "FacDateLastInspectionState",
         "FacDateLastFormalActEPA",
@@ -3856,7 +3874,7 @@
         "CAALastPenaltyDate": {
           "type": "string"
         },
-        "CAANaics": {
+        "CAANAICS": {
           "type": "string"
         },
         "CAAPenalties": {
@@ -3872,7 +3890,7 @@
           "example": "0",
           "type": "string"
         },
-        "CAASics": {
+        "CAASICs": {
           "type": "string"
         },
         "CWA13qtrsComplStatus": {
@@ -3926,7 +3944,7 @@
         "CWALastPenaltyDate": {
           "type": "string"
         },
-        "CWANaics": {
+        "CWANAICS": {
           "type": "string"
         },
         "CWAPenalties": {
@@ -3942,7 +3960,7 @@
         "CWAQtrsInNC": {
           "type": "string"
         },
-        "CWASics": {
+        "CWASICs": {
           "type": "string"
         },
         "CamdIDs": {
@@ -4199,11 +4217,11 @@
         "FacMyrtkUniverse": {
           "type": "string"
         },
-        "FacNaaFlag": {
+        "FacNAICSCodes": {
+          "title": "Facility NAICS Codes",
           "type": "string"
         },
-        "FacNaicsCodes": {
-          "title": "Facility NAICS Codes",
+        "FacNaaFlag": {
           "type": "string"
         },
         "FacName": {
@@ -4245,7 +4263,7 @@
         "FacReferencePoint": {
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacState": {
@@ -4465,7 +4483,7 @@
         "RCRALastPenaltyDate": {
           "type": "string"
         },
-        "RCRANaics": {
+        "RCRANAICS": {
           "type": "string"
         },
         "RCRAPenalties": {
@@ -4520,13 +4538,13 @@
           "description": "SDWIS System Types",
           "type": "string"
         },
+        "SDWISFlag": {
+          "title": "SDWIS Flag",
+          "type": "string"
+        },
         "Score": {
           "example": "1",
           "title": "Score",
-          "type": "string"
-        },
-        "SdwisFlag": {
-          "title": "SDWIS Flag",
           "type": "string"
         },
         "SourceID": {
@@ -4649,14 +4667,14 @@
         "Fac3yrComplianceStatus",
         "AIRFlag",
         "NPDESFlag",
-        "SdwisFlag",
+        "SDWISFlag",
         "RCRAFlag",
         "TRIFlag",
         "GHGFlag",
         "AIRIDs",
         "CAAPermitTypes",
-        "CAANaics",
-        "CAASics",
+        "CAANAICS",
+        "CAASICs",
         "CAAEvaluationCount",
         "CAADaysLastEvaluation",
         "CAAInformalCount",
@@ -4672,8 +4690,8 @@
         "NPDESIDs",
         "CWAPermitTypes",
         "CWAComplianceTracking",
-        "CWANaics",
-        "CWASics",
+        "CWANAICS",
+        "CWASICs",
         "CWAInspectionCount",
         "CWADaysLastInspection",
         "CWAInformalCount",
@@ -4690,7 +4708,7 @@
         "CWA3YrQncrCodes",
         "RCRAIDs",
         "RCRAPermitTypes",
-        "RCRANaics",
+        "RCRANAICS",
         "RCRAInspectionCount",
         "RCRADaysLastEvaluation",
         "RCRAInformalCount",
@@ -4721,8 +4739,8 @@
         "GHGIDs",
         "GHGCO2Releases",
         "DfrUrl",
-        "FacSicCodes",
-        "FacNaicsCodes",
+        "FacSICCodes",
+        "FacNAICSCodes",
         "FacDateLastInspectionEPA",
         "FacDateLastInspectionState",
         "FacDateLastFormalActEPA",
@@ -5042,7 +5060,7 @@
         "CAALastPenaltyDate": {
           "type": "string"
         },
-        "CAANaics": {
+        "CAANAICS": {
           "type": "string"
         },
         "CAAPenalties": {
@@ -5058,7 +5076,7 @@
           "example": 0,
           "type": "number"
         },
-        "CAASics": {
+        "CAASICs": {
           "type": "string"
         },
         "CWA13qtrsComplStatus": {
@@ -5112,7 +5130,7 @@
         "CWALastPenaltyDate": {
           "type": "string"
         },
-        "CWANaics": {
+        "CWANAICS": {
           "type": "string"
         },
         "CWAPenalties": {
@@ -5128,7 +5146,7 @@
         "CWAQtrsInNC": {
           "type": "string"
         },
-        "CWASics": {
+        "CWASICs": {
           "type": "string"
         },
         "CamdIDs": {
@@ -5373,11 +5391,11 @@
         "FacMyrtkUniverse": {
           "type": "string"
         },
-        "FacNaaFlag": {
+        "FacNAICSCodes": {
+          "title": "Facility NAICS Codes",
           "type": "string"
         },
-        "FacNaicsCodes": {
-          "title": "Facility NAICS Codes",
+        "FacNaaFlag": {
           "type": "string"
         },
         "FacName": {
@@ -5419,7 +5437,7 @@
         "FacReferencePoint": {
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacState": {
@@ -5633,7 +5651,7 @@
         "RCRALastPenaltyDate": {
           "type": "string"
         },
-        "RCRANaics": {
+        "RCRANAICS": {
           "type": "string"
         },
         "RCRAPenalties": {
@@ -5688,14 +5706,14 @@
           "description": "SDWIS System Types",
           "type": "string"
         },
+        "SDWISFlag": {
+          "title": "SDWIS Flag",
+          "type": "string"
+        },
         "Score": {
           "example": 1,
           "title": "Score",
           "type": "number"
-        },
-        "SdwisFlag": {
-          "title": "SDWIS Flag",
-          "type": "string"
         },
         "SourceID": {
           "description": "Unique Identifier assigned by EPA.",
@@ -5814,14 +5832,14 @@
         "Fac3yrComplianceStatus",
         "AIRFlag",
         "NPDESFlag",
-        "SdwisFlag",
+        "SDWISFlag",
         "RCRAFlag",
         "TRIFlag",
         "GHGFlag",
         "AIRIDs",
         "CAAPermitTypes",
-        "CAANaics",
-        "CAASics",
+        "CAANAICS",
+        "CAASICs",
         "CAAEvaluationCount",
         "CAADaysLastEvaluation",
         "CAAInformalCount",
@@ -5837,8 +5855,8 @@
         "NPDESIDs",
         "CWAPermitTypes",
         "CWAComplianceTracking",
-        "CWANaics",
-        "CWASics",
+        "CWANAICS",
+        "CWASICs",
         "CWAInspectionCount",
         "CWADaysLastInspection",
         "CWAInformalCount",
@@ -5855,7 +5873,7 @@
         "CWA3YrQncrCodes",
         "RCRAIDs",
         "RCRAPermitTypes",
-        "RCRANaics",
+        "RCRANAICS",
         "RCRAInspectionCount",
         "RCRADaysLastEvaluation",
         "RCRAInformalCount",
@@ -5886,8 +5904,8 @@
         "GHGIDs",
         "GHGCO2Releases",
         "DfrUrl",
-        "FacSicCodes",
-        "FacNaicsCodes",
+        "FacSICCodes",
+        "FacNAICSCodes",
         "FacDateLastInspectionEPA",
         "FacDateLastInspectionState",
         "FacDateLastFormalActEPA",

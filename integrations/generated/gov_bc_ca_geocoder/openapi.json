@@ -1,10 +1,11 @@
 {
   "swagger": "2.0",
   "schemes": [
-    "https"
+    "https",
+    "http"
   ],
-  "host": "geocoder.api.gov.bc.ca",
-  "basePath": "/",
+  "host": "apps.gov.bc.ca",
+  "basePath": "/pub/geocoder",
   "info": {
     "contact": {
       "email": "DataBCBA@gov.bc.ca",
@@ -28,7 +29,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/gated-geocoder.json",
+        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json",
         "version": "2.0"
       }
     ],
@@ -52,18 +53,6 @@
     "application/gml+xml",
     "text/csv",
     "application/zip"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "header",
-      "name": "apikey",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
   ],
   "tags": [
     {

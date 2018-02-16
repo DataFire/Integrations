@@ -220,6 +220,7 @@ amazonaws_ds.CreateMicrosoftAD({
 #### Input
 * input `object`
   * Description [Description](#description)
+  * Edition [DirectoryEdition](#directoryedition)
   * Name **required** [DirectoryName](#directoryname)
   * Password **required** [Password](#password)
   * ShortName [DirectoryShortName](#directoryshortname)
@@ -973,6 +974,7 @@ amazonaws_ds.VerifyTrust({
 ### CreateMicrosoftADRequest
 * CreateMicrosoftADRequest `object`: Creates a Microsoft AD in the AWS cloud.
   * Description [Description](#description)
+  * Edition [DirectoryEdition](#directoryedition)
   * Name **required** [DirectoryName](#directoryname)
   * Password **required** [Password](#password)
   * ShortName [DirectoryShortName](#directoryshortname)
@@ -1150,6 +1152,7 @@ amazonaws_ds.VerifyTrust({
   * DesiredNumberOfDomainControllers [DesiredNumberOfDomainControllers](#desirednumberofdomaincontrollers)
   * DirectoryId [DirectoryId](#directoryid)
   * DnsIpAddrs [DnsIpAddrs](#dnsipaddrs)
+  * Edition [DirectoryEdition](#directoryedition)
   * LaunchTime [LaunchTime](#launchtime)
   * Name [DirectoryName](#directoryname)
   * RadiusSettings [RadiusSettings](#radiussettings)
@@ -1166,6 +1169,9 @@ amazonaws_ds.VerifyTrust({
 ### DirectoryDescriptions
 * DirectoryDescriptions `array`: A list of directory descriptions.
   * items [DirectoryDescription](#directorydescription)
+
+### DirectoryEdition
+* DirectoryEdition `string` (values: Enterprise, Standard)
 
 ### DirectoryId
 * DirectoryId `string`

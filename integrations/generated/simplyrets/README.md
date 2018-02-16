@@ -194,6 +194,7 @@ simplyrets.properties.get({}, context)
   * q `string`: A textual keyword search. This parameter will search  the following
   * status `array` (values: Active, Pending, Closed, ActiveUnderContract, Hold, Withdrawn, Expired, Delete, Incomplete, ComingSoon): Request listings by a specific status. This parameter
   * type `array` (values: residential, rental, multifamily, condominium, commercial, land, farm): Request listings by a specific property type. This
+  * subtype `array` (values: apartment, boatslip, singlefamilyresidence, deededparking, cabin, condominium, duplex, manufacturedhome, ownyourown, quadruplex, stockcooperative, townhouse, timeshare, triplex, manufacturedonland): Request listings by a specific property sub type.
   * agent `string`: Filter the listings returned by an agent ID.  Note, the
   * brokers `array`: Filter the listings returned by brokerage with a Broker
   * minprice `integer`: Filter listings by a minimum price.
@@ -361,6 +362,7 @@ simplyrets.properties.mlsId.get({
   * areaSource `string`
   * bathsFull `integer`: Number of full bathrooms
   * bathsHalf `integer`: Number of half bathrooms
+  * bathsThreeQuarter `integer`: Number of 3/4 bathrooms
   * bedrooms `integer`: Number of bedrooms
   * construction `string`: The materials that were used in the construction of the property.
   * cooling `string`: A description of the cooling or air conditioning features of the property.
@@ -380,6 +382,7 @@ simplyrets.properties.mlsId.get({
   * maintenanceExpense `number`: Yearly maintenance expense
   * occupantName `string`
   * occupantType `string`
+  * ownerName `string`
   * parking [Parking](#parking)
   * poolFeatures `string`
   * roof `string`: Property roof description

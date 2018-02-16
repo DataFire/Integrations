@@ -45,7 +45,7 @@
     "x-preferred": true,
     "x-providerName": "amazonaws.com",
     "x-release": "v4",
-    "x-serviceName": "data.jobs.iot",
+    "x-serviceName": "iot-jobs-data",
     "x-datafire": {
       "name": "amazonaws_data_jobs_iot",
       "type": "openapi"
@@ -311,6 +311,76 @@
       }
     },
     "/things/{thingName}/jobs/{jobId}": {
+      "get": {
+        "description": "Gets details of a job execution.",
+        "operationId": "DescribeJobExecution",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeJobExecutionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "thingName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeJobExecutionResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "CertificateValidationException",
+            "schema": {
+              "$ref": "#/definitions/CertificateValidationException"
+            }
+          },
+          "485": {
+            "description": "TerminalStateException",
+            "schema": {
+              "$ref": "#/definitions/TerminalStateException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"

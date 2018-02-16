@@ -1725,7 +1725,7 @@
           "additionalProperties": {
             "$ref": "#/definitions/Value"
           },
-          "description": "The document's fields.\n\nThe map keys represent field names.\n\nA simple field name contains only characters `a` to `z`, `A` to `Z`,\n`0` to `9`, or `_`, and must not start with `0` to `9` or `_`. For example,\n`foo_bar_17`.\n\nField names matching the regular expression `__.*__` are reserved. Reserved\nfield names are forbidden except in certain documented contexts. The map\nkeys, represented as UTF-8, must not exceed 1,500 bytes and cannot be\nempty.\n\nField paths may be used in other contexts to refer to structured fields\ndefined here. For `map_value`, the field path is represented by the simple\nor quoted field names of the containing fields, delimited by `.`. For\nexample, the structured field\n`\"foo\" : { map_value: { \"x&y\" : { string_value: \"hello\" }}}` would be\nrepresented by the field path `foo.x&y`.\n\nWithin a field path, a quoted field name starts and ends with `` ` `` and\nmay contain any character. Some characters, including `` ` ``, must be\nescaped using a `\\`. For example, `` `x&y` `` represents `x&y` and\n`` `bak\\`tik` `` represents `` bak`tik ``.",
+          "description": "The document's fields.\n\nThe map keys represent field names.\n\nA simple field name contains only characters `a` to `z`, `A` to `Z`,\n`0` to `9`, or `_`, and must not start with `0` to `9`. For example,\n`foo_bar_17`.\n\nField names matching the regular expression `__.*__` are reserved. Reserved\nfield names are forbidden except in certain documented contexts. The map\nkeys, represented as UTF-8, must not exceed 1,500 bytes and cannot be\nempty.\n\nField paths may be used in other contexts to refer to structured fields\ndefined here. For `map_value`, the field path is represented by the simple\nor quoted field names of the containing fields, delimited by `.`. For\nexample, the structured field\n`\"foo\" : { map_value: { \"x&y\" : { string_value: \"hello\" }}}` would be\nrepresented by the field path `foo.x&y`.\n\nWithin a field path, a quoted field name starts and ends with `` ` `` and\nmay contain any character. Some characters, including `` ` ``, must be\nescaped using a `\\`. For example, `` `x&y` `` represents `x&y` and\n`` `bak\\`tik` `` represents `` bak`tik ``.",
           "type": "object"
         },
         "name": {
@@ -1833,7 +1833,7 @@
           "type": "string"
         },
         "fieldTransforms": {
-          "description": "The list of transformations to apply to the fields of the document, in\norder.",
+          "description": "The list of transformations to apply to the fields of the document, in\norder.\nThis must not be empty.",
           "items": {
             "$ref": "#/definitions/FieldTransform"
           },
@@ -1998,7 +1998,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
@@ -2569,7 +2569,7 @@
         },
         "updateMask": {
           "$ref": "#/definitions/DocumentMask",
-          "description": "The fields to update in this write.\n\nThis field can be set only when the operation is `update`.\nNone of the field paths in the mask may contain a reserved name.\nIf the document exists on the server and has fields not referenced in the\nmask, they are left unchanged.\nFields referenced in the mask, but not present in the input document, are\ndeleted from the document on the server.\nThe field paths in this mask must not contain a reserved field name."
+          "description": "The fields to update in this write.\n\nThis field can be set only when the operation is `update`.\nIf the mask is not set for an `update` and the document exists, any\nexisting data will be overwritten.\nIf the mask is set and the document on the server has fields not covered by\nthe mask, they are left unchanged.\nFields referenced in the mask, but not present in the input document, are\ndeleted from the document on the server.\nThe field paths in this mask must not contain a reserved field name."
         }
       },
       "type": "object"

@@ -301,6 +301,8 @@ google_testing.testEnvironmentCatalog.get({
   * maxSteps `integer`: The max number of steps Robo can execute.
   * roboDirectives `array`: A set of directives Robo should apply during the crawl.
     * items [RoboDirective](#robodirective)
+  * startingIntents `array`: The intents used to launch the app for the crawl.
+    * items [RoboStartingIntent](#robostartingintent)
 
 ### AndroidRuntimeConfiguration
 * AndroidRuntimeConfiguration `object`: Configuration that can be selected at the time a test is run.
@@ -384,11 +386,14 @@ google_testing.testEnvironmentCatalog.get({
 * GoogleCloudStorage `object`: A storage location within Google cloud storage (GCS).
   * gcsPath `string`: The path to a directory in GCS that will
 
+### LauncherActivityIntent
+* LauncherActivityIntent `object`: Specifies an intent that starts the main launcher activity.
+
 ### Locale
 * Locale `object`: A location/region designation for language.
   * id `string`: The id for this locale.
   * name `string`: A human-friendly name for this language/locale.
-  * region `string`: A human-friendy string representing the region for this locale.
+  * region `string`: A human-friendly string representing the region for this locale.
   * tags `array`: Tags for this dimension.
     * items `string`
 
@@ -426,6 +431,18 @@ google_testing.testEnvironmentCatalog.get({
   * actionType `string` (values: ACTION_TYPE_UNSPECIFIED, SINGLE_CLICK, ENTER_TEXT): The type of action that Robo should perform on the specified element.
   * inputText `string`: The text that Robo is directed to set. If left empty, the directive will be
   * resourceName `string`: The android resource name of the target UI element
+
+### RoboStartingIntent
+* RoboStartingIntent `object`: Message for specifying the start activities to crawl
+  * launcherActivity [LauncherActivityIntent](#launcheractivityintent)
+  * startActivity [StartActivityIntent](#startactivityintent)
+
+### StartActivityIntent
+* StartActivityIntent `object`: A starting intent specified by an action, uri, and categories.
+  * action `string`: Action name.
+  * categories `array`: Intent categories to set on the intent.
+    * items `string`
+  * uri `string`: URI for the action.
 
 ### TestDetails
 * TestDetails `object`: Additional details about the progress of the running test.

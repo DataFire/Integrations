@@ -10,7 +10,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.",
     "license": {
@@ -172,6 +173,13 @@
             "schema": {
               "$ref": "#/definitions/GetServiceGraphRequest"
             }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -302,6 +310,13 @@
             "schema": {
               "$ref": "#/definitions/GetTraceGraphRequest"
             }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -432,6 +447,13 @@
             "schema": {
               "$ref": "#/definitions/GetTraceSummariesRequest"
             }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -497,6 +519,13 @@
             "schema": {
               "$ref": "#/definitions/BatchGetTracesRequest"
             }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -655,6 +684,10 @@
       "format": "double",
       "type": "number"
     },
+    "EC2InstanceId": {
+      "maxLength": 20,
+      "type": "string"
+    },
     "Edge": {
       "description": "Information about a connection between two services.",
       "properties": {
@@ -717,6 +750,9 @@
       },
       "type": "object"
     },
+    "ErrorMessage": {
+      "type": "string"
+    },
     "ErrorStatistics": {
       "description": "Information about requests that failed with a 4xx Client Error status code.",
       "properties": {
@@ -751,7 +787,7 @@
     },
     "FilterExpression": {
       "maxLength": 2000,
-      "minLength": 0,
+      "minLength": 1,
       "type": "string"
     },
     "GetServiceGraphRequest": {
@@ -895,6 +931,10 @@
       },
       "type": "object"
     },
+    "Hostname": {
+      "maxLength": 255,
+      "type": "string"
+    },
     "Http": {
       "description": "Information about an HTTP request.",
       "properties": {
@@ -926,7 +966,11 @@
     },
     "InvalidRequestException": {
       "description": "The request is missing required parameters or has invalid parameters.",
-      "properties": {},
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
       "type": "object"
     },
     "NullableBoolean": {
@@ -945,15 +989,15 @@
     "PutTelemetryRecordsRequest": {
       "properties": {
         "EC2InstanceId": {
-          "$ref": "#/definitions/String",
+          "$ref": "#/definitions/EC2InstanceId",
           "description": "<p/>"
         },
         "Hostname": {
-          "$ref": "#/definitions/String",
+          "$ref": "#/definitions/Hostname",
           "description": "<p/>"
         },
         "ResourceARN": {
-          "$ref": "#/definitions/String",
+          "$ref": "#/definitions/ResourceARN",
           "description": "<p/>"
         },
         "TelemetryRecords": {
@@ -991,6 +1035,10 @@
       },
       "type": "object"
     },
+    "ResourceARN": {
+      "maxLength": 500,
+      "type": "string"
+    },
     "Segment": {
       "description": "A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with <a>PutTraceSegments</a>, or an <code>inferred</code> segment for a downstream service, generated from a subsegment sent by the service that called it.",
       "properties": {
@@ -1010,8 +1058,6 @@
       "type": "string"
     },
     "SegmentId": {
-      "maxLength": 16,
-      "minLength": 16,
       "type": "string"
     },
     "SegmentList": {
@@ -1175,6 +1221,9 @@
           "description": "<p/>"
         }
       },
+      "required": [
+        "Timestamp"
+      ],
       "type": "object"
     },
     "TelemetryRecordList": {
@@ -1185,7 +1234,11 @@
     },
     "ThrottledException": {
       "description": "The request exceeds the maximum number of requests per second.",
-      "properties": {},
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
       "type": "object"
     },
     "Timestamp": {
@@ -1212,7 +1265,7 @@
     },
     "TraceId": {
       "maxLength": 35,
-      "minLength": 35,
+      "minLength": 1,
       "type": "string"
     },
     "TraceIdList": {

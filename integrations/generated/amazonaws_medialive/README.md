@@ -40,6 +40,45 @@ amazonaws_medialive.ListChannels({}, context)
 #### Output
 * output [ListChannelsResponse](#listchannelsresponse)
 
+### CreateChannel
+
+
+
+```js
+amazonaws_medialive.CreateChannel({}, context)
+```
+
+#### Input
+* input `object`
+  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
+  * Name [__string](#__string)
+  * RequestId [__string](#__string)
+  * Reserved [__string](#__string)
+  * RoleArn [__string](#__string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteChannel
+
+
+
+```js
+amazonaws_medialive.DeleteChannel({
+  "channelId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * channelId **required** `string`
+
+#### Output
+* output [DeleteChannelResponse](#deletechannelresponse)
+
 ### DescribeChannel
 
 
@@ -56,6 +95,28 @@ amazonaws_medialive.DescribeChannel({
 
 #### Output
 * output [DescribeChannelResponse](#describechannelresponse)
+
+### UpdateChannel
+
+
+
+```js
+amazonaws_medialive.UpdateChannel({
+  "channelId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * channelId **required** `string`
+  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputSpecification [InputSpecification](#inputspecification)
+  * Name [__string](#__string)
+  * RoleArn [__string](#__string)
+
+#### Output
+* output [UpdateChannelResponse](#updatechannelresponse)
 
 ### StartChannel
 
@@ -107,6 +168,38 @@ amazonaws_medialive.ListInputSecurityGroups({}, context)
 #### Output
 * output [ListInputSecurityGroupsResponse](#listinputsecuritygroupsresponse)
 
+### CreateInputSecurityGroup
+
+
+
+```js
+amazonaws_medialive.CreateInputSecurityGroup({}, context)
+```
+
+#### Input
+* input `object`
+  * WhitelistRules [ListOfInputWhitelistRuleCidr](#listofinputwhitelistrulecidr)
+
+#### Output
+* output [CreateInputSecurityGroupResponse](#createinputsecuritygroupresponse)
+
+### DeleteInputSecurityGroup
+
+
+
+```js
+amazonaws_medialive.DeleteInputSecurityGroup({
+  "inputSecurityGroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * inputSecurityGroupId **required** `string`
+
+#### Output
+* output [DeleteInputSecurityGroupResponse](#deleteinputsecuritygroupresponse)
+
 ### DescribeInputSecurityGroup
 
 
@@ -139,6 +232,43 @@ amazonaws_medialive.ListInputs({}, context)
 
 #### Output
 * output [ListInputsResponse](#listinputsresponse)
+
+### CreateInput
+
+
+
+```js
+amazonaws_medialive.CreateInput({}, context)
+```
+
+#### Input
+* input `object`
+  * Destinations [ListOfInputDestinationRequest](#listofinputdestinationrequest)
+  * InputSecurityGroups [ListOf__string](#listof__string)
+  * Name [__string](#__string)
+  * RequestId [__string](#__string)
+  * Sources [ListOfInputSourceRequest](#listofinputsourcerequest)
+  * Type [InputType](#inputtype)
+
+#### Output
+*Output schema unknown*
+
+### DeleteInput
+
+
+
+```js
+amazonaws_medialive.DeleteInput({
+  "inputId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * inputId **required** `string`
+
+#### Output
+* output [DeleteInputResponse](#deleteinputresponse)
 
 ### DescribeInput
 
@@ -453,6 +583,7 @@ amazonaws_medialive.DescribeInput({
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -477,6 +608,7 @@ amazonaws_medialive.DescribeInput({
   * EgressEndpoints [ListOfChannelEgressEndpoint](#listofchannelegressendpoint)
   * Id [__string](#__string)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -491,6 +623,7 @@ amazonaws_medialive.DescribeInput({
   * Destinations [ListOfOutputDestination](#listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
   * Reserved [__string](#__string)
@@ -501,6 +634,7 @@ amazonaws_medialive.DescribeInput({
   * Destinations [ListOfOutputDestination](#listofoutputdestination)
   * EncoderSettings [EncoderSettings](#encodersettings)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * RequestId [__string](#__string)
   * Reserved [__string](#__string)
@@ -563,6 +697,7 @@ amazonaws_medialive.DescribeInput({
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -591,6 +726,7 @@ amazonaws_medialive.DescribeInput({
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -1088,6 +1224,9 @@ amazonaws_medialive.DescribeInput({
   * Gain [__integer](#__integer)
   * InputChannel [__integer](#__integer)
 
+### InputCodec
+* InputCodec `string` (values: MPEG2, AVC, HEVC): codec in increasing order of complexity
+
 ### InputDeblockFilter
 * InputDeblockFilter `string` (values: DISABLED, ENABLED): Placeholder documentation for InputDeblockFilter
 
@@ -1095,13 +1234,13 @@ amazonaws_medialive.DescribeInput({
 * InputDenoiseFilter `string` (values: DISABLED, ENABLED): Placeholder documentation for InputDenoiseFilter
 
 ### InputDestination
-* InputDestination `object`: Settings for a PUSH type input
+* InputDestination `object`: The settings for a PUSH type input.
   * Ip [__string](#__string)
   * Port [__string](#__string)
   * Url [__string](#__string)
 
 ### InputDestinationRequest
-* InputDestinationRequest `object`: Endpoint settings for a PUSH type input
+* InputDestinationRequest `object`: Endpoint settings for a PUSH type input.
   * StreamName [__string](#__string)
 
 ### InputFilter
@@ -1133,6 +1272,12 @@ amazonaws_medialive.DescribeInput({
 ### InputLossImageType
 * InputLossImageType `string` (values: COLOR, SLATE): Placeholder documentation for InputLossImageType
 
+### InputMaximumBitrate
+* InputMaximumBitrate `string` (values: MAX_10_MBPS, MAX_20_MBPS, MAX_50_MBPS): Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are supported currently.
+
+### InputResolution
+* InputResolution `string` (values: SD, HD, UHD): Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines
+
 ### InputSecurityGroup
 * InputSecurityGroup `object`: An Input Security Group
   * Arn [__string](#__string)
@@ -1156,7 +1301,7 @@ amazonaws_medialive.DescribeInput({
   * VideoSelector [VideoSelector](#videoselector)
 
 ### InputSource
-* InputSource `object`: Settings for a PULL type input
+* InputSource `object`: The settings for a PULL type input.
   * PasswordParam [__string](#__string)
   * Url [__string](#__string)
   * Username [__string](#__string)
@@ -1165,10 +1310,16 @@ amazonaws_medialive.DescribeInput({
 * InputSourceEndBehavior `string` (values: CONTINUE, LOOP): Placeholder documentation for InputSourceEndBehavior
 
 ### InputSourceRequest
-* InputSourceRequest `object`: Settings for for a PULL type input
+* InputSourceRequest `object`: Settings for for a PULL type input.
   * PasswordParam [__string](#__string)
   * Url [__string](#__string)
   * Username [__string](#__string)
+
+### InputSpecification
+* InputSpecification `object`: Placeholder documentation for InputSpecification
+  * Codec [InputCodec](#inputcodec)
+  * MaximumBitrate [InputMaximumBitrate](#inputmaximumbitrate)
+  * Resolution [InputResolution](#inputresolution)
 
 ### InputState
 * InputState `string` (values: CREATING, DETACHED, ATTACHED, DELETING, DELETED): Placeholder documentation for InputState
@@ -1672,6 +1823,7 @@ amazonaws_medialive.DescribeInput({
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -1693,6 +1845,7 @@ amazonaws_medialive.DescribeInput({
   * EncoderSettings [EncoderSettings](#encodersettings)
   * Id [__string](#__string)
   * InputAttachments [ListOfInputAttachment](#listofinputattachment)
+  * InputSpecification [InputSpecification](#inputspecification)
   * Name [__string](#__string)
   * PipelinesRunningCount [__integer](#__integer)
   * RoleArn [__string](#__string)
@@ -1748,6 +1901,30 @@ amazonaws_medialive.DescribeInput({
 * UnprocessableEntityException `object`: Placeholder documentation for UnprocessableEntityException
   * Message [__string](#__string)
   * ValidationErrors [ListOfValidationError](#listofvalidationerror)
+
+### UpdateChannel
+* UpdateChannel `object`: Placeholder documentation for UpdateChannel
+  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputSpecification [InputSpecification](#inputspecification)
+  * Name [__string](#__string)
+  * RoleArn [__string](#__string)
+
+### UpdateChannelRequest
+* UpdateChannelRequest `object`: A request to update a channel.
+  * Destinations [ListOfOutputDestination](#listofoutputdestination)
+  * EncoderSettings [EncoderSettings](#encodersettings)
+  * InputSpecification [InputSpecification](#inputspecification)
+  * Name [__string](#__string)
+  * RoleArn [__string](#__string)
+
+### UpdateChannelResponse
+* UpdateChannelResponse `object`: Placeholder documentation for UpdateChannelResponse
+  * Channel [Channel](#channel)
+
+### UpdateChannelResultModel
+* UpdateChannelResultModel `object`: The updated channel's description.
+  * Channel [Channel](#channel)
 
 ### ValidationError
 * ValidationError `object`: Placeholder documentation for ValidationError

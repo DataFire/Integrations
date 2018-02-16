@@ -38,10 +38,6 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json",
-    "application/xml"
-  ],
   "produces": [
     "application/json",
     "application/xml"
@@ -86,11 +82,19 @@
     {
       "description": "Manage your templates",
       "name": "templates"
+    },
+    {
+      "description": "(BETA) Send, schedule and manage voice messages",
+      "name": "voice"
     }
   ],
   "paths": {
     "/account/balance": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns your account's credit balance",
         "operationId": "getBalance",
@@ -119,6 +123,10 @@
     },
     "/account/transfer": {
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. ",
         "operationId": "transfer",
@@ -135,7 +143,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Description was not specified"
+            "description": "Description was not specified",
+            "schema": {
+              "$ref": "#/definitions/WebServiceUser"
+            }
           },
           "201": {
             "description": "Created"
@@ -158,6 +169,10 @@
     },
     "/account/user": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Find a user for a particular email address",
         "operationId": "search",
@@ -193,6 +208,10 @@
         ]
       },
       "put": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Creates a new sub-account in your team. The following fields are required <i>firstname, lastname, email address, contact number</i> and <i>password.</i>",
         "parameters": [
@@ -235,6 +254,10 @@
     },
     "/account/user/{userId}": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Gets a user from a given user id",
         "operationId": "getUser",
@@ -271,6 +294,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Updates a sub-account in your team. The following fields can be updated <i>firstname, lastname, contact number</i> and <i>password.</i>",
         "parameters": [
@@ -321,6 +348,10 @@
     },
     "/contacts/all": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns all contacts",
         "responses": {
@@ -349,6 +380,10 @@
     },
     "/contacts/create": {
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Creates a  contact",
         "parameters": [
@@ -394,6 +429,10 @@
     },
     "/contacts/{contactId}": {
       "delete": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Deletes a  contact",
         "parameters": [
@@ -426,6 +465,10 @@
         "operationId": "contacts.contactId.delete"
       },
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns details for a single contact",
         "parameters": [
@@ -461,6 +504,10 @@
         "operationId": "contacts.contactId.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Updates a  contact",
         "parameters": [
@@ -510,6 +557,10 @@
     },
     "/contacts/{contactId}/addFromGroup/{groupId}": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Remove a contact from a group",
         "parameters": [
@@ -549,6 +600,10 @@
         "operationId": "contacts.contactId.addFromGroup.groupId.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Remove a contact from a group",
         "parameters": [
@@ -593,6 +648,10 @@
     },
     "/contacts/{contactId}/addToGroup/{groupId}": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Add a contact to a group",
         "parameters": [
@@ -632,6 +691,10 @@
         "operationId": "contacts.contactId.addToGroup.groupId.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Add a contact to a group",
         "parameters": [
@@ -676,6 +739,10 @@
     },
     "/context/lookup": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns context information for a single provided",
         "parameters": [
@@ -713,6 +780,10 @@
         "operationId": "context.lookup.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns context information for a single provided",
         "parameters": [
@@ -755,6 +826,10 @@
     },
     "/groups/all": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns all groups",
         "responses": {
@@ -783,6 +858,10 @@
     },
     "/groups/create": {
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Create a  group",
         "parameters": [
@@ -828,6 +907,10 @@
     },
     "/groups/{groupId}": {
       "delete": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Deletes a  group",
         "parameters": [
@@ -860,6 +943,10 @@
         "operationId": "groups.groupId.delete"
       },
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns details for a single group",
         "parameters": [
@@ -895,6 +982,10 @@
         "operationId": "groups.groupId.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Update a  group",
         "parameters": [
@@ -944,6 +1035,10 @@
     },
     "/groups/{groupId}/addContact/{contactId}": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Add a contact to a group",
         "parameters": [
@@ -983,6 +1078,10 @@
         "operationId": "groups.groupId.addContact.contactId.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Add a contact to a group",
         "parameters": [
@@ -1027,6 +1126,10 @@
     },
     "/groups/{groupId}/removeContact/{contactId}": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Remove a contact from a group",
         "parameters": [
@@ -1066,6 +1169,10 @@
         "operationId": "groups.groupId.removeContact.contactId.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Remove a contact from a group",
         "parameters": [
@@ -1110,6 +1217,10 @@
     },
     "/messages/all": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns all messages",
         "parameters": [
@@ -1266,6 +1377,10 @@
     },
     "/messages/{messageId}": {
       "delete": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Deletes a  message",
         "parameters": [
@@ -1298,6 +1413,10 @@
         "operationId": "messages.messageId.delete"
       },
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns details for a single message",
         "parameters": [
@@ -1335,6 +1454,10 @@
     },
     "/messages/{messageId}/markRead": {
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Marks a  message as read",
         "parameters": [
@@ -1373,6 +1496,10 @@
         "operationId": "messages.messageId.markRead.post"
       },
       "put": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Marks a  message as read",
         "parameters": [
@@ -1413,6 +1540,10 @@
     },
     "/messages/{messageId}/markUnread": {
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Marks a  message as unread",
         "parameters": [
@@ -1451,6 +1582,10 @@
         "operationId": "messages.messageId.markUnread.post"
       },
       "put": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Marks a  message as unread",
         "parameters": [
@@ -1491,6 +1626,10 @@
     },
     "/sms/send": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns an example of the data to POST to send a single message.",
         "responses": {
@@ -1517,6 +1656,10 @@
         "operationId": "sms.send.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are required. All other fields are optional.",
         "parameters": [
@@ -1565,6 +1708,10 @@
     },
     "/sms/send-bulk": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns an example of the data to POST to send multiple messages in one transaction.",
         "responses": {
@@ -1591,6 +1738,10 @@
         "operationId": "sms.send_bulk.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Send multiple messages in one transaction.",
         "parameters": [
@@ -1633,6 +1784,10 @@
     },
     "/sms/send-url-parameters": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
         "parameters": [
@@ -1697,6 +1852,10 @@
         "operationId": "sms.send_url_parameters.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
         "parameters": [
@@ -1766,6 +1925,10 @@
     },
     "/sms/send-url/{token}": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is ",
         "parameters": [
@@ -1837,6 +2000,10 @@
         "operationId": "sms.send_url.token.get"
       },
       "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is ",
         "parameters": [
@@ -1913,6 +2080,10 @@
     },
     "/templates/all": {
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns all templates",
         "responses": {
@@ -1941,6 +2112,10 @@
     },
     "/templates/{templateId}": {
       "delete": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Deletes a  template",
         "parameters": [
@@ -1974,6 +2149,10 @@
         "operationId": "templates.templateId.delete"
       },
       "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "deprecated": false,
         "description": "Returns details for a single template",
         "parameters": [
@@ -2008,6 +2187,336 @@
           "templates"
         ],
         "operationId": "templates.templateId.get"
+      }
+    },
+    "/voice/all": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns all voice messages",
+        "parameters": [
+          {
+            "default": 100,
+            "description": "number of elements to return at a time",
+            "format": "int32",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 1,
+            "description": "page number",
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "filter by message status",
+            "enum": [
+              "SCHEDULED",
+              "UNKNOWN",
+              "SENT",
+              "FAILED",
+              "FAILED_REFUNDED",
+              "FAILED_OPTOUT",
+              "DELIVERED"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "date format: yyyyMMdd",
+            "format": "date-time",
+            "in": "query",
+            "name": "fromDateTimeSent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "date format: yyyyMMdd",
+            "format": "date-time",
+            "in": "query",
+            "name": "toDateTimeSent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "phone number the message was sent to",
+            "in": "query",
+            "name": "toNumber",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "search matching message text",
+            "in": "query",
+            "name": "message",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "search by campaign",
+            "in": "query",
+            "name": "campaign",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "search by data field",
+            "in": "query",
+            "name": "dataField",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "return only deleted / not deleted messages",
+            "in": "query",
+            "name": "deleted",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WebServiceVoiceMessages"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "all",
+        "tags": [
+          "voice"
+        ],
+        "operationId": "voice.all.get"
+      }
+    },
+    "/voice/single-audio": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "deprecated": false,
+        "description": "Send a single audio voice message to one recipient. Note, Content-Type header must be set to multipart/form-data for this request.",
+        "operationId": "voice.single_audio.post",
+        "parameters": [
+          {
+            "description": "audio file to play, supports MP3 or WAV format",
+            "in": "formData",
+            "name": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "description": "the phone number of the recipient to send to",
+            "in": "query",
+            "name": "recipientNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "optional campaign name",
+            "in": "query",
+            "name": "campaign",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optional extra data",
+            "in": "query",
+            "name": "dataField",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optional number of times to retry unanswered call",
+            "format": "int32",
+            "in": "query",
+            "name": "retryCount",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "optional minimum interval in minutes between retry attempts",
+            "format": "int32",
+            "in": "query",
+            "name": "retryMinimumInterval",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "optional maximum interval in minutes between retry attempts",
+            "format": "int32",
+            "in": "query",
+            "name": "retryMaximumInterval",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "$ref": "#/definitions/WebServiceSendVoiceMessageResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "single-audio",
+        "tags": [
+          "voice"
+        ]
+      }
+    },
+    "/voice/single-text": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Send a single text voice message to one recipient",
+        "operationId": "voice.single_text.post",
+        "parameters": [
+          {
+            "description": "request",
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/WebServiceVoiceMessageSendSingleTextRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified",
+            "schema": {
+              "$ref": "#/definitions/WebServiceSendVoiceMessageResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "single-text",
+        "tags": [
+          "voice"
+        ]
+      }
+    },
+    "/voice/{messageId}": {
+      "delete": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Deletes a  message",
+        "parameters": [
+          {
+            "description": "messageId",
+            "in": "path",
+            "name": "messageId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Description was not specified"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "summary": "delete",
+        "tags": [
+          "voice"
+        ],
+        "operationId": "voice.messageId.delete"
+      },
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "deprecated": false,
+        "description": "Returns details for a single message",
+        "parameters": [
+          {
+            "description": "messageId",
+            "in": "path",
+            "name": "messageId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WebServiceVoiceMessage"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "get",
+        "tags": [
+          "voice"
+        ],
+        "operationId": "voice.messageId.get"
       }
     }
   },
@@ -2350,6 +2859,17 @@
         }
       }
     },
+    "WebServiceSendVoiceMessageResponse": {
+      "description": "WebServiceSendVoiceMessageResponse",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "voiceMessageId": {
+          "type": "string"
+        }
+      }
+    },
     "WebServiceTemplate": {
       "description": "WebServiceTemplate",
       "properties": {
@@ -2442,6 +2962,117 @@
             "$ref": "#/definitions/WebServiceUser"
           },
           "type": "array"
+        }
+      }
+    },
+    "WebServiceVoiceMessage": {
+      "description": "WebServiceVoiceMessage",
+      "properties": {
+        "audioFileUrl": {
+          "type": "string"
+        },
+        "campaign": {
+          "type": "string"
+        },
+        "dateTimeSent": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        },
+        "messageStatus": {
+          "type": "string"
+        },
+        "toNumber": {
+          "type": "string"
+        },
+        "userDataField": {
+          "type": "string"
+        },
+        "voiceMessageId": {
+          "type": "string"
+        }
+      }
+    },
+    "WebServiceVoiceMessageSendSingleTextRequest": {
+      "description": "WebServiceVoiceMessageSendSingleTextRequest",
+      "properties": {
+        "campaign": {
+          "type": "string"
+        },
+        "dataField": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "recipientNumber": {
+          "type": "string"
+        },
+        "retryCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "retryMaximumInterval": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "retryMinimumInterval": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "WebServiceVoiceMessages": {
+      "description": "WebServiceVoiceMessages",
+      "properties": {
+        "elements": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "messages": {
+          "items": {
+            "$ref": "#/definitions/WebServiceVoiceMessage"
+          },
+          "type": "array"
+        },
+        "page": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalElements": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalPages": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     }

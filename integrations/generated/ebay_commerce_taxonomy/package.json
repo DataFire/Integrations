@@ -1,8 +1,8 @@
 {
   "name": "@datafire/ebay_commerce_taxonomy",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Commerce Taxonomy",
+  "description": "DataFire integration for Taxonomy",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/ebay.com/commerce-taxonomy/v1_beta.0.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/ebay.com/commerce-taxonomy/v1_beta.1.0/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

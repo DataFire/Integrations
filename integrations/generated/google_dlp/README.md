@@ -271,12 +271,12 @@ google_dlp.rootCategories.infoTypes.list({
 #### Output
 * output [GooglePrivacyDlpV2beta1ListInfoTypesResponse](#googleprivacydlpv2beta1listinfotypesresponse)
 
-### riskAnalysis.operations.delete
+### inspect.operations.delete
 This method is not supported and the server returns `UNIMPLEMENTED`.
 
 
 ```js
-google_dlp.riskAnalysis.operations.delete({
+google_dlp.inspect.operations.delete({
   "name": ""
 }, context)
 ```
@@ -301,14 +301,14 @@ google_dlp.riskAnalysis.operations.delete({
 #### Output
 * output [GoogleProtobufEmpty](#googleprotobufempty)
 
-### riskAnalysis.operations.get
+### inspect.operations.get
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 
 
 ```js
-google_dlp.riskAnalysis.operations.get({
+google_dlp.inspect.operations.get({
   "name": ""
 }, context)
 ```
@@ -366,12 +366,12 @@ google_dlp.inspect.results.findings.list({
 #### Output
 * output [GooglePrivacyDlpV2beta1ListInspectFindingsResponse](#googleprivacydlpv2beta1listinspectfindingsresponse)
 
-### riskAnalysis.operations.cancel
+### inspect.operations.cancel
 Cancels an operation. Use the `inspect.operations.get` to check whether the cancellation succeeded or the operation completed despite cancellation.
 
 
 ```js
-google_dlp.riskAnalysis.operations.cancel({
+google_dlp.inspect.operations.cancel({
   "name": ""
 }, context)
 ```
@@ -422,6 +422,13 @@ google_dlp.riskAnalysis.operations.cancel({
 * GooglePrivacyDlpV2beta1AnalyzeDataSourceRiskRequest `object`: Request for creating a risk analysis operation.
   * privacyMetric [GooglePrivacyDlpV2beta1PrivacyMetric](#googleprivacydlpv2beta1privacymetric)
   * sourceTable [GooglePrivacyDlpV2beta1BigQueryTable](#googleprivacydlpv2beta1bigquerytable)
+
+### GooglePrivacyDlpV2beta1AuxiliaryTable
+* GooglePrivacyDlpV2beta1AuxiliaryTable `object`: An auxiliary table contains statistical information on the relative
+  * quasiIds `array`: Quasi-identifier columns. [required]
+    * items [GooglePrivacyDlpV2beta1QuasiIdField](#googleprivacydlpv2beta1quasiidfield)
+  * relativeFrequency [GooglePrivacyDlpV2beta1FieldId](#googleprivacydlpv2beta1fieldid)
+  * table [GooglePrivacyDlpV2beta1BigQueryTable](#googleprivacydlpv2beta1bigquerytable)
 
 ### GooglePrivacyDlpV2beta1BigQueryOptions
 * GooglePrivacyDlpV2beta1BigQueryOptions `object`: Options defining BigQuery table and row identifiers.
@@ -542,11 +549,13 @@ google_dlp.riskAnalysis.operations.cancel({
   * cryptoKey [GooglePrivacyDlpV2beta1CryptoKey](#googleprivacydlpv2beta1cryptokey)
   * customAlphabet `string`: This is supported by mapping these to the alphanumeric characters
   * radix `integer`: The native way to select the alphabet. Must be in the range [2, 62].
+  * surrogateInfoType [GooglePrivacyDlpV2beta1InfoType](#googleprivacydlpv2beta1infotype)
 
 ### GooglePrivacyDlpV2beta1CustomInfoType
 * GooglePrivacyDlpV2beta1CustomInfoType `object`: Custom information type provided by the user. Used to find domain-specific
   * dictionary [GooglePrivacyDlpV2beta1Dictionary](#googleprivacydlpv2beta1dictionary)
   * infoType [GooglePrivacyDlpV2beta1InfoType](#googleprivacydlpv2beta1infotype)
+  * surrogateType [GooglePrivacyDlpV2beta1SurrogateType](#googleprivacydlpv2beta1surrogatetype)
 
 ### GooglePrivacyDlpV2beta1DatastoreKey
 * GooglePrivacyDlpV2beta1DatastoreKey `object`: Record key for a finding in Cloud Datastore.
@@ -614,12 +623,12 @@ google_dlp.riskAnalysis.operations.cancel({
   * url `string`: The url, in the format `gs://<bucket>/<path>`. Trailing wildcard in the
 
 ### GooglePrivacyDlpV2beta1Finding
-* GooglePrivacyDlpV2beta1Finding `object`: Container structure describing a single finding within a string or image.
+* GooglePrivacyDlpV2beta1Finding `object`: Represents a piece of potentially sensitive content.
   * createTime `string`: Timestamp when finding was detected.
   * infoType [GooglePrivacyDlpV2beta1InfoType](#googleprivacydlpv2beta1infotype)
-  * likelihood `string` (values: LIKELIHOOD_UNSPECIFIED, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Estimate of how likely it is that the info_type is correct.
+  * likelihood `string` (values: LIKELIHOOD_UNSPECIFIED, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Estimate of how likely it is that the `info_type` is correct.
   * location [GooglePrivacyDlpV2beta1Location](#googleprivacydlpv2beta1location)
-  * quote `string`: The specific string that may be potentially sensitive info.
+  * quote `string`: The content that was found. Even if the content is not textual, it
 
 ### GooglePrivacyDlpV2beta1FixedSizeBucketingConfig
 * GooglePrivacyDlpV2beta1FixedSizeBucketingConfig `object`: Buckets values based on fixed size ranges. The
@@ -742,6 +751,33 @@ google_dlp.riskAnalysis.operations.cancel({
   * equivalenceClassHistogramBuckets `array`: Histogram of k-anonymity equivalence classes.
     * items [GooglePrivacyDlpV2beta1KAnonymityHistogramBucket](#googleprivacydlpv2beta1kanonymityhistogrambucket)
 
+### GooglePrivacyDlpV2beta1KMapEstimationConfig
+* GooglePrivacyDlpV2beta1KMapEstimationConfig `object`: Reidentifiability metric. This corresponds to a risk model similar to what
+  * auxiliaryTables `array`: Several auxiliary tables can be used in the analysis. Each custom_tag
+    * items [GooglePrivacyDlpV2beta1AuxiliaryTable](#googleprivacydlpv2beta1auxiliarytable)
+  * quasiIds `array`: Fields considered to be quasi-identifiers. No two columns can have the
+    * items [GooglePrivacyDlpV2beta1TaggedField](#googleprivacydlpv2beta1taggedfield)
+  * regionCode `string`: ISO 3166-1 alpha-2 region code to use in the statistical modeling.
+
+### GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket
+* GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket `object`: A KMapEstimationHistogramBucket message with the following values:
+  * bucketSize `string`: Number of records within these anonymity bounds.
+  * bucketValues `array`: Sample of quasi-identifier tuple values in this bucket. The total
+    * items [GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues](#googleprivacydlpv2beta1kmapestimationquasiidvalues)
+  * maxAnonymity `string`: Always greater than or equal to min_anonymity.
+  * minAnonymity `string`: Always positive.
+
+### GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues
+* GooglePrivacyDlpV2beta1KMapEstimationQuasiIdValues `object`: A tuple of values for the quasi-identifier columns.
+  * estimatedAnonymity `string`: The estimated anonymity for these quasi-identifier values.
+  * quasiIdsValues `array`: The quasi-identifier values.
+    * items [GooglePrivacyDlpV2beta1Value](#googleprivacydlpv2beta1value)
+
+### GooglePrivacyDlpV2beta1KMapEstimationResult
+* GooglePrivacyDlpV2beta1KMapEstimationResult `object`: Result of the reidentifiability analysis. Note that these results are an
+  * kMapEstimationHistogram `array`: The intervals [min_anonymity, max_anonymity] do not overlap. If a value
+    * items [GooglePrivacyDlpV2beta1KMapEstimationHistogramBucket](#googleprivacydlpv2beta1kmapestimationhistogrambucket)
+
 ### GooglePrivacyDlpV2beta1Key
 * GooglePrivacyDlpV2beta1Key `object`: A unique identifier for a Datastore entity.
   * partitionId [GooglePrivacyDlpV2beta1PartitionId](#googleprivacydlpv2beta1partitionid)
@@ -801,11 +837,11 @@ google_dlp.riskAnalysis.operations.cancel({
     * items [GooglePrivacyDlpV2beta1CategoryDescription](#googleprivacydlpv2beta1categorydescription)
 
 ### GooglePrivacyDlpV2beta1Location
-* GooglePrivacyDlpV2beta1Location `object`: Specifies the location of a finding within its source item.
+* GooglePrivacyDlpV2beta1Location `object`: Specifies the location of the finding.
   * byteRange [GooglePrivacyDlpV2beta1Range](#googleprivacydlpv2beta1range)
   * codepointRange [GooglePrivacyDlpV2beta1Range](#googleprivacydlpv2beta1range)
   * fieldId [GooglePrivacyDlpV2beta1FieldId](#googleprivacydlpv2beta1fieldid)
-  * imageBoxes `array`: Location within an image's pixels.
+  * imageBoxes `array`: The area within the image that contained the finding.
     * items [GooglePrivacyDlpV2beta1ImageLocation](#googleprivacydlpv2beta1imagelocation)
   * recordKey [GooglePrivacyDlpV2beta1RecordKey](#googleprivacydlpv2beta1recordkey)
   * tableLocation [GooglePrivacyDlpV2beta1TableLocation](#googleprivacydlpv2beta1tablelocation)
@@ -857,6 +893,7 @@ google_dlp.riskAnalysis.operations.cancel({
 * GooglePrivacyDlpV2beta1PrivacyMetric `object`: Privacy metric to compute for reidentification risk analysis.
   * categoricalStatsConfig [GooglePrivacyDlpV2beta1CategoricalStatsConfig](#googleprivacydlpv2beta1categoricalstatsconfig)
   * kAnonymityConfig [GooglePrivacyDlpV2beta1KAnonymityConfig](#googleprivacydlpv2beta1kanonymityconfig)
+  * kMapEstimationConfig [GooglePrivacyDlpV2beta1KMapEstimationConfig](#googleprivacydlpv2beta1kmapestimationconfig)
   * lDiversityConfig [GooglePrivacyDlpV2beta1LDiversityConfig](#googleprivacydlpv2beta1ldiversityconfig)
   * numericalStatsConfig [GooglePrivacyDlpV2beta1NumericalStatsConfig](#googleprivacydlpv2beta1numericalstatsconfig)
 
@@ -867,6 +904,11 @@ google_dlp.riskAnalysis.operations.cancel({
 ### GooglePrivacyDlpV2beta1PropertyReference
 * GooglePrivacyDlpV2beta1PropertyReference `object`: A reference to a property relative to the Datastore kind expressions.
   * name `string`: The name of the property.
+
+### GooglePrivacyDlpV2beta1QuasiIdField
+* GooglePrivacyDlpV2beta1QuasiIdField `object`: A quasi-identifier column has a custom_tag, used to know which column
+  * customTag `string`
+  * field [GooglePrivacyDlpV2beta1FieldId](#googleprivacydlpv2beta1fieldid)
 
 ### GooglePrivacyDlpV2beta1Range
 * GooglePrivacyDlpV2beta1Range `object`: Generic half-open interval [start, end)
@@ -933,6 +975,7 @@ google_dlp.riskAnalysis.operations.cancel({
 * GooglePrivacyDlpV2beta1RiskAnalysisOperationResult `object`: Result of a risk analysis
   * categoricalStatsResult [GooglePrivacyDlpV2beta1CategoricalStatsResult](#googleprivacydlpv2beta1categoricalstatsresult)
   * kAnonymityResult [GooglePrivacyDlpV2beta1KAnonymityResult](#googleprivacydlpv2beta1kanonymityresult)
+  * kMapEstimationResult [GooglePrivacyDlpV2beta1KMapEstimationResult](#googleprivacydlpv2beta1kmapestimationresult)
   * lDiversityResult [GooglePrivacyDlpV2beta1LDiversityResult](#googleprivacydlpv2beta1ldiversityresult)
   * numericalStatsResult [GooglePrivacyDlpV2beta1NumericalStatsResult](#googleprivacydlpv2beta1numericalstatsresult)
 
@@ -953,6 +996,9 @@ google_dlp.riskAnalysis.operations.cancel({
   * count `string`
   * details `string`: A place for warnings or errors to show up if a transformation didn't
 
+### GooglePrivacyDlpV2beta1SurrogateType
+* GooglePrivacyDlpV2beta1SurrogateType `object`: Message for detecting output from deidentification transformations
+
 ### GooglePrivacyDlpV2beta1Table
 * GooglePrivacyDlpV2beta1Table `object`: Structured content to inspect. Up to 50,000 `Value`s per request allowed.
   * headers `array`
@@ -961,8 +1007,15 @@ google_dlp.riskAnalysis.operations.cancel({
     * items [GooglePrivacyDlpV2beta1Row](#googleprivacydlpv2beta1row)
 
 ### GooglePrivacyDlpV2beta1TableLocation
-* GooglePrivacyDlpV2beta1TableLocation `object`: Location of a finding within a `ContentItem.Table`.
+* GooglePrivacyDlpV2beta1TableLocation `object`: Location of a finding within a table.
   * rowIndex `string`: The zero-based index of the row where the finding is located.
+
+### GooglePrivacyDlpV2beta1TaggedField
+* GooglePrivacyDlpV2beta1TaggedField `object`: A column with a semantic tag attached.
+  * customTag `string`: A column can be tagged with a custom tag. In this case, the user must
+  * field [GooglePrivacyDlpV2beta1FieldId](#googleprivacydlpv2beta1fieldid)
+  * inferred [GoogleProtobufEmpty](#googleprotobufempty)
+  * infoType [GooglePrivacyDlpV2beta1InfoType](#googleprivacydlpv2beta1infotype)
 
 ### GooglePrivacyDlpV2beta1TimePartConfig
 * GooglePrivacyDlpV2beta1TimePartConfig `object`: For use with `Date`, `Timestamp`, and `TimeOfDay`, extract or preserve a
@@ -971,13 +1024,14 @@ google_dlp.riskAnalysis.operations.cancel({
 ### GooglePrivacyDlpV2beta1TransformationSummary
 * GooglePrivacyDlpV2beta1TransformationSummary `object`: Summary of a single tranformation.
   * field [GooglePrivacyDlpV2beta1FieldId](#googleprivacydlpv2beta1fieldid)
-  * fieldTransformations `array`: The field transformation that was applied. This list will contain
+  * fieldTransformations `array`: The field transformation that was applied.
     * items [GooglePrivacyDlpV2beta1FieldTransformation](#googleprivacydlpv2beta1fieldtransformation)
   * infoType [GooglePrivacyDlpV2beta1InfoType](#googleprivacydlpv2beta1infotype)
   * recordSuppress [GooglePrivacyDlpV2beta1RecordSuppression](#googleprivacydlpv2beta1recordsuppression)
   * results `array`
     * items [GooglePrivacyDlpV2beta1SummaryResult](#googleprivacydlpv2beta1summaryresult)
   * transformation [GooglePrivacyDlpV2beta1PrimitiveTransformation](#googleprivacydlpv2beta1primitivetransformation)
+  * transformedBytes `string`: Total size in bytes that were transformed in some way.
 
 ### GooglePrivacyDlpV2beta1TransientCryptoKey
 * GooglePrivacyDlpV2beta1TransientCryptoKey `object`: Use this to have a random data crypto key generated.

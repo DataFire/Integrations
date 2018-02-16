@@ -289,13 +289,11 @@
         "operationId": "states.update",
         "parameters": [
           {
-            "description": "The key for the data to be retrieved.",
-            "in": "path",
-            "maximum": 3,
-            "minimum": 0,
-            "name": "stateKey",
-            "required": true,
-            "type": "integer"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateRequest"
+            }
           },
           {
             "description": "The version of the app state your application is attempting to update. If this does not match the current version, this method will return a conflict error. If there is no data stored on the server for this key, the update will succeed irrespective of the value of this parameter.",
@@ -304,11 +302,13 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UpdateRequest"
-            }
+            "description": "The key for the data to be retrieved.",
+            "in": "path",
+            "maximum": 3,
+            "minimum": 0,
+            "name": "stateKey",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -363,6 +363,12 @@
         "operationId": "states.clear",
         "parameters": [
           {
+            "description": "The version of the data to be cleared. Version strings are returned by the server.",
+            "in": "query",
+            "name": "currentDataVersion",
+            "type": "string"
+          },
+          {
             "description": "The key for the data to be retrieved.",
             "in": "path",
             "maximum": 3,
@@ -370,12 +376,6 @@
             "name": "stateKey",
             "required": true,
             "type": "integer"
-          },
-          {
-            "description": "The version of the data to be cleared. Version strings are returned by the server.",
-            "in": "query",
-            "name": "currentDataVersion",
-            "type": "string"
           }
         ],
         "responses": {

@@ -193,40 +193,40 @@
     "/v4/spreadsheets": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -289,11 +289,10 @@
         "operationId": "spreadsheets.get",
         "parameters": [
           {
-            "description": "The spreadsheet to request.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
+            "description": "True if grid data should be returned.\nThis parameter is ignored if a field mask was set in the request.",
+            "in": "query",
+            "name": "includeGridData",
+            "type": "boolean"
           },
           {
             "collectionFormat": "multi",
@@ -306,10 +305,11 @@
             "type": "array"
           },
           {
-            "description": "True if grid data should be returned.\nThis parameter is ignored if a field mask was set in the request.",
-            "in": "query",
-            "name": "includeGridData",
-            "type": "boolean"
+            "description": "The spreadsheet to request.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -368,40 +368,40 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -611,40 +611,40 @@
     "/v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -655,11 +655,11 @@
         "operationId": "spreadsheets.sheets.copyTo",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet containing the sheet to copy.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CopySheetToAnotherSpreadsheetRequest"
+            }
           },
           {
             "description": "The ID of the sheet to copy.",
@@ -669,11 +669,11 @@
             "type": "integer"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CopySheetToAnotherSpreadsheetRequest"
-            }
+            "description": "The ID of the spreadsheet containing the sheet to copy.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -721,17 +721,13 @@
         "operationId": "spreadsheets.values.get",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet to retrieve data from.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The A1 notation of the values to retrieve.",
-            "in": "path",
-            "name": "range",
-            "required": true,
+            "description": "How dates, times, and durations should be represented in the output.\nThis is ignored if value_render_option is\nFORMATTED_VALUE.\nThe default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].",
+            "enum": [
+              "SERIAL_NUMBER",
+              "FORMATTED_STRING"
+            ],
+            "in": "query",
+            "name": "dateTimeRenderOption",
             "type": "string"
           },
           {
@@ -746,6 +742,20 @@
             "type": "string"
           },
           {
+            "description": "The A1 notation of the values to retrieve.",
+            "in": "path",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the spreadsheet to retrieve data from.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "How values should be represented in the output.\nThe default render option is ValueRenderOption.FORMATTED_VALUE.",
             "enum": [
               "FORMATTED_VALUE",
@@ -754,16 +764,6 @@
             ],
             "in": "query",
             "name": "valueRenderOption",
-            "type": "string"
-          },
-          {
-            "description": "How dates, times, and durations should be represented in the output.\nThis is ignored if value_render_option is\nFORMATTED_VALUE.\nThe default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].",
-            "enum": [
-              "SERIAL_NUMBER",
-              "FORMATTED_STRING"
-            ],
-            "in": "query",
-            "name": "dateTimeRenderOption",
             "type": "string"
           }
         ],
@@ -823,40 +823,40 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -867,17 +867,33 @@
         "operationId": "spreadsheets.values.update",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet to update.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ValueRange"
+            }
+          },
+          {
+            "description": "Determines if the update response should include the values\nof the cells that were updated. By default, responses\ndo not include the updated values.\nIf the range to write was larger than than the range actually written,\nthe response will include all values in the requested range (excluding\ntrailing empty rows and columns).",
+            "in": "query",
+            "name": "includeValuesInResponse",
+            "type": "boolean"
           },
           {
             "description": "The A1 notation of the values to update.",
             "in": "path",
             "name": "range",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Determines how dates, times, and durations in the response should be\nrendered. This is ignored if response_value_render_option is\nFORMATTED_VALUE.\nThe default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].",
+            "enum": [
+              "SERIAL_NUMBER",
+              "FORMATTED_STRING"
+            ],
+            "in": "query",
+            "name": "responseDateTimeRenderOption",
             "type": "string"
           },
           {
@@ -892,6 +908,13 @@
             "type": "string"
           },
           {
+            "description": "The ID of the spreadsheet to update.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "How the input data should be interpreted.",
             "enum": [
               "INPUT_VALUE_OPTION_UNSPECIFIED",
@@ -901,29 +924,6 @@
             "in": "query",
             "name": "valueInputOption",
             "type": "string"
-          },
-          {
-            "description": "Determines how dates, times, and durations in the response should be\nrendered. This is ignored if response_value_render_option is\nFORMATTED_VALUE.\nThe default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].",
-            "enum": [
-              "SERIAL_NUMBER",
-              "FORMATTED_STRING"
-            ],
-            "in": "query",
-            "name": "responseDateTimeRenderOption",
-            "type": "string"
-          },
-          {
-            "description": "Determines if the update response should include the values\nof the cells that were updated. By default, responses\ndo not include the updated values.\nIf the range to write was larger than than the range actually written,\nthe response will include all values in the requested range (excluding\ntrailing empty rows and columns).",
-            "in": "query",
-            "name": "includeValuesInResponse",
-            "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ValueRange"
-            }
           }
         ],
         "responses": {
@@ -968,40 +968,40 @@
     "/v4/spreadsheets/{spreadsheetId}/values/{range}:append": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -1012,35 +1012,17 @@
         "operationId": "spreadsheets.values.append",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet to update.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The A1 notation of a range to search for a logical table of data.\nValues will be appended after the last row of the table.",
-            "in": "path",
-            "name": "range",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ValueRange"
+            }
           },
           {
             "description": "Determines if the update response should include the values\nof the cells that were appended. By default, responses\ndo not include the updated values.",
             "in": "query",
             "name": "includeValuesInResponse",
             "type": "boolean"
-          },
-          {
-            "description": "Determines how values in the response should be rendered.\nThe default render option is ValueRenderOption.FORMATTED_VALUE.",
-            "enum": [
-              "FORMATTED_VALUE",
-              "UNFORMATTED_VALUE",
-              "FORMULA"
-            ],
-            "in": "query",
-            "name": "responseValueRenderOption",
-            "type": "string"
           },
           {
             "description": "How the input data should be inserted.",
@@ -1053,14 +1035,10 @@
             "type": "string"
           },
           {
-            "description": "How the input data should be interpreted.",
-            "enum": [
-              "INPUT_VALUE_OPTION_UNSPECIFIED",
-              "RAW",
-              "USER_ENTERED"
-            ],
-            "in": "query",
-            "name": "valueInputOption",
+            "description": "The A1 notation of a range to search for a logical table of data.\nValues will be appended after the last row of the table.",
+            "in": "path",
+            "name": "range",
+            "required": true,
             "type": "string"
           },
           {
@@ -1074,11 +1052,33 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ValueRange"
-            }
+            "description": "Determines how values in the response should be rendered.\nThe default render option is ValueRenderOption.FORMATTED_VALUE.",
+            "enum": [
+              "FORMATTED_VALUE",
+              "UNFORMATTED_VALUE",
+              "FORMULA"
+            ],
+            "in": "query",
+            "name": "responseValueRenderOption",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the spreadsheet to update.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "How the input data should be interpreted.",
+            "enum": [
+              "INPUT_VALUE_OPTION_UNSPECIFIED",
+              "RAW",
+              "USER_ENTERED"
+            ],
+            "in": "query",
+            "name": "valueInputOption",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1123,40 +1123,40 @@
     "/v4/spreadsheets/{spreadsheetId}/values/{range}:clear": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -1167,11 +1167,11 @@
         "operationId": "spreadsheets.values.clear",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet to update.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ClearValuesRequest"
+            }
           },
           {
             "description": "The A1 notation of the values to clear.",
@@ -1181,11 +1181,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ClearValuesRequest"
-            }
+            "description": "The ID of the spreadsheet to update.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1230,40 +1230,40 @@
     "/v4/spreadsheets/{spreadsheetId}/values:batchClear": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -1274,18 +1274,18 @@
         "operationId": "spreadsheets.values.batchClear",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet to update.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BatchClearValuesRequest"
             }
+          },
+          {
+            "description": "The ID of the spreadsheet to update.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1433,6 +1433,37 @@
         "operationId": "spreadsheets.values.batchGet",
         "parameters": [
           {
+            "description": "How dates, times, and durations should be represented in the output.\nThis is ignored if value_render_option is\nFORMATTED_VALUE.\nThe default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].",
+            "enum": [
+              "SERIAL_NUMBER",
+              "FORMATTED_STRING"
+            ],
+            "in": "query",
+            "name": "dateTimeRenderOption",
+            "type": "string"
+          },
+          {
+            "description": "The major dimension that results should use.\n\nFor example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,\nthen requesting `range=A1:B2,majorDimension=ROWS` will return\n`[[1,2],[3,4]]`,\nwhereas requesting `range=A1:B2,majorDimension=COLUMNS` will return\n`[[1,3],[2,4]]`.",
+            "enum": [
+              "DIMENSION_UNSPECIFIED",
+              "ROWS",
+              "COLUMNS"
+            ],
+            "in": "query",
+            "name": "majorDimension",
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The A1 notation of the values to retrieve.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "ranges",
+            "type": "array"
+          },
+          {
             "description": "The ID of the spreadsheet to retrieve data from.",
             "in": "path",
             "name": "spreadsheetId",
@@ -1448,37 +1479,6 @@
             ],
             "in": "query",
             "name": "valueRenderOption",
-            "type": "string"
-          },
-          {
-            "description": "How dates, times, and durations should be represented in the output.\nThis is ignored if value_render_option is\nFORMATTED_VALUE.\nThe default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].",
-            "enum": [
-              "SERIAL_NUMBER",
-              "FORMATTED_STRING"
-            ],
-            "in": "query",
-            "name": "dateTimeRenderOption",
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "The A1 notation of the values to retrieve.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "ranges",
-            "type": "array"
-          },
-          {
-            "description": "The major dimension that results should use.\n\nFor example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,\nthen requesting `range=A1:B2,majorDimension=ROWS` will return\n`[[1,2],[3,4]]`,\nwhereas requesting `range=A1:B2,majorDimension=COLUMNS` will return\n`[[1,3],[2,4]]`.",
-            "enum": [
-              "DIMENSION_UNSPECIFIED",
-              "ROWS",
-              "COLUMNS"
-            ],
-            "in": "query",
-            "name": "majorDimension",
             "type": "string"
           }
         ],
@@ -1538,40 +1538,40 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -1681,40 +1681,40 @@
     "/v4/spreadsheets/{spreadsheetId}/values:batchUpdate": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -1725,18 +1725,18 @@
         "operationId": "spreadsheets.values.batchUpdate",
         "parameters": [
           {
-            "description": "The ID of the spreadsheet to update.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BatchUpdateValuesRequest"
             }
+          },
+          {
+            "description": "The ID of the spreadsheet to update.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1881,40 +1881,40 @@
     "/v4/spreadsheets/{spreadsheetId}:batchUpdate": {
       "parameters": [
         {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -1925,18 +1925,18 @@
         "operationId": "spreadsheets.batchUpdate",
         "parameters": [
           {
-            "description": "The spreadsheet to apply the updates to.",
-            "in": "path",
-            "name": "spreadsheetId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BatchUpdateSpreadsheetRequest"
             }
+          },
+          {
+            "description": "The spreadsheet to apply the updates to.",
+            "in": "path",
+            "name": "spreadsheetId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2399,6 +2399,10 @@
     "BasicChartSeries": {
       "description": "A single series of data in a chart.\nFor example, if charting stock prices over time, multiple series may exist,\none for the \"Open Price\", \"High Price\", \"Low Price\" and \"Close Price\".",
       "properties": {
+        "lineStyle": {
+          "$ref": "#/definitions/LineStyle",
+          "description": "The line style of this series. Valid only if the\nchartType is AREA,\nLINE, or SCATTER.\nCOMBO charts are also supported if the\nseries chart type is\nAREA or LINE."
+        },
         "series": {
           "$ref": "#/definitions/ChartData",
           "description": "The data being visualized in this chart series."
@@ -3351,6 +3355,10 @@
         "titleTextPosition": {
           "$ref": "#/definitions/TextPosition",
           "description": "The title text position.\nThis field is optional."
+        },
+        "waterfallChart": {
+          "$ref": "#/definitions/WaterfallChartSpec",
+          "description": "A waterfall chart specification."
         }
       },
       "type": "object"
@@ -4420,6 +4428,27 @@
       },
       "type": "object"
     },
+    "HistogramRule": {
+      "description": "Allows you to organize the numeric values in a source data column into\nbuckets of a constant size. All values from HistogramRule.start to\nHistogramRule.end will be placed into groups of size\nHistogramRule.interval. In addition, all values below\nHistogramRule.start will be placed in one group, and all values above\nHistogramRule.end will be placed in another. Only\nHistogramRule.interval is required, though if HistogramRule.start\nand HistogramRule.end are both provided, HistogramRule.start must\nbe less than HistogramRule.end. For example, a pivot table showing\naverage purchase amount by age that has 50+ rows:\n\n    +-----+-------------------+\n    | Age | AVERAGE of Amount |\n    +-----+-------------------+\n    | 16  |            $27.13 |\n    | 17  |             $5.24 |\n    | 18  |            $20.15 |\n    ...\n    +-----+-------------------+\ncould be turned into a pivot table that looks like the one below by\napplying a histogram group rule with a HistogramRule.start of 25,\nan HistogramRule.interval of 20, and an HistogramRule.end\nof 65.\n\n    +-------------+-------------------+\n    | Grouped Age | AVERAGE of Amount |\n    +-------------+-------------------+\n    | < 25        |            $19.34 |\n    | 25-45       |            $31.43 |\n    | 45-65       |            $35.87 |\n    | > 65        |            $27.55 |\n    +-------------+-------------------+\n    | Grand Total |            $29.12 |\n    +-------------+-------------------+",
+      "properties": {
+        "end": {
+          "description": "Optional. The maximum value at which items will be placed into buckets\nof constant size. Values above end will be lumped into a single bucket.",
+          "format": "double",
+          "type": "number"
+        },
+        "interval": {
+          "description": "Required. The size of the buckets that will be created. Must be positive.",
+          "format": "double",
+          "type": "number"
+        },
+        "start": {
+          "description": "Optional. The minimum value at which items will be placed into buckets\nof constant size. Values below start will be lumped into a single bucket.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "HistogramSeries": {
       "description": "A histogram series containing the series color and data.",
       "properties": {
@@ -4505,6 +4534,62 @@
           "description": "When iterative calculation is enabled, the maximum number of calculation\nrounds to perform.",
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "LineStyle": {
+      "description": "Properties that describe the style of a line.",
+      "properties": {
+        "type": {
+          "description": "The dash type of the line.",
+          "enum": [
+            "LINE_DASH_TYPE_UNSPECIFIED",
+            "INVISIBLE",
+            "CUSTOM",
+            "SOLID",
+            "DOTTED",
+            "MEDIUM_DASHED",
+            "MEDIUM_DASHED_DOTTED",
+            "LONG_DASHED",
+            "LONG_DASHED_DOTTED"
+          ],
+          "type": "string"
+        },
+        "width": {
+          "description": "The thickness of the line, in px.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ManualRule": {
+      "description": "Allows you to manually organize the values in a source data column into\nbuckets with names of your choosing. For example, a pivot table that\naggregates population by state:\n\n    +-------+-------------------+\n    | State | SUM of Population |\n    +-------+-------------------+\n    | AK    |               0.7 |\n    | AL    |               4.8 |\n    | AR    |               2.9 |\n    ...\n    +-------+-------------------+\ncould be turned into a pivot table that aggregates population by time zone\nby providing a list of groups (e.g. groupName = 'Central',\nitems = ['AL', 'AR', 'IA', ...]) to a manual group rule.\nNote that a similar effect could be achieved by adding a time zone column\nto the source data and adjusting the pivot table.\n\n    +-----------+-------------------+\n    | Time Zone | SUM of Population |\n    +-----------+-------------------+\n    | Central   |             106.3 |\n    | Eastern   |             151.9 |\n    | Mountain  |              17.4 |\n    ...\n    +-----------+-------------------+",
+      "properties": {
+        "groups": {
+          "description": "The list of group names and the corresponding items from the source data\nthat map to each group name.",
+          "items": {
+            "$ref": "#/definitions/ManualRuleGroup"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ManualRuleGroup": {
+      "description": "A group name and a list of items from the source data that should be placed\nin the group with this name.",
+      "properties": {
+        "groupName": {
+          "$ref": "#/definitions/ExtendedValue",
+          "description": "The group name, which must be a string. Each group in a given\nManualRule must have a unique group name."
+        },
+        "items": {
+          "description": "The items in the source data that should be placed into this group. Each\nitem may be a string, number, or boolean. Items may appear in at most one\ngroup within a given ManualRule. Items that do not appear in any\ngroup will appear on their own.",
+          "items": {
+            "$ref": "#/definitions/ExtendedValue"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4799,6 +4884,18 @@
     "PivotGroup": {
       "description": "A single grouping (either row or column) in a pivot table.",
       "properties": {
+        "groupRule": {
+          "$ref": "#/definitions/PivotGroupRule",
+          "description": "The group rule to apply to this row/column group."
+        },
+        "label": {
+          "description": "The labels to use for the row/column groups which can be customized. For\nexample, in the following pivot table, the row label is `Region` (which\ncould be renamed to `State`) and the column label is `Product` (which\ncould be renamed `Item`). Pivot tables created before December 2017 do\nnot have header labels. If you'd like to add header labels to an existing\npivot table, please delete the existing pivot table and then create a new\npivot table with same parameters.\n\n    +--------------+---------+-------+\n    | SUM of Units | Product |       |\n    | Region       | Pen     | Paper |\n    +--------------+---------+-------+\n    | New York     |     345 |    98 |\n    | Oregon       |     234 |   123 |\n    | Tennessee    |     531 |   415 |\n    +--------------+---------+-------+\n    | Grand Total  |    1110 |   636 |\n    +--------------+---------+-------+",
+          "type": "string"
+        },
+        "repeatHeadings": {
+          "description": "True if the headings in this pivot group should be repeated.\nThis is only valid for row groupings and will be ignored by columns.\n\nBy default, we minimize repitition of headings by not showing higher\nlevel headings where they are the same. For example, even though the\nthird row below corresponds to \"Q1 Mar\", \"Q1\" is not shown because\nit is redundant with previous rows. Setting repeat_headings to true\nwould cause \"Q1\" to be repeated for \"Feb\" and \"Mar\".\n\n    +--------------+\n    | Q1     | Jan |\n    |        | Feb |\n    |        | Mar |\n    +--------+-----+\n    | Q1 Total     |\n    +--------------+",
+          "type": "boolean"
+        },
         "showTotals": {
           "description": "True if the pivot table should include the totals for this grouping.",
           "type": "boolean"
@@ -4827,6 +4924,20 @@
             "$ref": "#/definitions/PivotGroupValueMetadata"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "PivotGroupRule": {
+      "description": "An optional setting on a PivotGroup that defines buckets for the values\nin the source data column rather than breaking out each individual value.\nOnly one PivotGroup with a group rule may be added for each column in\nthe source data, though on any given column you may add both a\nPivotGroup that has a rule and a PivotGroup that does not.",
+      "properties": {
+        "histogramRule": {
+          "$ref": "#/definitions/HistogramRule",
+          "description": "A HistogramRule."
+        },
+        "manualRule": {
+          "$ref": "#/definitions/ManualRule",
+          "description": "A ManualRule."
         }
       },
       "type": "object"
@@ -4912,6 +5023,16 @@
     "PivotValue": {
       "description": "The definition of how a value in a pivot table should be calculated.",
       "properties": {
+        "calculatedDisplayType": {
+          "description": "If specified, indicates that pivot values should be displayed as\nthe result of a calculation with another pivot value. For example, if\ncalculated_display_type is specified as PERCENT_OF_GRAND_TOTAL, all the\npivot values will be displayed as the percentage of the grand total. In\nthe Sheets UI, this is referred to as \"Show As\" in the value section of a\npivot table.",
+          "enum": [
+            "PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED",
+            "PERCENT_OF_ROW_TOTAL",
+            "PERCENT_OF_COLUMN_TOTAL",
+            "PERCENT_OF_GRAND_TOTAL"
+          ],
+          "type": "string"
+        },
         "formula": {
           "description": "A custom formula to calculate the value.  The formula must start\nwith an `=` character.",
           "type": "string"
@@ -5714,7 +5835,8 @@
             "SEMICOLON",
             "PERIOD",
             "SPACE",
-            "CUSTOM"
+            "CUSTOM",
+            "AUTODETECT"
           ],
           "type": "string"
         },
@@ -6122,6 +6244,124 @@
             "type": "array"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "WaterfallChartColumnStyle": {
+      "description": "Styles for a waterfall chart column.",
+      "properties": {
+        "color": {
+          "$ref": "#/definitions/Color",
+          "description": "The color of the column."
+        },
+        "label": {
+          "description": "The label of the column's legend.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WaterfallChartCustomSubtotal": {
+      "description": "A custom subtotal column for a waterfall chart series.",
+      "properties": {
+        "dataIsSubtotal": {
+          "description": "True if the data point at subtotal_index is the subtotal. If false,\nthe subtotal will be computed and appear after the data point.",
+          "type": "boolean"
+        },
+        "label": {
+          "description": "A label for the subtotal column.",
+          "type": "string"
+        },
+        "subtotalIndex": {
+          "description": "The 0-based index of a data point within the series. If\ndata_is_subtotal is true, the data point at this index is the\nsubtotal. Otherwise, the subtotal appears after the data point with\nthis index. A series can have multiple subtotals at arbitrary indices,\nbut subtotals do not affect the indices of the data points. For\nexample, if a series has 3 data points, their indices will always be 0,\n1, and 2, regardless of how many subtotals exist on the series or what\ndata points they are associated with.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "WaterfallChartDomain": {
+      "description": "The domain of a waterfall chart.",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ChartData",
+          "description": "The data of the WaterfallChartDomain."
+        },
+        "reversed": {
+          "description": "True to reverse the order of the domain values (horizontal axis).",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "WaterfallChartSeries": {
+      "description": "A single series of data for a waterfall chart.",
+      "properties": {
+        "customSubtotals": {
+          "description": "Custom subtotal columns appearing in this series. The order in which\nsubtotals are defined is not significant. Only one subtotal may be\ndefined for each data point.",
+          "items": {
+            "$ref": "#/definitions/WaterfallChartCustomSubtotal"
+          },
+          "type": "array"
+        },
+        "data": {
+          "$ref": "#/definitions/ChartData",
+          "description": "The data being visualized in this series."
+        },
+        "hideTrailingSubtotal": {
+          "description": "True to hide the subtotal column from the end of the series. By default,\na subtotal column will appear at the end of each series. Setting this\nfield to true will hide that subtotal column for this series.",
+          "type": "boolean"
+        },
+        "negativeColumnsStyle": {
+          "$ref": "#/definitions/WaterfallChartColumnStyle",
+          "description": "Styles for all columns in this series with negative values."
+        },
+        "positiveColumnsStyle": {
+          "$ref": "#/definitions/WaterfallChartColumnStyle",
+          "description": "Styles for all columns in this series with positive values."
+        },
+        "subtotalColumnsStyle": {
+          "$ref": "#/definitions/WaterfallChartColumnStyle",
+          "description": "Styles for all subtotal columns in this series."
+        }
+      },
+      "type": "object"
+    },
+    "WaterfallChartSpec": {
+      "description": "A waterfall chart.",
+      "properties": {
+        "connectorLineStyle": {
+          "$ref": "#/definitions/LineStyle",
+          "description": "The line style for the connector lines."
+        },
+        "domain": {
+          "$ref": "#/definitions/WaterfallChartDomain",
+          "description": "The domain data (horizontal axis) for the waterfall chart."
+        },
+        "firstValueIsTotal": {
+          "description": "True to interpret the first value as a total.",
+          "type": "boolean"
+        },
+        "hideConnectorLines": {
+          "description": "True to hide connector lines between columns.",
+          "type": "boolean"
+        },
+        "series": {
+          "description": "The data this waterfall chart is visualizing.",
+          "items": {
+            "$ref": "#/definitions/WaterfallChartSeries"
+          },
+          "type": "array"
+        },
+        "stackedType": {
+          "description": "The stacked type.",
+          "enum": [
+            "WATERFALL_STACKED_TYPE_UNSPECIFIED",
+            "STACKED",
+            "SEQUENTIAL"
+          ],
+          "type": "string"
         }
       },
       "type": "object"

@@ -560,7 +560,7 @@ amazonaws_opsworks_cm.UpdateServerEngineAttributes({
 * NodeAssociationStatusToken `string`
 
 ### NodeName
-* NodeName `string`: The node name that is used by <code>chef-client</code> for a new node. For more information, see the <a href="http://docs.aws.amazon.com/https:/docs.chef.io/nodes.html#about-node-names">Chef Documentation</a>. 
+* NodeName `string`: The node name that is used by <code>chef-client</code> or <code>puppet-agent</code>for a new node. We recommend to use a unique FQDN as hostname. For more information, see the <a href="http://docs.aws.amazon.com/https:/docs.chef.io/nodes.html#about-node-names">Chef</a> or <a href="http://docs.aws.amazon.com/https:/docs.puppet.com/puppet/4.10/man/agent.html">Puppet</a> documentation. 
 
 ### ResourceAlreadyExistsException
 * ResourceAlreadyExistsException `object`: The requested resource cannot be created because it already exists. 

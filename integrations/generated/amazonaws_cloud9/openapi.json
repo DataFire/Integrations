@@ -14,7 +14,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>AWS Cloud9</fullname> <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p> <p>In the background, these tools are available through development environments running on Amazon Elastic Compute Cloud (Amazon EC2) instances (known as <i>Amazon EC2 environments</i>), your own servers (known as <i>SSH environments</i>), or a combination. This enables you to create and switch between multiple environments, with each environment set up for a specific development project.</p> <p>For more information about AWS Cloud9, see the <i>AWS Cloud9 User Guide</i>.</p> <p>AWS Cloud9 supports these operations:</p> <ul> <li> <p> <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then hosts the environment on the instance.</p> </li> <li> <p> <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p> </li> <li> <p> <code>DeleteEnvironment</code>: Deletes an environment. If the environment is hosted on an Amazon EC2 instance, also terminates the instance.</p> </li> <li> <p> <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p> </li> <li> <p> <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p> </li> <li> <p> <code>DescribeEnvironments</code>: Gets information about environments.</p> </li> <li> <p> <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p> </li> <li> <p> <code>ListEnvironments</code>: Gets a list of environment identifiers.</p> </li> <li> <p> <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p> </li> <li> <p> <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p> </li> </ul>",
+    "description": "<fullname>AWS Cloud9</fullname> <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p> <p>For more information about AWS Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">AWS Cloud9 User Guide</a>.</p> <p>AWS Cloud9 supports these operations:</p> <ul> <li> <p> <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p> </li> <li> <p> <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p> </li> <li> <p> <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> </li> <li> <p> <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p> </li> <li> <p> <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p> </li> <li> <p> <code>DescribeEnvironments</code>: Gets information about environments.</p> </li> <li> <p> <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p> </li> <li> <p> <code>ListEnvironments</code>: Gets a list of environment identifiers.</p> </li> <li> <p> <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p> </li> <li> <p> <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p> </li> </ul>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -164,7 +164,7 @@
         }
       ],
       "post": {
-        "description": "Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the instance.",
+        "description": "Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.",
         "operationId": "CreateEnvironmentEC2",
         "parameters": [
           {
@@ -354,7 +354,7 @@
         }
       ],
       "post": {
-        "description": "Deletes an AWS Cloud9 development environment. If the environment is hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance, also terminates the instance.",
+        "description": "Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.",
         "operationId": "DeleteEnvironment",
         "parameters": [
           {
@@ -1140,6 +1140,14 @@
       "type": "object"
     },
     "CreateEnvironmentEC2Request": {
+      "example": {
+        "automaticStopTimeMinutes": 60,
+        "description": "This is my demonstration environment.",
+        "instanceType": "t2.micro",
+        "name": "my-demo-environment",
+        "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+        "subnetId": "subnet-1fab8aEX"
+      },
       "properties": {
         "automaticStopTimeMinutes": {
           "$ref": "#/definitions/AutomaticStopTimeMinutes",
@@ -1155,7 +1163,7 @@
         },
         "instanceType": {
           "$ref": "#/definitions/InstanceType",
-          "description": "The type of instance to host the environment on (for example, <code>t2.micro</code>)."
+          "description": "The type of instance to connect to the environment (for example, <code>t2.micro</code>)."
         },
         "name": {
           "$ref": "#/definitions/EnvironmentName",
@@ -1177,6 +1185,9 @@
       "type": "object"
     },
     "CreateEnvironmentEC2Result": {
+      "example": {
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1186,6 +1197,11 @@
       "type": "object"
     },
     "CreateEnvironmentMembershipRequest": {
+      "example": {
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+        "permissions": "read-write",
+        "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1208,6 +1224,14 @@
       "type": "object"
     },
     "CreateEnvironmentMembershipResult": {
+      "example": {
+        "membership": {
+          "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+          "permissions": "read-write",
+          "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
+          "userId": "AIDAJ3BA6O2FMJWCWXHEX"
+        }
+      },
       "properties": {
         "membership": {
           "$ref": "#/definitions/EnvironmentMember",
@@ -1217,6 +1241,10 @@
       "type": "object"
     },
     "DeleteEnvironmentMembershipRequest": {
+      "example": {
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+        "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1234,10 +1262,14 @@
       "type": "object"
     },
     "DeleteEnvironmentMembershipResult": {
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "DeleteEnvironmentRequest": {
+      "example": {
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1250,10 +1282,14 @@
       "type": "object"
     },
     "DeleteEnvironmentResult": {
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "DescribeEnvironmentMembershipsRequest": {
+      "example": {
+        "userArn": "arn:aws:iam::123456789012:user/MyDemoUser"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1279,6 +1315,24 @@
       "type": "object"
     },
     "DescribeEnvironmentMembershipsResult": {
+      "example": {
+        "memberships": [
+          {
+            "environmentId": "10a75714bd494714929e7f5ec4125aEX",
+            "lastAccess": "2018-01-19T11:06:13Z",
+            "permissions": "owner",
+            "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+            "userId": "AIDAJNUEDQAQWFELJDLEX"
+          },
+          {
+            "environmentId": "12bfc3cd537f41cb9776f8af5525c9EX",
+            "lastAccess": "2018-01-19T11:39:19Z",
+            "permissions": "owner",
+            "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+            "userId": "AIDAJNUEDQAQWFELJDLEX"
+          }
+        ]
+      },
       "properties": {
         "memberships": {
           "$ref": "#/definitions/EnvironmentMembersList",
@@ -1292,6 +1346,9 @@
       "type": "object"
     },
     "DescribeEnvironmentStatusRequest": {
+      "example": {
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1304,6 +1361,10 @@
       "type": "object"
     },
     "DescribeEnvironmentStatusResult": {
+      "example": {
+        "message": "Environment is ready to use",
+        "status": "ready"
+      },
       "properties": {
         "message": {
           "$ref": "#/definitions/String",
@@ -1317,10 +1378,16 @@
       "type": "object"
     },
     "DescribeEnvironmentsRequest": {
+      "example": {
+        "environmentIds": [
+          "8d9967e2f0624182b74e7690ad69ebEX",
+          "349c86d4579e4e7298d500ff57a6b2EX"
+        ]
+      },
       "properties": {
         "environmentIds": {
           "$ref": "#/definitions/BoundedEnvironmentIdList",
-          "description": "The IDs of invidividual environments to get information about."
+          "description": "The IDs of individual environments to get information about."
         }
       },
       "required": [
@@ -1329,6 +1396,25 @@
       "type": "object"
     },
     "DescribeEnvironmentsResult": {
+      "example": {
+        "environments": [
+          {
+            "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:8d9967e2f0624182b74e7690ad69ebEX",
+            "description": "This is my demonstration environment.",
+            "id": "8d9967e2f0624182b74e7690ad69ebEX",
+            "name": "my-demo-environment",
+            "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+            "type": "ec2"
+          },
+          {
+            "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:349c86d4579e4e7298d500ff57a6b2EX",
+            "id": "349c86d4579e4e7298d500ff57a6b2EX",
+            "name": "another-demo-environment",
+            "ownerArn": "arn:aws:sts::123456789012:assumed-role/AnotherDemoUser/AnotherDemoUser",
+            "type": "ssh"
+          }
+        ]
+      },
       "properties": {
         "environments": {
           "$ref": "#/definitions/EnvironmentList",
@@ -1362,7 +1448,7 @@
         },
         "type": {
           "$ref": "#/definitions/EnvironmentType",
-          "description": "<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An environment hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance.</p> </li> <li> <p> <code>ssh</code>: An environment hosted on your own server.</p> </li> </ul>"
+          "description": "<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>"
         }
       },
       "type": "object"
@@ -1465,6 +1551,7 @@
       "type": "object"
     },
     "ListEnvironmentsRequest": {
+      "example": {},
       "properties": {
         "maxResults": {
           "$ref": "#/definitions/MaxResults",
@@ -1478,6 +1565,12 @@
       "type": "object"
     },
     "ListEnvironmentsResult": {
+      "example": {
+        "environmentIds": [
+          "349c86d4579e4e7298d500ff57a6b2EX",
+          "45a3da47af0840f2b0c0824f5ee232EX"
+        ]
+      },
       "properties": {
         "environmentIds": {
           "$ref": "#/definitions/EnvironmentIdList",
@@ -1539,6 +1632,11 @@
       "type": "object"
     },
     "UpdateEnvironmentMembershipRequest": {
+      "example": {
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+        "permissions": "read-only",
+        "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+      },
       "properties": {
         "environmentId": {
           "$ref": "#/definitions/EnvironmentId",
@@ -1561,6 +1659,14 @@
       "type": "object"
     },
     "UpdateEnvironmentMembershipResult": {
+      "example": {
+        "membership": {
+          "environmentId": "8d9967e2f0624182b74e7690ad69eb31",
+          "permissions": "read-only",
+          "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
+          "userId": "AIDAJ3BA6O2FMJWCWXHEX"
+        }
+      },
       "properties": {
         "membership": {
           "$ref": "#/definitions/EnvironmentMember",
@@ -1570,6 +1676,11 @@
       "type": "object"
     },
     "UpdateEnvironmentRequest": {
+      "example": {
+        "description": "This is my changed demonstration environment.",
+        "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+        "name": "my-changed-demo-environment"
+      },
       "properties": {
         "description": {
           "$ref": "#/definitions/EnvironmentDescription",
@@ -1581,7 +1692,7 @@
         },
         "name": {
           "$ref": "#/definitions/EnvironmentName",
-          "description": "Any replacement name for the environment."
+          "description": "A replacement name for the environment."
         }
       },
       "required": [
@@ -1590,6 +1701,7 @@
       "type": "object"
     },
     "UpdateEnvironmentResult": {
+      "example": {},
       "properties": {},
       "type": "object"
     },

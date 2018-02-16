@@ -1,8 +1,8 @@
 {
   "name": "@datafire/voodoomfg",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Voodoo Manufacturing",
+  "description": "DataFire integration for Voodoo Manufacturing 3D Print",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

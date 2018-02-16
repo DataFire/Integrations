@@ -897,8 +897,8 @@
       "required": [
         "PermFeatureNmbr",
         "PermFeatureTypeCode",
-        "PermFeatureTypeDesc",
-        "Parameters"
+        "Parameters",
+        "PermFeatureTypeDesc"
       ],
       "type": "object"
     },

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_a4b",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Alexa For Business",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/a4b/2017-11-09/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/alexaforbusiness/2017-11-09/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -340,6 +340,23 @@ amazonaws_organizations.DetachPolicy({
 #### Output
 *Output schema unknown*
 
+### DisableAWSServiceAccess
+
+
+
+```js
+amazonaws_organizations.DisableAWSServiceAccess({
+  "ServicePrincipal": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServicePrincipal **required** [ServicePrincipal](#serviceprincipal)
+
+#### Output
+*Output schema unknown*
+
 ### DisablePolicyType
 
 
@@ -358,6 +375,23 @@ amazonaws_organizations.DisablePolicyType({
 
 #### Output
 * output [DisablePolicyTypeResponse](#disablepolicytyperesponse)
+
+### EnableAWSServiceAccess
+
+
+
+```js
+amazonaws_organizations.EnableAWSServiceAccess({
+  "ServicePrincipal": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServicePrincipal **required** [ServicePrincipal](#serviceprincipal)
+
+#### Output
+*Output schema unknown*
 
 ### EnableAllFeatures
 
@@ -426,6 +460,24 @@ amazonaws_organizations.LeaveOrganization({}, context)
 
 #### Output
 *Output schema unknown*
+
+### ListAWSServiceAccessForOrganization
+
+
+
+```js
+amazonaws_organizations.ListAWSServiceAccessForOrganization({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+#### Output
+* output [ListAWSServiceAccessForOrganizationResponse](#listawsserviceaccessfororganizationresponse)
 
 ### ListAccounts
 
@@ -855,12 +907,12 @@ amazonaws_organizations.UpdatePolicy({
   * Message [ExceptionMessage](#exceptionmessage)
 
 ### ConstraintViolationException
-* ConstraintViolationException `object`: <p>Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last SCP from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit.</p> <note> <p>Some of the reasons in the following list might not be applicable to this specific API or operation:</p> </note> <p/> <ul> <li> <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. If you need more accounts, contact AWS Support to request an increase in your limit. </p> <p>Or, The number of invitations that you tried to send would cause you to exceed the limit of accounts in your organization. Send fewer invitations, or contact AWS Support to request an increase in the number of accounts.</p> <p> <b>Note</b>: deleted and closed accounts still count toward your limit.</p> <important> <p>If you get an exception that indicates that you exceeded your account limits for the organization or that you can"t add an account because your organization is still initializing, please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer Support</a>.</p> </important> </li> <li> <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.</p> </li> <li> <p>OU_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of organizational units you can have in an organization.</p> </li> <li> <p>OU_DEPTH_LIMIT_EXCEEDED: You attempted to create an organizational unit tree that is too many levels deep.</p> </li> <li> <p>POLICY_NUMBER_LIMIT_EXCEEDED. You attempted to exceed the number of policies that you can have in an organization.</p> </li> <li> <p>MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to exceed the number of policies of a certain type that can be attached to an entity at one time.</p> </li> <li> <p>MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy from an entity that would cause the entity to have fewer than the minimum number of policies of a certain type required.</p> </li> <li> <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account from the organization that does not yet have enough information to exist as a stand-alone account. This account requires you to first agree to the AWS Customer Agreement. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove an account from the organization that does not yet have enough information to exist as a stand-alone account. This account requires you to first complete phone verification. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with this member account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of accounts that you can create in one day.</p> </li> <li> <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization, you first must migrate the organization's master account to the marketplace that corresponds to the master account's address. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be associated with the same marketplace.</p> </li> <li> <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide contact a valid address and phone number for the master account. Then try the operation again.</p> </li> </ul>
+* ConstraintViolationException `object`: <p>Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last SCP from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit:</p> <p/> <note> <p>Some of the reasons in the following list might not be applicable to this specific API or operation:</p> </note> <ul> <li> <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. If you need more accounts, contact AWS Support to request an increase in your limit. </p> <p>Or, The number of invitations that you tried to send would cause you to exceed the limit of accounts in your organization. Send fewer invitations, or contact AWS Support to request an increase in the number of accounts.</p> <p> <b>Note</b>: deleted and closed accounts still count toward your limit.</p> <important> <p>If you get an exception that indicates that you exceeded your account limits for the organization or that you can"t add an account because your organization is still initializing, please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer Support</a>.</p> </important> </li> <li> <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.</p> </li> <li> <p>OU_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of organizational units you can have in an organization.</p> </li> <li> <p>OU_DEPTH_LIMIT_EXCEEDED: You attempted to create an organizational unit tree that is too many levels deep.</p> </li> <li> <p>POLICY_NUMBER_LIMIT_EXCEEDED. You attempted to exceed the number of policies that you can have in an organization.</p> </li> <li> <p>MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to exceed the number of policies of a certain type that can be attached to an entity at one time.</p> </li> <li> <p>MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy from an entity that would cause the entity to have fewer than the minimum number of policies of a certain type required.</p> </li> <li> <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account from the organization that does not yet have enough information to exist as a stand-alone account. This account requires you to first agree to the AWS Customer Agreement. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove an account from the organization that does not yet have enough information to exist as a stand-alone account. This account requires you to first complete phone verification. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with this member account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet been provided</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of accounts that you can create in one day.</p> </li> <li> <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization, you first must migrate the organization's master account to the marketplace that corresponds to the master account's address. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be associated with the same marketplace.</p> </li> <li> <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide contact a valid address and phone number for the master account. Then try the operation again.</p> </li> </ul>
   * Message [ExceptionMessage](#exceptionmessage)
   * Reason [ConstraintViolationExceptionReason](#constraintviolationexceptionreason)
 
 ### ConstraintViolationExceptionReason
-* ConstraintViolationExceptionReason `string` (values: ACCOUNT_NUMBER_LIMIT_EXCEEDED, HANDSHAKE_RATE_LIMIT_EXCEEDED, OU_NUMBER_LIMIT_EXCEEDED, OU_DEPTH_LIMIT_EXCEEDED, POLICY_NUMBER_LIMIT_EXCEEDED, MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED, MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED, ACCOUNT_CANNOT_LEAVE_ORGANIZATION, ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA, ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION, MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED, MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED, ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED, MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE, MASTER_ACCOUNT_MISSING_CONTACT_INFO)
+* ConstraintViolationExceptionReason `string` (values: ACCOUNT_NUMBER_LIMIT_EXCEEDED, HANDSHAKE_RATE_LIMIT_EXCEEDED, OU_NUMBER_LIMIT_EXCEEDED, OU_DEPTH_LIMIT_EXCEEDED, POLICY_NUMBER_LIMIT_EXCEEDED, MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED, MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED, ACCOUNT_CANNOT_LEAVE_ORGANIZATION, ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA, ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION, MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED, MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED, ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED, MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE, MASTER_ACCOUNT_MISSING_CONTACT_INFO, ORGANIZATION_NOT_IN_ALL_FEATURES_MODE)
 
 ### CreateAccountFailureReason
 * CreateAccountFailureReason `string` (values: ACCOUNT_LIMIT_EXCEEDED, EMAIL_ALREADY_EXISTS, INVALID_ADDRESS, INVALID_EMAIL, CONCURRENT_ACCOUNT_MODIFICATION, INTERNAL_FAILURE)
@@ -1001,6 +1053,10 @@ amazonaws_organizations.UpdatePolicy({
   * PolicyId **required** [PolicyId](#policyid)
   * TargetId **required** [PolicyTargetId](#policytargetid)
 
+### DisableAWSServiceAccessRequest
+* DisableAWSServiceAccessRequest `object`
+  * ServicePrincipal **required** [ServicePrincipal](#serviceprincipal)
+
 ### DisablePolicyTypeRequest
 * DisablePolicyTypeRequest `object`
   * PolicyType **required** [PolicyType](#policytype)
@@ -1033,6 +1089,10 @@ amazonaws_organizations.UpdatePolicy({
 ### Email
 * Email `string`
 
+### EnableAWSServiceAccessRequest
+* EnableAWSServiceAccessRequest `object`
+  * ServicePrincipal **required** [ServicePrincipal](#serviceprincipal)
+
 ### EnableAllFeaturesRequest
 * EnableAllFeaturesRequest `object`
 
@@ -1048,6 +1108,15 @@ amazonaws_organizations.UpdatePolicy({
 ### EnablePolicyTypeResponse
 * EnablePolicyTypeResponse `object`
   * Root [Root](#root)
+
+### EnabledServicePrincipal
+* EnabledServicePrincipal `object`: A structure that contains details of a service principal that is enabled to integrate with AWS Organizations.
+  * DateEnabled [Timestamp](#timestamp)
+  * ServicePrincipal [ServicePrincipal](#serviceprincipal)
+
+### EnabledServicePrincipals
+* EnabledServicePrincipals `array`
+  * items [EnabledServicePrincipal](#enabledserviceprincipal)
 
 ### ExceptionMessage
 * ExceptionMessage `string`
@@ -1081,7 +1150,7 @@ amazonaws_organizations.UpdatePolicy({
 * HandshakeArn `string`
 
 ### HandshakeConstraintViolationException
-* HandshakeConstraintViolationException `object`: <p>The requested operation would violate the constraint identified in the reason code.</p> <ul> <li> <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. <b>Note</b>: deleted and closed accounts still count toward your limit.</p> <important> <p>If you get an exception that indicates that you exceeded your account limits for the organization or that you can"t add an account because your organization is still initializing, please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer Support</a>.</p> </important> </li> <li> <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.</p> </li> <li> <p>ALREADY_IN_AN_ORGANIZATION: The handshake request is invalid because the invited account is already a member of an organization.</p> </li> <li> <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid because the organization has already enabled all features.</p> </li> <li> <p>INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: You cannot issue new invitations to join an organization while it is in the process of enabling all features. You can resume inviting accounts after you finalize the process when all accounts have agreed to the change.</p> </li> <li> <p>PAYMENT_INSTRUMENT_REQUIRED: You cannot complete the operation with an account that does not have a payment instrument, such as a credit card, associated with it.</p> </li> <li> <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account is from a different marketplace than the accounts in the organization. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be from the same marketplace.</p> </li> <li> <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change the membership of an account too quickly after its previous change.</p> </li> </ul>
+* HandshakeConstraintViolationException `object`: <p>The requested operation would violate the constraint identified in the reason code.</p> <note> <p>Some of the reasons in the following list might not be applicable to this specific API or operation:</p> </note> <ul> <li> <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. <b>Note</b>: deleted and closed accounts still count toward your limit.</p> <important> <p>If you get an exception that indicates that you exceeded your account limits for the organization or that you can"t add an account because your organization is still initializing, please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer Support</a>.</p> </important> </li> <li> <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.</p> </li> <li> <p>ALREADY_IN_AN_ORGANIZATION: The handshake request is invalid because the invited account is already a member of an organization.</p> </li> <li> <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid because the organization has already enabled all features.</p> </li> <li> <p>INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: You cannot issue new invitations to join an organization while it is in the process of enabling all features. You can resume inviting accounts after you finalize the process when all accounts have agreed to the change.</p> </li> <li> <p>PAYMENT_INSTRUMENT_REQUIRED: You cannot complete the operation with an account that does not have a payment instrument, such as a credit card, associated with it.</p> </li> <li> <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account is from a different marketplace than the accounts in the organization. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be from the same marketplace.</p> </li> <li> <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change the membership of an account too quickly after its previous change.</p> </li> </ul>
   * Message [ExceptionMessage](#exceptionmessage)
   * Reason [HandshakeConstraintViolationExceptionReason](#handshakeconstraintviolationexceptionreason)
 
@@ -1149,12 +1218,12 @@ amazonaws_organizations.UpdatePolicy({
   * Message [ExceptionMessage](#exceptionmessage)
 
 ### InvalidInputException
-* InvalidInputException `object`: <p>The requested operation failed because you provided invalid values for one or more of the request parameters. This exception includes a reason that contains additional information about the violated limit:</p> <ul> <li> <p>INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity (account, organization, or email) as a party.</p> </li> <li> <p>INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid ARN for the organization.</p> </li> <li> <p>INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID. </p> </li> <li> <p>INVALID_ENUM: You specified a value that is not valid for that parameter.</p> </li> <li> <p>INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid characters.</p> </li> <li> <p>INVALID_LIST_MEMBER: You provided a list to a parameter that contains at least one invalid value.</p> </li> <li> <p>MAX_LENGTH_EXCEEDED: You provided a string parameter that is longer than allowed.</p> </li> <li> <p>MAX_VALUE_EXCEEDED: You provided a numeric parameter that has a larger value than allowed.</p> </li> <li> <p>MIN_LENGTH_EXCEEDED: You provided a string parameter that is shorter than allowed.</p> </li> <li> <p>MIN_VALUE_EXCEEDED: You provided a numeric parameter that has a smaller value than allowed.</p> </li> <li> <p>IMMUTABLE_POLICY: You specified a policy that is managed by AWS and cannot be modified.</p> </li> <li> <p>INVALID_PATTERN: You provided a value that doesn't match the required pattern.</p> </li> <li> <p>INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match the required pattern.</p> </li> <li> <p>INPUT_REQUIRED: You must include a value for all required parameters.</p> </li> <li> <p>INVALID_PAGINATION_TOKEN: Get the value for the NextToken parameter from the response to a previous call of the operation.</p> </li> <li> <p>MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter for the operation.</p> </li> <li> <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between entities in the same root.</p> </li> </ul>
+* InvalidInputException `object`: <p>The requested operation failed because you provided invalid values for one or more of the request parameters. This exception includes a reason that contains additional information about the violated limit:</p> <note> <p>Some of the reasons in the following list might not be applicable to this specific API or operation:</p> </note> <ul> <li> <p>INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity (account, organization, or email) as a party.</p> </li> <li> <p>INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid ARN for the organization.</p> </li> <li> <p>INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID. </p> </li> <li> <p>INVALID_ENUM: You specified a value that is not valid for that parameter.</p> </li> <li> <p>INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid characters.</p> </li> <li> <p>INVALID_LIST_MEMBER: You provided a list to a parameter that contains at least one invalid value.</p> </li> <li> <p>MAX_LENGTH_EXCEEDED: You provided a string parameter that is longer than allowed.</p> </li> <li> <p>MAX_VALUE_EXCEEDED: You provided a numeric parameter that has a larger value than allowed.</p> </li> <li> <p>MIN_LENGTH_EXCEEDED: You provided a string parameter that is shorter than allowed.</p> </li> <li> <p>MIN_VALUE_EXCEEDED: You provided a numeric parameter that has a smaller value than allowed.</p> </li> <li> <p>IMMUTABLE_POLICY: You specified a policy that is managed by AWS and cannot be modified.</p> </li> <li> <p>INVALID_PATTERN: You provided a value that doesn't match the required pattern.</p> </li> <li> <p>INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match the required pattern.</p> </li> <li> <p>INPUT_REQUIRED: You must include a value for all required parameters.</p> </li> <li> <p>INVALID_PAGINATION_TOKEN: Get the value for the NextToken parameter from the response to a previous call of the operation.</p> </li> <li> <p>MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter for the operation.</p> </li> <li> <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between entities in the same root.</p> </li> </ul>
   * Message [ExceptionMessage](#exceptionmessage)
   * Reason [InvalidInputExceptionReason](#invalidinputexceptionreason)
 
 ### InvalidInputExceptionReason
-* InvalidInputExceptionReason `string` (values: INVALID_PARTY_TYPE_TARGET, INVALID_SYNTAX_ORGANIZATION_ARN, INVALID_SYNTAX_POLICY_ID, INVALID_ENUM, INVALID_LIST_MEMBER, MAX_LENGTH_EXCEEDED, MAX_VALUE_EXCEEDED, MIN_LENGTH_EXCEEDED, MIN_VALUE_EXCEEDED, IMMUTABLE_POLICY, INVALID_PATTERN, INVALID_PATTERN_TARGET_ID, INPUT_REQUIRED, INVALID_NEXT_TOKEN, MAX_LIMIT_EXCEEDED_FILTER, MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS, INVALID_FULL_NAME_TARGET)
+* InvalidInputExceptionReason `string` (values: INVALID_PARTY_TYPE_TARGET, INVALID_SYNTAX_ORGANIZATION_ARN, INVALID_SYNTAX_POLICY_ID, INVALID_ENUM, INVALID_LIST_MEMBER, MAX_LENGTH_EXCEEDED, MAX_VALUE_EXCEEDED, MIN_LENGTH_EXCEEDED, MIN_VALUE_EXCEEDED, IMMUTABLE_POLICY, INVALID_PATTERN, INVALID_PATTERN_TARGET_ID, INPUT_REQUIRED, INVALID_NEXT_TOKEN, MAX_LIMIT_EXCEEDED_FILTER, MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS, INVALID_FULL_NAME_TARGET, UNRECOGNIZED_SERVICE_PRINCIPAL)
 
 ### InviteAccountToOrganizationRequest
 * InviteAccountToOrganizationRequest `object`
@@ -1164,6 +1233,16 @@ amazonaws_organizations.UpdatePolicy({
 ### InviteAccountToOrganizationResponse
 * InviteAccountToOrganizationResponse `object`
   * Handshake [Handshake](#handshake)
+
+### ListAWSServiceAccessForOrganizationRequest
+* ListAWSServiceAccessForOrganizationRequest `object`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [NextToken](#nexttoken)
+
+### ListAWSServiceAccessForOrganizationResponse
+* ListAWSServiceAccessForOrganizationResponse `object`
+  * EnabledServicePrincipals [EnabledServicePrincipals](#enabledserviceprincipals)
+  * NextToken [NextToken](#nexttoken)
 
 ### ListAccountsForParentRequest
 * ListAccountsForParentRequest `object`
@@ -1506,6 +1585,9 @@ amazonaws_organizations.UpdatePolicy({
 ### ServiceException
 * ServiceException `object`: AWS Organizations can't complete your request because of an internal service error. Try again later.
   * Message [ExceptionMessage](#exceptionmessage)
+
+### ServicePrincipal
+* ServicePrincipal `string`
 
 ### SourceParentNotFoundException
 * SourceParentNotFoundException `object`: We can't find a source root or OU with the ParentId that you specified.

@@ -110,6 +110,28 @@ amazonaws_glue.BatchDeleteTable({
 #### Output
 * output [BatchDeleteTableResponse](#batchdeletetableresponse)
 
+### BatchDeleteTableVersion
+
+
+
+```js
+amazonaws_glue.BatchDeleteTableVersion({
+  "DatabaseName": "",
+  "TableName": "",
+  "VersionIds": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId [CatalogIdString](#catalogidstring)
+  * DatabaseName **required** [NameString](#namestring)
+  * TableName **required** [NameString](#namestring)
+  * VersionIds **required** [BatchDeleteTableVersionList](#batchdeletetableversionlist)
+
+#### Output
+* output [BatchDeleteTableVersionResponse](#batchdeletetableversionresponse)
+
 ### BatchGetPartition
 
 
@@ -162,6 +184,8 @@ amazonaws_glue.CreateClassifier({}, context)
 #### Input
 * input `object`
   * GrokClassifier [CreateGrokClassifierRequest](#creategrokclassifierrequest)
+  * JsonClassifier [CreateJsonClassifierRequest](#createjsonclassifierrequest)
+  * XMLClassifier [CreateXMLClassifierRequest](#createxmlclassifierrequest)
 
 #### Output
 * output [CreateClassifierResponse](#createclassifierresponse)
@@ -172,7 +196,11 @@ amazonaws_glue.CreateClassifier({}, context)
 
 ```js
 amazonaws_glue.CreateConnection({
-  "ConnectionInput": {}
+  "ConnectionInput": {
+    "Name": "",
+    "ConnectionType": "",
+    "ConnectionProperties": []
+  }
 }, context)
 ```
 
@@ -200,10 +228,11 @@ amazonaws_glue.CreateCrawler({
 #### Input
 * input `object`
   * Classifiers [ClassifierNameList](#classifiernamelist)
+  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
   * DatabaseName **required** [DatabaseName](#databasename)
   * Description [DescriptionString](#descriptionstring)
   * Name **required** [NameString](#namestring)
-  * Role **required** [RoleArn](#rolearn)
+  * Role **required** [Role](#role)
   * Schedule [CronExpression](#cronexpression)
   * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
   * TablePrefix [TablePrefix](#tableprefix)
@@ -320,6 +349,7 @@ amazonaws_glue.CreateScript({}, context)
 * input `object`
   * DagEdges [DagEdges](#dagedges)
   * DagNodes [DagNodes](#dagnodes)
+  * Language [Language](#language)
 
 #### Output
 * output [CreateScriptResponse](#createscriptresponse)
@@ -535,6 +565,28 @@ amazonaws_glue.DeleteTable({
 
 #### Output
 * output [DeleteTableResponse](#deletetableresponse)
+
+### DeleteTableVersion
+
+
+
+```js
+amazonaws_glue.DeleteTableVersion({
+  "DatabaseName": "",
+  "TableName": "",
+  "VersionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId [CatalogIdString](#catalogidstring)
+  * DatabaseName **required** [NameString](#namestring)
+  * TableName **required** [NameString](#namestring)
+  * VersionId **required** [VersionString](#versionstring)
+
+#### Output
+* output [DeleteTableVersionResponse](#deletetableversionresponse)
 
 ### DeleteTrigger
 
@@ -964,6 +1016,7 @@ amazonaws_glue.GetPlan({
 
 #### Input
 * input `object`
+  * Language [Language](#language)
   * Location [Location](#location)
   * Mapping **required** [MappingList](#mappinglist)
   * Sinks [CatalogEntries](#catalogentries)
@@ -991,6 +1044,27 @@ amazonaws_glue.GetTable({
 
 #### Output
 * output [GetTableResponse](#gettableresponse)
+
+### GetTableVersion
+
+
+
+```js
+amazonaws_glue.GetTableVersion({
+  "DatabaseName": "",
+  "TableName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId [CatalogIdString](#catalogidstring)
+  * DatabaseName **required** [NameString](#namestring)
+  * TableName **required** [NameString](#namestring)
+  * VersionId [VersionString](#versionstring)
+
+#### Output
+* output [GetTableVersionResponse](#gettableversionresponse)
 
 ### GetTableVersions
 
@@ -1284,6 +1358,8 @@ amazonaws_glue.UpdateClassifier({}, context)
 #### Input
 * input `object`
   * GrokClassifier [UpdateGrokClassifierRequest](#updategrokclassifierrequest)
+  * JsonClassifier [UpdateJsonClassifierRequest](#updatejsonclassifierrequest)
+  * XMLClassifier [UpdateXMLClassifierRequest](#updatexmlclassifierrequest)
 
 #### Output
 * output [UpdateClassifierResponse](#updateclassifierresponse)
@@ -1295,7 +1371,11 @@ amazonaws_glue.UpdateClassifier({}, context)
 ```js
 amazonaws_glue.UpdateConnection({
   "Name": "",
-  "ConnectionInput": {}
+  "ConnectionInput": {
+    "Name": "",
+    "ConnectionType": "",
+    "ConnectionProperties": []
+  }
 }, context)
 ```
 
@@ -1321,10 +1401,11 @@ amazonaws_glue.UpdateCrawler({
 #### Input
 * input `object`
   * Classifiers [ClassifierNameList](#classifiernamelist)
+  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
   * DatabaseName [DatabaseName](#databasename)
   * Description [DescriptionStringRemovable](#descriptionstringremovable)
   * Name **required** [NameString](#namestring)
-  * Role [RoleArn](#rolearn)
+  * Role [Role](#role)
   * Schedule [CronExpression](#cronexpression)
   * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
   * TablePrefix [TablePrefix](#tableprefix)
@@ -1453,6 +1534,7 @@ amazonaws_glue.UpdateTable({
 * input `object`
   * CatalogId [CatalogIdString](#catalogidstring)
   * DatabaseName **required** [NameString](#namestring)
+  * SkipArchive [BooleanNullable](#booleannullable)
   * TableInput **required** [TableInput](#tableinput)
 
 #### Output
@@ -1573,6 +1655,21 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * BatchDeleteTableResponse `object`
   * Errors [TableErrors](#tableerrors)
 
+### BatchDeleteTableVersionList
+* BatchDeleteTableVersionList `array`
+  * items [VersionString](#versionstring)
+
+### BatchDeleteTableVersionRequest
+* BatchDeleteTableVersionRequest `object`
+  * CatalogId [CatalogIdString](#catalogidstring)
+  * DatabaseName **required** [NameString](#namestring)
+  * TableName **required** [NameString](#namestring)
+  * VersionIds **required** [BatchDeleteTableVersionList](#batchdeletetableversionlist)
+
+### BatchDeleteTableVersionResponse
+* BatchDeleteTableVersionResponse `object`
+  * Errors [TableVersionErrors](#tableversionerrors)
+
 ### BatchGetPartitionRequest
 * BatchGetPartitionRequest `object`
   * CatalogId [CatalogIdString](#catalogidstring)
@@ -1590,7 +1687,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * items [PartitionValueList](#partitionvaluelist)
 
 ### BatchStopJobRunError
-* BatchStopJobRunError `object`: Details about the job run and the error that occurred while trying to submit it for stopping.
+* BatchStopJobRunError `object`: Records an error that occurred when attempting to stop a specified JobRun.
   * ErrorDetail [ErrorDetail](#errordetail)
   * JobName [NameString](#namestring)
   * JobRunId [IdString](#idstring)
@@ -1614,7 +1711,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * SuccessfulSubmissions [BatchStopJobRunSuccessfulSubmissionList](#batchstopjobrunsuccessfulsubmissionlist)
 
 ### BatchStopJobRunSuccessfulSubmission
-* BatchStopJobRunSuccessfulSubmission `object`: Details about the job run which is submitted successfully for stopping.
+* BatchStopJobRunSuccessfulSubmission `object`: Records a successful request to stop a specified JobRun.
   * JobName [NameString](#namestring)
   * JobRunId [IdString](#idstring)
 
@@ -1624,6 +1721,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Boolean
 * Boolean `boolean`
+
+### BooleanNullable
+* BooleanNullable `boolean`
 
 ### BooleanValue
 * BooleanValue `boolean`
@@ -1654,8 +1754,10 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * Classification `string`
 
 ### Classifier
-* Classifier `object`: Classifiers are written in Python and triggered during a Crawl Task. You can write your own Classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A Classifier first checks whether a given file is in a format it can handle, and then, if so, creates a schema in the form of a <code>StructType</code> object that matches that data format.
+* Classifier `object`: <p>Classifiers are written in Python and triggered during a crawl task. You can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier checks whether a given file is in a format it can handle, and if it is, the classifier creates a schema in the form of a <code>StructType</code> object that matches that data format.</p> <p>A classifier can be a <code>grok</code> classifier, an XML classifier, or a JSON classifier, asspecified in one of the fields in the <code>Classifier</code> object.</p>
   * GrokClassifier [GrokClassifier](#grokclassifier)
+  * JsonClassifier [JsonClassifier](#jsonclassifier)
+  * XMLClassifier [XMLClassifier](#xmlclassifier)
 
 ### ClassifierList
 * ClassifierList `array`
@@ -1755,11 +1857,11 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### ConnectionInput
 * ConnectionInput `object`: A structure used to specify a connection to create or update.
-  * ConnectionProperties [ConnectionProperties](#connectionproperties)
-  * ConnectionType [ConnectionType](#connectiontype)
+  * ConnectionProperties **required** [ConnectionProperties](#connectionproperties)
+  * ConnectionType **required** [ConnectionType](#connectiontype)
   * Description [DescriptionString](#descriptionstring)
   * MatchCriteria [MatchCriteria](#matchcriteria)
-  * Name [NameString](#namestring)
+  * Name **required** [NameString](#namestring)
   * PhysicalConnectionRequirements [PhysicalConnectionRequirements](#physicalconnectionrequirements)
 
 ### ConnectionList
@@ -1786,8 +1888,9 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Connections [StringList](#stringlist)
 
 ### Crawler
-* Crawler `object`: Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metatdata concerning the data source in the Data Catalog.
+* Crawler `object`: Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metadata concerning the data source in the AWS Glue Data Catalog.
   * Classifiers [ClassifierNameList](#classifiernamelist)
+  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
   * CrawlElapsedTime [MillisecondsCount](#millisecondscount)
   * CreationTime [Timestamp](#timestamp)
   * DatabaseName [DatabaseName](#databasename)
@@ -1795,13 +1898,16 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * LastCrawl [LastCrawlInfo](#lastcrawlinfo)
   * LastUpdated [Timestamp](#timestamp)
   * Name [NameString](#namestring)
-  * Role [RoleArn](#rolearn)
+  * Role [Role](#role)
   * Schedule [Schedule](#schedule)
   * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
   * State [CrawlerState](#crawlerstate)
   * TablePrefix [TablePrefix](#tableprefix)
   * Targets [CrawlerTargets](#crawlertargets)
   * Version [VersionId](#versionid)
+
+### CrawlerConfiguration
+* CrawlerConfiguration `string`
 
 ### CrawlerList
 * CrawlerList `array`
@@ -1842,13 +1948,15 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Message [MessageString](#messagestring)
 
 ### CrawlerTargets
-* CrawlerTargets `object`: Specifies crawler targets.
+* CrawlerTargets `object`: Specifies data stores to crawl.
   * JdbcTargets [JdbcTargetList](#jdbctargetlist)
   * S3Targets [S3TargetList](#s3targetlist)
 
 ### CreateClassifierRequest
 * CreateClassifierRequest `object`
   * GrokClassifier [CreateGrokClassifierRequest](#creategrokclassifierrequest)
+  * JsonClassifier [CreateJsonClassifierRequest](#createjsonclassifierrequest)
+  * XMLClassifier [CreateXMLClassifierRequest](#createxmlclassifierrequest)
 
 ### CreateClassifierResponse
 * CreateClassifierResponse `object`
@@ -1864,10 +1972,11 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### CreateCrawlerRequest
 * CreateCrawlerRequest `object`
   * Classifiers [ClassifierNameList](#classifiernamelist)
+  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
   * DatabaseName **required** [DatabaseName](#databasename)
   * Description [DescriptionString](#descriptionstring)
   * Name **required** [NameString](#namestring)
-  * Role **required** [RoleArn](#rolearn)
+  * Role **required** [Role](#role)
   * Schedule [CronExpression](#cronexpression)
   * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
   * TablePrefix [TablePrefix](#tableprefix)
@@ -1913,7 +2022,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * ZeppelinRemoteSparkInterpreterPort [IntegerValue](#integervalue)
 
 ### CreateGrokClassifierRequest
-* CreateGrokClassifierRequest `object`: Specifies a Grok classifier for CreateClassifier to create.
+* CreateGrokClassifierRequest `object`: Specifies a <code>grok</code> classifier for <code>CreateClassifier</code> to create.
   * Classification **required** [Classification](#classification)
   * CustomPatterns [CustomPatterns](#custompatterns)
   * GrokPattern **required** [GrokPattern](#grokpattern)
@@ -1936,6 +2045,11 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * CreateJobResponse `object`
   * Name [NameString](#namestring)
 
+### CreateJsonClassifierRequest
+* CreateJsonClassifierRequest `object`: Specifies a JSON classifier for <code>CreateClassifier</code> to create.
+  * JsonPath **required** [JsonPath](#jsonpath)
+  * Name **required** [NameString](#namestring)
+
 ### CreatePartitionRequest
 * CreatePartitionRequest `object`
   * CatalogId [CatalogIdString](#catalogidstring)
@@ -1950,10 +2064,12 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * CreateScriptRequest `object`
   * DagEdges [DagEdges](#dagedges)
   * DagNodes [DagNodes](#dagnodes)
+  * Language [Language](#language)
 
 ### CreateScriptResponse
 * CreateScriptResponse `object`
   * PythonScript [PythonScript](#pythonscript)
+  * ScalaCode [ScalaCode](#scalacode)
 
 ### CreateTableRequest
 * CreateTableRequest `object`
@@ -1986,6 +2102,12 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### CreateUserDefinedFunctionResponse
 * CreateUserDefinedFunctionResponse `object`
 
+### CreateXMLClassifierRequest
+* CreateXMLClassifierRequest `object`: Specifies an XML classifier for <code>CreateClassifier</code> to create.
+  * Classification **required** [Classification](#classification)
+  * Name **required** [NameString](#namestring)
+  * RowTag [RowTag](#rowtag)
+
 ### CronExpression
 * CronExpression `string`
 
@@ -2009,7 +2131,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Parameters [ParametersMap](#parametersmap)
 
 ### DatabaseInput
-* DatabaseInput `object`: The structure used to create or updata a database.
+* DatabaseInput `object`: The structure used to create or update a database.
   * Description [DescriptionString](#descriptionstring)
   * LocationUri [URI](#uri)
   * Name **required** [NameString](#namestring)
@@ -2092,6 +2214,16 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### DeleteTableResponse
 * DeleteTableResponse `object`
+
+### DeleteTableVersionRequest
+* DeleteTableVersionRequest `object`
+  * CatalogId [CatalogIdString](#catalogidstring)
+  * DatabaseName **required** [NameString](#namestring)
+  * TableName **required** [NameString](#namestring)
+  * VersionId **required** [VersionString](#versionstring)
+
+### DeleteTableVersionResponse
+* DeleteTableVersionResponse `object`
 
 ### DeleteTriggerRequest
 * DeleteTriggerRequest `object`
@@ -2391,6 +2523,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### GetPlanRequest
 * GetPlanRequest `object`
+  * Language [Language](#language)
   * Location [Location](#location)
   * Mapping **required** [MappingList](#mappinglist)
   * Sinks [CatalogEntries](#catalogentries)
@@ -2399,6 +2532,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### GetPlanResponse
 * GetPlanResponse `object`
   * PythonScript [PythonScript](#pythonscript)
+  * ScalaCode [ScalaCode](#scalacode)
 
 ### GetTableRequest
 * GetTableRequest `object`
@@ -2409,6 +2543,17 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### GetTableResponse
 * GetTableResponse `object`
   * Table [Table](#table)
+
+### GetTableVersionRequest
+* GetTableVersionRequest `object`
+  * CatalogId [CatalogIdString](#catalogidstring)
+  * DatabaseName **required** [NameString](#namestring)
+  * TableName **required** [NameString](#namestring)
+  * VersionId [VersionString](#versionstring)
+
+### GetTableVersionResponse
+* GetTableVersionResponse `object`
+  * TableVersion [TableVersion](#tableversion)
 
 ### GetTableVersionsList
 * GetTableVersionsList `array`
@@ -2483,7 +2628,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * UserDefinedFunctions [UserDefinedFunctionList](#userdefinedfunctionlist)
 
 ### GrokClassifier
-* GrokClassifier `object`: A classifier that uses <code>grok</code>.
+* GrokClassifier `object`: A classifier that uses <code>grok</code> patterns.
   * Classification **required** [Classification](#classification)
   * CreationTime [Timestamp](#timestamp)
   * CustomPatterns [CustomPatterns](#custompatterns)
@@ -2527,7 +2672,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Message [MessageString](#messagestring)
 
 ### JdbcTarget
-* JdbcTarget `object`: Specifies a JDBC target for a crawl.
+* JdbcTarget `object`: Specifies a JDBC data store to crawl.
   * ConnectionName [ConnectionName](#connectionname)
   * Exclusions [PathList](#pathlist)
   * Path [Path](#path)
@@ -2537,7 +2682,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * items [JdbcTarget](#jdbctarget)
 
 ### Job
-* Job `object`: Specifies a job in the Data Catalog.
+* Job `object`: Specifies a job.
   * AllocatedCapacity [IntegerValue](#integervalue)
   * Command [JobCommand](#jobcommand)
   * Connections [ConnectionsList](#connectionslist)
@@ -2595,7 +2740,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * JobRunState `string` (values: STARTING, RUNNING, STOPPING, STOPPED, SUCCEEDED, FAILED)
 
 ### JobUpdate
-* JobUpdate `object`: Specifies information used to update an existing job.
+* JobUpdate `object`: Specifies information used to update an existing job. Note that the previous job definition will be completely overwritten by this information.
   * AllocatedCapacity [IntegerValue](#integervalue)
   * Command [JobCommand](#jobcommand)
   * Connections [ConnectionsList](#connectionslist)
@@ -2606,11 +2751,25 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * MaxRetries [MaxRetries](#maxretries)
   * Role [RoleString](#rolestring)
 
+### JsonClassifier
+* JsonClassifier `object`: A classifier for <code>JSON</code> content.
+  * CreationTime [Timestamp](#timestamp)
+  * JsonPath **required** [JsonPath](#jsonpath)
+  * LastUpdated [Timestamp](#timestamp)
+  * Name **required** [NameString](#namestring)
+  * Version [VersionId](#versionid)
+
+### JsonPath
+* JsonPath `string`
+
 ### JsonValue
 * JsonValue `string`
 
 ### KeyString
 * KeyString `string`
+
+### Language
+* Language `string` (values: PYTHON, SCALA)
 
 ### LastCrawlInfo
 * LastCrawlInfo `object`: Status and error information about the most recent crawl.
@@ -2645,7 +2804,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * LogStream `string`
 
 ### Logical
-* Logical `string` (values: AND)
+* Logical `string` (values: AND, ANY)
 
 ### LogicalOperator
 * LogicalOperator `string` (values: EQUALS)
@@ -2778,7 +2937,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * SubnetId [NameString](#namestring)
 
 ### Predecessor
-* Predecessor `object`: A job run that preceded this one.
+* Predecessor `object`: A job run that was used in the predicate of a conditional trigger that triggered this job run.
   * JobName [NameString](#namestring)
   * RunId [IdString](#idstring)
 
@@ -2824,20 +2983,29 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * ResourceUriList `array`
   * items [ResourceUri](#resourceuri)
 
+### Role
+* Role `string`
+
 ### RoleArn
 * RoleArn `string`
 
 ### RoleString
 * RoleString `string`
 
+### RowTag
+* RowTag `string`
+
 ### S3Target
-* S3Target `object`: Specifies a crawler target in AWS S3.
+* S3Target `object`: Specifies a data store in Amazon S3.
   * Exclusions [PathList](#pathlist)
   * Path [Path](#path)
 
 ### S3TargetList
 * S3TargetList `array`
   * items [S3Target](#s3target)
+
+### ScalaCode
+* ScalaCode `string`
 
 ### Schedule
 * Schedule `object`: A scheduling object using a <code>cron</code> statement to schedule an event.
@@ -3026,6 +3194,16 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * Table [Table](#table)
   * VersionId [VersionString](#versionstring)
 
+### TableVersionError
+* TableVersionError `object`: An error record for table-version operations.
+  * ErrorDetail [ErrorDetail](#errordetail)
+  * TableName [NameString](#namestring)
+  * VersionId [VersionString](#versionstring)
+
+### TableVersionErrors
+* TableVersionErrors `array`
+  * items [TableVersionError](#tableversionerror)
+
 ### Timestamp
 * Timestamp `string`
 
@@ -3060,7 +3238,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * TriggerType `string` (values: SCHEDULED, CONDITIONAL, ON_DEMAND)
 
 ### TriggerUpdate
-* TriggerUpdate `object`: A structure used to provide information used to updata a trigger.
+* TriggerUpdate `object`: A structure used to provide information used to update a trigger. This object will update the the previous trigger definition by overwriting it completely.
   * Actions [ActionList](#actionlist)
   * Description [DescriptionString](#descriptionstring)
   * Name [NameString](#namestring)
@@ -3076,6 +3254,8 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### UpdateClassifierRequest
 * UpdateClassifierRequest `object`
   * GrokClassifier [UpdateGrokClassifierRequest](#updategrokclassifierrequest)
+  * JsonClassifier [UpdateJsonClassifierRequest](#updatejsonclassifierrequest)
+  * XMLClassifier [UpdateXMLClassifierRequest](#updatexmlclassifierrequest)
 
 ### UpdateClassifierResponse
 * UpdateClassifierResponse `object`
@@ -3092,10 +3272,11 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### UpdateCrawlerRequest
 * UpdateCrawlerRequest `object`
   * Classifiers [ClassifierNameList](#classifiernamelist)
+  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
   * DatabaseName [DatabaseName](#databasename)
   * Description [DescriptionStringRemovable](#descriptionstringremovable)
   * Name **required** [NameString](#namestring)
-  * Role [RoleArn](#rolearn)
+  * Role [Role](#role)
   * Schedule [CronExpression](#cronexpression)
   * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
   * TablePrefix [TablePrefix](#tableprefix)
@@ -3132,7 +3313,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * UpdateDevEndpointResponse `object`
 
 ### UpdateGrokClassifierRequest
-* UpdateGrokClassifierRequest `object`: Specifies a Grok classifier to update when passed to UpdateClassifier.
+* UpdateGrokClassifierRequest `object`: Specifies a grok classifier to update when passed to <code>UpdateClassifier</code>.
   * Classification [Classification](#classification)
   * CustomPatterns [CustomPatterns](#custompatterns)
   * GrokPattern [GrokPattern](#grokpattern)
@@ -3146,6 +3327,11 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### UpdateJobResponse
 * UpdateJobResponse `object`
   * JobName [NameString](#namestring)
+
+### UpdateJsonClassifierRequest
+* UpdateJsonClassifierRequest `object`: Specifies a JSON classifier to be updated.
+  * JsonPath [JsonPath](#jsonpath)
+  * Name **required** [NameString](#namestring)
 
 ### UpdatePartitionRequest
 * UpdatePartitionRequest `object`
@@ -3162,6 +3348,7 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * UpdateTableRequest `object`
   * CatalogId [CatalogIdString](#catalogidstring)
   * DatabaseName **required** [NameString](#namestring)
+  * SkipArchive [BooleanNullable](#booleannullable)
   * TableInput **required** [TableInput](#tableinput)
 
 ### UpdateTableResponse
@@ -3185,6 +3372,12 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### UpdateUserDefinedFunctionResponse
 * UpdateUserDefinedFunctionResponse `object`
+
+### UpdateXMLClassifierRequest
+* UpdateXMLClassifierRequest `object`: Specifies an XML classifier to be updated.
+  * Classification [Classification](#classification)
+  * Name **required** [NameString](#namestring)
+  * RowTag [RowTag](#rowtag)
 
 ### UriString
 * UriString `string`
@@ -3233,5 +3426,14 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### ViewTextString
 * ViewTextString `string`
+
+### XMLClassifier
+* XMLClassifier `object`: A classifier for <code>XML</code> content.
+  * Classification **required** [Classification](#classification)
+  * CreationTime [Timestamp](#timestamp)
+  * LastUpdated [Timestamp](#timestamp)
+  * Name **required** [NameString](#namestring)
+  * RowTag [RowTag](#rowtag)
+  * Version [VersionId](#versionid)
 
 

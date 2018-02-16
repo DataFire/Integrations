@@ -278,6 +278,7 @@ google_serviceconsumermanagement.services.tenancyUnits.create({
 
 ### services.tenancyUnits.addProject
 Add a new tenant project to the tenancy unit.
+There can be at most 512 tenant projects in a tenancy units.
 If there are previously failed AddTenantProject calls, you might need to
 call RemoveTenantProject first to clean them before you can make another
 AddTenantProject with the same tag.
@@ -561,7 +562,6 @@ google_serviceconsumermanagement.services.search({
   * patch `string`: Used for updating a resource.
   * post `string`: Used for creating a resource.
   * put `string`: Used for updating a resource.
-  * responseBody `string`: The name of the response field whose value is mapped to the HTTP body of
   * restCollection `string`: DO NOT USE. This is an experimental field.
   * restMethodName `string`: DO NOT USE. This is an experimental field.
   * selector `string`: Selects methods to which this rule applies.
@@ -872,9 +872,9 @@ google_serviceconsumermanagement.services.search({
 
 ### UsageRule
 * UsageRule `object`: Usage configuration rules for the service.
-  * allowUnregisteredCalls `boolean`: True, if the method allows unregistered calls; false otherwise.
+  * allowUnregisteredCalls `boolean`: If true, the selected method allows unregistered calls, e.g. calls
   * selector `string`: Selects the methods to which this rule applies. Use '*' to indicate all
-  * skipServiceControl `boolean`: True, if the method should skip service control. If so, no control plane
+  * skipServiceControl `boolean`: If true, the selected method should skip service control and the control
 
 ### Visibility
 * Visibility `object`: `Visibility` defines restrictions for the visibility of service

@@ -190,6 +190,31 @@ victorops.api_public.v1.incidents.byUser.resolve.patch({
 #### Output
 * output [AckOrResolveResponse](#ackorresolveresponse)
 
+### api_public.v1.incidents.reroute.post
+Reroute one or more incidents to one or more users and/or escalation policies
+
+
+
+```js
+victorops.api_public.v1.incidents.reroute.post({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {
+    "userName": "",
+    "reroutes": []
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [RerouteCollection](#reroutecollection)
+
+#### Output
+* output [RerouteStatusResponse](#reroutestatusresponse)
+
 ### api_public.v1.incidents.resolve.patch
 The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.
 
@@ -217,6 +242,30 @@ victorops.api_public.v1.incidents.resolve.patch({
 #### Output
 * output [AckOrResolveResponse](#ackorresolveresponse)
 
+### api_public.v1.oncall.current.get
+Get all on-call uesrs/teams for your organization.
+
+This API may be called a maximum of 1 times per minute.
+
+
+
+```js
+victorops.api_public.v1.oncall.current.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * teamsOnCall `array`
+    * items [OnCallTeamsResource](#oncallteamsresource)
+
 ### api_public.v1.org.routing_keys.get
 Retrieves a list of routing keys and associated teams.
 This API may be called a maximum of once a minute.
@@ -236,6 +285,383 @@ victorops.api_public.v1.org.routing_keys.get({
 
 #### Output
 * output [ListRoutingKeysResponse](#listroutingkeysresponse)
+
+### api_public.v1.policies.get
+Retrieves a list of escalation policy information.
+This API may be called a maximum of once a minute
+
+
+```js
+victorops.api_public.v1.policies.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output [EscalationPolicyInfoList](#escalationpolicyinfolist)
+
+### api_public.v1.policies.types.contacts.get
+Get the available contact types
+
+description: "Email Address", type: "email"
+description: "Phone Number", type: "phone"
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.policies.types.contacts.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * contactTypes `array`
+    * items [ContactObject](#contactobject)
+
+### api_public.v1.policies.types.notifications.get
+Get the available notification types
+
+description: "Send a push notification to all my devices", type: "push"
+description: "Send an email to an email address", type: "email"
+description: "Send an SMS to a phone number", type: "sms"
+description: "Make a phone call to a phone number", type: "phone"
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.policies.types.notifications.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * notificationTypes `array`
+    * items [NotificationObject](#notificationobject)
+
+### api_public.v1.policies.types.timeouts.get
+Get the available timeout values
+
+description: "If still unacked after 1 minute", type: 1
+description: "If still unacked after 5 minutes", type: 5
+description: "If still unacked after 10 minutes", type: 10
+description: "If still unacked after 15 minutes", type: 15
+description: "If still unacked after 20 minutes", type: 20
+description: "If still unacked after 25 minutes", type: 25
+description: "If still unacked after 30 minutes", type: 30
+description: "If still unacked after 45 minutes", type: 45
+description: "If still unacked after 60 minutes", type: 60
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.policies.types.timeouts.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * timeoutTypes `array`
+    * items [TimeoutObject](#timeoutobject)
+
+### api_public.v1.policies.policy.oncall.user.patch
+Replaces a currently on-call user in the escalation policy with another.  In many cases, the policy slug
+will match the slug of the team that contains it.
+
+This API may be called a maximum of 6 times per minute.
+
+
+
+```js
+victorops.api_public.v1.policies.policy.oncall.user.patch({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {
+    "fromUser": "",
+    "toUser": ""
+  },
+  "policy": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [TakeRequest](#takerequest)
+  * policy **required** `string`: The VictorOps policy 'slug'
+
+#### Output
+* output [TakeResult](#takeresult)
+
+### api_public.v1.profile.username.policies.get
+Get all the paging policy steps for the user on the org associated with the API key
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.get({
+  "username": "",
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * steps [UserPagingPolicy](#userpagingpolicy)
+
+### api_public.v1.profile.username.policies.post
+Create a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.post({
+  "username": "",
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [AddGroupPayload](#addgrouppayload)
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * step [PagingPolicyStep](#pagingpolicystep)
+
+### api_public.v1.profile.username.policies.step.get
+Get a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.step.get({
+  "username": "",
+  "step": 0,
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * step **required** `number`: Paging policy step
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * step [PagingPolicyStep](#pagingpolicystep)
+
+### api_public.v1.profile.username.policies.step.post
+Create a rule for a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.step.post({
+  "username": "",
+  "step": 0,
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * step **required** `number`: Paging policy step
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [AddStepPayload](#addsteppayload)
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * stepRule [PagingPolicyStepRule](#pagingpolicysteprule)
+
+### api_public.v1.profile.username.policies.step.put
+Update a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.step.put({
+  "username": "",
+  "step": 0,
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * step **required** `number`: Paging policy step
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [AddGroupPayload](#addgrouppayload)
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * step [PagingPolicyStep](#pagingpolicystep)
+
+### api_public.v1.profile.username.policies.step.rule.delete
+Delete a rule from a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.step.rule.delete({
+  "username": "",
+  "step": 0,
+  "rule": 0,
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * step **required** `number`: Paging policy step
+  * rule **required** `number`: Rule for a paging policy step
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * stepRule [PagingPolicyStepRule](#pagingpolicysteprule)
+
+### api_public.v1.profile.username.policies.step.rule.get
+Get a rule from a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.step.rule.get({
+  "username": "",
+  "step": 0,
+  "rule": 0,
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * step **required** `number`: Paging policy step
+  * rule **required** `number`: Rule for a paging policy step
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * stepRule [PagingPolicyStepRule](#pagingpolicysteprule)
+
+### api_public.v1.profile.username.policies.step.rule.put
+Update a rule for a paging policy step
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.profile.username.policies.step.rule.put({
+  "username": "",
+  "step": 0,
+  "rule": 0,
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * username **required** `string`: Your username
+  * step **required** `number`: Paging policy step
+  * rule **required** `number`: Rule for a paging policy step
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [AddStepPayload](#addsteppayload)
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * stepRule [PagingPolicyStepRule](#pagingpolicysteprule)
 
 ### api_public.v1.team.get
 Get a list of teams for your organization.
@@ -444,7 +870,9 @@ victorops.api_public.v1.team.team.members.user.delete({
 *Output schema unknown*
 
 ### api_public.v1.team.team.oncall.schedule.get
-Get the on-call schedule for a user for all teams, including on-call overrides.
+__NOTE: This call is deprecated. Please use `GET /api-public/v2/team/{team}/oncall/schedule`.__
+
+Get the on-call schedule for a team, including on-call overrides.
 
 This API may be called a maximum of 15 times per minute.
 
@@ -471,6 +899,8 @@ victorops.api_public.v1.team.team.oncall.schedule.get({
 * output [OnCallAndOverrides](#oncallandoverrides)
 
 ### api_public.v1.team.team.oncall.user.patch
+__NOTE: This API call is deprecated. Please use `PATCH /api-public/v2/policies/{policy}/oncall/user`__
+
 Replaces a currently on-call user on the team with another.
 
 This API may be called a maximum of 6 times per minute.
@@ -499,8 +929,32 @@ victorops.api_public.v1.team.team.oncall.user.patch({
 #### Output
 * output [TakeResult](#takeresult)
 
+### api_public.v1.team.team.policies.get
+Get the escalation policies for the specified team.
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.team.team.policies.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "team": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * team **required** `string`: The VictorOps team to fetch
+
+#### Output
+* output [EscalationPolicyList](#escalationpolicylist)
+
 ### api_public.v1.user.get
-Get a list of users for your organization.
+Get a list of users for your organization
 
 This API may be called a maximum of 15 times per minute.
 
@@ -522,7 +976,7 @@ victorops.api_public.v1.user.get({
 * output [ListUserResponse](#listuserresponse)
 
 ### api_public.v1.user.post
-Add a user to your organization.
+Add a user to your organization
 
 This API may be called a maximum of 15 times per minute.
 
@@ -551,7 +1005,7 @@ victorops.api_public.v1.user.post({
 * output [AddUserResponse](#adduserresponse)
 
 ### api_public.v1.user.user.delete
-Remove a user from your organization.
+Remove a user from your organization
 
 This API may be called a maximum of 15 times per minute.
 
@@ -579,7 +1033,7 @@ victorops.api_public.v1.user.user.delete({
 *Output schema unknown*
 
 ### api_public.v1.user.user.get
-Get the information for the specified user.
+Get the information for the specified user
 
 This API may be called a maximum of 15 times per minute.
 
@@ -876,37 +1330,6 @@ victorops.api_public.v1.user.user.contact_methods.emails.contactId.get({
 * output `array`
   * items [UserContact](#usercontact)
 
-### api_public.v1.user.user.contact_methods.emails.contactId.put
-Update the indicated contact email for a user
-
-This API may be called a maximum of 15 times per minute.
-
-
-
-```js
-victorops.api_public.v1.user.user.contact_methods.emails.contactId.put({
-  "X-VO-Api-Id": "",
-  "X-VO-Api-Key": "",
-  "user": "",
-  "contactId": "",
-  "body": {
-    "label": "",
-    "email": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-VO-Api-Id **required** `string`: Your API ID
-  * X-VO-Api-Key **required** `string`: Your API Key
-  * user **required** `string`: The VictorOps user ID
-  * contactId **required** `string`: The unique contact identifier
-  * body **required** [ContactEmailAdd](#contactemailadd)
-
-#### Output
-* output [UserContact](#usercontact)
-
 ### api_public.v1.user.user.contact_methods.phones.get
 Get the contact phones for a user
 
@@ -1014,38 +1437,9 @@ victorops.api_public.v1.user.user.contact_methods.phones.contactId.get({
 * output `array`
   * items [UserContact](#usercontact)
 
-### api_public.v1.user.user.contact_methods.phones.contactId.put
-Update the indicated contact phone for a user
-
-This API may be called a maximum of 15 times per minute.
-
-
-
-```js
-victorops.api_public.v1.user.user.contact_methods.phones.contactId.put({
-  "X-VO-Api-Id": "",
-  "X-VO-Api-Key": "",
-  "user": "",
-  "contactId": "",
-  "body": {
-    "label": "",
-    "phone": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * X-VO-Api-Id **required** `string`: Your API ID
-  * X-VO-Api-Key **required** `string`: Your API Key
-  * user **required** `string`: The VictorOps user ID
-  * contactId **required** `string`: The unique contact identifier
-  * body **required** [ContactPhoneAdd](#contactphoneadd)
-
-#### Output
-* output [UserContact](#usercontact)
-
 ### api_public.v1.user.user.oncall.schedule.get
+__NOTE: This call is deprecated. Please use `GET /api-public/v2/user/{user}/oncall/schedule`.__
+
 Get the on-call schedule for a user for all teams, including on-call overrides.
 
 This API may be called a maximum of 15 times per minute.
@@ -1097,7 +1491,64 @@ victorops.api_public.v1.user.user.policies.get({
 #### Output
 * output [Policies](#policies)
 
+### api_public.v2.team.team.oncall.schedule.get
+Get the on-call schedule for a team, including on-call overrides.
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v2.team.team.oncall.schedule.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "team": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * team **required** `string`: The VictorOps team 'slug'
+  * daysForward `number`: Days to include in returned schedule (30 max)
+  * daysSkip `number`: Days to skip before computing schedule to return (90 max)
+  * step `number`: Step of escalation policy (3 max)
+
+#### Output
+* output [TeamSchedule](#teamschedule)
+
+### api_public.v2.user.user.oncall.schedule.get
+Get the on-call schedule for a user for all teams the user is on, including on-call overrides.
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v2.user.user.oncall.schedule.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "user": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * user **required** `string`: The VictorOps user ID
+  * daysForward `number`: Days to include in returned schedule (30 max)
+  * daysSkip `number`: Days to skip before computing schedule to return (90 max)
+  * step `number`: Step of escalation policy (3 max)
+
+#### Output
+* output [UserSchedule](#userschedule)
+
 ### api_reporting.v1.incidents.get
+
+__NOTE: This call is deprecated. Please use `GET /api-reporting/v2/incidents`.__
+
 Retrieve incident history for your company, searching over date ranges and with filtering options.  This is historical
 data, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.
 
@@ -1249,6 +1700,8 @@ victorops.api_reporting.v2.incidents.get({
   * incidentNumber `string`: The VictorOps incident number
   * lastAlertId `string`: The unique id of the last alert for the incident
   * lastAlertTime `string`: The time of the last alert received for the incident
+  * pagedPolicies `array`: The escalation policies that were triggered for the incident
+    * items [EscalationPolicyInfo](#escalationpolicyinfo)
   * pagedTeams `array`: The teams that were paged for the incident
     * items `string`
   * pagedUsers `array`: The users that were paged for the incident.
@@ -1263,6 +1716,17 @@ victorops.api_reporting.v2.incidents.get({
   * incidents `array`: The incident data
     * items [ActiveIncidentInfo](#activeincidentinfo)
 
+### AddGroupPayload
+* AddGroupPayload `object`
+  * rules `array`
+    * items [PagingPolicyStepRuleAdd](#pagingpolicystepruleadd)
+  * timeout [TimeoutType](#timeouttype)
+
+### AddStepPayload
+* AddStepPayload `object`
+  * contact [Contact](#contact)
+  * type [NotificationType](#notificationtype)
+
 ### AddTeamMemberPayload
 * AddTeamMemberPayload `object`: The user information
   * username **required** `string`
@@ -1272,14 +1736,7 @@ victorops.api_reporting.v2.incidents.get({
   * name **required** `string`
 
 ### AddTeamResponse
-* AddTeamResponse `object`: Some info about the team
-  * _membersUrl `string`
-  * _selfUrl `string`
-  * isDefaultTeam `boolean`
-  * memberCount `number`
-  * name `string`
-  * slug `string`
-  * version `number`
+* AddTeamResponse [TeamDetail](#teamdetail)
 
 ### AddUserPayload
 * AddUserPayload `object`: The user information
@@ -1308,18 +1765,13 @@ victorops.api_reporting.v2.incidents.get({
 * AlertRequest `object`
   * alertId **required** `string`
 
-### AllOnCall
-* AllOnCall `object`
-  * teams `array`
-    * items [AllOnCallTeamsResource](#alloncallteamsresource)
-  * username `string`
+### Contact
+* Contact `object`
+  * id `number`
+  * type [ContactType](#contacttype)
 
-### AllOnCallTeamsResource
-* AllOnCallTeamsResource `object`
-  * escalation_policy `array`
-    * items [OnCallEscalationPolicyResource](#oncallescalationpolicyresource)
-  * name `string`: Team name
-  * slug `string`: Team slug
+### ContactDescription
+* ContactDescription `string` (values: Email Address, Phone Number)
 
 ### ContactDevice
 * ContactDevice `object`
@@ -1341,11 +1793,19 @@ victorops.api_reporting.v2.incidents.get({
   * label **required** `string`
   * rank `integer`
 
+### ContactObject
+* ContactObject `object`
+  * description [ContactDescription](#contactdescription)
+  * type [ContactType](#contacttype)
+
 ### ContactPhoneAdd
 * ContactPhoneAdd `object`: The contact phone
   * label **required** `string`
   * phone **required** `string`
   * rank `integer`
+
+### ContactType
+* ContactType `string` (values: email, phone)
 
 ### CreateBatchAlertRequestPayload
 * CreateBatchAlertRequestPayload `object`: A collection of IDs (uuid) for the alerts to be returned
@@ -1368,6 +1828,26 @@ victorops.api_reporting.v2.incidents.get({
 ### DeleteUserPayload
 * DeleteUserPayload `object`: The information about what to do with the deleted user
   * replacement **required** `string`: The user to take the place of the deleted user in escalations
+
+### EscalationPolicy
+* EscalationPolicy `object`
+  * name `string`
+  * slug `string`
+
+### EscalationPolicyInfo
+* EscalationPolicyInfo `object`
+  * policy **required** [EscalationPolicy](#escalationpolicy)
+  * team [Team](#team)
+
+### EscalationPolicyInfoList
+* EscalationPolicyInfoList `object`
+  * policies **required** `array`
+    * items [EscalationPolicyInfo](#escalationpolicyinfo)
+
+### EscalationPolicyList
+* EscalationPolicyList `object`
+  * policies `array`
+    * items [EscalationPolicy](#escalationpolicy)
 
 ### GetAlertResponse
 * GetAlertResponse `object`: Alert details. All fields should be considered optional.
@@ -1438,21 +1918,25 @@ victorops.api_reporting.v2.incidents.get({
     * items [TeamMember](#teammember)
 
 ### ListTeamResponse
-* ListTeamResponse `array`: Some info about teams in the org
-  * items `object`
-    * _membersUrl `string`
-    * _selfUrl `string`
-    * isDefaultTeam `boolean`
-    * memberCount `number`
-    * name `string`
-    * slug `string`
-    * version `number`
+* ListTeamResponse `array`
+  * items [TeamDetail](#teamdetail)
 
 ### ListUserResponse
 * ListUserResponse `object`: Some info about the user
   * _selfUrl `string`
   * users `array`
     * items [V1User](#v1user)
+
+### NotificationDescription
+* NotificationDescription `string` (values: Send a push notification to all my devices, Send an email to an email address, Send an SMS to a phone number, Make a phone call to a phone number)
+
+### NotificationObject
+* NotificationObject `object`
+  * description [NotificationDescription](#notificationdescription)
+  * type [NotificationType](#notificationtype)
+
+### NotificationType
+* NotificationType `string` (values: push, email, sms, phone)
 
 ### OnCallAndOverrides
 * OnCallAndOverrides `object`
@@ -1462,17 +1946,28 @@ victorops.api_reporting.v2.incidents.get({
     * items [TeamScheduleResource](#teamscheduleresource)
   * team `string`
 
+### OnCallEntry
+* OnCallEntry `object`
+  * onCallType **required** [OnCallType](#oncalltype)
+  * onCallUser [User](#user)
+  * overrideOnCallUser [User](#user)
+  * rolls **required** `array`
+    * items [OnCallRoll](#oncallroll)
+  * rotationName `string`
+  * shiftName `string`
+  * shiftRoll `string`: The shift roll time (ISO 8601)
+
 ### OnCallEscalationPolicyResource
 * OnCallEscalationPolicyResource `object`
-  * id `integer`: Team ID
-  * name `string`: Team name
-  * slug `string`: Team slug
+  * name `string`
+  * slug `string`
 
 ### OnCallInterval
 * OnCallInterval `object`
   * duration `object`
     * hours `number`
     * minutes `number`
+  * escalationPolicy [EscalationPolicy](#escalationpolicy)
   * off `string`
   * on `string`
 
@@ -1484,6 +1979,45 @@ victorops.api_reporting.v2.incidents.get({
   * userLogs `array`
     * items [UserLog](#userlog)
 
+### OnCallNowResource
+* OnCallNowResource `object`
+  * escalationPolicy [OnCallEscalationPolicyResource](#oncallescalationpolicyresource)
+  * users `array`
+    * items [OnCallUsersResource](#oncallusersresource)
+
+### OnCallOverride
+* OnCallOverride `object`
+  * end `string`: The override end time (ISO 8601)
+  * origOnCallUser [User](#user)
+  * overrideOnCallUser [User](#user)
+  * start `string`: The override start time (ISO 8601)
+
+### OnCallRoll
+* OnCallRoll `object`
+  * end **required** `string`: The on-call period end time (ISO 8601)
+  * isRoll **required** `boolean`
+  * onCallUser [User](#user)
+  * start **required** `string`: The on-call period start time (ISO 8601)
+
+### OnCallTeamResource
+* OnCallTeamResource `object`
+  * name `string`
+  * slug `string`
+
+### OnCallTeamsResource
+* OnCallTeamsResource `object`
+  * onCallNow `array`
+    * items [OnCallNowResource](#oncallnowresource)
+  * team [OnCallTeamResource](#oncallteamresource)
+
+### OnCallType
+* OnCallType `string` (values: user, rotation_group, rotation_group_next, rotation_group_previous, team, team_routing, webhook, email, policy_routing)
+
+### OnCallUsersResource
+* OnCallUsersResource `object`
+  * onCallUser `object`
+    * username `string`
+
 ### PagingPolicy
 * PagingPolicy `object`: Paging policy fields
   * contactType `string`
@@ -1491,12 +2025,38 @@ victorops.api_reporting.v2.incidents.get({
   * order `integer`
   * timeout `integer`
 
+### PagingPolicyStep
+* PagingPolicyStep `object`
+  * index `number`
+  * rules `array`
+    * items [PagingPolicyStepRule](#pagingpolicysteprule)
+  * timeout [TimeoutType](#timeouttype)
+
+### PagingPolicyStepRule
+* PagingPolicyStepRule `object`
+  * contact [Contact](#contact)
+  * index `number`
+  * type [NotificationType](#notificationtype)
+
+### PagingPolicyStepRuleAdd
+* PagingPolicyStepRuleAdd `object`
+  * contact [Contact](#contact)
+  * type [NotificationType](#notificationtype)
+
 ### Policies
 * Policies `object`: Paging policies accociated which this user
   * policies `array`
     * items [PagingPolicy](#pagingpolicy)
   * userId `integer`
   * username `string`
+
+### PolicySchedule
+* PolicySchedule `object`
+  * overrides `array`
+    * items [OnCallOverride](#oncalloverride)
+  * policy [EscalationPolicy](#escalationpolicy)
+  * schedule `array`
+    * items [OnCallEntry](#oncallentry)
 
 ### RelLink
 * RelLink `object`
@@ -1506,6 +2066,37 @@ victorops.api_reporting.v2.incidents.get({
 ### RemoveTeamMemberPayload
 * RemoveTeamMemberPayload `object`: The user information
   * replacement **required** `string`
+
+### Reroute
+* Reroute `object`
+  * incidentNumber **required** `string`
+  * targets **required** `array`
+    * items [IncidentTarget](#incidenttarget)
+
+### RerouteCollection
+* RerouteCollection `object`
+  * reroutes **required** `array`
+    * items [Reroute](#reroute)
+  * userName **required** `string`
+
+### RerouteStatus
+* RerouteStatus `object`
+  * incidentNumber **required** `string`
+  * message `string`
+  * success **required** `boolean`
+  * targetStatus **required** `array`
+    * items [RerouteTargetStatus](#reroutetargetstatus)
+
+### RerouteStatusResponse
+* RerouteStatusResponse `object`
+  * statuses `array`
+    * items [RerouteStatus](#reroutestatus)
+
+### RerouteTargetStatus
+* RerouteTargetStatus `object`
+  * message `string`
+  * slug **required** `string`: User name or escalation policy slug
+  * success **required** `boolean`
 
 ### RoutingKeyInfo
 * RoutingKeyInfo `object`: Routing keys contain the following fields
@@ -1529,6 +2120,28 @@ victorops.api_reporting.v2.incidents.get({
 * TakeResult `object`
   * result `string`
 
+### Team
+* Team `object`
+  * name `string`
+  * slug `string`
+
+### TeamAndPolicies
+* TeamAndPolicies `object`
+  * policies `array`
+    * items [EscalationPolicy](#escalationpolicy)
+  * team [Team](#team)
+
+### TeamDetail
+* TeamDetail `object`: Some info about the team
+  * _membersUrl `string`
+  * _policiesUrl `string`
+  * _selfUrl `string`
+  * isDefaultTeam `boolean`
+  * memberCount `number`
+  * name `string`
+  * slug `string`
+  * version `number`
+
 ### TeamMember
 * TeamMember `object`: Some info about the user
   * firstName `string`
@@ -1536,6 +2149,12 @@ victorops.api_reporting.v2.incidents.get({
   * username `string`
   * verified `string`: Whether or not this user has set their password (will always be false)
   * version `number`
+
+### TeamSchedule
+* TeamSchedule `object`
+  * schedules `array`
+    * items [PolicySchedule](#policyschedule)
+  * team [Team](#team)
 
 ### TeamScheduleOverlayResource
 * TeamScheduleOverlayResource `object`
@@ -1562,6 +2181,21 @@ victorops.api_reporting.v2.incidents.get({
   * oncall `string`: The user scheduled on call (if any)
   * until **required** `number`: The time the period is scheduled to end
 
+### TimeoutDescription
+* TimeoutDescription `string` (values: If still unacked after 1 minute, If still unacked after 5 minute, If still unacked after 10 minute, If still unacked after 15 minute, If still unacked after 20 minute, If still unacked after 25 minute, If still unacked after 30 minute, If still unacked after 45 minute, If still unacked after 60 minute)
+
+### TimeoutObject
+* TimeoutObject `object`
+  * description [TimeoutDescription](#timeoutdescription)
+  * type [TimeoutType](#timeouttype)
+
+### TimeoutType
+* TimeoutType `integer` (values: 1, 5, 10, 15, 20, 25, 30, 45, 60)
+
+### User
+* User `object`
+  * username `string`
+
 ### UserContact
 * UserContact `object`
   * _selfUrl `string`
@@ -1580,6 +2214,15 @@ victorops.api_reporting.v2.incidents.get({
     * hours `number`
     * minutes `number`
   * userId `string`
+
+### UserPagingPolicy
+* UserPagingPolicy `array`
+  * items [PagingPolicyStep](#pagingpolicystep)
+
+### UserSchedule
+* UserSchedule `object`
+  * teamSchedules `array`
+    * items [TeamSchedule](#teamschedule)
 
 ### V1User
 * V1User `object`: Some info about the user

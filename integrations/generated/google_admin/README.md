@@ -73,16 +73,15 @@ Retrieves a list of activities for a specific customer and application.
 
 ```js
 google_admin.activities.list({
-  "userKey": "",
-  "applicationName": ""
+  "applicationName": "",
+  "userKey": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userKey **required** `string`: Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.
-  * applicationName **required** `string`: Application name for which the events are to be retrieved.
   * actorIpAddress `string`: IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.
+  * applicationName **required** `string`: Application name for which the events are to be retrieved.
   * customerId `string`: Represents the customer for which the data is to be fetched.
   * endTime `string`: Return events which occurred at or before this time.
   * eventName `string`: Name of the event being queried.
@@ -90,6 +89,7 @@ google_admin.activities.list({
   * maxResults `integer`: Number of activity records to be shown in each page.
   * pageToken `string`: Token to specify next page.
   * startTime `string`: Return events which occurred at or after this time.
+  * userKey **required** `string`: Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -107,24 +107,24 @@ Push changes to activities
 
 ```js
 google_admin.activities.watch({
-  "userKey": "",
-  "applicationName": ""
+  "applicationName": "",
+  "userKey": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userKey **required** `string`: Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.
-  * applicationName **required** `string`: Application name for which the events are to be retrieved.
   * actorIpAddress `string`: IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.
+  * applicationName **required** `string`: Application name for which the events are to be retrieved.
   * customerId `string`: Represents the customer for which the data is to be fetched.
   * endTime `string`: Return events which occurred at or before this time.
   * eventName `string`: Name of the event being queried.
   * filters `string`: Event parameters in the form [parameter1 name][operator][parameter1 value],[parameter2 name][operator][parameter2 value],...
   * maxResults `integer`: Number of activity records to be shown in each page.
   * pageToken `string`: Token to specify next page.
-  * startTime `string`: Return events which occurred at or after this time.
   * resource [Channel](#channel)
+  * startTime `string`: Return events which occurred at or after this time.
+  * userKey **required** `string`: Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -170,8 +170,8 @@ google_admin.customerUsageReports.get({
 
 #### Input
 * input `object`
-  * date **required** `string`: Represents the date in yyyy-mm-dd format for which the data is to be fetched.
   * customerId `string`: Represents the customer for which the data is to be fetched.
+  * date **required** `string`: Represents the date in yyyy-mm-dd format for which the data is to be fetched.
   * pageToken `string`: Token to specify next page.
   * parameters `string`: Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
   * alt `string` (values: json): Data format for the response.
@@ -191,16 +191,49 @@ Retrieves a report which is a collection of properties / statistics for a set of
 
 ```js
 google_admin.userUsageReport.get({
-  "userKey": "",
-  "date": ""
+  "date": "",
+  "userKey": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userKey **required** `string`: Represents the profile id or the user email for which the data should be filtered.
-  * date **required** `string`: Represents the date in yyyy-mm-dd format for which the data is to be fetched.
   * customerId `string`: Represents the customer for which the data is to be fetched.
+  * date **required** `string`: Represents the date in yyyy-mm-dd format for which the data is to be fetched.
+  * filters `string`: Represents the set of filters including parameter operator value.
+  * maxResults `integer`: Maximum number of results to return. Maximum allowed is 1000
+  * pageToken `string`: Token to specify next page.
+  * parameters `string`: Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
+  * userKey **required** `string`: Represents the profile id or the user email for which the data should be filtered.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [UsageReports](#usagereports)
+
+### entityUsageReports.get
+Retrieves a report which is a collection of properties / statistics for a set of objects.
+
+
+```js
+google_admin.entityUsageReports.get({
+  "date": "",
+  "entityKey": "",
+  "entityType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * customerId `string`: Represents the customer for which the data is to be fetched.
+  * date **required** `string`: Represents the date in yyyy-mm-dd format for which the data is to be fetched.
+  * entityKey **required** `string`: Represents the key of object for which the data should be filtered.
+  * entityType **required** `string`: Type of object. Should be one of - gplus_communities.
   * filters `string`: Represents the set of filters including parameter operator value.
   * maxResults `integer`: Maximum number of results to return. Maximum allowed is 1000
   * pageToken `string`: Token to specify next page.
@@ -277,9 +310,10 @@ google_admin.userUsageReport.get({
   * date `string`: The date to which the record belongs.
   * entity `object`: Information about the type of the item.
     * customerId `string`: Obfuscated customer id for the record.
+    * entityId `string`: Object key. Only relevant if entity.type = "OBJECT" Note: external-facing name of report is "Entities" rather than "Objects".
     * profileId `string`: Obfuscated user id for the record.
-    * type `string`: The type of item, can be a customer or user.
-    * userEmail `string`: user's email.
+    * type `string`: The type of item, can be customer, user, or entity (aka. object).
+    * userEmail `string`: user's email. Only relevant if entity.type = "USER"
   * etag `string`: ETag of the resource.
   * kind `string`: The kind of object.
   * parameters `array`: Parameter value pairs for various applications.

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_ecr",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Amazon EC2 Container Registry",
   "repository": {

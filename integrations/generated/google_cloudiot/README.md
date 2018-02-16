@@ -112,6 +112,7 @@ google_cloudiot.projects.locations.registries.devices.get({
 
 #### Input
 * input `object`
+  * fieldMask `string`: The fields of the `Device` resource to be returned in the response. If the
   * name **required** `string`: The name of the device. For example,
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
@@ -490,20 +491,6 @@ google_cloudiot.projects.locations.registries.testIamPermissions({
 
 ## Definitions
 
-### AuditConfig
-* AuditConfig `object`: Specifies the audit configuration for a service.
-  * auditLogConfigs `array`: The configuration for logging of each type of permission.
-    * items [AuditLogConfig](#auditlogconfig)
-  * exemptedMembers `array`
-    * items `string`
-  * service `string`: Specifies a service that will be enabled for audit logging.
-
-### AuditLogConfig
-* AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
-  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
-    * items `string`
-  * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
-
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
   * condition [Expr](#expr)
@@ -613,13 +600,10 @@ google_cloudiot.projects.locations.registries.testIamPermissions({
 
 ### Policy
 * Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
-  * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
-    * items [AuditConfig](#auditconfig)
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * iamOwned `boolean`
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
 
 ### PublicKeyCertificate
 * PublicKeyCertificate `object`: A public key certificate format and data.

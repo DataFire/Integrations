@@ -61,6 +61,25 @@ amazonaws_data_jobs_iot.StartNextPendingJobExecution({
 #### Output
 * output [StartNextPendingJobExecutionResponse](#startnextpendingjobexecutionresponse)
 
+### DescribeJobExecution
+
+
+
+```js
+amazonaws_data_jobs_iot.DescribeJobExecution({
+  "jobId": "",
+  "thingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobId **required** `string`
+  * thingName **required** `string`
+
+#### Output
+* output [DescribeJobExecutionResponse](#describejobexecutionresponse)
+
 ### UpdateJobExecution
 
 

@@ -14,7 +14,7 @@ let rebilly = require('@datafire/rebilly').create({
   RebAuth: ""
 });
 
-rebilly.websites.get({}).then(data => {
+rebilly.transactions.get({}).then(data => {
   console.log(data);
 });
 ```
@@ -27,7 +27,12 @@ resource URLs.  It returns HTTP response codes to indicate errors.  It also
 accepts and returns JSON in the HTTP body.  You can use your favorite
 HTTP/REST library for your programming language to use Rebilly's API, or
 you can use one of our SDKs (currently available in [PHP](https://github.com/Rebilly/rebilly-php)
-and [C#](https://github.com/Rebilly/rebilly-dotnet-client)).
+and [Javascript](https://github.com/Rebilly/rebilly-js-sdk).
+
+We have other APIs that are also available.  Every action from our [app](https://app.rebilly.com)
+is supported by an API which is documented and available for use so that you
+may automate any workflows necessary.  This document contains the most commonly
+integrated resources.
 
 # Authentication
 When you sign up for an account, you are given your first API key.
@@ -131,116 +136,6 @@ rebilly.3dsecure.id.get({
 
 #### Output
 * output [ThreeDSecure](#threedsecure)
-
-### activation.token.post
-Sends a token to activate user account
-
-
-
-```js
-rebilly.activation.token.post({
-  "token": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * token **required** `string`: The token string
-
-#### Output
-*Output schema unknown*
-
-### api_keys.get
-Retrieve a list of api keys
-
-
-
-```js
-rebilly.api_keys.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [ApiKey](#apikey)
-
-### api_keys.post
-Create an api key
-
-
-
-```js
-rebilly.api_keys.post({
-  "body": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [ApiKey](#apikey)
-
-#### Output
-* output [ApiKey](#apikey)
-
-### api_keys.id.delete
-Delete api key with predefined identifier string
-
-
-
-```js
-rebilly.api_keys.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### api_keys.id.get
-Retrieve api key with specified identifier string
-
-
-
-```js
-rebilly.api_keys.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [ApiKey](#apikey)
-
-### api_keys.id.put
-Create or update api key with predefined identifier string
-
-
-
-```js
-rebilly.api_keys.id.put({
-  "body": {},
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [ApiKey](#apikey)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [ApiKey](#apikey)
 
 ### attachments.get
 Retrieve a list of Attachments
@@ -646,108 +541,6 @@ rebilly.blacklists.id.put({
 #### Output
 * output [Blacklist](#blacklist)
 
-### checkout_pages.get
-Retrieve a list of checkout pages
-
-
-
-```js
-rebilly.checkout_pages.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [CheckoutPage](#checkoutpage)
-
-### checkout_pages.post
-Create a Checkout Page
-
-
-
-```js
-rebilly.checkout_pages.post({
-  "body": {
-    "name": "",
-    "planId": "",
-    "websiteId": "",
-    "uriPath": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [CheckoutPage](#checkoutpage)
-
-#### Output
-* output [CheckoutPage](#checkoutpage)
-
-### checkout_pages.id.delete
-Delete a Checkout Page with predefined identifier string
-
-
-
-```js
-rebilly.checkout_pages.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### checkout_pages.id.get
-Retrieve a Checkout Page with specified identifier string
-
-
-
-```js
-rebilly.checkout_pages.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [CheckoutPage](#checkoutpage)
-
-### checkout_pages.id.put
-Create or update a Checkout Page with predefined identifier string
-
-
-
-```js
-rebilly.checkout_pages.id.put({
-  "body": {
-    "name": "",
-    "planId": "",
-    "websiteId": "",
-    "uriPath": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [CheckoutPage](#checkoutpage)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [CheckoutPage](#checkoutpage)
-
 ### contacts.get
 Retrieve a list of contacts
 
@@ -1018,82 +811,6 @@ rebilly.coupons.redemptionCode.expiration.post({
 #### Output
 * output [Coupon](#coupon)
 
-### credential_hashes.emails.post
-Create an email credential
-
-
-
-```js
-rebilly.credential_hashes.emails.post({
-  "body": {
-    "host": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [SmtpCredential](#smtpcredential)
-
-#### Output
-* output [SmtpCredential](#smtpcredential)
-
-### credential_hashes.emails.hash.get
-Retrieve an email credential with specified token identifier string
-
-
-
-```js
-rebilly.credential_hashes.emails.hash.get({
-  "hash": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * hash **required** `string`: The token identifier string
-
-#### Output
-* output [SmtpCredential](#smtpcredential)
-
-### credential_hashes.webhooks.post
-Create a webhook credential
-
-
-
-```js
-rebilly.credential_hashes.webhooks.post({
-  "body": {
-    "host": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [WebhookCredential](#webhookcredential)
-
-#### Output
-* output [WebhookCredential](#webhookcredential)
-
-### credential_hashes.webhooks.hash.get
-Retrieve a webhook credential with specified token identifier string
-
-
-
-```js
-rebilly.credential_hashes.webhooks.hash.get({
-  "hash": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * hash **required** `string`: The token identifier string
-
-#### Output
-* output [WebhookCredential](#webhookcredential)
-
 ### credentials.get
 Retrieve a list of credentials
 
@@ -1193,224 +910,6 @@ rebilly.credentials.id.put({
 
 #### Output
 * output [Credential](#credential)
-
-### custom_events.get
-Retrieve a list of custom events
-
-
-
-```js
-rebilly.custom_events.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * sort `array`: The collection items sort field and order (prefix with "-" for descending sort).
-
-#### Output
-* output `array`
-  * items [CustomEvent](#customevent)
-
-### custom_events.post
-Create a custom event
-
-
-
-```js
-rebilly.custom_events.post({
-  "body": {
-    "eventType": "",
-    "title": "",
-    "chronology": "",
-    "scheduleInstruction": {
-      "method": ""
-    }
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [CustomEvent](#customevent)
-
-#### Output
-* output [CustomEvent](#customevent)
-
-### custom_events.id.delete
-Delete a custom event with predefined identifier string
-
-
-
-```js
-rebilly.custom_events.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### custom_events.id.get
-Retrieve a custom event with predefined identifier string
-
-
-
-```js
-rebilly.custom_events.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [CustomEvent](#customevent)
-
-### custom_events.id.put
-Create a custom event with predefined identifier string
-
-
-
-```js
-rebilly.custom_events.id.put({
-  "body": {
-    "eventType": "",
-    "title": "",
-    "chronology": "",
-    "scheduleInstruction": {
-      "method": ""
-    }
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [CustomEvent](#customevent)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [CustomEvent](#customevent)
-
-### custom_events.id.rules.get
-Retrieve a list of rules for custom event
-
-
-```js
-rebilly.custom_events.id.rules.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [RuleSet](#ruleset)
-
-### custom_events.id.rules.put
-Update the rules for custom event
-
-
-```js
-rebilly.custom_events.id.rules.put({
-  "body": {
-    "rules": []
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [RuleSet](#ruleset)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [RuleSet](#ruleset)
-
-### custom_events.id.rules.history.get
-Retrieve the change history of the set of rules for the selected custom event.
-The history is updated each time you change the rules.
-
-
-
-```js
-rebilly.custom_events.id.rules.history.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * filter `string`: The collection items filter requires a special format.
-  * q `string`: The partial search of the text fields.
-  * sort `array`: The collection items sort field and order (prefix with "-" for descending sort).
-  * fields `string`: Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
-  * expand `string`: Expand response to get full related object intead of ID.  See the expand guide for more info.
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output `array`
-  * items [RuleSetHistoryItem](#rulesethistoryitem)
-
-### custom_events.id.rules.history.version.get
-Retrieve the record from the change history of the set of rules for the selected custom event.
-A history record is created each time you change the rules.
-
-
-
-```js
-rebilly.custom_events.id.rules.history.version.get({
-  "id": "",
-  "version": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * fields `string`: Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
-  * expand `string`: Expand response to get full related object intead of ID.  See the expand guide for more info.
-  * id **required** `string`: The resource identifier string
-  * version **required** `integer`: The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
-
-#### Output
-* output [RuleSetHistoryItem](#rulesethistoryitem)
-
-### custom_events.id.rules.versions.version.get
-Retrieve the version of the selected set of rules for the selected custom event.
-The versions are created each time you change the rules.
-
-
-
-```js
-rebilly.custom_events.id.rules.versions.version.get({
-  "id": "",
-  "version": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * fields `string`: Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
-  * expand `string`: Expand response to get full related object intead of ID.  See the expand guide for more info.
-  * id **required** `string`: The resource identifier string
-  * version **required** `integer`: The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
-
-#### Output
-* output [RuleSetVersion](#rulesetversion)
 
 ### custom_fields.resource.get
 Retrieve a schema of Custom Fields for the given resource type
@@ -1720,148 +1219,23 @@ rebilly.disputes.id.put({
 #### Output
 * output [Dispute](#dispute)
 
-### events.get
-Retrieve a list of existing events
+### disputes.id.matched_rules.get
+Get matched rules for the dispute
 
 
 ```js
-rebilly.events.get(null, context)
+rebilly.disputes.id.matched_rules.get({
+  "id": ""
+}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * id **required** `string`: The resource identifier string
 
 #### Output
 * output `array`
-  * items [SystemEvent](#systemevent)
-
-### events.eventType.get
-Retrieve the event information
-
-
-```js
-rebilly.events.eventType.get({
-  "eventType": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * eventType **required** `string`: The event type
-
-#### Output
-* output [SystemEvent](#systemevent)
-
-### events.eventType.rules.get
-Retrieve a list of rules for event
-
-
-```js
-rebilly.events.eventType.rules.get({
-  "eventType": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * eventType **required** `string`: The event type
-
-#### Output
-* output [RuleSet](#ruleset)
-
-### events.eventType.rules.put
-Update the rules for event
-
-
-```js
-rebilly.events.eventType.rules.put({
-  "body": {
-    "rules": []
-  },
-  "eventType": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [RuleSet](#ruleset)
-  * eventType **required** `string`: The event type
-
-#### Output
-* output [RuleSet](#ruleset)
-
-### events.eventType.rules.history.get
-Retrieve the change history of the selected set of rules.
-The history is updated each time you change the rules.
-
-
-
-```js
-rebilly.events.eventType.rules.history.get({
-  "eventType": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * filter `string`: The collection items filter requires a special format.
-  * q `string`: The partial search of the text fields.
-  * sort `array`: The collection items sort field and order (prefix with "-" for descending sort).
-  * fields `string`: Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
-  * expand `string`: Expand response to get full related object intead of ID.  See the expand guide for more info.
-  * eventType **required** `string`: The event type
-
-#### Output
-* output `array`
-  * items [RuleSetHistoryItem](#rulesethistoryitem)
-
-### events.eventType.rules.history.version.get
-Retrieve the record from the change history of the selected set of rules.
-A history record is created each time you change the rules.
-
-
-
-```js
-rebilly.events.eventType.rules.history.version.get({
-  "eventType": "",
-  "version": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * fields `string`: Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
-  * expand `string`: Expand response to get full related object intead of ID.  See the expand guide for more info.
-  * eventType **required** `string`: The event type
-  * version **required** `integer`: The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
-
-#### Output
-* output [RuleSetHistoryItem](#rulesethistoryitem)
-
-### events.eventType.rules.versions.version.get
-Retrieve the version of the selected set of rules.
-The versions are created each time you change the rules.
-
-
-
-```js
-rebilly.events.eventType.rules.versions.version.get({
-  "eventType": "",
-  "version": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * fields `string`: Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
-  * expand `string`: Expand response to get full related object intead of ID.  See the expand guide for more info.
-  * eventType **required** `string`: The event type
-  * version **required** `integer`: The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
-
-#### Output
-* output [RuleSetVersion](#rulesetversion)
+  * items [MatchedRule](#matchedrule)
 
 ### files.get
 Retrieve a list of files
@@ -1962,7 +1336,7 @@ rebilly.files.id.put({
 * output [File](#file)
 
 ### files.id.download.get
-Retrieve a file
+Download a file
 
 
 
@@ -1980,7 +1354,7 @@ rebilly.files.id.download.get({
 * output `string`
 
 ### files.id.downloadextension.get
-Used for converting images server-side
+Download image in specific format. Images are converted server-side
 
 
 
@@ -1994,163 +1368,10 @@ rebilly.files.id.downloadextension.get({
 #### Input
 * input `object`
   * id **required** `string`: The resource identifier string
-  * extension **required** `string` (values: .png, .jpg): File extension which also indicates the desired file format
+  * extension **required** `string` (values: .png, .jpg, .gif): File extension which also indicates the desired file format
 
 #### Output
 * output `string`
-
-### forgot_password.post
-Sends an email with a link containing a token to reset user password
-
-
-
-```js
-rebilly.forgot_password.post({
-  "body": {
-    "email": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Email](#email)
-
-#### Output
-*Output schema unknown*
-
-### gateway_accounts.get
-Retrieve a list of gateway accounts
-
-
-
-```js
-rebilly.gateway_accounts.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [GatewayAccount](#gatewayaccount)
-
-### gateway_accounts.post
-Create a Gateway Account
-
-
-
-```js
-rebilly.gateway_accounts.post({
-  "body": {
-    "gatewayName": "",
-    "acquirerName": "",
-    "merchantCategoryCode": 0,
-    "websites": [],
-    "acceptedCurrencies": [],
-    "organizationId": null
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [GatewayAccount](#gatewayaccount)
-
-#### Output
-* output [GatewayAccount](#gatewayaccount)
-
-### gateway_accounts.id.delete
-Delete a Gateway Account with predefined identifier string
-
-
-
-```js
-rebilly.gateway_accounts.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### gateway_accounts.id.get
-Retrieve a Gateway Account with specified identifier string
-
-
-
-```js
-rebilly.gateway_accounts.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [GatewayAccount](#gatewayaccount)
-
-### gateway_accounts.id.patch
-Update a GatewayAccount with predefined identifier string
-
-
-
-```js
-rebilly.gateway_accounts.id.patch({
-  "body": {
-    "gatewayName": "",
-    "acquirerName": "",
-    "merchantCategoryCode": 0,
-    "websites": [],
-    "acceptedCurrencies": [],
-    "organizationId": null
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [GatewayAccount](#gatewayaccount)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [GatewayAccount](#gatewayaccount)
-
-### gateway_accounts.id.put
-Create or update a GatewayAccount with predefined identifier string
-
-
-
-```js
-rebilly.gateway_accounts.id.put({
-  "body": {
-    "gatewayName": "",
-    "acquirerName": "",
-    "merchantCategoryCode": 0,
-    "websites": [],
-    "acceptedCurrencies": [],
-    "organizationId": null
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [GatewayAccount](#gatewayaccount)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [GatewayAccount](#gatewayaccount)
 
 ### invoices.get
 Retrieve a list of invoices
@@ -2374,6 +1595,24 @@ rebilly.invoices.id.lead_source.put({
 #### Output
 * output [LeadSource](#leadsource)
 
+### invoices.id.matched_rules.get
+Get matched rules for the invoice
+
+
+```js
+rebilly.invoices.id.matched_rules.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The resource identifier string
+
+#### Output
+* output `array`
+  * items [MatchedRule](#matchedrule)
+
 ### invoices.id.void.post
 Void an invoice with specified identifier string
 
@@ -2391,402 +1630,6 @@ rebilly.invoices.id.void.post({
 
 #### Output
 * output [Invoice](#invoice)
-
-### layouts.get
-Retrieve a layout list
-
-
-
-```js
-rebilly.layouts.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [Layout](#layout)
-
-### layouts.post
-Create a layout
-
-
-
-```js
-rebilly.layouts.post({
-  "body": {
-    "name": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Layout](#layout)
-
-#### Output
-* output [Layout](#layout)
-
-### layouts.id.delete
-Delete a layout with predefined identifier string
-
-
-
-```js
-rebilly.layouts.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### layouts.id.get
-Retrieve a layout with specified identifier string
-
-
-
-```js
-rebilly.layouts.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Layout](#layout)
-
-### layouts.id.put
-Create or update a layout with predefined identifier string
-
-
-
-```js
-rebilly.layouts.id.put({
-  "body": {
-    "name": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Layout](#layout)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Layout](#layout)
-
-### lists.get
-Retrieve a collection of Lists
-
-
-
-```js
-rebilly.lists.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * filter `string`: The collection items filter requires a special format.
-  * criteria `string`: The json criteria for collection
-  * sort `array`: The collection items sort field and order (prefix with "-" for descending sort).
-
-#### Output
-* output `array`
-  * items [List](#list)
-
-### lists.post
-Create a List
-
-
-
-```js
-rebilly.lists.post({
-  "body": {
-    "name": "",
-    "values": []
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [List](#list)
-
-#### Output
-* output [List](#list)
-
-### lists.id.delete
-Delete a list with predefined identifier string
-
-
-
-```js
-rebilly.lists.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### lists.id.get
-Retrieve latest version of List with specified identifier string
-
-
-
-```js
-rebilly.lists.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [List](#list)
-
-### lists.id.put
-Create or update a list with predefined identifier string
-
-
-
-```js
-rebilly.lists.id.put({
-  "body": {
-    "name": "",
-    "values": []
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [List](#list)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [List](#list)
-
-### lists.id.version.get
-Retrieve List's exact version
-
-
-```js
-rebilly.lists.id.version.get({
-  "id": "",
-  "version": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-  * version **required** `integer`: List version
-
-#### Output
-* output [List](#list)
-
-### notes.get
-Retrieve a list of notes
-
-
-
-```js
-rebilly.notes.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [Note](#note)
-
-### notes.post
-Create a note
-
-
-
-```js
-rebilly.notes.post({
-  "body": {
-    "content": "",
-    "relatedType": "",
-    "relatedId": null
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Note](#note)
-
-#### Output
-* output [Note](#note)
-
-### notes.id.get
-Retrieve a note with specified identifier string
-
-
-
-```js
-rebilly.notes.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Note](#note)
-
-### notes.id.put
-Create or update a note with predefined identifier string
-
-
-
-```js
-rebilly.notes.id.put({
-  "body": {
-    "content": "",
-    "relatedType": "",
-    "relatedId": null
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Note](#note)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Note](#note)
-
-### organizations.get
-Retrieve a list of organizations
-
-
-
-```js
-rebilly.organizations.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [Organization](#organization)
-
-### organizations.post
-Create a organization
-
-
-
-```js
-rebilly.organizations.post({
-  "body": {
-    "name": "",
-    "country": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Organization](#organization)
-
-#### Output
-* output [Organization](#organization)
-
-### organizations.id.delete
-Delete a organization with predefined identifier string
-
-
-
-```js
-rebilly.organizations.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### organizations.id.get
-Retrieve a organization with specified identifier string
-
-
-
-```js
-rebilly.organizations.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Organization](#organization)
-
-### organizations.id.put
-Create or update a organization with predefined identifier string
-
-
-
-```js
-rebilly.organizations.id.put({
-  "body": {
-    "name": "",
-    "country": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Organization](#organization)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Organization](#organization)
 
 ### password_tokens.get
 Retrieve a list of tokens
@@ -2899,46 +1742,6 @@ rebilly.payment_cards.post({
 #### Output
 * output [PaymentCard](#paymentcard)
 
-### payment_cards_migrations.get
-Retrieve a list of payment cards ready for migration
-
-
-
-```js
-rebilly.payment_cards_migrations.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [PaymentCard](#paymentcard)
-
-### payment_cards_migrations.migrate.post
-Migrate payment cards to another gateway account
-
-
-
-```js
-rebilly.payment_cards_migrations.migrate.post({
-  "body": {
-    "fromGatewayAccountId": null,
-    "toGatewayAccountId": null,
-    "paymentCardIds": []
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [PaymentCardMigrationRequest](#paymentcardmigrationrequest)
-
-#### Output
-* output [PaymentCardMigrationResponse](#paymentcardmigrationresponse)
-
 ### payment_cards.id.get
 Retrieve a Payment Card with specified identifier string
 
@@ -3041,6 +1844,24 @@ rebilly.payment_cards.id.deactivation.post({
 
 #### Output
 * output [PaymentCard](#paymentcard)
+
+### payment_cards.id.matched_rules.get
+Get matched rules for the payment card
+
+
+```js
+rebilly.payment_cards.id.matched_rules.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The resource identifier string
+
+#### Output
+* output `array`
+  * items [MatchedRule](#matchedrule)
 
 ### payments.get
 Retrieve a payment list
@@ -3352,64 +2173,6 @@ rebilly.plans.id.put({
 #### Output
 * output [Plan](#plan)
 
-### previews.rule_actions.send_email.post
-Send a test email
-
-
-
-```js
-rebilly.previews.rule_actions.send_email.post({
-  "body": null
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [SendTestEmail](#sendtestemail)
-
-#### Output
-* output [SendTestEmail](#sendtestemail)
-
-### previews.rule_actions.trigger_webhook.post
-Trigger a test webhook
-
-
-
-```js
-rebilly.previews.rule_actions.trigger_webhook.post({
-  "body": null
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [SendPreviewWebhook](#sendpreviewwebhook)
-
-#### Output
-* output [SendPreviewWebhook](#sendpreviewwebhook)
-
-### previews.webhooks.post
-Trigger a test webhook
-
-
-
-```js
-rebilly.previews.webhooks.post({
-  "body": {
-    "method": "",
-    "url": "",
-    "credentialHash": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [GlobalWebhook](#globalwebhook)
-
-#### Output
-*Output schema unknown*
-
 ### products.get
 Retrieve a list of products
 
@@ -3506,126 +2269,6 @@ rebilly.products.id.put({
 #### Output
 * output [Product](#product)
 
-### profile.get
-Retrieve user's profile
-
-
-
-```js
-rebilly.profile.get(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output [Profile](#profile)
-
-### profile.put
-Update user's profile
-
-
-
-```js
-rebilly.profile.put({
-  "body": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Profile](#profile)
-
-#### Output
-* output [Profile](#profile)
-
-### profile.password.post
-Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.
-
-
-
-```js
-rebilly.profile.password.post({
-  "body": {}
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [UpdatePassword](#updatepassword)
-
-#### Output
-* output [Profile](#profile)
-
-### profile.totp_reset.post
-Reset (renew) totpSecret
-
-
-
-```js
-rebilly.profile.totp_reset.post(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output [Profile](#profile)
-
-### queue.custom_events.get
-Retrieve a list of scheduled custom events
-
-
-
-```js
-rebilly.queue.custom_events.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [CustomEvent](#customevent)
-
-### queue.custom_events.id.delete
-Delete a scheduled custom event with predefined identifier string
-
-
-
-```js
-rebilly.queue.custom_events.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### queue.custom_events.id.get
-Retrieve a scheduled custom event with predefined identifier string
-
-
-
-```js
-rebilly.queue.custom_events.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [CustomEvent](#customevent)
-
 ### queue.payments.get
 Retrieve a scheduled payment list
 
@@ -3685,102 +2328,6 @@ rebilly.queue.payments.id.put({
 
 #### Output
 * output [Payment](#payment)
-
-### sessions.get
-Retrieve a list of sessions
-
-
-
-```js
-rebilly.sessions.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [Session](#session)
-
-### sessions.post
-Create a session
-
-
-
-```js
-rebilly.sessions.post({
-  "body": {
-    "permissions": null
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Session](#session)
-
-#### Output
-* output [Session](#session)
-
-### sessions.id.delete
-Delete a Session with predefined identifier string
-
-
-
-```js
-rebilly.sessions.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### sessions.id.get
-Retrieve a Session with specified identifier string
-
-
-
-```js
-rebilly.sessions.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Session](#session)
-
-### sessions.id.put
-Create or update a Session with predefined identifier string
-
-
-
-```js
-rebilly.sessions.id.put({
-  "body": {
-    "permissions": null
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Session](#session)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Session](#session)
 
 ### shipping_zones.get
 Retrieve a list of shipping zones
@@ -3877,68 +2424,6 @@ rebilly.shipping_zones.id.put({
 
 #### Output
 * output [ShippingZone](#shippingzone)
-
-### signin.post
-Create a session with email and password
-
-
-
-```js
-rebilly.signin.post({
-  "body": {
-    "email": "",
-    "password": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Signin](#signin)
-
-#### Output
-* output [Session](#session)
-
-### signup.post
-Creates a new user and sends an email confirmation
-
-
-
-```js
-rebilly.signup.post({
-  "body": {
-    "email": "",
-    "company": "",
-    "firstName": "",
-    "lastName": "",
-    "businessPhone": "",
-    "password": "",
-    "website": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Signup](#signup)
-
-#### Output
-* output [User](#user)
-
-### status.get
-Retrieve API current status
-
-
-
-```js
-rebilly.status.get(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output [Status](#status)
 
 ### subscriptions.get
 Retrieve a list of subscriptions
@@ -4103,6 +2588,24 @@ rebilly.subscriptions.id.lead_source.put({
 #### Output
 * output [LeadSource](#leadsource)
 
+### subscriptions.id.matched_rules.get
+Get matched rules for the subscription
+
+
+```js
+rebilly.subscriptions.id.matched_rules.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The resource identifier string
+
+#### Output
+* output `array`
+  * items [MatchedRule](#matchedrule)
+
 ### subscriptions.id.switch.post
 Switch a subscription
 
@@ -4221,181 +2724,6 @@ rebilly.tokens.token.expiration.post({
 
 #### Output
 * output [PaymentToken](#paymenttoken)
-
-### tracking.api.get
-Retrieve a list of tracking API logs
-
-
-```js
-rebilly.tracking.api.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * Accept `string` (values: application/json, text/csv): The response media type
-
-#### Output
-* output `array`
-  * items [ApiTracking](#apitracking)
-
-### tracking.api.id.get
-Retrieve a tracking API log with specified identifier string
-
-
-```js
-rebilly.tracking.api.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [ApiTracking](#apitracking)
-
-### tracking.lists.get
-Retrieve Lists changes history
-
-
-```js
-rebilly.tracking.lists.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [List](#list)
-
-### tracking.subscriptions.get
-Retrieve a list of tracking subscription logs
-
-
-```js
-rebilly.tracking.subscriptions.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [SubscriptionTracking](#subscriptiontracking)
-
-### tracking.subscriptions.id.get
-Retrieve a tracking subscription log with specified identifier string
-
-
-```js
-rebilly.tracking.subscriptions.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [SubscriptionTracking](#subscriptiontracking)
-
-### tracking.webhooks.get
-Retrieve a list of tracking webhook notifications
-
-
-```js
-rebilly.tracking.webhooks.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * sort `array`: The collection items sort field and order (prefix with "-" for descending sort).
-  * filter `string`: The collection items filter requires a special format.
-  * criteria `string`: The json criteria for collection
-
-#### Output
-* output `array`
-  * items [WebhookTracking](#webhooktracking)
-
-### tracking.webhooks.id.get
-Retrieve a tracking webhook notification with specified identifier string
-
-
-```js
-rebilly.tracking.webhooks.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [WebhookTracking](#webhooktracking)
-
-### tracking.webhooks.id.history.get
-Retrieve related webhook attempts for specified webhook tracking.
-
-
-```js
-rebilly.tracking.webhooks.id.history.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output `array`
-  * items [WebhookTracking](#webhooktracking)
-
-### tracking.website_webhooks.get
-Retrieve a list of tracking webhook notifications
-
-
-```js
-rebilly.tracking.website_webhooks.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [WebsiteWebhookTracking](#websitewebhooktracking)
-
-### tracking.website_webhooks.id.get
-Retrieve a tracking webhook notification with specified identifier string
-
-
-```js
-rebilly.tracking.website_webhooks.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [WebsiteWebhookTracking](#websitewebhooktracking)
 
 ### transactions.get
 Retrieve a list of transactions
@@ -4528,6 +2856,24 @@ rebilly.transactions.id.lead_source.put({
 #### Output
 * output [LeadSource](#leadsource)
 
+### transactions.id.matched_rules.get
+Get matched rules for the transaction
+
+
+```js
+rebilly.transactions.id.matched_rules.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: The resource identifier string
+
+#### Output
+* output `array`
+  * items [MatchedRule](#matchedrule)
+
 ### transactions.id.refund.post
 Refund a Transaction with specified identifier string.
 Note that the refund will be in the same currency as the original transaction.
@@ -4551,411 +2897,6 @@ rebilly.transactions.id.refund.post({
 #### Output
 * output [Transaction](#transaction)
 
-### users.get
-Retrieve a list of users
-
-
-
-```js
-rebilly.users.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [User](#user)
-
-### users.post
-Create an user
-
-
-
-```js
-rebilly.users.post({
-  "body": {
-    "email": "",
-    "firstName": "",
-    "lastName": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [User](#user)
-
-#### Output
-* output [User](#user)
-
-### users.reset_password.token.post
-Reset user password
-
-
-
-```js
-rebilly.users.reset_password.token.post({
-  "body": {
-    "newPassword": ""
-  },
-  "token": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [ResetPassword](#resetpassword)
-  * token **required** `string`: The token string
-
-#### Output
-* output [User](#user)
-
-### users.id.delete
-Delete user with predefined identifier string
-
-
-
-```js
-rebilly.users.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### users.id.get
-Retrieve user with specified identifier string
-
-
-
-```js
-rebilly.users.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [User](#user)
-
-### users.id.put
-Create or update user with predefined identifier string
-
-
-
-```js
-rebilly.users.id.put({
-  "body": {
-    "email": "",
-    "firstName": "",
-    "lastName": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [User](#user)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [User](#user)
-
-### users.id.password.post
-Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.
-
-
-
-```js
-rebilly.users.id.password.post({
-  "body": {},
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [UpdatePassword](#updatepassword)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [User](#user)
-
-### users.id.totp_reset.post
-Reset (renew) totpSecret
-
-
-
-```js
-rebilly.users.id.totp_reset.post({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [User](#user)
-
-### webhooks.get
-Retrieve a list of webhooks
-
-
-
-```js
-rebilly.webhooks.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-
-#### Output
-* output `array`
-  * items [GlobalWebhook](#globalwebhook)
-
-### webhooks.post
-Create a webhook
-
-
-
-```js
-rebilly.webhooks.post({
-  "body": {
-    "method": "",
-    "url": "",
-    "credentialHash": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [GlobalWebhook](#globalwebhook)
-
-#### Output
-* output [GlobalWebhook](#globalwebhook)
-
-### webhooks.id.get
-Retrieve a webhook with specified identifier string
-
-
-
-```js
-rebilly.webhooks.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [GlobalWebhook](#globalwebhook)
-
-### webhooks.id.put
-Create or update a webhook with predefined identifier string
-
-
-
-```js
-rebilly.webhooks.id.put({
-  "body": {
-    "method": "",
-    "url": "",
-    "credentialHash": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [GlobalWebhook](#globalwebhook)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [GlobalWebhook](#globalwebhook)
-
-### websites.get
-Retrieve a list of websites
-
-
-
-```js
-rebilly.websites.get({}, context)
-```
-
-#### Input
-* input `object`
-  * limit `integer`: The collection items limit
-  * offset `integer`: The collection items offset
-  * Accept `string` (values: application/json, text/csv): The response media type
-
-#### Output
-* output `array`
-  * items [Website](#website)
-
-### websites.post
-Create a website
-
-
-
-```js
-rebilly.websites.post({
-  "body": {
-    "name": "",
-    "url": "",
-    "servicePhone": "",
-    "serviceEmail": ""
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Website](#website)
-
-#### Output
-* output [Website](#website)
-
-### websites.id.delete
-Delete a website with predefined identifier string
-
-
-
-```js
-rebilly.websites.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### websites.id.get
-Retrieve a website with specified identifier string
-
-
-
-```js
-rebilly.websites.id.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Website](#website)
-
-### websites.id.put
-Create or update a website with predefined identifier string
-
-
-
-```js
-rebilly.websites.id.put({
-  "body": {
-    "name": "",
-    "url": "",
-    "servicePhone": "",
-    "serviceEmail": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [Website](#website)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [Website](#website)
-
-### websites.id.webhook.delete
-Delete a webhook that belongs to a website with predefined ID
-
-
-
-```js
-rebilly.websites.id.webhook.delete({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-*Output schema unknown*
-
-### websites.id.webhook.get
-Retrieve a webhook for website with specified identifier string
-
-
-
-```js
-rebilly.websites.id.webhook.get({
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [WebsiteWebhook](#websitewebhook)
-
-### websites.id.webhook.put
-Create or update a webhook for website with predefined identifier string
-
-
-
-```js
-rebilly.websites.id.webhook.put({
-  "body": {
-    "webHookUrl": "",
-    "webHookUsername": "",
-    "webHookPassword": ""
-  },
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body **required** [WebsiteWebhook](#websitewebhook)
-  * id **required** `string`: The resource identifier string
-
-#### Output
-* output [WebsiteWebhook](#websitewebhook)
-
 
 
 ## Definitions
@@ -4967,6 +2908,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -4999,7 +2942,7 @@ rebilly.websites.id.webhook.put({
   * name **required** `string` (values: Other)
 
 ### AcquirerName
-* AcquirerName `string` (values: Alipay, AIB, B+S, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, Beanstream, BMO Harris Bank, Borgun, BraintreePayments, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, Flexepin, Forte, FundSend, GlobalCollect, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, RBC, RBS WorldPay, RealTime, RebillyProcessor, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): Acquirer name
+* AcquirerName `string` (values: Alipay, AIB, AstroPay Card, Ipay Options, B+S, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, Beanstream, BMO Harris Bank, Borgun, BraintreePayments, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, Flexepin, Forte, FundSend, GlobalCollect, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, RBC, RBS WorldPay, RealTime, RebillyProcessor, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): Acquirer name
 
 ### AmexVPC
 * AmexVPC: AmexVPC config
@@ -5008,6 +2951,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5040,6 +2985,12 @@ rebilly.websites.id.webhook.put({
 ### AmountAdjustment
 * AmountAdjustment `object`
   * method **required** `string` (values: none, partial, discount)
+
+### AmountRestrictions
+* AmountRestrictions `object`
+  * currency **required** `string`: Currency (three letter ISO 4217 code)
+  * max `number`: The maximum amount allowed
+  * min **required** `number`: The minimum amount allowed
 
 ### ApiKey
 * ApiKey `object`: API secret Key.
@@ -5081,6 +3032,42 @@ rebilly.websites.id.webhook.put({
 * ApprovalUrlLink `object`
   * rel **required** `string` (values: approvalUrl): The link type
   * href **required** `string`: The link URL
+
+### AstroPayCard
+* AstroPayCard: AstroPay Card config
+  * _links `array`: The links related to resource
+
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`: AstroPay Card credentials object
+    * secret_key **required** `string`: AstroPay Card secret key
+    * x_login **required** `string`: AstroPay Card login
+    * x_tran_key **required** `string`: AstroPay Card transaction key
 
 ### Attachment
 * Attachment `object`
@@ -5125,6 +3112,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5191,6 +3180,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5217,11 +3208,6 @@ rebilly.websites.id.webhook.put({
     * apiPasscode **required** `string`: Beanstream Gateway API Passcode
     * merchantId **required** `string`: Beanstream Gateway merchant ID
 
-### BillingContactLink
-* BillingContactLink `object`
-  * rel **required** `string` (values: billingContact): The link type
-  * href **required** `string`: The link URL
-
 ### Blacklist
 * Blacklist `object`
   * _links `array`: The links related to resource
@@ -5240,6 +3226,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5287,6 +3275,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5320,6 +3310,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5354,6 +3346,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5388,13 +3382,15 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * allowCustomCustomerId `boolean`: If to enable your own customer ID in requests
+  * createdTime: Checkout page created time
   * id: Checkout page identifier string
   * isActive `boolean`: If checkout page active
   * name **required** `string`: Checkout page name
   * planId **required** `string`: Checkout page plan ID
   * redirectTimeout `integer`: Checkout page redirect timeout
   * redirectUrl `string`: Checkout page url
-  * uriPath **required** `string`: Your own custom uri path for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/website/<uriPath>
+  * updatedTime: Checkout page updated time
+  * uriPath **required** `string`: Your own custom uri path for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/checkout/<uriPath>
   * websiteId **required** `string`: Checkout page website ID
 
 ### ChinaUnionPay
@@ -5404,6 +3400,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5455,7 +3453,6 @@ rebilly.websites.id.webhook.put({
   * emails [ContactEmails](#contactemails)
   * firstName `string`: The contact first name
   * id: The contact identifier string
-  * isOutdated `boolean`: Is contact outdated
   * lastName `string`: The contact last name
   * organization `string`: The contact organization
   * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
@@ -5469,11 +3466,6 @@ rebilly.websites.id.webhook.put({
     * label **required** `string`: The email label
     * primary `boolean`: True if email is primary
     * value **required** `string`: The email value
-
-### ContactLink
-* ContactLink `object`
-  * rel **required** `string` (values: contact): The link type
-  * href **required** `string`: The link URL
 
 ### ContactObject
 * ContactObject `object`
@@ -5549,6 +3541,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5622,6 +3616,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5667,11 +3663,6 @@ rebilly.websites.id.webhook.put({
   * rel **required** `string` (values: defaultPaymentInstrument): The link type
   * href **required** `string`: The link URL
 
-### DeliveryContactLink
-* DeliveryContactLink `object`
-  * rel **required** `string` (values: deliveryContact): The link type
-  * href **required** `string`: The link URL
-
 ### Dengi
 * Dengi: Dengi Gateway config
   * _links `array`: The links related to resource
@@ -5679,6 +3670,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5746,10 +3739,6 @@ rebilly.websites.id.webhook.put({
   * rel **required** `string` (values: dispute): The link type
   * href **required** `string`: The link URL
 
-### Email
-* Email `object`
-  * email **required** `string`: Email
-
 ### EmailNotification
 * EmailNotification `object`
   * bcc `array`: The hidden recipients addresses. The template palceholders are allowed.
@@ -5781,6 +3770,7 @@ rebilly.websites.id.webhook.put({
   * extension `string`: The File extension
   * height `integer`: Image height, applicable to images only
   * id
+  * isPublic `boolean`: Is the file available publicly (without authentication). If true, the permalink in the _links section contains the public URL.
   * mime `string` (values: image/png, image/jpeg, image/gif, application/pdf, audio/mpeg): The mime type
   * name `string`: Original File name
   * sha1 `string`: Hash sum of the file
@@ -5790,6 +3780,11 @@ rebilly.websites.id.webhook.put({
   * updatedTime: The latest update date/time
   * url `string`: Write-only. If defined on POST, this would be used as a file source.
   * width `integer`: Image width, applicable to images only
+
+### FileDownloadLink
+* FileDownloadLink `object`
+  * rel **required** `string` (values: download): The link type
+  * href **required** `string`: The link URL
 
 ### FileLink
 * FileLink `object`
@@ -5803,6 +3798,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5829,6 +3826,10 @@ rebilly.websites.id.webhook.put({
     * apiKey **required** `string`: Flexepin API Key
     * apiSecret **required** `string`: Flexepin API Secret
 
+### ForgotPassword
+* ForgotPassword `object`
+  * email **required** `string`: Email
+
 ### Forte
 * Forte: Forte Gateway config
   * _links `array`: The links related to resource
@@ -5836,6 +3837,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5871,6 +3874,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5904,6 +3909,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5941,6 +3948,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -5974,7 +3983,7 @@ rebilly.websites.id.webhook.put({
   * method **required** `string` (values: gateway-account-weights, gateway-acquirer-weights)
 
 ### GatewayName
-* GatewayName `string` (values: A1Gateway, AmexVPC, AuthorizeNet, Beanstream, BraintreePayments, Cashflows, Cayan, Chase, ChinaUnionPay, Credorax, DataCash, Dengi, eMerchantPay, Flexepin, FundSend, Forte, GET, GlobalCollect, GlobalOne, Gpaysafe, iCheque, Ilixium, Intuit, JetPay, Jeton, Moneris, NMI, OchaPay, Optimal, PandaGateway, Payeezy, Payflow, PayPal, Payr, Payvision, Plugnpay, Realex, RealTime, RebillyProcessor, Redsys, RPN, Sagepay, SMSVoucher, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The gateway name
+* GatewayName `string` (values: A1Gateway, AmexVPC, AstroPayCard, AuthorizeNet, Beanstream, BraintreePayments, Cashflows, Cayan, Chase, ChinaUnionPay, Credorax, DataCash, Dengi, eMerchantPay, Flexepin, FundSend, Forte, GET, GlobalCollect, GlobalOne, Gpaysafe, iCheque, Ilixium, Intuit, IpayOptions, JetPay, Jeton, Moneris, NMI, OchaPay, Optimal, PandaGateway, Payeezy, Payflow, PayPal, Payr, Payvision, Plugnpay, Realex, RealTime, RebillyProcessor, Redsys, RPN, Sagepay, SMSVoucher, StaticGateway, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The gateway name
 
 ### GlobalCollect
 * GlobalCollect: GlobalCollect Gateway config
@@ -5983,6 +3992,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6027,6 +4038,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6078,6 +4091,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6110,6 +4125,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6153,6 +4170,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6276,6 +4295,41 @@ rebilly.websites.id.webhook.put({
   * amount `number`: Tax amount
   * description `string`: Tax description
 
+### IpayOptions
+* IpayOptions: Ipay Options config
+  * _links `array`: The links related to resource
+
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`: Ipay Options credentials object
+    * rcode **required** `string`: Ipay Options rcode
+    * sid **required** `string`: Ipay Options website ID
+
 ### ItemsLink
 * ItemsLink `object`
   * rel **required** `string` (values: items): The link type
@@ -6288,6 +4342,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6320,6 +4376,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6401,8 +4459,22 @@ rebilly.websites.id.webhook.put({
     * items `string`
   * version `integer`: List version
 
+### MatchedRule
+* MatchedRule `object`
+  * context `object`: Event's context
+  * description `string`: Rule's description
+  * event [EventType](#eventtype)
+  * id: Event tracking id
+  * occurredTime: Time when event occurred.
+  * processedRules `object`: Processed rules
+    * actions `array`: Rule actions applied
+      * items `string`
+    * name `string`: Rule name
+    * result `string`: Rule result
+  * rulesVersion `integer`: Rule version
+
 ### Method
-* Method `string` (values: ach, cash, payment-card, paypal, Alipay, China UnionPay, Flexepin, Gpaysafe, Jeton, OchaPay, SMSVoucher, UPayCard, WeChat Pay): The payment method
+* Method `string` (values: ach, cash, payment-card, paypal, Alipay, China UnionPay, Flexepin, Gpaysafe, Jeton, OchaPay, SMSVoucher, UPayCard, WeChat Pay, AstroPay Card, bank-transfer, bitcoin, Boleto, cash-deposit, echeck, instant-bank-transfer, invoice, miscellaneous, online-bank-transfer, phone, voucher): The payment method
 
 ### Moneris
 * Moneris: Moneris Gateway config
@@ -6411,6 +4483,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6447,6 +4521,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6508,6 +4584,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6550,6 +4628,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6624,6 +4704,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6663,6 +4745,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6720,6 +4804,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6755,6 +4841,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6829,6 +4917,7 @@ rebilly.websites.id.webhook.put({
     * latitude `number`: Latitude for specified ipAddress
     * longitude `number`: Longitude for specified ipAddress
     * postalCode `string`: Postal code for specified ipAddress
+    * score `integer`: Risk score computed per all the factors
     * timeZone `string`: Time zone for specified ipAddress
     * vpnServiceName `string`: VPN service name, if available
   * scheduledTime `string`: The time the payment is scheduled for collection
@@ -6856,7 +4945,7 @@ rebilly.websites.id.webhook.put({
     * postalCode `string`: The contact postal code
     * region `string`: The contact region (state)
   * bin `string`: The card's bin (the PAN's first 6 digits)
-  * brand `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China UnionPay): Payment Card brand
+  * brand `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China UnionPay, AstroPay Card): Payment Card brand
   * createdTime: Card created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
   * customerId: The Customer's ID. Required if card is creating not from Token
@@ -6868,6 +4957,7 @@ rebilly.websites.id.webhook.put({
   * pan `string`: The card PAN (Primary Account Number). Required if card is creating not from Token
   * safeHash `string`: The card's hash. Based on bin and last 4 digits of the PAN
   * status `string` (values: active, expired, inactive, deactivated, pending): Payment Card status
+  * stickyGatewayAccountId `string`: Default Gateway Account ID used for transactions
   * token `string`: PaymentCardToken. Use without any other fields
   * updatedTime: Card updated time
 
@@ -6875,17 +4965,6 @@ rebilly.websites.id.webhook.put({
 * PaymentCardLink `object`
   * rel **required** `string` (values: paymentCard): The link type
   * href **required** `string`: The link URL
-
-### PaymentCardMigrationRequest
-* PaymentCardMigrationRequest `object`
-  * fromGatewayAccountId **required**: An ID of Gateway Account cards should be migrated from
-  * paymentCardIds **required** `array`
-    * items: An array of payment card IDs
-  * toGatewayAccountId **required**: An ID of Gateway Account cards should be migrated to
-
-### PaymentCardMigrationResponse
-* PaymentCardMigrationResponse `object`
-  * migratedCards `integer`: Amount of cards that were successfully migrated
 
 ### PaymentInstrument
 * PaymentInstrument `object`
@@ -6944,6 +5023,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -6977,6 +5058,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7040,7 +5123,7 @@ rebilly.websites.id.webhook.put({
   * recurringPeriodLimit `integer`: The number of times a subscription will rebill until the contract is over
   * recurringPeriodUnit `string` (values: day, week, month, year): The unit of time
   * richDescription `string`: The plan rich description - supports HTML
-  * setupAmount `number`: The amount of a trial - 0 is a valid value (for free)
+  * setupAmount `number`: The amount of a setup - 0 is a valid value (for free)
   * trialAmount `number`: The amount of a trial - 0 is a valid value (for free)
   * trialPeriodLength `integer`: The length of time (used with the trialPeriodUnit)
   * trialPeriodUnit `string` (values: day, week, month, year): The unit of time
@@ -7058,6 +5141,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7132,6 +5217,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7165,6 +5252,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7198,6 +5287,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7233,6 +5324,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7283,6 +5376,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7356,6 +5451,7 @@ rebilly.websites.id.webhook.put({
   * latitude `number`: Latitude for specified ipAddress
   * longitude `number`: Longitude for specified ipAddress
   * postalCode `string`: Postal code for specified ipAddress
+  * score `integer`: Risk score computed per all the factors
   * timeZone `string`: Time zone for specified ipAddress
   * vpnServiceName `string`: VPN service name, if available
 
@@ -7389,6 +5485,11 @@ rebilly.websites.id.webhook.put({
   * createdTime [ServerTimestamp](#servertimestamp)
   * version `integer`
 
+### RuleSetHistoryLink
+* RuleSetHistoryLink `object`
+  * rel **required** `string` (values: history): The link type
+  * href **required** `string`: The link URL
+
 ### RuleSetVersion
 * RuleSetVersion `object`: Version of rules
   * _links `array`: The links related to resource
@@ -7410,6 +5511,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7442,6 +5545,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7538,6 +5643,11 @@ rebilly.websites.id.webhook.put({
       * price **required** `number`: The shipping price - 0 is a valid value (for free)
   * updatedTime: The shipping zone updated time
 
+### SignedLinkLink
+* SignedLinkLink `object`
+  * rel **required** `string` (values: signedLink): The link type
+  * href **required** `string`: The link URL
+
 ### Signin
 * Signin `object`
   * email **required** `string`: Email
@@ -7571,6 +5681,38 @@ rebilly.websites.id.webhook.put({
   * host **required** `string`: The host name
   * port `integer`: The port value
 
+### StaticGateway
+* StaticGateway: StaticGateway Gateway config
+  * _links `array`: The links related to resource
+
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+
 ### Status
 * Status `object`
   * status `string` (values: ok): The API status. If everything is ok - value is 'ok'
@@ -7583,6 +5725,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7669,6 +5813,7 @@ rebilly.websites.id.webhook.put({
     * latitude `number`: Latitude for specified ipAddress
     * longitude `number`: Longitude for specified ipAddress
     * postalCode `string`: Postal code for specified ipAddress
+    * score `integer`: Risk score computed per all the factors
     * timeZone `string`: Time zone for specified ipAddress
     * vpnServiceName `string`: VPN service name, if available
   * startTime `string`: Subscription start time
@@ -7817,6 +5962,8 @@ rebilly.websites.id.webhook.put({
 
   * isDisputed `boolean`: True if transaction is disputed
   * isRebill `boolean`
+  * isReconciled `boolean`: True if the transaction has been verified with gateway batch data
+  * isRetry `boolean`: True if this transaction is retry.
   * method: Payment Method
   * parentTransactionId: The transactions's parent ID
   * paymentInstrument [PaymentInstrument](#paymentinstrument)
@@ -7825,6 +5972,7 @@ rebilly.websites.id.webhook.put({
   * redirectUrls [RedirectUrls](#redirecturls)
   * result `string` (values: approved, canceled, declined, unknown): Transaction result
   * retriedTransactionId: The retried transaction ID
+  * retriesResult `string` (values: approved, canceled, declined, scheduled): Retries sequence result
   * retryInstruction [PaymentRetry](#paymentretry)
   * retryNumber `integer`: The position in the sequence of retries
   * riskMetadata: Risk metadata
@@ -7843,16 +5991,17 @@ rebilly.websites.id.webhook.put({
     * latitude `number`: Latitude for specified ipAddress
     * longitude `number`: Longitude for specified ipAddress
     * postalCode `string`: Postal code for specified ipAddress
+    * score `integer`: Risk score computed per all the factors
     * timeZone `string`: Time zone for specified ipAddress
     * vpnServiceName `string`: VPN service name, if available
-  * riskScore `number`: The transactions's risk score
+  * riskScore `integer`: The transactions's risk score
   * scheduledTime `string`: The time the transaction is scheduled for collection
   * status `string` (values: completed, connection-error, never-sent, pending, sending, suspended, timeout, waiting-capture, waiting-refund): Transaction status
   * subscriptionIds `array`: The subscription IDs related to transaction
 
   * type `string` (values: authorize, capture, credit, refund, sale, void): Transaction type
   * updatedTime: Transaction updated time
-  * velocity `number`: The number of transactions by the same customer in the past 24 hours
+  * velocity `integer`: The number of transactions by the same customer in the past 24 hours
   * websiteId: Website's ID
 
 ### TransactionGatewayLog
@@ -7883,6 +6032,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -7917,6 +6068,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8000,6 +6153,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8039,6 +6194,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8118,7 +6275,6 @@ rebilly.websites.id.webhook.put({
 * Website `object`
   * _links `array`: The links related to resource
 
-  * checkoutPageUri `string`: Your own custom URI for this Checkout Page
   * createdTime: Website created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
   * id: The website identifier string
@@ -8132,12 +6288,6 @@ rebilly.websites.id.webhook.put({
 * WebsiteLink `object`
   * rel **required** `string` (values: website): The link type
   * href **required** `string`: The link URL
-
-### WebsiteWebhook
-* WebsiteWebhook `object`
-  * webHookPassword **required** `string`: Webhook HTTP Authentication Password. An empty string will be returned in the response
-  * webHookUrl **required** `string`: Webhook Url
-  * webHookUsername **required** `string`: Webhook HTTP Authentication Username
 
 ### WebsiteWebhookTracking
 * WebsiteWebhookTracking `object`: Webhook Tracking Requests.
@@ -8160,6 +6310,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8204,6 +6356,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8345,6 +6499,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8429,6 +6585,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
@@ -8651,6 +6809,8 @@ rebilly.websites.id.webhook.put({
   * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
+  * amountRestrictions `array`: Set restrictions on allowed amounts per currency
+    * items [AmountRestrictions](#amountrestrictions)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
   * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points

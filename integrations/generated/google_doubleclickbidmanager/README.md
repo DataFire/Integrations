@@ -238,8 +238,8 @@ google_doubleclickbidmanager.queries.runquery({
 
 #### Input
 * input `object`
-  * queryId **required** `string`: Query ID to run.
   * body [RunQueryRequest](#runqueryrequest)
+  * queryId **required** `string`: Query ID to run.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

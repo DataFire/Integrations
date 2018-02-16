@@ -1049,6 +1049,20 @@
     }
   },
   "definitions": {
+    "AlwaysOnVpnPackage": {
+      "description": "Configuration for an always-on VPN connection.",
+      "properties": {
+        "lockdownEnabled": {
+          "description": "Disallows networking when the VPN is not connected.",
+          "type": "boolean"
+        },
+        "packageName": {
+          "description": "The package name of the VPN app.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ApiLevelCondition": {
       "description": "A compliance rule condition which is satisfied if the Android Framework API level on the device does not meet a minimum requirement. There can only be one rule with this type of condition per policy.",
       "properties": {
@@ -1242,6 +1256,10 @@
           ],
           "type": "string"
         },
+        "deviceSettings": {
+          "$ref": "#/definitions/DeviceSettings",
+          "description": "Device settings information. This information is only available when deviceSettingsEnabled is true in the device's policy."
+        },
         "disabledReason": {
           "$ref": "#/definitions/UserFacingMessage",
           "description": "If the device state is DISABLED, an optional message that is displayed on the device indicating the reason the device is disabled. This field may be modified by an update request."
@@ -1358,6 +1376,45 @@
         "userName": {
           "description": "The resource name of the user that owns this device in the form enterprises/{enterpriseId}/users/{userId}.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceSettings": {
+      "description": "Information about security related device settings on device.",
+      "properties": {
+        "adbEnabled": {
+          "description": "If the ADB is enabled Settings.Global.ADB_ENABLED.",
+          "type": "boolean"
+        },
+        "developmentSettingsEnabled": {
+          "description": "If the developer mode is enabled Settings.Global.DEVELOPMENT_SETTINGS_ENABLED.",
+          "type": "boolean"
+        },
+        "encryptionStatus": {
+          "description": "Encryption status from DevicePolicyManager.",
+          "enum": [
+            "ENCRYPTION_STATUS_UNSPECIFIED",
+            "UNSUPPORTED",
+            "INACTIVE",
+            "ACTIVATING",
+            "ACTIVE",
+            "ACTIVE_DEFAULT_KEY",
+            "ACTIVE_PER_USER"
+          ],
+          "type": "string"
+        },
+        "isDeviceSecure": {
+          "description": "Device secured with PIN/password.",
+          "type": "boolean"
+        },
+        "isEncrypted": {
+          "description": "Whether the storage encryption is enabled DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE or DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE_PER_USER in N+ devices.",
+          "type": "boolean"
+        },
+        "unknownSourcesEnabled": {
+          "description": "If installing apps from unknown sources is enabled. Settings.Secure.INSTALL_NON_MARKET_APPS.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -1955,6 +2012,19 @@
       },
       "type": "object"
     },
+    "PackageNameList": {
+      "description": "A list of package names.",
+      "properties": {
+        "packageNames": {
+          "description": "A list of package names.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "PasswordRequirements": {
       "description": "Requirements for the password used to unlock a device.",
       "properties": {
@@ -2012,6 +2082,7 @@
           "description": "The required password quality.",
           "enum": [
             "PASSWORD_QUALITY_UNSPECIFIED",
+            "BIOMETRIC_WEAK",
             "SOMETHING",
             "NUMERIC",
             "NUMERIC_COMPLEX",
@@ -2071,6 +2142,13 @@
     "Policy": {
       "description": "A policy, which governs behavior for a device.",
       "properties": {
+        "accountTypesWithManagementDisabled": {
+          "description": "Account types that cannot be managed by the user.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "addUserDisabled": {
           "description": "Whether adding new users and profiles is disabled.",
           "type": "boolean"
@@ -2078,6 +2156,10 @@
         "adjustVolumeDisabled": {
           "description": "Whether adjusting the master volume is disabled.",
           "type": "boolean"
+        },
+        "alwaysOnVpnPackage": {
+          "$ref": "#/definitions/AlwaysOnVpnPackage",
+          "description": "Configuration for an always-on VPN connection. Use with vpn_config_disabled to prevent modification of this setting."
         },
         "applications": {
           "description": "Policy applied to apps.",
@@ -2094,8 +2176,24 @@
           "description": "Whether applications other than the ones configured in applications are blocked from being installed. When set, applications that were installed under a previous policy but no longer appear in the policy are automatically uninstalled.",
           "type": "boolean"
         },
+        "bluetoothConfigDisabled": {
+          "description": "Whether configuring bluetooth is disabled.",
+          "type": "boolean"
+        },
+        "bluetoothContactSharingDisabled": {
+          "description": "Whether bluetooth contact sharing is disabled.",
+          "type": "boolean"
+        },
+        "bluetoothDisabled": {
+          "description": "Whether bluetooth is disabled. Prefer this setting over bluetooth_config_disabled because bluetooth_config_disabled can be bypassed by the user.",
+          "type": "boolean"
+        },
         "cameraDisabled": {
           "description": "Whether all cameras on the device are disabled.",
+          "type": "boolean"
+        },
+        "cellBroadcastsConfigDisabled": {
+          "description": "Whether configuring cell broadcast is disabled.",
           "type": "boolean"
         },
         "complianceRules": {
@@ -2104,6 +2202,18 @@
             "$ref": "#/definitions/ComplianceRule"
           },
           "type": "array"
+        },
+        "createWindowsDisabled": {
+          "description": "Whether creating windows besides app windows is disabled.",
+          "type": "boolean"
+        },
+        "credentialsConfigDisabled": {
+          "description": "Whether configuring user credentials is disabled.",
+          "type": "boolean"
+        },
+        "dataRoamingDisabled": {
+          "description": "Whether roaming data services are disabled.",
+          "type": "boolean"
         },
         "debuggingFeaturesAllowed": {
           "description": "Whether the user is allowed to enable debugging features.",
@@ -2118,6 +2228,10 @@
             "DENY"
           ],
           "type": "string"
+        },
+        "ensureVerifyAppsEnabled": {
+          "description": "Whether application verification is forced to be enabled.",
+          "type": "boolean"
         },
         "factoryResetDisabled": {
           "description": "Whether factory resetting from settings is disabled.",
@@ -2134,6 +2248,10 @@
           "description": "Whether the user is allowed to have fun. Controls whether the Easter egg game in Settings is disabled.",
           "type": "boolean"
         },
+        "installAppsDisabled": {
+          "description": "Whether user installation of apps is disabled.",
+          "type": "boolean"
+        },
         "installUnknownSourcesAllowed": {
           "description": "Whether the user is allowed to enable the \"Unknown Sources\" setting, which allows installation of apps from unknown sources.",
           "type": "boolean"
@@ -2142,13 +2260,46 @@
           "description": "Whether the keyguard is disabled.",
           "type": "boolean"
         },
+        "keyguardDisabledFeatures": {
+          "description": "Disabled keyguard customizations, such as widgets.",
+          "items": {
+            "enum": [
+              "KEYGUARD_DISABLED_FEATURE_UNSPECIFIED",
+              "CAMERA",
+              "NOTIFICATIONS",
+              "UNREDACTED_NOTIFICATIONS",
+              "TRUST_AGENTS",
+              "DISABLE_FINGERPRINT",
+              "DISABLE_REMOTE_INPUT",
+              "ALL_FEATURES"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "kioskCustomLauncherEnabled": {
+          "description": "Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the applications setting. The apps appear on a single page in alphabetical order. It is recommended to also use status_bar_disabled to block access to device settings.",
+          "type": "boolean"
+        },
+        "longSupportMessage": {
+          "$ref": "#/definitions/UserFacingMessage",
+          "description": "A message displayed to the user in the device administators settings screen."
+        },
         "maximumTimeToLock": {
           "description": "Maximum time in milliseconds for user activity until the device will lock. A value of 0 means there is no restriction.",
           "format": "int64",
           "type": "string"
         },
+        "mobileNetworksConfigDisabled": {
+          "description": "Whether configuring mobile networks is disabled.",
+          "type": "boolean"
+        },
         "modifyAccountsDisabled": {
           "description": "Whether adding or removing accounts is disabled.",
+          "type": "boolean"
+        },
+        "mountPhysicalMediaDisabled": {
+          "description": "Whether the user mounting physical external media is disabled.",
           "type": "boolean"
         },
         "name": {
@@ -2159,6 +2310,10 @@
           "description": "Whether the network escape hatch is enabled. If a network connection can't be made at boot time, the escape hatch prompts the user to temporarily connect to a network in order to refresh the device policy. After applying policy, the temporary network will be forgotten and the device will continue booting. This prevents being unable to connect to a network if there is no suitable network in the last policy and the device boots into an app in lock task mode, or the user is otherwise unable to reach device settings.",
           "type": "boolean"
         },
+        "networkResetDisabled": {
+          "description": "Whether resetting network settings is disabled.",
+          "type": "boolean"
+        },
         "openNetworkConfiguration": {
           "additionalProperties": {
             "description": "Properties of the object."
@@ -2166,9 +2321,21 @@
           "description": "Network configuration for the device. See configure networks for more information.",
           "type": "object"
         },
+        "outgoingBeamDisabled": {
+          "description": "Whether using NFC to beam out data from apps is disabled.",
+          "type": "boolean"
+        },
+        "outgoingCallsDisabled": {
+          "description": "Whether outgoing calls are disabled.",
+          "type": "boolean"
+        },
         "passwordRequirements": {
           "$ref": "#/definitions/PasswordRequirements",
           "description": "Password requirements."
+        },
+        "permittedInputMethods": {
+          "$ref": "#/definitions/PackageNameList",
+          "description": "If present, only input methods provided by packages in this list are permitted. If this field is present, but the list is empty, then only system input methods are permitted."
         },
         "persistentPreferredActivities": {
           "description": "Default intent handler activities.",
@@ -2176,6 +2343,10 @@
             "$ref": "#/definitions/PersistentPreferredActivity"
           },
           "type": "array"
+        },
+        "recommendedGlobalProxy": {
+          "$ref": "#/definitions/ProxyInfo",
+          "description": "The network-independent global HTTP proxy. Typically proxies should be configured per-network in open_network_configuration. However for unusual configurations like general internal filtering a global HTTP proxy may be useful. If the proxy is not accessible, network access may break. The global proxy is only a recommendation and some apps may ignore it."
         },
         "removeUserDisabled": {
           "description": "Whether removing other users is disabled.",
@@ -2187,6 +2358,22 @@
         },
         "screenCaptureDisabled": {
           "description": "Whether screen capture is disabled.",
+          "type": "boolean"
+        },
+        "setUserIconDisabled": {
+          "description": "Whether changing the user icon is disabled.",
+          "type": "boolean"
+        },
+        "setWallpaperDisabled": {
+          "description": "Whether changing the wallpaper is disabled.",
+          "type": "boolean"
+        },
+        "shortSupportMessage": {
+          "$ref": "#/definitions/UserFacingMessage",
+          "description": "A message displayed to the user in the settings screen wherever functionality has been disabled by the admin."
+        },
+        "smsDisabled": {
+          "description": "Whether sending or receiving SMS messages is disabled.",
           "type": "boolean"
         },
         "statusBarDisabled": {
@@ -2214,14 +2401,30 @@
           "$ref": "#/definitions/SystemUpdate",
           "description": "The system update policy, which controls how OS updates are applied. If the update type is WINDOWED, the update window will automatically apply to Play app updates as well."
         },
+        "tetheringConfigDisabled": {
+          "description": "Whether configuring tethering and portable hotspots is disabled.",
+          "type": "boolean"
+        },
+        "uninstallAppsDisabled": {
+          "description": "Whether user uninstallation of applications is disabled.",
+          "type": "boolean"
+        },
         "unmuteMicrophoneDisabled": {
           "description": "Whether the microphone is muted and adjusting microphone volume is disabled.",
+          "type": "boolean"
+        },
+        "usbFileTransferDisabled": {
+          "description": "Whether transferring files over USB is disabled.",
           "type": "boolean"
         },
         "version": {
           "description": "The version of the policy. This is a read-only field. The version is incremented each time the policy is updated.",
           "format": "int64",
           "type": "string"
+        },
+        "vpnConfigDisabled": {
+          "description": "Whether configuring VPN is disabled.",
+          "type": "boolean"
         },
         "wifiConfigDisabled": {
           "description": "Whether configuring WiFi access points is disabled.",
@@ -2264,6 +2467,32 @@
       },
       "type": "object"
     },
+    "ProxyInfo": {
+      "description": "Configuration info for an HTTP proxy. For a direct proxy, set the host, port, and excluded_hosts fields. For a PAC script proxy, set the pac_uri field.",
+      "properties": {
+        "excludedHosts": {
+          "description": "For a direct proxy, the hosts for which the proxy is bypassed. The host names may contain wildcards such as *.example.com.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "host": {
+          "description": "The host of the direct proxy.",
+          "type": "string"
+        },
+        "pacUri": {
+          "description": "The URI of the PAC script used to configure the proxy.",
+          "type": "string"
+        },
+        "port": {
+          "description": "The port of the direct proxy.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "SignupUrl": {
       "description": "An enterprise signup URL.",
       "properties": {
@@ -2288,6 +2517,15 @@
         "androidBuildTime": {
           "description": "Build time.",
           "format": "google-datetime",
+          "type": "string"
+        },
+        "androidDevicePolicyVersionCode": {
+          "description": "The Android Device Policy app version code.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "androidDevicePolicyVersionName": {
+          "description": "The Android Device Policy app version as displayed to the user.",
           "type": "string"
         },
         "androidVersion": {
@@ -2337,6 +2575,10 @@
     "StatusReportingSettings": {
       "description": "Settings controlling the behavior of status reports.",
       "properties": {
+        "deviceSettingsEnabled": {
+          "description": "Whether device settings reporting is enabled.",
+          "type": "boolean"
+        },
         "displayInfoEnabled": {
           "description": "Whether displays reporting is enabled.",
           "type": "boolean"

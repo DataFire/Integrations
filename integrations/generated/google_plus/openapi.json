@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Builds on top of the Google+ platform.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google+",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
@@ -55,6 +60,19 @@
         "https://www.googleapis.com/auth/userinfo.email": "View your email address",
         "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
+        "https://www.googleapis.com/auth/plus.me": "Know who you are on Google",
+        "https://www.googleapis.com/auth/userinfo.email": "View your email address",
+        "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -138,13 +156,6 @@
         "operationId": "activities.search",
         "parameters": [
           {
-            "description": "Full-text search query string.",
-            "in": "query",
-            "name": "query",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": "en-US",
             "description": "Specify the preferred language to search with. See search language codes for available values.",
             "in": "query",
@@ -176,6 +187,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Full-text search query string.",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -190,10 +208,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -251,10 +275,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -338,10 +368,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -425,10 +461,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -486,10 +528,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -528,13 +576,6 @@
         "operationId": "people.search",
         "parameters": [
           {
-            "description": "Specify a query string for full text search of public text in all profiles.",
-            "in": "query",
-            "name": "query",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": "en-US",
             "description": "Specify the preferred language to search with. See search language codes for available values.",
             "in": "query",
@@ -555,6 +596,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Specify a query string for full text search of public text in all profiles.",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -569,10 +617,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -630,20 +684,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/userinfo.email"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.profile"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.profile"
             ]
           }
@@ -682,13 +748,6 @@
         "operationId": "activities.list",
         "parameters": [
           {
-            "description": "The ID of the user to get activities for. The special value \"me\" can be used to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The collection of activities to list.",
             "enum": [
               "public"
@@ -712,6 +771,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "The ID of the user to get activities for. The special value \"me\" can be used to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -726,10 +792,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }
@@ -768,13 +840,6 @@
         "operationId": "people.list",
         "parameters": [
           {
-            "description": "Get the collection of people for the person identified. Use \"me\" to indicate the authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The collection of people to list.",
             "enum": [
               "connected",
@@ -809,6 +874,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Get the collection of people for the person identified. Use \"me\" to indicate the authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -823,10 +895,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/plus.login"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/plus.login"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/plus.me"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/plus.me"
             ]
           }

@@ -683,12 +683,12 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * items [InputDescription](#inputdescription)
 
 ### InputLambdaProcessor
-* InputLambdaProcessor `object`: An object that contains the ARN of the <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a> function that is used to preprocess records in the stream, and the ARN of the IAM role used to access the AWS Lambda function. 
+* InputLambdaProcessor `object`: An object that contains the Amazon Resource Name (ARN) of the <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a> function that is used to preprocess records in the stream, and the ARN of the IAM role that is used to access the AWS Lambda function. 
   * ResourceARN **required** [ResourceARN](#resourcearn)
   * RoleARN **required** [RoleARN](#rolearn)
 
 ### InputLambdaProcessorDescription
-* InputLambdaProcessorDescription `object`: An object that contains the ARN of the <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a> function that is used to preprocess records in the stream, and the ARN of the IAM role used to access the AWS Lambda expression.
+* InputLambdaProcessorDescription `object`: An object that contains the Amazon Resource Name (ARN) of the <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a> function that is used to preprocess records in the stream, and the ARN of the IAM role that is used to access the AWS Lambda expression.
   * ResourceARN [ResourceARN](#resourcearn)
   * RoleARN [RoleARN](#rolearn)
 
@@ -709,7 +709,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * CountUpdate [InputParallelismCount](#inputparallelismcount)
 
 ### InputProcessingConfiguration
-* InputProcessingConfiguration `object`: Provides a description of a processor that is used to preprocess the records in the stream prior to being processed by your application code. Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
+* InputProcessingConfiguration `object`: Provides a description of a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
   * InputLambdaProcessor **required** [InputLambdaProcessor](#inputlambdaprocessor)
 
 ### InputProcessingConfigurationDescription
@@ -764,7 +764,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * RecordRowPath **required** [RecordRowPath](#recordrowpath)
 
 ### KinesisFirehoseInput
-* KinesisFirehoseInput `object`:  Identifies an Amazon Kinesis Firehose delivery stream as the streaming source. You provide the Firehose delivery stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.
+* KinesisFirehoseInput `object`:  Identifies an Amazon Kinesis Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.
   * ResourceARN **required** [ResourceARN](#resourcearn)
   * RoleARN **required** [RoleARN](#rolearn)
 
@@ -794,7 +794,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * RoleARNUpdate [RoleARN](#rolearn)
 
 ### KinesisStreamsInput
-* KinesisStreamsInput `object`:  Identifies an Amazon Kinesis stream as the streaming source. You provide the stream's ARN and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.
+* KinesisStreamsInput `object`:  Identifies an Amazon Kinesis stream as the streaming source. You provide the stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.
   * ResourceARN **required** [ResourceARN](#resourcearn)
   * RoleARN **required** [RoleARN](#rolearn)
 
@@ -809,7 +809,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * RoleARNUpdate [RoleARN](#rolearn)
 
 ### KinesisStreamsOutput
-* KinesisStreamsOutput `object`: When configuring application output, identifies a Amazon Kinesis stream as the destination. You provide the stream Amazon Resource Name (ARN) and also an IAM role ARN that Amazon Kinesis Analytics can use to write to the stream on your behalf.
+* KinesisStreamsOutput `object`: When configuring application output, identifies an Amazon Kinesis stream as the destination. You provide the stream Amazon Resource Name (ARN) and also an IAM role ARN that Amazon Kinesis Analytics can use to write to the stream on your behalf.
   * ResourceARN **required** [ResourceARN](#resourcearn)
   * RoleARN **required** [RoleARN](#rolearn)
 
@@ -820,6 +820,21 @@ amazonaws_kinesisanalytics.UpdateApplication({
 
 ### KinesisStreamsOutputUpdate
 * KinesisStreamsOutputUpdate `object`:  When updating an output configuration using the <a>UpdateApplication</a> operation, provides information about an Amazon Kinesis stream configured as the destination. 
+  * ResourceARNUpdate [ResourceARN](#resourcearn)
+  * RoleARNUpdate [RoleARN](#rolearn)
+
+### LambdaOutput
+* LambdaOutput `object`: When configuring application output, identifies an AWS Lambda function as the destination. You provide the function Amazon Resource Name (ARN) and also an IAM role ARN that Amazon Kinesis Analytics can use to write to the function on your behalf. 
+  * ResourceARN **required** [ResourceARN](#resourcearn)
+  * RoleARN **required** [RoleARN](#rolearn)
+
+### LambdaOutputDescription
+* LambdaOutputDescription `object`: For an application output, describes the AWS Lambda function configured as its destination. 
+  * ResourceARN [ResourceARN](#resourcearn)
+  * RoleARN [RoleARN](#rolearn)
+
+### LambdaOutputUpdate
+* LambdaOutputUpdate `object`: When updating an output configuration using the <a>UpdateApplication</a> operation, provides information about an AWS Lambda function configured as the destination.
   * ResourceARNUpdate [ResourceARN](#resourcearn)
   * RoleARNUpdate [RoleARN](#rolearn)
 
@@ -853,6 +868,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * DestinationSchema **required** [DestinationSchema](#destinationschema)
   * KinesisFirehoseOutput [KinesisFirehoseOutput](#kinesisfirehoseoutput)
   * KinesisStreamsOutput [KinesisStreamsOutput](#kinesisstreamsoutput)
+  * LambdaOutput [LambdaOutput](#lambdaoutput)
   * Name **required** [InAppStreamName](#inappstreamname)
 
 ### OutputDescription
@@ -860,6 +876,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * DestinationSchema [DestinationSchema](#destinationschema)
   * KinesisFirehoseOutputDescription [KinesisFirehoseOutputDescription](#kinesisfirehoseoutputdescription)
   * KinesisStreamsOutputDescription [KinesisStreamsOutputDescription](#kinesisstreamsoutputdescription)
+  * LambdaOutputDescription [LambdaOutputDescription](#lambdaoutputdescription)
   * Name [InAppStreamName](#inappstreamname)
   * OutputId [Id](#id)
 
@@ -872,6 +889,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
   * DestinationSchemaUpdate [DestinationSchema](#destinationschema)
   * KinesisFirehoseOutputUpdate [KinesisFirehoseOutputUpdate](#kinesisfirehoseoutputupdate)
   * KinesisStreamsOutputUpdate [KinesisStreamsOutputUpdate](#kinesisstreamsoutputupdate)
+  * LambdaOutputUpdate [LambdaOutputUpdate](#lambdaoutputupdate)
   * NameUpdate [InAppStreamName](#inappstreamname)
   * OutputId **required** [Id](#id)
 
@@ -994,7 +1012,7 @@ amazonaws_kinesisanalytics.UpdateApplication({
 * RoleARN `string`
 
 ### S3Configuration
-* S3Configuration `object`
+* S3Configuration `object`: Provides a description of an Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket, the ARN of the IAM role that is used to access the bucket, and the name of the S3 object that contains the data.
   * BucketARN **required** [BucketARN](#bucketarn)
   * FileKey **required** [FileKey](#filekey)
   * RoleARN **required** [RoleARN](#rolearn)

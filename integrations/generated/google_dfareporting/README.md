@@ -73,15 +73,15 @@ Retrieves a report file by its report ID and file ID. This method supports media
 
 ```js
 google_dfareporting.files.get({
-  "reportId": "",
-  "fileId": ""
+  "fileId": "",
+  "reportId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * reportId **required** `string`: The ID of the report.
   * fileId **required** `string`: The ID of the report file.
+  * reportId **required** `string`: The ID of the report.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -194,15 +194,15 @@ Gets one account permission group by ID.
 
 ```js
 google_dfareporting.accountPermissionGroups.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Account permission group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -244,15 +244,15 @@ Gets one account permission by ID.
 
 ```js
 google_dfareporting.accountPermissions.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Account permission ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -303,16 +303,16 @@ Updates an existing account user profile. This method supports patch semantics.
 
 ```js
 google_dfareporting.accountUserProfiles.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: User profile ID.
   * body [AccountUserProfile](#accountuserprofile)
+  * id **required** `string`: User profile ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -336,8 +336,8 @@ google_dfareporting.accountUserProfiles.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [AccountUserProfile](#accountuserprofile)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -361,8 +361,8 @@ google_dfareporting.accountUserProfiles.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [AccountUserProfile](#accountuserprofile)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -380,15 +380,15 @@ Gets one account user profile by ID.
 
 ```js
 google_dfareporting.accountUserProfiles.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: User profile ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -437,16 +437,16 @@ Updates an existing account. This method supports patch semantics.
 
 ```js
 google_dfareporting.accounts.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Account ID.
   * body [Account](#account)
+  * id **required** `string`: Account ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -470,8 +470,8 @@ google_dfareporting.accounts.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Account](#account)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -489,15 +489,15 @@ Gets one account by ID.
 
 ```js
 google_dfareporting.accounts.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Account ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -562,16 +562,16 @@ Updates an existing ad. This method supports patch semantics.
 
 ```js
 google_dfareporting.ads.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Ad ID.
   * body [Ad](#ad)
+  * id **required** `string`: Ad ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -595,8 +595,8 @@ google_dfareporting.ads.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Ad](#ad)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -620,8 +620,8 @@ google_dfareporting.ads.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Ad](#ad)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -639,15 +639,15 @@ Gets one ad by ID.
 
 ```js
 google_dfareporting.ads.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Ad ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -695,16 +695,16 @@ Updates an existing advertiser group. This method supports patch semantics.
 
 ```js
 google_dfareporting.advertiserGroups.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Advertiser group ID.
   * body [AdvertiserGroup](#advertisergroup)
+  * id **required** `string`: Advertiser group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -728,8 +728,8 @@ google_dfareporting.advertiserGroups.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [AdvertiserGroup](#advertisergroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -753,8 +753,8 @@ google_dfareporting.advertiserGroups.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [AdvertiserGroup](#advertisergroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -772,15 +772,15 @@ Deletes an existing advertiser group.
 
 ```js
 google_dfareporting.advertiserGroups.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Advertiser group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -798,15 +798,15 @@ Gets one advertiser group by ID.
 
 ```js
 google_dfareporting.advertiserGroups.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Advertiser group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -817,6 +817,142 @@ google_dfareporting.advertiserGroups.get({
 
 #### Output
 * output [AdvertiserGroup](#advertisergroup)
+
+### advertiserLandingPages.list
+Retrieves a list of landing pages.
+
+
+```js
+google_dfareporting.advertiserLandingPages.list({
+  "profileId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * advertiserIds `array`: Select only landing pages that belong to these advertisers.
+  * archived `boolean`: Select only archived landing pages. Don't set this field to select both archived and non-archived landing pages.
+  * ids `array`: Select only landing pages with these IDs.
+  * maxResults `integer`: Maximum number of results to return.
+  * pageToken `string`: Value of the nextPageToken from the previous result page.
+  * profileId **required** `string`: User profile ID associated with this request.
+  * searchString `string`: Allows searching for landing pages by name or ID. Wildcards (*) are allowed. For example, "landingpage*2017" will return landing pages with names like "landingpage July 2017", "landingpage March 2017", or simply "landingpage 2017". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "landingpage" will match campaigns with name "my landingpage", "landingpage 2015", or simply "landingpage".
+  * sortField `string` (values: ID, NAME): Field by which to sort the list.
+  * sortOrder `string` (values: ASCENDING, DESCENDING): Order of sorted results.
+  * subaccountId `string`: Select only landing pages that belong to this subaccount.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [AdvertiserLandingPagesListResponse](#advertiserlandingpageslistresponse)
+
+### advertiserLandingPages.patch
+Updates an existing landing page. This method supports patch semantics.
+
+
+```js
+google_dfareporting.advertiserLandingPages.patch({
+  "id": "",
+  "profileId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [LandingPage](#landingpage)
+  * id **required** `string`: Landing page ID.
+  * profileId **required** `string`: User profile ID associated with this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [LandingPage](#landingpage)
+
+### advertiserLandingPages.insert
+Inserts a new landing page.
+
+
+```js
+google_dfareporting.advertiserLandingPages.insert({
+  "profileId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [LandingPage](#landingpage)
+  * profileId **required** `string`: User profile ID associated with this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [LandingPage](#landingpage)
+
+### advertiserLandingPages.update
+Updates an existing landing page.
+
+
+```js
+google_dfareporting.advertiserLandingPages.update({
+  "profileId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [LandingPage](#landingpage)
+  * profileId **required** `string`: User profile ID associated with this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [LandingPage](#landingpage)
+
+### advertiserLandingPages.get
+Gets one landing page by ID.
+
+
+```js
+google_dfareporting.advertiserLandingPages.get({
+  "id": "",
+  "profileId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Landing page ID.
+  * profileId **required** `string`: User profile ID associated with this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [LandingPage](#landingpage)
 
 ### advertisers.list
 Retrieves a list of advertisers, possibly filtered. This method supports paging.
@@ -860,16 +996,16 @@ Updates an existing advertiser. This method supports patch semantics.
 
 ```js
 google_dfareporting.advertisers.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Advertiser ID.
   * body [Advertiser](#advertiser)
+  * id **required** `string`: Advertiser ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -893,8 +1029,8 @@ google_dfareporting.advertisers.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Advertiser](#advertiser)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -918,8 +1054,8 @@ google_dfareporting.advertisers.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Advertiser](#advertiser)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -937,15 +1073,15 @@ Gets one advertiser by ID.
 
 ```js
 google_dfareporting.advertisers.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Advertiser ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1024,16 +1160,16 @@ Updates an existing campaign. This method supports patch semantics.
 
 ```js
 google_dfareporting.campaigns.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Campaign ID.
   * body [Campaign](#campaign)
+  * id **required** `string`: Campaign ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1051,18 +1187,14 @@ Inserts a new campaign.
 
 ```js
 google_dfareporting.campaigns.insert({
-  "profileId": "",
-  "defaultLandingPageName": "",
-  "defaultLandingPageUrl": ""
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * defaultLandingPageName **required** `string`: Default landing page name for this new campaign. Must be less than 256 characters long.
-  * defaultLandingPageUrl **required** `string`: Default landing page URL for this new campaign.
   * body [Campaign](#campaign)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1086,8 +1218,8 @@ google_dfareporting.campaigns.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Campaign](#campaign)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1134,16 +1266,16 @@ Associates a creative with the specified campaign. This method creates a default
 
 ```js
 google_dfareporting.campaignCreativeAssociations.insert({
-  "profileId": "",
-  "campaignId": ""
+  "campaignId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Campaign ID in this association.
   * body [CampaignCreativeAssociation](#campaigncreativeassociation)
+  * campaignId **required** `string`: Campaign ID in this association.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1155,186 +1287,21 @@ google_dfareporting.campaignCreativeAssociations.insert({
 #### Output
 * output [CampaignCreativeAssociation](#campaigncreativeassociation)
 
-### landingPages.list
-Retrieves the list of landing pages for the specified campaign.
-
-
-```js
-google_dfareporting.landingPages.list({
-  "profileId": "",
-  "campaignId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Landing page campaign ID.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [LandingPagesListResponse](#landingpageslistresponse)
-
-### landingPages.patch
-Updates an existing campaign landing page. This method supports patch semantics.
-
-
-```js
-google_dfareporting.landingPages.patch({
-  "profileId": "",
-  "campaignId": "",
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Landing page campaign ID.
-  * id **required** `string`: Landing page ID.
-  * body [LandingPage](#landingpage)
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [LandingPage](#landingpage)
-
-### landingPages.insert
-Inserts a new landing page for the specified campaign.
-
-
-```js
-google_dfareporting.landingPages.insert({
-  "profileId": "",
-  "campaignId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Landing page campaign ID.
-  * body [LandingPage](#landingpage)
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [LandingPage](#landingpage)
-
-### landingPages.update
-Updates an existing campaign landing page.
-
-
-```js
-google_dfareporting.landingPages.update({
-  "profileId": "",
-  "campaignId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Landing page campaign ID.
-  * body [LandingPage](#landingpage)
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [LandingPage](#landingpage)
-
-### landingPages.delete
-Deletes an existing campaign landing page.
-
-
-```js
-google_dfareporting.landingPages.delete({
-  "profileId": "",
-  "campaignId": "",
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Landing page campaign ID.
-  * id **required** `string`: Landing page ID.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-*Output schema unknown*
-
-### landingPages.get
-Gets one campaign landing page by ID.
-
-
-```js
-google_dfareporting.landingPages.get({
-  "profileId": "",
-  "campaignId": "",
-  "id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * campaignId **required** `string`: Landing page campaign ID.
-  * id **required** `string`: Landing page ID.
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [LandingPage](#landingpage)
-
 ### campaigns.get
 Gets one campaign by ID.
 
 
 ```js
 google_dfareporting.campaigns.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Campaign ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1386,15 +1353,15 @@ Gets one change log by ID.
 
 ```js
 google_dfareporting.changeLogs.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Change log ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1418,10 +1385,10 @@ google_dfareporting.cities.list({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * countryDartIds `array`: Select only cities from these countries.
   * dartIds `array`: Select only cities with these DART IDs.
   * namePrefix `string`: Select only cities with names starting with this prefix.
+  * profileId **required** `string`: User profile ID associated with this request.
   * regionDartIds `array`: Select only cities from these regions.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1464,15 +1431,15 @@ Gets one connection type by ID.
 
 ```js
 google_dfareporting.connectionTypes.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Connection type ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1520,16 +1487,16 @@ Updates an existing content category. This method supports patch semantics.
 
 ```js
 google_dfareporting.contentCategories.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Content category ID.
   * body [ContentCategory](#contentcategory)
+  * id **required** `string`: Content category ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1553,8 +1520,8 @@ google_dfareporting.contentCategories.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [ContentCategory](#contentcategory)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1578,8 +1545,8 @@ google_dfareporting.contentCategories.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [ContentCategory](#contentcategory)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1597,15 +1564,15 @@ Deletes an existing content category.
 
 ```js
 google_dfareporting.contentCategories.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Content category ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1623,15 +1590,15 @@ Gets one content category by ID.
 
 ```js
 google_dfareporting.contentCategories.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Content category ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1655,8 +1622,8 @@ google_dfareporting.conversions.batchinsert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [ConversionsBatchInsertRequest](#conversionsbatchinsertrequest)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1667,6 +1634,31 @@ google_dfareporting.conversions.batchinsert({
 
 #### Output
 * output [ConversionsBatchInsertResponse](#conversionsbatchinsertresponse)
+
+### conversions.batchupdate
+Updates existing conversions.
+
+
+```js
+google_dfareporting.conversions.batchupdate({
+  "profileId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [ConversionsBatchUpdateRequest](#conversionsbatchupdaterequest)
+  * profileId **required** `string`: User profile ID associated with this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [ConversionsBatchUpdateResponse](#conversionsbatchupdateresponse)
 
 ### countries.list
 Retrieves a list of countries.
@@ -1698,15 +1690,15 @@ Gets one country by ID.
 
 ```js
 google_dfareporting.countries.get({
-  "profileId": "",
-  "dartId": ""
+  "dartId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * dartId **required** `string`: Country DART ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1724,16 +1716,16 @@ Inserts a new creative asset.
 
 ```js
 google_dfareporting.creativeAssets.insert({
-  "profileId": "",
-  "advertiserId": ""
+  "advertiserId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * advertiserId **required** `string`: Advertiser ID of this creative. This is a required field.
   * body [CreativeAssetMetadata](#creativeassetmetadata)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1782,16 +1774,16 @@ Updates an existing creative field. This method supports patch semantics.
 
 ```js
 google_dfareporting.creativeFields.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Creative Field ID
   * body [CreativeField](#creativefield)
+  * id **required** `string`: Creative Field ID
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1815,8 +1807,8 @@ google_dfareporting.creativeFields.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [CreativeField](#creativefield)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1840,8 +1832,8 @@ google_dfareporting.creativeFields.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [CreativeField](#creativefield)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1891,18 +1883,18 @@ Updates an existing creative field value. This method supports patch semantics.
 
 ```js
 google_dfareporting.creativeFieldValues.patch({
-  "profileId": "",
   "creativeFieldId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
+  * body [CreativeFieldValue](#creativefieldvalue)
   * creativeFieldId **required** `string`: Creative field ID for this creative field value.
   * id **required** `string`: Creative Field Value ID
-  * body [CreativeFieldValue](#creativefieldvalue)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1920,16 +1912,16 @@ Inserts a new creative field value.
 
 ```js
 google_dfareporting.creativeFieldValues.insert({
-  "profileId": "",
-  "creativeFieldId": ""
+  "creativeFieldId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * creativeFieldId **required** `string`: Creative field ID for this creative field value.
   * body [CreativeFieldValue](#creativefieldvalue)
+  * creativeFieldId **required** `string`: Creative field ID for this creative field value.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1947,16 +1939,16 @@ Updates an existing creative field value.
 
 ```js
 google_dfareporting.creativeFieldValues.update({
-  "profileId": "",
-  "creativeFieldId": ""
+  "creativeFieldId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * creativeFieldId **required** `string`: Creative field ID for this creative field value.
   * body [CreativeFieldValue](#creativefieldvalue)
+  * creativeFieldId **required** `string`: Creative field ID for this creative field value.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1974,17 +1966,17 @@ Deletes an existing creative field value.
 
 ```js
 google_dfareporting.creativeFieldValues.delete({
-  "profileId": "",
   "creativeFieldId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * creativeFieldId **required** `string`: Creative field ID for this creative field value.
   * id **required** `string`: Creative Field Value ID
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2002,17 +1994,17 @@ Gets one creative field value by ID.
 
 ```js
 google_dfareporting.creativeFieldValues.get({
-  "profileId": "",
   "creativeFieldId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * creativeFieldId **required** `string`: Creative field ID for this creative field value.
   * id **required** `string`: Creative Field Value ID
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2030,15 +2022,15 @@ Deletes an existing creative field.
 
 ```js
 google_dfareporting.creativeFields.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Creative Field ID
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2056,15 +2048,15 @@ Gets one creative field by ID.
 
 ```js
 google_dfareporting.creativeFields.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Creative Field ID
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2114,16 +2106,16 @@ Updates an existing creative group. This method supports patch semantics.
 
 ```js
 google_dfareporting.creativeGroups.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Creative group ID.
   * body [CreativeGroup](#creativegroup)
+  * id **required** `string`: Creative group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2147,8 +2139,8 @@ google_dfareporting.creativeGroups.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [CreativeGroup](#creativegroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2172,8 +2164,8 @@ google_dfareporting.creativeGroups.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [CreativeGroup](#creativegroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2191,15 +2183,15 @@ Gets one creative group by ID.
 
 ```js
 google_dfareporting.creativeGroups.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Creative group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2257,16 +2249,16 @@ Updates an existing creative. This method supports patch semantics.
 
 ```js
 google_dfareporting.creatives.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Creative ID.
   * body [Creative](#creative)
+  * id **required** `string`: Creative ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2290,8 +2282,8 @@ google_dfareporting.creatives.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Creative](#creative)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2315,8 +2307,8 @@ google_dfareporting.creatives.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Creative](#creative)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2334,15 +2326,15 @@ Gets one creative by ID.
 
 ```js
 google_dfareporting.creatives.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Creative ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2418,15 +2410,15 @@ Gets one directory site contact by ID.
 
 ```js
 google_dfareporting.directorySiteContacts.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Directory site contact ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2455,7 +2447,7 @@ google_dfareporting.directorySites.list({
   * acceptsPublisherPaidPlacements `boolean`: Select only directory sites that accept publisher paid placements. This field can be left blank.
   * active `boolean`: Select only active directory sites. Leave blank to retrieve both active and inactive directory sites.
   * countryId `string`: Select only directory sites with this country ID.
-  * dfp_network_code `string`: Select only directory sites with this DFP network code.
+  * dfpNetworkCode `string`: Select only directory sites with this DFP network code.
   * ids `array`: Select only directory sites with these IDs.
   * maxResults `integer`: Maximum number of results to return.
   * pageToken `string`: Value of the nextPageToken from the previous result page.
@@ -2487,8 +2479,8 @@ google_dfareporting.directorySites.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [DirectorySite](#directorysite)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2506,15 +2498,15 @@ Gets one directory site by ID.
 
 ```js
 google_dfareporting.directorySites.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Directory site ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2538,11 +2530,11 @@ google_dfareporting.dynamicTargetingKeys.list({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * advertiserId `string`: Select only dynamic targeting keys whose object has this advertiser ID.
   * names `array`: Select only dynamic targeting keys exactly matching these names.
   * objectId `string`: Select only dynamic targeting keys with this object ID.
   * objectType `string` (values: OBJECT_AD, OBJECT_ADVERTISER, OBJECT_CREATIVE, OBJECT_PLACEMENT): Select only dynamic targeting keys with this object type.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2566,8 +2558,8 @@ google_dfareporting.dynamicTargetingKeys.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [DynamicTargetingKey](#dynamictargetingkey)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2585,19 +2577,19 @@ Deletes an existing dynamic targeting key.
 
 ```js
 google_dfareporting.dynamicTargetingKeys.delete({
-  "profileId": "",
-  "objectId": "",
   "name": "",
-  "objectType": ""
+  "objectId": "",
+  "objectType": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * objectId **required** `string`: ID of the object of this dynamic targeting key. This is a required field.
   * name **required** `string`: Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are converted to lowercase.
+  * objectId **required** `string`: ID of the object of this dynamic targeting key. This is a required field.
   * objectType **required** `string` (values: OBJECT_AD, OBJECT_ADVERTISER, OBJECT_CREATIVE, OBJECT_PLACEMENT): Type of the object of this dynamic targeting key. This is a required field.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2649,16 +2641,16 @@ Updates an existing event tag. This method supports patch semantics.
 
 ```js
 google_dfareporting.eventTags.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Event tag ID.
   * body [EventTag](#eventtag)
+  * id **required** `string`: Event tag ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2682,8 +2674,8 @@ google_dfareporting.eventTags.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [EventTag](#eventtag)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2707,8 +2699,8 @@ google_dfareporting.eventTags.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [EventTag](#eventtag)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2726,15 +2718,15 @@ Deletes an existing event tag.
 
 ```js
 google_dfareporting.eventTags.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Event tag ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2752,15 +2744,15 @@ Gets one event tag by ID.
 
 ```js
 google_dfareporting.eventTags.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Event tag ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2844,16 +2836,16 @@ Updates an existing floodlight activity. This method supports patch semantics.
 
 ```js
 google_dfareporting.floodlightActivities.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Floodlight activity ID.
   * body [FloodlightActivity](#floodlightactivity)
+  * id **required** `string`: Floodlight activity ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2877,8 +2869,8 @@ google_dfareporting.floodlightActivities.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [FloodlightActivity](#floodlightactivity)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2902,8 +2894,8 @@ google_dfareporting.floodlightActivities.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [FloodlightActivity](#floodlightactivity)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2927,8 +2919,8 @@ google_dfareporting.floodlightActivities.generatetag({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * floodlightActivityId `string`: Floodlight activity ID for which we want to generate a tag.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2946,15 +2938,15 @@ Deletes an existing floodlight activity.
 
 ```js
 google_dfareporting.floodlightActivities.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Floodlight activity ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2972,15 +2964,15 @@ Gets one floodlight activity by ID.
 
 ```js
 google_dfareporting.floodlightActivities.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Floodlight activity ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3031,16 +3023,16 @@ Updates an existing floodlight activity group. This method supports patch semant
 
 ```js
 google_dfareporting.floodlightActivityGroups.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Floodlight activity Group ID.
   * body [FloodlightActivityGroup](#floodlightactivitygroup)
+  * id **required** `string`: Floodlight activity Group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3064,8 +3056,8 @@ google_dfareporting.floodlightActivityGroups.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [FloodlightActivityGroup](#floodlightactivitygroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3089,8 +3081,8 @@ google_dfareporting.floodlightActivityGroups.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [FloodlightActivityGroup](#floodlightactivitygroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3108,15 +3100,15 @@ Gets one floodlight activity group by ID.
 
 ```js
 google_dfareporting.floodlightActivityGroups.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Floodlight activity Group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3140,8 +3132,8 @@ google_dfareporting.floodlightConfigurations.list({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * ids `array`: Set of IDs of floodlight configurations to retrieve. Required field; otherwise an empty list will be returned.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3159,16 +3151,16 @@ Updates an existing floodlight configuration. This method supports patch semanti
 
 ```js
 google_dfareporting.floodlightConfigurations.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Floodlight configuration ID.
   * body [FloodlightConfiguration](#floodlightconfiguration)
+  * id **required** `string`: Floodlight configuration ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3192,8 +3184,8 @@ google_dfareporting.floodlightConfigurations.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [FloodlightConfiguration](#floodlightconfiguration)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3211,15 +3203,15 @@ Gets one floodlight configuration by ID.
 
 ```js
 google_dfareporting.floodlightConfigurations.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Floodlight configuration ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3309,15 +3301,15 @@ Gets one mobile carrier by ID.
 
 ```js
 google_dfareporting.mobileCarriers.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Mobile carrier ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3359,15 +3351,15 @@ Gets one operating system version by ID.
 
 ```js
 google_dfareporting.operatingSystemVersions.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Operating system version ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3409,15 +3401,15 @@ Gets one operating system by DART ID.
 
 ```js
 google_dfareporting.operatingSystems.get({
-  "profileId": "",
-  "dartId": ""
+  "dartId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * dartId **required** `string`: Operating system DART ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3478,16 +3470,16 @@ Updates an existing placement group. This method supports patch semantics.
 
 ```js
 google_dfareporting.placementGroups.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Placement group ID.
   * body [PlacementGroup](#placementgroup)
+  * id **required** `string`: Placement group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3511,8 +3503,8 @@ google_dfareporting.placementGroups.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [PlacementGroup](#placementgroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3536,8 +3528,8 @@ google_dfareporting.placementGroups.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [PlacementGroup](#placementgroup)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3555,15 +3547,15 @@ Gets one placement group by ID.
 
 ```js
 google_dfareporting.placementGroups.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Placement group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3611,16 +3603,16 @@ Updates an existing placement strategy. This method supports patch semantics.
 
 ```js
 google_dfareporting.placementStrategies.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Placement strategy ID.
   * body [PlacementStrategy](#placementstrategy)
+  * id **required** `string`: Placement strategy ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3644,8 +3636,8 @@ google_dfareporting.placementStrategies.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [PlacementStrategy](#placementstrategy)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3669,8 +3661,8 @@ google_dfareporting.placementStrategies.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [PlacementStrategy](#placementstrategy)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3688,15 +3680,15 @@ Deletes an existing placement strategy.
 
 ```js
 google_dfareporting.placementStrategies.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Placement strategy ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3714,15 +3706,15 @@ Gets one placement strategy by ID.
 
 ```js
 google_dfareporting.placementStrategies.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Placement strategy ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3786,16 +3778,16 @@ Updates an existing placement. This method supports patch semantics.
 
 ```js
 google_dfareporting.placements.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Placement ID.
   * body [Placement](#placement)
+  * id **required** `string`: Placement ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3819,8 +3811,8 @@ google_dfareporting.placements.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Placement](#placement)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3844,8 +3836,8 @@ google_dfareporting.placements.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Placement](#placement)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3890,15 +3882,15 @@ Gets one placement by ID.
 
 ```js
 google_dfareporting.placements.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Placement ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3940,15 +3932,15 @@ Gets one platform type by ID.
 
 ```js
 google_dfareporting.platformTypes.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Platform type ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3990,15 +3982,15 @@ Gets one postal code by ID.
 
 ```js
 google_dfareporting.postalCodes.get({
-  "profileId": "",
-  "code": ""
+  "code": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * code **required** `string`: Postal code ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4047,15 +4039,15 @@ Gets one project by ID.
 
 ```js
 google_dfareporting.projects.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Project ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4108,17 +4100,17 @@ Gets one inventory item by ID.
 
 ```js
 google_dfareporting.inventoryItems.get({
+  "id": "",
   "profileId": "",
-  "projectId": "",
-  "id": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * id **required** `string`: Inventory item ID.
   * profileId **required** `string`: User profile ID associated with this request.
   * projectId **required** `string`: Project ID for order documents.
-  * id **required** `string`: Inventory item ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4171,17 +4163,17 @@ Gets one order document by ID.
 
 ```js
 google_dfareporting.orderDocuments.get({
+  "id": "",
   "profileId": "",
-  "projectId": "",
-  "id": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * id **required** `string`: Order document ID.
   * profileId **required** `string`: User profile ID associated with this request.
   * projectId **required** `string`: Project ID for order documents.
-  * id **required** `string`: Order document ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4232,17 +4224,17 @@ Gets one order by ID.
 
 ```js
 google_dfareporting.orders.get({
+  "id": "",
   "profileId": "",
-  "projectId": "",
-  "id": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * id **required** `string`: Order ID.
   * profileId **required** `string`: User profile ID associated with this request.
   * projectId **required** `string`: Project ID for orders.
-  * id **required** `string`: Order ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4291,9 +4283,9 @@ google_dfareporting.remarketingListShares.patch({
 
 #### Input
 * input `object`
+  * body [RemarketingListShare](#remarketinglistshare)
   * profileId **required** `string`: User profile ID associated with this request.
   * remarketingListId **required** `string`: Remarketing list ID.
-  * body [RemarketingListShare](#remarketinglistshare)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4317,8 +4309,8 @@ google_dfareporting.remarketingListShares.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [RemarketingListShare](#remarketinglistshare)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4395,16 +4387,16 @@ Updates an existing remarketing list. This method supports patch semantics.
 
 ```js
 google_dfareporting.remarketingLists.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Remarketing list ID.
   * body [RemarketingList](#remarketinglist)
+  * id **required** `string`: Remarketing list ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4428,8 +4420,8 @@ google_dfareporting.remarketingLists.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [RemarketingList](#remarketinglist)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4453,8 +4445,8 @@ google_dfareporting.remarketingLists.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [RemarketingList](#remarketinglist)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4472,15 +4464,15 @@ Gets one remarketing list by ID.
 
 ```js
 google_dfareporting.remarketingLists.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Remarketing list ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4533,8 +4525,8 @@ google_dfareporting.reports.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: The DFA user profile ID.
   * body [Report](#report)
+  * profileId **required** `string`: The DFA user profile ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4558,8 +4550,8 @@ google_dfareporting.reports.compatibleFields.query({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: The DFA user profile ID.
   * body [Report](#report)
+  * profileId **required** `string`: The DFA user profile ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4636,9 +4628,9 @@ google_dfareporting.reports.patch({
 
 #### Input
 * input `object`
+  * body [Report](#report)
   * profileId **required** `string`: The DFA user profile ID.
   * reportId **required** `string`: The ID of the report.
-  * body [Report](#report)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4663,9 +4655,9 @@ google_dfareporting.reports.update({
 
 #### Input
 * input `object`
+  * body [Report](#report)
   * profileId **required** `string`: The DFA user profile ID.
   * reportId **required** `string`: The ID of the report.
-  * body [Report](#report)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4713,17 +4705,17 @@ Retrieves a report file. This method supports media download.
 
 ```js
 google_dfareporting.reports.files.get({
+  "fileId": "",
   "profileId": "",
-  "reportId": "",
-  "fileId": ""
+  "reportId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * fileId **required** `string`: The ID of the report file.
   * profileId **required** `string`: The DFA profile ID.
   * reportId **required** `string`: The ID of the report.
-  * fileId **required** `string`: The ID of the report file.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4807,16 +4799,16 @@ Updates an existing site. This method supports patch semantics.
 
 ```js
 google_dfareporting.sites.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Site ID.
   * body [Site](#site)
+  * id **required** `string`: Site ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4840,8 +4832,8 @@ google_dfareporting.sites.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Site](#site)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4865,8 +4857,8 @@ google_dfareporting.sites.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Site](#site)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4884,15 +4876,15 @@ Gets one site by ID.
 
 ```js
 google_dfareporting.sites.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Site ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4944,8 +4936,8 @@ google_dfareporting.sizes.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Size](#size)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4963,15 +4955,15 @@ Gets one size by ID.
 
 ```js
 google_dfareporting.sizes.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Size ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5019,16 +5011,16 @@ Updates an existing subaccount. This method supports patch semantics.
 
 ```js
 google_dfareporting.subaccounts.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Subaccount ID.
   * body [Subaccount](#subaccount)
+  * id **required** `string`: Subaccount ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5052,8 +5044,8 @@ google_dfareporting.subaccounts.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Subaccount](#subaccount)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5077,8 +5069,8 @@ google_dfareporting.subaccounts.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [Subaccount](#subaccount)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5096,15 +5088,15 @@ Gets one subaccount by ID.
 
 ```js
 google_dfareporting.subaccounts.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Subaccount ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5154,15 +5146,15 @@ Gets one remarketing list by ID.
 
 ```js
 google_dfareporting.targetableRemarketingLists.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Remarketing list ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5211,16 +5203,16 @@ Updates an existing targeting template. This method supports patch semantics.
 
 ```js
 google_dfareporting.targetingTemplates.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: Targeting template ID.
   * body [TargetingTemplate](#targetingtemplate)
+  * id **required** `string`: Targeting template ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5244,8 +5236,8 @@ google_dfareporting.targetingTemplates.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [TargetingTemplate](#targetingtemplate)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5269,8 +5261,8 @@ google_dfareporting.targetingTemplates.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [TargetingTemplate](#targetingtemplate)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5288,15 +5280,15 @@ Gets one targeting template by ID.
 
 ```js
 google_dfareporting.targetingTemplates.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: Targeting template ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5338,15 +5330,15 @@ Gets one user role permission group by ID.
 
 ```js
 google_dfareporting.userRolePermissionGroups.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: User role permission group ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5370,8 +5362,8 @@ google_dfareporting.userRolePermissions.list({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * ids `array`: Select only user role permissions with these IDs.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5389,15 +5381,15 @@ Gets one user role permission by ID.
 
 ```js
 google_dfareporting.userRolePermissions.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: User role permission ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5447,16 +5439,16 @@ Updates an existing user role. This method supports patch semantics.
 
 ```js
 google_dfareporting.userRoles.patch({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
-  * id **required** `string`: User role ID.
   * body [UserRole](#userrole)
+  * id **required** `string`: User role ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5480,8 +5472,8 @@ google_dfareporting.userRoles.insert({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [UserRole](#userrole)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5505,8 +5497,8 @@ google_dfareporting.userRoles.update({
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * body [UserRole](#userrole)
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5524,15 +5516,15 @@ Deletes an existing user role.
 
 ```js
 google_dfareporting.userRoles.delete({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: User role ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5550,15 +5542,15 @@ Gets one user role by ID.
 
 ```js
 google_dfareporting.userRoles.get({
-  "profileId": "",
-  "id": ""
+  "id": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `string`: User role ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5600,15 +5592,15 @@ Gets one video format by ID.
 
 ```js
 google_dfareporting.videoFormats.get({
-  "profileId": "",
-  "id": 0
+  "id": 0,
+  "profileId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * profileId **required** `string`: User profile ID associated with this request.
   * id **required** `integer`: Video format ID.
+  * profileId **required** `string`: User profile ID associated with this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5770,6 +5762,13 @@ google_dfareporting.videoFormats.get({
   * technologyTargeting [TechnologyTargeting](#technologytargeting)
   * type `string` (values: AD_SERVING_CLICK_TRACKER, AD_SERVING_DEFAULT_AD, AD_SERVING_STANDARD_AD, AD_SERVING_TRACKING): Type of ad. This is a required field on insertion. Note that default ads (AD_SERVING_DEFAULT_AD) cannot be created directly (see Creative resource).
 
+### AdBlockingConfiguration
+* AdBlockingConfiguration `object`: Campaign ad blocking settings.
+  * clickThroughUrl `string`: Click-through URL used by brand-neutral ads. This is a required field when overrideClickThroughUrl is set to true.
+  * creativeBundleId `string`: ID of a creative bundle to use for this campaign. If set, brand-neutral ads will select creatives from this bundle. Otherwise, a default transparent pixel will be used.
+  * enabled `boolean`: Whether this campaign has enabled ad blocking. When true, ad blocking is enabled for placements in the campaign, but this may be overridden by site and placement settings. When false, ad blocking is disabled for all placements under the campaign, regardless of site and placement settings.
+  * overrideClickThroughUrl `boolean`: Whether the brand-neutral ad's click-through URL comes from the campaign's creative bundle or the override URL. Must be set to true if ad blocking is enabled and no creative bundle is configured.
+
 ### AdSlot
 * AdSlot `object`: Ad Slot
   * comment `string`: Comment for this ad slot.
@@ -5795,7 +5794,7 @@ google_dfareporting.videoFormats.get({
   * clickThroughUrlSuffix `string`: Suffix added to click-through URL of ad creative associations under this advertiser. Must be less than 129 characters long.
   * defaultClickThroughEventTagId `string`: ID of the click-through event tag to apply by default to the landing pages of this advertiser's campaigns.
   * defaultEmail `string`: Default email address used in sender field for tag emails.
-  * floodlightConfigurationId `string`: Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left blank. This field can be set to another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this advertiser, so long as:
+  * floodlightConfigurationId `string`: Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left blank. This field can be set to another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this advertiser, so long as: 
   * floodlightConfigurationIdDimensionValue [DimensionValue](#dimensionvalue)
   * id `string`: ID of this advertiser. This is a read-only, auto-generated field.
   * idDimensionValue [DimensionValue](#dimensionvalue)
@@ -5818,6 +5817,13 @@ google_dfareporting.videoFormats.get({
   * advertiserGroups `array`: Advertiser group collection.
     * items [AdvertiserGroup](#advertisergroup)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#advertiserGroupsListResponse".
+  * nextPageToken `string`: Pagination token to be used for the next list operation.
+
+### AdvertiserLandingPagesListResponse
+* AdvertiserLandingPagesListResponse `object`: Landing Page List Response
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#advertiserLandingPagesListResponse".
+  * landingPages `array`: Landing page collection
+    * items [LandingPage](#landingpage)
   * nextPageToken `string`: Pagination token to be used for the next list operation.
 
 ### AdvertisersListResponse
@@ -5858,6 +5864,7 @@ google_dfareporting.videoFormats.get({
 ### Campaign
 * Campaign `object`: Contains properties of a DCM campaign.
   * accountId `string`: Account ID of this campaign. This is a read-only field that can be left blank.
+  * adBlockingConfiguration [AdBlockingConfiguration](#adblockingconfiguration)
   * additionalCreativeOptimizationConfigurations `array`: Additional creative optimization configurations for the campaign.
     * items [CreativeOptimizationConfiguration](#creativeoptimizationconfiguration)
   * advertiserGroupId `string`: Advertiser group ID of the associated advertiser.
@@ -5874,6 +5881,7 @@ google_dfareporting.videoFormats.get({
     * items `string`
   * creativeOptimizationConfiguration [CreativeOptimizationConfiguration](#creativeoptimizationconfiguration)
   * defaultClickThroughEventTagProperties [DefaultClickThroughEventTagProperties](#defaultclickthrougheventtagproperties)
+  * defaultLandingPageId `string`: The default landing page ID for this campaign.
   * endDate `string`: Date on which the campaign will stop running. On insert, the end date must be today or a future date. The end date must be later than or be the same as the start date. If, for example, you set 6/25/2015 as both the start and end dates, the effective campaign run date is just that day only, 6/25/2015. The hours, minutes, and seconds of the end date should not be set, as doing so will result in an error. This is a required field.
   * eventTagOverrides `array`: Overrides that can be used to activate or deactivate advertiser event tags.
     * items [EventTagOverride](#eventtagoverride)
@@ -5953,13 +5961,13 @@ google_dfareporting.videoFormats.get({
 
 ### ClickTag
 * ClickTag `object`: Creative Click Tag.
+  * clickThroughUrl [CreativeClickThroughUrl](#creativeclickthroughurl)
   * eventName `string`: Advertiser event name associated with the click tag. This field is used by DISPLAY_IMAGE_GALLERY and HTML5_BANNER creatives. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
   * name `string`: Parameter name for the specified click tag. For DISPLAY_IMAGE_GALLERY creative assets, this field must match the value of the creative asset's creativeAssetId.name field.
-  * value `string`: Parameter value for the specified click tag. This field contains a click-through url.
 
 ### ClickThroughUrl
 * ClickThroughUrl `object`: Click-through URL
-  * computedClickThroughUrl `string`: Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows:
+  * computedClickThroughUrl `string`: Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: 
   * customClickThroughUrl `string`: Custom click-through URL. Applicable if the defaultLandingPage field is set to false and the landingPageId field is left unset.
   * defaultLandingPage `boolean`: Whether the campaign default landing page is used.
   * landingPageId `string`: ID of the landing page for the click-through URL. Applicable if the defaultLandingPage field is set to false.
@@ -6022,14 +6030,15 @@ google_dfareporting.videoFormats.get({
   * childDirectedTreatment `boolean`: Whether the conversion was directed toward children.
   * customVariables `array`: Custom floodlight variables.
     * items [CustomFloodlightVariable](#customfloodlightvariable)
-  * encryptedUserId `string`: The alphanumeric encrypted user ID. When set, encryptionInfo should also be specified. This field is mutually exclusive with encryptedUserIdCandidates[] and mobileDeviceId. This or encryptedUserIdCandidates[] or mobileDeviceId is a required field.
-  * encryptedUserIdCandidates `array`: A list of the alphanumeric encrypted user IDs. Any user ID with exposure prior to the conversion timestamp will be used in the inserted conversion. If no such user ID is found then the conversion will be rejected with NO_COOKIE_MATCH_FOUND error. When set, encryptionInfo should also be specified. This field should only be used when calling conversions.batchinsert. This field is mutually exclusive with encryptedUserId and mobileDeviceId. This or encryptedUserId or mobileDeviceId is a required field.
+  * encryptedUserId `string`: The alphanumeric encrypted user ID. When set, encryptionInfo should also be specified. This field is mutually exclusive with encryptedUserIdCandidates[], mobileDeviceId and gclid. This or encryptedUserIdCandidates[] or mobileDeviceId or gclid is a required field.
+  * encryptedUserIdCandidates `array`: A list of the alphanumeric encrypted user IDs. Any user ID with exposure prior to the conversion timestamp will be used in the inserted conversion. If no such user ID is found then the conversion will be rejected with NO_COOKIE_MATCH_FOUND error. When set, encryptionInfo should also be specified. This field may only be used when calling batchinsert; it is not supported by batchupdate. This field is mutually exclusive with encryptedUserId, mobileDeviceId and gclid. This or encryptedUserId or mobileDeviceId or gclid is a required field.
     * items `string`
   * floodlightActivityId `string`: Floodlight Activity ID of this conversion. This is a required field.
   * floodlightConfigurationId `string`: Floodlight Configuration ID of this conversion. This is a required field.
+  * gclid `string`: The Google click ID. This field is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[] and mobileDeviceId. This or encryptedUserId or encryptedUserIdCandidates[] or mobileDeviceId is a required field.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversion".
   * limitAdTracking `boolean`: Whether Limit Ad Tracking is enabled. When set to true, the conversion will be used for reporting but not targeting. This will prevent remarketing.
-  * mobileDeviceId `string`: The mobile device ID. This field is mutually exclusive with encryptedUserId and encryptedUserIdCandidates[]. This or encryptedUserId or encryptedUserIdCandidates[] is a required field.
+  * mobileDeviceId `string`: The mobile device ID. This field is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[] and gclid. This or encryptedUserId or encryptedUserIdCandidates[] or gclid is a required field.
   * ordinal `string`: The ordinal of the conversion. Use this field to control how conversions of the same user and day are de-duplicated. This is a required field.
   * quantity `string`: The quantity of the conversion.
   * timestampMicros `string`: The timestamp of conversion, in Unix epoch micros. This is a required field.
@@ -6062,6 +6071,20 @@ google_dfareporting.videoFormats.get({
   * status `array`: The insert status of each conversion. Statuses are returned in the same order that conversions are inserted.
     * items [ConversionStatus](#conversionstatus)
 
+### ConversionsBatchUpdateRequest
+* ConversionsBatchUpdateRequest `object`: Update Conversions Request.
+  * conversions `array`: The set of conversions to update.
+    * items [Conversion](#conversion)
+  * encryptionInfo [EncryptionInfo](#encryptioninfo)
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionsBatchUpdateRequest".
+
+### ConversionsBatchUpdateResponse
+* ConversionsBatchUpdateResponse `object`: Update Conversions Response.
+  * hasFailures `boolean`: Indicates that some or all conversions failed to update.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionsBatchUpdateResponse".
+  * status `array`: The update status of each conversion. Statuses are returned in the same order that conversions are updated.
+    * items [ConversionStatus](#conversionstatus)
+
 ### CountriesListResponse
 * CountriesListResponse `object`: Country List Response
   * countries `array`: Country collection.
@@ -6089,16 +6112,16 @@ google_dfareporting.videoFormats.get({
   * artworkType `string` (values: ARTWORK_TYPE_FLASH, ARTWORK_TYPE_HTML5, ARTWORK_TYPE_IMAGE, ARTWORK_TYPE_MIXED): Type of artwork used for the creative. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID.
   * authoringSource `string` (values: CREATIVE_AUTHORING_SOURCE_DBM, CREATIVE_AUTHORING_SOURCE_DCM, CREATIVE_AUTHORING_SOURCE_STUDIO): Source application where creative was authored. Presently, only DBM authored creatives will have this field set. Applicable to all creative types.
   * authoringTool `string` (values: NINJA, SWIFFY): Authoring tool for HTML5 banner creatives. This is a read-only field. Applicable to the following creative types: HTML5_BANNER.
-  * auto_advance_images `boolean`: Whether images are automatically advanced for image gallery creatives. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY.
+  * autoAdvanceImages `boolean`: Whether images are automatically advanced for image gallery creatives. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY.
   * backgroundColor `string`: The 6-character HTML color code, beginning with #, for the background of the window area where the Flash file is displayed. Default is white. Applicable to the following creative types: FLASH_INPAGE.
-  * backupImageClickThroughUrl `string`: Click-through URL for backup image. Applicable to the following creative types: FLASH_INPAGE and HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+  * backupImageClickThroughUrl [CreativeClickThroughUrl](#creativeclickthroughurl)
   * backupImageFeatures `array`: List of feature dependencies that will cause a backup image to be served if the browser that serves the ad does not support them. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative asset correctly. This field is initially auto-generated to contain all features detected by DCM for all the assets of this creative and can then be modified by the client. To reset this field, copy over all the creativeAssets' detected features. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
     * items `string` (values: APPLICATION_CACHE, AUDIO, CANVAS, CANVAS_TEXT, CSS_ANIMATIONS, CSS_BACKGROUND_SIZE, CSS_BORDER_IMAGE, CSS_BORDER_RADIUS, CSS_BOX_SHADOW, CSS_COLUMNS, CSS_FLEX_BOX, CSS_FONT_FACE, CSS_GENERATED_CONTENT, CSS_GRADIENTS, CSS_HSLA, CSS_MULTIPLE_BGS, CSS_OPACITY, CSS_REFLECTIONS, CSS_RGBA, CSS_TEXT_SHADOW, CSS_TRANSFORMS, CSS_TRANSFORMS3D, CSS_TRANSITIONS, DRAG_AND_DROP, GEO_LOCATION, HASH_CHANGE, HISTORY, INDEXED_DB, INLINE_SVG, INPUT_ATTR_AUTOCOMPLETE, INPUT_ATTR_AUTOFOCUS, INPUT_ATTR_LIST, INPUT_ATTR_MAX, INPUT_ATTR_MIN, INPUT_ATTR_MULTIPLE, INPUT_ATTR_PATTERN, INPUT_ATTR_PLACEHOLDER, INPUT_ATTR_REQUIRED, INPUT_ATTR_STEP, INPUT_TYPE_COLOR, INPUT_TYPE_DATE, INPUT_TYPE_DATETIME, INPUT_TYPE_DATETIME_LOCAL, INPUT_TYPE_EMAIL, INPUT_TYPE_MONTH, INPUT_TYPE_NUMBER, INPUT_TYPE_RANGE, INPUT_TYPE_SEARCH, INPUT_TYPE_TEL, INPUT_TYPE_TIME, INPUT_TYPE_URL, INPUT_TYPE_WEEK, LOCAL_STORAGE, POST_MESSAGE, SESSION_STORAGE, SMIL, SVG_CLIP_PATHS, SVG_FE_IMAGE, SVG_FILTERS, SVG_HREF, TOUCH, VIDEO, WEBGL, WEB_SOCKETS, WEB_SQL_DATABASE, WEB_WORKERS)
   * backupImageReportingLabel `string`: Reporting label used for HTML5 banner backup image. Applicable to the following creative types: DISPLAY when the primary asset type is not HTML_IMAGE.
   * backupImageTargetWindow [TargetWindow](#targetwindow)
   * clickTags `array`: Click tags of the creative. For DISPLAY, FLASH_INPAGE, and HTML5_BANNER creatives, this is a subset of detected click tags for the assets associated with this creative. After creating a flash asset, detected click tags will be returned in the creativeAssetMetadata. When inserting the creative, populate the creative clickTags field using the creativeAssetMetadata.clickTags field. For DISPLAY_IMAGE_GALLERY creatives, there should be exactly one entry in this list for each image creative asset. A click tag is matched with a corresponding creative asset by matching the clickTag.name field with the creativeAsset.assetIdentifier.name field. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
     * items [ClickTag](#clicktag)
-  * commercialId `string`: Industry standard ID assigned to creative for reach and frequency. Applicable to the following creative types: all INSTREAM_VIDEO and all VPAID.
+  * commercialId `string`: Industry standard ID assigned to creative for reach and frequency. Applicable to INSTREAM_VIDEO_REDIRECT creatives.
   * companionCreatives `array`: List of companion creatives assigned to an in-Stream videocreative. Acceptable values include IDs of existing flash and image creatives. Applicable to the following creative types: all VPAID and all INSTREAM_VIDEO with dynamicAssetSelection set to false.
     * items `string`
   * compatibility `array`: Compatibilities associated with this creative. This is a read-only field. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices or in mobile apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. Only pre-existing creatives may have these compatibilities since new creatives will either be assigned DISPLAY or DISPLAY_INTERSTITIAL instead. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. Applicable to all creative types.
@@ -6126,6 +6149,7 @@ google_dfareporting.videoFormats.get({
   * latestTraffickedCreativeId `string`: Latest Studio trafficked creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID.
   * name `string`: Name of the creative. This is a required field and must be less than 256 characters long. Applicable to all creative types.
   * overrideCss `string`: Override CSS value for rich media creatives. Applicable to the following creative types: all RICH_MEDIA.
+  * politeLoadAssetId `string`: The asset ID of the polite load image asset. Applicable to the creative type: DISPLAY.
   * progressOffset [VideoOffset](#videooffset)
   * redirectUrl `string`: URL of hosted image or hosted video or another ad tag. For INSTREAM_VIDEO_REDIRECT creatives this is the in-stream video redirect URL. The standard for a VAST (Video Ad Serving Template) ad response allows for a redirect link to another VAST 2.0 or 3.0 call. This is a required field when applicable. Applicable to the following creative types: DISPLAY_REDIRECT, INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and INSTREAM_VIDEO_REDIRECT
   * renderingId `string`: ID of current rendering version. This is a read-only field. Applicable to all creative types.
@@ -6149,6 +6173,7 @@ google_dfareporting.videoFormats.get({
     * items [CreativeCustomEvent](#creativecustomevent)
   * totalFileSize `string`: Combined size of all creative assets. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID.
   * type `string` (values: BRAND_SAFE_DEFAULT_INSTREAM_VIDEO, CUSTOM_DISPLAY, CUSTOM_DISPLAY_INTERSTITIAL, DISPLAY, DISPLAY_IMAGE_GALLERY, DISPLAY_REDIRECT, FLASH_INPAGE, HTML5_BANNER, IMAGE, INSTREAM_VIDEO, INSTREAM_VIDEO_REDIRECT, INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, RICH_MEDIA_DISPLAY_BANNER, RICH_MEDIA_DISPLAY_EXPANDING, RICH_MEDIA_DISPLAY_INTERSTITIAL, RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL, RICH_MEDIA_IM_EXPAND, RICH_MEDIA_INPAGE_FLOATING, RICH_MEDIA_MOBILE_IN_APP, RICH_MEDIA_PEEL_DOWN, TRACKING_TEXT, VPAID_LINEAR_VIDEO, VPAID_NON_LINEAR_VIDEO): Type of this creative. This is a required field. Applicable to all creative types.
+  * universalAdId [UniversalAdId](#universaladid)
   * version `integer`: The version number helps you keep track of multiple versions of your creative in your reports. The version number will always be auto-generated during insert operations to start at 1. For tracking creatives the version cannot be incremented and will always remain at 1. For all other creative types the version can be incremented only by 1 during update operations. In addition, the version will be automatically incremented by 1 when undergoing Rich Media creative merging. Applicable to all creative types.
   * videoDescription `string`: Description of the video ad. Applicable to the following creative types: all INSTREAM_VIDEO and all VPAID.
   * videoDuration `number`: Creative video duration in seconds. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO, all RICH_MEDIA, and all VPAID.
@@ -6182,6 +6207,7 @@ google_dfareporting.videoFormats.get({
   * idDimensionValue [DimensionValue](#dimensionvalue)
   * mimeType `string`: Detected MIME type for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID.
   * offset [OffsetPosition](#offsetposition)
+  * orientation `string` (values: LANDSCAPE, PORTRAIT, SQUARE): Orientation of video asset. This is a read-only, auto-generated field.
   * originalBackup `boolean`: Whether the backup asset is original or changed by the user in DCM. Applicable to the following creative types: all RICH_MEDIA.
   * position [OffsetPosition](#offsetposition)
   * positionLeftUnit `string` (values: OFFSET_UNIT_PERCENT, OFFSET_UNIT_PIXEL, OFFSET_UNIT_PIXEL_FROM_CENTER): Offset left unit for an asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA.
@@ -6245,6 +6271,12 @@ google_dfareporting.videoFormats.get({
   * startTime `string`: Date and time that the assigned creative should start serving.
   * weight `integer`: Weight of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_RANDOM. Value must be greater than or equal to 1.
 
+### CreativeClickThroughUrl
+* CreativeClickThroughUrl `object`: Click-through URL
+  * computedClickThroughUrl `string`: Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: 
+  * customClickThroughUrl `string`: Custom click-through URL. Applicable if the landingPageId field is left unset.
+  * landingPageId `string`: ID of the landing page for the click-through URL.
+
 ### CreativeCustomEvent
 * CreativeCustomEvent `object`: Creative Custom Event.
   * advertiserCustomEventId `string`: Unique ID of this event used by DDM Reporting and Data Transfer. This is a read-only field.
@@ -6252,7 +6284,7 @@ google_dfareporting.videoFormats.get({
   * advertiserCustomEventType `string` (values: ADVERTISER_EVENT_COUNTER, ADVERTISER_EVENT_EXIT, ADVERTISER_EVENT_TIMER): Type of the event. This is a read-only field.
   * artworkLabel `string`: Artwork label column, used to link events in DCM back to events in Studio. This is a required field and should not be modified after insertion.
   * artworkType `string` (values: ARTWORK_TYPE_FLASH, ARTWORK_TYPE_HTML5, ARTWORK_TYPE_IMAGE, ARTWORK_TYPE_MIXED): Artwork type used by the creative.This is a read-only field.
-  * exitUrl `string`: Exit URL of the event. This field is used only for exit events.
+  * exitClickThroughUrl [CreativeClickThroughUrl](#creativeclickthroughurl)
   * id `string`: ID of this event. This is a required field and should not be modified after insertion.
   * popupWindowProperties [PopupWindowProperties](#popupwindowproperties)
   * targetType `string` (values: TARGET_BLANK, TARGET_PARENT, TARGET_POPUP, TARGET_SELF, TARGET_TOP): Target type used by the event.
@@ -6397,8 +6429,8 @@ google_dfareporting.videoFormats.get({
 
 ### DfpSettings
 * DfpSettings `object`: DFP Settings
-  * dfp_network_code `string`: DFP network code for this directory site.
-  * dfp_network_name `string`: DFP network name for this directory site.
+  * dfpNetworkCode `string`: DFP network code for this directory site.
+  * dfpNetworkName `string`: DFP network name for this directory site.
   * programmaticPlacementAccepted `boolean`: Whether this directory site accepts programmatic placements.
   * pubPaidPlacementAccepted `boolean`: Whether this directory site accepts publisher-paid tags.
   * publisherPortalOnly `boolean`: Whether this directory site is available only via DoubleClick Publisher Portal.
@@ -6488,8 +6520,8 @@ google_dfareporting.videoFormats.get({
 ### DirectorySiteSettings
 * DirectorySiteSettings `object`: Directory Site Settings
   * activeViewOptOut `boolean`: Whether this directory site has disabled active view creatives.
-  * dfp_settings [DfpSettings](#dfpsettings)
-  * instream_video_placement_accepted `boolean`: Whether this site accepts in-stream video ads.
+  * dfpSettings [DfpSettings](#dfpsettings)
+  * instreamVideoPlacementAccepted `boolean`: Whether this site accepts in-stream video ads.
   * interstitialPlacementAccepted `boolean`: Whether this site accepts interstitial ads.
   * nielsenOcrOptOut `boolean`: Whether this directory site has disabled Nielsen OCR reach ratings.
   * verificationTagOptOut `boolean`: Whether this directory site has disabled generation of Verification ins tags.
@@ -6587,7 +6619,8 @@ google_dfareporting.videoFormats.get({
 
 ### FloodlightActivitiesGenerateTagResponse
 * FloodlightActivitiesGenerateTagResponse `object`: Floodlight Activity GenerateTag Response
-  * floodlightActivityTag `string`: Generated tag for this floodlight activity.
+  * floodlightActivityTag `string`: Generated tag for this Floodlight activity. For global site tags, this is the event snippet.
+  * globalSiteTagGlobalSnippet `string`: The global snippet section of a global site tag. The global site tag sets new cookies on your domain, which will store a unique identifier for a user or the ad click that brought the user to your site. Learn more.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivitiesGenerateTagResponse".
 
 ### FloodlightActivitiesListResponse
@@ -6613,10 +6646,10 @@ google_dfareporting.videoFormats.get({
   * floodlightActivityGroupType `string` (values: COUNTER, SALE): Type of the associated floodlight activity group. This is a read-only field.
   * floodlightConfigurationId `string`: Floodlight configuration ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's floodlight configuration or from the existing activity's floodlight configuration.
   * floodlightConfigurationIdDimensionValue [DimensionValue](#dimensionvalue)
+  * floodlightTagType `string` (values: GLOBAL_SITE_TAG, IFRAME, IMAGE): The type of Floodlight tag this activity will generate. This is a required field.
   * hidden `boolean`: Whether this activity is archived.
   * id `string`: ID of this floodlight activity. This is a read-only, auto-generated field.
   * idDimensionValue [DimensionValue](#dimensionvalue)
-  * imageTagEnabled `boolean`: Whether the image tag is enabled for this activity.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivity".
   * name `string`: Name of this floodlight activity. This is a required field. Must be less than 129 characters long and cannot contain quotes.
   * notes `string`: General notes or implementation instructions for the tag.
@@ -6627,7 +6660,7 @@ google_dfareporting.videoFormats.get({
   * sslRequired `boolean`: Whether this floodlight activity must be SSL-compliant.
   * subaccountId `string`: Subaccount ID of this floodlight activity. This is a read-only field that can be left blank.
   * tagFormat `string` (values: HTML, XHTML): Tag format type for the floodlight activity. If left blank, the tag format will default to HTML.
-  * tagString `string`: Value of the cat= paramter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being [a-z][A-Z][0-9][-][ _ ]. This tag string must also be unique among activities of the same activity group. This field is read-only after insertion.
+  * tagString `string`: Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being [a-z][A-Z][0-9][-][ _ ]. This tag string must also be unique among activities of the same activity group. This field is read-only after insertion.
   * userDefinedVariableTypes `array`: List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type.
     * items `string` (values: U1, U10, U100, U11, U12, U13, U14, U15, U16, U17, U18, U19, U2, U20, U21, U22, U23, U24, U25, U26, U27, U28, U29, U3, U30, U31, U32, U33, U34, U35, U36, U37, U38, U39, U4, U40, U41, U42, U43, U44, U45, U46, U47, U48, U49, U5, U50, U51, U52, U53, U54, U55, U56, U57, U58, U59, U6, U60, U61, U62, U63, U64, U65, U66, U67, U68, U69, U7, U70, U71, U72, U73, U74, U75, U76, U77, U78, U79, U8, U80, U81, U82, U83, U84, U85, U86, U87, U88, U89, U9, U90, U91, U92, U93, U94, U95, U96, U97, U98, U99)
 
@@ -6683,8 +6716,6 @@ google_dfareporting.videoFormats.get({
   * lookbackConfiguration [LookbackConfiguration](#lookbackconfiguration)
   * naturalSearchConversionAttributionOption `string` (values: EXCLUDE_NATURAL_SEARCH_CONVERSION_ATTRIBUTION, INCLUDE_NATURAL_SEARCH_CONVERSION_ATTRIBUTION, INCLUDE_NATURAL_SEARCH_TIERED_CONVERSION_ATTRIBUTION): Types of attribution options for natural search conversions.
   * omnitureSettings [OmnitureSettings](#omnituresettings)
-  * standardVariableTypes `array`: List of standard variables enabled for this configuration.
-    * items `string` (values: NUM, ORD, TRAN, U)
   * subaccountId `string`: Subaccount ID of this floodlight configuration. This is a read-only field that can be left blank.
   * tagSettings [TagSettings](#tagsettings)
   * thirdPartyAuthenticationTokens `array`: List of third-party authentication tokens enabled for this configuration.
@@ -6772,17 +6803,12 @@ google_dfareporting.videoFormats.get({
 
 ### LandingPage
 * LandingPage `object`: Contains information about where a user's browser is taken after the user clicks an ad.
-  * default `boolean`: Whether or not this landing page will be assigned to any ads or creatives that do not have a landing page assigned explicitly. Only one default landing page is allowed per campaign.
+  * advertiserId `string`: Advertiser ID of this landing page. This is a required field.
+  * archived `boolean`: Whether this landing page has been archived.
   * id `string`: ID of this landing page. This is a read-only, auto-generated field.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#landingPage".
-  * name `string`: Name of this landing page. This is a required field. It must be less than 256 characters long, and must be unique among landing pages of the same campaign.
+  * name `string`: Name of this landing page. This is a required field. It must be less than 256 characters long.
   * url `string`: URL of this landing page. This is a required field.
-
-### LandingPagesListResponse
-* LandingPagesListResponse `object`: Landing Page List Response
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#landingPagesListResponse".
-  * landingPages `array`: Landing page collection
-    * items [LandingPage](#landingpage)
 
 ### Language
 * Language `object`: Contains information about a language that can be targeted by ads.
@@ -7011,6 +7037,7 @@ google_dfareporting.videoFormats.get({
 ### Placement
 * Placement `object`: Contains properties of a placement.
   * accountId `string`: Account ID of this placement. This field can be left blank.
+  * adBlockingOptOut `boolean`: Whether this placement opts out of ad blocking. When true, ad blocking is disabled for this placement. When false, the campaign and site settings take effect.
   * advertiserId `string`: Advertiser ID of this placement. This field can be left blank.
   * advertiserIdDimensionValue [DimensionValue](#dimensionvalue)
   * archived `boolean`: Whether this placement is archived.
@@ -7383,7 +7410,7 @@ google_dfareporting.videoFormats.get({
       * items [DimensionValue](#dimensionvalue)
     * dimensions `array`: The list of dimensions the report should include.
       * items [SortedDimension](#sorteddimension)
-    * enableAllDimensionCombinations `boolean`: Whether to enable all reach dimension combinations in the report. Defaults to false. If enabled, the date range of the report should be within the last three months.
+    * enableAllDimensionCombinations `boolean`: Whether to enable all reach dimension combinations in the report. Defaults to false. If enabled, the date range of the report should be within the last 42 days.
     * metricNames `array`: The list of names of metrics the report should include.
       * items `string`
     * reachByFrequencyMetricNames `array`: The list of names of  Reach By Frequency metrics the report should include.
@@ -7392,7 +7419,7 @@ google_dfareporting.videoFormats.get({
     * active `boolean`: Whether the schedule is active or not. Must be set to either true or false.
     * every `integer`: Defines every how many days, weeks or months the report should be run. Needs to be set when "repeats" is either "DAILY", "WEEKLY" or "MONTHLY".
     * expirationDate `string`: The expiration date when the scheduled report stops running.
-    * repeats `string`: The interval for which the report is repeated. Note:
+    * repeats `string`: The interval for which the report is repeated. Note:  
     * repeatsOnWeekDays `array`: List of week days "WEEKLY" on which scheduled reports should run.
       * items `string` (values: FRIDAY, MONDAY, SATURDAY, SUNDAY, THURSDAY, TUESDAY, WEDNESDAY)
     * runsOnDayOfMonth `string` (values: DAY_OF_MONTH, WEEK_OF_MONTH): Enum to define for "MONTHLY" scheduled reports whether reports should be repeated on the same day of the month as "startDate" or the same day of the week of the month.
@@ -7468,8 +7495,8 @@ google_dfareporting.videoFormats.get({
 ### SiteSettings
 * SiteSettings `object`: Site Settings
   * activeViewOptOut `boolean`: Whether active view creatives are disabled for this site.
+  * adBlockingOptOut `boolean`: Whether this site opts out of ad blocking. When true, ad blocking is disabled for all placements under the site, regardless of the individual placement settings. When false, the campaign and placement settings take effect.
   * creativeSettings [CreativeSettings](#creativesettings)
-  * disableBrandSafeAds `boolean`: Whether brand safe ads are disabled for this site.
   * disableNewCookie `boolean`: Whether new cookies are disabled for this site.
   * lookbackConfiguration [LookbackConfiguration](#lookbackconfiguration)
   * tagSetting [TagSetting](#tagsetting)
@@ -7627,6 +7654,11 @@ google_dfareporting.videoFormats.get({
     * items `integer`
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#transcodeSetting".
 
+### UniversalAdId
+* UniversalAdId `object`: A Universal Ad ID as per the VAST 4.0 spec. Applicable to the following creative types: INSTREAM_VIDEO and VPAID.
+  * registry `string` (values: AD_ID.ORG, CLEARCAST, DCM, OTHER): Registry used for the Ad ID value.
+  * value `string`: ID value for this creative. Only alphanumeric characters and the following symbols are valid: "_/\-". Maximum length is 64 characters. Read only when registry is DCM.
+
 ### UserDefinedVariableConfiguration
 * UserDefinedVariableConfiguration `object`: User Defined Variable configuration.
   * dataType `string` (values: NUMBER, STRING): Data type for the variable. This is a required field.
@@ -7719,6 +7751,7 @@ google_dfareporting.videoFormats.get({
 * VideoSettings `object`: Video Settings
   * companionSettings [CompanionSetting](#companionsetting)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "dfareporting#videoSettings".
+  * orientation `string` (values: ANY, LANDSCAPE, PORTRAIT): Orientation of a video placement. If this value is set, placement will return assets matching the specified orientation.
   * skippableSettings [SkippableSetting](#skippablesetting)
   * transcodeSettings [TranscodeSetting](#transcodesetting)
 

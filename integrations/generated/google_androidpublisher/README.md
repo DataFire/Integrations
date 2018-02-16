@@ -15,7 +15,9 @@ let google_androidpublisher = require('@datafire/google_androidpublisher').creat
   redirect_uri: ""
 });
 
-google_androidpublisher.inappproducts.batch({}).then(data => {
+google_androidpublisher.edits.insert({
+  "packageName": ""
+}).then(data => {
   console.log(data);
 });
 ```
@@ -67,28 +69,6 @@ google_androidpublisher.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### inappproducts.batch
-
-
-
-```js
-google_androidpublisher.inappproducts.batch({}, context)
-```
-
-#### Input
-* input `object`
-  * body [InappproductsBatchRequest](#inappproductsbatchrequest)
-  * alt `string` (values: json): Data format for the response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
-  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-#### Output
-* output [InappproductsBatchResponse](#inappproductsbatchresponse)
-
 ### edits.insert
 Creates a new edit for an app, populated with the app's current state.
 
@@ -101,8 +81,8 @@ google_androidpublisher.edits.insert({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * body [AppEdit](#appedit)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -120,15 +100,15 @@ Deletes an edit for an app. Creating a new edit will automatically delete any of
 
 ```js
 google_androidpublisher.edits.delete({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -146,15 +126,15 @@ Returns information about the edit specified. Calls will fail if the edit is no 
 
 ```js
 google_androidpublisher.edits.get({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -172,15 +152,15 @@ google_androidpublisher.edits.get({
 
 ```js
 google_androidpublisher.edits.apks.list({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -198,15 +178,15 @@ google_androidpublisher.edits.apks.list({
 
 ```js
 google_androidpublisher.edits.apks.upload({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -224,16 +204,16 @@ Creates a new APK without uploading the APK itself to Google Play, instead hosti
 
 ```js
 google_androidpublisher.edits.apks.addexternallyhosted({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * body [ApksAddExternallyHostedRequest](#apksaddexternallyhostedrequest)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -251,19 +231,19 @@ Uploads the deobfuscation file of the specified APK. If a deobfuscation file alr
 
 ```js
 google_androidpublisher.edits.deobfuscationfiles.upload({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "deobfuscationFileType": ""
+  "deobfuscationFileType": "",
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The version code of the APK whose deobfuscation file is being uploaded.
   * deobfuscationFileType **required** `string` (values: proguard)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -281,19 +261,19 @@ Fetches the Expansion File configuration for the APK specified.
 
 ```js
 google_androidpublisher.edits.expansionfiles.get({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "expansionFileType": ""
+  "editId": "",
+  "expansionFileType": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The version code of the APK whose Expansion File configuration is being read or modified.
+  * editId **required** `string`: Unique identifier for this edit.
   * expansionFileType **required** `string` (values: main, patch)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -311,20 +291,20 @@ Updates the APK's Expansion File configuration to reference another APK's Expans
 
 ```js
 google_androidpublisher.edits.expansionfiles.patch({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "expansionFileType": ""
+  "editId": "",
+  "expansionFileType": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The version code of the APK whose Expansion File configuration is being read or modified.
-  * expansionFileType **required** `string` (values: main, patch)
   * body [ExpansionFile](#expansionfile)
+  * editId **required** `string`: Unique identifier for this edit.
+  * expansionFileType **required** `string` (values: main, patch)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -342,19 +322,19 @@ Uploads and attaches a new Expansion File to the APK specified.
 
 ```js
 google_androidpublisher.edits.expansionfiles.upload({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "expansionFileType": ""
+  "editId": "",
+  "expansionFileType": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The version code of the APK whose Expansion File configuration is being read or modified.
+  * editId **required** `string`: Unique identifier for this edit.
   * expansionFileType **required** `string` (values: main, patch)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -372,20 +352,20 @@ Updates the APK's Expansion File configuration to reference another APK's Expans
 
 ```js
 google_androidpublisher.edits.expansionfiles.update({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "expansionFileType": ""
+  "editId": "",
+  "expansionFileType": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The version code of the APK whose Expansion File configuration is being read or modified.
-  * expansionFileType **required** `string` (values: main, patch)
   * body [ExpansionFile](#expansionfile)
+  * editId **required** `string`: Unique identifier for this edit.
+  * expansionFileType **required** `string` (values: main, patch)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -403,17 +383,17 @@ Deletes all the APK-specific localized listings for a specified APK.
 
 ```js
 google_androidpublisher.edits.apklistings.deleteall({
-  "packageName": "",
+  "apkVersionCode": 0,
   "editId": "",
-  "apkVersionCode": 0
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The APK version code whose APK-specific listings should be read or modified.
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -431,17 +411,17 @@ Lists all the APK-specific localized listings for a specified APK.
 
 ```js
 google_androidpublisher.edits.apklistings.list({
-  "packageName": "",
+  "apkVersionCode": 0,
   "editId": "",
-  "apkVersionCode": 0
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The APK version code whose APK-specific listings should be read or modified.
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -459,19 +439,19 @@ Deletes the APK-specific localized listing for a specified APK and language code
 
 ```js
 google_androidpublisher.edits.apklistings.delete({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "language": ""
+  "editId": "",
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The APK version code whose APK-specific listings should be read or modified.
+  * editId **required** `string`: Unique identifier for this edit.
   * language **required** `string`: The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -489,19 +469,19 @@ Fetches the APK-specific localized listing for a specified APK and language code
 
 ```js
 google_androidpublisher.edits.apklistings.get({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "language": ""
+  "editId": "",
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The APK version code whose APK-specific listings should be read or modified.
+  * editId **required** `string`: Unique identifier for this edit.
   * language **required** `string`: The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -519,20 +499,20 @@ Updates or creates the APK-specific localized listing for a specified APK and la
 
 ```js
 google_androidpublisher.edits.apklistings.patch({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "language": ""
+  "editId": "",
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The APK version code whose APK-specific listings should be read or modified.
-  * language **required** `string`: The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
   * body [ApkListing](#apklisting)
+  * editId **required** `string`: Unique identifier for this edit.
+  * language **required** `string`: The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -550,20 +530,20 @@ Updates or creates the APK-specific localized listing for a specified APK and la
 
 ```js
 google_androidpublisher.edits.apklistings.update({
-  "packageName": "",
-  "editId": "",
   "apkVersionCode": 0,
-  "language": ""
+  "editId": "",
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * apkVersionCode **required** `integer`: The APK version code whose APK-specific listings should be read or modified.
-  * language **required** `string`: The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
   * body [ApkListing](#apklisting)
+  * editId **required** `string`: Unique identifier for this edit.
+  * language **required** `string`: The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -581,15 +561,15 @@ Fetches app details for this edit. This includes the default language and develo
 
 ```js
 google_androidpublisher.edits.details.get({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -607,16 +587,16 @@ Updates app details for this edit. This method supports patch semantics.
 
 ```js
 google_androidpublisher.edits.details.patch({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * body [AppDetails](#appdetails)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -634,16 +614,16 @@ Updates app details for this edit.
 
 ```js
 google_androidpublisher.edits.details.update({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
   * body [AppDetails](#appdetails)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -661,15 +641,15 @@ Deletes all localized listings from an edit.
 
 ```js
 google_androidpublisher.edits.listings.deleteall({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -687,15 +667,15 @@ Returns all of the localized store listings attached to this edit.
 
 ```js
 google_androidpublisher.edits.listings.list({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -713,17 +693,17 @@ Deletes the specified localized store listing from an edit.
 
 ```js
 google_androidpublisher.edits.listings.delete({
-  "packageName": "",
   "editId": "",
-  "language": ""
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
   * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -741,17 +721,17 @@ Fetches information about a localized store listing.
 
 ```js
 google_androidpublisher.edits.listings.get({
-  "packageName": "",
   "editId": "",
-  "language": ""
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
   * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -769,18 +749,18 @@ Creates or updates a localized store listing. This method supports patch semanti
 
 ```js
 google_androidpublisher.edits.listings.patch({
-  "packageName": "",
   "editId": "",
-  "language": ""
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * body [Listing](#listing)
   * editId **required** `string`: Unique identifier for this edit.
   * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
-  * body [Listing](#listing)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -798,18 +778,18 @@ Creates or updates a localized store listing.
 
 ```js
 google_androidpublisher.edits.listings.update({
-  "packageName": "",
   "editId": "",
-  "language": ""
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * body [Listing](#listing)
   * editId **required** `string`: Unique identifier for this edit.
   * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
-  * body [Listing](#listing)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -827,19 +807,19 @@ Deletes all images for the specified language and image type.
 
 ```js
 google_androidpublisher.edits.images.deleteall({
-  "packageName": "",
   "editId": "",
+  "imageType": "",
   "language": "",
-  "imageType": ""
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
-  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
   * imageType **required** `string` (values: featureGraphic, icon, phoneScreenshots, promoGraphic, sevenInchScreenshots, tenInchScreenshots, tvBanner, tvScreenshots, wearScreenshots)
+  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -857,19 +837,19 @@ Lists all images for the specified language and image type.
 
 ```js
 google_androidpublisher.edits.images.list({
-  "packageName": "",
   "editId": "",
+  "imageType": "",
   "language": "",
-  "imageType": ""
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
-  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
   * imageType **required** `string` (values: featureGraphic, icon, phoneScreenshots, promoGraphic, sevenInchScreenshots, tenInchScreenshots, tvBanner, tvScreenshots, wearScreenshots)
+  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -887,19 +867,19 @@ Uploads a new image and adds it to the list of images for the specified language
 
 ```js
 google_androidpublisher.edits.images.upload({
-  "packageName": "",
   "editId": "",
+  "imageType": "",
   "language": "",
-  "imageType": ""
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
-  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
   * imageType **required** `string` (values: featureGraphic, icon, phoneScreenshots, promoGraphic, sevenInchScreenshots, tenInchScreenshots, tvBanner, tvScreenshots, wearScreenshots)
+  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -917,21 +897,21 @@ Deletes the image (specified by id) from the edit.
 
 ```js
 google_androidpublisher.edits.images.delete({
-  "packageName": "",
   "editId": "",
-  "language": "",
+  "imageId": "",
   "imageType": "",
-  "imageId": ""
+  "language": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
-  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
-  * imageType **required** `string` (values: featureGraphic, icon, phoneScreenshots, promoGraphic, sevenInchScreenshots, tenInchScreenshots, tvBanner, tvScreenshots, wearScreenshots)
   * imageId **required** `string`: Unique identifier an image within the set of images attached to this edit.
+  * imageType **required** `string` (values: featureGraphic, icon, phoneScreenshots, promoGraphic, sevenInchScreenshots, tenInchScreenshots, tvBanner, tvScreenshots, wearScreenshots)
+  * language **required** `string`: The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -949,17 +929,17 @@ google_androidpublisher.edits.images.delete({
 
 ```js
 google_androidpublisher.edits.testers.get({
-  "packageName": "",
   "editId": "",
+  "packageName": "",
   "track": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
-  * track **required** `string` (values: alpha, beta, production, rollout)
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * track **required** `string`: The track to read or modify. Acceptable values are: "alpha", "beta", "production" or "rollout".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -977,18 +957,18 @@ google_androidpublisher.edits.testers.get({
 
 ```js
 google_androidpublisher.edits.testers.patch({
-  "packageName": "",
   "editId": "",
+  "packageName": "",
   "track": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
-  * track **required** `string` (values: alpha, beta, production, rollout)
   * body [Testers](#testers)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * track **required** `string`: The track to read or modify. Acceptable values are: "alpha", "beta", "production" or "rollout".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1006,18 +986,18 @@ google_androidpublisher.edits.testers.patch({
 
 ```js
 google_androidpublisher.edits.testers.update({
-  "packageName": "",
   "editId": "",
+  "packageName": "",
   "track": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
-  * track **required** `string` (values: alpha, beta, production, rollout)
   * body [Testers](#testers)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * track **required** `string`: The track to read or modify. Acceptable values are: "alpha", "beta", "production" or "rollout".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1035,15 +1015,15 @@ Lists all the track configurations for this edit.
 
 ```js
 google_androidpublisher.edits.tracks.list({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1061,17 +1041,17 @@ Fetches the track configuration for the specified track type. Includes the APK v
 
 ```js
 google_androidpublisher.edits.tracks.get({
-  "packageName": "",
   "editId": "",
+  "packageName": "",
   "track": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
-  * track **required** `string` (values: alpha, beta, production, rollout): The track type to read or modify.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * track **required** `string`: The track to read or modify. Acceptable values are: "alpha", "beta", "production" or "rollout".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1089,18 +1069,18 @@ Updates the track configuration for the specified track type. When halted, the r
 
 ```js
 google_androidpublisher.edits.tracks.patch({
-  "packageName": "",
   "editId": "",
+  "packageName": "",
   "track": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
-  * track **required** `string` (values: alpha, beta, production, rollout): The track type to read or modify.
   * body [Track](#track)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * track **required** `string`: The track to read or modify. Acceptable values are: "alpha", "beta", "production" or "rollout".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1118,18 +1098,18 @@ Updates the track configuration for the specified track type. When halted, the r
 
 ```js
 google_androidpublisher.edits.tracks.update({
-  "packageName": "",
   "editId": "",
+  "packageName": "",
   "track": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
-  * editId **required** `string`: Unique identifier for this edit.
-  * track **required** `string` (values: alpha, beta, production, rollout): The track type to read or modify.
   * body [Track](#track)
+  * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+  * track **required** `string`: The track to read or modify. Acceptable values are: "alpha", "beta", "production" or "rollout".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1147,15 +1127,15 @@ Commits/applies the changes made in this edit back to the app.
 
 ```js
 google_androidpublisher.edits.commit({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1173,15 +1153,15 @@ Checks that the edit can be successfully committed. The edit's changes are not a
 
 ```js
 google_androidpublisher.edits.validate({
-  "packageName": "",
-  "editId": ""
+  "editId": "",
+  "packageName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * editId **required** `string`: Unique identifier for this edit.
+  * packageName **required** `string`: Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1205,8 +1185,8 @@ google_androidpublisher.entitlements.list({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: The package name of the application the inapp product was sold in (for example, 'com.some.thing').
   * maxResults `integer`
+  * packageName **required** `string`: The package name of the application the inapp product was sold in (for example, 'com.some.thing').
   * productId `string`: The product id of the inapp product (for example, 'sku1'). This can be used to restrict the result set.
   * startIndex `integer`
   * token `string`
@@ -1233,8 +1213,8 @@ google_androidpublisher.inappproducts.list({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app with in-app products; for example, "com.spiffygame".
   * maxResults `integer`
+  * packageName **required** `string`: Unique identifier for the Android app with in-app products; for example, "com.spiffygame".
   * startIndex `integer`
   * token `string`
   * alt `string` (values: json): Data format for the response.
@@ -1260,9 +1240,9 @@ google_androidpublisher.inappproducts.insert({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app; for example, "com.spiffygame".
   * autoConvertMissingPrices `boolean`: If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.
   * body [InAppProduct](#inappproduct)
+  * packageName **required** `string`: Unique identifier for the Android app; for example, "com.spiffygame".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1339,10 +1319,10 @@ google_androidpublisher.inappproducts.patch({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
-  * sku **required** `string`: Unique identifier for the in-app product.
   * autoConvertMissingPrices `boolean`: If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.
   * body [InAppProduct](#inappproduct)
+  * packageName **required** `string`: Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
+  * sku **required** `string`: Unique identifier for the in-app product.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1367,10 +1347,10 @@ google_androidpublisher.inappproducts.update({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
-  * sku **required** `string`: Unique identifier for the in-app product.
   * autoConvertMissingPrices `boolean`: If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.
   * body [InAppProduct](#inappproduct)
+  * packageName **required** `string`: Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
+  * sku **required** `string`: Unique identifier for the in-app product.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1480,10 +1460,10 @@ google_androidpublisher.purchases.subscriptions.defer({
 
 #### Input
 * input `object`
+  * body [SubscriptionPurchasesDeferRequest](#subscriptionpurchasesdeferrequest)
   * packageName **required** `string`: The package name of the application for which this subscription was purchased (for example, 'com.some.thing').
   * subscriptionId **required** `string`: The purchased subscription ID (for example, 'monthly001').
   * token **required** `string`: The token provided to the user's device when the subscription was purchased.
-  * body [SubscriptionPurchasesDeferRequest](#subscriptionpurchasesdeferrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1592,8 +1572,8 @@ google_androidpublisher.reviews.list({
 
 #### Input
 * input `object`
-  * packageName **required** `string`: Unique identifier for the Android app for which we want reviews; for example, "com.spiffygame".
   * maxResults `integer`
+  * packageName **required** `string`: Unique identifier for the Android app for which we want reviews; for example, "com.spiffygame".
   * startIndex `integer`
   * token `string`
   * translationLanguage `string`
@@ -1648,9 +1628,9 @@ google_androidpublisher.reviews.reply({
 
 #### Input
 * input `object`
+  * body [ReviewsReplyRequest](#reviewsreplyrequest)
   * packageName **required** `string`: Unique identifier for the Android app for which we want reviews; for example, "com.spiffygame".
   * reviewId **required** `string`
-  * body [ReviewsReplyRequest](#reviewsreplyrequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1834,38 +1814,6 @@ google_androidpublisher.reviews.reply({
   * description `string`
   * title `string`
 
-### InappproductsBatchRequest
-* InappproductsBatchRequest `object`
-  * entrys `array`
-    * items [InappproductsBatchRequestEntry](#inappproductsbatchrequestentry)
-
-### InappproductsBatchRequestEntry
-* InappproductsBatchRequestEntry `object`
-  * batchId `integer`
-  * inappproductsinsertrequest [InappproductsInsertRequest](#inappproductsinsertrequest)
-  * inappproductsupdaterequest [InappproductsUpdateRequest](#inappproductsupdaterequest)
-  * methodName `string`
-
-### InappproductsBatchResponse
-* InappproductsBatchResponse `object`
-  * entrys `array`
-    * items [InappproductsBatchResponseEntry](#inappproductsbatchresponseentry)
-  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidpublisher#inappproductsBatchResponse".
-
-### InappproductsBatchResponseEntry
-* InappproductsBatchResponseEntry `object`
-  * batchId `integer`
-  * inappproductsinsertresponse [InappproductsInsertResponse](#inappproductsinsertresponse)
-  * inappproductsupdateresponse [InappproductsUpdateResponse](#inappproductsupdateresponse)
-
-### InappproductsInsertRequest
-* InappproductsInsertRequest `object`
-  * inappproduct [InAppProduct](#inappproduct)
-
-### InappproductsInsertResponse
-* InappproductsInsertResponse `object`
-  * inappproduct [InAppProduct](#inappproduct)
-
 ### InappproductsListResponse
 * InappproductsListResponse `object`
   * inappproduct `array`
@@ -1873,14 +1821,6 @@ google_androidpublisher.reviews.reply({
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidpublisher#inappproductsListResponse".
   * pageInfo [PageInfo](#pageinfo)
   * tokenPagination [TokenPagination](#tokenpagination)
-
-### InappproductsUpdateRequest
-* InappproductsUpdateRequest `object`
-  * inappproduct [InAppProduct](#inappproduct)
-
-### InappproductsUpdateResponse
-* InappproductsUpdateResponse `object`
-  * inappproduct [InAppProduct](#inappproduct)
 
 ### Listing
 * Listing `object`
@@ -1920,6 +1860,7 @@ google_androidpublisher.reviews.reply({
   * orderId `string`: The order id associated with the purchase of the inapp product.
   * purchaseState `integer`: The purchase state of the order. Possible values are:  
   * purchaseTimeMillis `string`: The time the product was purchased, in milliseconds since the epoch (Jan 1, 1970).
+  * purchaseType `integer`: The type of purchase of the inapp product. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are:  
 
 ### Prorate
 * Prorate `object`
@@ -1973,10 +1914,12 @@ google_androidpublisher.reviews.reply({
   * developerPayload `string`: A developer-specified string that contains supplemental information about an order.
   * expiryTimeMillis `string`: Time at which the subscription will expire, in milliseconds since the Epoch.
   * kind `string`: This kind represents a subscriptionPurchase object in the androidpublisher service.
+  * linkedPurchaseToken `string`: The purchase token of the originating purchase if this subscription is one of the following:  
   * orderId `string`: The order id of the latest recurring order associated with the purchase of the subscription.
   * paymentState `integer`: The payment state of the subscription. Possible values are:  
   * priceAmountMicros `string`: Price of the subscription, not including tax. Price is expressed in micro-units, where 1,000,000 micro-units represents one unit of the currency. For example, if the subscription price is €1.99, price_amount_micros is 1990000.
   * priceCurrencyCode `string`: ISO 4217 currency code for the subscription price. For example, if the price is specified in British pounds sterling, price_currency_code is "GBP".
+  * purchaseType `integer`: The type of purchase of the subscription. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are:  
   * startTimeMillis `string`: Time at which the subscription was granted, in milliseconds since the Epoch.
   * userCancellationTimeMillis `string`: The time at which the subscription was canceled by the user, in milliseconds since the epoch. Only present if cancelReason is 0.
 
@@ -2007,7 +1950,7 @@ google_androidpublisher.reviews.reply({
 
 ### Track
 * Track `object`
-  * track `string`
+  * track `string`: Identifier for this track. One of "alpha", "beta", "production" or "rollout".
   * userFraction `number`
   * versionCodes `array`
     * items `integer`

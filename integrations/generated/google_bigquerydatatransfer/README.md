@@ -99,13 +99,12 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({
 #### Output
 * output [Empty](#empty)
 
-### projects.locations.dataSources.get
-Retrieves a supported data source and returns its settings,
-which can be used for UI rendering.
+### projects.locations.transferConfigs.runs.get
+Returns information about the particular transfer run.
 
 
 ```js
-google_bigquerydatatransfer.projects.locations.dataSources.get({
+google_bigquerydatatransfer.projects.locations.transferConfigs.runs.get({
   "name": ""
 }, context)
 ```
@@ -128,7 +127,7 @@ google_bigquerydatatransfer.projects.locations.dataSources.get({
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [DataSource](#datasource)
+* output [TransferRun](#transferrun)
 
 ### projects.locations.transferConfigs.patch
 Updates a data transfer configuration.
@@ -399,7 +398,7 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs
 * output [ListTransferLogsResponse](#listtransferlogsresponse)
 
 ### projects.locations.transferConfigs.scheduleRuns
-Creates transfer runs for a time range [range_start_time, range_end_time].
+Creates transfer runs for a time range [start_time, end_time].
 For each date - or whatever granularity the data source supports - in the
 range, one transfer run is created.
 Note that runs are created per UTC time in the time range.
@@ -455,7 +454,7 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
   * displayName `string`: User friendly data source name.
   * helpUrl `string`: Url for the help document for this data source.
   * manualRunsDisabled `boolean`: Disables backfilling and manual run scheduling
-  * minimumScheduleInterval `string`: The minimum interval between two consecutive scheduled runs.
+  * minimumScheduleInterval `string`: The minimum interval for scheduler to schedule runs.
   * name `string`: Data source resource name.
   * parameters `array`: Data source parameters.
     * items [DataSourceParameter](#datasourceparameter)
@@ -536,6 +535,13 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
   * runs `array`: The transfer runs that were scheduled.
     * items [TransferRun](#transferrun)
 
+### Status
+* Status `object`: The `Status` type defines a logical error model that is suitable for different
+  * code `integer`: The status code, which should be an enum value of google.rpc.Code.
+  * details `array`: A list of messages that carry the error details.  There is a common set of
+    * items `object`
+  * message `string`: A developer-facing error message, which should be in English. Any
+
 ### TransferConfig
 * TransferConfig `object`: Represents a data transfer configuration. A transfer configuration
   * dataRefreshWindowDays `integer`: The number of days to look back to automatically refresh the data.
@@ -548,7 +554,7 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
   * nextRunTime `string`: Output only. Next time when data transfer will run.
   * params `object`: Data transfer specific parameters.
   * schedule `string`: Data transfer schedule.
-  * state `string` (values: TRANSFER_STATE_UNSPECIFIED, INACTIVE, PENDING, RUNNING, SUCCEEDED, FAILED, CANCELLED): Output only. State of the most recently updated transfer run.
+  * state `string` (values: TRANSFER_STATE_UNSPECIFIED, PENDING, RUNNING, SUCCEEDED, FAILED, CANCELLED): Output only. State of the most recently updated transfer run.
   * updateTime `string`: Output only. Data transfer modification time. Ignored by server on input.
   * userId `string`: Output only. Unique ID of the user on whose behalf transfer is done.
 
@@ -561,15 +567,16 @@ google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
 ### TransferRun
 * TransferRun `object`: Represents a data transfer run.
   * dataSourceId `string`: Output only. Data source id.
-  * destinationDatasetId `string`: The BigQuery target dataset id.
+  * destinationDatasetId `string`: Output only. The BigQuery target dataset id.
   * endTime `string`: Output only. Time when transfer run ended.
+  * errorStatus [Status](#status)
   * name `string`: The resource name of the transfer run.
-  * params `object`: Data transfer specific parameters.
+  * params `object`: Output only. Data transfer specific parameters.
   * runTime `string`: For batch transfer runs, specifies the date and time that
   * schedule `string`: Output only. Describes the schedule of this transfer run if it was
   * scheduleTime `string`: Minimum time after which a transfer run can be started.
   * startTime `string`: Output only. Time when transfer run was started.
-  * state `string` (values: TRANSFER_STATE_UNSPECIFIED, INACTIVE, PENDING, RUNNING, SUCCEEDED, FAILED, CANCELLED): Data transfer run state. Ignored for input requests.
+  * state `string` (values: TRANSFER_STATE_UNSPECIFIED, PENDING, RUNNING, SUCCEEDED, FAILED, CANCELLED): Data transfer run state. Ignored for input requests.
   * updateTime `string`: Output only. Last time the data transfer run state was updated.
   * userId `string`: Output only. Unique ID of the user on whose behalf transfer is done.
 

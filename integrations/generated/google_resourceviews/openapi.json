@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Compute Engine Instance Groups",
     "version": "v1beta2",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -57,6 +62,21 @@
         "https://www.googleapis.com/auth/ndev.cloudman": "View and manage your Google Cloud Platform management resources and deployment status information",
         "https://www.googleapis.com/auth/ndev.cloudman.readonly": "View your Google Cloud Platform management resources and deployment status information"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/ndev.cloudman": "View and manage your Google Cloud Platform management resources and deployment status information",
+        "https://www.googleapis.com/auth/ndev.cloudman.readonly": "View your Google Cloud Platform management resources and deployment status information"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -139,20 +159,6 @@
         "operationId": "zoneOperations.list",
         "parameters": [
           {
-            "description": "Name of the project scoping this request.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the zone scoping this request.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Optional. Filter expression for filtering listed resources.",
             "in": "query",
             "name": "filter",
@@ -172,6 +178,20 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Name of the project scoping this request.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of the zone scoping this request.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -186,30 +206,48 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman.readonly"
             ]
           }
@@ -248,6 +286,13 @@
         "operationId": "zoneOperations.get",
         "parameters": [
           {
+            "description": "Name of the operation resource to return.",
+            "in": "path",
+            "name": "operation",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Name of the project scoping this request.",
             "in": "path",
             "name": "project",
@@ -258,13 +303,6 @@
             "description": "Name of the zone scoping this request.",
             "in": "path",
             "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the operation resource to return.",
-            "in": "path",
-            "name": "operation",
             "required": true,
             "type": "string"
           }
@@ -281,30 +319,48 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman.readonly"
             ]
           }
@@ -343,20 +399,6 @@
         "operationId": "zoneViews.list",
         "parameters": [
           {
-            "description": "The project name of the resource view.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The zone name of the resource view.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": 5000,
             "description": "Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default: 5000)",
             "in": "query",
@@ -369,6 +411,20 @@
             "description": "Specifies a nextPageToken returned by a previous list request. This token can be used to request the next page of results from a previous list request.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The project name of the resource view.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The zone name of the resource view.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
             "type": "string"
           }
         ],
@@ -384,30 +440,48 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman.readonly"
             ]
           }
@@ -444,6 +518,13 @@
         "operationId": "zoneViews.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceView"
+            }
+          },
+          {
             "description": "The project name of the resource view.",
             "in": "path",
             "name": "project",
@@ -456,13 +537,6 @@
             "name": "zone",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ResourceView"
-            }
           }
         ],
         "responses": {
@@ -477,15 +551,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           }
@@ -508,16 +591,16 @@
             "type": "string"
           },
           {
-            "description": "The zone name of the resource view.",
+            "description": "The name of the resource view.",
             "in": "path",
-            "name": "zone",
+            "name": "resourceView",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the resource view.",
+            "description": "The zone name of the resource view.",
             "in": "path",
-            "name": "resourceView",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -534,15 +617,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           }
@@ -563,16 +655,16 @@
             "type": "string"
           },
           {
-            "description": "The zone name of the resource view.",
+            "description": "The name of the resource view.",
             "in": "path",
-            "name": "zone",
+            "name": "resourceView",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The name of the resource view.",
+            "description": "The zone name of the resource view.",
             "in": "path",
-            "name": "resourceView",
+            "name": "zone",
             "required": true,
             "type": "string"
           }
@@ -589,30 +681,48 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman.readonly"
             ]
           }
@@ -674,16 +784,16 @@
         "operationId": "zoneViews.addResources",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ZoneViewsAddResourcesRequest"
+            }
+          },
+          {
             "description": "The project name of the resource view.",
             "in": "path",
             "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The zone name of the resource view.",
-            "in": "path",
-            "name": "zone",
             "required": true,
             "type": "string"
           },
@@ -695,11 +805,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ZoneViewsAddResourcesRequest"
-            }
+            "description": "The zone name of the resource view.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -714,15 +824,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           }
@@ -768,10 +887,9 @@
             "type": "string"
           },
           {
-            "description": "The zone name of the resource view.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
+            "description": "The name of the resource if user wants to get the service information of the resource.",
+            "in": "query",
+            "name": "resourceName",
             "type": "string"
           },
           {
@@ -782,9 +900,10 @@
             "type": "string"
           },
           {
-            "description": "The name of the resource if user wants to get the service information of the resource.",
-            "in": "query",
-            "name": "resourceName",
+            "description": "The zone name of the resource view.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
             "type": "string"
           }
         ],
@@ -800,15 +919,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           }
@@ -847,16 +975,16 @@
         "operationId": "zoneViews.removeResources",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ZoneViewsRemoveResourcesRequest"
+            }
+          },
+          {
             "description": "The project name of the resource view.",
             "in": "path",
             "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The zone name of the resource view.",
-            "in": "path",
-            "name": "zone",
             "required": true,
             "type": "string"
           },
@@ -868,11 +996,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ZoneViewsRemoveResourcesRequest"
-            }
+            "description": "The zone name of the resource view.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -887,15 +1015,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           }
@@ -910,27 +1047,6 @@
         "description": "List the resources of the resource view.",
         "operationId": "zoneViews.listResources",
         "parameters": [
-          {
-            "description": "The project name of the resource view.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The zone name of the resource view.",
-            "in": "path",
-            "name": "zone",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The name of the resource view.",
-            "in": "path",
-            "name": "resourceView",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The requested format of the return value. It can be URL or URL_PORT. A JSON object will be included in the response based on the format. The default format is NONE, which results in no JSON in the response.",
             "enum": [
@@ -969,9 +1085,30 @@
             "type": "string"
           },
           {
+            "description": "The project name of the resource view.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the resource view.",
+            "in": "path",
+            "name": "resourceView",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The service name to return in the response. It is optional and if it is not set, all the service end points will be returned.",
             "in": "query",
             "name": "serviceName",
+            "type": "string"
+          },
+          {
+            "description": "The zone name of the resource view.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
             "type": "string"
           }
         ],
@@ -987,30 +1124,48 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman.readonly"
             ]
           }
@@ -1072,16 +1227,16 @@
         "operationId": "zoneViews.setService",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ZoneViewsSetServiceRequest"
+            }
+          },
+          {
             "description": "The project name of the resource view.",
             "in": "path",
             "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The zone name of the resource view.",
-            "in": "path",
-            "name": "zone",
             "required": true,
             "type": "string"
           },
@@ -1093,11 +1248,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ZoneViewsSetServiceRequest"
-            }
+            "description": "The zone name of the resource view.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1112,15 +1267,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/ndev.cloudman"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/ndev.cloudman"
             ]
           }

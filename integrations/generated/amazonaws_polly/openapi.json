@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p> <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>",
     "license": {
@@ -198,6 +199,86 @@
       ]
     },
     "/v1/lexicons/{LexiconName}": {
+      "delete": {
+        "description": "<p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
+        "operationId": "DeleteLexicon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLexiconInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LexiconName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLexiconOutput"
+            }
+          },
+          "480": {
+            "description": "LexiconNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LexiconNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.",
+        "operationId": "GetLexicon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLexiconInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LexiconName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLexiconOutput"
+            }
+          },
+          "480": {
+            "description": "LexiconNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LexiconNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -622,6 +703,7 @@
         "fr-FR",
         "is-IS",
         "it-IT",
+        "ko-KR",
         "ja-JP",
         "nb-NO",
         "nl-NL",
@@ -1057,7 +1139,9 @@
         "Astrid",
         "Filiz",
         "Vicki",
-        "Takumi"
+        "Takumi",
+        "Seoyeon",
+        "Aditi"
       ],
       "type": "string"
     },

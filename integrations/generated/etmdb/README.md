@@ -1,6 +1,6 @@
 # @datafire/etmdb
 
-Client library for REST API v1 Core Resources
+Client library for EtMDB REST API v1
 
 ## Installation and Usage
 ```bash

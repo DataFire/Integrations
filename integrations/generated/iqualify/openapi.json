@@ -9,8 +9,9 @@
     "contact": {
       "x-twitter": "hello_iqualify"
     },
+    "description": "The iQualify API offers management and analytics responses for building\nlearning experiences using your iQualify instance data.\n\nOnce you’ve registered with iQualify, you can request an API access token by\nnavigating to the API access section of the \"Account Settings\" area.\n\nFind out how to [Request your API access token](https://intercom.help/iqualify/iqualify-set-up/authentication/requesting-your-api-access-token) on our Knowledge base.\n\nAll endpoints are only accessible via https and are located at\napi.iqualify.com. For instance: you can find your current offerings by\naccessing the following URL:\n\n    https://api.iqualify.com/v1/offerings/current\n\n",
     "title": "iQualify",
-    "version": "1.1.5",
+    "version": "v1",
     "x-apisguru-categories": [
       "education"
     ],
@@ -38,11 +39,23 @@
       "type": "apiKey"
     }
   },
+  "security": [
+    {
+      "jwt": []
+    }
+  ],
   "parameters": {
     "channelId": {
       "description": "channel's id",
       "in": "path",
       "name": "channelId",
+      "required": true,
+      "type": "string"
+    },
+    "externalCourseId": {
+      "description": "external course's id",
+      "in": "path",
+      "name": "externalCourseId",
       "required": true,
       "type": "string"
     },
@@ -68,13 +81,6 @@
       "name": "userEmail",
       "required": true,
       "type": "string"
-    },
-    "userId": {
-      "description": "user's id",
-      "in": "path",
-      "name": "userId",
-      "required": true,
-      "type": "string"
     }
   },
   "responses": {},
@@ -96,6 +102,121 @@
           "API info"
         ],
         "operationId": ".get"
+      }
+    },
+    "/course-mappings": {
+      "get": {
+        "description": "Returns all the course mappings",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course Mappings",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "title": "course mappings",
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Find course mappings",
+        "tags": [
+          "course mappings"
+        ],
+        "operationId": "course_mappings.get"
+      }
+    },
+    "/course-mappings/{offeringId}": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course Mapping",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Finds course mappings by offering id",
+        "tags": [
+          "course mappings"
+        ],
+        "operationId": "course_mappings.offeringId.get"
+      }
+    },
+    "/course-mappings/{offeringId}/{externalCourseId}": {
+      "delete": {
+        "description": "Removes the course mapping between the offering and the external course id",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "$ref": "#/parameters/externalCourseId"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course Mapping",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Remove course mapping",
+        "tags": [
+          "course mappings"
+        ],
+        "operationId": "course_mappings.offeringId.externalCourseId.delete"
+      },
+      "put": {
+        "description": "Creates a mapping between the offering and the external course id",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "$ref": "#/parameters/externalCourseId"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course Mapping",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Add course mapping",
+        "tags": [
+          "course mappings"
+        ],
+        "operationId": "course_mappings.offeringId.externalCourseId.put"
       }
     },
     "/courses": {
@@ -121,6 +242,210 @@
           "courses"
         ],
         "operationId": "courses.get"
+      }
+    },
+    "/courses/{contentId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The content Id",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course detail",
+            "schema": {
+              "$ref": "#/definitions/CourseMetaResponse"
+            }
+          }
+        },
+        "summary": "Find course by content id",
+        "tags": [
+          "courses"
+        ],
+        "operationId": "courses.contentId.get"
+      }
+    },
+    "/courses/{contentId}/metadata/category": {
+      "put": {
+        "parameters": [
+          {
+            "description": "The content Id",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "category",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "category": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course detail",
+            "schema": {
+              "$ref": "#/definitions/CourseMetaResponse"
+            }
+          }
+        },
+        "summary": "Update course category",
+        "tags": [
+          "courses"
+        ],
+        "operationId": "courses.contentId.metadata.category.put"
+      }
+    },
+    "/courses/{contentId}/metadata/level": {
+      "put": {
+        "parameters": [
+          {
+            "description": "The content Id",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "level",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "level": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course detail",
+            "schema": {
+              "$ref": "#/definitions/CourseMetaResponse"
+            }
+          }
+        },
+        "summary": "Update course level",
+        "tags": [
+          "courses"
+        ],
+        "operationId": "courses.contentId.metadata.level.put"
+      }
+    },
+    "/courses/{contentId}/metadata/tags": {
+      "put": {
+        "parameters": [
+          {
+            "description": "The content Id",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "tags",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "tags": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course detail",
+            "schema": {
+              "$ref": "#/definitions/CourseMetaResponse"
+            }
+          }
+        },
+        "summary": "Update course tags",
+        "tags": [
+          "courses"
+        ],
+        "operationId": "courses.contentId.metadata.tags.put"
+      }
+    },
+    "/courses/{contentId}/metadata/topic": {
+      "put": {
+        "parameters": [
+          {
+            "description": "The content Id",
+            "in": "path",
+            "name": "contentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "topic",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "topic": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Course detail",
+            "schema": {
+              "$ref": "#/definitions/CourseMetaResponse"
+            }
+          }
+        },
+        "summary": "Update course topic",
+        "tags": [
+          "courses"
+        ],
+        "operationId": "courses.contentId.metadata.topic.put"
       }
     },
     "/offerings": {
@@ -166,7 +491,7 @@
           "201": {
             "description": "offering created",
             "schema": {
-              "$ref": "#/definitions/OfferingResponse"
+              "$ref": "#/definitions/OfferingMetadataResponse"
             }
           }
         },
@@ -267,7 +592,7 @@
           "200": {
             "description": "offering",
             "schema": {
-              "$ref": "#/definitions/OfferingResponse"
+              "$ref": "#/definitions/OfferingMetadataResponse"
             }
           }
         },
@@ -299,7 +624,7 @@
           "200": {
             "description": "offering updated",
             "schema": {
-              "$ref": "#/definitions/OfferingResponse"
+              "$ref": "#/definitions/OfferingMetadataResponse"
             }
           }
         },
@@ -1053,6 +1378,169 @@
         "operationId": "offerings.offeringId.groups.groupId.learners.userEmail.delete"
       }
     },
+    "/offerings/{offeringId}/metadata/category": {
+      "put": {
+        "description": "Updates the offering category metadata.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "in": "body",
+            "name": "category",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "category": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "offering updated",
+            "schema": {
+              "$ref": "#/definitions/OfferingMetadataResponse"
+            }
+          }
+        },
+        "summary": "Update offering category metadata",
+        "tags": [
+          "offerings"
+        ],
+        "operationId": "offerings.offeringId.metadata.category.put"
+      }
+    },
+    "/offerings/{offeringId}/metadata/level": {
+      "put": {
+        "description": "Updates the offering level metadata.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "in": "body",
+            "name": "level",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "level": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "offering updated",
+            "schema": {
+              "$ref": "#/definitions/OfferingMetadataResponse"
+            }
+          }
+        },
+        "summary": "Update offering level metadata",
+        "tags": [
+          "offerings"
+        ],
+        "operationId": "offerings.offeringId.metadata.level.put"
+      }
+    },
+    "/offerings/{offeringId}/metadata/tags": {
+      "put": {
+        "description": "Updates the offering tags metadata.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "in": "body",
+            "name": "tags",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "tags": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "offering updated",
+            "schema": {
+              "$ref": "#/definitions/OfferingMetadataResponse"
+            }
+          }
+        },
+        "summary": "Update offering tags metadata",
+        "tags": [
+          "offerings"
+        ],
+        "operationId": "offerings.offeringId.metadata.tags.put"
+      }
+    },
+    "/offerings/{offeringId}/metadata/topic": {
+      "put": {
+        "description": "Updates the offering topic metadata.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "in": "body",
+            "name": "topic",
+            "required": true,
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "topic": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "offering updated",
+            "schema": {
+              "$ref": "#/definitions/OfferingMetadataResponse"
+            }
+          }
+        },
+        "summary": "Update offering topic metadata",
+        "tags": [
+          "offerings"
+        ],
+        "operationId": "offerings.offeringId.metadata.topic.put"
+      }
+    },
     "/offerings/{offeringId}/study-plan": {
       "put": {
         "consumes": [
@@ -1172,7 +1660,7 @@
         "operationId": "offerings.offeringId.users.post"
       }
     },
-    "/offerings/{offeringId}/users/{evaluatorId}/evaluates": {
+    "/offerings/{offeringId}/users/{evaluatorEmail}/evaluates": {
       "delete": {
         "description": "Remove learners from evaluator's list.",
         "parameters": [
@@ -1182,7 +1670,7 @@
           {
             "description": "evaluator's id",
             "in": "path",
-            "name": "evaluatorId",
+            "name": "evaluatorEmail",
             "required": true,
             "type": "string"
           },
@@ -1218,7 +1706,7 @@
         "tags": [
           "offering users"
         ],
-        "operationId": "offerings.offeringId.users.evaluatorId.evaluates.delete"
+        "operationId": "offerings.offeringId.users.evaluatorEmail.evaluates.delete"
       },
       "get": {
         "description": "Get learners evaluated by the peer evaluator.",
@@ -1227,9 +1715,9 @@
             "$ref": "#/parameters/offeringId"
           },
           {
-            "description": "evaluators's id",
+            "description": "evaluators's email",
             "in": "path",
-            "name": "evaluatorId",
+            "name": "evaluatorEmail",
             "required": true,
             "type": "string"
           }
@@ -1253,7 +1741,7 @@
         "tags": [
           "offering users"
         ],
-        "operationId": "offerings.offeringId.users.evaluatorId.evaluates.get"
+        "operationId": "offerings.offeringId.users.evaluatorEmail.evaluates.get"
       },
       "post": {
         "description": "Add learners to be evaluated by the peer evaluator.",
@@ -1262,9 +1750,9 @@
             "$ref": "#/parameters/offeringId"
           },
           {
-            "description": "evaluator's id",
+            "description": "evaluator's email",
             "in": "path",
-            "name": "evaluatorId",
+            "name": "evaluatorEmail",
             "required": true,
             "type": "string"
           },
@@ -1300,10 +1788,10 @@
         "tags": [
           "offering users"
         ],
-        "operationId": "offerings.offeringId.users.evaluatorId.evaluates.post"
+        "operationId": "offerings.offeringId.users.evaluatorEmail.evaluates.post"
       }
     },
-    "/offerings/{offeringId}/users/{markerId}/marks": {
+    "/offerings/{offeringId}/users/{markerEmail}/marks": {
       "delete": {
         "description": "Remove learners from marker's list.",
         "parameters": [
@@ -1311,9 +1799,9 @@
             "$ref": "#/parameters/offeringId"
           },
           {
-            "description": "marker's id",
+            "description": "marker's email",
             "in": "path",
-            "name": "markerId",
+            "name": "markerEmail",
             "required": true,
             "type": "string"
           },
@@ -1349,7 +1837,7 @@
         "tags": [
           "offering users"
         ],
-        "operationId": "offerings.offeringId.users.markerId.marks.delete"
+        "operationId": "offerings.offeringId.users.markerEmail.marks.delete"
       },
       "get": {
         "description": "Get learners marked by the marker.",
@@ -1358,9 +1846,9 @@
             "$ref": "#/parameters/offeringId"
           },
           {
-            "description": "marker's id",
+            "description": "marker's email",
             "in": "path",
-            "name": "markerId",
+            "name": "markerEmail",
             "required": true,
             "type": "string"
           }
@@ -1384,7 +1872,7 @@
         "tags": [
           "offering users"
         ],
-        "operationId": "offerings.offeringId.users.markerId.marks.get"
+        "operationId": "offerings.offeringId.users.markerEmail.marks.get"
       },
       "post": {
         "description": "Add learners to be marked by the marker.",
@@ -1393,9 +1881,9 @@
             "$ref": "#/parameters/offeringId"
           },
           {
-            "description": "marker's id",
+            "description": "marker's email",
             "in": "path",
-            "name": "markerId",
+            "name": "markerEmail",
             "required": true,
             "type": "string"
           },
@@ -1431,7 +1919,33 @@
         "tags": [
           "offering users"
         ],
-        "operationId": "offerings.offeringId.users.markerId.marks.post"
+        "operationId": "offerings.offeringId.users.markerEmail.marks.post"
+      }
+    },
+    "/offerings/{offeringId}/users/{userEmail}": {
+      "delete": {
+        "description": "Removes user from the offering.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/offeringId"
+          },
+          {
+            "$ref": "#/parameters/userEmail"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "user successfully removed from the offering"
+          }
+        },
+        "summary": "Removes user from the offering.",
+        "tags": [
+          "offering users"
+        ],
+        "operationId": "offerings.offeringId.users.userEmail.delete"
       }
     },
     "/offerings/{offeringId}/users/{userEmail}/invite-email": {
@@ -1460,33 +1974,7 @@
         "operationId": "offerings.offeringId.users.userEmail.invite_email.post"
       }
     },
-    "/offerings/{offeringId}/users/{userId}": {
-      "delete": {
-        "description": "Removes user from the offering.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/offeringId"
-          },
-          {
-            "$ref": "#/parameters/userId"
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "204": {
-            "description": "user successfully removed from the offering"
-          }
-        },
-        "summary": "Removes user from the offering.",
-        "tags": [
-          "offering users"
-        ],
-        "operationId": "offerings.offeringId.users.userId.delete"
-      }
-    },
-    "/offerings/{offeringId}/users/{userId}/submissions/open-response": {
+    "/offerings/{offeringId}/users/{userEmail}/submissions/open-response": {
       "get": {
         "description": "Gets user's open response assignment submissions.",
         "parameters": [
@@ -1494,7 +1982,7 @@
             "$ref": "#/parameters/offeringId"
           },
           {
-            "$ref": "#/parameters/userId"
+            "$ref": "#/parameters/userEmail"
           }
         ],
         "produces": [
@@ -1516,15 +2004,85 @@
         "tags": [
           "submissions"
         ],
-        "operationId": "offerings.offeringId.users.userId.submissions.open_response.get"
+        "operationId": "offerings.offeringId.users.userEmail.submissions.open_response.get"
       }
     },
-    "/users/{userId}": {
+    "/users/all/progress": {
       "get": {
-        "description": "Returns a user matching the userId.",
+        "description": "Returns offering progress for each learner",
         "parameters": [
           {
-            "$ref": "#/parameters/userId"
+            "default": 20,
+            "description": "Returns only the first n results.",
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "description": "Sorts the results.",
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "description": "Filters the results, based on a Boolean condition.",
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Learners progress",
+            "schema": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "offerings": {
+                      "additionalProperties": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "title": "Offering",
+                        "type": "object"
+                      },
+                      "title": "Offerings detail",
+                      "type": "object"
+                    },
+                    "progress": {
+                      "items": {
+                        "$ref": "#/definitions/LearnerResponse"
+                      },
+                      "title": "Learners",
+                      "type": "array"
+                    }
+                  }
+                },
+                "top": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Learner progress for all offerings",
+        "tags": [
+          "analytics"
+        ],
+        "operationId": "users.all.progress.get"
+      }
+    },
+    "/users/{userEmail}": {
+      "get": {
+        "description": "Returns a user matching the email.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userEmail"
           }
         ],
         "produces": [
@@ -1538,17 +2096,17 @@
             }
           }
         },
-        "summary": "Find user by id",
+        "summary": "Find user by email",
         "tags": [
           "users"
         ],
-        "operationId": "users.userId.get"
+        "operationId": "users.userEmail.get"
       },
       "patch": {
         "description": "Updates the user",
         "parameters": [
           {
-            "$ref": "#/parameters/userId"
+            "$ref": "#/parameters/userEmail"
           },
           {
             "in": "body",
@@ -1574,15 +2132,15 @@
         "tags": [
           "users"
         ],
-        "operationId": "users.userId.patch"
+        "operationId": "users.userEmail.patch"
       }
     },
-    "/users/{userId}/offerings": {
+    "/users/{userEmail}/offerings": {
       "get": {
         "description": "Responds with all user's offerings.",
         "parameters": [
           {
-            "$ref": "#/parameters/userId"
+            "$ref": "#/parameters/userEmail"
           }
         ],
         "produces": [
@@ -1604,7 +2162,7 @@
         "tags": [
           "users"
         ],
-        "operationId": "users.userId.offerings.get"
+        "operationId": "users.userEmail.offerings.get"
       }
     }
   },
@@ -1881,6 +2439,27 @@
         }
       }
     },
+    "CourseMetaResponse": {
+      "properties": {
+        "coverImageUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/PortfolioMetadata"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Course"
+    },
     "CourseResponse": {
       "properties": {
         "coverImageUrl": {
@@ -1979,6 +2558,31 @@
       },
       "title": "LearnerProgress"
     },
+    "LearnerResponse": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "offerings": {
+          "items": {
+            "$ref": "#/definitions/OfferingProgressRow"
+          },
+          "type": "array"
+        },
+        "personId": {
+          "type": "string"
+        }
+      }
+    },
     "Mark": {
       "properties": {
         "createdAt": {
@@ -2075,6 +2679,9 @@
         "isReadonly": {
           "type": "boolean"
         },
+        "metadata": {
+          "$ref": "#/definitions/PortfolioMetadata"
+        },
         "name": {
           "minLength": 1,
           "type": "string"
@@ -2090,6 +2697,65 @@
         "version": {
           "description": "Content version, if not specified, the most recent version is used.",
           "minLength": 1,
+          "type": "string"
+        }
+      }
+    },
+    "OfferingMetadataResponse": {
+      "properties": {
+        "contentId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "coverImageUrl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "earlyCloseOffDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isReadonly": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "$ref": "#/definitions/PortfolioMetadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "trailerVideoUrl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      }
+    },
+    "OfferingProgressRow": {
+      "properties": {
+        "completion": {
+          "type": "string"
+        },
+        "id": {
           "type": "string"
         }
       }
@@ -2249,6 +2915,27 @@
           "$ref": "#/definitions/UserProfile"
         }
       }
+    },
+    "PortfolioMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "Post": {
       "properties": {
@@ -2416,11 +3103,26 @@
           "minLength": 1,
           "type": "string"
         },
+        "metadata": {
+          "$ref": "#/definitions/UserMetadata"
+        },
         "personId": {
           "minLength": 1,
           "type": "string"
         }
       }
+    },
+    "UserMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "UserProfile": {
       "properties": {
@@ -2456,6 +3158,9 @@
         "lastName": {
           "minLength": 1,
           "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/UserMetadata"
         },
         "personId": {
           "minLength": 1,

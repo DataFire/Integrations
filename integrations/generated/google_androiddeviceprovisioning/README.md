@@ -9,10 +9,7 @@ npm install --save @datafire/google_androiddeviceprovisioning
 ```js
 let google_androiddeviceprovisioning = require('@datafire/google_androiddeviceprovisioning').create();
 
-google_androiddeviceprovisioning.partners.devices.metadata({
-  "deviceId": "",
-  "metadataOwnerId": ""
-}).then(data => {
+google_androiddeviceprovisioning.customers.list({}).then(data => {
   console.log(data);
 });
 ```
@@ -22,6 +19,35 @@ google_androiddeviceprovisioning.partners.devices.metadata({
 Automates reseller integration into zero-touch enrollment by assigning devices to customers and creating device reports.
 
 ## Actions
+
+### customers.list
+Lists the user's customer accounts.
+
+
+```js
+google_androiddeviceprovisioning.customers.list({}, context)
+```
+
+#### Input
+* input `object`
+  * pageSize `integer`: The maximum number of customers to show in a page of results.
+  * pageToken `string`: A token specifying which result page to return.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [CustomerListCustomersResponse](#customerlistcustomersresponse)
 
 ### partners.devices.metadata
 Update the metadata.
@@ -305,6 +331,37 @@ google_androiddeviceprovisioning.partners.devices.updateMetadataAsync({
 #### Output
 * output [Operation](#operation)
 
+### customers.configurations.delete
+Deletes an unused configuration. The API call fails if the customer has
+devices with the configuration applied.
+
+
+```js
+google_androiddeviceprovisioning.customers.configurations.delete({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * name **required** `string`: Required. The configuration to delete. An API resource name in the format
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
 ### partners.devices.get
 Get a device.
 
@@ -335,6 +392,100 @@ google_androiddeviceprovisioning.partners.devices.get({
 #### Output
 * output [Device](#device)
 
+### customers.configurations.patch
+Updates a configuration's field values.
+
+
+```js
+google_androiddeviceprovisioning.customers.configurations.patch({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Configuration](#configuration)
+  * name **required** `string`: Output only. The API resource name in the format
+  * updateMask `string`: Required. The field mask applied to the target `Configuration` before
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Configuration](#configuration)
+
+### customers.configurations.list
+Lists a customer's configurations.
+
+
+```js
+google_androiddeviceprovisioning.customers.configurations.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The customer that manages the listed configurations. An API
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [CustomerListConfigurationsResponse](#customerlistconfigurationsresponse)
+
+### customers.configurations.create
+Creates a new configuration. Once created, a customer can apply the
+configuration to devices.
+
+
+```js
+google_androiddeviceprovisioning.customers.configurations.create({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Configuration](#configuration)
+  * parent **required** `string`: Required. The customer that manages the configuration. An API resource name
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Configuration](#configuration)
+
 ### partners.customers.create
 Creates a customer for zero-touch enrollment. After the method returns
 successfully, admin and owner roles can manage devices and EMM configs
@@ -351,7 +502,7 @@ google_androiddeviceprovisioning.partners.customers.create({
 #### Input
 * input `object`
   * body [CreateCustomerRequest](#createcustomerrequest)
-  * parent **required** `string`: Required. The parent resource ID in format `partners/[PARTNER_ID]` that
+  * parent **required** `string`: Required. The parent resource ID in the format `partners/[PARTNER_ID]` that
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -368,6 +519,168 @@ google_androiddeviceprovisioning.partners.customers.create({
 
 #### Output
 * output [Company](#company)
+
+### customers.devices.list
+Lists a customer's devices.
+
+
+```js
+google_androiddeviceprovisioning.customers.devices.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pageSize `string`: The maximum number of devices to show in a page of results.
+  * pageToken `string`: A token specifying which result page to return.
+  * parent **required** `string`: Required. The customer managing the devices. An API resource name in the
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [CustomerListDevicesResponse](#customerlistdevicesresponse)
+
+### customers.devices.applyConfiguration
+Applies a Configuration to the device to register the device for zero-touch
+enrollment. After applying a configuration to a device, the device
+automatically provisions itself on first boot, or next factory reset.
+
+
+```js
+google_androiddeviceprovisioning.customers.devices.applyConfiguration({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CustomerApplyConfigurationRequest](#customerapplyconfigurationrequest)
+  * parent **required** `string`: Required. The customer managing the device. An API resource name in the
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
+### customers.devices.removeConfiguration
+Removes a configuration from device.
+
+
+```js
+google_androiddeviceprovisioning.customers.devices.removeConfiguration({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CustomerRemoveConfigurationRequest](#customerremoveconfigurationrequest)
+  * parent **required** `string`: Required. The customer managing the device in the format
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
+### customers.devices.unclaim
+Unclaims a device from a customer and removes it from zero-touch
+enrollment.
+
+After removing a device, a customer must contact their reseller to register
+the device into zero-touch enrollment again.
+
+
+```js
+google_androiddeviceprovisioning.customers.devices.unclaim({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [CustomerUnclaimDeviceRequest](#customerunclaimdevicerequest)
+  * parent **required** `string`: Required. The customer managing the device. An API resource name in the
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
+### customers.dpcs.list
+Lists the DPCs (device policy controllers) that support zero-touch
+enrollment.
+
+
+```js
+google_androiddeviceprovisioning.customers.dpcs.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The customer that can use the DPCs in configurations. An API
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [CustomerListDpcsResponse](#customerlistdpcsresponse)
 
 
 
@@ -399,35 +712,88 @@ google_androiddeviceprovisioning.partners.customers.create({
   * ownerEmails `array`: Input only. Email address of customer's users in the owner role. At least
     * items `string`
 
+### Configuration
+* Configuration `object`: A configuration collects the provisioning options for Android devices. Each
+  * companyName `string`: Required. The name of the organization. Zero-touch enrollment shows this
+  * configurationId `string`: Output only. The ID of the configuration. Assigned by the server.
+  * configurationName `string`: Required. A short name that describes the configuration's purpose. For
+  * contactEmail `string`: Required. The email address that device users can contact to get help.
+  * contactPhone `string`: Required. The telephone number that device users can call, using another
+  * customMessage `string`: A message, containing one or two sentences, to help device users get help
+  * dpcExtras `string`: The JSON-formatted EMM provisioning extras that are passed to the DPC.
+  * dpcResourcePath `string`: Required. The resource name of the selected DPC (device policy controller)
+  * isDefault `boolean`: Required. Whether this is the default configuration that zero-touch
+  * name `string`: Output only. The API resource name in the format
+
 ### CreateCustomerRequest
 * CreateCustomerRequest `object`: Request message to create a customer.
   * customer [Company](#company)
 
+### CustomerApplyConfigurationRequest
+* CustomerApplyConfigurationRequest `object`: Request message for customer to assign a configuration to device.
+  * configuration `string`: Required. The configuration applied to the device in the format
+  * device [DeviceReference](#devicereference)
+
+### CustomerListConfigurationsResponse
+* CustomerListConfigurationsResponse `object`: Response message of customer's listing configuration.
+  * configurations `array`: The configurations.
+    * items [Configuration](#configuration)
+
+### CustomerListCustomersResponse
+* CustomerListCustomersResponse `object`: Response message for listing my customers.
+  * customers `array`: The customer accounts the calling user is a member of.
+    * items [Company](#company)
+  * nextPageToken `string`: A token used to access the next page of results. Omitted if no further
+
+### CustomerListDevicesResponse
+* CustomerListDevicesResponse `object`: Response message of customer's liting devices.
+  * devices `array`: The customer's devices.
+    * items [Device](#device)
+  * nextPageToken `string`: A token used to access the next page of results. Omitted if no further
+
+### CustomerListDpcsResponse
+* CustomerListDpcsResponse `object`: Response message of customer's listing DPCs.
+  * dpcs `array`: The list of DPCs available to the customer that support zero-touch
+    * items [Dpc](#dpc)
+
+### CustomerRemoveConfigurationRequest
+* CustomerRemoveConfigurationRequest `object`: Request message for customer to remove the configuration from device.
+  * device [DeviceReference](#devicereference)
+
+### CustomerUnclaimDeviceRequest
+* CustomerUnclaimDeviceRequest `object`: Request message for customer to unclaim a device.
+  * device [DeviceReference](#devicereference)
+
 ### Device
-* Device `object`: An Android device.
-  * claims `array`: Claims.
+* Device `object`: An Android device registered for zero-touch enrollment.
+  * claims `array`: Output only. The provisioning claims for a device. Devices claimed for
     * items [DeviceClaim](#deviceclaim)
-  * configuration `string`: The resource name of the configuration.
-  * deviceId `string`: Device ID.
+  * configuration `string`: Not available to resellers.
+  * deviceId `string`: Output only. The ID of the device. Assigned by the server.
   * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
   * deviceMetadata [DeviceMetadata](#devicemetadata)
-  * name `string`: Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
+  * name `string`: Output only. The API resource name in the format
 
 ### DeviceClaim
-* DeviceClaim `object`: Information about a device claimed for a partner.
-  * ownerCompanyId `string`: Owner ID.
-  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Section type of the device claim.
+* DeviceClaim `object`: A record of a device claimed by a reseller for a customer. Devices claimed
+  * ownerCompanyId `string`: The ID of the Customer that purchased the device.
+  * sectionType `string` (values: SECTION_TYPE_UNSPECIFIED, SECTION_TYPE_ZERO_TOUCH): Output only. The type of claim made on the device.
 
 ### DeviceIdentifier
-* DeviceIdentifier `object`: Identifies a unique device.
-  * imei `string`: IMEI number.
-  * manufacturer `string`: Manufacturer name to match `android.os.Build.MANUFACTURER` (required).
-  * meid `string`: MEID number.
-  * serialNumber `string`: Serial number (optional).
+* DeviceIdentifier `object`: Encapsulates hardware and product IDs to identify a manufactured device. To
+  * imei `string`: The device’s IMEI number. Validated on input.
+  * manufacturer `string`: Required. The device manufacturer’s name. Matches the device's built-in
+  * meid `string`: The device’s MEID number.
+  * serialNumber `string`: The manufacturer's serial number for the device. This value might not be
 
 ### DeviceMetadata
-* DeviceMetadata `object`: A key-value pair of the device metadata.
-  * entries `object`: Metadata entries
+* DeviceMetadata `object`: Metadata entries that can be attached to a `Device`. To learn more, read
+  * entries `object`: Metadata entries recorded as key-value pairs.
+
+### DeviceReference
+* DeviceReference `object`: A `DeviceReference` is an API abstraction that lets you supply a _device_
+  * deviceId `string`: The ID of the device.
+  * deviceIdentifier [DeviceIdentifier](#deviceidentifier)
 
 ### DevicesLongRunningOperationMetadata
 * DevicesLongRunningOperationMetadata `object`: Long running operation metadata.
@@ -440,6 +806,12 @@ google_androiddeviceprovisioning.partners.customers.create({
   * perDeviceStatus `array`: Processing status for each device.
     * items [OperationPerDevice](#operationperdevice)
   * successCount `integer`: Number of succeesfully processed ones.
+
+### Dpc
+* Dpc `object`: An EMM's DPC ([device policy controller](/android/work/dpc/build-dpc)).
+  * dpcName `string`: Output only. The title of the DPC app in Google Play. For example, _Google
+  * name `string`: Output only. The API resource name in the format
+  * packageName `string`: Output only. The DPC's Android application ID that looks like a Java
 
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated

@@ -185,43 +185,43 @@
     "/v1/images:annotate": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -398,7 +398,12 @@
         },
         "boundingBox": {
           "$ref": "#/definitions/BoundingPoly",
-          "description": "The bounding box for the block.\nThe vertices are in the order of top-left, top-right, bottom-right,\nbottom-left. When a rotation of the bounding box is detected the rotation\nis represented as around the top-left corner as defined when the text is\nread in the 'natural' orientation.\nFor example:\n  * when the text is horizontal it might look like:\n     0----1\n     |    |\n     3----2\n  * when it's rotated 180 degrees around the top-left corner it becomes:\n     2----3\n     |    |\n     1----0\n  and the vertice order will still be (0, 1, 2, 3)."
+          "description": "The bounding box for the block.\nThe vertices are in the order of top-left, top-right, bottom-right,\nbottom-left. When a rotation of the bounding box is detected the rotation\nis represented as around the top-left corner as defined when the text is\nread in the 'natural' orientation.\nFor example:\n\n* when the text is horizontal it might look like:\n\n        0----1\n        |    |\n        3----2\n\n* when it's rotated 180 degrees around the top-left corner it becomes:\n\n        2----3\n        |    |\n        1----0\n\n  and the vertice order will still be (0, 1, 2, 3)."
+        },
+        "confidence": {
+          "description": "Confidence of the OCR results on the block. Range [0, 1].",
+          "format": "float",
+          "type": "number"
         },
         "paragraphs": {
           "description": "List of paragraphs in this block (if this blocks is of type text).",
@@ -578,7 +583,7 @@
           "description": "Image region to which this entity belongs. Not produced\nfor `LABEL_DETECTION` features."
         },
         "confidence": {
-          "description": "The accuracy of the entity detection in an image.\nFor example, for an image in which the \"Eiffel Tower\" entity is detected,\nthis field represents the confidence that there is a tower in the query\nimage. Range [0, 1].",
+          "description": "**Deprecated. Use `score` instead.**\nThe accuracy of the entity detection in an image.\nFor example, for an image in which the \"Eiffel Tower\" entity is detected,\nthis field represents the confidence that there is a tower in the query\nimage. Range [0, 1].",
           "format": "float",
           "type": "number"
         },
@@ -598,7 +603,7 @@
           "type": "array"
         },
         "mid": {
-          "description": "Opaque entity ID. Some IDs may be available in\n[Google Knowledge Graph Search API](https://developers.google.com/knowledge-graph/).",
+          "description": "Opaque entity ID. Some IDs may be available in\n[Google Knowledge Graph Search\nAPI](https://developers.google.com/knowledge-graph/).",
           "type": "string"
         },
         "properties": {
@@ -752,12 +757,16 @@
       "type": "object"
     },
     "Feature": {
-      "description": "Users describe the type of Google Cloud Vision API tasks to perform over\nimages by using *Feature*s. Each Feature indicates a type of image\ndetection task to perform. Features encode the Cloud Vision API\nvertical to operate on and the number of top-scoring results to return.",
+      "description": "The type of Google Cloud Vision API detection to perform, and the maximum\nnumber of results to return for that type. Multiple `Feature` objects can\nbe specified in the `features` list.",
       "properties": {
         "maxResults": {
-          "description": "Maximum number of results of this type.",
+          "description": "Maximum number of results of this type. Does not apply to\n`TEXT_DETECTION`, `DOCUMENT_TEXT_DETECTION`, or `CROP_HINTS`.",
           "format": "int32",
           "type": "integer"
+        },
+        "model": {
+          "description": "Model to use for the feature.\nSupported values: \"builtin/stable\" (the default if unset) and\n\"builtin/latest\".",
+          "type": "string"
         },
         "type": {
           "description": "The feature type.",
@@ -783,13 +792,13 @@
       "description": "Client image to perform Google Cloud Vision API tasks over.",
       "properties": {
         "content": {
-          "description": "Image content, represented as a stream of bytes.\nNote: as with all `bytes` fields, protobuffers use a pure binary\nrepresentation, whereas JSON representations use base64.",
+          "description": "Image content, represented as a stream of bytes.\nNote: As with all `bytes` fields, protobuffers use a pure binary\nrepresentation, whereas JSON representations use base64.",
           "format": "byte",
           "type": "string"
         },
         "source": {
           "$ref": "#/definitions/ImageSource",
-          "description": "Google Cloud Storage image location. If both `content` and `source`\nare provided for an image, `content` takes precedence and is\nused to perform the image annotation request."
+          "description": "Google Cloud Storage image location, or publicly-accessible image\nURL. If both `content` and `source` are provided for an image, `content`\ntakes precedence and is used to perform the image annotation request."
         }
       },
       "type": "object"
@@ -811,6 +820,10 @@
         "latLongRect": {
           "$ref": "#/definitions/LatLongRect",
           "description": "lat/long rectangle that specifies the location of the image."
+        },
+        "webDetectionParams": {
+          "$ref": "#/definitions/WebDetectionParams",
+          "description": "Parameters for web detection."
         }
       },
       "type": "object"
@@ -826,21 +839,21 @@
       "type": "object"
     },
     "ImageSource": {
-      "description": "External image source (Google Cloud Storage image location).",
+      "description": "External image source (Google Cloud Storage or web URL image location).",
       "properties": {
         "gcsImageUri": {
-          "description": "NOTE: For new code `image_uri` below is preferred.\nGoogle Cloud Storage image URI, which must be in the following form:\n`gs://bucket_name/object_name` (for details, see\n[Google Cloud Storage Request\nURIs](https://cloud.google.com/storage/docs/reference-uris)).\nNOTE: Cloud Storage object versioning is not supported.",
+          "description": "**Use `image_uri` instead.**\n\nThe Google Cloud Storage  URI of the form\n`gs://bucket_name/object_name`. Object versioning is not supported. See\n[Google Cloud Storage Request\nURIs](https://cloud.google.com/storage/docs/reference-uris) for more info.",
           "type": "string"
         },
         "imageUri": {
-          "description": "Image URI which supports:\n1) Google Cloud Storage image URI, which must be in the following form:\n`gs://bucket_name/object_name` (for details, see\n[Google Cloud Storage Request\nURIs](https://cloud.google.com/storage/docs/reference-uris)).\nNOTE: Cloud Storage object versioning is not supported.\n2) Publicly accessible image HTTP/HTTPS URL.\nThis is preferred over the legacy `gcs_image_uri` above. When both\n`gcs_image_uri` and `image_uri` are specified, `image_uri` takes\nprecedence.",
+          "description": "The URI of the source image. Can be either:\n\n1. A Google Cloud Storage URI of the form\n   `gs://bucket_name/object_name`. Object versioning is not supported. See\n   [Google Cloud Storage Request\n   URIs](https://cloud.google.com/storage/docs/reference-uris) for more\n   info.\n\n2. A publicly-accessible image HTTP/HTTPS URL. When fetching images from\n   HTTP/HTTPS URLs, Google cannot guarantee that the request will be\n   completed. Your request may fail if the specified host denies the\n   request (e.g. due to request throttling or DOS prevention), or if Google\n   throttles requests to the site for abuse prevention. You should not\n   depend on externally-hosted images for production applications.\n\nWhen both `gcs_image_uri` and `image_uri` are specified, `image_uri` takes\nprecedence.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "Landmark": {
-      "description": "A face-specific landmark (for example, a face feature).\nLandmark positions may fall outside the bounds of the image\nif the face is near one or more edges of the image.\nTherefore it is NOT guaranteed that `0 <= x < width` or\n`0 <= y < height`.",
+      "description": "A face-specific landmark (for example, a face feature).",
       "properties": {
         "position": {
           "$ref": "#/definitions/Position",
@@ -891,7 +904,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
@@ -940,6 +953,11 @@
           },
           "type": "array"
         },
+        "confidence": {
+          "description": "Confidence of the OCR results on the page. Range [0, 1].",
+          "format": "float",
+          "type": "number"
+        },
         "height": {
           "description": "Page height in pixels.",
           "format": "int32",
@@ -963,6 +981,11 @@
         "boundingBox": {
           "$ref": "#/definitions/BoundingPoly",
           "description": "The bounding box for the paragraph.\nThe vertices are in the order of top-left, top-right, bottom-right,\nbottom-left. When a rotation of the bounding box is detected the rotation\nis represented as around the top-left corner as defined when the text is\nread in the 'natural' orientation.\nFor example:\n  * when the text is horizontal it might look like:\n     0----1\n     |    |\n     3----2\n  * when it's rotated 180 degrees around the top-left corner it becomes:\n     2----3\n     |    |\n     1----0\n  and the vertice order will still be (0, 1, 2, 3)."
+        },
+        "confidence": {
+          "description": "Confidence of the OCR results for the paragraph. Range [0, 1].",
+          "format": "float",
+          "type": "number"
         },
         "property": {
           "$ref": "#/definitions/TextProperty",
@@ -1045,6 +1068,18 @@
           ],
           "type": "string"
         },
+        "racy": {
+          "description": "Likelihood that the request image contains racy content. Racy content may\ninclude (but is not limited to) skimpy or sheer clothing, strategically\ncovered nudity, lewd or provocative poses, or close-ups of sensitive\nbody areas.",
+          "enum": [
+            "UNKNOWN",
+            "VERY_UNLIKELY",
+            "UNLIKELY",
+            "POSSIBLE",
+            "LIKELY",
+            "VERY_LIKELY"
+          ],
+          "type": "string"
+        },
         "spoof": {
           "description": "Spoof likelihood. The likelihood that an modification\nwas made to the image's canonical version to make it appear\nfunny or offensive.",
           "enum": [
@@ -1104,6 +1139,11 @@
           "$ref": "#/definitions/BoundingPoly",
           "description": "The bounding box for the symbol.\nThe vertices are in the order of top-left, top-right, bottom-right,\nbottom-left. When a rotation of the bounding box is detected the rotation\nis represented as around the top-left corner as defined when the text is\nread in the 'natural' orientation.\nFor example:\n  * when the text is horizontal it might look like:\n     0----1\n     |    |\n     3----2\n  * when it's rotated 180 degrees around the top-left corner it becomes:\n     2----3\n     |    |\n     1----0\n  and the vertice order will still be (0, 1, 2, 3)."
         },
+        "confidence": {
+          "description": "Confidence of the OCR results for the symbol. Range [0, 1].",
+          "format": "float",
+          "type": "number"
+        },
         "property": {
           "$ref": "#/definitions/TextProperty",
           "description": "Additional information detected for the symbol."
@@ -1116,7 +1156,7 @@
       "type": "object"
     },
     "TextAnnotation": {
-      "description": "TextAnnotation contains a structured representation of OCR extracted text.\nThe hierarchy of an OCR extracted text structure is like this:\n    TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol\nEach structural component, starting from Page, may further have their own\nproperties. Properties describe detected languages, breaks etc.. Please\nrefer to the google.cloud.vision.v1.TextAnnotation.TextProperty message\ndefinition below for more detail.",
+      "description": "TextAnnotation contains a structured representation of OCR extracted text.\nThe hierarchy of an OCR extracted text structure is like this:\n    TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol\nEach structural component, starting from Page, may further have their own\nproperties. Properties describe detected languages, breaks etc.. Please refer\nto the TextAnnotation.TextProperty message definition below for more\ndetail.",
       "properties": {
         "pages": {
           "description": "List of pages detected by OCR.",
@@ -1168,6 +1208,13 @@
     "WebDetection": {
       "description": "Relevant information for the image from the Internet.",
       "properties": {
+        "bestGuessLabels": {
+          "description": "Best guess text labels for the request image.",
+          "items": {
+            "$ref": "#/definitions/WebLabel"
+          },
+          "type": "array"
+        },
         "fullMatchingImages": {
           "description": "Fully matching images from the Internet.\nCan include resized copies of the query image.",
           "items": {
@@ -1206,6 +1253,16 @@
       },
       "type": "object"
     },
+    "WebDetectionParams": {
+      "description": "Parameters for web detection request.",
+      "properties": {
+        "includeGeoResults": {
+          "description": "Whether to include results derived from the geo information in the image.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "WebEntity": {
       "description": "Entity deduced from similar images on the Internet.",
       "properties": {
@@ -1240,9 +1297,41 @@
       },
       "type": "object"
     },
+    "WebLabel": {
+      "description": "Label to provide extra metadata for the web detection.",
+      "properties": {
+        "label": {
+          "description": "Label for extra metadata.",
+          "type": "string"
+        },
+        "languageCode": {
+          "description": "The BCP-47 language code for `label`, such as \"en-US\" or \"sr-Latn\".\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "WebPage": {
       "description": "Metadata for web pages.",
       "properties": {
+        "fullMatchingImages": {
+          "description": "Fully matching images on the page.\nCan include resized copies of the query image.",
+          "items": {
+            "$ref": "#/definitions/WebImage"
+          },
+          "type": "array"
+        },
+        "pageTitle": {
+          "description": "Title for the web page, may contain HTML markups.",
+          "type": "string"
+        },
+        "partialMatchingImages": {
+          "description": "Partial matching images on the page.\nThose images are similar enough to share some key-point features. For\nexample an original image will likely have partial matching for its\ncrops.",
+          "items": {
+            "$ref": "#/definitions/WebImage"
+          },
+          "type": "array"
+        },
         "score": {
           "description": "(Deprecated) Overall relevancy score for the web page.",
           "format": "float",
@@ -1261,6 +1350,11 @@
         "boundingBox": {
           "$ref": "#/definitions/BoundingPoly",
           "description": "The bounding box for the word.\nThe vertices are in the order of top-left, top-right, bottom-right,\nbottom-left. When a rotation of the bounding box is detected the rotation\nis represented as around the top-left corner as defined when the text is\nread in the 'natural' orientation.\nFor example:\n  * when the text is horizontal it might look like:\n     0----1\n     |    |\n     3----2\n  * when it's rotated 180 degrees around the top-left corner it becomes:\n     2----3\n     |    |\n     1----0\n  and the vertice order will still be (0, 1, 2, 3)."
+        },
+        "confidence": {
+          "description": "Confidence of the OCR results for the word. Range [0, 1].",
+          "format": "float",
+          "type": "number"
         },
         "property": {
           "$ref": "#/definitions/TextProperty",

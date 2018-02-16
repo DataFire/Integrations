@@ -81,11 +81,11 @@ google_gmail.users.drafts.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * includeSpamTrash `boolean`: Include drafts from SPAM and TRASH in the results.
   * maxResults `integer`: Maximum number of drafts to return.
   * pageToken `string`: Page token to retrieve a specific page of results in the list.
   * q `string`: Only return draft messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread".
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -109,8 +109,8 @@ google_gmail.users.drafts.create({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [Draft](#draft)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -134,8 +134,8 @@ google_gmail.users.drafts.send({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [Draft](#draft)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -153,15 +153,15 @@ Immediately and permanently deletes the specified draft. Does not simply trash i
 
 ```js
 google_gmail.users.drafts.delete({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the draft to delete.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -179,16 +179,16 @@ Gets the specified draft.
 
 ```js
 google_gmail.users.drafts.get({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the draft to retrieve.
   * format `string` (values: full, metadata, minimal, raw): The format to return the draft in.
+  * id **required** `string`: The ID of the draft to retrieve.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -206,16 +206,16 @@ Replaces a draft's content.
 
 ```js
 google_gmail.users.drafts.update({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the draft to update.
   * body [Draft](#draft)
+  * id **required** `string`: The ID of the draft to update.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -239,12 +239,12 @@ google_gmail.users.history.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * historyTypes `array`: History types to be returned by the function
   * labelId `string`: Only return messages with a label matching the ID.
   * maxResults `integer`: The maximum number of history records to return.
   * pageToken `string`: Page token to retrieve a specific page of results in the list.
   * startHistoryId `string`: Required. Returns history records after the specified startHistoryId. The supplied startHistoryId should be obtained from the historyId of a message, thread, or previous list response. History IDs increase chronologically but are not contiguous with random gaps in between valid IDs. Supplying an invalid or out of date startHistoryId typically returns an HTTP 404 error code. A historyId is typically valid for at least a week, but in some rare circumstances may be valid for only a few hours. If you receive an HTTP 404 error response, your application should perform a full sync. If you receive no nextPageToken in the response, there are no updates to retrieve and you can store the returned historyId for a future request.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -292,8 +292,8 @@ google_gmail.users.labels.create({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [Label](#label)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -311,15 +311,15 @@ Immediately and permanently deletes the specified label and removes it from any 
 
 ```js
 google_gmail.users.labels.delete({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the label to delete.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -337,15 +337,15 @@ Gets the specified label.
 
 ```js
 google_gmail.users.labels.get({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the label to retrieve.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -363,16 +363,16 @@ Updates the specified label. This method supports patch semantics.
 
 ```js
 google_gmail.users.labels.patch({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the label to update.
   * body [Label](#label)
+  * id **required** `string`: The ID of the label to update.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -390,16 +390,16 @@ Updates the specified label.
 
 ```js
 google_gmail.users.labels.update({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the label to update.
   * body [Label](#label)
+  * id **required** `string`: The ID of the label to update.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -452,10 +452,10 @@ google_gmail.users.messages.insert({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
+  * body [Message](#message)
   * deleted `boolean`: Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts.
   * internalDateSource `string` (values: dateHeader, receivedTime): Source for Gmail's internal date of the message.
-  * body [Message](#message)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -479,8 +479,8 @@ google_gmail.users.messages.batchDelete({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [BatchDeleteMessagesRequest](#batchdeletemessagesrequest)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -504,8 +504,8 @@ google_gmail.users.messages.batchModify({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [BatchModifyMessagesRequest](#batchmodifymessagesrequest)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -529,12 +529,12 @@ google_gmail.users.messages.import({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
+  * body [Message](#message)
   * deleted `boolean`: Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts.
   * internalDateSource `string` (values: dateHeader, receivedTime): Source for Gmail's internal date of the message.
   * neverMarkSpam `boolean`: Ignore the Gmail spam classifier decision and never mark this email as SPAM in the mailbox.
   * processForCalendar `boolean`: Process calendar invites in the email and add any extracted meetings to the Google Calendar for this user.
-  * body [Message](#message)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -558,8 +558,8 @@ google_gmail.users.messages.send({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [Message](#message)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -577,15 +577,15 @@ Immediately and permanently deletes the specified message. This operation cannot
 
 ```js
 google_gmail.users.messages.delete({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the message to delete.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -603,17 +603,17 @@ Gets the specified message.
 
 ```js
 google_gmail.users.messages.get({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the message to retrieve.
   * format `string` (values: full, metadata, minimal, raw): The format to return the message in.
+  * id **required** `string`: The ID of the message to retrieve.
   * metadataHeaders `array`: When given and format is METADATA, only include headers specified.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -631,16 +631,16 @@ Modifies the labels on the specified message.
 
 ```js
 google_gmail.users.messages.modify({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the message to modify.
   * body [ModifyMessageRequest](#modifymessagerequest)
+  * id **required** `string`: The ID of the message to modify.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -658,15 +658,15 @@ Moves the specified message to the trash.
 
 ```js
 google_gmail.users.messages.trash({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the message to Trash.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -684,15 +684,15 @@ Removes the specified message from the trash.
 
 ```js
 google_gmail.users.messages.untrash({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the message to remove from Trash.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -710,17 +710,17 @@ Gets the specified message attachment.
 
 ```js
 google_gmail.users.messages.attachments.get({
-  "userId": "",
+  "id": "",
   "messageId": "",
-  "id": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * messageId **required** `string`: The ID of the message containing the attachment.
   * id **required** `string`: The ID of the attachment.
+  * messageId **required** `string`: The ID of the message containing the attachment.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -794,8 +794,8 @@ google_gmail.users.settings.updateAutoForwarding({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [AutoForwarding](#autoforwarding)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -843,8 +843,8 @@ google_gmail.users.settings.filters.create({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [Filter](#filter)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -862,15 +862,15 @@ Deletes a filter.
 
 ```js
 google_gmail.users.settings.filters.delete({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the filter to be deleted.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -888,15 +888,15 @@ Gets a filter.
 
 ```js
 google_gmail.users.settings.filters.get({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the filter to be fetched.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -946,8 +946,8 @@ google_gmail.users.settings.forwardingAddresses.create({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [ForwardingAddress](#forwardingaddress)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -967,15 +967,15 @@ This method is only available to service account clients that have been delegate
 
 ```js
 google_gmail.users.settings.forwardingAddresses.delete({
-  "userId": "",
-  "forwardingEmail": ""
+  "forwardingEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * forwardingEmail **required** `string`: The forwarding address to be deleted.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -993,15 +993,15 @@ Gets the specified forwarding address.
 
 ```js
 google_gmail.users.settings.forwardingAddresses.get({
-  "userId": "",
-  "forwardingEmail": ""
+  "forwardingEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * forwardingEmail **required** `string`: The forwarding address to be retrieved.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1049,8 +1049,8 @@ google_gmail.users.settings.updateImap({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [ImapSettings](#imapsettings)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1098,8 +1098,8 @@ google_gmail.users.settings.updatePop({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [PopSettings](#popsettings)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1149,8 +1149,8 @@ google_gmail.users.settings.sendAs.create({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [SendAs](#sendas)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1170,15 +1170,15 @@ This method is only available to service account clients that have been delegate
 
 ```js
 google_gmail.users.settings.sendAs.delete({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * sendAsEmail **required** `string`: The send-as alias to be deleted.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1196,15 +1196,15 @@ Gets the specified send-as alias. Fails with an HTTP 404 error if the specified 
 
 ```js
 google_gmail.users.settings.sendAs.get({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * sendAsEmail **required** `string`: The send-as alias to be retrieved.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1224,16 +1224,16 @@ Addresses other than the primary address for the account can only be updated by 
 
 ```js
 google_gmail.users.settings.sendAs.patch({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
-  * sendAsEmail **required** `string`: The send-as alias to be updated.
   * body [SendAs](#sendas)
+  * sendAsEmail **required** `string`: The send-as alias to be updated.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1253,16 +1253,16 @@ Addresses other than the primary address for the account can only be updated by 
 
 ```js
 google_gmail.users.settings.sendAs.update({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
-  * sendAsEmail **required** `string`: The send-as alias to be updated.
   * body [SendAs](#sendas)
+  * sendAsEmail **required** `string`: The send-as alias to be updated.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1280,15 +1280,15 @@ Lists S/MIME configs for the specified send-as alias.
 
 ```js
 google_gmail.users.settings.sendAs.smimeInfo.list({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1306,16 +1306,16 @@ Insert (upload) the given S/MIME config for the specified send-as alias. Note th
 
 ```js
 google_gmail.users.settings.sendAs.smimeInfo.insert({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
   * body [SmimeInfo](#smimeinfo)
+  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1333,17 +1333,17 @@ Deletes the specified S/MIME config for the specified send-as alias.
 
 ```js
 google_gmail.users.settings.sendAs.smimeInfo.delete({
-  "userId": "",
+  "id": "",
   "sendAsEmail": "",
-  "id": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
   * id **required** `string`: The immutable ID for the SmimeInfo.
+  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1361,17 +1361,17 @@ Gets the specified S/MIME config for the specified send-as alias.
 
 ```js
 google_gmail.users.settings.sendAs.smimeInfo.get({
-  "userId": "",
+  "id": "",
   "sendAsEmail": "",
-  "id": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
   * id **required** `string`: The immutable ID for the SmimeInfo.
+  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1389,17 +1389,17 @@ Sets the default S/MIME config for the specified send-as alias.
 
 ```js
 google_gmail.users.settings.sendAs.smimeInfo.setDefault({
-  "userId": "",
+  "id": "",
   "sendAsEmail": "",
-  "id": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
   * id **required** `string`: The immutable ID for the SmimeInfo.
+  * sendAsEmail **required** `string`: The email address that appears in the "From:" header for mail sent using this alias.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1419,15 +1419,15 @@ This method is only available to service account clients that have been delegate
 
 ```js
 google_gmail.users.settings.sendAs.verify({
-  "userId": "",
-  "sendAsEmail": ""
+  "sendAsEmail": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * sendAsEmail **required** `string`: The send-as alias to be verified.
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1475,8 +1475,8 @@ google_gmail.users.settings.updateVacation({
 
 #### Input
 * input `object`
-  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * body [VacationSettings](#vacationsettings)
+  * userId **required** `string`: User's email address. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1524,12 +1524,12 @@ google_gmail.users.threads.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * includeSpamTrash `boolean`: Include threads from SPAM and TRASH in the results.
   * labelIds `array`: Only return threads with labels that match all of the specified label IDs.
   * maxResults `integer`: Maximum number of threads to return.
   * pageToken `string`: Page token to retrieve a specific page of results in the list.
   * q `string`: Only return threads matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1547,15 +1547,15 @@ Immediately and permanently deletes the specified thread. This operation cannot 
 
 ```js
 google_gmail.users.threads.delete({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: ID of the Thread to delete.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1573,17 +1573,17 @@ Gets the specified thread.
 
 ```js
 google_gmail.users.threads.get({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the thread to retrieve.
   * format `string` (values: full, metadata, minimal): The format to return the messages in.
+  * id **required** `string`: The ID of the thread to retrieve.
   * metadataHeaders `array`: When given and format is METADATA, only include headers specified.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1601,16 +1601,16 @@ Modifies the labels applied to the thread. This applies to all messages in the t
 
 ```js
 google_gmail.users.threads.modify({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
-  * id **required** `string`: The ID of the thread to modify.
   * body [ModifyThreadRequest](#modifythreadrequest)
+  * id **required** `string`: The ID of the thread to modify.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1628,15 +1628,15 @@ Moves the specified thread to the trash.
 
 ```js
 google_gmail.users.threads.trash({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the thread to Trash.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1654,15 +1654,15 @@ Removes the specified thread from the trash.
 
 ```js
 google_gmail.users.threads.untrash({
-  "userId": "",
-  "id": ""
+  "id": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * id **required** `string`: The ID of the thread to remove from Trash.
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1686,8 +1686,8 @@ google_gmail.users.watch({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * body [WatchRequest](#watchrequest)
+  * userId **required** `string`: The user's email address. The special value me can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1698,24 +1698,6 @@ google_gmail.users.watch({
 
 #### Output
 * output [WatchResponse](#watchresponse)
-
-### buildMessage
-
-
-
-```js
-google_gmail.buildMessage({}, context)
-```
-
-#### Input
-* input `object`
-  * to `string`
-  * from `string`
-  * subject `string`
-  * body `string`
-
-#### Output
-* output `string`: RFC 2822 formatted and base64url encoded message
 
 
 
@@ -1820,6 +1802,7 @@ google_gmail.buildMessage({}, context)
 
 ### Label
 * Label `object`: Labels are used to categorize messages and threads within the user's mailbox.
+  * color [LabelColor](#labelcolor)
   * id `string`: The immutable ID of the label.
   * labelListVisibility `string` (values: labelHide, labelShow, labelShowIfUnread): The visibility of the label in the label list in the Gmail web interface.
   * messageListVisibility `string` (values: hide, show): The visibility of the label in the message list in the Gmail web interface.
@@ -1829,6 +1812,11 @@ google_gmail.buildMessage({}, context)
   * threadsTotal `integer`: The total number of threads with the label.
   * threadsUnread `integer`: The number of unread threads with the label.
   * type `string` (values: system, user): The owner type for the label. User labels are created by the user and can be modified and deleted by the user and can be applied to any message or thread. System labels are internally created and cannot be added, modified, or deleted. System labels may be able to be applied to or removed from messages and threads under some circumstances but this is not guaranteed. For example, users can apply and remove the INBOX and UNREAD labels from messages and threads, but cannot apply or remove the DRAFTS or SENT labels from messages or threads.
+
+### LabelColor
+* LabelColor `object`
+  * backgroundColor `string`: The background color represented as hex string #RRGGBB (ex #000000). This field is required in order to set the color of a label. Only the following predefined set of color values are allowed:
+  * textColor `string`: The text color of the label, represented as hex string. This field is required in order to set the color of a label. Only the following predefined set of color values are allowed:
 
 ### ListDraftsResponse
 * ListDraftsResponse `object`

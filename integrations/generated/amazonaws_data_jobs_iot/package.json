@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_data_jobs_iot",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS IoT Jobs Data Plane",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/data.jobs.iot/2017-09-29/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/iot-jobs-data/2017-09-29/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

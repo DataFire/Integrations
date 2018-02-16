@@ -83,20 +83,20 @@ google_datastore.projects.allocateIds({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The ID of the project against which to make the request.
   * body [AllocateIdsRequest](#allocateidsrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * projectId **required** `string`: The ID of the project against which to make the request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -114,20 +114,20 @@ google_datastore.projects.beginTransaction({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The ID of the project against which to make the request.
   * body [BeginTransactionRequest](#begintransactionrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * projectId **required** `string`: The ID of the project against which to make the request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -146,20 +146,20 @@ google_datastore.projects.commit({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The ID of the project against which to make the request.
   * body [CommitRequest](#commitrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * projectId **required** `string`: The ID of the project against which to make the request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -177,20 +177,20 @@ google_datastore.projects.lookup({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The ID of the project against which to make the request.
   * body [LookupRequest](#lookuprequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * projectId **required** `string`: The ID of the project against which to make the request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -240,20 +240,20 @@ google_datastore.projects.rollback({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The ID of the project against which to make the request.
   * body [RollbackRequest](#rollbackrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * projectId **required** `string`: The ID of the project against which to make the request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -271,20 +271,20 @@ google_datastore.projects.runQuery({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The ID of the project against which to make the request.
   * body [RunQueryRequest](#runqueryrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * projectId **required** `string`: The ID of the project against which to make the request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output

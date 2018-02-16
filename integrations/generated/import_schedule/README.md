@@ -114,6 +114,11 @@ import_schedule.extractor.extractorId.get({
   * totalUrlCount `integer`
   * urlListId `string`
 
+### Inputs
+* Inputs `object`
+  * Example Input `string`
+  * _url **required** `string`
+
 ### ObjectStoreSearchResult
 * ObjectStoreSearchResult `object`
   * hits `object`
@@ -137,6 +142,25 @@ import_schedule.extractor.extractorId.get({
   * sequenceNumber `integer`
   * timestamp `integer`
   * url `string`
+
+### Report
+* Report `object`
+  * configId `string`
+  * guid `string`
+  * name `string`
+  * published `boolean`
+  * reportId `string`
+  * status `string`
+  * summary `object`
+  * type `string`
+
+### ReportRun
+* ReportRun `object`
+  * autoPublish `boolean`
+  * guid `string`
+  * latestConfigId `string`
+  * name `string`
+  * type `string`
 
 ### Schedule
 * Schedule `object`

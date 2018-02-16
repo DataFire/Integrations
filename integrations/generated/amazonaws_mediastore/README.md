@@ -77,6 +77,23 @@ amazonaws_mediastore.DeleteContainerPolicy({
 #### Output
 * output [DeleteContainerPolicyOutput](#deletecontainerpolicyoutput)
 
+### DeleteCorsPolicy
+
+
+
+```js
+amazonaws_mediastore.DeleteCorsPolicy({
+  "ContainerName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContainerName **required** [ContainerName](#containername)
+
+#### Output
+* output [DeleteCorsPolicyOutput](#deletecorspolicyoutput)
+
 ### DescribeContainer
 
 
@@ -108,6 +125,23 @@ amazonaws_mediastore.GetContainerPolicy({
 
 #### Output
 * output [GetContainerPolicyOutput](#getcontainerpolicyoutput)
+
+### GetCorsPolicy
+
+
+
+```js
+amazonaws_mediastore.GetCorsPolicy({
+  "ContainerName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContainerName **required** [ContainerName](#containername)
+
+#### Output
+* output [GetCorsPolicyOutput](#getcorspolicyoutput)
 
 ### ListContainers
 
@@ -144,9 +178,40 @@ amazonaws_mediastore.PutContainerPolicy({
 #### Output
 * output [PutContainerPolicyOutput](#putcontainerpolicyoutput)
 
+### PutCorsPolicy
+
+
+
+```js
+amazonaws_mediastore.PutCorsPolicy({
+  "ContainerName": "",
+  "CorsPolicy": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContainerName **required** [ContainerName](#containername)
+  * CorsPolicy **required** [CorsPolicy](#corspolicy)
+
+#### Output
+* output [PutCorsPolicyOutput](#putcorspolicyoutput)
+
 
 
 ## Definitions
+
+### AllowedHeaders
+* AllowedHeaders `array`
+  * items [Header](#header)
+
+### AllowedMethods
+* AllowedMethods `array`
+  * items [MethodName](#methodname)
+
+### AllowedOrigins
+* AllowedOrigins `array`
+  * items [Origin](#origin)
 
 ### Container
 * Container `object`: This section describes operations that you can perform on an AWS Elemental MediaStore container.
@@ -183,6 +248,22 @@ amazonaws_mediastore.PutContainerPolicy({
 ### ContainerStatus
 * ContainerStatus `string` (values: ACTIVE, CREATING, DELETING)
 
+### CorsPolicy
+* CorsPolicy `array`: The CORS policy of the container. 
+  * items [CorsRule](#corsrule)
+
+### CorsPolicyNotFoundException
+* CorsPolicyNotFoundException `object`: Could not perform an operation on a policy that does not exist.
+  * Message [ErrorMessage](#errormessage)
+
+### CorsRule
+* CorsRule `object`: A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
+  * AllowedHeaders [AllowedHeaders](#allowedheaders)
+  * AllowedMethods [AllowedMethods](#allowedmethods)
+  * AllowedOrigins [AllowedOrigins](#allowedorigins)
+  * ExposeHeaders [ExposeHeaders](#exposeheaders)
+  * MaxAgeSeconds [MaxAgeSeconds](#maxageseconds)
+
 ### CreateContainerInput
 * CreateContainerInput `object`
   * ContainerName **required** [ContainerName](#containername)
@@ -205,6 +286,13 @@ amazonaws_mediastore.PutContainerPolicy({
 ### DeleteContainerPolicyOutput
 * DeleteContainerPolicyOutput `object`
 
+### DeleteCorsPolicyInput
+* DeleteCorsPolicyInput `object`
+  * ContainerName **required** [ContainerName](#containername)
+
+### DeleteCorsPolicyOutput
+* DeleteCorsPolicyOutput `object`
+
 ### DescribeContainerInput
 * DescribeContainerInput `object`
   * ContainerName [ContainerName](#containername)
@@ -219,6 +307,10 @@ amazonaws_mediastore.PutContainerPolicy({
 ### ErrorMessage
 * ErrorMessage `string`
 
+### ExposeHeaders
+* ExposeHeaders `array`
+  * items [Header](#header)
+
 ### GetContainerPolicyInput
 * GetContainerPolicyInput `object`
   * ContainerName **required** [ContainerName](#containername)
@@ -226,6 +318,17 @@ amazonaws_mediastore.PutContainerPolicy({
 ### GetContainerPolicyOutput
 * GetContainerPolicyOutput `object`
   * Policy **required** [ContainerPolicy](#containerpolicy)
+
+### GetCorsPolicyInput
+* GetCorsPolicyInput `object`
+  * ContainerName **required** [ContainerName](#containername)
+
+### GetCorsPolicyOutput
+* GetCorsPolicyOutput `object`
+  * CorsPolicy **required** [CorsPolicy](#corspolicy)
+
+### Header
+* Header `string`
 
 ### InternalServerError
 * InternalServerError `object`: The service is temporarily unavailable.
@@ -245,6 +348,15 @@ amazonaws_mediastore.PutContainerPolicy({
   * Containers **required** [ContainerList](#containerlist)
   * NextToken [PaginationToken](#paginationtoken)
 
+### MaxAgeSeconds
+* MaxAgeSeconds `integer`
+
+### MethodName
+* MethodName `string` (values: PUT, GET, DELETE, HEAD)
+
+### Origin
+* Origin `string`
+
 ### PaginationToken
 * PaginationToken `string`
 
@@ -259,6 +371,14 @@ amazonaws_mediastore.PutContainerPolicy({
 
 ### PutContainerPolicyOutput
 * PutContainerPolicyOutput `object`
+
+### PutCorsPolicyInput
+* PutCorsPolicyInput `object`
+  * ContainerName **required** [ContainerName](#containername)
+  * CorsPolicy **required** [CorsPolicy](#corspolicy)
+
+### PutCorsPolicyOutput
+* PutCorsPolicyOutput `object`
 
 ### TimeStamp
 * TimeStamp `string`

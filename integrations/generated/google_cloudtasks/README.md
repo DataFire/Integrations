@@ -140,11 +140,15 @@ Updates a queue.
 This method creates the queue if it does not exist and updates
 the queue if it does exist.
 
-WARNING: This method is only available to whitelisted
-users. Using this method carries some risk. Read
+Queues created with this method allow tasks to live for a maximum of 31
+days. After a task is 31 days old, the task will be deleted regardless of whether
+it was dispatched or not.
+
+WARNING: Using this method may have unintended side effects if you are
+using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+Read
 [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
-carefully and then sign up for
-[whitelist access to this method](https://goo.gl/Fe5mUy).
+before using this method.
 
 
 ```js
@@ -208,66 +212,25 @@ google_cloudtasks.projects.locations.list({
 #### Output
 * output [ListLocationsResponse](#listlocationsresponse)
 
-### projects.locations.queues.tasks.pull
-Pulls tasks from a pull queue and acquires a lease on them for a
-specified PullTasksRequest.lease_duration.
-
-This method is invoked by the lease holder to obtain the
-lease. The lease holder must acknowledge the task via
-CloudTasks.AcknowledgeTask after they have performed the work
-associated with the task.
-
-The payload is intended to store data that the lease holder needs
-to perform the work associated with the task. To return the
-payloads in the PullTasksResponse, set
-PullTasksRequest.response_view to Task.View.FULL.
-
-A maximum of 10 qps of CloudTasks.PullTasks requests are allowed per
-queue. google.rpc.Code.RESOURCE_EXHAUSTED is returned when this limit
-is exceeded. google.rpc.Code.RESOURCE_EXHAUSTED is also returned when
-RateLimits.max_tasks_dispatched_per_second is exceeded.
-
-
-```js
-google_cloudtasks.projects.locations.queues.tasks.pull({
-  "name": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * body [PullTasksRequest](#pulltasksrequest)
-  * name **required** `string`: Required.
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [PullTasksResponse](#pulltasksresponse)
-
 ### projects.locations.queues.tasks.acknowledge
 Acknowledges a pull task.
 
-The lease holder, that is, the entity that received this task in
-a PullTasksResponse, must call this method to indicate that
-the work associated with the task has finished.
+The worker, that is, the entity that
+leased this task must call this method
+to indicate that the work associated with the task has finished.
 
-The lease holder must acknowledge a task within the
-PullTasksRequest.lease_duration or the lease will expire and
-the task will become ready to be returned in a different
-PullTasksResponse. After the task is acknowledged, it will
-not be returned by a later CloudTasks.PullTasks,
-CloudTasks.GetTask, or CloudTasks.ListTasks.
+The worker must acknowledge a task within the
+lease_duration or the lease
+will expire and the task will become available to be leased
+again. After the task is acknowledged, it will not be returned
+by a later LeaseTasks,
+GetTask, or
+ListTasks.
+
+To acknowledge multiple tasks at the same time, use
+[HTTP batching](/storage/docs/json_api/v1/how-tos/batch)
+or the batching documentation for your client library, for example
+https://developers.google.com/api-client-library/python/guide/batch.
 
 
 ```js
@@ -300,9 +263,10 @@ google_cloudtasks.projects.locations.queues.tasks.acknowledge({
 ### projects.locations.queues.tasks.cancelLease
 Cancel a pull task's lease.
 
-The lease holder can use this method to cancel a task's lease
-by setting Task.schedule_time to now. This will make the task
-available to be leased to the next caller of CloudTasks.PullTasks.
+The worker can use this method to cancel a task's lease by
+setting its schedule_time to now. This will
+make the task available to be leased to the next caller of
+LeaseTasks.
 
 
 ```js
@@ -335,18 +299,11 @@ google_cloudtasks.projects.locations.queues.tasks.cancelLease({
 ### projects.locations.queues.pause
 Pauses the queue.
 
-If a queue is paused then the system will stop executing the
-tasks in the queue until it is resumed via
-CloudTasks.ResumeQueue. Tasks can still be added when the
-queue is paused. The state of the queue is stored in
-Queue.queue_state; if paused it will be set to
-Queue.QueueState.PAUSED.
-
-WARNING: This method is only available to whitelisted
-users. Using this method carries some risk. Read
-[Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
-carefully and then sign up for
-[whitelist access to this method](https://goo.gl/Fe5mUy).
+If a queue is paused then the system will stop dispatching tasks
+until the queue is resumed via
+ResumeQueue. Tasks can still be added
+when the queue is paused. A queue is paused if its
+state is PAUSED.
 
 
 ```js
@@ -415,9 +372,9 @@ google_cloudtasks.projects.locations.queues.purge({
 ### projects.locations.queues.tasks.renewLease
 Renew the current lease of a pull task.
 
-The lease holder can use this method to extend the lease by a new
+The worker can use this method to extend the lease by a new
 duration, starting from now. The new task lease will be
-returned in Task.schedule_time.
+returned in the task's schedule_time.
 
 
 ```js
@@ -451,15 +408,10 @@ google_cloudtasks.projects.locations.queues.tasks.renewLease({
 Resume a queue.
 
 This method resumes a queue after it has been
-Queue.QueueState.PAUSED or Queue.QueueState.DISABLED. The state of
-a queue is stored in Queue.queue_state; after calling this method it
-will be set to Queue.QueueState.RUNNING.
-
-WARNING: This method is only available to whitelisted
-users. Using this method carries some risk. Read
-[Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
-carefully and then sign up for
-[whitelist access to this method](https://goo.gl/Fe5mUy).
+PAUSED or
+DISABLED. The state of a queue is stored
+in the queue's state; after calling this method it
+will be set to RUNNING.
 
 WARNING: Resuming many high-QPS queues at the same time can
 lead to target overloading. If you are resuming high-QPS
@@ -498,28 +450,32 @@ google_cloudtasks.projects.locations.queues.resume({
 Forces a task to run now.
 
 This command is meant to be used for manual debugging. For
-example, CloudTasks.RunTask can be used to retry a failed
+example, RunTask can be used to retry a failed
 task after a fix has been made or to manually force a task to be
 dispatched now.
 
 When this method is called, Cloud Tasks will dispatch the task to its
-target, even if the queue is Queue.QueueState.PAUSED.
+target, even if the queue is PAUSED.
 
 The dispatched task is returned. That is, the task that is returned
-contains the Task.task_status after the task is dispatched but
+contains the status after the task is dispatched but
 before the task is received by its target.
 
 If Cloud Tasks receives a successful response from the task's
 handler, then the task will be deleted; otherwise the task's
-Task.schedule_time will be reset to the time that
-CloudTasks.RunTask was called plus the retry delay specified
+schedule_time will be reset to the time that
+RunTask was called plus the retry delay specified
 in the queue and task's RetryConfig.
 
-CloudTasks.RunTask returns google.rpc.Code.NOT_FOUND when
-it is called on a task that has already succeeded or permanently
-failed. google.rpc.Code.FAILED_PRECONDITION is returned when
-CloudTasks.RunTask is called on task that is dispatched or
-already running.
+RunTask returns
+NOT_FOUND when it is called on a
+task that has already succeeded or permanently
+failed. FAILED_PRECONDITION
+is returned when RunTask is called on task
+that is dispatched or already running.
+
+RunTask cannot be called on
+pull tasks.
 
 
 ```js
@@ -587,11 +543,15 @@ google_cloudtasks.projects.locations.queues.list({
 ### projects.locations.queues.create
 Creates a queue.
 
-WARNING: This method is only available to whitelisted
-users. Using this method carries some risk. Read
+Queues created with this method allow tasks to live for a maximum of 31
+days. After a task is 31 days old, the task will be deleted regardless of whether
+it was dispatched or not.
+
+WARNING: Using this method may have unintended side effects if you are
+using an App Engine `queue.yaml` or `queue.xml` file to manage your queues.
+Read
 [Overview of Queue Management and queue.yaml](/cloud-tasks/docs/queue-yaml)
-carefully and then sign up for
-[whitelist access to this method](https://goo.gl/Fe5mUy).
+before using this method.
 
 
 ```js
@@ -624,9 +584,9 @@ google_cloudtasks.projects.locations.queues.create({
 ### projects.locations.queues.tasks.list
 Lists the tasks in a queue.
 
-By default response_view is Task.View.BASIC; not all
-information is retrieved by default due to performance
-considerations; ListTasksRequest.response_view controls the
+By default, only the BASIC view is retrieved
+due to performance considerations;
+response_view controls the
 subset of information which is returned.
 
 
@@ -703,6 +663,58 @@ google_cloudtasks.projects.locations.queues.tasks.create({
 #### Output
 * output [Task](#task)
 
+### projects.locations.queues.tasks.lease
+Leases tasks from a pull queue for
+lease_duration.
+
+This method is invoked by the worker to obtain a lease. The
+worker must acknowledge the task via
+AcknowledgeTask after they have
+performed the work associated with the task.
+
+The payload is intended to store data that
+the worker needs to perform the work associated with the task. To
+return the payloads in the response, set
+response_view to
+FULL.
+
+A maximum of 10 qps of LeaseTasks
+requests are allowed per
+queue. RESOURCE_EXHAUSTED
+is returned when this limit is
+exceeded. RESOURCE_EXHAUSTED
+is also returned when
+max_tasks_dispatched_per_second
+is exceeded.
+
+
+```js
+google_cloudtasks.projects.locations.queues.tasks.lease({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [LeaseTasksRequest](#leasetasksrequest)
+  * parent **required** `string`: Required.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [LeaseTasksResponse](#leasetasksresponse)
+
 ### projects.locations.queues.getIamPolicy
 Gets the access control policy for a Queue.
 Returns an empty policy if the resource exists and does not have a policy
@@ -712,7 +724,6 @@ Authorization requires the following [Google IAM](/iam) permission on the
 specified resource parent:
 
 * `cloudtasks.queues.getIamPolicy`
-
 
 
 ```js
@@ -746,11 +757,13 @@ google_cloudtasks.projects.locations.queues.getIamPolicy({
 Sets the access control policy for a Queue. Replaces any existing
 policy.
 
+Note: The Cloud Console does not check queue-level IAM permissions yet.
+Project-level permissions are required to use the Cloud Console.
+
 Authorization requires the following [Google IAM](/iam) permission on the
 specified resource parent:
 
 * `cloudtasks.queues.setIamPolicy`
-
 
 
 ```js
@@ -783,12 +796,11 @@ google_cloudtasks.projects.locations.queues.setIamPolicy({
 ### projects.locations.queues.testIamPermissions
 Returns permissions that a caller has on a Queue.
 If the resource does not exist, this will return an empty set of
-permissions, not a google.rpc.Code.NOT_FOUND error.
+permissions, not a NOT_FOUND error.
 
 Note: This operation is designed to be used for building permission-aware
 UIs and command-line tools, not for authorization checking. This operation
 may "fail open" without warning.
-
 
 
 ```js
@@ -838,31 +850,19 @@ google_cloudtasks.projects.locations.queues.testIamPermissions({
 * AppEngineHttpTarget `object`: App Engine HTTP target.
   * appEngineRoutingOverride [AppEngineRouting](#appenginerouting)
 
-### AppEngineQueueConfig
-* AppEngineQueueConfig `object`: Deprecated. Use AppEngineHttpTarget.
-  * appEngineRoutingOverride [AppEngineRouting](#appenginerouting)
-
 ### AppEngineRouting
 * AppEngineRouting `object`: App Engine Routing.
-  * host `string`: Output only.
+  * host `string`: Output only. The host that the task is sent to.
   * instance `string`: App instance.
   * service `string`: App service.
   * version `string`: App version.
 
-### AppEngineTaskTarget
-* AppEngineTaskTarget `object`: Deprecated. Use AppEngineHttpRequest.
-  * appEngineRouting [AppEngineRouting](#appenginerouting)
-  * headers `object`: Deprecated. Use AppEngineHttpRequest.headers.
-  * httpMethod `string` (values: HTTP_METHOD_UNSPECIFIED, POST, GET, HEAD, PUT, DELETE): Deprecated. Use AppEngineHttpRequest.http_method.
-  * payload `string`: Deprecated. Use AppEngineHttpRequest.payload.
-  * relativeUrl `string`: Deprecated. Use AppEngineHttpRequest.relative_url.
-
 ### AttemptStatus
 * AttemptStatus `object`: The status of a task attempt.
-  * dispatchTime `string`: Output only.
+  * dispatchTime `string`: Output only. The time that this attempt was dispatched.
   * responseStatus [Status](#status)
-  * responseTime `string`: Output only.
-  * scheduleTime `string`: Output only.
+  * responseTime `string`: Output only. The time that this attempt response was received.
+  * scheduleTime `string`: Output only. The time that this attempt was scheduled.
 
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
@@ -876,7 +876,7 @@ google_cloudtasks.projects.locations.queues.testIamPermissions({
   * scheduleTime `string`: Required.
 
 ### CreateTaskRequest
-* CreateTaskRequest `object`: Request message for CloudTasks.CreateTask.
+* CreateTaskRequest `object`: Request message for CreateTask.
   * responseView `string` (values: VIEW_UNSPECIFIED, BASIC, FULL): The response_view specifies which subset of the Task will be
   * task [Task](#task)
 
@@ -886,6 +886,18 @@ google_cloudtasks.projects.locations.queues.testIamPermissions({
 ### GetIamPolicyRequest
 * GetIamPolicyRequest `object`: Request message for `GetIamPolicy` method.
 
+### LeaseTasksRequest
+* LeaseTasksRequest `object`: Request message for leasing tasks using LeaseTasks.
+  * filter `string`: `filter` can be used to specify a subset of tasks to lease.
+  * leaseDuration `string`: 
+  * maxTasks `integer`: The maximum number of tasks to lease. The maximum that can be
+  * responseView `string` (values: VIEW_UNSPECIFIED, BASIC, FULL): The response_view specifies which subset of the Task will be
+
+### LeaseTasksResponse
+* LeaseTasksResponse `object`: Response message for leasing tasks using LeaseTasks.
+  * tasks `array`: The leased tasks.
+    * items [Task](#task)
+
 ### ListLocationsResponse
 * ListLocationsResponse `object`: The response message for Locations.ListLocations.
   * locations `array`: A list of locations that matches the specified filter in the request.
@@ -893,13 +905,13 @@ google_cloudtasks.projects.locations.queues.testIamPermissions({
   * nextPageToken `string`: The standard List next-page token.
 
 ### ListQueuesResponse
-* ListQueuesResponse `object`: Response message for CloudTasks.ListQueues.
+* ListQueuesResponse `object`: Response message for ListQueues.
   * nextPageToken `string`: A token to retrieve next page of results.
   * queues `array`: The list of queues.
     * items [Queue](#queue)
 
 ### ListTasksResponse
-* ListTasksResponse `object`: Response message for listing tasks using CloudTasks.ListTasks.
+* ListTasksResponse `object`: Response message for listing tasks using ListTasks.
   * nextPageToken `string`: A token to retrieve next page of results.
   * tasks `array`: The list of tasks.
     * items [Task](#task)
@@ -912,80 +924,58 @@ google_cloudtasks.projects.locations.queues.testIamPermissions({
   * name `string`: Resource name for the location, which may vary between implementations.
 
 ### PauseQueueRequest
-* PauseQueueRequest `object`: Request message for CloudTasks.PauseQueue.
+* PauseQueueRequest `object`: Request message for PauseQueue.
 
 ### Policy
 * Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
 
 ### PullMessage
 * PullMessage `object`: The pull message contains data that can be used by the caller of
-  * payload `string`: A data payload consumed by the task worker to execute the task.
-  * tag `string`: A meta-data tag for this task.
-
-### PullQueueConfig
-* PullQueueConfig `object`: Deprecated. Use PullTarget.
+  * payload `string`: A data payload consumed by the worker to execute the task.
+  * tag `string`: The task's tag.
 
 ### PullTarget
 * PullTarget `object`: Pull target.
 
-### PullTaskTarget
-* PullTaskTarget `object`: Deprecated. Use PullMessage.
-  * payload `string`: Deprecated. Use PullMessage.payload.
-  * tag `string`: Deprecated. Use PullMessage.tag.
-
-### PullTasksRequest
-* PullTasksRequest `object`: Request message for pulling tasks using CloudTasks.PullTasks.
-  * filter `string`: `filter` can be used to specify a subset of tasks to lease.
-  * leaseDuration `string`: The duration of the lease.
-  * maxTasks `integer`: The maximum number of tasks to lease. The maximum that can be
-  * responseView `string` (values: VIEW_UNSPECIFIED, BASIC, FULL): The response_view specifies which subset of the Task will be
-
-### PullTasksResponse
-* PullTasksResponse `object`: Response message for pulling tasks using CloudTasks.PullTasks.
-  * tasks `array`: The leased tasks.
-    * items [Task](#task)
-
 ### PurgeQueueRequest
-* PurgeQueueRequest `object`: Request message for CloudTasks.PurgeQueue.
+* PurgeQueueRequest `object`: Request message for PurgeQueue.
 
 ### Queue
 * Queue `object`: A queue is a container of related tasks. Queues are configured to manage
   * appEngineHttpTarget [AppEngineHttpTarget](#appenginehttptarget)
-  * appEngineQueueConfig [AppEngineQueueConfig](#appenginequeueconfig)
   * name `string`: The queue name.
-  * pullQueueConfig [PullQueueConfig](#pullqueueconfig)
   * pullTarget [PullTarget](#pulltarget)
-  * purgeTime `string`: Output only.
-  * queueState `string` (values: QUEUE_STATE_UNSPECIFIED, RUNNING, PAUSED, DISABLED): Output only.
+  * purgeTime `string`: Output only. The last time this queue was purged.
   * rateLimits [RateLimits](#ratelimits)
   * retryConfig [RetryConfig](#retryconfig)
+  * state `string` (values: STATE_UNSPECIFIED, RUNNING, PAUSED, DISABLED): Output only. The state of the queue.
 
 ### RateLimits
 * RateLimits `object`: Rate limits.
-  * maxBurstSize `integer`: Output only.
+  * maxBurstSize `integer`: Output only. The max burst size.
   * maxConcurrentTasks `integer`: The maximum number of concurrent tasks that Cloud Tasks allows
-  * maxTasksDispatchedPerSecond `number`: The maximum rate at which tasks are dispatched from this
+  * maxTasksDispatchedPerSecond `number`: The maximum rate at which tasks are dispatched from this queue.
 
 ### RenewLeaseRequest
-* RenewLeaseRequest `object`: Request message for renewing a lease using CloudTasks.RenewLease.
-  * newLeaseDuration `string`: Required.
+* RenewLeaseRequest `object`: Request message for renewing a lease using
+  * leaseDuration `string`: Required.
   * responseView `string` (values: VIEW_UNSPECIFIED, BASIC, FULL): The response_view specifies which subset of the Task will be
   * scheduleTime `string`: Required.
 
 ### ResumeQueueRequest
-* ResumeQueueRequest `object`: Request message for CloudTasks.ResumeQueue.
+* ResumeQueueRequest `object`: Request message for ResumeQueue.
 
 ### RetryConfig
 * RetryConfig `object`: Retry config.
   * maxAttempts `integer`: The maximum number of attempts for a task.
-  * maxBackoff `string`: The maximum amount of time to wait before retrying a task after
-  * maxDoublings `integer`: The time between retries increases exponentially `max_doublings` times.
-  * maxRetryDuration `string`: If positive, `max_retry_duration` specifies the time limit for retrying a
-  * minBackoff `string`: The minimum amount of time to wait before retrying a task after
+  * maxBackoff `string`: A task will be [scheduled](Task.schedule_time) for retry between
+  * maxDoublings `integer`: The time between retries will double `max_doublings` times.
+  * maxRetryDuration `string`: If positive, `max_retry_duration` specifies the time limit for
+  * minBackoff `string`: A task will be [scheduled](Task.schedule_time) for retry between
   * unlimitedAttempts `boolean`: If true, then the number of attempts is unlimited.
 
 ### RunTaskRequest
@@ -1006,19 +996,17 @@ google_cloudtasks.projects.locations.queues.testIamPermissions({
 ### Task
 * Task `object`: A unit of scheduled work.
   * appEngineHttpRequest [AppEngineHttpRequest](#appenginehttprequest)
-  * appEngineTaskTarget [AppEngineTaskTarget](#appenginetasktarget)
-  * createTime `string`: Output only.
+  * createTime `string`: Output only. The time that the task was created.
   * name `string`: The task name.
   * pullMessage [PullMessage](#pullmessage)
-  * pullTaskTarget [PullTaskTarget](#pulltasktarget)
   * scheduleTime `string`: The time when the task is scheduled to be attempted.
-  * taskStatus [TaskStatus](#taskstatus)
-  * view `string` (values: VIEW_UNSPECIFIED, BASIC, FULL): Output only.
+  * status [TaskStatus](#taskstatus)
+  * view `string` (values: VIEW_UNSPECIFIED, BASIC, FULL): Output only. The view specifies which subset of the Task has
 
 ### TaskStatus
 * TaskStatus `object`: Status of the task.
-  * attemptDispatchCount `string`: Output only.
-  * attemptResponseCount `string`: Output only.
+  * attemptDispatchCount `integer`: Output only. The number of attempts dispatched.
+  * attemptResponseCount `integer`: Output only. The number of attempts which have received a response.
   * firstAttemptStatus [AttemptStatus](#attemptstatus)
   * lastAttemptStatus [AttemptStatus](#attemptstatus)
 

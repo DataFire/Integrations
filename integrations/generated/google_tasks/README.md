@@ -103,7 +103,6 @@ google_tasks.tasks.list({
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
   * completedMax `string`: Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date.
   * completedMin `string`: Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date.
   * dueMax `string`: Upper bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by due date.
@@ -113,6 +112,7 @@ google_tasks.tasks.list({
   * showCompleted `boolean`: Flag indicating whether completed tasks are returned in the result. Optional. The default is True.
   * showDeleted `boolean`: Flag indicating whether deleted tasks are returned in the result. Optional. The default is False.
   * showHidden `boolean`: Flag indicating whether hidden tasks are returned in the result. Optional. The default is False.
+  * tasklist **required** `string`: Task list identifier.
   * updatedMin `string`: Lower bound for a task's last modification time (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by last modification time.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -137,10 +137,10 @@ google_tasks.tasks.insert({
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
+  * body [Task](#task)
   * parent `string`: Parent task identifier. If the task is created at the top level, this parameter is omitted. Optional.
   * previous `string`: Previous sibling task identifier. If the task is created at the first position among its siblings, this parameter is omitted. Optional.
-  * body [Task](#task)
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -158,15 +158,15 @@ Deletes the specified task from the task list.
 
 ```js
 google_tasks.tasks.delete({
-  "tasklist": "",
-  "task": ""
+  "task": "",
+  "tasklist": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
   * task **required** `string`: Task identifier.
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -184,15 +184,15 @@ Returns the specified task.
 
 ```js
 google_tasks.tasks.get({
-  "tasklist": "",
-  "task": ""
+  "task": "",
+  "tasklist": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
   * task **required** `string`: Task identifier.
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -210,16 +210,16 @@ Updates the specified task. This method supports patch semantics.
 
 ```js
 google_tasks.tasks.patch({
-  "tasklist": "",
-  "task": ""
+  "task": "",
+  "tasklist": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
-  * task **required** `string`: Task identifier.
   * body [Task](#task)
+  * task **required** `string`: Task identifier.
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -237,16 +237,16 @@ Updates the specified task.
 
 ```js
 google_tasks.tasks.update({
-  "tasklist": "",
-  "task": ""
+  "task": "",
+  "tasklist": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
-  * task **required** `string`: Task identifier.
   * body [Task](#task)
+  * task **required** `string`: Task identifier.
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -264,17 +264,17 @@ Moves the specified task to another position in the task list. This can include 
 
 ```js
 google_tasks.tasks.move({
-  "tasklist": "",
-  "task": ""
+  "task": "",
+  "tasklist": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
-  * task **required** `string`: Task identifier.
   * parent `string`: New parent task identifier. If the task is moved to the top level, this parameter is omitted. Optional.
   * previous `string`: New previous sibling task identifier. If the task is moved to the first position among its siblings, this parameter is omitted. Optional.
+  * task **required** `string`: Task identifier.
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -391,8 +391,8 @@ google_tasks.tasklists.patch({
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
   * body [TaskList](#tasklist)
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -416,8 +416,8 @@ google_tasks.tasklists.update({
 
 #### Input
 * input `object`
-  * tasklist **required** `string`: Task list identifier.
   * body [TaskList](#tasklist)
+  * tasklist **required** `string`: Task list identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

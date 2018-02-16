@@ -13,8 +13,8 @@ let amazonaws_route53 = require('@datafire/amazonaws_route53').create({
   region: ""
 });
 
-amazonaws_route53.GetChange({
-  "Id": ""
+amazonaws_route53.GetAccountLimit({
+  "Type": ""
 }).then(data => {
   console.log(data);
 });
@@ -25,6 +25,23 @@ amazonaws_route53.GetChange({
 
 
 ## Actions
+
+### GetAccountLimit
+
+
+
+```js
+amazonaws_route53.GetAccountLimit({
+  "Type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Type **required** `string`
+
+#### Output
+* output [GetAccountLimitResponse](#getaccountlimitresponse)
 
 ### GetChange
 
@@ -70,6 +87,41 @@ amazonaws_route53.ListReusableDelegationSets({}, context)
 
 #### Output
 * output [ListReusableDelegationSetsResponse](#listreusabledelegationsetsresponse)
+
+### CreateReusableDelegationSet
+
+
+
+```js
+amazonaws_route53.CreateReusableDelegationSet({
+  "CallerReference": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CallerReference **required** [Nonce](#nonce)
+  * HostedZoneId [ResourceId](#resourceid)
+
+#### Output
+*Output schema unknown*
+
+### DeleteReusableDelegationSet
+
+
+
+```js
+amazonaws_route53.DeleteReusableDelegationSet({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [DeleteReusableDelegationSetResponse](#deletereusabledelegationsetresponse)
 
 ### GetReusableDelegationSet
 
@@ -131,6 +183,61 @@ amazonaws_route53.ListHealthChecks({}, context)
 
 #### Output
 * output [ListHealthChecksResponse](#listhealthchecksresponse)
+
+### CreateHealthCheck
+
+
+
+```js
+amazonaws_route53.CreateHealthCheck({
+  "CallerReference": "",
+  "HealthCheckConfig": {
+    "Type": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * CallerReference **required** [HealthCheckNonce](#healthchecknonce)
+  * HealthCheckConfig **required** [HealthCheckConfig](#healthcheckconfig)
+
+#### Output
+*Output schema unknown*
+
+### DeleteHealthCheck
+
+
+
+```js
+amazonaws_route53.DeleteHealthCheck({
+  "HealthCheckId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HealthCheckId **required** `string`
+
+#### Output
+* output [DeleteHealthCheckResponse](#deletehealthcheckresponse)
+
+### GetHealthCheck
+
+
+
+```js
+amazonaws_route53.GetHealthCheck({
+  "HealthCheckId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HealthCheckId **required** `string`
+
+#### Output
+* output [GetHealthCheckResponse](#gethealthcheckresponse)
 
 ### UpdateHealthCheck
 
@@ -228,6 +335,62 @@ amazonaws_route53.ListHostedZones({}, context)
 #### Output
 * output [ListHostedZonesResponse](#listhostedzonesresponse)
 
+### CreateHostedZone
+
+
+
+```js
+amazonaws_route53.CreateHostedZone({
+  "Name": "",
+  "CallerReference": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CallerReference **required** [Nonce](#nonce)
+  * DelegationSetId [ResourceId](#resourceid)
+  * HostedZoneConfig [HostedZoneConfig](#hostedzoneconfig)
+  * Name **required** [DNSName](#dnsname)
+  * VPC [VPC](#vpc)
+
+#### Output
+*Output schema unknown*
+
+### DeleteHostedZone
+
+
+
+```js
+amazonaws_route53.DeleteHostedZone({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [DeleteHostedZoneResponse](#deletehostedzoneresponse)
+
+### GetHostedZone
+
+
+
+```js
+amazonaws_route53.GetHostedZone({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetHostedZoneResponse](#gethostedzoneresponse)
+
 ### UpdateHostedZoneComment
 
 
@@ -282,6 +445,25 @@ amazonaws_route53.ListVPCAssociationAuthorizations({
 
 #### Output
 * output [ListVPCAssociationAuthorizationsResponse](#listvpcassociationauthorizationsresponse)
+
+### CreateVPCAssociationAuthorization
+
+
+
+```js
+amazonaws_route53.CreateVPCAssociationAuthorization({
+  "Id": "",
+  "VPC": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * VPC **required** [VPC](#vpc)
+
+#### Output
+* output [CreateVPCAssociationAuthorizationResponse](#createvpcassociationauthorizationresponse)
 
 ### DeleteVPCAssociationAuthorization
 
@@ -378,6 +560,25 @@ amazonaws_route53.GetHostedZoneCount({}, context)
 #### Output
 * output [GetHostedZoneCountResponse](#gethostedzonecountresponse)
 
+### GetHostedZoneLimit
+
+
+
+```js
+amazonaws_route53.GetHostedZoneLimit({
+  "Id": "",
+  "Type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * Type **required** `string`
+
+#### Output
+* output [GetHostedZoneLimitResponse](#gethostedzonelimitresponse)
+
 ### ListHostedZonesByName
 
 
@@ -406,6 +607,42 @@ amazonaws_route53.ListQueryLoggingConfigs({}, context)
 #### Output
 * output [ListQueryLoggingConfigsResponse](#listqueryloggingconfigsresponse)
 
+### CreateQueryLoggingConfig
+
+
+
+```js
+amazonaws_route53.CreateQueryLoggingConfig({
+  "HostedZoneId": "",
+  "CloudWatchLogsLogGroupArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CloudWatchLogsLogGroupArn **required** [CloudWatchLogsLogGroupArn](#cloudwatchlogsloggrouparn)
+  * HostedZoneId **required** [ResourceId](#resourceid)
+
+#### Output
+*Output schema unknown*
+
+### DeleteQueryLoggingConfig
+
+
+
+```js
+amazonaws_route53.DeleteQueryLoggingConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [DeleteQueryLoggingConfigResponse](#deletequeryloggingconfigresponse)
+
 ### GetQueryLoggingConfig
 
 
@@ -422,6 +659,25 @@ amazonaws_route53.GetQueryLoggingConfig({
 
 #### Output
 * output [GetQueryLoggingConfigResponse](#getqueryloggingconfigresponse)
+
+### GetReusableDelegationSetLimit
+
+
+
+```js
+amazonaws_route53.GetReusableDelegationSetLimit({
+  "Id": "",
+  "Type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * Type **required** `string`
+
+#### Output
+* output [GetReusableDelegationSetLimitResponse](#getreusabledelegationsetlimitresponse)
 
 ### ListTagsForResources
 
@@ -460,6 +716,27 @@ amazonaws_route53.ListTagsForResource({
 
 #### Output
 * output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### ChangeTagsForResource
+
+
+
+```js
+amazonaws_route53.ChangeTagsForResource({
+  "ResourceType": "",
+  "ResourceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceType **required** `string`
+  * ResourceId **required** `string`
+  * AddTags [TagList](#taglist)
+  * RemoveTagKeys [TagKeyList](#tagkeylist)
+
+#### Output
+* output [ChangeTagsForResourceResponse](#changetagsforresourceresponse)
 
 ### TestDNSAnswer
 
@@ -546,6 +823,40 @@ amazonaws_route53.CreateTrafficPolicyVersion({
 #### Output
 *Output schema unknown*
 
+### DeleteTrafficPolicy
+
+
+
+```js
+amazonaws_route53.DeleteTrafficPolicy({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [DeleteTrafficPolicyResponse](#deletetrafficpolicyresponse)
+
+### GetTrafficPolicy
+
+
+
+```js
+amazonaws_route53.GetTrafficPolicy({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetTrafficPolicyResponse](#gettrafficpolicyresponse)
+
 ### UpdateTrafficPolicyComment
 
 
@@ -589,6 +900,40 @@ amazonaws_route53.CreateTrafficPolicyInstance({
 
 #### Output
 *Output schema unknown*
+
+### DeleteTrafficPolicyInstance
+
+
+
+```js
+amazonaws_route53.DeleteTrafficPolicyInstance({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [DeleteTrafficPolicyInstanceResponse](#deletetrafficpolicyinstanceresponse)
+
+### GetTrafficPolicyInstance
+
+
+
+```js
+amazonaws_route53.GetTrafficPolicyInstance({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetTrafficPolicyInstanceResponse](#gettrafficpolicyinstanceresponse)
 
 ### UpdateTrafficPolicyInstance
 
@@ -672,6 +1017,14 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 
 
 ## Definitions
+
+### AccountLimit
+* AccountLimit `object`: A complex type that contains the type of limit that you specified in the request and the current value for that limit.
+  * Type **required** [AccountLimitType](#accountlimittype)
+  * Value **required** [LimitValue](#limitvalue)
+
+### AccountLimitType
+* AccountLimitType `string` (values: MAX_HEALTH_CHECKS_BY_OWNER, MAX_HOSTED_ZONES_BY_OWNER, MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER, MAX_REUSABLE_DELEGATION_SETS_BY_OWNER, MAX_TRAFFIC_POLICIES_BY_OWNER)
 
 ### AlarmIdentifier
 * AlarmIdentifier `object`: A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
@@ -768,7 +1121,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * CloudWatchLogsLogGroupArn `string`
 
 ### CloudWatchRegion
-* CloudWatchRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, sa-east-1)
+* CloudWatchRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, sa-east-1)
 
 ### ComparisonOperator
 * ComparisonOperator `string` (values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold)
@@ -778,7 +1131,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
   * message [ErrorMessage](#errormessage)
 
 ### ConflictingDomainExists
-* ConflictingDomainExists `object`: <p>The cause of this error depends on whether you're trying to create a public or a private hosted zone:</p> <ul> <li> <p> <b>Public hosted zone:</b> Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. </p> </li> <li> <p> <b>Private hosted zone:</b> You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.</p> </li> </ul>
+* ConflictingDomainExists `object`: <p>The cause of this error depends on whether you're trying to create a public or a private hosted zone:</p> <ul> <li> <p> <b>Public hosted zone:</b> Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see <a>CreateReusableDelegationSet</a>.</p> </li> <li> <p> <b>Private hosted zone:</b> You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.</p> </li> </ul>
   * message [ErrorMessage](#errormessage)
 
 ### ConflictingTypes
@@ -1031,6 +1384,14 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### GeoLocationSubdivisionName
 * GeoLocationSubdivisionName `string`
 
+### GetAccountLimitRequest
+* GetAccountLimitRequest `object`: A complex type that contains information about the request to create a hosted zone.
+
+### GetAccountLimitResponse
+* GetAccountLimitResponse `object`: A complex type that contains the requested limit. 
+  * Count **required** [UsageCount](#usagecount)
+  * Limit **required** [AccountLimit](#accountlimit)
+
 ### GetChangeRequest
 * GetChangeRequest `object`: The input for a GetChange request.
 
@@ -1087,6 +1448,14 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * GetHostedZoneCountResponse `object`: A complex type that contains the response to a <code>GetHostedZoneCount</code> request.
   * HostedZoneCount **required** [HostedZoneCount](#hostedzonecount)
 
+### GetHostedZoneLimitRequest
+* GetHostedZoneLimitRequest `object`: A complex type that contains information about the request to create a hosted zone.
+
+### GetHostedZoneLimitResponse
+* GetHostedZoneLimitResponse `object`: A complex type that contains the requested limit. 
+  * Count **required** [UsageCount](#usagecount)
+  * Limit **required** [HostedZoneLimit](#hostedzonelimit)
+
 ### GetHostedZoneRequest
 * GetHostedZoneRequest `object`: A request to get information about a specified hosted zone. 
 
@@ -1102,6 +1471,14 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### GetQueryLoggingConfigResponse
 * GetQueryLoggingConfigResponse `object`
   * QueryLoggingConfig **required** [QueryLoggingConfig](#queryloggingconfig)
+
+### GetReusableDelegationSetLimitRequest
+* GetReusableDelegationSetLimitRequest `object`: A complex type that contains information about the request to create a hosted zone.
+
+### GetReusableDelegationSetLimitResponse
+* GetReusableDelegationSetLimitResponse `object`: A complex type that contains the requested limit. 
+  * Count **required** [UsageCount](#usagecount)
+  * Limit **required** [ReusableDelegationSetLimit](#reusabledelegationsetlimit)
 
 ### GetReusableDelegationSetRequest
 * GetReusableDelegationSetRequest `object`: A request to get information about a specified reusable delegation set.
@@ -1138,6 +1515,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
   * HealthCheckConfig **required** [HealthCheckConfig](#healthcheckconfig)
   * HealthCheckVersion **required** [HealthCheckVersion](#healthcheckversion)
   * Id **required** [HealthCheckId](#healthcheckid)
+  * LinkedService [LinkedService](#linkedservice)
 
 ### HealthCheckAlreadyExists
 * HealthCheckAlreadyExists `object`: <p> The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:</p> <ul> <li> <p>The same value for <code>CallerReference</code> as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.</p> </li> <li> <p>The same value for <code>CallerReference</code> as a health check that you created and later deleted, regardless of the other settings in the request.</p> </li> </ul>
@@ -1214,6 +1592,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
   * CallerReference **required** [Nonce](#nonce)
   * Config [HostedZoneConfig](#hostedzoneconfig)
   * Id **required** [ResourceId](#resourceid)
+  * LinkedService [LinkedService](#linkedservice)
   * Name **required** [DNSName](#dnsname)
   * ResourceRecordSetCount [HostedZoneRRSetCount](#hostedzonerrsetcount)
 
@@ -1229,12 +1608,24 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### HostedZoneCount
 * HostedZoneCount `integer`
 
+### HostedZoneLimit
+* HostedZoneLimit `object`: A complex type that contains the type of limit that you specified in the request and the current value for that limit.
+  * Type **required** [HostedZoneLimitType](#hostedzonelimittype)
+  * Value **required** [LimitValue](#limitvalue)
+
+### HostedZoneLimitType
+* HostedZoneLimitType `string` (values: MAX_RRSETS_BY_ZONE, MAX_VPCS_ASSOCIATED_BY_ZONE)
+
 ### HostedZoneNotEmpty
 * HostedZoneNotEmpty `object`: The hosted zone contains resource records that are not SOA or NS records.
   * message [ErrorMessage](#errormessage)
 
 ### HostedZoneNotFound
 * HostedZoneNotFound `object`: The specified HostedZone can't be found.
+  * message [ErrorMessage](#errormessage)
+
+### HostedZoneNotPrivate
+* HostedZoneNotPrivate `object`: The specified hosted zone is a public hosted zone, not a private hosted zone.
   * message [ErrorMessage](#errormessage)
 
 ### HostedZoneRRSetCount
@@ -1300,9 +1691,17 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * LastVPCAssociation `object`: The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.
   * message [ErrorMessage](#errormessage)
 
+### LimitValue
+* LimitValue `integer`
+
 ### LimitsExceeded
-* LimitsExceeded `object`: The limits specified for a resource have been exceeded.
+* LimitsExceeded `object`: This operation can't be completed either because the current account has reached the limit on reusable delegation sets that it can create or because you've reached the limit on the number of Amazon VPCs that you can associate with a private hosted zone. To get the current limit on the number of reusable delegation sets, see <a>GetAccountLimit</a>. To get the current limit on the number of Amazon VPCs that you can associate with a private hosted zone, see <a>GetHostedZoneLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.
   * message [ErrorMessage](#errormessage)
+
+### LinkedService
+* LinkedService `object`: If a health check or hosted zone was created by another service, <code>LinkedService</code> is a complex type that describes the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+  * Description [ResourceDescription](#resourcedescription)
+  * ServicePrincipal [ServicePrincipal](#serviceprincipal)
 
 ### ListGeoLocationsRequest
 * ListGeoLocationsRequest `object`: A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets. 
@@ -1627,7 +2026,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * ResourceRecordSetMultiValueAnswer `boolean`
 
 ### ResourceRecordSetRegion
-* ResourceRecordSetRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-west-1, eu-west-2, eu-central-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, sa-east-1, cn-north-1, ap-south-1)
+* ResourceRecordSetRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, ca-central-1, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, sa-east-1, cn-north-1, cn-northwest-1, ap-south-1)
 
 ### ResourceRecordSetWeight
 * ResourceRecordSetWeight `integer`
@@ -1653,8 +2052,19 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ### ResourceURI
 * ResourceURI `string`
 
+### ReusableDelegationSetLimit
+* ReusableDelegationSetLimit `object`: A complex type that contains the type of limit that you specified in the request and the current value for that limit.
+  * Type **required** [ReusableDelegationSetLimitType](#reusabledelegationsetlimittype)
+  * Value **required** [LimitValue](#limitvalue)
+
+### ReusableDelegationSetLimitType
+* ReusableDelegationSetLimitType `string` (values: MAX_ZONES_BY_REUSABLE_DELEGATION_SET)
+
 ### SearchString
 * SearchString `string`
+
+### ServicePrincipal
+* ServicePrincipal `string`
 
 ### Statistic
 * Statistic `string` (values: Average, Sum, SampleCount, Maximum, Minimum)
@@ -1725,19 +2135,23 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * TimeStamp `string`
 
 ### TooManyHealthChecks
-* TooManyHealthChecks `object`: You have reached the maximum number of active health checks for an AWS account. The default limit is 100. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.
+* TooManyHealthChecks `object`: <p>This health check can't be created because the current account has reached the limit on the number of active health checks.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p> <p>You have reached the maximum number of active health checks for an AWS account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
   * message [ErrorMessage](#errormessage)
 
 ### TooManyHostedZones
-* TooManyHostedZones `object`: This hosted zone can't be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <a href="http://aws.amazon.com/route53-request/">Contact Us</a> page.
+* TooManyHostedZones `object`: <p>This operation can't be completed either because the current account has reached the limit on the number of hosted zones or because you've reached the limit on the number of hosted zones that can be associated with a reusable delegation set.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit on hosted zones that can be created by an account, see <a>GetAccountLimit</a>.</p> <p>To get the current limit on hosted zones that can be associated with a reusable delegation set, see <a>GetReusableDelegationSetLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
   * message [ErrorMessage](#errormessage)
 
 ### TooManyTrafficPolicies
-* TooManyTrafficPolicies `object`: You've created the maximum number of traffic policies that can be created for the current AWS account. You can request an increase to the limit on the <a href="http://aws.amazon.com/route53-request/">Contact Us</a> page.
+* TooManyTrafficPolicies `object`: <p>This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>To get the current limit for an account, see <a>GetAccountLimit</a>. </p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
   * message [ErrorMessage](#errormessage)
 
 ### TooManyTrafficPolicyInstances
-* TooManyTrafficPolicyInstances `object`: You've created the maximum number of traffic policy instances that can be created for the current AWS account. You can request an increase to the limit on the <a href="http://aws.amazon.com/route53-request/">Contact Us</a> page.
+* TooManyTrafficPolicyInstances `object`: <p>This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.</p> <p>For information about default limits, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>For information about how to get the current limit for an account, see <a>GetAccountLimit</a>.</p> <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+  * message [ErrorMessage](#errormessage)
+
+### TooManyTrafficPolicyVersionsForCurrentPolicy
+* TooManyTrafficPolicyVersionsForCurrentPolicy `object`: <p>This traffic policy version can't be created because you've reached the limit of 1000 on the number of versions that you can create for the current traffic policy.</p> <p>To create more traffic policy versions, you can use <a>GetTrafficPolicy</a> to get the traffic policy document for a specified traffic policy version, and then use <a>CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy document.</p>
   * message [ErrorMessage](#errormessage)
 
 ### TooManyVPCAssociationAuthorizations
@@ -1875,6 +2289,9 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * UpdateTrafficPolicyInstanceResponse `object`: A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
   * TrafficPolicyInstance **required** [TrafficPolicyInstance](#trafficpolicyinstance)
 
+### UsageCount
+* UsageCount `integer`
+
 ### VPC
 * VPC `object`: (Private hosted zones only) A complex type that contains information about an Amazon VPC.
   * VPCId [VPCId](#vpcid)
@@ -1892,7 +2309,7 @@ amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 * VPCId `string`: (Private hosted zones only) The ID of an Amazon VPC. 
 
 ### VPCRegion
-* VPCRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2, eu-central-1, ap-southeast-1, ap-southeast-2, ap-south-1, ap-northeast-1, ap-northeast-2, sa-east-1, ca-central-1, cn-north-1)
+* VPCRegion `string` (values: us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2, eu-west-3, eu-central-1, ap-southeast-1, ap-southeast-2, ap-south-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, sa-east-1, ca-central-1, cn-north-1)
 
 ### VPCs
 * VPCs `array`: (Private hosted zones only) A list of <code>VPC</code> elements.

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/qualpay",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Qualpay Payment Gateway",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/qualpay.com/1.6/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/qualpay.com/1.7/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

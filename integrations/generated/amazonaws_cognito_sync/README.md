@@ -72,6 +72,23 @@ amazonaws_cognito_sync.BulkPublish({
 #### Output
 * output [BulkPublishResponse](#bulkpublishresponse)
 
+### GetIdentityPoolConfiguration
+
+
+
+```js
+amazonaws_cognito_sync.GetIdentityPoolConfiguration({
+  "IdentityPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * IdentityPoolId **required** `string`
+
+#### Output
+* output [GetIdentityPoolConfigurationResponse](#getidentitypoolconfigurationresponse)
+
 ### SetIdentityPoolConfiguration
 
 
@@ -90,6 +107,23 @@ amazonaws_cognito_sync.SetIdentityPoolConfiguration({
 
 #### Output
 * output [SetIdentityPoolConfigurationResponse](#setidentitypoolconfigurationresponse)
+
+### GetCognitoEvents
+
+
+
+```js
+amazonaws_cognito_sync.GetCognitoEvents({
+  "IdentityPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * IdentityPoolId **required** `string`
+
+#### Output
+* output [GetCognitoEventsResponse](#getcognitoeventsresponse)
 
 ### SetCognitoEvents
 
@@ -165,6 +199,48 @@ amazonaws_cognito_sync.ListDatasets({
 #### Output
 * output [ListDatasetsResponse](#listdatasetsresponse)
 
+### DeleteDataset
+
+
+
+```js
+amazonaws_cognito_sync.DeleteDataset({
+  "IdentityPoolId": "",
+  "IdentityId": "",
+  "DatasetName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * IdentityPoolId **required** `string`
+  * IdentityId **required** `string`
+  * DatasetName **required** `string`
+
+#### Output
+* output [DeleteDatasetResponse](#deletedatasetresponse)
+
+### DescribeDataset
+
+
+
+```js
+amazonaws_cognito_sync.DescribeDataset({
+  "IdentityPoolId": "",
+  "IdentityId": "",
+  "DatasetName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * IdentityPoolId **required** `string`
+  * IdentityId **required** `string`
+  * DatasetName **required** `string`
+
+#### Output
+* output [DescribeDatasetResponse](#describedatasetresponse)
+
 ### UpdateRecords
 
 
@@ -233,6 +309,29 @@ amazonaws_cognito_sync.UnsubscribeFromDataset({
 
 #### Output
 * output [UnsubscribeFromDatasetResponse](#unsubscribefromdatasetresponse)
+
+### SubscribeToDataset
+
+
+
+```js
+amazonaws_cognito_sync.SubscribeToDataset({
+  "IdentityPoolId": "",
+  "IdentityId": "",
+  "DatasetName": "",
+  "DeviceId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * IdentityPoolId **required** `string`
+  * IdentityId **required** `string`
+  * DatasetName **required** `string`
+  * DeviceId **required** `string`
+
+#### Output
+* output [SubscribeToDatasetResponse](#subscribetodatasetresponse)
 
 ### RegisterDevice
 

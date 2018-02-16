@@ -235,6 +235,38 @@ amazonaws_servicecatalog.CreateProduct({
 #### Output
 * output [CreateProductOutput](#createproductoutput)
 
+### CreateProvisionedProductPlan
+
+
+
+```js
+amazonaws_servicecatalog.CreateProvisionedProductPlan({
+  "PlanName": "",
+  "PlanType": "",
+  "ProductId": "",
+  "ProvisionedProductName": "",
+  "ProvisioningArtifactId": "",
+  "IdempotencyToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * NotificationArns [NotificationArns](#notificationarns)
+  * PathId [Id](#id)
+  * PlanName **required** [ProvisionedProductPlanName](#provisionedproductplanname)
+  * PlanType **required** [ProvisionedProductPlanType](#provisionedproductplantype)
+  * ProductId **required** [Id](#id)
+  * ProvisionedProductName **required** [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId **required** [Id](#id)
+  * ProvisioningParameters [UpdateProvisioningParameters](#updateprovisioningparameters)
+  * Tags [Tags](#tags)
+
+#### Output
+* output [CreateProvisionedProductPlanOutput](#createprovisionedproductplanoutput)
+
 ### CreateProvisioningArtifact
 
 
@@ -351,6 +383,25 @@ amazonaws_servicecatalog.DeleteProduct({
 
 #### Output
 * output [DeleteProductOutput](#deleteproductoutput)
+
+### DeleteProvisionedProductPlan
+
+
+
+```js
+amazonaws_servicecatalog.DeleteProvisionedProductPlan({
+  "PlanId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IgnoreErrors [IgnoreErrors](#ignoreerrors)
+  * PlanId **required** [Id](#id)
+
+#### Output
+* output [DeleteProvisionedProductPlanOutput](#deleteprovisionedproductplanoutput)
 
 ### DeleteProvisioningArtifact
 
@@ -498,6 +549,26 @@ amazonaws_servicecatalog.DescribeProvisionedProduct({
 #### Output
 * output [DescribeProvisionedProductOutput](#describeprovisionedproductoutput)
 
+### DescribeProvisionedProductPlan
+
+
+
+```js
+amazonaws_servicecatalog.DescribeProvisionedProductPlan({
+  "PlanId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PlanId **required** [Id](#id)
+
+#### Output
+* output [DescribeProvisionedProductPlanOutput](#describeprovisionedproductplanoutput)
+
 ### DescribeProvisioningArtifact
 
 
@@ -635,6 +706,26 @@ amazonaws_servicecatalog.DisassociateTagOptionFromResource({
 
 #### Output
 * output [DisassociateTagOptionFromResourceOutput](#disassociatetagoptionfromresourceoutput)
+
+### ExecuteProvisionedProductPlan
+
+
+
+```js
+amazonaws_servicecatalog.ExecuteProvisionedProductPlan({
+  "PlanId": "",
+  "IdempotencyToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * PlanId **required** [Id](#id)
+
+#### Output
+* output [ExecuteProvisionedProductPlanOutput](#executeprovisionedproductplanoutput)
 
 ### ListAcceptedPortfolioShares
 
@@ -780,6 +871,25 @@ amazonaws_servicecatalog.ListPrincipalsForPortfolio({
 
 #### Output
 * output [ListPrincipalsForPortfolioOutput](#listprincipalsforportfoliooutput)
+
+### ListProvisionedProductPlans
+
+
+
+```js
+amazonaws_servicecatalog.ListProvisionedProductPlans({}, context)
+```
+
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ProvisionProductId [Id](#id)
+
+#### Output
+* output [ListProvisionedProductPlansOutput](#listprovisionedproductplansoutput)
 
 ### ListProvisioningArtifacts
 
@@ -969,6 +1079,29 @@ amazonaws_servicecatalog.SearchProductsAsAdmin({}, context)
 #### Output
 * output [SearchProductsAsAdminOutput](#searchproductsasadminoutput)
 
+### SearchProvisionedProducts
+
+
+
+```js
+amazonaws_servicecatalog.SearchProvisionedProducts({}, context)
+```
+
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * Filters [ProvisionedProductFilters](#provisionedproductfilters)
+  * PageSize [SearchProvisionedProductsPageSize](#searchprovisionedproductspagesize)
+  * PageToken [PageToken](#pagetoken)
+  * SortBy [SortField](#sortfield)
+  * SortOrder [SortOrder](#sortorder)
+
+#### Output
+* output [SearchProvisionedProductsOutput](#searchprovisionedproductsoutput)
+
 ### TerminateProvisionedProduct
 
 
@@ -1097,6 +1230,7 @@ amazonaws_servicecatalog.UpdateProvisioningArtifact({
 #### Input
 * input `object`
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Active [ProvisioningArtifactActive](#provisioningartifactactive)
   * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
   * Name [ProvisioningArtifactName](#provisioningartifactname)
   * ProductId **required** [Id](#id)
@@ -1140,7 +1274,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 * AcceptPortfolioShareOutput `object`
 
 ### AccessLevelFilter
-* AccessLevelFilter `object`: The access level to limit results.
+* AccessLevelFilter `object`: The access level to use to filter results.
   * Key [AccessLevelFilterKey](#accesslevelfilterkey)
   * Value [AccessLevelFilterValue](#accesslevelfiltervalue)
 
@@ -1202,11 +1336,28 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### AttributeValue
 * AttributeValue `string`
 
+### CausingEntity
+* CausingEntity `string`
+
+### ChangeAction
+* ChangeAction `string` (values: ADD, MODIFY, REMOVE)
+
+### CloudWatchDashboard
+* CloudWatchDashboard `object`: Information about a CloudWatch dashboard.
+  * Name [CloudWatchDashboardName](#cloudwatchdashboardname)
+
+### CloudWatchDashboardName
+* CloudWatchDashboardName `string`
+
+### CloudWatchDashboards
+* CloudWatchDashboards `array`
+  * items [CloudWatchDashboard](#cloudwatchdashboard)
+
 ### ConstraintDescription
 * ConstraintDescription `string`
 
 ### ConstraintDetail
-* ConstraintDetail `object`: Detailed constraint information.
+* ConstraintDetail `object`: Information about a constraint.
   * ConstraintId [Id](#id)
   * Description [ConstraintDescription](#constraintdescription)
   * Owner [AccountId](#accountid)
@@ -1224,7 +1375,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [ConstraintSummary](#constraintsummary)
 
 ### ConstraintSummary
-* ConstraintSummary `object`: An administrator-specified constraint to apply when provisioning a product.
+* ConstraintSummary `object`: Summary information about a constraint.
   * Description [ConstraintDescription](#constraintdescription)
   * Type [ConstraintType](#constrainttype)
 
@@ -1315,6 +1466,28 @@ amazonaws_servicecatalog.UpdateTagOption({
   * ProvisioningArtifactDetail [ProvisioningArtifactDetail](#provisioningartifactdetail)
   * Tags [Tags](#tags)
 
+### CreateProvisionedProductPlanInput
+* CreateProvisionedProductPlanInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * NotificationArns [NotificationArns](#notificationarns)
+  * PathId [Id](#id)
+  * PlanName **required** [ProvisionedProductPlanName](#provisionedproductplanname)
+  * PlanType **required** [ProvisionedProductPlanType](#provisionedproductplantype)
+  * ProductId **required** [Id](#id)
+  * ProvisionedProductName **required** [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId **required** [Id](#id)
+  * ProvisioningParameters [UpdateProvisioningParameters](#updateprovisioningparameters)
+  * Tags [Tags](#tags)
+
+### CreateProvisionedProductPlanOutput
+* CreateProvisionedProductPlanOutput `object`
+  * PlanId [Id](#id)
+  * PlanName [ProvisionedProductPlanName](#provisionedproductplanname)
+  * ProvisionProductId [Id](#id)
+  * ProvisionedProductName [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId [Id](#id)
+
 ### CreateProvisioningArtifactInput
 * CreateProvisioningArtifactInput `object`
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
@@ -1378,6 +1551,15 @@ amazonaws_servicecatalog.UpdateTagOption({
 
 ### DeleteProductOutput
 * DeleteProductOutput `object`
+
+### DeleteProvisionedProductPlanInput
+* DeleteProvisionedProductPlanInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IgnoreErrors [IgnoreErrors](#ignoreerrors)
+  * PlanId **required** [Id](#id)
+
+### DeleteProvisionedProductPlanOutput
+* DeleteProvisionedProductPlanOutput `object`
 
 ### DeleteProvisioningArtifactInput
 * DeleteProvisioningArtifactInput `object`
@@ -1460,7 +1642,21 @@ amazonaws_servicecatalog.UpdateTagOption({
 
 ### DescribeProvisionedProductOutput
 * DescribeProvisionedProductOutput `object`
+  * CloudWatchDashboards [CloudWatchDashboards](#cloudwatchdashboards)
   * ProvisionedProductDetail [ProvisionedProductDetail](#provisionedproductdetail)
+
+### DescribeProvisionedProductPlanInput
+* DescribeProvisionedProductPlanInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PlanId **required** [Id](#id)
+
+### DescribeProvisionedProductPlanOutput
+* DescribeProvisionedProductPlanOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProvisionedProductPlanDetails [ProvisionedProductPlanDetails](#provisionedproductplandetails)
+  * ResourceChanges [ResourceChanges](#resourcechanges)
 
 ### DescribeProvisioningArtifactInput
 * DescribeProvisioningArtifactInput `object`
@@ -1548,6 +1744,19 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### ErrorDescription
 * ErrorDescription `string`
 
+### EvaluationType
+* EvaluationType `string` (values: STATIC, DYNAMIC)
+
+### ExecuteProvisionedProductPlanInput
+* ExecuteProvisionedProductPlanInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * PlanId **required** [Id](#id)
+
+### ExecuteProvisionedProductPlanOutput
+* ExecuteProvisionedProductPlanOutput `object`
+  * RecordDetail [RecordDetail](#recorddetail)
+
 ### HasDefaultPath
 * HasDefaultPath `boolean`
 
@@ -1567,10 +1776,10 @@ amazonaws_servicecatalog.UpdateTagOption({
 * InstructionValue `string`
 
 ### InvalidParametersException
-* InvalidParametersException `object`: One or more parameters provided to the operation are invalid.
+* InvalidParametersException `object`: One or more parameters provided to the operation are not valid.
 
 ### InvalidStateException
-* InvalidStateException `object`: An attempt was made to modify a resource that is in an invalid state. Inspect the resource you are using for this operation to ensure that all resource states are valid before retrying the operation.
+* InvalidStateException `object`: An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
 
 ### LastRequestId
 * LastRequestId `string`
@@ -1580,14 +1789,14 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [LaunchPathSummary](#launchpathsummary)
 
 ### LaunchPathSummary
-* LaunchPathSummary `object`: Summary information about a path for a user to have access to a specified product.
+* LaunchPathSummary `object`: Summary information about a product path for a user.
   * ConstraintSummaries [ConstraintSummaries](#constraintsummaries)
   * Id [Id](#id)
   * Name [PortfolioName](#portfolioname)
   * Tags [Tags](#tags)
 
 ### LimitExceededException
-* LimitExceededException `object`: The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.
+* LimitExceededException `object`: The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
 
 ### ListAcceptedPortfolioSharesInput
 * ListAcceptedPortfolioSharesInput `object`
@@ -1670,6 +1879,19 @@ amazonaws_servicecatalog.UpdateTagOption({
   * NextPageToken [PageToken](#pagetoken)
   * Principals [Principals](#principals)
 
+### ListProvisionedProductPlansInput
+* ListProvisionedProductPlansInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ProvisionProductId [Id](#id)
+
+### ListProvisionedProductPlansOutput
+* ListProvisionedProductPlansOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProvisionedProductPlans [ProvisionedProductPlans](#provisionedproductplans)
+
 ### ListProvisioningArtifactsInput
 * ListProvisioningArtifactsInput `object`
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
@@ -1694,7 +1916,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * RecordDetails [RecordDetails](#recorddetails)
 
 ### ListRecordHistorySearchFilter
-* ListRecordHistorySearchFilter `object`: The search filter to limit results when listing request history records.
+* ListRecordHistorySearchFilter `object`: The search filter to use when listing history records.
   * Key [SearchFilterKey](#searchfilterkey)
   * Value [SearchFilterValue](#searchfiltervalue)
 
@@ -1711,7 +1933,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * ResourceDetails [ResourceDetails](#resourcedetails)
 
 ### ListTagOptionsFilters
-* ListTagOptionsFilters `object`: The ListTagOptions filters.
+* ListTagOptionsFilters `object`: Filters to use when listing TagOptions.
   * Active [TagOptionActive](#tagoptionactive)
   * Key [TagOptionKey](#tagoptionkey)
   * Value [TagOptionValue](#tagoptionvalue)
@@ -1726,6 +1948,9 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ListTagOptionsOutput `object`
   * PageToken [PageToken](#pagetoken)
   * TagOptionDetails [TagOptionDetails](#tagoptiondetails)
+
+### LogicalResourceId
+* LogicalResourceId `string`
 
 ### NoEcho
 * NoEcho `boolean`
@@ -1762,11 +1987,20 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### ParameterValue
 * ParameterValue `string`
 
+### PhysicalId
+* PhysicalId `string`
+
+### PhysicalResourceId
+* PhysicalResourceId `string`
+
+### PlanResourceType
+* PlanResourceType `string`
+
 ### PortfolioDescription
 * PortfolioDescription `string`
 
 ### PortfolioDetail
-* PortfolioDetail `object`: Detailed portfolio information.
+* PortfolioDetail `object`: Information about a portfolio.
   * ARN [ResourceARN](#resourcearn)
   * CreatedTime [CreationTime](#creationtime)
   * Description [PortfolioDescription](#portfoliodescription)
@@ -1785,7 +2019,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 * PortfolioName `string`
 
 ### Principal
-* Principal `object`: A principal's ARN and type.
+* Principal `object`: Information about a principal.
   * PrincipalARN [PrincipalARN](#principalarn)
   * PrincipalType [PrincipalType](#principaltype)
 
@@ -1827,7 +2061,7 @@ amazonaws_servicecatalog.UpdateTagOption({
     * value [ProductViewAggregationValues](#productviewaggregationvalues)
 
 ### ProductViewDetail
-* ProductViewDetail `object`: Detailed product view information.
+* ProductViewDetail `object`: Information about a product view.
   * CreatedTime [CreatedTime](#createdtime)
   * ProductARN [ResourceARN](#resourcearn)
   * ProductViewSummary [ProductViewSummary](#productviewsummary)
@@ -1873,7 +2107,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [ProductViewSummary](#productviewsummary)
 
 ### ProductViewSummary
-* ProductViewSummary `object`: The summary metadata about the specified product.
+* ProductViewSummary `object`: Summary information about a product view.
   * Distributor [ProductViewDistributor](#productviewdistributor)
   * HasDefaultPath [HasDefaultPath](#hasdefaultpath)
   * Id [Id](#id)
@@ -1885,6 +2119,9 @@ amazonaws_servicecatalog.UpdateTagOption({
   * SupportEmail [SupportEmail](#supportemail)
   * SupportUrl [SupportUrl](#supporturl)
   * Type [ProductType](#producttype)
+
+### PropertyName
+* PropertyName `string`
 
 ### ProviderName
 * ProviderName `string`
@@ -1905,8 +2142,30 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ProvisionProductOutput `object`
   * RecordDetail [RecordDetail](#recorddetail)
 
+### ProvisionedProductAttribute
+* ProvisionedProductAttribute `object`: Information about a provisioned product.
+  * Arn [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * CreatedTime [CreatedTime](#createdtime)
+  * Id [Id](#id)
+  * IdempotencyToken [IdempotencyToken](#idempotencytoken)
+  * LastRecordId [Id](#id)
+  * Name [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * PhysicalId [PhysicalId](#physicalid)
+  * ProductId [Id](#id)
+  * ProvisioningArtifactId [Id](#id)
+  * Status [ProvisionedProductStatus](#provisionedproductstatus)
+  * StatusMessage [ProvisionedProductStatusMessage](#provisionedproductstatusmessage)
+  * Tags [Tags](#tags)
+  * Type [ProvisionedProductType](#provisionedproducttype)
+  * UserArn [UserArn](#userarn)
+  * UserArnSession [UserArnSession](#userarnsession)
+
+### ProvisionedProductAttributes
+* ProvisionedProductAttributes `array`
+  * items [ProvisionedProductAttribute](#provisionedproductattribute)
+
 ### ProvisionedProductDetail
-* ProvisionedProductDetail `object`: Detailed information about a ProvisionedProduct object.
+* ProvisionedProductDetail `object`: Information about a provisioned product.
   * Arn [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
   * CreatedTime [CreatedTime](#createdtime)
   * Id [ProvisionedProductId](#provisionedproductid)
@@ -1921,6 +2180,12 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ProvisionedProductDetails `array`
   * items [ProvisionedProductDetail](#provisionedproductdetail)
 
+### ProvisionedProductFilters
+* ProvisionedProductFilters `array`
+  * items `object`
+    * key [ProvisionedProductViewFilterBy](#provisionedproductviewfilterby)
+    * value [ProvisionedProductViewFilterValues](#provisionedproductviewfiltervalues)
+
 ### ProvisionedProductId
 * ProvisionedProductId `string`
 
@@ -1930,8 +2195,48 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### ProvisionedProductNameOrArn
 * ProvisionedProductNameOrArn `string`
 
+### ProvisionedProductPlanDetails
+* ProvisionedProductPlanDetails `object`: Information about a plan.
+  * CreatedTime [CreatedTime](#createdtime)
+  * NotificationArns [NotificationArns](#notificationarns)
+  * PathId [Id](#id)
+  * PlanId [Id](#id)
+  * PlanName [ProvisionedProductPlanName](#provisionedproductplanname)
+  * PlanType [ProvisionedProductPlanType](#provisionedproductplantype)
+  * ProductId [Id](#id)
+  * ProvisionProductId [Id](#id)
+  * ProvisionProductName [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId [Id](#id)
+  * ProvisioningParameters [UpdateProvisioningParameters](#updateprovisioningparameters)
+  * Status [ProvisionedProductPlanStatus](#provisionedproductplanstatus)
+  * StatusMessage [StatusMessage](#statusmessage)
+  * Tags [Tags](#tags)
+  * UpdatedTime [UpdatedTime](#updatedtime)
+
+### ProvisionedProductPlanName
+* ProvisionedProductPlanName `string`
+
+### ProvisionedProductPlanStatus
+* ProvisionedProductPlanStatus `string` (values: CREATE_IN_PROGRESS, CREATE_SUCCESS, CREATE_FAILED, EXECUTE_IN_PROGRESS, EXECUTE_SUCCESS, EXECUTE_FAILED)
+
+### ProvisionedProductPlanSummary
+* ProvisionedProductPlanSummary `object`: Summary information about a plan.
+  * PlanId [Id](#id)
+  * PlanName [ProvisionedProductPlanName](#provisionedproductplanname)
+  * PlanType [ProvisionedProductPlanType](#provisionedproductplantype)
+  * ProvisionProductId [Id](#id)
+  * ProvisionProductName [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId [Id](#id)
+
+### ProvisionedProductPlanType
+* ProvisionedProductPlanType `string` (values: CLOUDFORMATION)
+
+### ProvisionedProductPlans
+* ProvisionedProductPlans `array`
+  * items [ProvisionedProductPlanSummary](#provisionedproductplansummary)
+
 ### ProvisionedProductStatus
-* ProvisionedProductStatus `string` (values: AVAILABLE, UNDER_CHANGE, TAINTED, ERROR)
+* ProvisionedProductStatus `string` (values: AVAILABLE, UNDER_CHANGE, TAINTED, ERROR, PLAN_IN_PROGRESS)
 
 ### ProvisionedProductStatusMessage
 * ProvisionedProductStatusMessage `string`
@@ -1939,12 +2244,25 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### ProvisionedProductType
 * ProvisionedProductType `string`
 
+### ProvisionedProductViewFilterBy
+* ProvisionedProductViewFilterBy `string` (values: SearchQuery)
+
+### ProvisionedProductViewFilterValue
+* ProvisionedProductViewFilterValue `string`
+
+### ProvisionedProductViewFilterValues
+* ProvisionedProductViewFilterValues `array`
+  * items [ProvisionedProductViewFilterValue](#provisionedproductviewfiltervalue)
+
 ### ProvisioningArtifact
-* ProvisioningArtifact `object`: Contains information indicating the ways in which a product can be provisioned.
+* ProvisioningArtifact `object`: Information about a provisioning artifact. A provisioning artifact is also known as a product version.
   * CreatedTime [ProvisioningArtifactCreatedTime](#provisioningartifactcreatedtime)
   * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
   * Id [Id](#id)
   * Name [ProvisioningArtifactName](#provisioningartifactname)
+
+### ProvisioningArtifactActive
+* ProvisioningArtifactActive `boolean`
 
 ### ProvisioningArtifactCreatedTime
 * ProvisioningArtifactCreatedTime `string`
@@ -1953,7 +2271,8 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ProvisioningArtifactDescription `string`
 
 ### ProvisioningArtifactDetail
-* ProvisioningArtifactDetail `object`: Detailed provisioning artifact information.
+* ProvisioningArtifactDetail `object`: Information about a provisioning artifact (also known as a version) for a product.
+  * Active [ProvisioningArtifactActive](#provisioningartifactactive)
   * CreatedTime [CreationTime](#creationtime)
   * Description [ProvisioningArtifactName](#provisioningartifactname)
   * Id [Id](#id)
@@ -1980,7 +2299,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ProvisioningArtifactName `string`
 
 ### ProvisioningArtifactParameter
-* ProvisioningArtifactParameter `object`: A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata. 
+* ProvisioningArtifactParameter `object`: Information about a parameter used to provision a product.
   * DefaultValue [DefaultValue](#defaultvalue)
   * Description [Description](#description)
   * IsNoEcho [NoEcho](#noecho)
@@ -1993,7 +2312,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [ProvisioningArtifactParameter](#provisioningartifactparameter)
 
 ### ProvisioningArtifactProperties
-* ProvisioningArtifactProperties `object`: Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.
+* ProvisioningArtifactProperties `object`: Information about a provisioning artifact (also known as a version) for a product.
   * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
   * Info **required** [ProvisioningArtifactInfo](#provisioningartifactinfo)
   * Name [ProvisioningArtifactName](#provisioningartifactname)
@@ -2010,7 +2329,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [ProvisioningArtifactSummary](#provisioningartifactsummary)
 
 ### ProvisioningArtifactSummary
-* ProvisioningArtifactSummary `object`: Stores summary information about a provisioning artifact.
+* ProvisioningArtifactSummary `object`: Summary information about a provisioning artifact (also known as a version) for a product.
   * CreatedTime [ProvisioningArtifactCreatedTime](#provisioningartifactcreatedtime)
   * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
   * Id [Id](#id)
@@ -2025,7 +2344,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [ProvisioningArtifact](#provisioningartifact)
 
 ### ProvisioningParameter
-* ProvisioningParameter `object`: The parameter key-value pairs used to provision a product.
+* ProvisioningParameter `object`: Information about a parameter used to provision a product.
   * Key [ParameterKey](#parameterkey)
   * Value [ParameterValue](#parametervalue)
 
@@ -2034,7 +2353,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [ProvisioningParameter](#provisioningparameter)
 
 ### RecordDetail
-* RecordDetail `object`: The full details of a specific ProvisionedProduct object.
+* RecordDetail `object`: Information about a request operation.
   * CreatedTime [CreatedTime](#createdtime)
   * PathId [Id](#id)
   * ProductId [Id](#id)
@@ -2063,7 +2382,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [RecordError](#recorderror)
 
 ### RecordOutput
-* RecordOutput `object`: An output for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
+* RecordOutput `object`: The output for the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
   * Description [Description](#description)
   * OutputKey [OutputKey](#outputkey)
   * OutputValue [OutputValue](#outputvalue)
@@ -2076,7 +2395,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 * RecordStatus `string` (values: CREATED, IN_PROGRESS, IN_PROGRESS_IN_ERROR, SUCCEEDED, FAILED)
 
 ### RecordTag
-* RecordTag `object`: A tag associated with the record, stored as a key-value pair.
+* RecordTag `object`: Information about a tag, which is a key-value pair.
   * Key [RecordTagKey](#recordtagkey)
   * Value [RecordTagValue](#recordtagvalue)
 
@@ -2101,11 +2420,44 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### RejectPortfolioShareOutput
 * RejectPortfolioShareOutput `object`
 
+### Replacement
+* Replacement `string` (values: TRUE, FALSE, CONDITIONAL)
+
+### RequiresRecreation
+* RequiresRecreation `string` (values: NEVER, CONDITIONALLY, ALWAYS)
+
 ### ResourceARN
 * ResourceARN `string`
 
+### ResourceAttribute
+* ResourceAttribute `string` (values: PROPERTIES, METADATA, CREATIONPOLICY, UPDATEPOLICY, DELETIONPOLICY, TAGS)
+
+### ResourceChange
+* ResourceChange `object`: Information about a resource change that will occur when a plan is executed.
+  * Action [ChangeAction](#changeaction)
+  * Details [ResourceChangeDetails](#resourcechangedetails)
+  * LogicalResourceId [LogicalResourceId](#logicalresourceid)
+  * PhysicalResourceId [PhysicalResourceId](#physicalresourceid)
+  * Replacement [Replacement](#replacement)
+  * ResourceType [PlanResourceType](#planresourcetype)
+  * Scope [Scope](#scope)
+
+### ResourceChangeDetail
+* ResourceChangeDetail `object`: Information about a change to a resource attribute.
+  * CausingEntity [CausingEntity](#causingentity)
+  * Evaluation [EvaluationType](#evaluationtype)
+  * Target [ResourceTargetDefinition](#resourcetargetdefinition)
+
+### ResourceChangeDetails
+* ResourceChangeDetails `array`
+  * items [ResourceChangeDetail](#resourcechangedetail)
+
+### ResourceChanges
+* ResourceChanges `array`
+  * items [ResourceChange](#resourcechange)
+
 ### ResourceDetail
-* ResourceDetail `object`: Detailed resource information.
+* ResourceDetail `object`: Information about a resource.
   * ARN [ResourceDetailARN](#resourcedetailarn)
   * CreatedTime [ResourceDetailCreatedTime](#resourcedetailcreatedtime)
   * Description [ResourceDetailDescription](#resourcedetaildescription)
@@ -2135,10 +2487,16 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ResourceId `string`
 
 ### ResourceInUseException
-* ResourceInUseException `object`: The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.
+* ResourceInUseException `object`: A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
 
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: The specified resource was not found.
+
+### ResourceTargetDefinition
+* ResourceTargetDefinition `object`: Information about a change to a resource attribute.
+  * Attribute [ResourceAttribute](#resourceattribute)
+  * Name [PropertyName](#propertyname)
+  * RequiresRecreation [RequiresRecreation](#requiresrecreation)
 
 ### ResourceType
 * ResourceType `string`
@@ -2154,6 +2512,10 @@ amazonaws_servicecatalog.UpdateTagOption({
 * ScanProvisionedProductsOutput `object`
   * NextPageToken [PageToken](#pagetoken)
   * ProvisionedProducts [ProvisionedProductDetails](#provisionedproductdetails)
+
+### Scope
+* Scope `array`
+  * items [ResourceAttribute](#resourceattribute)
 
 ### SearchFilterKey
 * SearchFilterKey `string`
@@ -2192,6 +2554,28 @@ amazonaws_servicecatalog.UpdateTagOption({
   * ProductViewAggregations [ProductViewAggregations](#productviewaggregations)
   * ProductViewSummaries [ProductViewSummaries](#productviewsummaries)
 
+### SearchProvisionedProductsInput
+* SearchProvisionedProductsInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * Filters [ProvisionedProductFilters](#provisionedproductfilters)
+  * PageSize [SearchProvisionedProductsPageSize](#searchprovisionedproductspagesize)
+  * PageToken [PageToken](#pagetoken)
+  * SortBy [SortField](#sortfield)
+  * SortOrder [SortOrder](#sortorder)
+
+### SearchProvisionedProductsOutput
+* SearchProvisionedProductsOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProvisionedProducts [ProvisionedProductAttributes](#provisionedproductattributes)
+  * TotalResultsCount [TotalResultsCount](#totalresultscount)
+
+### SearchProvisionedProductsPageSize
+* SearchProvisionedProductsPageSize `integer`
+
+### SortField
+* SortField `string`
+
 ### SortOrder
 * SortOrder `string` (values: ASCENDING, DESCENDING)
 
@@ -2211,6 +2595,9 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### StatusDetail
 * StatusDetail `string`
 
+### StatusMessage
+* StatusMessage `string`
+
 ### SupportDescription
 * SupportDescription `string`
 
@@ -2221,7 +2608,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 * SupportUrl `string`
 
 ### Tag
-* Tag `object`: Key-value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.
+* Tag `object`: Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
   * Key **required** [TagKey](#tagkey)
   * Value **required** [TagValue](#tagvalue)
 
@@ -2236,7 +2623,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 * TagOptionActive `boolean`
 
 ### TagOptionDetail
-* TagOptionDetail `object`: The TagOption details.
+* TagOptionDetail `object`: Information about a TagOption.
   * Active [TagOptionActive](#tagoptionactive)
   * Id [TagOptionId](#tagoptionid)
   * Key [TagOptionKey](#tagoptionkey)
@@ -2260,7 +2647,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * items [TagOptionSummary](#tagoptionsummary)
 
 ### TagOptionSummary
-* TagOptionSummary `object`: The TagOption summary key-value pair.
+* TagOptionSummary `object`: Summary information about a TagOption.
   * Key [TagOptionKey](#tagoptionkey)
   * Values [TagOptionValues](#tagoptionvalues)
 
@@ -2289,6 +2676,9 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### TerminateProvisionedProductOutput
 * TerminateProvisionedProductOutput `object`
   * RecordDetail [RecordDetail](#recorddetail)
+
+### TotalResultsCount
+* TotalResultsCount `integer`
 
 ### UpdateConstraintInput
 * UpdateConstraintInput `object`
@@ -2354,6 +2744,7 @@ amazonaws_servicecatalog.UpdateTagOption({
 ### UpdateProvisioningArtifactInput
 * UpdateProvisioningArtifactInput `object`
   * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Active [ProvisioningArtifactActive](#provisioningartifactactive)
   * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
   * Name [ProvisioningArtifactName](#provisioningartifactname)
   * ProductId **required** [Id](#id)
@@ -2366,7 +2757,7 @@ amazonaws_servicecatalog.UpdateTagOption({
   * Status [Status](#status)
 
 ### UpdateProvisioningParameter
-* UpdateProvisioningParameter `object`: The parameter key-value pair used to update a ProvisionedProduct object. If <code>UsePreviousValue</code> is set to true, <code>Value</code> is ignored and the value for <code>Key</code> is kept as previously set (current value).
+* UpdateProvisioningParameter `object`: The parameter key-value pair used to update a provisioned product.
   * Key [ParameterKey](#parameterkey)
   * UsePreviousValue [UsePreviousValue](#usepreviousvalue)
   * Value [ParameterValue](#parametervalue)
@@ -2399,6 +2790,12 @@ amazonaws_servicecatalog.UpdateTagOption({
 
 ### UsePreviousValue
 * UsePreviousValue `boolean`
+
+### UserArn
+* UserArn `string`
+
+### UserArnSession
+* UserArnSession `string`
 
 ### Verbose
 * Verbose `boolean`

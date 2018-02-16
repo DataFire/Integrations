@@ -180,6 +180,9 @@
               "Compilation",
               "Video",
               "Artbook",
+              "Game",
+              "Fanmade",
+              "Instrumental",
               "Other"
             ],
             "in": "query",
@@ -3137,7 +3140,7 @@
             ],
             "in": "query",
             "name": "fields",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
@@ -3978,6 +3981,14 @@
             "format": "int32",
             "in": "query",
             "name": "userCollectionId",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by release event. By default there is no filtering.",
+            "format": "int32",
+            "in": "query",
+            "name": "releaseEventId",
             "required": false,
             "type": "integer"
           },
@@ -6525,6 +6536,9 @@
               "Compilation",
               "Video",
               "Artbook",
+              "Game",
+              "Fanmade",
+              "Instrumental",
               "Other"
             ],
             "in": "query",
@@ -7675,6 +7689,9 @@
             "Compilation",
             "Video",
             "Artbook",
+            "Game",
+            "Fanmade",
+            "Instrumental",
             "Other"
           ],
           "type": "string"
@@ -7788,6 +7805,9 @@
             "Compilation",
             "Video",
             "Artbook",
+            "Game",
+            "Fanmade",
+            "Instrumental",
             "Other"
           ],
           "type": "string"
@@ -8556,6 +8576,9 @@
             "Compilation",
             "Video",
             "Artbook",
+            "Game",
+            "Fanmade",
+            "Instrumental",
             "Other"
           ],
           "type": "string"
@@ -8636,6 +8659,7 @@
             "MusicPV",
             "DramaPV",
             "Live",
+            "Illustration",
             "Other"
           ],
           "type": "string"
@@ -9580,6 +9604,7 @@
             "MusicPV",
             "DramaPV",
             "Live",
+            "Illustration",
             "Other"
           ],
           "type": "string"
@@ -9721,6 +9746,7 @@
             "MusicPV",
             "DramaPV",
             "Live",
+            "Illustration",
             "Other"
           ],
           "type": "string"
@@ -9947,6 +9973,9 @@
     "TagBaseContract": {
       "properties": {
         "additionalNames": {
+          "type": "string"
+        },
+        "categoryName": {
           "type": "string"
         },
         "id": {

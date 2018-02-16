@@ -7,7 +7,7 @@
   "basePath": "/v2",
   "info": {
     "contact": {
-      "email": "support@beezup.com"
+      "email": "help@beezup.com"
     },
     "description": "# The REST API of BeezUP system\n## Overview\nThe REST APIs provide programmatic access to read and write BeezUP data. \nBasically, with this API you will be able to do everything like you were with your browser on https://go.beezup.com !\n\nThe main features are:\n- Register and manage your account\n- Create and manage and share your stores with your friends/co-workers.\n- Import your product catalog and schedule the auto importation\n- Search the channels your want to use\n- Configure your channels for your catalogs to export your product information:\n    - cost and general settings\n    - category and columns mappings\n    - your will be able to create and manage your custom column\n    - put in place exlusion filters based on simple conditions on your product data\n    - override product values\n    - get product vision for a channel catalog scope\n- Analyze and optimize your performance of your catalogs on all yours channels with different type of reportings by day, channel, category and by product.\n- Automatize your optimisation by using rules!\n- And of course... Manage your orders harvested from all your marketplaces:\n    - Synchronize your orders in an uniformized way\n    - Get the available actions and update the order status\n- ...and more!\n\n## Authentication credentials\nThe public API with the base path **/v2/public** have been put in place to give you an entry point to our system for the user registration, login and lost password. The public API does not require any credentials.\nWe give you the some public list of values and public channels for our public commercial web site [www.beezup.com](http://www.beezup.com).\n\nThe user API with the base path **/v2/user** requires a token which is available on this page:\nhttps://go.beezup.com/Account/MyAccount\n\n## Things to keep in mind\n### API Rate Limits\n- The BeezUP REST API is limited to 100 calls/minute.\n\n### Media type\nThe default media type for requests and responses is application/json. Where noted, some operations support other content types. If no additional content type is mentioned for a specific operation, then the media type is application/json.\n\n### Required content type\nThe required and default encoding for the request and responses is UTF8.\n\n### Required date time format\nAll our date time are formatted in ISO 8601 format: 2014-06-24T16:25:00Z.\n\n### Base URL\nThe Base URL of the BeezUP API Order Management REST API conforms to the following template.\n\nhttps://api.beezup.com\n\nAll URLs returned by the BeezUP API are relative to this base URL, and all requests to the REST API must use this base URL template.\n\nYou can test our API on https://api-docs.beezup.com/swagger-ui\\\nYou can contact us on [gitter, #BeezUP/API](https://gitter.im/BeezUP/API)\n",
     "license": {
@@ -57,7 +57,7 @@
   "parameters": {
     "acceptEncodingOptionalParameter": {
       "collectionFormat": "csv",
-      "description": "Allows the client to indicate wether it accepts a compressed encoding to reduce traffic size.",
+      "description": "Allows the client to indicate whether it accepts a compressed encoding to reduce traffic size.",
       "in": "header",
       "items": {
         "type": "string"
@@ -68,7 +68,7 @@
     },
     "acceptEncodingRequiredParameter": {
       "collectionFormat": "csv",
-      "description": "Allows the client to indicate wether it accepts a compressed encoding to reduce traffic size.",
+      "description": "Allows the client to indicate whether it accepts a compressed encoding to reduce traffic size.",
       "in": "header",
       "items": {
         "type": "string"
@@ -166,6 +166,15 @@
       "name": "format",
       "required": true,
       "type": "string"
+    },
+    "groupIdParameter": {
+      "description": "The exclusion filter group identifier",
+      "format": "guid",
+      "in": "path",
+      "name": "groupId",
+      "required": true,
+      "type": "string",
+      "x-example": "6d6b04de-406b-4539-8e7e-bf3e8da5dfb0"
     },
     "ifMatchParameter": {
       "description": "ETag value to identify the last known version of requested resource.\\\nTo ensure that you are making a change on the lastest version of the resource.\\\nFor more details go to this link: http://tools.ietf.org/html/rfc7232#section-2.3\n",
@@ -477,9 +486,9 @@
       "x-displayName": "Column Mappings"
     },
     {
-      "description": "All category mapping operations",
-      "name": "Channel Catalogs - Category Mappings",
-      "x-displayName": "Category Mappings"
+      "description": "All categories operations",
+      "name": "Channel Catalogs - Categories",
+      "x-displayName": "Categories"
     },
     {
       "description": "All exclusion filters operations",
@@ -567,9 +576,9 @@
       "x-displayName": "Statistics"
     },
     {
-      "description": "All rules operations. Rules are automatic optimisations based on report filters.",
-      "name": "Analytics - Rules",
-      "x-displayName": "Rules"
+      "description": "All optmisations operations",
+      "name": "Analytics - Optimisations",
+      "x-displayName": "Optimisations"
     },
     {
       "description": "All reports operations",
@@ -577,9 +586,9 @@
       "x-displayName": "Reports"
     },
     {
-      "description": "All optmisations operations",
-      "name": "Analytics - Optimisations",
-      "x-displayName": "Optimisations"
+      "description": "All rules operations. Rules are automatic optimisations based on report filters",
+      "name": "Analytics - Rules",
+      "x-displayName": "Rules"
     }
   ],
   "paths": {
@@ -951,7 +960,7 @@
     },
     "/user/analytics/tracking/status": {
       "get": {
-        "description": "Your clicks and orders are eventually consistent. \\\nThis operation indicates you at which date the projections are.\n",
+        "description": "Clicks and orders are eventually consistent. \\\nThis operation gets the current global state of projections.\n",
         "operationId": "GetTrackingStatus",
         "responses": {
           "200": {
@@ -969,7 +978,7 @@
             "api_key": []
           }
         ],
-        "summary": "Display the synchronization status of the clicks and orders",
+        "summary": "Get the global synchronization status of clicks and orders",
         "tags": [
           "Analytics - Tracking"
         ]
@@ -1005,6 +1014,51 @@
         "summary": "Get the Analytics API operation index for one store",
         "tags": [
           "Analytics - Global"
+        ]
+      }
+    },
+    "/user/analytics/{storeId}/optimisations/all/{actionName}": {
+      "post": {
+        "description": "/!\\ WARNING /!\\ \\\nApply the operation on every product related to this request. \\\nThis operation is used at the bottom of the analytics page result.\n",
+        "operationId": "OptimiseAll",
+        "parameters": [
+          {
+            "$ref": "#/parameters/storeIdOnlyGeneralParameters"
+          },
+          {
+            "$ref": "#/parameters/optimisationActionNameGeneralParameters"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/optimiseAllRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Products optimisatized"
+          },
+          "400": {
+            "$ref": "#/responses/BadRequestResponse"
+          },
+          "404": {
+            "$ref": "#/responses/StoreNotFoundResponse"
+          },
+          "default": {
+            "$ref": "#/responses/GeneralError"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "summary": "Optimise all products",
+        "tags": [
+          "Analytics - Optimisations"
         ]
       }
     },
@@ -1066,7 +1120,7 @@
             "api_key": []
           }
         ],
-        "summary": "Optimise products's category",
+        "summary": "Optimise products by category",
         "tags": [
           "Analytics - Optimisations"
         ]
@@ -1111,7 +1165,7 @@
             "api_key": []
           }
         ],
-        "summary": "Optimise products's category",
+        "summary": "Optimise products by channel",
         "tags": [
           "Analytics - Optimisations"
         ]
@@ -1175,7 +1229,7 @@
             "api_key": []
           }
         ],
-        "summary": "Optimise products",
+        "summary": "Optimise product",
         "tags": [
           "Analytics - Optimisations"
         ]
@@ -1216,7 +1270,7 @@
             "api_key": []
           }
         ],
-        "summary": "Copy products optimisation between 2 channels",
+        "summary": "Copy product optimisations between 2 channels",
         "tags": [
           "Analytics - Optimisations"
         ]
@@ -1261,7 +1315,7 @@
             "api_key": []
           }
         ],
-        "summary": "Optimise products",
+        "summary": "Optimise products by page",
         "tags": [
           "Analytics - Optimisations"
         ]
@@ -1308,7 +1362,7 @@
         ],
         "summary": "Get the report by category",
         "tags": [
-          "Analytics - Reports"
+          "Analytics - Statistics"
         ]
       }
     },
@@ -1353,7 +1407,7 @@
         ],
         "summary": "Get the report by channel",
         "tags": [
-          "Analytics - Reports"
+          "Analytics - Statistics"
         ]
       }
     },
@@ -1398,7 +1452,7 @@
         ],
         "summary": "Get the report by day",
         "tags": [
-          "Analytics - Reports"
+          "Analytics - Statistics"
         ]
       }
     },
@@ -1443,7 +1497,7 @@
         ],
         "summary": "Get the report by product",
         "tags": [
-          "Analytics - Reports"
+          "Analytics - Statistics"
         ]
       }
     },
@@ -2186,7 +2240,7 @@
           },
           {
             "default": 100,
-            "description": "The click's count you want to get",
+            "description": "The amount of clicks to retrieve",
             "in": "query",
             "maximum": 100,
             "minimum": 5,
@@ -2197,7 +2251,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Clicks information",
+            "description": "Click list",
             "schema": {
               "$ref": "#/definitions/trackedClicks"
             }
@@ -2214,7 +2268,7 @@
             "api_key": []
           }
         ],
-        "summary": "Get the latest clicks tracked",
+        "summary": "Get the latest tracked clicks",
         "tags": [
           "Analytics - Tracking"
         ]
@@ -2229,7 +2283,7 @@
           },
           {
             "default": 100,
-            "description": "The external order's count you want to get",
+            "description": "The amount of external orders to retrieve",
             "in": "query",
             "maximum": 100,
             "minimum": 5,
@@ -2260,7 +2314,7 @@
             "api_key": []
           }
         ],
-        "summary": "Get the latest external orders tracked",
+        "summary": "Get the latest tracked external orders",
         "tags": [
           "Analytics - Tracking"
         ]
@@ -2275,7 +2329,7 @@
           },
           {
             "default": 100,
-            "description": "The order's count you want to get",
+            "description": "The amount of orders to retrieve",
             "in": "query",
             "maximum": 100,
             "minimum": 5,
@@ -2306,7 +2360,7 @@
             "api_key": []
           }
         ],
-        "summary": "Get the latest orders tracked",
+        "summary": "Get the latest tracked orders",
         "tags": [
           "Analytics - Tracking"
         ]
@@ -2314,7 +2368,7 @@
     },
     "/user/analytics/{storeId}/tracking/status": {
       "get": {
-        "description": "Your clicks and orders are eventually consistent. \\\nThis operation indicates you at which date the projections are for this store.\n",
+        "description": "Clicks and orders are eventually consistent. \\\nThis operation gets the current state of projections for a store.\n",
         "operationId": "GetStoreTrackingStatus",
         "parameters": [
           {
@@ -2340,7 +2394,7 @@
             "api_key": []
           }
         ],
-        "summary": "Get store tracking synchronization status",
+        "summary": "Get the synchronization status of clicks and orders of a store",
         "tags": [
           "Analytics - Tracking"
         ]
@@ -4683,7 +4737,7 @@
         ]
       }
     },
-    "/user/channelCatalogs/{channelCatalogId}/categoryMappings": {
+    "/user/channelCatalogs/{channelCatalogId}/categories": {
       "get": {
         "operationId": "GetChannelCatalogCategories",
         "parameters": [
@@ -4695,7 +4749,7 @@
           "200": {
             "description": "Channel catalog category mappings",
             "schema": {
-              "$ref": "#/definitions/channelCatalogCategoryMappingList"
+              "$ref": "#/definitions/channelCatalogCategoryConfigurationList"
             }
           },
           "404": {
@@ -4715,11 +4769,58 @@
         ],
         "summary": "Get channel catalog categories",
         "tags": [
-          "Channel Catalogs - Category Mappings"
+          "Channel Catalogs - Categories"
         ]
       }
     },
-    "/user/channelCatalogs/{channelCatalogId}/categoryMappings/disable": {
+    "/user/channelCatalogs/{channelCatalogId}/categories/configure": {
+      "post": {
+        "operationId": "ConfigureChannelCatalogCategory",
+        "parameters": [
+          {
+            "$ref": "#/parameters/channelCatalogIdParameter"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/configureCategoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Channel catalog category configured"
+          },
+          "400": {
+            "description": "BadRequest. See Error Response for more details",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "ChannelCatalogId not found or not authorized",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/GeneralError"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "summary": "Configure channel catalog category",
+        "tags": [
+          "Channel Catalogs - Categories"
+        ]
+      }
+    },
+    "/user/channelCatalogs/{channelCatalogId}/categories/disableMapping": {
       "post": {
         "operationId": "DisableChannelCatalogCategoryMapping",
         "parameters": [
@@ -4748,58 +4849,11 @@
         ],
         "summary": "Disable a channel catalog category mapping",
         "tags": [
-          "Channel Catalogs - Category Mappings"
+          "Channel Catalogs - Categories"
         ]
       }
     },
-    "/user/channelCatalogs/{channelCatalogId}/categoryMappings/map": {
-      "post": {
-        "operationId": "MapChannelCatalogCategory",
-        "parameters": [
-          {
-            "$ref": "#/parameters/channelCatalogIdParameter"
-          },
-          {
-            "in": "body",
-            "name": "request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/mapCategoryRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Channel catalog category mapped"
-          },
-          "400": {
-            "description": "BadRequest. See Error Response for more details",
-            "schema": {
-              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
-            }
-          },
-          "404": {
-            "description": "ChannelCatalogId not found or not authorized",
-            "schema": {
-              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
-            }
-          },
-          "default": {
-            "$ref": "#/responses/GeneralError"
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ],
-        "summary": "Map channel catalog category",
-        "tags": [
-          "Channel Catalogs - Category Mappings"
-        ]
-      }
-    },
-    "/user/channelCatalogs/{channelCatalogId}/categoryMappings/reenable": {
+    "/user/channelCatalogs/{channelCatalogId}/categories/reenableMapping": {
       "post": {
         "operationId": "ReenableChannelCatalogCategoryMapping",
         "parameters": [
@@ -4828,54 +4882,7 @@
         ],
         "summary": "Reenable a channel catalog category mapping",
         "tags": [
-          "Channel Catalogs - Category Mappings"
-        ]
-      }
-    },
-    "/user/channelCatalogs/{channelCatalogId}/categoryMappings/unmap": {
-      "post": {
-        "operationId": "UnmapChannelCatalogCategory",
-        "parameters": [
-          {
-            "$ref": "#/parameters/channelCatalogIdParameter"
-          },
-          {
-            "in": "body",
-            "name": "request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/unmapCategoryRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Channel catalog category unmapped"
-          },
-          "400": {
-            "description": "BadRequest. See Error Response for more details",
-            "schema": {
-              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
-            }
-          },
-          "404": {
-            "description": "ChannelCatalogId not found or not authorized",
-            "schema": {
-              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
-            }
-          },
-          "default": {
-            "$ref": "#/responses/GeneralError"
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ],
-        "summary": "Unmap channel catalog category",
-        "tags": [
-          "Channel Catalogs - Category Mappings"
+          "Channel Catalogs - Categories"
         ]
       }
     },
@@ -5446,6 +5453,76 @@
           }
         ],
         "summary": "Override channel catalog product values",
+        "tags": [
+          "Channel Catalogs - Products Overrides"
+        ]
+      }
+    },
+    "/user/channelCatalogs/{channelCatalogId}/products/{productId}/overrides/copy": {
+      "get": {
+        "operationId": "GetChannelCatalogProductValueOverrideCopy",
+        "parameters": [
+          {
+            "$ref": "#/parameters/channelCatalogIdParameter"
+          },
+          {
+            "$ref": "#/parameters/productIdParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "placeholder. will be completed soon."
+          },
+          "404": {
+            "description": "ChannelCatalog or ProductId not found or not authorized",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/GeneralError"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "summary": "Get channel catalog product value override compatibilities status",
+        "tags": [
+          "Channel Catalogs - Products Overrides"
+        ]
+      },
+      "post": {
+        "operationId": "ConfigureChannelCatalogProductValueOverrideCopy",
+        "parameters": [
+          {
+            "$ref": "#/parameters/channelCatalogIdParameter"
+          },
+          {
+            "$ref": "#/parameters/productIdParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Channel catalog product value override deleted"
+          },
+          "404": {
+            "description": "ChannelCatalogId or ProductId not found or not authorized",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
+            }
+          },
+          "default": {
+            "$ref": "#/responses/GeneralError"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "summary": "Copy channel catalog product value override",
         "tags": [
           "Channel Catalogs - Products Overrides"
         ]
@@ -7231,13 +7308,27 @@
     },
     "/user/marketplaces/channelcatalogs/": {
       "get": {
-        "operationId": "GetMarketplaceAccountStores",
+        "operationId": "GetMarketplaceChannelCatalogs",
+        "parameters": [
+          {
+            "description": "The StoreId to filter by",
+            "format": "guid",
+            "in": "query",
+            "name": "storeId",
+            "required": false,
+            "type": "string",
+            "x-example": "04730364-9826-4ff3-92e4-51fccd02bf10"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Marketplace channel catalog list",
             "schema": {
               "$ref": "#/definitions/marketplaceChannelCatalogList"
             }
+          },
+          "404": {
+            "description": "Store not found"
           }
         },
         "security": [
@@ -7245,7 +7336,7 @@
             "api_key": []
           }
         ],
-        "summary": "Get  you marketplace channel catalog list",
+        "summary": "Get your marketplace channel catalog list",
         "tags": [
           "Marketplaces - Channel catalogs - Global"
         ]
@@ -7357,6 +7448,9 @@
             "name": "redirectionPageUrl",
             "required": true,
             "type": "string"
+          },
+          {
+            "$ref": "#/parameters/acceptLanguageParameter"
           }
         ],
         "responses": {
@@ -7367,7 +7461,7 @@
             }
           },
           "404": {
-            "description": "Requested channel catalog or authorization for current user not found"
+            "description": "Marketplace channel Catalog not found"
           },
           "503": {
             "$ref": "#/responses/processingResponse"
@@ -7408,7 +7502,7 @@
             }
           },
           "404": {
-            "description": "Requested channel catalog or authorization for current user not found"
+            "description": "Marketplace channel catalog not found"
           },
           "503": {
             "$ref": "#/responses/processingResponse"
@@ -7451,16 +7545,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Successfully saved channel catalog settings"
+            "description": "Successfully saved channel catalog marketplace settings"
           },
           "400": {
-            "description": "One or more channel catalog property keys or values are invalid for requested channel catalog. See response for details.",
+            "description": "One or more channel catalog marketplace property keys or values are invalid for requested marketplace channel catalog. See response for details.",
             "schema": {
               "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
             }
           },
           "404": {
-            "description": "Requested channel catalog or authorization for current user not found"
+            "description": "Marketplace channel catalog not found"
           },
           "503": {
             "$ref": "#/responses/processingResponse"
@@ -7521,6 +7615,15 @@
         "operationId": "GetAutomaticTransitions",
         "parameters": [
           {
+            "description": "The StoreId to filter by",
+            "format": "guid",
+            "in": "query",
+            "name": "storeId",
+            "required": false,
+            "type": "string",
+            "x-example": "04730364-9826-4ff3-92e4-51fccd02bf10"
+          },
+          {
             "$ref": "#/parameters/ifNoneMatchParameter"
           }
         ],
@@ -7533,6 +7636,12 @@
           },
           "304": {
             "$ref": "#/responses/304_NotModified"
+          },
+          "404": {
+            "description": "Requested Store could not be found",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
+            }
           },
           "default": {
             "$ref": "#/responses/GeneralError"
@@ -7826,6 +7935,17 @@
       "post": {
         "deprecated": false,
         "operationId": "HarvestAll",
+        "parameters": [
+          {
+            "description": "The StoreId to filter by",
+            "format": "guid",
+            "in": "query",
+            "name": "storeId",
+            "required": false,
+            "type": "string",
+            "x-example": "04730364-9826-4ff3-92e4-51fccd02bf10"
+          }
+        ],
         "responses": {
           "202": {
             "description": "Successfully sent harvest request to all marketplaces",
@@ -7834,6 +7954,12 @@
                 "description": "Indicates the duration in seconds to wait to be able to make this request again",
                 "type": "integer"
               }
+            }
+          },
+          "404": {
+            "description": "Requested Store could not be found",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
             }
           },
           "409": {
@@ -7965,6 +8091,15 @@
         "operationId": "GetMarketplaceAccountsSynchronization",
         "parameters": [
           {
+            "description": "The StoreId to filter by",
+            "format": "guid",
+            "in": "query",
+            "name": "storeId",
+            "required": false,
+            "type": "string",
+            "x-example": "04730364-9826-4ff3-92e4-51fccd02bf10"
+          },
+          {
             "$ref": "#/parameters/ifNoneMatchParameter"
           }
         ],
@@ -7977,6 +8112,12 @@
           },
           "304": {
             "$ref": "#/responses/304_NotModified"
+          },
+          "404": {
+            "description": "Requested Store could not be found",
+            "schema": {
+              "$ref": "#/definitions/BeezUP.Common.ErrorResponseMessage"
+            }
           },
           "default": {
             "$ref": "#/responses/GeneralError"
@@ -8055,7 +8196,7 @@
       },
       "head": {
         "deprecated": false,
-        "description": "The purpose of this operation is to reduce the bandwith usage by getting just the meta information about the order (ETag, Last-Modified) with the body.\nThis could be useful \n",
+        "description": "The purpose of this operation is to reduce the bandwith usage by getting just the meta information about the order (ETag, Last-Modified) with the body.\nThis could be useful\n",
         "operationId": "HeadOrder",
         "parameters": [
           {
@@ -8369,7 +8510,7 @@
             }
           },
           "409": {
-            "description": "Already processing a change request for this Order.\\\nPlease refresh your clients Order information and retry later. \n",
+            "description": "Already processing a change request for this Order.\\\nPlease refresh your clients Order information and retry later.\n",
             "headers": {
               "Retry-After": {
                 "description": "Indicates the duration in seconds to wait to be able to make this request again",
@@ -8418,10 +8559,10 @@
       },
       "properties": {
         "operatorName": {
-          "$ref": "#/definitions/BeezUP.Common.ProductFilterOperatorName"
+          "$ref": "#/definitions/BeezUP.Common.ProductColumnFilterOperatorName"
         },
         "values": {
-          "description": "Must be null if the operator is \"IsNull\" or \"IsNotNull\". \nCan contains multiple value in case of \"InList\" operator. Otherwise a single value is expected.\n",
+          "description": "Must be null if the operator is \"IsNull\" or \"IsNotNull\".\nCan contains multiple value in case of \"InList\" operator. Otherwise a single value is expected.\n",
           "example": [
             "My value"
           ],
@@ -9306,23 +9447,14 @@
         "productId",
         "productSku",
         "productTitle",
-        "productImageUrl",
         "productExists"
       ],
       "type": "object"
     },
-    "BeezUP.Common.ProductFilterOperatorName": {
+    "BeezUP.Common.ProductColumnFilterOperatorName": {
       "description": "Indicate the operator you want to make on the columnId",
-      "enum": [
-        "Equals",
-        "Contains",
-        "GreaterTo",
-        "LowerTo",
-        "InList",
-        "IsNull",
-        "IsNotNull"
-      ],
-      "type": "string"
+      "type": "string",
+      "x-lov": "ProductColumnFilterOperatorName"
     },
     "BeezUP.Common.ProductFilters": {
       "properties": {
@@ -9736,6 +9868,13 @@
       ],
       "type": "object"
     },
+    "additionalProductColumnFilters": {
+      "additionalProperties": {
+        "$ref": "#/definitions/productColumnFilter"
+      },
+      "description": "Describes a filter on a product's column.\nThe key is the column identifier of your catalog or a custom column.\n",
+      "type": "object"
+    },
     "address": {
       "description": "Your address",
       "example": "21 jump street",
@@ -9769,7 +9908,7 @@
       "type": "string"
     },
     "analyticsIndex": {
-      "description": "The analytics API operation index.",
+      "description": "The Analytics API operation index.",
       "properties": {
         "links": {
           "$ref": "#/definitions/analyticsIndexLinks"
@@ -9806,13 +9945,37 @@
     },
     "analyticsIndexLovLinks": {
       "properties": {
+        "numericProductColumnFilterOperatorNameLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "performanceIndicatorFilterOperatorNameLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "performanceIndicatorFormulaOperatorNameLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
         "performanceIndicatorFormulaParameterTypeLov": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         },
-        "performanceIndicatorLov": {
+        "performanceIndicatorTypeForReportsByCategoryLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "performanceIndicatorTypeForReportsByChannelLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "performanceIndicatorTypeForReportsByProductLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "performanceIndicatorTypeLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "productColumnFilterOperatorNameLov": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         },
         "storeOptimisationRuleExecutionStatusLov": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "stringProductColumnFilterOperatorNameLov": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         }
       },
@@ -9833,6 +9996,9 @@
       "properties": {
         "optimise": {
           "$ref": "#/definitions/links.OptimiseLink"
+        },
+        "optimiseAll": {
+          "$ref": "#/definitions/links.OptimiseAllLink"
         },
         "optimiseByCategory": {
           "$ref": "#/definitions/links.OptimiseByCategoryLink"
@@ -9925,15 +10091,6 @@
         }
       },
       "type": "object"
-    },
-    "apiSettingStatus": {
-      "enum": [
-        "warning",
-        "success",
-        "failed"
-      ],
-      "example": "success",
-      "type": "string"
     },
     "autoImportConfiguration": {
       "properties": {
@@ -10529,23 +10686,26 @@
     "category": {
       "description": "The catalog category",
       "properties": {
-        "categoryId": {
-          "$ref": "#/definitions/BeezUP.Common.CatalogCategoryId"
-        },
         "categoryPath": {
           "$ref": "#/definitions/BeezUP.Common.CatalogCategoryPath"
         },
-        "productCount": {
+        "selfProductCount": {
           "description": "The product count related to this category",
+          "example": 101,
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalProductCount": {
+          "description": "The total product count related to this category and his sub categories",
           "example": 101,
           "format": "int32",
           "type": "integer"
         }
       },
       "required": [
-        "categoryId",
         "categoryPath",
-        "productCount"
+        "totalProductCount",
+        "selfProductCount"
       ]
     },
     "categoryList": {
@@ -10856,15 +11016,14 @@
         }
       ]
     },
-    "channelCatalogCategoryCostValue": {
-      "description": "In case of CPC_ByCategory or CPA_ByCategory cost type, you have to indicate the cost value.",
-      "example": 10.21,
-      "format": "decimal",
-      "type": "number"
-    },
-    "channelCatalogCategoryMapping": {
-      "description": "Represent a mapping between a catalog category path and a channel category path. \nThe cost on this mapping can be applied.\n",
+    "channelCatalogCategoryConfiguration": {
+      "description": "Represent a mapping between a catalog category path and a channel category path.\nThe cost on this mapping can be applied.\n",
       "properties": {
+        "autoMapNewSubCategories": {
+          "description": "Great feature! In case of mapping to parent catalog category, you can ask to automatically map new sub catalog category in the next importation to this channel category path.",
+          "example": true,
+          "type": "boolean"
+        },
         "catalogCategoryPath": {
           "$ref": "#/definitions/BeezUP.Common.CatalogCategoryPath"
         },
@@ -10876,12 +11035,12 @@
         }
       },
       "required": [
-        "catalogCategoryPath",
-        "channelCategoryPath"
+        "autoMapNewSubCategories",
+        "catalogCategoryPath"
       ],
       "type": "object"
     },
-    "channelCatalogCategoryMappingInfo": {
+    "channelCatalogCategoryConfigurationInfo": {
       "description": "For all catalog categories the current mapping applied",
       "properties": {
         "catalogCategoryPath": {
@@ -10903,33 +11062,44 @@
       ],
       "type": "object"
     },
-    "channelCatalogCategoryMappingInfoLinks": {
+    "channelCatalogCategoryConfigurationList": {
       "properties": {
-        "mapCategory": {
-          "$ref": "#/definitions/links.MapChannelCatalogCategoryLink"
-        },
-        "unmapCategory": {
-          "$ref": "#/definitions/links.UnmapChannelCatalogCategoryLink"
-        }
-      },
-      "type": "object"
-    },
-    "channelCatalogCategoryMappingList": {
-      "properties": {
-        "channelCatalogCategoryMappings": {
+        "channelCatalogCategoryConfigurations": {
           "items": {
-            "$ref": "#/definitions/channelCatalogCategoryMappingInfo"
+            "$ref": "#/definitions/channelCatalogCategoryConfigurationInfo"
           },
           "type": "array"
         },
+        "costStatus": {
+          "$ref": "#/definitions/costStatus"
+        },
         "links": {
           "$ref": "#/definitions/channelCatalogCategoryMappingsLinks"
+        },
+        "mappingStatus": {
+          "$ref": "#/definitions/mappingStatus"
         }
       },
       "required": [
         "links",
-        "channelCatalogCategoryMappings"
+        "channelCatalogCategoryConfigurations",
+        "mappingStatus",
+        "costStatus"
       ],
+      "type": "object"
+    },
+    "channelCatalogCategoryCostValue": {
+      "description": "In case of CPC_ByCategory or CPA_ByCategory cost type, you have to indicate the cost value.",
+      "example": 10.21,
+      "format": "decimal",
+      "type": "number"
+    },
+    "channelCatalogCategoryMappingInfoLinks": {
+      "properties": {
+        "configureCategories": {
+          "$ref": "#/definitions/links.ConfigureChannelCatalogCategoryLink"
+        }
+      },
       "type": "object"
     },
     "channelCatalogCategoryMappingSettings": {
@@ -11164,6 +11334,9 @@
         "categoryMappings": {
           "$ref": "#/definitions/links.GetChannelCatalogCategoriesLink"
         },
+        "channelInfo": {
+          "$ref": "#/definitions/externalLinks.GetChannelInfoLink"
+        },
         "configureColumnMappings": {
           "$ref": "#/definitions/links.ConfigureChannelCatalogColumnMappingsLink"
         },
@@ -11391,8 +11564,8 @@
           "description": "The groups settings with constraints",
           "example": [
             {
-              "displayGroupCode": "AccountInformations",
-              "displayGroupPosition": 1,
+              "name": "AccountInformations",
+              "position": 1,
               "properties": [
                 {
                   "name": "EbayToken",
@@ -11691,13 +11864,13 @@
     },
     "channelCatalogMarketplacePropertyGroup": {
       "properties": {
-        "displayGroupCode": {
+        "name": {
           "description": "Indicate the code identifier of the group",
           "example": "AccountInformations",
           "type": "string",
-          "x-lov": "MarketplacePropertiesDisplayGroup"
+          "x-lov": "MarketplaceStorePropertyGroup"
         },
-        "displayGroupPosition": {
+        "position": {
           "description": "Indicate the position of the group",
           "example": 1,
           "minimum": 1,
@@ -11728,8 +11901,8 @@
         }
       },
       "required": [
-        "displayGroupCode",
-        "displayGroupPosition",
+        "name",
+        "position",
         "properties"
       ]
     },
@@ -12177,8 +12350,8 @@
     "channelCatalogState": {
       "description": "Channel Catalog State",
       "properties": {
-        "apiSettingStatus": {
-          "$ref": "#/definitions/apiSettingStatus"
+        "apiSettingsStatus": {
+          "$ref": "#/definitions/BeezUP.Common.ApiSettingsStatus"
         },
         "categoryMappingState": {
           "$ref": "#/definitions/categoryMappingState"
@@ -12195,8 +12368,7 @@
       "required": [
         "exportedProductCount",
         "columnMappingStatus",
-        "categoryMappingState",
-        "apiSettingStatus"
+        "categoryMappingState"
       ],
       "type": "object"
     },
@@ -12438,29 +12610,26 @@
         "channelName": {
           "$ref": "#/definitions/BeezUP.Common.ChannelName"
         },
-        "descriptionAvailable": {
-          "default": false,
-          "description": "Indicates if we have more detailed information about this channel",
-          "example": true,
-          "type": "boolean"
-        },
-        "isMarketplace": {
-          "default": false,
-          "description": "Indicates if the channel is a marketplace",
-          "example": true,
-          "type": "boolean"
-        },
         "links": {
           "$ref": "#/definitions/channelHeaderLinks"
+        },
+        "types": {
+          "description": "The type list related to a channel",
+          "example": [
+            "Marketplace"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "required": [
         "channelId",
         "channelName",
         "channelLogoUrl",
-        "descriptionAvailable",
         "links",
-        "isMarketplace"
+        "types"
       ],
       "type": "object"
     },
@@ -12468,12 +12637,9 @@
       "description": "The links related to an available channel",
       "properties": {
         "self": {
-          "$ref": "#/definitions/BeezUP.Common.Link3"
+          "$ref": "#/definitions/links.GetChannelInfoLink"
         }
       },
-      "required": [
-        "self"
-      ],
       "type": "object"
     },
     "channelInfo": {
@@ -12806,6 +12972,27 @@
       },
       "required": [
         "catalogColumn"
+      ],
+      "type": "object"
+    },
+    "configureCategoryRequest": {
+      "description": "The request message to make a mapping between catalog category path and a channel category path",
+      "properties": {
+        "channelCatalogCategories": {
+          "items": {
+            "$ref": "#/definitions/channelCatalogCategoryConfiguration"
+          },
+          "type": "array"
+        },
+        "overrideSubCategoryMappings": {
+          "description": "Great feature! In case of mapping to parent channel category, you can ask to override the mapping of all sub channel category to this catalog category path",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "overrideSubCategoryMappings",
+        "channelCatalogCategories"
       ],
       "type": "object"
     },
@@ -13323,6 +13510,15 @@
         "costType"
       ],
       "type": "object"
+    },
+    "costStatus": {
+      "enum": [
+        "required",
+        "optional",
+        "notConfigurable"
+      ],
+      "example": "required",
+      "type": "string"
     },
     "costType": {
       "description": "CPC means cost per click.\nCPA means cost per action.\nYou can have CPC/CPA with a global cost value.\nYou can have CPC/CPA by category the cost value MUST be null\nYou can have global fixed price.\n",
@@ -14153,6 +14349,19 @@
         }
       ]
     },
+    "externalLinks.GetChannelInfoLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channels/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0",
+            "method": "GET"
+          }
+        }
+      ]
+    },
     "externalLinks.GetExternalConfigurationPageLink": {
       "allOf": [
         {
@@ -14287,16 +14496,10 @@
           "description": "Do not export \"out of stock\" products. Note: this option is not taken into account by the counter.\n",
           "example": true,
           "type": "boolean"
-        },
-        "useBid": {
-          "description": "Activate bidding for this channel",
-          "example": false,
-          "type": "boolean"
         }
       },
       "required": [
         "acceptToPublishInfo",
-        "useBid",
         "doNotExportOutOfStockProducts",
         "activeBeezUPTracking"
       ],
@@ -14360,6 +14563,9 @@
           "example": true,
           "type": "boolean"
         },
+        "orderbyCatalogColumnId": {
+          "$ref": "#/definitions/BeezUP.Common.CatalogColumnId"
+        },
         "pageNumber": {
           "$ref": "#/definitions/BeezUP.Common.PageNumber"
         },
@@ -14382,6 +14588,11 @@
           "description": "Search for products containing this title",
           "example": "Frigo",
           "type": "string"
+        },
+        "withoutSubCategories": {
+          "description": "Do not retrieve sub categories. By default, this value is set to false",
+          "example": false,
+          "type": "boolean"
         }
       },
       "required": [
@@ -15517,6 +15728,7 @@
               "If-Match": {
                 "in": "header",
                 "required": true,
+                "type": "string",
                 "value": "\"ca071a4580129f932a03971968ffef69\""
               },
               "request": {
@@ -15627,6 +15839,19 @@
         }
       ]
     },
+    "links.ConfigureChannelCatalogCategoryLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/category/configure",
+            "method": "POST"
+          }
+        }
+      ]
+    },
     "links.ConfigureChannelCatalogColumnMappingsLink": {
       "allOf": [
         {
@@ -15653,6 +15878,19 @@
         }
       ]
     },
+    "links.ConfigureChannelCatalogExclusionFiltersCopyLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/exclusionFilters/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/copy",
+            "method": "POST"
+          }
+        }
+      ]
+    },
     "links.ConfigureChannelCatalogExclusionFiltersLink": {
       "allOf": [
         {
@@ -15674,6 +15912,19 @@
         {
           "example": {
             "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/settings/general",
+            "method": "POST"
+          }
+        }
+      ]
+    },
+    "links.ConfigureChannelCatalogProductValueOverrideCopyLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/products/578419df-1bbf-41a6-96fa-862e42182b67/overrides/copy",
             "method": "POST"
           }
         }
@@ -15752,7 +16003,7 @@
         },
         {
           "example": {
-            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categoryMappings/disable",
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categories/disableMapping",
             "method": "POST"
           }
         }
@@ -15888,7 +16139,7 @@
         },
         {
           "example": {
-            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categoryMappings",
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categories",
             "method": "GET"
           }
         }
@@ -15902,6 +16153,19 @@
         {
           "example": {
             "href": "/v2/user/channelCatalogs/exclusionFilterOperators",
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    "links.GetChannelCatalogExclusionFiltersCopyLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/exclusionFilters/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/copy",
             "method": "GET"
           }
         }
@@ -16009,6 +16273,19 @@
         }
       ]
     },
+    "links.GetChannelCatalogProductValueOverrideCopyLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/products/578419df-1bbf-41a6-96fa-862e42182b67/overrides/copy",
+            "method": "GET"
+          }
+        }
+      ]
+    },
     "links.GetChannelCatalogsLink": {
       "allOf": [
         {
@@ -16017,6 +16294,19 @@
         {
           "example": {
             "href": "/v2/user/channelCatalogs",
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    "links.GetChannelInfoLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/channels/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0",
             "method": "GET"
           }
         }
@@ -16061,18 +16351,6 @@
         }
       ]
     },
-    "links.GetMarketplaceAccountStoresLink": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/BeezUP.Common.Link3"
-        },
-        {
-          "example": {
-            "href": "/v2/user/marketplaces/channelcatalogs"
-          }
-        }
-      ]
-    },
     "links.GetMarketplaceAccountsSynchronizationLink": {
       "allOf": [
         {
@@ -16082,6 +16360,18 @@
           "example": {
             "href": "/v2/user/marketplaces/orders/status",
             "method": "GET"
+          }
+        }
+      ]
+    },
+    "links.GetMarketplaceChannelCatalogsLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/marketplaces/channelcatalogs"
           }
         }
       ]
@@ -16152,7 +16442,7 @@
                 "in": "header",
                 "required": true,
                 "schema": "string",
-                "type": "array"
+                "type": "â€‹array"
               },
               "request": {
                 "in": "body",
@@ -16857,19 +17147,6 @@
         }
       ]
     },
-    "links.MapChannelCatalogCategoryLink": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/BeezUP.Common.Link3"
-        },
-        {
-          "example": {
-            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categoryMappings/map",
-            "method": "POST"
-          }
-        }
-      ]
-    },
     "links.MoveDownRuleLink": {
       "allOf": [
         {
@@ -16892,6 +17169,72 @@
           "example": {
             "href": "/v2/user/analytics/10af9486-e28e-47ab-b045-e13e4acd55c3/rules/c38006b4-29d0-4b8a-978b-701a0b12d5a8/moveup",
             "method": "POST"
+          }
+        }
+      ]
+    },
+    "links.OptimiseAllLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BeezUP.Common.Link3"
+        },
+        {
+          "example": {
+            "href": "/v2/user/analytics/8f95eb1a-3691-4750-950d-a13c4a8a9bcc/optimisations/all/enable",
+            "method": "POST",
+            "parameters": {
+              "request": {
+                "in": "body",
+                "schema": "optimiseAllRequest",
+                "type": "object",
+                "value": {
+                  "advancedFilters": {
+                    "globalmarginPercent": 10,
+                    "linkClickToOrderMaxDay": 5,
+                    "linkClickToOrderType": "OnClickDate",
+                    "marginType": "Global",
+                    "onlyDirectSales": true,
+                    "onlyPaymentValidatedOrders": true,
+                    "performanceIndicatorFormula": {
+                      "firstParameter": "Cost",
+                      "operatorName": "Multiply",
+                      "secondParamter": "ROI",
+                      "thirdParameter": 100
+                    }
+                  },
+                  "beginPeriodUtcDate": "2006-11-20T00:00:00Z",
+                  "categoryFilter": {
+                    "categoryPath": [
+                      "Home",
+                      "Bedroom"
+                    ]
+                  },
+                  "channelId": "2dc136a7-0d3d-4cc9-a825-a28a42c53e28",
+                  "endPeriodUtcDate": "2006-12-20T00:00:00Z",
+                  "performanceIndicatorFilters": [
+                    {
+                      "operatorName": "Equals",
+                      "performanceIndicator": "Cost",
+                      "value": 10.42
+                    }
+                  ],
+                  "productColumnFilters": {
+                    "additionalProductColumnFilters": [
+                      {
+                        "columnId": "672644c7-5bd0-4e25-88c1-1f732bda5e4c",
+                        "operatorName": "NumericGreaterTo",
+                        "values": [
+                          100
+                        ]
+                      }
+                    ],
+                    "sku": "M1234",
+                    "title": "RefrigÃ©rateur"
+                  },
+                  "productState": "All"
+                }
+              }
+            }
           }
         }
       ]
@@ -16978,7 +17321,7 @@
                     "performanceIndicatorFormula": {
                       "firstParameter": "Cost",
                       "operatorName": "Multiply",
-                      "secondParamter": "Turnover",
+                      "secondParamter": "ROI",
                       "thirdParameter": 100
                     }
                   },
@@ -16991,20 +17334,20 @@
                   },
                   "channelId": "2dc136a7-0d3d-4cc9-a825-a28a42c53e28",
                   "endPeriodUtcDate": "2006-12-20T00:00:00Z",
-                  "indicatorFilters": [
+                  "pageNumber": 1,
+                  "pageSize": 100,
+                  "performanceIndicatorFilters": [
                     {
-                      "indicator": "Cost",
                       "operatorName": "Equals",
+                      "performanceIndicator": "Cost",
                       "value": 10.42
                     }
                   ],
-                  "pageNumber": 1,
-                  "pageSize": 100,
-                  "productFilters": {
-                    "additionalProductFilters": [
+                  "productColumnFilters": {
+                    "additionalProductColumnFilters": [
                       {
                         "columnId": "672644c7-5bd0-4e25-88c1-1f732bda5e4c",
-                        "operatorName": "GreaterTo",
+                        "operatorName": "NumericGreaterTo",
                         "values": [
                           100
                         ]
@@ -17041,7 +17384,7 @@
         },
         {
           "example": {
-            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categoryMappings/reenable",
+            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categories/reenableMapping",
             "method": "POST"
           }
         }
@@ -17164,34 +17507,6 @@
                 "type": "object"
               }
             }
-          }
-        }
-      ]
-    },
-    "links.UnmapChannelCatalogCategoryLink": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/BeezUP.Common.Link3"
-        },
-        {
-          "example": {
-            "href": "/v2/user/channelCatalogs/6d6b04de-406b-4539-8e7e-bf3e8da5dfb0/categoryMappings/unmap",
-            "method": "POST",
-            "parameters": [
-              {
-                "in": "body",
-                "name": "request",
-                "required": true,
-                "type": "object",
-                "value": {
-                  "catalogCategoryPath": [
-                    "VÃªtements",
-                    "Femmes",
-                    "Chaussures"
-                  ]
-                }
-              }
-            ]
           }
         }
       ]
@@ -17662,29 +17977,14 @@
       ],
       "type": "object"
     },
-    "mapCategoryRequest": {
-      "description": "The request message to make a mapping between catalog category path and a channel category path",
-      "properties": {
-        "autoMapNewSubCategories": {
-          "description": "Great feature! In case of mapping to parent catalog category, you can ask to automatically map new sub catalog category in the next importation to this channel category path.",
-          "example": true,
-          "type": "boolean"
-        },
-        "channelCatalogCategoryMapping": {
-          "$ref": "#/definitions/channelCatalogCategoryMapping"
-        },
-        "overrideSubCategoryMappings": {
-          "description": "Great feature! In case of mapping to parent channel category, you can ask to override the mapping of all sub channel category to this catalog category path",
-          "example": true,
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "overrideSubCategoryMappings",
-        "autoMapNewSubCategories",
-        "channelCatalogCategoryMapping"
+    "mappingStatus": {
+      "enum": [
+        "required",
+        "optional",
+        "notConfigurable"
       ],
-      "type": "object"
+      "example": "required",
+      "type": "string"
     },
     "marginType": {
       "default": "Tracker",
@@ -17819,7 +18119,7 @@
     "marketplaceChannelCatalogListLinks": {
       "properties": {
         "self": {
-          "$ref": "#/definitions/links.GetMarketplaceAccountStoresLink"
+          "$ref": "#/definitions/links.GetMarketplaceChannelCatalogsLink"
         }
       },
       "required": [
@@ -17834,6 +18134,9 @@
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         },
         "carrierCodeLOV": {
+          "$ref": "#/definitions/BeezUP.Common.LOVLink3"
+        },
+        "marketplaceStorePropertyGroupLOV": {
           "$ref": "#/definitions/BeezUP.Common.LOVLink3"
         },
         "marketplaceStorePropertyLOV": {
@@ -18030,18 +18333,18 @@
       "example": "reenable",
       "type": "string"
     },
-    "optimiseRequest": {
+    "optimiseAllRequest": {
       "allOf": [
         {
-          "$ref": "#/definitions/reportFilterCommonParameters"
-        },
-        {
-          "$ref": "#/definitions/paginationRequestParameters"
+          "$ref": "#/definitions/orderedReportFilterCommonParameters"
         },
         {
           "properties": {
-            "productFilters": {
-              "$ref": "#/definitions/BeezUP.Common.ProductFilters"
+            "productColumnFilters": {
+              "$ref": "#/definitions/productColumnFilters"
+            },
+            "productColumnsToDisplay": {
+              "$ref": "#/definitions/productColumnsToDisplay"
             },
             "productState": {
               "$ref": "#/definitions/productStateFilter"
@@ -18054,6 +18357,16 @@
             "reportType"
           ],
           "type": "object"
+        }
+      ]
+    },
+    "optimiseRequest": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/optimiseAllRequest"
+        },
+        {
+          "$ref": "#/definitions/paginationRequestParameters"
         }
       ]
     },
@@ -18300,6 +18613,15 @@
           "type": "object"
         }
       ]
+    },
+    "orderByDirection": {
+      "description": "Indicate which direction to order results by",
+      "enum": [
+        "Ascending",
+        "Descending"
+      ],
+      "example": "Ascending",
+      "type": "string"
     },
     "orderExportationReporting": {
       "description": "Represent the reporting of the Order report exportations",
@@ -18834,7 +19156,7 @@
       ]
     },
     "orderListFull": {
-      "description": "The order list with all information we have from the orders and its items.\\\nThe paginationResult properties can be null if the list is empty. \n",
+      "description": "The order list with all information we have from the orders and its items.\\\nThe paginationResult properties can be null if the list is empty.\n",
       "properties": {
         "links": {
           "$ref": "#/definitions/orderListFullLinks"
@@ -18874,7 +19196,7 @@
       ]
     },
     "orderListLight": {
-      "description": "The order list with minimum information we have from the orders.\\\nThe paginationResult properties can be null if the list is empty. \n",
+      "description": "The order list with minimum information we have from the orders.\\\nThe paginationResult properties can be null if the list is empty.\n",
       "properties": {
         "links": {
           "$ref": "#/definitions/orderListLightLinks"
@@ -18966,7 +19288,7 @@
     "orderListRequestWithoutPagination": {
       "properties": {
         "accountIds": {
-          "description": "Account id list",
+          "description": "Account Id list",
           "example": [
             12345
           ],
@@ -18985,7 +19307,7 @@
           "type": "array"
         },
         "beginPeriodUtcDate": {
-          "description": "The begin period you want to make the search. \\\nThe period MUST not be greater than 30 days.\nThe begin period MUST be lower than the end period. \n",
+          "description": "The begin period you want to make the search. \\\nThe period MUST not be greater than 30 days.\nThe begin period MUST be lower than the end period.\n",
           "example": "2017-03-01T13:10:01Z",
           "format": "date-time",
           "type": "string"
@@ -18994,7 +19316,7 @@
           "$ref": "#/definitions/dateSearchType"
         },
         "endPeriodUtcDate": {
-          "description": "The end period of you search. \\\nThe period MUST not be greater than 30 days. \\\nThe end period MUST be greater than the begin period. \nThe end period MUST be lower to the current date.\n",
+          "description": "The end period of you search. \\\nThe period MUST not be greater than 30 days. \\\nThe end period MUST be greater than the begin period.\nThe end period MUST be lower to the current date.\n",
           "example": "2017-04-01T13:10:01Z",
           "format": "date-time",
           "type": "string"
@@ -19036,6 +19358,13 @@
           ],
           "items": {
             "$ref": "#/definitions/order_MerchantOrderId"
+          },
+          "type": "array"
+        },
+        "storeIds": {
+          "description": "Store Id list",
+          "items": {
+            "$ref": "#/definitions/BeezUP.Common.StoreId"
           },
           "type": "array"
         }
@@ -19088,6 +19417,7 @@
             "If-Match": {
               "in": "header",
               "required": true,
+              "type": "string",
               "value": "\"ca071a4580129f932a03971968ffef69\""
             },
             "request": {
@@ -19143,6 +19473,7 @@
             "If-Match": {
               "in": "header",
               "required": true,
+              "type": "string",
               "value": "\"ca071a4580129f932a03971968ffef69\""
             },
             "request": {
@@ -19197,6 +19528,25 @@
       "example": "MyOrderMerchantId",
       "type": "string"
     },
+    "orderedReportFilterCommonParameters": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/reportFilterCommonParameters"
+        },
+        {
+          "properties": {
+            "orderBy": {
+              "$ref": "#/definitions/performanceIndicatorType"
+            },
+            "orderByDirection": {
+              "$ref": "#/definitions/orderByDirection"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "description": "Contains common filter parameters with Order By functionnality"
+    },
     "pageNumber": {
       "default": 1,
       "description": "Indicates the page number",
@@ -19239,12 +19589,43 @@
       ],
       "type": "string"
     },
+    "performanceIndicatorFilter": {
+      "properties": {
+        "operatorName": {
+          "$ref": "#/definitions/performanceIndicatorFilterOperatorName"
+        },
+        "performanceIndicator": {
+          "$ref": "#/definitions/performanceIndicatorType"
+        },
+        "value": {
+          "description": "Indicates the filter value to apply on this indicator",
+          "example": 10.42,
+          "type": "number"
+        }
+      },
+      "required": [
+        "performanceIndicator",
+        "operatorName",
+        "value"
+      ],
+      "type": "object"
+    },
+    "performanceIndicatorFilterOperatorName": {
+      "description": "Indicates the operator you want to apply on this indicator",
+      "enum": [
+        "Equals",
+        "GreaterTo",
+        "LowerTo"
+      ],
+      "example": "Equals",
+      "type": "string"
+    },
     "performanceIndicatorFormula": {
       "description": "The KPI formula",
       "example": {
         "firstParameter": "Cost",
         "operatorName": "Multiply",
-        "secondParamter": "Turnover",
+        "secondParamter": "ROI",
         "thirdParameter": 100
       },
       "properties": {
@@ -19278,9 +19659,9 @@
       "description": "Indicate on which indicator or value you want to make your formula",
       "enum": [
         "Cost",
-        "Turnover",
+        "TotalSales",
         "Margin",
-        "TunoverMinusCost",
+        "TotalSalesMinusCost",
         "MarginMinusCost",
         "OrderCount",
         "ClickCount",
@@ -19293,15 +19674,17 @@
     "performanceIndicatorType": {
       "description": "Indicate on which indicator or value you want to make your formula",
       "enum": [
-        "Cost",
-        "Turnover",
-        "Margin",
-        "OrderCount",
         "ClickCount",
-        "TotalSales",
+        "Cost",
+        "OrderCount",
+        "ProductCount",
         "SoldProductCount",
         "DisabledProductCount",
-        "EnabledProductCount"
+        "EnabledProductCount",
+        "TotalSales",
+        "Margin",
+        "ROI",
+        "PerformanceIndicator"
       ],
       "example": "Cost",
       "type": "string"
@@ -19419,6 +19802,67 @@
         "exists"
       ]
     },
+    "productColumnFilter": {
+      "example": {
+        "672644c7-5bd0-4e25-88c1-1f732bda5e4c": {
+          "operatorName": "NumericGreaterTo",
+          "values": [
+            "100"
+          ]
+        }
+      },
+      "properties": {
+        "operatorName": {
+          "$ref": "#/definitions/productColumnFilterOperatorName"
+        },
+        "values": {
+          "description": "Must be null if the operator is \"IsNull\" or \"IsNotNull\".\nCan contains multiple value in case of \"InList\" operator. Otherwise a single value is expected.\n",
+          "example": [
+            "My value"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operatorName"
+      ],
+      "type": "object"
+    },
+    "productColumnFilterOperatorName": {
+      "description": "Indicate the operator you want to apply on the columnId",
+      "enum": [
+        "Equals",
+        "Contains",
+        "InList",
+        "IsNull",
+        "IsNotNull",
+        "NumericEquals",
+        "NumericGreaterTo",
+        "NumericLowerTo"
+      ],
+      "type": "string"
+    },
+    "productColumnFilters": {
+      "properties": {
+        "additionalProductColumnFilters": {
+          "$ref": "#/definitions/additionalProductColumnFilters"
+        },
+        "sku": {
+          "description": "The product sku filter",
+          "example": "M1234",
+          "type": "string"
+        },
+        "title": {
+          "description": "The product title filter",
+          "example": "RefrigÃ©rateur",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "productColumnsToDisplay": {
       "example": [
         "4b460e31-3d1f-4117-922d-b159a64ec1d2"
@@ -19471,6 +19915,21 @@
         "type": "string"
       },
       "description": "The key is the channel column identifier",
+      "example": {
+        "0EA21509-1141-57BD-B679-371BC98B2ADA": "http://www.blalbla.nl/images/cache/ldldld.jpg",
+        "2A77749D-0AAB-5245-89B5-6A1A4E06DACA": "http://www.blalbla.nl/images/cache/dldldl.jpg",
+        "54B3B3CB-5CA5-5471-9DAE-5310C032059A": "http://www.blalbla.nl/images/cache/dlmdl.jpg",
+        "57F70E81-E4F2-5034-BC65-E1D5C48EBEDA": "Sony bravia",
+        "8a76f06a-fefc-4c0d-bcfe-b210f1482977": "3563",
+        "B7B79A0B-A8DE-54DA-964C-E2704DF3738A": "SHBELNL56"
+      },
+      "type": "object"
+    },
+    "productOverridesCopyResponse": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Product overrides compatibilites list",
       "example": {
         "0EA21509-1141-57BD-B679-371BC98B2ADA": "http://www.blalbla.nl/images/cache/ldldld.jpg",
         "2A77749D-0AAB-5245-89B5-6A1A4E06DACA": "http://www.blalbla.nl/images/cache/dldldl.jpg",
@@ -19555,7 +20014,7 @@
       "type": "object"
     },
     "productSetVisibilityCriteriaLogicType": {
-      "description": "Indicate how you want to combine the filters:\n* funnel: You will get the products which meet at least one of the product set criterion. The criteria are applied in the following order: \n  - categorization\n  - exclusion filters\n  - deactivations\n* cumulative: You will get the products which have all the product set criteria\n",
+      "description": "Indicate how you want to combine the filters:\n* funnel: You will get the products which meet at least one of the product set criterion. The criteria are applied in the following order:\n  - categorization\n  - exclusion filters\n  - deactivations\n* cumulative: You will get the products which have all the product set criteria\n",
       "enum": [
         "funnel",
         "cumulative"
@@ -20020,6 +20479,11 @@
     },
     "reportByCategory": {
       "properties": {
+        "allProductCount": {
+          "description": "The product count for this category. This includes all the products that have been imported and can still have associated clicks and orders.",
+          "example": 101,
+          "type": "integer"
+        },
         "catalogCategoryId": {
           "$ref": "#/definitions/BeezUP.Common.CatalogCategoryId"
         },
@@ -20027,7 +20491,7 @@
           "$ref": "#/definitions/BeezUP.Common.CatalogCategoryPath"
         },
         "catalogProductCount": {
-          "description": "The catalog product count related to this category",
+          "description": "The catalog product count for this category. This includes all products that are still present in your imported catalog.",
           "example": 101,
           "type": "integer"
         },
@@ -20042,7 +20506,7 @@
           "type": "number"
         },
         "enabledProductCount": {
-          "description": "The enabled product count for this category",
+          "description": "The enabled product count for this category. This includes all products that are still present in your imported catalog and have not been disabled via the optimisation feature.",
           "example": 101,
           "type": "integer"
         },
@@ -20064,31 +20528,30 @@
           "example": 25.33,
           "type": "number"
         },
+        "roi": {
+          "description": "The Return On Investment for this category",
+          "example": 25.33,
+          "type": "number"
+        },
         "soldProductCount": {
           "description": "The product sold count count for this category",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales related to this category",
+          "description": "The total sales for this category",
           "example": 234.42,
-          "type": "number"
-        },
-        "turnOver": {
-          "description": "The Turnover for this category",
-          "example": 25.33,
           "type": "number"
         }
       },
       "required": [
         "catalogCategoryId",
-        "enabledProductCount",
+        "allProductCount",
         "catalogProductCount",
+        "enabledProductCount",
         "clickCount",
         "cost",
         "orderCount",
-        "turnOver",
-        "margin",
         "performanceIndicator",
         "totalSales",
         "soldProductCount",
@@ -20110,7 +20573,7 @@
     "reportByCategoryRequest": {
       "allOf": [
         {
-          "$ref": "#/definitions/reportFilterCommonParameters"
+          "$ref": "#/definitions/orderedReportFilterCommonParameters"
         },
         {
           "$ref": "#/definitions/paginationRequestParameters"
@@ -20187,31 +20650,29 @@
           "example": 12.21,
           "type": "number"
         },
+        "roi": {
+          "description": "The Return On Investment for this channel",
+          "example": 42.42,
+          "type": "number"
+        },
         "soldProductCount": {
           "description": "The product sold count count for this channel",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales related to this channel",
+          "description": "The total sales for this channel",
           "example": 234.42,
-          "type": "number"
-        },
-        "turnOver": {
-          "description": "The Turnover for this channel",
-          "example": 42.42,
           "type": "number"
         }
       },
       "required": [
         "channel",
-        "enabledProductCount",
         "catalogProductCount",
+        "enabledProductCount",
         "clickCount",
         "cost",
         "orderCount",
-        "turnOver",
-        "margin",
         "performanceIndicator",
         "totalSales",
         "soldProductCount",
@@ -20233,7 +20694,7 @@
     "reportByChannelRequest": {
       "allOf": [
         {
-          "$ref": "#/definitions/reportFilterCommonParameters"
+          "$ref": "#/definitions/orderedReportFilterCommonParameters"
         },
         {
           "$ref": "#/definitions/paginationRequestParameters"
@@ -20276,9 +20737,15 @@
     "reportByCommonResponseLinks": {
       "properties": {
         "disableAllProducts": {
+          "$ref": "#/definitions/links.OptimiseAllLink"
+        },
+        "disableProducts": {
           "$ref": "#/definitions/links.OptimiseLink"
         },
         "enableAllProducts": {
+          "$ref": "#/definitions/links.OptimiseAllLink"
+        },
+        "enableProducts": {
           "$ref": "#/definitions/links.OptimiseLink"
         }
       },
@@ -20296,7 +20763,7 @@
           "type": "array"
         },
         "day": {
-          "example": "2017-04-23T18:25:43.511Z",
+          "example": "2017-04-23T00:00:00Z",
           "format": "date",
           "type": "string"
         }
@@ -20316,7 +20783,7 @@
           "type": "integer"
         },
         "cost": {
-          "description": "The cost  for this day and all channels",
+          "description": "The cost for this day and all channels",
           "example": 10.42,
           "type": "number"
         },
@@ -20335,19 +20802,19 @@
           "example": 23.09,
           "type": "number"
         },
+        "roi": {
+          "description": "The Return On Investment for this day and all channels",
+          "example": 23.11,
+          "type": "number"
+        },
         "soldProductCount": {
           "description": "The product sold count count for this day and all channels",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales related to this day and all channels",
+          "description": "The total sales for this day and all channels",
           "example": 234.42,
-          "type": "number"
-        },
-        "turnOver": {
-          "description": "The Turnover for this day and all channels",
-          "example": 23.11,
           "type": "number"
         }
       },
@@ -20355,7 +20822,7 @@
         "clickCount",
         "cost",
         "orderCount",
-        "turnOver",
+        "roi",
         "margin",
         "performanceIndicator",
         "totalSales",
@@ -20393,19 +20860,19 @@
           "example": 23.09,
           "type": "number"
         },
+        "roi": {
+          "description": "The Return On Investment for this day and this channel",
+          "example": 23.11,
+          "type": "number"
+        },
         "soldProductCount": {
           "description": "The product sold count count for this day and this channel",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales related to this day and this channel",
+          "description": "The total sales for this day and this channel",
           "example": 234.42,
-          "type": "number"
-        },
-        "turnOver": {
-          "description": "The Turnover for this day and this channel",
-          "example": 23.11,
           "type": "number"
         }
       },
@@ -20414,7 +20881,7 @@
         "clickCount",
         "cost",
         "orderCount",
-        "turnOver",
+        "roi",
         "margin",
         "performanceIndicator",
         "totalSales",
@@ -20428,9 +20895,9 @@
           "$ref": "#/definitions/reportAdvancedFilters"
         },
         "beginPeriodUtcDate": {
-          "description": "The begin date period you want to get the report",
+          "description": "The begin date of the period for the report",
           "example": "2006-11-20T00:00:00Z",
-          "format": "date-time",
+          "format": "date",
           "type": "string"
         },
         "catalogCategoryId": {
@@ -20447,9 +20914,9 @@
           "type": "array"
         },
         "endPeriodUtcDate": {
-          "description": "The end date period you want to get the report.",
+          "description": "The end date of the period for the report",
           "example": "2006-12-20T00:00:00Z",
-          "format": "date-time",
+          "format": "date",
           "type": "string"
         },
         "productId": {
@@ -20530,19 +20997,19 @@
         "product": {
           "$ref": "#/definitions/BeezUP.Common.ProductBasicInfo"
         },
+        "roi": {
+          "description": "The Return On Investment for this product",
+          "example": 42.01,
+          "type": "number"
+        },
         "soldProductCount": {
           "description": "The product sold count count for this product",
           "example": 2,
           "type": "integer"
         },
         "totalSales": {
-          "description": "The total sales related to this product",
+          "description": "The total sales for this product",
           "example": 234.42,
-          "type": "number"
-        },
-        "turnOver": {
-          "description": "The Turnover for this product",
-          "example": 42.01,
           "type": "number"
         }
       },
@@ -20553,8 +21020,6 @@
         "clickCount",
         "cost",
         "orderCount",
-        "turnOver",
-        "margin",
         "performanceIndicator",
         "totalSales",
         "soldProductCount",
@@ -20592,30 +21057,38 @@
     "reportByProductOneChannelLinks": {
       "description": "If the report concerned one product for one channel the channel catalog product info will give you all you need to enable or disable the product.",
       "properties": {
+        "disableProductForOneChannel": {
+          "$ref": "#/definitions/links.OptimiseByProductLink"
+        },
+        "enableProductForOneChannel": {
+          "$ref": "#/definitions/links.OptimiseByProductLink"
+        },
         "productInfo": {
           "$ref": "#/definitions/links.GetChannelCatalogProductInfoLink"
         }
       },
       "required": [
-        "productInfo"
+        "productInfo",
+        "enableProductForOneChannel",
+        "disableProductForOneChannel"
       ],
       "type": "object"
     },
     "reportByProductRequest": {
       "allOf": [
         {
-          "$ref": "#/definitions/reportFilterCommonParameters"
+          "$ref": "#/definitions/orderedReportFilterCommonParameters"
         },
         {
           "$ref": "#/definitions/paginationRequestParameters"
         },
         {
           "properties": {
+            "productColumnFilters": {
+              "$ref": "#/definitions/productColumnFilters"
+            },
             "productColumnsToDisplay": {
               "$ref": "#/definitions/productColumnsToDisplay"
-            },
-            "productFilters": {
-              "$ref": "#/definitions/BeezUP.Common.ProductFilters"
             },
             "productState": {
               "$ref": "#/definitions/productStateFilter"
@@ -20712,7 +21185,7 @@
           "format": "date-time",
           "type": "string"
         },
-        "indicatorFilters": {
+        "performanceIndicatorFilters": {
           "example": [
             {
               "indicator": "Cost",
@@ -20721,7 +21194,7 @@
             }
           ],
           "items": {
-            "$ref": "#/definitions/reportIndicatorFilter"
+            "$ref": "#/definitions/performanceIndicatorFilter"
           },
           "type": "array"
         },
@@ -20814,11 +21287,11 @@
         },
         {
           "properties": {
+            "productColumnFilters": {
+              "$ref": "#/definitions/productColumnFilters"
+            },
             "productColumnsToDisplay": {
               "$ref": "#/definitions/productColumnsToDisplay"
-            },
-            "productFilters": {
-              "$ref": "#/definitions/BeezUP.Common.ProductFilters"
             },
             "productState": {
               "$ref": "#/definitions/productStateFilter"
@@ -20865,44 +21338,13 @@
       ],
       "type": "object"
     },
-    "reportIndicatorFilter": {
-      "properties": {
-        "indicator": {
-          "$ref": "#/definitions/performanceIndicatorType"
-        },
-        "operatorName": {
-          "$ref": "#/definitions/reportIndicatorFilterOperatorName"
-        },
-        "value": {
-          "description": "Indicates the filter value to apply on this indicator",
-          "example": 10.42,
-          "type": "number"
-        }
-      },
-      "required": [
-        "indicator",
-        "operatorName",
-        "value"
-      ],
-      "type": "object"
-    },
-    "reportIndicatorFilterOperatorName": {
-      "description": "Indicates the operator you want to apply on this indicator",
-      "enum": [
-        "Equals",
-        "GreaterTo",
-        "LowerTo"
-      ],
-      "example": "Equals",
-      "type": "string"
-    },
     "reportType": {
       "description": "The report type",
       "enum": [
         "ByChannel",
         "ByCategory",
         "ByProduct",
-        "ByDate"
+        "ByDay"
       ],
       "example": "ByProduct",
       "type": "string"
@@ -21534,7 +21976,7 @@
       "type": "object"
     },
     "startManualImportRequest": {
-      "description": "The message request start a manual importation process.  Indicate the way to handle duplicate product. Can be null if you want to reuse the configuration of the previous importation succeed.",
+      "description": "The message request start a manual importation process. Indicate the way to handle duplicate product. Can be null if you want to reuse the configuration of the previous importation succeed.",
       "properties": {
         "duplicateProductSkuConfiguration": {
           "$ref": "#/definitions/duplicateProductValueConfiguration"
@@ -21558,6 +22000,9 @@
           "example": "2017-04-01T22:30:00Z",
           "format": "date-time",
           "type": "string"
+        },
+        "currencyCode": {
+          "$ref": "#/definitions/BeezUP.Common.CurrencyCode"
         },
         "links": {
           "$ref": "#/definitions/storeLinks"
@@ -21597,6 +22042,7 @@
         "name",
         "url",
         "countryIsoCodeAlpha3",
+        "currencyCode",
         "userRole",
         "status",
         "ownerUserId",
@@ -21874,19 +22320,19 @@
     "storeTrackingStatus": {
       "properties": {
         "clickSynchronizationUtcDate": {
-          "description": "The utc date of the latest click synchronized",
+          "description": "The utc date of the latest synchronized click",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
         },
         "marketplaceOrderSynchonizationUtcDate": {
-          "description": "The utc date of the latest marketplace order synchronized",
+          "description": "The utc date of the latest synchronized marketplace order",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
         },
         "orderSynchonizationUtcDate": {
-          "description": "The utc date of the latest order synchronized",
+          "description": "The utc date of the latest synchronized order",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
@@ -21930,7 +22376,7 @@
           "$ref": "#/definitions/BeezUP.Common.ChannelBasicInfo"
         },
         "ipAddress": {
-          "description": "The user's IP address related to this click",
+          "description": "The user IP address for the click",
           "example": "127.0.0.1",
           "type": "string"
         },
@@ -21977,12 +22423,12 @@
           "type": "string"
         },
         "paymentValidated": {
-          "description": "Indicate if the payment of this external order has been validated or not.",
+          "description": "Indicate if the payment of this external order has been validated or not",
           "example": false,
           "type": "boolean"
         },
         "products": {
-          "description": "Can be null. the product list related to this external order.",
+          "description": "Can be null. The product list included in the external order",
           "example": [
             {
               "margin": "9.66",
@@ -22001,18 +22447,18 @@
           "type": "array"
         },
         "totalAmount": {
-          "description": "The total amount related to the external order.",
+          "description": "The total amount of the external order",
           "example": 101.42,
           "type": "number"
         },
         "utcDate": {
-          "description": "The utc date of the external order.",
+          "description": "The utc date of the external order",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
         },
         "visitorId": {
-          "description": "Can be null. The visitor identifier related to this external order",
+          "description": "Can be null. The visitor identifier of the external order",
           "example": "A_VISITOR_ID",
           "type": "string"
         }
@@ -22029,7 +22475,7 @@
     "trackedExternalOrderProduct": {
       "properties": {
         "margin": {
-          "description": "Indicate the product's margin related to this order. This property is voluntarily a string because the value could be an invalid one",
+          "description": "The product's margin for the external order. This property is voluntarily a string because the value could be an invalid one",
           "example": "9.66",
           "type": "string"
         },
@@ -22051,7 +22497,7 @@
           "type": "string"
         },
         "productSku": {
-          "description": "The product sku received related to the external order.",
+          "description": "The product sku received for the external order",
           "example": "something",
           "type": "string"
         },
@@ -22061,12 +22507,12 @@
           "type": "string"
         },
         "quantity": {
-          "description": "Indicate the product's quantity ordered. This property is voluntarily a string because the value could be an invalid one",
+          "description": "The quantity of this product for the external order. This property is voluntarily a string because the value could be an invalid one",
           "example": "1.00",
           "type": "string"
         },
         "unitPrice": {
-          "description": "The product's unit price related to this external order. This property is voluntarily a string because the value could be an invalid one.",
+          "description": "The product's unit price for the external order. This property is voluntarily a string because the value could be an invalid one.",
           "example": "101.42",
           "type": "string"
         }
@@ -22104,12 +22550,12 @@
           "type": "string"
         },
         "paymentValidated": {
-          "description": "Indicate if the payment of this order has been validated or not.",
+          "description": "Indicate if the payment of this order has been validated or not",
           "example": false,
           "type": "boolean"
         },
         "products": {
-          "description": "the product list related to this order.",
+          "description": "The product list of this order",
           "example": [
             {
               "margin": 9.66,
@@ -22128,12 +22574,12 @@
           "type": "array"
         },
         "totalAmount": {
-          "description": "The total amount related to the order.",
+          "description": "The total amount of the order",
           "example": 101.42,
           "type": "number"
         },
         "utcDate": {
-          "description": "The utc date of the order.",
+          "description": "The utc date of the order",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
@@ -22158,17 +22604,17 @@
         {
           "properties": {
             "margin": {
-              "description": "Indicate the product's margin related to this order.",
+              "description": "The product's margin for the order",
               "example": 9.66,
               "type": "number"
             },
             "quantity": {
-              "description": "Indicate the product's quantity ordered.",
+              "description": "The quantity of this product for the order",
               "example": 1,
               "type": "number"
             },
             "unitPrice": {
-              "description": "The product's unit price related to this order",
+              "description": "The product's unit price for the order",
               "example": 101.42,
               "type": "number"
             }
@@ -22199,19 +22645,19 @@
     "trackingStatus": {
       "properties": {
         "clickSynchronizationUtcDate": {
-          "description": "The utc date of the latest click synchronized",
+          "description": "The utc date of the latest synchronized click",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
         },
         "marketplaceOrderSynchonizationUtcDate": {
-          "description": "The utc date of the latest marketplace order synchronized",
+          "description": "The utc date of the latest synchronized marketplace order",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
         },
         "orderSynchonizationUtcDate": {
-          "description": "The utc date of the latest order synchronized",
+          "description": "The utc date of the latest synchronized order",
           "example": "2016-08-29T09:12:33.001Z",
           "format": "date-time",
           "type": "string"
@@ -22451,7 +22897,7 @@
   "x-beezup-api-ops": {
     "apiName": "V2PublicSecurity",
     "appRoot": "BeezUP.Customer.WebService",
-    "comment": "No change. Just server side generation.\n",
+    "comment": "Changing contact email support to help\nNo change. Just server side generation.\n",
     "namespace": "BeezUP.Customer.WebService",
     "repo": "Customer"
   },
@@ -22517,7 +22963,7 @@
         "Channel Catalogs - Global",
         "Channel Catalogs - Settings",
         "Channel Catalogs - Column Mappings",
-        "Channel Catalogs - Category Mappings",
+        "Channel Catalogs - Categories",
         "Channel Catalogs - Exclusion Filters",
         "Channel Catalogs - Products",
         "Channel Catalogs - Products Overrides",
@@ -22550,9 +22996,9 @@
         "Analytics - Global",
         "Analytics - Tracking",
         "Analytics - Statistics",
-        "Analytics - Rules",
+        "Analytics - Optimisations",
         "Analytics - Reports",
-        "Analytics - Optimisations"
+        "Analytics - Rules"
       ]
     }
   ]

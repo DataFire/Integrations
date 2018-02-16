@@ -184,12 +184,10 @@
         "operationId": "accounts.products.list",
         "parameters": [
           {
-            "description": "Parent ID in the format `accounts/{account_id}`.\n\n`account_id` - The ID of the Manufacturer Center account.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "type": "string",
-            "x-reservedExpansion": true
+            "description": "Maximum number of product statuses to return in the response, used for\npaging.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
           },
           {
             "description": "The token returned by the previous request.",
@@ -198,10 +196,12 @@
             "type": "string"
           },
           {
-            "description": "Maximum number of product statuses to return in the response, used for\npaging.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "Parent ID in the format `accounts/{account_id}`.\n\n`account_id` - The ID of the Manufacturer Center account.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
           }
         ],
         "responses": {
@@ -228,43 +228,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -317,17 +317,17 @@
         "operationId": "accounts.products.get",
         "parameters": [
           {
-            "description": "Parent ID in the format `accounts/{account_id}`.\n\n`account_id` - The ID of the Manufacturer Center account.",
+            "description": "Name in the format `{target_country}:{content_language}:{product_id}`.\n\n`target_country`   - The target country of the product as a CLDR territory\n                     code (for example, US).\n\n`content_language` - The content language of the product as a two-letter\n                     ISO 639-1 language code (for example, en).\n\n`product_id`     -   The ID of the product. For more information, see\n                     https://support.google.com/manufacturers/answer/6124116#id.",
             "in": "path",
-            "name": "parent",
+            "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
           },
           {
-            "description": "Name in the format `{target_country}:{content_language}:{product_id}`.\n\n`target_country`   - The target country of the product as a CLDR territory\n                     code (for example, US).\n\n`content_language` - The content language of the product as a two-letter\n                     ISO 639-1 language code (for example, en).\n\n`product_id`     -   The ID of the product. For more information, see\n                     https://support.google.com/manufacturers/answer/6124116#id.",
+            "description": "Parent ID in the format `accounts/{account_id}`.\n\n`account_id` - The ID of the Manufacturer Center account.",
             "in": "path",
-            "name": "name",
+            "name": "parent",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
@@ -357,43 +357,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {

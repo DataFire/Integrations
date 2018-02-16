@@ -26,9 +26,15 @@ API that provides statistical data about Players and Matches.
 ## Actions
 
 ### h5.arena.matches.matchId.get
-<p>Retrieves detailed statistics for a Match.</p>
+<p>Retrieves detailed statistics for a Match with the Arena Game Mode.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -68,10 +74,16 @@ haloapi_stats.h5.arena.matches.matchId.get({
 *Output schema unknown*
 
 ### h5.campaign.matches.matchId.get
-<p>Retrieves detailed statistics for a Match.</p>
+<p>Retrieves detailed statistics for a Match with the Campaign Game Mode.</p>
 <p>Every time a player plays a portion of a Campaign Mission, a Match will be generated whether the player finishes the Mission or not. If the "Match" ends because the Mission was completed, this will be indicated in the response.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -160,9 +172,16 @@ haloapi_stats.h5.companies.companyId.commendations.get({
 *Output schema unknown*
 
 ### h5.custom.matches.matchId.get
-<p>Retrieves detailed statistics for a Match.</p>
+<p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Match Result - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+        <li>Added documentation for "PresentInMatch".</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -189,6 +208,32 @@ haloapi_stats.h5.companies.companyId.commendations.get({
 
 ```js
 haloapi_stats.h5.custom.matches.matchId.get({
+  "matchId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * matchId **required** `string`: An ID that uniquely identifies a Match. Match IDs can be retrieved from the "Halo 5 - Player Match History" Endpoint.
+
+#### Output
+*Output schema unknown*
+
+### h5.customlocal.matches.matchId.get
+<p>Retrieves detailed statistics for a Match with the Custom Local Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the "Halo 5 - Match Result - Custom" Endpoint.</p>
+<br />
+<h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Endpoint.</li>
+    </ul>
+</div>
+
+
+
+```js
+haloapi_stats.h5.customlocal.matches.matchId.get({
   "matchId": ""
 }, context)
 ```
@@ -318,8 +363,15 @@ haloapi_stats.h5.players.player.commendations.get({
 
 ### h5.players.player.matches.get
 <p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>
+<p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added support for the Custom Local Game mode.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -346,7 +398,7 @@ haloapi_stats.h5.players.player.matches.get({
 #### Input
 * input `object`
   * player **required** `string`: The Player's Gamertag.
-  * modes `string`: Indicates what Game Mode(s) the client is interested in getting Matches for (arena, campaign, custom, or warzone).
+  * modes `string`: Indicates what Game Mode(s) the client is interested in getting Matches for (arena, campaign, custom, customlocal, or warzone).
   * start `number`: When specified, this indicates the starting index (0-based) for which the batch of results will begin at. For example, "start=0" indicates that the first qualifying result will be returned, no items are 'skipped'. Passing "start=10" indicates that the result will begin with the 11th item, the first 10 will be 'skipped'.
   * count `number`: When specified, this indicates the maximum quantity of items the client would like returned in the response.
 
@@ -354,9 +406,15 @@ haloapi_stats.h5.players.player.matches.get({
 *Output schema unknown*
 
 ### h5.servicerecords.arena.get
-<p>Retrieves Arena Service Records for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
+<p>Retrieves Service Records for the Arena Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -388,9 +446,15 @@ haloapi_stats.h5.servicerecords.arena.get({
 *Output schema unknown*
 
 ### h5.servicerecords.campaign.get
-<p>Retrieves Campaign Service Records for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
+<p>Retrieves Service Records for the Campaign Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -415,9 +479,15 @@ haloapi_stats.h5.servicerecords.campaign.get({
 *Output schema unknown*
 
 ### h5.servicerecords.custom.get
-<p>Retrieves Custom Service Records for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
+<p>Retrieves Service Records for the Custom Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Player Service Records - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -441,10 +511,42 @@ haloapi_stats.h5.servicerecords.custom.get({
 #### Output
 *Output schema unknown*
 
-### h5.servicerecords.warzone.get
-<p>Retrieves Warzone Service Records for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
+### h5.servicerecords.customlocal.get
+<p>Retrieves Service Records for the Custom Local Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Local Game Mode are played on Local Servers. For games played on Xbox Live Servers, use the "Halo 5 - Player Service Records - Custom" Endpoint. A player's Custom Local Service Record summarizes games played on or after December 22, 2017.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Endpoint.</li>
+    </ul>
+</div>
+
+
+
+```js
+haloapi_stats.h5.servicerecords.customlocal.get({
+  "players": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * players **required** `string`: A comma-separated list of Gamertags. Up to 32 Gamertags may be specified.
+
+#### Output
+*Output schema unknown*
+
+### h5.servicerecords.warzone.get
+<p>Retrieves Service Records for the Warzone Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
+<br />
+<h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -469,9 +571,15 @@ haloapi_stats.h5.servicerecords.warzone.get({
 *Output schema unknown*
 
 ### h5.warzone.matches.matchId.get
-<p>Retrieves detailed statistics for a Match.</p>
+<p>Retrieves detailed statistics for a Match with the Warzone Game Mode.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -511,9 +619,16 @@ haloapi_stats.h5.warzone.matches.matchId.get({
 *Output schema unknown*
 
 ### h5pc.custom.matches.matchId.get
-<p>Retrieves detailed statistics for a Match.</p>
+<p>Retrieves detailed statistics for a Match with the Custom Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Match Result - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+        <li>Added documentation for "PresentInMatch".</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -553,8 +668,15 @@ haloapi_stats.h5pc.custom.matches.matchId.get({
 
 ### h5pc.players.player.matches.get
 <p>Retrieves a list of Matches that the Player has participated in and which have completed processing. If the Player is currently in a match, it is not returned in this API.</p>
+<p>This endpoint will include games played on Local Servers with the Custom Local Game Mode for games that occurred or after December 22, 2017.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added support for the Custom Local Game mode.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>
@@ -589,9 +711,15 @@ haloapi_stats.h5pc.players.player.matches.get({
 *Output schema unknown*
 
 ### h5pc.servicerecords.custom.get
-<p>Retrieves Custom Service Records for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode.</p>
+<p>Retrieves Service Records for the Custom Game Mode for one or more players. A Service Record contains a player's lifetime statistics in the Game Mode. Games with the Custom Game Mode are played on Xbox Live Servers. For games played on Local Servers, use the "Halo 5 - Player Service Records - Custom Local" Endpoint.</p>
 <br />
 <h4>Changelog</h4>
+<div class="panel-body">
+    <p><strong>December 22, 2017:</strong></p>
+    <ul>
+        <li>Added Game Mode clarifications to the Endpoint description.</li>
+    </ul>
+</div>
 <div class="panel-body">
     <p><strong>February 21, 2017:</strong></p>
     <ul>

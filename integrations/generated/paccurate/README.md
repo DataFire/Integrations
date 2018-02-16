@@ -254,7 +254,7 @@ paccurate..post({}, context)
 ### Rule
 * Rule `object`: Rule definition for packing constraints.
   * itemRefId `integer`: reference ID for the item the rule applies to.
-  * operation **required** `string` (values: exclude, exclude-all, pack-as-is, irregular): Rule type for this definition. Valid operation values include
+  * operation **required** `string` (values: exclude, exclude-all, pack-as-is, irregular, lock-orientation): Rule type for this definition. Valid operation values include
   * options `object`: additional key-value options to pass for rule based on operation type.
   * parameters `array`: array of supplementary parameters to pass for rule, mostly deprecated. may be different from options.
     * items `string`

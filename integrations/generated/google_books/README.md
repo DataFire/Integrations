@@ -162,6 +162,76 @@ google_books.dictionary.listOfflineMetadata({
 #### Output
 * output [Metadata](#metadata)
 
+### familysharing.getFamilyInfo
+Gets information regarding the family that the user is part of.
+
+
+```js
+google_books.familysharing.getFamilyInfo({}, context)
+```
+
+#### Input
+* input `object`
+  * source `string`: String to identify the originator of this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [FamilyInfo](#familyinfo)
+
+### familysharing.share
+Initiates sharing of the content with the user's family. Empty response indicates success.
+
+
+```js
+google_books.familysharing.share({}, context)
+```
+
+#### Input
+* input `object`
+  * docId `string`: The docid to share.
+  * source `string`: String to identify the originator of this request.
+  * volumeId `string`: The volume to share.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+*Output schema unknown*
+
+### familysharing.unshare
+Initiates revoking content that has already been shared with the user's family. Empty response indicates success.
+
+
+```js
+google_books.familysharing.unshare({}, context)
+```
+
+#### Input
+* input `object`
+  * docId `string`: The docid to unshare.
+  * source `string`: String to identify the originator of this request.
+  * volumeId `string`: The volume to unshare.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+*Output schema unknown*
+
 ### myconfig.getUserSettings
 Gets the current settings for the user.
 
@@ -189,17 +259,17 @@ Release downloaded content access restriction.
 
 ```js
 google_books.myconfig.releaseDownloadAccess({
-  "volumeIds": [],
-  "cpksver": ""
+  "cpksver": "",
+  "volumeIds": []
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeIds **required** `array`: The volume(s) to release restrictions for.
   * cpksver **required** `string`: The device/version ID from which to release the restriction.
   * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
   * source `string`: String to identify the originator of this request.
+  * volumeIds **required** `array`: The volume(s) to release restrictions for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -217,21 +287,21 @@ Request concurrent and download access restrictions.
 
 ```js
 google_books.myconfig.requestAccess({
-  "source": "",
-  "volumeId": "",
+  "cpksver": "",
   "nonce": "",
-  "cpksver": ""
+  "source": "",
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * source **required** `string`: String to identify the originator of this request.
-  * volumeId **required** `string`: The volume to request concurrent/download restrictions for.
-  * nonce **required** `string`: The client nonce value.
   * cpksver **required** `string`: The device/version ID from which to request the restrictions.
   * licenseTypes `string` (values: BOTH, CONCURRENT, DOWNLOAD): The type of access license to request. If not specified, the default is BOTH.
   * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
+  * nonce **required** `string`: The client nonce value.
+  * source **required** `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: The volume to request concurrent/download restrictions for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -249,21 +319,21 @@ Request downloaded content access for specified volumes on the My eBooks shelf.
 
 ```js
 google_books.myconfig.syncVolumeLicenses({
-  "source": "",
+  "cpksver": "",
   "nonce": "",
-  "cpksver": ""
+  "source": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * source **required** `string`: String to identify the originator of this request.
-  * nonce **required** `string`: The client nonce value.
   * cpksver **required** `string`: The device/version ID from which to release the restriction.
   * features `array`: List of features supported by the client, i.e., 'RENTALS'
   * includeNonComicsSeries `boolean`: Set to true to include non-comics series. Defaults to false.
   * locale `string`: ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US.
+  * nonce **required** `string`: The client nonce value.
   * showPreorders `boolean`: Set to true to show pre-ordered books. Defaults to false.
+  * source **required** `string`: String to identify the originator of this request.
   * volumeIds `array`: The volume(s) to request download restrictions for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -419,8 +489,8 @@ google_books.mylibrary.annotations.update({
 #### Input
 * input `object`
   * annotationId **required** `string`: The ID for the annotation to update.
-  * source `string`: String to identify the originator of this request.
   * body [Annotation](#annotation)
+  * source `string`: String to identify the originator of this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -492,10 +562,10 @@ google_books.mylibrary.bookshelves.addVolume({
 
 #### Input
 * input `object`
-  * shelf **required** `string`: ID of bookshelf to which to add a volume.
-  * volumeId **required** `string`: ID of volume to add.
   * reason `string` (values: IOS_PREX, IOS_SEARCH, ONBOARDING): The reason for which the book is added to the library.
+  * shelf **required** `string`: ID of bookshelf to which to add a volume.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: ID of volume to add.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -547,9 +617,9 @@ google_books.mylibrary.bookshelves.moveVolume({
 #### Input
 * input `object`
   * shelf **required** `string`: ID of bookshelf with the volume.
+  * source `string`: String to identify the originator of this request.
   * volumeId **required** `string`: ID of volume to move.
   * volumePosition **required** `integer`: Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.)
-  * source `string`: String to identify the originator of this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -574,10 +644,10 @@ google_books.mylibrary.bookshelves.removeVolume({
 
 #### Input
 * input `object`
-  * shelf **required** `string`: ID of bookshelf from which to remove a volume.
-  * volumeId **required** `string`: ID of volume to remove.
   * reason `string` (values: ONBOARDING): The reason for which the book is removed from the library.
+  * shelf **required** `string`: ID of bookshelf from which to remove a volume.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: ID of volume to remove.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -601,11 +671,11 @@ google_books.mylibrary.bookshelves.volumes.list({
 
 #### Input
 * input `object`
-  * shelf **required** `string`: The bookshelf ID or name retrieve volumes for.
   * country `string`: ISO-3166-1 code to override the IP-based location.
   * maxResults `integer`: Maximum number of results to return
   * projection `string` (values: full, lite): Restrict information returned to a set of selected fields.
   * q `string`: Full-text search query string in this bookshelf.
+  * shelf **required** `string`: The bookshelf ID or name retrieve volumes for.
   * showPreorders `boolean`: Set to true to show pre-ordered books. Defaults to false.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first element to return (starts at 0)
@@ -632,9 +702,9 @@ google_books.mylibrary.readingpositions.get({
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: ID of volume for which to retrieve a reading position.
   * contentVersion `string`: Volume content version for which this reading position is requested.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: ID of volume for which to retrieve a reading position.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -652,21 +722,21 @@ Sets my reading position information for a volume.
 
 ```js
 google_books.mylibrary.readingpositions.setPosition({
-  "volumeId": "",
+  "position": "",
   "timestamp": "",
-  "position": ""
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: ID of volume for which to update the reading position.
-  * timestamp **required** `string`: RFC 3339 UTC format timestamp associated with this reading position.
-  * position **required** `string`: Position string for the new volume reading position.
   * action `string` (values: bookmark, chapter, next-page, prev-page, scroll, search): Action that caused this reading position to be set.
   * contentVersion `string`: Volume content version for which this reading position applies.
   * deviceCookie `string`: Random persistent device cookie optional on set position.
+  * position **required** `string`: Position string for the new volume reading position.
   * source `string`: String to identify the originator of this request.
+  * timestamp **required** `string`: RFC 3339 UTC format timestamp associated with this reading position.
+  * volumeId **required** `string`: ID of volume for which to update the reading position.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -690,8 +760,8 @@ google_books.notification.get({
 
 #### Input
 * input `object`
-  * notification_id **required** `string`: String to identify the notification.
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating notification title and body.
+  * notification_id **required** `string`: String to identify the notification.
   * source `string`: String to identify the originator of this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -896,9 +966,9 @@ google_books.series.membership.get({
 
 #### Input
 * input `object`
-  * series_id **required** `string`: String that identifies the series
   * page_size `integer`: Number of maximum results per page to be included in the response.
   * page_token `string`: The value of the nextToken from the previous page.
+  * series_id **required** `string`: String that identifies the series
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -922,8 +992,8 @@ google_books.bookshelves.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of user for whom to retrieve bookshelves.
   * source `string`: String to identify the originator of this request.
+  * userId **required** `string`: ID of user for whom to retrieve bookshelves.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -941,16 +1011,16 @@ Retrieves metadata for a specific bookshelf for the specified user.
 
 ```js
 google_books.bookshelves.get({
-  "userId": "",
-  "shelf": ""
+  "shelf": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of user for whom to retrieve bookshelves.
   * shelf **required** `string`: ID of bookshelf to retrieve.
   * source `string`: String to identify the originator of this request.
+  * userId **required** `string`: ID of user for whom to retrieve bookshelves.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -968,19 +1038,19 @@ Retrieves volumes in a specific bookshelf for the specified user.
 
 ```js
 google_books.bookshelves.volumes.list({
-  "userId": "",
-  "shelf": ""
+  "shelf": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of user for whom to retrieve bookshelf volumes.
-  * shelf **required** `string`: ID of bookshelf to retrieve volumes.
   * maxResults `integer`: Maximum number of results to return
+  * shelf **required** `string`: ID of bookshelf to retrieve volumes.
   * showPreorders `boolean`: Set to true to show pre-ordered books. Defaults to false.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first element to return (starts at 0)
+  * userId **required** `string`: ID of user for whom to retrieve bookshelf volumes.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1004,7 +1074,6 @@ google_books.volumes.list({
 
 #### Input
 * input `object`
-  * q **required** `string`: Full-text search query string.
   * download `string` (values: epub): Restrict to volumes by download availability.
   * filter `string` (values: ebooks, free-ebooks, full, paid-ebooks, partial): Filter search results.
   * langRestrict `string`: Restrict results to books with this language code.
@@ -1015,6 +1084,7 @@ google_books.volumes.list({
   * partner `string`: Restrict and brand results for partner ID.
   * printType `string` (values: all, books, magazines): Restrict to books or magazines.
   * projection `string` (values: full, lite): Restrict information returned to a set of selected fields.
+  * q **required** `string`: Full-text search query string.
   * showPreorders `boolean`: Set to true to show books available for preorder. Defaults to false.
   * source `string`: String to identify the originator of this request.
   * startIndex `integer`: Index of the first result to return (starts at 0)
@@ -1094,10 +1164,10 @@ google_books.volumes.recommended.rate({
 
 #### Input
 * input `object`
-  * rating **required** `string` (values: HAVE_IT, NOT_INTERESTED): Rating to be given to the volume.
-  * volumeId **required** `string`: ID of the source volume.
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
+  * rating **required** `string` (values: HAVE_IT, NOT_INTERESTED): Rating to be given to the volume.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: ID of the source volume.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1148,13 +1218,13 @@ google_books.volumes.get({
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: ID of volume to retrieve.
   * country `string`: ISO-3166-1 code to override the IP-based location.
   * includeNonComicsSeries `boolean`: Set to true to include non-comics series. Defaults to false.
   * partner `string`: Brand results for partner ID.
   * projection `string` (values: full, lite): Restrict information returned to a set of selected fields.
   * source `string`: String to identify the originator of this request.
   * user_library_consistent_read `boolean`
+  * volumeId **required** `string`: ID of volume to retrieve.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1178,11 +1248,11 @@ google_books.volumes.associated.list({
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: ID of the source volume.
   * association `string` (values: end-of-sample, end-of-volume, related-for-play): Association type.
   * locale `string`: ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
   * maxAllowedMaturityRating `string` (values: mature, not-mature): The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: ID of the source volume.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1200,19 +1270,18 @@ Gets the volume annotations for a volume and layer.
 
 ```js
 google_books.layers.volumeAnnotations.list({
-  "volumeId": "",
+  "contentVersion": "",
   "layerId": "",
-  "contentVersion": ""
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: The volume to retrieve annotations for.
-  * layerId **required** `string`: The ID for the layer to get the annotations.
   * contentVersion **required** `string`: The content version for the requested volume.
   * endOffset `string`: The end offset to end retrieving data from.
   * endPosition `string`: The end position to end retrieving data from.
+  * layerId **required** `string`: The ID for the layer to get the annotations.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: The value of the nextToken from the previous page.
@@ -1223,6 +1292,7 @@ google_books.layers.volumeAnnotations.list({
   * updatedMax `string`: RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
   * updatedMin `string`: RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
   * volumeAnnotationsVersion `string`: The version of the volume annotations that you are requesting.
+  * volumeId **required** `string`: The volume to retrieve annotations for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1240,19 +1310,19 @@ Gets the volume annotation.
 
 ```js
 google_books.layers.volumeAnnotations.get({
-  "volumeId": "",
+  "annotationId": "",
   "layerId": "",
-  "annotationId": ""
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: The volume to retrieve annotations for.
-  * layerId **required** `string`: The ID for the layer to get the annotations.
   * annotationId **required** `string`: The ID of the volume annotation to retrieve.
+  * layerId **required** `string`: The ID for the layer to get the annotations.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: The volume to retrieve annotations for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1270,19 +1340,18 @@ Gets the annotation data for a volume and layer.
 
 ```js
 google_books.layers.annotationData.list({
-  "volumeId": "",
+  "contentVersion": "",
   "layerId": "",
-  "contentVersion": ""
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: The volume to retrieve annotation data for.
-  * layerId **required** `string`: The ID for the layer to get the annotation data.
-  * contentVersion **required** `string`: The content version for the requested volume.
   * annotationDataId `array`: The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set.
+  * contentVersion **required** `string`: The content version for the requested volume.
   * h `integer`: The requested pixel height for any images. If height is provided width must also be provided.
+  * layerId **required** `string`: The ID for the layer to get the annotation data.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: The value of the nextToken from the previous page.
@@ -1290,6 +1359,7 @@ google_books.layers.annotationData.list({
   * source `string`: String to identify the originator of this request.
   * updatedMax `string`: RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
   * updatedMin `string`: RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
+  * volumeId **required** `string`: The volume to retrieve annotation data for.
   * w `integer`: The requested pixel width for any images. If width is provided height must also be provided.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1308,24 +1378,24 @@ Gets the annotation data.
 
 ```js
 google_books.layers.annotationData.get({
-  "volumeId": "",
-  "layerId": "",
   "annotationDataId": "",
-  "contentVersion": ""
+  "contentVersion": "",
+  "layerId": "",
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: The volume to retrieve annotations for.
-  * layerId **required** `string`: The ID for the layer to get the annotations.
+  * allowWebDefinitions `boolean`: For the dictionary layer. Whether or not to allow web definitions.
   * annotationDataId **required** `string`: The ID of the annotation data to retrieve.
   * contentVersion **required** `string`: The content version for the volume you are trying to retrieve.
-  * allowWebDefinitions `boolean`: For the dictionary layer. Whether or not to allow web definitions.
   * h `integer`: The requested pixel height for any images. If height is provided width must also be provided.
+  * layerId **required** `string`: The ID for the layer to get the annotations.
   * locale `string`: The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.
   * scale `integer`: The requested scale for the image.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: The volume to retrieve annotations for.
   * w `integer`: The requested pixel width for any images. If width is provided height must also be provided.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1350,11 +1420,11 @@ google_books.layers.list({
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: The volume to retrieve layers for.
   * contentVersion `string`: The content version for the requested volume.
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: The value of the nextToken from the previous page.
   * source `string`: String to identify the originator of this request.
+  * volumeId **required** `string`: The volume to retrieve layers for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1372,17 +1442,17 @@ Gets the layer summary for a volume.
 
 ```js
 google_books.layers.get({
-  "volumeId": "",
-  "summaryId": ""
+  "summaryId": "",
+  "volumeId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * volumeId **required** `string`: The volume to retrieve layers for.
-  * summaryId **required** `string`: The ID for the layer to get the summary for.
   * contentVersion `string`: The content version for the requested volume.
   * source `string`: String to identify the originator of this request.
+  * summaryId **required** `string`: The ID for the layer to get the summary for.
+  * volumeId **required** `string`: The volume to retrieve layers for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1626,6 +1696,16 @@ google_books.layers.get({
     * items [DownloadAccessRestriction](#downloadaccessrestriction)
   * kind `string`: Resource type.
 
+### FamilyInfo
+* FamilyInfo `object`
+  * kind `string`: Resource type.
+  * membership `object`: Family membership info of the user that made the request.
+    * acquirePermission `string`: Restrictions on user buying and acquiring content.
+    * ageGroup `string`: The age group of the user.
+    * allowedMaturityRating `string`: The maximum allowed maturity rating for the user.
+    * isInFamily `boolean`
+    * role `string`: The role of the user in the family.
+
 ### Geolayerdata
 * Geolayerdata `object`
   * common `object`
@@ -1783,9 +1863,13 @@ google_books.layers.get({
     * folderName `string`
     * isEnabled `boolean`
   * notification `object`
+    * matchMyInterests `object`
+      * opted_state `string`
     * moreFromAuthors `object`
       * opted_state `string`
     * moreFromSeries `object`
+      * opted_state `string`
+    * priceDrop `object`
       * opted_state `string`
     * rewardExpirations `object`
       * opted_state `string`

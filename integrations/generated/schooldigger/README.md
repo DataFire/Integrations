@@ -273,8 +273,8 @@ schooldigger.Schools_GetSchool({
   * numberOfDistricts `integer`: The total count of districts in the entire rank list
   * numberOfPages `integer`: The total count of pages in your query list based on given per_page value
   * rankCompareYear `integer`
-  * rankYear `integer`: Year this ranking list represents (2017 = 2016-17)
-  * rankYearCompare `integer`: Year rankings returned for comparison (2017 = 2016-17)
+  * rankYear `integer`: Year this ranking list represents (2018 = 2017-18)
+  * rankYearCompare `integer`: Year rankings returned for comparison (2018 = 2017-18)
   * rankYearsAvailable `array`: The years for which SchoolDigger district rankings are available for this state
     * items `integer`
 
@@ -317,7 +317,7 @@ schooldigger.Schools_GetSchool({
   * numberOfTeachersK `number`: Number of full-time equivalent kindergarten teachers employed by the district
   * numberOfTeachersPK `number`: Number of full-time equivalent pre-kindergarten teachers employed by the district
   * numberOfTeachersSecondary `number`: Number of full-time equivalent secondary teachers employed by the district
-  * year `integer`: School year (2017 = 2016-17)
+  * year `integer`: School year (2018 = 2017-18)
 
 ### APILatLong
 * APILatLong `object`
@@ -430,8 +430,8 @@ schooldigger.Schools_GetSchool({
 * APISchoolListRank `object`
   * numberOfPages `integer`: The total count of pages this ranking list based on given per_page value
   * numberOfSchools `integer`: The total count of schools in this ranking list
-  * rankYear `integer`: Year this ranking list represents (2017 = 2016-17)
-  * rankYearCompare `integer`: Year rankings returned for comparison (2017 = 2016-17)
+  * rankYear `integer`: Year this ranking list represents (2018 = 2017-18)
+  * rankYearCompare `integer`: Year rankings returned for comparison (2018 = 2017-18)
   * rankYearsAvailable `array`: The years for which SchoolDigger rankings are available for this state and level
     * items `integer`
   * schoolList `array`: The schools in the ranking list
@@ -468,7 +468,7 @@ schooldigger.Schools_GetSchool({
   * tier3 `string`: Tier 3 test score description (Enterprise API level only)
   * tier4 `string`: Tier 4 test score description (Enterprise API level only)
   * tier5 `string`: Tier 5 test score description (Enterprise API level only)
-  * year `integer`: Year test was administered (2017 = 2016-17)
+  * year `integer`: Year test was administered (2018 = 2017-18)
 
 ### APIYearlyDemographics
 * APIYearlyDemographics `object`
@@ -492,6 +492,6 @@ schooldigger.Schools_GetSchool({
   * percentofWhiteStudents `number`
   * pupilTeacherRatio `number`: Number of students / number of full-time equivalent teachers
   * teachersFulltime `number`: Number of full-time equvalent teachers employed at the school
-  * year `integer`: School year (2017 = 2016-17)
+  * year `integer`: School year (2018 = 2017-18)
 
 

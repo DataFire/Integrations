@@ -453,23 +453,23 @@ Generate an AdSense report based on the report request sent in the query paramet
 ```js
 google_adsense.accounts.reports.generate({
   "accountId": "",
-  "startDate": "",
-  "endDate": ""
+  "endDate": "",
+  "startDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Account upon which to report.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * currency `string`: Optional currency to use when reporting on monetary metrics. Defaults to the account's currency if not set.
   * dimension `array`: Dimensions to base the report on.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * useTimezoneReporting `boolean`: Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used.
   * alt `string` (values: csv, json): Data format for the response.
@@ -523,9 +523,9 @@ google_adsense.accounts.reports.saved.generate({
 #### Input
 * input `object`
   * accountId **required** `string`: Account to which the saved reports belong.
-  * savedReportId **required** `string`: The saved report to retrieve.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
+  * savedReportId **required** `string`: The saved report to retrieve.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -942,23 +942,23 @@ Generate an AdSense report based on the report request sent in the query paramet
 
 ```js
 google_adsense.reports.generate({
-  "startDate": "",
-  "endDate": ""
+  "endDate": "",
+  "startDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * accountId `array`: Accounts upon which to report.
   * currency `string`: Optional currency to use when reporting on monetary metrics. Defaults to the account's currency if not set.
   * dimension `array`: Dimensions to base the report on.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * useTimezoneReporting `boolean`: Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used.
   * alt `string` (values: csv, json): Data format for the response.
@@ -1007,9 +1007,9 @@ google_adsense.reports.saved.generate({
 
 #### Input
 * input `object`
-  * savedReportId **required** `string`: The saved report to retrieve.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
+  * savedReportId **required** `string`: The saved report to retrieve.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.

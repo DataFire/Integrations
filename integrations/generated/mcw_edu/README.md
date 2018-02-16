@@ -557,7 +557,7 @@ mcw_edu.getQTLByRgdIdUsingGET({
 * output [QTL](#qtl)
 
 ### getActiveObjectCountUsingGET
-getActiveObjectCount
+Count of active objects by type, for specified species and date
 
 
 ```js
@@ -576,7 +576,7 @@ mcw_edu.getActiveObjectCountUsingGET({
 * output `object`
 
 ### getGeneTypeCountUsingGET
-getGeneTypeCount
+Count of gene types, for specified species and date
 
 
 ```js
@@ -595,7 +595,7 @@ mcw_edu.getGeneTypeCountUsingGET({
 * output `object`
 
 ### getObjectStatusCountUsingGET
-getObjectStatusCount
+Count of objects with given status, for specified species and date
 
 
 ```js
@@ -614,7 +614,7 @@ mcw_edu.getObjectStatusCountUsingGET({
 * output `object`
 
 ### getObjectsWithRefSeqCountUsingGET
-getObjectsWithRefSeqCount
+Count of objects with reference sequence(s), by object type, for specified species and date
 
 
 ```js
@@ -633,7 +633,7 @@ mcw_edu.getObjectsWithRefSeqCountUsingGET({
 * output `object`
 
 ### getObjectsWithReferenceCountUsingGET
-getObjectsWithReferenceCount
+Count of objects with reference, by object type, for specified species and date
 
 
 ```js
@@ -652,7 +652,7 @@ mcw_edu.getObjectsWithReferenceCountUsingGET({
 * output `object`
 
 ### getObjectsWithXDBsCountUsingGET
-getObjectsWithXDBsCount
+Count of objects with external database ids, by database id, for specified species, object type and date
 
 
 ```js
@@ -673,7 +673,7 @@ mcw_edu.getObjectsWithXDBsCountUsingGET({
 * output `object`
 
 ### getProteinInteractionCountUsingGET
-getProteinInteractionCount
+Count of protein interactions, for specified species and date
 
 
 ```js
@@ -692,7 +692,7 @@ mcw_edu.getProteinInteractionCountUsingGET({
 * output `object`
 
 ### getQtlInheritanceTypeCountUsingGET
-getQtlInheritanceTypeCount
+Count of strains, by qtl inheritance type, for specified species and date
 
 
 ```js
@@ -711,7 +711,7 @@ mcw_edu.getQtlInheritanceTypeCountUsingGET({
 * output `object`
 
 ### getRetiredObjectCountUsingGET
-getRetiredObjectCount
+Count of retired objects by type, for specified species and date
 
 
 ```js
@@ -730,7 +730,7 @@ mcw_edu.getRetiredObjectCountUsingGET({
 * output `object`
 
 ### getStrainTypeCountUsingGET
-getStrainTypeCount
+Count of strain types, for specified species and date
 
 
 ```js
@@ -749,7 +749,7 @@ mcw_edu.getStrainTypeCountUsingGET({
 * output `object`
 
 ### getWithdrawnObjectCountUsingGET
-getWithdrawnObjectCount
+Count of withdrawn objects by type, for specified species and date
 
 
 ```js
@@ -768,7 +768,7 @@ mcw_edu.getWithdrawnObjectCountUsingGET({
 * output `object`
 
 ### getXdbsCountUsingGET
-getXdbsCount
+Count of external database ids, for specied species and date
 
 
 ```js
@@ -787,7 +787,7 @@ mcw_edu.getXdbsCountUsingGET({
 * output `object`
 
 ### getActiveObjectDiffUsingGET
-getActiveObjectDiff
+Count difference of active objects, by type, for specified species and date range
 
 
 ```js
@@ -808,7 +808,7 @@ mcw_edu.getActiveObjectDiffUsingGET({
 * output `object`
 
 ### getGeneTypeDiffUsingGET
-getGeneTypeDiff
+Count difference of gene types, for specified species and date range
 
 
 ```js
@@ -829,7 +829,7 @@ mcw_edu.getGeneTypeDiffUsingGET({
 * output `object`
 
 ### getObjectStatusDiffUsingGET
-getObjectStatusDiff
+Count difference of objects with given status, for specified species and date range
 
 
 ```js
@@ -850,7 +850,7 @@ mcw_edu.getObjectStatusDiffUsingGET({
 * output `object`
 
 ### getObjectsWithRefSeqDiffUsingGET
-getObjectsWithRefSeqDiff
+Count difference of objects with reference sequence(s), by object type, for specified species and date range
 
 
 ```js
@@ -871,7 +871,7 @@ mcw_edu.getObjectsWithRefSeqDiffUsingGET({
 * output `object`
 
 ### getObjectsWithReferenceDiffUsingGET
-getObjectsWithReferenceDiff
+Count difference of objects with reference, by object type, for specified species and date range
 
 
 ```js
@@ -892,7 +892,7 @@ mcw_edu.getObjectsWithReferenceDiffUsingGET({
 * output `object`
 
 ### getObjectsWithXDBsDiffUsingGET
-getObjectsWithXDBsDiff
+Count difference of objects with external database ids, by database id, for specified species, object type and date range
 
 
 ```js
@@ -915,7 +915,7 @@ mcw_edu.getObjectsWithXDBsDiffUsingGET({
 * output `object`
 
 ### getProteinInteractionDiffUsingGET
-getProteinInteractionDiff
+Count difference of protein interactions, for specified species and date range
 
 
 ```js
@@ -936,7 +936,7 @@ mcw_edu.getProteinInteractionDiffUsingGET({
 * output `object`
 
 ### getQtlInheritanceTypeDiffUsingGET
-getQtlInheritanceTypeDiff
+Count difference of strains, by qtl inheritance type, for specified species and date range
 
 
 ```js
@@ -957,7 +957,7 @@ mcw_edu.getQtlInheritanceTypeDiffUsingGET({
 * output `object`
 
 ### getRetiredObjectDiffUsingGET
-getRetiredObjectDiff
+Count difference of retired objects, by type, for specified species and date range
 
 
 ```js
@@ -978,7 +978,7 @@ mcw_edu.getRetiredObjectDiffUsingGET({
 * output `object`
 
 ### getStrainTypeDiffUsingGET
-getStrainTypeDiff
+Count difference of strain types, for specified species and date range
 
 
 ```js
@@ -999,7 +999,7 @@ mcw_edu.getStrainTypeDiffUsingGET({
 * output `object`
 
 ### getWithdrawnObjectDiffUsingGET
-getWithdrawnObjectDiff
+Count difference of withdrawn objects, by type, for specified species and date range
 
 
 ```js
@@ -1020,7 +1020,7 @@ mcw_edu.getWithdrawnObjectDiffUsingGET({
 * output `object`
 
 ### getXdbsDiffUsingGET
-getXdbsDiff
+Count difference of external database ids, for specified species and date range
 
 
 ```js
@@ -1036,6 +1036,25 @@ mcw_edu.getXdbsDiffUsingGET({
   * speciesTypeKey **required** `integer`: speciesTypeKey
   * dateFromYYYYMMDD **required** `string`: dateFromYYYYMMDD
   * dateToYYYYMMDD **required** `string`: dateToYYYYMMDD
+
+#### Output
+* output `object`
+
+### getTermStatsUsingGET
+getTermStats
+
+
+```js
+mcw_edu.getTermStatsUsingGET({
+  "accId": "",
+  "filterAccId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accId **required** `string`: accId
+  * filterAccId **required** `string`: filterAccId
 
 #### Output
 * output `object`
@@ -1056,7 +1075,7 @@ mcw_edu.getAllStrainsUsingGET(null, context)
   * items [Strain](#strain)
 
 ### getStrainsByPositionUsingGET
-getStrainsByPosition
+Return all active strains by position
 
 
 ```js
@@ -1147,9 +1166,7 @@ mcw_edu.getStrainByRgdIdUsingGET({
 * Map `object`
   * dbsnpVersion `string`
   * description `string`
-  * history `string`
   * key `integer`
-  * length `string`
   * methodKey `integer`
   * name `string`
   * notes `string`
@@ -1157,6 +1174,7 @@ mcw_edu.getStrainByRgdIdUsingGET({
   * rank `integer`
   * rgdId `integer`
   * speciesTypeKey `integer`
+  * ucscAssemblyId `string`
   * unit `string`
   * version `string`
 

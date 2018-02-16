@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google_dfareporting",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for DCM/DFA Reporting And Trafficking",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/googleapis.com/dfareporting/v2.7/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/googleapis.com/dfareporting/v3.0/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

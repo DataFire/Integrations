@@ -55,6 +55,24 @@ amazonaws_s3.DeleteBucket({
 #### Output
 *Output schema unknown*
 
+### CreateBucket
+
+
+
+```js
+amazonaws_s3.CreateBucket({
+  "Bucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+  * CreateBucketConfiguration [CreateBucketConfiguration](#createbucketconfiguration)
+
+#### Output
+* output [CreateBucketOutput](#createbucketoutput)
+
 ### HeadBucket
 
 
@@ -91,12 +109,12 @@ amazonaws_s3.ListObjects({
 #### Output
 * output [ListObjectsOutput](#listobjectsoutput)
 
-### DeleteObject
+### AbortMultipartUpload
 
 
 
 ```js
-amazonaws_s3.DeleteObject({
+amazonaws_s3.AbortMultipartUpload({
   "Bucket": "",
   "Key": []
 }, context)
@@ -106,6 +124,64 @@ amazonaws_s3.DeleteObject({
 * input `object`
   * Bucket **required** `string`
   * Key **required** `array`
+
+#### Output
+* output [AbortMultipartUploadOutput](#abortmultipartuploadoutput)
+
+### CompleteMultipartUpload
+
+
+
+```js
+amazonaws_s3.CompleteMultipartUpload({
+  "Bucket": "",
+  "Key": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+  * Key **required** `array`
+  * MultipartUpload [CompletedMultipartUpload](#completedmultipartupload)
+
+#### Output
+* output [CompleteMultipartUploadOutput](#completemultipartuploadoutput)
+
+### CopyObject
+
+
+
+```js
+amazonaws_s3.CopyObject({
+  "Bucket": "",
+  "Key": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+  * Key **required** `array`
+
+#### Output
+* output [CopyObjectOutput](#copyobjectoutput)
+
+### DeleteObject
+
+
+
+```js
+amazonaws_s3.DeleteObject({
+  "Bucket": "",
+  "Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+  * Key **required** `string`
 
 #### Output
 * output [DeleteObjectOutput](#deleteobjectoutput)
@@ -294,14 +370,14 @@ amazonaws_s3.RestoreObject({
 ```js
 amazonaws_s3.DeleteObjectTagging({
   "Bucket": "",
-  "Key": []
+  "Key": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * Bucket **required** `string`
-  * Key **required** `array`
+  * Key **required** `string`
 
 #### Output
 * output [DeleteObjectTaggingOutput](#deleteobjecttaggingoutput)
@@ -457,6 +533,23 @@ amazonaws_s3.PutBucketAcl({
 #### Output
 *Output schema unknown*
 
+### DeleteBucketAnalyticsConfiguration
+
+
+
+```js
+amazonaws_s3.DeleteBucketAnalyticsConfiguration({
+  "Bucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetBucketAnalyticsConfiguration
 
 
@@ -509,6 +602,23 @@ amazonaws_s3.PutBucketAnalyticsConfiguration({
 * input `object`
   * Bucket **required** `string`
   * AnalyticsConfiguration **required** [AnalyticsConfiguration](#analyticsconfiguration)
+
+#### Output
+*Output schema unknown*
+
+### DeleteBucketCors
+
+
+
+```js
+amazonaws_s3.DeleteBucketCors({
+  "Bucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -572,6 +682,23 @@ amazonaws_s3.DeleteObjects({
 #### Output
 * output [DeleteObjectsOutput](#deleteobjectsoutput)
 
+### DeleteBucketEncryption
+
+
+
+```js
+amazonaws_s3.DeleteBucketEncryption({
+  "Bucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetBucketEncryption
 
 
@@ -606,6 +733,23 @@ amazonaws_s3.PutBucketEncryption({
 * input `object`
   * Bucket **required** `string`
   * ServerSideEncryptionConfiguration **required** [ServerSideEncryptionConfiguration](#serversideencryptionconfiguration)
+
+#### Output
+*Output schema unknown*
+
+### DeleteBucketInventoryConfiguration
+
+
+
+```js
+amazonaws_s3.DeleteBucketInventoryConfiguration({
+  "Bucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -672,6 +816,23 @@ amazonaws_s3.PutBucketInventoryConfiguration({
 * input `object`
   * Bucket **required** `string`
   * InventoryConfiguration **required** [InventoryConfiguration](#inventoryconfiguration)
+
+#### Output
+*Output schema unknown*
+
+### DeleteBucketLifecycle
+
+
+
+```js
+amazonaws_s3.DeleteBucketLifecycle({
+  "Bucket": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Bucket **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -1451,6 +1612,23 @@ amazonaws_s3.PutBucketWebsite({
 * CORSRules `array`
   * items [CORSRule](#corsrule)
 
+### CSVInput
+* CSVInput `object`: Describes how a CSV-formatted input object is formatted.
+  * Comments [Comments](#comments)
+  * FieldDelimiter [FieldDelimiter](#fielddelimiter)
+  * FileHeaderInfo [FileHeaderInfo](#fileheaderinfo)
+  * QuoteCharacter [QuoteCharacter](#quotecharacter)
+  * QuoteEscapeCharacter [QuoteEscapeCharacter](#quoteescapecharacter)
+  * RecordDelimiter [RecordDelimiter](#recorddelimiter)
+
+### CSVOutput
+* CSVOutput `object`: Describes how CSV-formatted results are formatted.
+  * FieldDelimiter [FieldDelimiter](#fielddelimiter)
+  * QuoteCharacter [QuoteCharacter](#quotecharacter)
+  * QuoteEscapeCharacter [QuoteEscapeCharacter](#quoteescapecharacter)
+  * QuoteFields [QuoteFields](#quotefields)
+  * RecordDelimiter [RecordDelimiter](#recorddelimiter)
+
 ### CacheControl
 * CacheControl `string`
 
@@ -1470,6 +1648,9 @@ amazonaws_s3.PutBucketWebsite({
 
 ### Code
 * Code `string`
+
+### Comments
+* Comments `string`
 
 ### CommonPrefix
 * CommonPrefix `object`
@@ -1702,6 +1883,9 @@ amazonaws_s3.PutBucketWebsite({
 ### Delimiter
 * Delimiter `string`
 
+### Description
+* Description `string`
+
 ### Destination
 * Destination `object`: Container for replication destination information.
   * AccessControlTranslation [AccessControlTranslation](#accesscontroltranslation)
@@ -1721,6 +1905,12 @@ amazonaws_s3.PutBucketWebsite({
 
 ### EncodingType
 * EncodingType `string` (values: url): Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+
+### Encryption
+* Encryption `object`: Describes the server-side encryption that will be applied to the restore results.
+  * EncryptionType **required** [ServerSideEncryption](#serversideencryption)
+  * KMSContext [KMSContext](#kmscontext)
+  * KMSKeyId [SSEKMSKeyId](#ssekmskeyid)
 
 ### EncryptionConfiguration
 * EncryptionConfiguration `object`: Container for information regarding encryption based configuration for replicas.
@@ -1767,8 +1957,20 @@ amazonaws_s3.PutBucketWebsite({
 * ExposeHeaders `array`
   * items [ExposeHeader](#exposeheader)
 
+### Expression
+* Expression `string`
+
+### ExpressionType
+* ExpressionType `string` (values: SQL)
+
 ### FetchOwner
 * FetchOwner `boolean`
+
+### FieldDelimiter
+* FieldDelimiter `string`
+
+### FileHeaderInfo
+* FileHeaderInfo `string` (values: USE, IGNORE, NONE)
 
 ### FilterRule
 * FilterRule `object`: Container for key value pair that defines the criteria for the filter rule.
@@ -2022,6 +2224,10 @@ amazonaws_s3.PutBucketWebsite({
   * DisplayName [DisplayName](#displayname)
   * ID [ID](#id)
 
+### InputSerialization
+* InputSerialization `object`: Describes the serialization format of the object.
+  * CSV [CSVInput](#csvinput)
+
 ### InventoryConfiguration
 * InventoryConfiguration `object`
   * Destination **required** [InventoryDestination](#inventorydestination)
@@ -2050,7 +2256,7 @@ amazonaws_s3.PutBucketWebsite({
   * Prefix **required** [Prefix](#prefix)
 
 ### InventoryFormat
-* InventoryFormat `string` (values: CSV)
+* InventoryFormat `string` (values: CSV, ORC)
 
 ### InventoryFrequency
 * InventoryFrequency `string` (values: Daily, Weekly)
@@ -2088,6 +2294,9 @@ amazonaws_s3.PutBucketWebsite({
 
 ### IsTruncated
 * IsTruncated `boolean`
+
+### KMSContext
+* KMSContext `string`
 
 ### KeyCount
 * KeyCount `integer`
@@ -2278,6 +2487,9 @@ amazonaws_s3.PutBucketWebsite({
 ### Location
 * Location `string`
 
+### LocationPrefix
+* LocationPrefix `string`
+
 ### LoggingEnabled
 * LoggingEnabled `object`
   * TargetBucket [TargetBucket](#targetbucket)
@@ -2319,6 +2531,11 @@ amazonaws_s3.PutBucketWebsite({
 
 ### MetadataDirective
 * MetadataDirective `string` (values: COPY, REPLACE)
+
+### MetadataEntry
+* MetadataEntry `object`: A metadata key-value pair to store with an object.
+  * Name [MetadataKey](#metadatakey)
+  * Value [MetadataValue](#metadatavalue)
 
 ### MetadataKey
 * MetadataKey `string`
@@ -2485,6 +2702,14 @@ amazonaws_s3.PutBucketWebsite({
 ### ObjectVersionStorageClass
 * ObjectVersionStorageClass `string` (values: STANDARD)
 
+### OutputLocation
+* OutputLocation `object`: Describes the location where the restore job's output is stored.
+  * S3 [S3Location](#s3location)
+
+### OutputSerialization
+* OutputSerialization `object`: Describes how results of the Select job are serialized.
+  * CSV [CSVOutput](#csvoutput)
+
 ### Owner
 * Owner `object`
   * DisplayName [DisplayName](#displayname)
@@ -2645,8 +2870,20 @@ amazonaws_s3.PutBucketWebsite({
 ### Quiet
 * Quiet `boolean`
 
+### QuoteCharacter
+* QuoteCharacter `string`
+
+### QuoteEscapeCharacter
+* QuoteEscapeCharacter `string`
+
+### QuoteFields
+* QuoteFields `string` (values: ALWAYS, ASNEEDED)
+
 ### Range
 * Range `string`
+
+### RecordDelimiter
+* RecordDelimiter `string`
 
 ### Redirect
 * Redirect `object`
@@ -2731,10 +2968,21 @@ amazonaws_s3.PutBucketWebsite({
 * RestoreObjectRequest `object`
   * RestoreRequest [RestoreRequest](#restorerequest)
 
+### RestoreOutputPath
+* RestoreOutputPath `string`
+
 ### RestoreRequest
-* RestoreRequest `object`
-  * Days **required** [Days](#days)
+* RestoreRequest `object`: Container for restore job parameters.
+  * Days [Days](#days)
+  * Description [Description](#description)
   * GlacierJobParameters [GlacierJobParameters](#glacierjobparameters)
+  * OutputLocation [OutputLocation](#outputlocation)
+  * SelectParameters [SelectParameters](#selectparameters)
+  * Tier [Tier](#tier)
+  * Type [RestoreRequestType](#restorerequesttype)
+
+### RestoreRequestType
+* RestoreRequestType `string` (values: SELECT)
 
 ### Role
 * Role `string`
@@ -2767,6 +3015,17 @@ amazonaws_s3.PutBucketWebsite({
 * S3KeyFilter `object`: Container for object key name prefix and suffix filtering rules.
   * FilterRules [FilterRuleList](#filterrulelist)
 
+### S3Location
+* S3Location `object`: Describes an S3 location that will receive the results of the restore request.
+  * AccessControlList [Grants](#grants)
+  * BucketName **required** [BucketName](#bucketname)
+  * CannedACL [ObjectCannedACL](#objectcannedacl)
+  * Encryption [Encryption](#encryption)
+  * Prefix **required** [LocationPrefix](#locationprefix)
+  * StorageClass [StorageClass](#storageclass)
+  * Tagging [Tagging](#tagging)
+  * UserMetadata [UserMetadata](#usermetadata)
+
 ### SSECustomerAlgorithm
 * SSECustomerAlgorithm `string`
 
@@ -2785,6 +3044,13 @@ amazonaws_s3.PutBucketWebsite({
 
 ### SSES3
 * SSES3 `object`: Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+
+### SelectParameters
+* SelectParameters `object`: Describes the parameters for Select job types.
+  * Expression **required** [Expression](#expression)
+  * ExpressionType **required** [ExpressionType](#expressiontype)
+  * InputSerialization **required** [InputSerialization](#inputserialization)
+  * OutputSerialization **required** [OutputSerialization](#outputserialization)
 
 ### ServerSideEncryption
 * ServerSideEncryption `string` (values: AES256, aws:kms)
@@ -2940,6 +3206,10 @@ amazonaws_s3.PutBucketWebsite({
 ### UploadPartRequest
 * UploadPartRequest `object`
   * Body [Body](#body)
+
+### UserMetadata
+* UserMetadata `array`
+  * items [MetadataEntry](#metadataentry)
 
 ### Value
 * Value `string`

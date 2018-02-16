@@ -125,8 +125,8 @@ google_tagmanager.accounts.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the account in storage.
   * body [Account](#account)
+  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the account in storage.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -253,9 +253,9 @@ google_tagmanager.accounts.containers.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
+  * body [Container](#container)
   * containerId **required** `string`: The GTM Container ID.
   * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the container in storage.
-  * body [Container](#container)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -307,8 +307,8 @@ google_tagmanager.accounts.containers.environments.create({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
   * body [Environment](#environment)
+  * containerId **required** `string`: The GTM Container ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -391,10 +391,10 @@ google_tagmanager.accounts.containers.environments.patch({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
+  * body [Environment](#environment)
   * containerId **required** `string`: The GTM Container ID.
   * environmentId **required** `string`: The GTM Environment ID.
   * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the environment in storage.
-  * body [Environment](#environment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -421,10 +421,10 @@ google_tagmanager.accounts.containers.environments.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
+  * body [Environment](#environment)
   * containerId **required** `string`: The GTM Container ID.
   * environmentId **required** `string`: The GTM Environment ID.
   * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the environment in storage.
-  * body [Environment](#environment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -476,8 +476,8 @@ google_tagmanager.accounts.containers.folders.create({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
   * body [Folder](#folder)
+  * containerId **required** `string`: The GTM Container ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -560,10 +560,10 @@ google_tagmanager.accounts.containers.folders.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
-  * folderId **required** `string`: The GTM Folder ID.
-  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the folder in storage.
   * body [Folder](#folder)
+  * containerId **required** `string`: The GTM Container ID.
+  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the folder in storage.
+  * folderId **required** `string`: The GTM Folder ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -618,12 +618,12 @@ google_tagmanager.accounts.containers.move_folders.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
+  * body [Folder](#folder)
   * containerId **required** `string`: The GTM Container ID.
   * folderId **required** `string`: The GTM Folder ID.
   * tagId `array`: The tags to be moved to the folder.
   * triggerId `array`: The triggers to be moved to the folder.
   * variableId `array`: The variables to be moved to the folder.
-  * body [Folder](#folder)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -650,9 +650,9 @@ google_tagmanager.accounts.containers.reauthorize_environments.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
+  * body [Environment](#environment)
   * containerId **required** `string`: The GTM Container ID.
   * environmentId **required** `string`: The GTM Environment ID.
-  * body [Environment](#environment)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -704,8 +704,8 @@ google_tagmanager.accounts.containers.tags.create({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
   * body [Tag](#tag)
+  * containerId **required** `string`: The GTM Container ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -788,10 +788,10 @@ google_tagmanager.accounts.containers.tags.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
-  * tagId **required** `string`: The GTM Tag ID.
-  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the tag in storage.
   * body [Tag](#tag)
+  * containerId **required** `string`: The GTM Container ID.
+  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the tag in storage.
+  * tagId **required** `string`: The GTM Tag ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -843,8 +843,8 @@ google_tagmanager.accounts.containers.triggers.create({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
   * body [Trigger](#trigger)
+  * containerId **required** `string`: The GTM Container ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -927,10 +927,10 @@ google_tagmanager.accounts.containers.triggers.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
-  * triggerId **required** `string`: The GTM Trigger ID.
-  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the trigger in storage.
   * body [Trigger](#trigger)
+  * containerId **required** `string`: The GTM Container ID.
+  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the trigger in storage.
+  * triggerId **required** `string`: The GTM Trigger ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -982,8 +982,8 @@ google_tagmanager.accounts.containers.variables.create({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
   * body [Variable](#variable)
+  * containerId **required** `string`: The GTM Container ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1066,10 +1066,10 @@ google_tagmanager.accounts.containers.variables.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
-  * variableId **required** `string`: The GTM Variable ID.
-  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the variable in storage.
   * body [Variable](#variable)
+  * containerId **required** `string`: The GTM Container ID.
+  * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the variable in storage.
+  * variableId **required** `string`: The GTM Variable ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1123,8 +1123,8 @@ google_tagmanager.accounts.containers.versions.create({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * containerId **required** `string`: The GTM Container ID.
   * body [CreateContainerVersionRequestVersionOptions](#createcontainerversionrequestversionoptions)
+  * containerId **required** `string`: The GTM Container ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1207,10 +1207,10 @@ google_tagmanager.accounts.containers.versions.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
+  * body [ContainerVersion](#containerversion)
   * containerId **required** `string`: The GTM Container ID.
   * containerVersionId **required** `string`: The GTM Container Version ID.
   * fingerprint `string`: When provided, this fingerprint must match the fingerprint of the container version in storage.
-  * body [ContainerVersion](#containerversion)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1422,8 +1422,8 @@ google_tagmanager.accounts.permissions.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The GTM Account ID.
-  * permissionId **required** `string`: The GTM User ID.
   * body [UserAccess](#useraccess)
+  * permissionId **required** `string`: The GTM User ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1449,11 +1449,11 @@ google_tagmanager.accounts.permissions.update({
 ### AccountAccess
 * AccountAccess `object`: Defines the Google Tag Manager Account access permissions.
   * permission `array`: List of Account permissions. Valid account permissions are read and manage.
-    * items `string` (values: delete, edit, manage, publish, read)
+    * items `string` (values: delete, edit, editWorkspace, manage, publish, read)
 
 ### Condition
 * Condition `object`: Represents a predicate.
-  * parameter `array`: A list of named parameters (key/value), depending on the condition's type. Notes:
+  * parameter `array`: A list of named parameters (key/value), depending on the condition's type. Notes: 
     * items [Parameter](#parameter)
   * type `string` (values: contains, cssSelector, endsWith, equals, greater, greaterOrEquals, less, lessOrEquals, matchRegex, startsWith, urlMatches): The type of operator for this condition.
 
@@ -1464,7 +1464,7 @@ google_tagmanager.accounts.permissions.update({
   * domainName `array`: Optional list of domain names associated with the Container.
     * items `string`
   * enabledBuiltInVariable `array`: List of enabled built-in variables. Valid values include: pageUrl, pageHostname, pagePath, referrer, event, clickElement, clickClasses, clickId, clickTarget, clickUrl, clickText, formElement, formClasses, formId, formTarget, formUrl, formText, errorMessage, errorUrl, errorLine, newHistoryFragment, oldHistoryFragment, newHistoryState, oldHistoryState, historySource, containerVersion, debugMode, randomNumber, containerId.
-    * items `string` (values: advertiserId, advertisingTrackingEnabled, appId, appName, appVersionCode, appVersionName, clickClasses, clickElement, clickId, clickTarget, clickText, clickUrl, containerId, containerVersion, debugMode, deviceName, environmentName, errorLine, errorMessage, errorUrl, event, formClasses, formElement, formId, formTarget, formText, formUrl, historySource, htmlId, language, newHistoryFragment, newHistoryState, oldHistoryFragment, oldHistoryState, osVersion, pageHostname, pagePath, pageUrl, platform, randomNumber, referrer, resolution, sdkVersion)
+    * items `string` (values: advertiserId, advertisingTrackingEnabled, ampBrowserLanguage, ampCanonicalHost, ampCanonicalPath, ampCanonicalUrl, ampClientId, ampClientMaxScrollX, ampClientMaxScrollY, ampClientScreenHeight, ampClientScreenWidth, ampClientScrollX, ampClientScrollY, ampClientTimestamp, ampClientTimezone, ampGtmEvent, ampPageDownloadTime, ampPageLoadTime, ampPageViewId, ampReferrer, ampTitle, ampTotalEngagedTime, appId, appName, appVersionCode, appVersionName, clickClasses, clickElement, clickId, clickTarget, clickText, clickUrl, containerId, containerVersion, debugMode, deviceName, elementVisibilityFirstTime, elementVisibilityRatio, elementVisibilityRecentTime, elementVisibilityTime, environmentName, errorLine, errorMessage, errorUrl, event, eventName, firebaseEventParameterCampaign, firebaseEventParameterCampaignAclid, firebaseEventParameterCampaignAnid, firebaseEventParameterCampaignClickTimestamp, firebaseEventParameterCampaignContent, firebaseEventParameterCampaignCp1, firebaseEventParameterCampaignGclid, firebaseEventParameterCampaignSource, firebaseEventParameterCampaignTerm, firebaseEventParameterCurrency, firebaseEventParameterDynamicLinkAcceptTime, firebaseEventParameterDynamicLinkLinkid, firebaseEventParameterNotificationMessageDeviceTime, firebaseEventParameterNotificationMessageId, firebaseEventParameterNotificationMessageName, firebaseEventParameterNotificationMessageTime, firebaseEventParameterNotificationTopic, firebaseEventParameterPreviousAppVersion, firebaseEventParameterPreviousOsVersion, firebaseEventParameterPrice, firebaseEventParameterProductId, firebaseEventParameterQuantity, firebaseEventParameterValue, formClasses, formElement, formId, formTarget, formText, formUrl, historySource, htmlId, language, newHistoryFragment, newHistoryState, oldHistoryFragment, oldHistoryState, osVersion, pageHostname, pagePath, pageUrl, platform, randomNumber, referrer, resolution, scrollDepthDirection, scrollDepthThreshold, scrollDepthUnits, sdkVersion, videoCurrentTime, videoDuration, videoPercent, videoProvider, videoStatus, videoTitle, videoUrl, videoVisible)
   * fingerprint `string`: The fingerprint of the GTM Container as computed at storage time. This value is recomputed whenever the account is modified.
   * name `string`: Container display name.
   * notes `string`: Container Notes.
@@ -1472,13 +1472,13 @@ google_tagmanager.accounts.permissions.update({
   * timeZoneCountryId `string`: Container Country ID.
   * timeZoneId `string`: Container Time Zone ID.
   * usageContext `array`: List of Usage Contexts for the Container. Valid values include: web, android, ios.
-    * items `string` (values: android, androidSdk5, ios, iosSdk5, web)
+    * items `string` (values: amp, android, androidSdk5, ios, iosSdk5, web)
 
 ### ContainerAccess
 * ContainerAccess `object`: Defines the Google Tag Manager Container access permissions.
   * containerId `string`: GTM Container ID.
   * permission `array`: List of Container permissions. Valid container permissions are: read, edit, delete, publish.
-    * items `string` (values: delete, edit, manage, publish, read)
+    * items `string` (values: delete, edit, editWorkspace, manage, publish, read)
 
 ### ContainerVersion
 * ContainerVersion `object`: Represents a Google Tag Manager Container Version.
@@ -1632,7 +1632,7 @@ google_tagmanager.accounts.permissions.update({
     * items [Parameter](#parameter)
   * map `array`: This map parameter's parameters (must have keys; keys must be unique).
     * items [Parameter](#parameter)
-  * type `string` (values: boolean, integer, list, map, template): The parameter type. Valid values are:
+  * type `string` (values: boolean, integer, list, map, template): The parameter type. Valid values are: 
   * value `string`: A parameter's value (may contain variable references such as "{{myVariable}}") as appropriate to the specified type.
 
 ### PublishContainerVersionResponse
@@ -1675,6 +1675,7 @@ google_tagmanager.accounts.permissions.update({
   * parameter `array`: The tag's parameters.
     * items [Parameter](#parameter)
   * parentFolderId `string`: Parent folder id.
+  * paused `boolean`: True if the tag is paused.
   * priority [Parameter](#parameter)
   * scheduleEndMs `string`: The end timestamp in milliseconds to schedule a tag.
   * scheduleStartMs `string`: The start timestamp in milliseconds to schedule a tag.
@@ -1698,21 +1699,31 @@ google_tagmanager.accounts.permissions.update({
     * items [Condition](#condition)
   * checkValidation [Parameter](#parameter)
   * containerId `string`: GTM Container ID.
+  * continuousTimeMinMilliseconds [Parameter](#parameter)
   * customEventFilter `array`: Used in the case of custom event, which is fired iff all Conditions are true.
     * items [Condition](#condition)
-  * enableAllVideos [Parameter](#parameter)
   * eventName [Parameter](#parameter)
   * filter `array`: The trigger will only fire iff all Conditions are true.
     * items [Condition](#condition)
   * fingerprint `string`: The fingerprint of the GTM Trigger as computed at storage time. This value is recomputed whenever the trigger is modified.
+  * horizontalScrollPercentageList [Parameter](#parameter)
   * interval [Parameter](#parameter)
+  * intervalSeconds [Parameter](#parameter)
   * limit [Parameter](#parameter)
+  * maxTimerLengthSeconds [Parameter](#parameter)
   * name `string`: Trigger display name.
+  * parameter `array`: Additional parameters.
+    * items [Parameter](#parameter)
   * parentFolderId `string`: Parent folder id.
+  * selector [Parameter](#parameter)
+  * totalTimeMinMilliseconds [Parameter](#parameter)
   * triggerId `string`: The Trigger ID uniquely identifies the GTM Trigger.
-  * type `string` (values: ajaxSubmission, always, click, customEvent, domReady, formSubmission, historyChange, jsError, linkClick, pageview, timer, windowLoaded, youTube): Defines the data layer event that causes this trigger.
+  * type `string` (values: always, ampClick, ampScroll, ampTimer, ampVisibility, click, customEvent, domReady, elementVisibility, formSubmission, historyChange, jsError, linkClick, pageview, scrollDepth, timer, windowLoaded, youTubeVideo): Defines the data layer event that causes this trigger.
   * uniqueTriggerId [Parameter](#parameter)
-  * videoPercentageList [Parameter](#parameter)
+  * verticalScrollPercentageList [Parameter](#parameter)
+  * visibilitySelector [Parameter](#parameter)
+  * visiblePercentageMax [Parameter](#parameter)
+  * visiblePercentageMin [Parameter](#parameter)
   * waitForTags [Parameter](#parameter)
   * waitForTagsTimeout [Parameter](#parameter)
 

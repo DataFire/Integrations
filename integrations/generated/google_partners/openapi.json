@@ -149,9 +149,6 @@
       "name": "companies"
     },
     {
-      "name": "exams"
-    },
-    {
       "name": "leads"
     },
     {
@@ -177,45 +174,15 @@
         "operationId": "analytics.list",
         "parameters": [
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
-            "type": "string"
-          },
-          {
-            "description": "Google Partners session ID.",
-            "in": "query",
-            "name": "requestMetadata.partnersSessionId",
-            "type": "string"
-          },
-          {
-            "description": "A token identifying a page of results that the server returns.\nTypically, this is the value of `ListAnalyticsResponse.next_page_token`\nreturned from the previous call to\nListAnalytics.\nWill be a date string in `YYYY-MM-DD` format representing the end date\nof the date range of results to return.\nIf unspecified or set to \"\", default value is the current date.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
             "description": "Requested page size. Server may return fewer analytics than requested.\nIf unspecified or set to 0, default value is 30.\nSpecifies the number of days in the date range when querying analytics.\nThe `page_token` represents the end date of the date range\nand the start date is calculated using the `page_size` as the number\nof days BEFORE the end date.\nMust be a non-negative integer.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
           },
           {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "description": "A token identifying a page of results that the server returns.\nTypically, this is the value of `ListAnalyticsResponse.next_page_token`\nreturned from the previous call to\nListAnalytics.\nWill be a date string in `YYYY-MM-DD` format representing the end date\nof the date range of results to return.\nIf unspecified or set to \"\", default value is the current date.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
+            "name": "pageToken",
             "type": "string"
           },
           {
@@ -229,9 +196,39 @@
             "type": "array"
           },
           {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
+            "type": "string"
+          },
+          {
+            "description": "Google Partners session ID.",
+            "in": "query",
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
             "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
             "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           }
         ],
@@ -249,86 +246,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v2/clientMessages:log": {
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -362,15 +359,9 @@
         "operationId": "companies.list",
         "parameters": [
           {
-            "description": "Google Partners session ID.",
+            "description": "The address to use when searching for companies.\nIf not given, the geo-located address of the request is used.",
             "in": "query",
-            "name": "requestMetadata.partnersSessionId",
-            "type": "string"
-          },
-          {
-            "description": "A token identifying a page of results that the server returns.\nTypically, this is the value of `ListCompaniesResponse.next_page_token`\nreturned from the previous call to\nListCompanies.",
-            "in": "query",
-            "name": "pageToken",
+            "name": "address",
             "type": "string"
           },
           {
@@ -378,6 +369,22 @@
             "in": "query",
             "name": "companyName",
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "List of reasons for using Google Partner Search to get companies.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "GPS_MOTIVATION_UNSPECIFIED",
+                "GPSM_HELP_WITH_ADVERTISING",
+                "GPSM_HELP_WITH_WEBSITE",
+                "GPSM_NO_WEBSITE"
+              ],
+              "type": "string"
+            },
+            "name": "gpsMotivations",
+            "type": "array"
           },
           {
             "collectionFormat": "multi",
@@ -403,28 +410,6 @@
             "type": "array"
           },
           {
-            "description": "Website URL that will help to find a better matched company.\n.",
-            "in": "query",
-            "name": "websiteUrl",
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "List of reasons for using Google Partner Search to get companies.",
-            "in": "query",
-            "items": {
-              "enum": [
-                "GPS_MOTIVATION_UNSPECIFIED",
-                "GPSM_HELP_WITH_ADVERTISING",
-                "GPSM_HELP_WITH_WEBSITE",
-                "GPSM_NO_WEBSITE"
-              ],
-              "type": "string"
-            },
-            "name": "gpsMotivations",
-            "type": "array"
-          },
-          {
             "collectionFormat": "multi",
             "description": "List of language codes that company can support. Only primary language\nsubtags are accepted as defined by\n<a href=\"https://tools.ietf.org/html/bcp47\">BCP 47</a>\n(IETF BCP 47, \"Tags for Identifying Languages\").",
             "in": "query",
@@ -435,15 +420,57 @@
             "type": "array"
           },
           {
+            "description": "The 3-letter currency code defined in ISO 4217.",
+            "in": "query",
+            "name": "maxMonthlyBudget.currencyCode",
+            "type": "string"
+          },
+          {
+            "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+            "in": "query",
+            "name": "maxMonthlyBudget.nanos",
+            "type": "integer"
+          },
+          {
+            "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+            "in": "query",
+            "name": "maxMonthlyBudget.units",
+            "type": "string"
+          },
+          {
+            "description": "The 3-letter currency code defined in ISO 4217.",
+            "in": "query",
+            "name": "minMonthlyBudget.currencyCode",
+            "type": "string"
+          },
+          {
+            "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+            "in": "query",
+            "name": "minMonthlyBudget.nanos",
+            "type": "integer"
+          },
+          {
+            "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+            "in": "query",
+            "name": "minMonthlyBudget.units",
+            "type": "string"
+          },
+          {
+            "description": "How to order addresses within the returned companies. Currently, only\n`address` and `address desc` is supported which will sorted by closest to\nfarthest in distance from given address and farthest to closest distance\nfrom given address respectively.",
+            "in": "query",
+            "name": "orderBy",
+            "type": "string"
+          },
+          {
             "description": "Requested page size. Server may return fewer companies than requested.\nIf unspecified, server picks an appropriate default.",
             "in": "query",
             "name": "pageSize",
             "type": "integer"
           },
           {
-            "description": "IP address to use instead of the user's geo-located IP address.",
+            "description": "A token identifying a page of results that the server returns.\nTypically, this is the value of `ListCompaniesResponse.next_page_token`\nreturned from the previous call to\nListCompanies.",
             "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
+            "name": "pageToken",
             "type": "string"
           },
           {
@@ -457,33 +484,33 @@
             "type": "array"
           },
           {
-            "description": "How to order addresses within the returned companies. Currently, only\n`address` and `address desc` is supported which will sorted by closest to\nfarthest in distance from given address and farthest to closest distance\nfrom given address respectively.",
+            "description": "Locale to use for the current request.",
             "in": "query",
-            "name": "orderBy",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "List of specializations that the returned agencies should provide. If this\nis not empty, any returned agency must have at least one of these\nspecializations, or one of the services in the \"services\" field.",
+            "description": "Google Partners session ID.",
             "in": "query",
-            "items": {
-              "enum": [
-                "BADGE_SPECIALIZATION_UNKNOWN",
-                "BADGE_SPECIALIZATION_ADWORDS_SEARCH",
-                "BADGE_SPECIALIZATION_ADWORDS_DISPLAY",
-                "BADGE_SPECIALIZATION_ADWORDS_MOBILE",
-                "BADGE_SPECIALIZATION_ADWORDS_VIDEO",
-                "BADGE_SPECIALIZATION_ADWORDS_SHOPPING"
-              ],
-              "type": "string"
-            },
-            "name": "specializations",
-            "type": "array"
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
           },
           {
-            "description": "The 3-letter currency code defined in ISO 4217.",
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "maxMonthlyBudget.currencyCode",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
             "type": "string"
           },
           {
@@ -491,46 +518,6 @@
             "in": "query",
             "name": "requestMetadata.userOverrides.userId",
             "type": "string"
-          },
-          {
-            "description": "The 3-letter currency code defined in ISO 4217.",
-            "in": "query",
-            "name": "minMonthlyBudget.currencyCode",
-            "type": "string"
-          },
-          {
-            "description": "The view of the `Company` resource to be returned. This must not be\n`COMPANY_VIEW_UNSPECIFIED`.",
-            "enum": [
-              "COMPANY_VIEW_UNSPECIFIED",
-              "CV_GOOGLE_PARTNER_SEARCH"
-            ],
-            "in": "query",
-            "name": "view",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "The address to use when searching for companies.\nIf not given, the geo-located address of the request is used.",
-            "in": "query",
-            "name": "address",
-            "type": "string"
-          },
-          {
-            "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
-            "in": "query",
-            "name": "minMonthlyBudget.units",
-            "type": "string"
-          },
-          {
-            "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
-            "in": "query",
-            "name": "maxMonthlyBudget.nanos",
-            "type": "integer"
           },
           {
             "collectionFormat": "multi",
@@ -552,27 +539,37 @@
             "type": "array"
           },
           {
-            "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+            "collectionFormat": "multi",
+            "description": "List of specializations that the returned agencies should provide. If this\nis not empty, any returned agency must have at least one of these\nspecializations, or one of the services in the \"services\" field.",
             "in": "query",
-            "name": "maxMonthlyBudget.units",
+            "items": {
+              "enum": [
+                "BADGE_SPECIALIZATION_UNKNOWN",
+                "BADGE_SPECIALIZATION_ADWORDS_SEARCH",
+                "BADGE_SPECIALIZATION_ADWORDS_DISPLAY",
+                "BADGE_SPECIALIZATION_ADWORDS_MOBILE",
+                "BADGE_SPECIALIZATION_ADWORDS_VIDEO",
+                "BADGE_SPECIALIZATION_ADWORDS_SHOPPING"
+              ],
+              "type": "string"
+            },
+            "name": "specializations",
+            "type": "array"
+          },
+          {
+            "description": "The view of the `Company` resource to be returned. This must not be\n`COMPANY_VIEW_UNSPECIFIED`.",
+            "enum": [
+              "COMPANY_VIEW_UNSPECIFIED",
+              "CV_GOOGLE_PARTNER_SEARCH"
+            ],
+            "in": "query",
+            "name": "view",
             "type": "string"
           },
           {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "description": "Website URL that will help to find a better matched company.\n.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
-            "in": "query",
-            "name": "minMonthlyBudget.nanos",
-            "type": "integer"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
+            "name": "websiteUrl",
             "type": "string"
           }
         ],
@@ -590,43 +587,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -634,16 +631,11 @@
         "operationId": "updateCompanies",
         "parameters": [
           {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "description": "Standard field mask for the set of fields to be updated.\nRequired with at least 1 value in FieldMask's paths.",
-            "in": "query",
-            "name": "updateMask",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Company"
+            }
           },
           {
             "collectionFormat": "multi",
@@ -656,9 +648,9 @@
             "type": "array"
           },
           {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "description": "Locale to use for the current request.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
@@ -668,29 +660,34 @@
             "type": "string"
           },
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
-            "type": "string"
-          },
-          {
             "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
             "name": "requestMetadata.trafficSource.trafficSourceId",
             "type": "string"
           },
           {
-            "description": "Locale to use for the current request.",
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "requestMetadata.locale",
+            "name": "requestMetadata.trafficSource.trafficSubId",
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Company"
-            }
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
+            "type": "string"
+          },
+          {
+            "description": "Standard field mask for the set of fields to be updated.\nRequired with at least 1 value in FieldMask's paths.",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
           }
         ],
         "responses": {
@@ -712,33 +709,17 @@
         "operationId": "companies.get",
         "parameters": [
           {
+            "description": "The address to use for sorting the company's addresses by proximity.\nIf not given, the geo-located address of the request is used.\nUsed when order_by is set.",
+            "in": "query",
+            "name": "address",
+            "type": "string"
+          },
+          {
             "description": "The ID of the company to retrieve.",
             "in": "path",
             "name": "companyId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
           },
           {
             "description": "If the company's budget is in a different currency code than this one, then\nthe converted budget is converted to this currency code.",
@@ -753,21 +734,49 @@
             "type": "string"
           },
           {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
-            "type": "string"
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
           },
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "description": "Locale to use for the current request.",
             "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
             "description": "Google Partners session ID.",
             "in": "query",
             "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           },
           {
@@ -778,18 +787,6 @@
             ],
             "in": "query",
             "name": "view",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "The address to use for sorting the company's addresses by proximity.\nIf not given, the geo-located address of the request is used.\nUsed when order_by is set.",
-            "in": "query",
-            "name": "address",
             "type": "string"
           }
         ],
@@ -807,86 +804,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v2/companies/{companyId}/leads": {
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -894,18 +891,18 @@
         "operationId": "companies.leads.create",
         "parameters": [
           {
-            "description": "The ID of the company to contact.",
-            "in": "path",
-            "name": "companyId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CreateLeadRequest"
             }
+          },
+          {
+            "description": "The ID of the company to contact.",
+            "in": "path",
+            "name": "companyId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -921,181 +918,15 @@
         ]
       }
     },
-    "/v2/exams/{examType}/token": {
-      "get": {
-        "description": "Gets an Exam Token for a Partner's user to take an exam in the Exams System",
-        "operationId": "exams.getToken",
-        "parameters": [
-          {
-            "description": "The exam type we are requesting a token for.",
-            "enum": [
-              "CERTIFICATION_EXAM_TYPE_UNSPECIFIED",
-              "CET_ADWORDS_FUNDAMENTALS",
-              "CET_ADWORDS_ADVANCED_SEARCH",
-              "CET_ADWORDS_ADVANCED_DISPLAY",
-              "CET_VIDEO_ADS",
-              "CET_DOUBLECLICK",
-              "CET_ANALYTICS",
-              "CET_SHOPPING",
-              "CET_MOBILE",
-              "CET_DIGITAL_SALES",
-              "CET_MOBILE_SITES"
-            ],
-            "in": "path",
-            "name": "examType",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
-            "type": "string"
-          },
-          {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
-            "type": "string"
-          },
-          {
-            "description": "Google Partners session ID.",
-            "in": "query",
-            "name": "requestMetadata.partnersSessionId",
-            "type": "string"
-          },
-          {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/ExamToken"
-            }
-          }
-        },
-        "tags": [
-          "exams"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        }
-      ]
-    },
     "/v2/leads": {
       "get": {
         "description": "Lists advertiser leads for a user's associated company.\nShould only be called within the context of an authorized logged in user.",
         "operationId": "leads.list",
         "parameters": [
           {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
-            "type": "string"
-          },
-          {
             "description": "How to order Leads. Currently, only `create_time`\nand `create_time desc` are supported",
             "in": "query",
             "name": "orderBy",
-            "type": "string"
-          },
-          {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
-            "type": "string"
-          },
-          {
-            "description": "Google Partners session ID.",
-            "in": "query",
-            "name": "requestMetadata.partnersSessionId",
-            "type": "string"
-          },
-          {
-            "description": "A token identifying a page of results that the server returns.\nTypically, this is the value of `ListLeadsResponse.next_page_token`\nreturned from the previous call to\nListLeads.",
-            "in": "query",
-            "name": "pageToken",
             "type": "string"
           },
           {
@@ -1105,15 +936,55 @@
             "type": "integer"
           },
           {
+            "description": "A token identifying a page of results that the server returns.\nTypically, this is the value of `ListLeadsResponse.next_page_token`\nreturned from the previous call to\nListLeads.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
+          },
+          {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
+            "type": "string"
+          },
+          {
+            "description": "Google Partners session ID.",
+            "in": "query",
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
             "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
             "name": "requestMetadata.trafficSource.trafficSourceId",
             "type": "string"
           },
           {
-            "description": "Locale to use for the current request.",
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "requestMetadata.locale",
+            "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           }
         ],
@@ -1131,43 +1002,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -1175,28 +1046,11 @@
         "operationId": "updateLeads",
         "parameters": [
           {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "description": "Standard field mask for the set of fields to be updated.\nRequired with at least 1 value in FieldMask's paths.\nOnly `state` and `adwords_customer_id` are currently supported.",
-            "in": "query",
-            "name": "updateMask",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
           },
           {
             "collectionFormat": "multi",
@@ -1209,15 +1063,9 @@
             "type": "array"
           },
           {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "description": "Locale to use for the current request.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
-            "type": "string"
-          },
-          {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
@@ -1227,11 +1075,34 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Lead"
-            }
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
+            "type": "string"
+          },
+          {
+            "description": "Standard field mask for the set of fields to be updated.\nRequired with at least 1 value in FieldMask's paths.\nOnly `state` and `adwords_customer_id` are currently supported.",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1253,36 +1124,6 @@
         "operationId": "offers.list",
         "parameters": [
           {
-            "description": "Google Partners session ID.",
-            "in": "query",
-            "name": "requestMetadata.partnersSessionId",
-            "type": "string"
-          },
-          {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
-            "type": "string"
-          },
-          {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Experiment IDs the current request belongs to.",
             "in": "query",
@@ -1293,9 +1134,39 @@
             "type": "array"
           },
           {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
+            "type": "string"
+          },
+          {
+            "description": "Google Partners session ID.",
+            "in": "query",
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
             "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
             "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           }
         ],
@@ -1313,43 +1184,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -1359,9 +1230,15 @@
         "operationId": "offers.history.list",
         "parameters": [
           {
-            "description": "Token to retrieve a specific page.",
+            "description": "if true, show history for the entire company.  Requires user to be admin.",
             "in": "query",
-            "name": "pageToken",
+            "name": "entireCompany",
+            "type": "boolean"
+          },
+          {
+            "description": "Comma-separated list of fields to order by, e.g.: \"foo,bar,baz\".\nUse \"foo desc\" to sort descending.\nList of valid field names is: name, offer_code, expiration_time, status,\n    last_modified_time, sender_name, creation_time, country_code,\n    offer_type.",
+            "in": "query",
+            "name": "orderBy",
             "type": "string"
           },
           {
@@ -1371,28 +1248,10 @@
             "type": "integer"
           },
           {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "description": "Token to retrieve a specific page.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "name": "pageToken",
             "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "description": "if true, show history for the entire company.  Requires user to be admin.",
-            "in": "query",
-            "name": "entireCompany",
-            "type": "boolean"
           },
           {
             "collectionFormat": "multi",
@@ -1405,9 +1264,21 @@
             "type": "array"
           },
           {
-            "description": "Comma-separated list of fields to order by, e.g.: \"foo,bar,baz\".\nUse \"foo desc\" to sort descending.\nList of valid field names is: name, offer_code, expiration_time, status,\n    last_modified_time, sender_name, creation_time, country_code,\n    offer_type.",
+            "description": "Locale to use for the current request.",
             "in": "query",
-            "name": "orderBy",
+            "name": "requestMetadata.locale",
+            "type": "string"
+          },
+          {
+            "description": "Google Partners session ID.",
+            "in": "query",
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
             "type": "string"
           },
           {
@@ -1417,15 +1288,15 @@
             "type": "string"
           },
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "description": "IP address to use instead of the user's geo-located IP address.",
             "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "name": "requestMetadata.userOverrides.ipAddress",
             "type": "string"
           },
           {
-            "description": "Google Partners session ID.",
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
             "in": "query",
-            "name": "requestMetadata.partnersSessionId",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           }
         ],
@@ -1443,43 +1314,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -1489,9 +1360,19 @@
         "operationId": "getPartnersstatus",
         "parameters": [
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
             "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
+          },
+          {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
@@ -1507,9 +1388,9 @@
             "type": "string"
           },
           {
-            "description": "Locale to use for the current request.",
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "requestMetadata.locale",
+            "name": "requestMetadata.trafficSource.trafficSubId",
             "type": "string"
           },
           {
@@ -1519,19 +1400,9 @@
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
             "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           }
         ],
@@ -1549,86 +1420,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v2/userEvents:log": {
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1662,9 +1533,19 @@
         "operationId": "userStates.list",
         "parameters": [
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
             "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
+          },
+          {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
@@ -1680,9 +1561,9 @@
             "type": "string"
           },
           {
-            "description": "Locale to use for the current request.",
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "requestMetadata.locale",
+            "name": "requestMetadata.trafficSource.trafficSubId",
             "type": "string"
           },
           {
@@ -1692,19 +1573,9 @@
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
             "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           }
         ],
@@ -1722,86 +1593,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v2/users/profile": {
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "patch": {
@@ -1809,40 +1680,11 @@
         "operationId": "users.updateProfile",
         "parameters": [
           {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
-            "type": "string"
-          },
-          {
-            "description": "Google Partners session ID.",
-            "in": "query",
-            "name": "requestMetadata.partnersSessionId",
-            "type": "string"
-          },
-          {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
-            "type": "string"
-          },
-          {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            }
           },
           {
             "collectionFormat": "multi",
@@ -1855,11 +1697,40 @@
             "type": "array"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UserProfile"
-            }
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
+            "type": "string"
+          },
+          {
+            "description": "Google Partners session ID.",
+            "in": "query",
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
+            "type": "string"
+          },
+          {
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.userId",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1881,10 +1752,43 @@
         "operationId": "users.get",
         "parameters": [
           {
-            "description": "Identifier of the user. Can be set to <code>me</code> to mean the currently\nauthenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
+          },
+          {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
+            "type": "string"
+          },
+          {
+            "description": "Google Partners session ID.",
+            "in": "query",
+            "name": "requestMetadata.partnersSessionId",
+            "type": "string"
+          },
+          {
+            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSourceId",
+            "type": "string"
+          },
+          {
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "in": "query",
+            "name": "requestMetadata.trafficSource.trafficSubId",
+            "type": "string"
+          },
+          {
+            "description": "IP address to use instead of the user's geo-located IP address.",
+            "in": "query",
+            "name": "requestMetadata.userOverrides.ipAddress",
             "type": "string"
           },
           {
@@ -1894,9 +1798,10 @@
             "type": "string"
           },
           {
-            "description": "Google Partners session ID.",
-            "in": "query",
-            "name": "requestMetadata.partnersSessionId",
+            "description": "Identifier of the user. Can be set to <code>me</code> to mean the currently\nauthenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1908,40 +1813,6 @@
             ],
             "in": "query",
             "name": "userView",
-            "type": "string"
-          },
-          {
-            "description": "Identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSourceId",
-            "type": "string"
-          },
-          {
-            "description": "Locale to use for the current request.",
-            "in": "query",
-            "name": "requestMetadata.locale",
-            "type": "string"
-          },
-          {
-            "description": "IP address to use instead of the user's geo-located IP address.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.ipAddress",
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
             "type": "string"
           }
         ],
@@ -1959,43 +1830,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -2005,22 +1876,19 @@
         "operationId": "users.deleteCompanyRelation",
         "parameters": [
           {
-            "description": "The ID of the user. Can be set to <code>me</code> to mean\nthe currently authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
           },
           {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
+            "description": "Locale to use for the current request.",
             "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
-            "type": "string"
-          },
-          {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
-            "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
@@ -2036,9 +1904,9 @@
             "type": "string"
           },
           {
-            "description": "Locale to use for the current request.",
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "requestMetadata.locale",
+            "name": "requestMetadata.trafficSource.trafficSubId",
             "type": "string"
           },
           {
@@ -2048,14 +1916,17 @@
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
             "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
+            "name": "requestMetadata.userOverrides.userId",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user. Can be set to <code>me</code> to mean\nthe currently authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2072,43 +1943,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/access_token"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
           "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -2116,16 +1987,26 @@
         "operationId": "users.createCompanyRelation",
         "parameters": [
           {
-            "description": "The ID of the user. Can be set to <code>me</code> to mean\nthe currently authenticated user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CompanyRelation"
+            }
           },
           {
-            "description": "Logged-in user ID to impersonate instead of the user's ID.",
+            "collectionFormat": "multi",
+            "description": "Experiment IDs the current request belongs to.",
             "in": "query",
-            "name": "requestMetadata.userOverrides.userId",
+            "items": {
+              "type": "string"
+            },
+            "name": "requestMetadata.experimentIds",
+            "type": "array"
+          },
+          {
+            "description": "Locale to use for the current request.",
+            "in": "query",
+            "name": "requestMetadata.locale",
             "type": "string"
           },
           {
@@ -2141,9 +2022,9 @@
             "type": "string"
           },
           {
-            "description": "Locale to use for the current request.",
+            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
             "in": "query",
-            "name": "requestMetadata.locale",
+            "name": "requestMetadata.trafficSource.trafficSubId",
             "type": "string"
           },
           {
@@ -2153,27 +2034,17 @@
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
-            "description": "Experiment IDs the current request belongs to.",
+            "description": "Logged-in user ID to impersonate instead of the user's ID.",
             "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "requestMetadata.experimentIds",
-            "type": "array"
-          },
-          {
-            "description": "Second level identifier to indicate where the traffic comes from.\nAn identifier has multiple letters created by a team which redirected the\ntraffic to us.",
-            "in": "query",
-            "name": "requestMetadata.trafficSource.trafficSubId",
+            "name": "requestMetadata.userOverrides.userId",
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CompanyRelation"
-            }
+            "description": "The ID of the user. Can be set to <code>me</code> to mean\nthe currently authenticated user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2948,38 +2819,6 @@
       },
       "type": "object"
     },
-    "ExamToken": {
-      "description": "A token that allows a user to take an exam.",
-      "properties": {
-        "examId": {
-          "description": "The id of the exam the token is for.",
-          "format": "int64",
-          "type": "string"
-        },
-        "examType": {
-          "description": "The type of the exam the token belongs to.",
-          "enum": [
-            "CERTIFICATION_EXAM_TYPE_UNSPECIFIED",
-            "CET_ADWORDS_FUNDAMENTALS",
-            "CET_ADWORDS_ADVANCED_SEARCH",
-            "CET_ADWORDS_ADVANCED_DISPLAY",
-            "CET_VIDEO_ADS",
-            "CET_DOUBLECLICK",
-            "CET_ANALYTICS",
-            "CET_SHOPPING",
-            "CET_MOBILE",
-            "CET_DIGITAL_SALES",
-            "CET_MOBILE_SITES"
-          ],
-          "type": "string"
-        },
-        "token": {
-          "description": "The token, only present if the user has access to the exam.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "GetCompanyResponse": {
       "description": "Response message for GetCompany.",
       "properties": {
@@ -3076,7 +2915,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",

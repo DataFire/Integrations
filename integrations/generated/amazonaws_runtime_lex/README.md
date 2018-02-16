@@ -158,6 +158,9 @@ amazonaws_runtime_lex.PostText({
 * LoopDetectedException `object`: This exception is not used.
   * Message [ErrorMessage](#errormessage)
 
+### MessageFormatType
+* MessageFormatType `string` (values: PlainText, CustomPayload, SSML, Composite)
+
 ### NotAcceptableException
 * NotAcceptableException `object`: The accept header in the request does not have a valid value.
   * message [String](#string)
@@ -185,6 +188,7 @@ amazonaws_runtime_lex.PostText({
   * dialogState [DialogState](#dialogstate)
   * intentName [IntentName](#intentname)
   * message [Text](#text)
+  * messageFormat [MessageFormatType](#messageformattype)
   * responseCard [ResponseCard](#responsecard)
   * sessionAttributes [StringMap](#stringmap)
   * slotToElicit [String](#string)

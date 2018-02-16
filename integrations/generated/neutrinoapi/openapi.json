@@ -17,7 +17,7 @@
       "url": "https://www.neutrinoapi.com/api/LICENSE-MIT.txt"
     },
     "title": "NeutrinoAPI",
-    "version": "3.3.2",
+    "version": "3.3.5",
     "x-apisguru-categories": [
       "email",
       "messaging",
@@ -55,6 +55,7 @@
       "in": "query",
       "name": "api-key",
       "type": "apiKey",
+      "x-skip-client-authentication": false,
       "x-testValue": ""
     },
     "user-id": {
@@ -62,14 +63,18 @@
       "in": "query",
       "name": "user-id",
       "type": "apiKey",
+      "x-skip-client-authentication": false,
       "x-testValue": ""
     }
   },
   "paths": {
     "/bad-word-filter": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Detect bad words, swear words and profanity in a given text",
-        "operationId": "bad_word_filter.post",
+        "operationId": "BadWordFilterPost",
         "parameters": [
           {
             "enum": [
@@ -98,6 +103,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/BadWordFilterResponse"
             }
@@ -121,6 +127,7 @@
             "user-id": []
           }
         ],
+        "summary": "Bad Word Filter",
         "tags": [
           "Data Tools"
         ],
@@ -135,8 +142,11 @@
     },
     "/bin-lookup": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Perform a BIN (Bank Identification Number) or IIN (Issuer Identification Number) lookup. See: https://www.neutrinoapi.com/api/bin-lookup/",
-        "operationId": "bin_lookup.post",
+        "operationId": "BinLookupPost",
         "parameters": [
           {
             "enum": [
@@ -165,6 +175,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/BinLookupResponse"
             }
@@ -188,6 +199,7 @@
             "user-id": []
           }
         ],
+        "summary": "BIN Lookup",
         "tags": [
           "E-commerce"
         ],
@@ -202,8 +214,11 @@
     },
     "/code-highlight": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Code highlight will take raw source code and convert into nicely formatted HTML with syntax and keyword highlighting",
-        "operationId": "code_highlight.post",
+        "operationId": "CodeHighlightPost",
         "parameters": [
           {
             "description": "The source content. This can be either a URL to load from or an actual content string",
@@ -231,6 +246,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "format": "binary",
               "type": "string"
@@ -255,6 +271,7 @@
             "user-id": []
           }
         ],
+        "summary": "Code Highlight",
         "tags": [
           "Data Tools"
         ],
@@ -269,8 +286,11 @@
     },
     "/convert": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "A powerful unit and currency conversion tool",
-        "operationId": "Convert",
+        "operationId": "ConvertPost",
         "parameters": [
           {
             "enum": [
@@ -306,6 +326,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/ConvertResponse"
             }
@@ -329,6 +350,7 @@
             "user-id": []
           }
         ],
+        "summary": "Convert",
         "tags": [
           "Data Tools"
         ],
@@ -343,8 +365,11 @@
     },
     "/email-validate": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Parse, validate and clean an email address",
-        "operationId": "email_validate.post",
+        "operationId": "EmailValidatePost",
         "parameters": [
           {
             "enum": [
@@ -374,6 +399,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/EmailValidateResponse"
             }
@@ -397,6 +423,7 @@
             "user-id": []
           }
         ],
+        "summary": "Email Validate",
         "tags": [
           "Data Tools"
         ],
@@ -409,10 +436,73 @@
         "x-unitTests": []
       }
     },
+    "/email-verify": {
+      "post": {
+        "description": "SMTP based email address verification",
+        "operationId": "EmailVerifyPost",
+        "parameters": [
+          {
+            "description": "An email address",
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Automatically attempt to fix typos in the address",
+            "in": "query",
+            "name": "fix-typos",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {},
+            "schema": {
+              "$ref": "#/definitions/EmailVerifyResponse"
+            }
+          },
+          "400": {
+            "description": "Your API request has been rejected. Check the error code for details",
+            "schema": {
+              "$ref": "#/definitions/ApiError"
+            }
+          },
+          "403": {
+            "description": "You have failed to authenticate or are using an invalid API path"
+          },
+          "default": {
+            "description": "We messed up, sorry! Your request has caused a fatal exception"
+          }
+        },
+        "security": [
+          {
+            "api-key": [],
+            "user-id": []
+          }
+        ],
+        "summary": "Email Verify",
+        "tags": [
+          "Security and Networking"
+        ],
+        "x-operation-settings": {
+          "AllowDynamicFormParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "CollectParameters": false,
+          "IsMultiContentStreaming": false
+        },
+        "x-unitTests": []
+      }
+    },
     "/geocode-address": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Geocode an address, partial address or the name of a location",
-        "operationId": "geocode_address.post",
+        "operationId": "GeocodeAddressPost",
         "parameters": [
           {
             "enum": [
@@ -457,6 +547,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/GeocodeAddressResponse"
             }
@@ -480,6 +571,7 @@
             "user-id": []
           }
         ],
+        "summary": "Geocode Address",
         "tags": [
           "Geolocation"
         ],
@@ -494,8 +586,11 @@
     },
     "/geocode-reverse": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Convert a geographic coordinate (latitude and longitude) into a real world address or location.",
-        "operationId": "geocode_reverse.post",
+        "operationId": "GeocodeReversePost",
         "parameters": [
           {
             "enum": [
@@ -534,6 +629,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/GeocodeReverseResponse"
             }
@@ -557,6 +653,7 @@
             "user-id": []
           }
         ],
+        "summary": "Geocode Reverse",
         "tags": [
           "Geolocation"
         ],
@@ -571,8 +668,11 @@
     },
     "/hlr-lookup": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Connect to the global mobile cellular network and retrieve the status of a mobile device",
-        "operationId": "hlr_lookup.post",
+        "operationId": "HlrLookupPost",
         "parameters": [
           {
             "enum": [
@@ -601,6 +701,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/HlrLookupResponse"
             }
@@ -624,6 +725,7 @@
             "user-id": []
           }
         ],
+        "summary": "HLR Lookup",
         "tags": [
           "Telephony"
         ],
@@ -638,8 +740,11 @@
     },
     "/host-reputation": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Check the reputation of an IP address or domain against a comprehensive list of blacklists and blocklists (DNSBLs)",
-        "operationId": "host_reputation.post",
+        "operationId": "HostReputationPost",
         "parameters": [
           {
             "enum": [
@@ -661,6 +766,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/HostReputationResponse"
             }
@@ -684,6 +790,7 @@
             "user-id": []
           }
         ],
+        "summary": "Host Reputation",
         "tags": [
           "Security and Networking"
         ],
@@ -698,8 +805,11 @@
     },
     "/html-clean": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Clean and sanitize untrusted HTML",
-        "operationId": "html_clean.post",
+        "operationId": "HtmlCleanPost",
         "parameters": [
           {
             "description": "The HTML content. This can be either a URL to load HTML from or an actual HTML content string",
@@ -719,6 +829,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "format": "binary",
               "type": "string"
@@ -743,6 +854,7 @@
             "user-id": []
           }
         ],
+        "summary": "HTML Clean",
         "tags": [
           "Data Tools"
         ],
@@ -757,8 +869,11 @@
     },
     "/html-extract-tags": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Extract specific HTML tag contents or attributes from complex HTML or XHTML content",
-        "operationId": "html_extract_tags.post",
+        "operationId": "HtmlExtractTagsPost",
         "parameters": [
           {
             "enum": [
@@ -801,6 +916,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/HtmlExtractResponse"
             }
@@ -824,6 +940,7 @@
             "user-id": []
           }
         ],
+        "summary": "HTML Extract",
         "tags": [
           "Data Tools"
         ],
@@ -838,8 +955,11 @@
     },
     "/html5-render": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Render HTML and HTML5 content to PDF, JPG or PNG",
-        "operationId": "html5_render.post",
+        "operationId": "Html5RenderPost",
         "parameters": [
           {
             "description": "",
@@ -1003,6 +1123,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "format": "binary",
               "type": "string"
@@ -1027,6 +1148,7 @@
             "user-id": []
           }
         ],
+        "summary": "HTML5 Render",
         "tags": [
           "Imaging"
         ],
@@ -1041,8 +1163,11 @@
     },
     "/image-resize": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Resize an image and output as either JPEG or PNG. See: https://www.neutrinoapi.com/api/image-resize/",
-        "operationId": "image_resize.post",
+        "operationId": "ImageResizePost",
         "parameters": [
           {
             "description": "The URL to the source image",
@@ -1079,6 +1204,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "format": "binary",
               "type": "string"
@@ -1103,6 +1229,7 @@
             "user-id": []
           }
         ],
+        "summary": "Image Resize",
         "tags": [
           "Imaging"
         ],
@@ -1117,8 +1244,11 @@
     },
     "/image-watermark": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Watermark one image with another image. See: https://www.neutrinoapi.com/api/image-watermark/",
-        "operationId": "image_watermark.post",
+        "operationId": "ImageWatermarkPost",
         "parameters": [
           {
             "description": "The URL to the source image",
@@ -1179,6 +1309,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "format": "binary",
               "type": "string"
@@ -1203,6 +1334,7 @@
             "user-id": []
           }
         ],
+        "summary": "Image Watermark",
         "tags": [
           "Imaging"
         ],
@@ -1217,8 +1349,11 @@
     },
     "/ip-blocklist": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "The IP Blocklist API will detect potentially malicious or dangerous IP addresses",
-        "operationId": "ip_blocklist.post",
+        "operationId": "IpBlocklistPost",
         "parameters": [
           {
             "enum": [
@@ -1240,6 +1375,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/IpBlocklistResponse"
             }
@@ -1263,6 +1399,7 @@
             "user-id": []
           }
         ],
+        "summary": "IP Blocklist",
         "tags": [
           "Security and Networking"
         ],
@@ -1277,8 +1414,11 @@
     },
     "/ip-info": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Get location information about an IP address and do reverse DNS (PTR) lookups.",
-        "operationId": "ip_info.post",
+        "operationId": "IpInfoPost",
         "parameters": [
           {
             "enum": [
@@ -1308,6 +1448,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/IpInfoResponse"
             }
@@ -1331,6 +1472,7 @@
             "user-id": []
           }
         ],
+        "summary": "IP Info",
         "tags": [
           "Geolocation"
         ],
@@ -1345,8 +1487,11 @@
     },
     "/ip-probe": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Analyze and extract provider information for an IP address",
-        "operationId": "ip_probe.post",
+        "operationId": "IpProbePost",
         "parameters": [
           {
             "description": "",
@@ -1369,6 +1514,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/IpProbeResponse"
             }
@@ -1392,6 +1538,7 @@
             "user-id": []
           }
         ],
+        "summary": "IP Probe",
         "tags": [
           "Security and Networking"
         ],
@@ -1406,8 +1553,11 @@
     },
     "/phone-playback": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Make an automated call to any valid phone number and playback an audio message",
-        "operationId": "phone_playback.post",
+        "operationId": "PhonePlaybackPost",
         "parameters": [
           {
             "enum": [
@@ -1436,6 +1586,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/PhonePlaybackResponse"
             }
@@ -1459,6 +1610,7 @@
             "user-id": []
           }
         ],
+        "summary": "Phone Playback",
         "tags": [
           "Telephony"
         ],
@@ -1473,8 +1625,11 @@
     },
     "/phone-validate": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Parse, validate and get location information about a phone number",
-        "operationId": "phone_validate.post",
+        "operationId": "PhoneValidatePost",
         "parameters": [
           {
             "enum": [
@@ -1510,6 +1665,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/PhoneValidateResponse"
             }
@@ -1533,6 +1689,7 @@
             "user-id": []
           }
         ],
+        "summary": "Phone Validate",
         "tags": [
           "Data Tools"
         ],
@@ -1547,8 +1704,11 @@
     },
     "/phone-verify": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Make an automated call to any valid phone number and playback a unique security code",
-        "operationId": "phone_verify.post",
+        "operationId": "PhoneVerifyPost",
         "parameters": [
           {
             "enum": [
@@ -1611,6 +1771,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/PhoneVerifyResponse"
             }
@@ -1634,6 +1795,7 @@
             "user-id": []
           }
         ],
+        "summary": "Phone Verify",
         "tags": [
           "Telephony"
         ],
@@ -1648,8 +1810,11 @@
     },
     "/qr-code": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Generate a QR code as a PNG image. See: https://www.neutrinoapi.com/api/qr-code/",
-        "operationId": "qr_code.post",
+        "operationId": "QrCodePost",
         "parameters": [
           {
             "description": "The content to encode into the QR code (e.g. a URL or a phone number)",
@@ -1696,6 +1861,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "format": "binary",
               "type": "string"
@@ -1720,6 +1886,7 @@
             "user-id": []
           }
         ],
+        "summary": "QR Code",
         "tags": [
           "Imaging"
         ],
@@ -1734,8 +1901,11 @@
     },
     "/sms-verify": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Send a unique security code to any mobile device via SMS",
-        "operationId": "sms_verify.post",
+        "operationId": "SmsVerifyPost",
         "parameters": [
           {
             "enum": [
@@ -1789,6 +1959,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/SmsVerifyResponse"
             }
@@ -1812,6 +1983,7 @@
             "user-id": []
           }
         ],
+        "summary": "SMS Verify",
         "tags": [
           "Telephony"
         ],
@@ -1826,8 +1998,11 @@
     },
     "/url-info": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Parse, analyze and retrieve content from the supplied URL",
-        "operationId": "url_info.post",
+        "operationId": "UrlInfoPost",
         "parameters": [
           {
             "enum": [
@@ -1856,6 +2031,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/UrlInfoResponse"
             }
@@ -1879,6 +2055,7 @@
             "user-id": []
           }
         ],
+        "summary": "URL Info",
         "tags": [
           "Security and Networking"
         ],
@@ -1893,8 +2070,11 @@
     },
     "/user-agent-info": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Parse, validate and get detailed user-agent information from a user agent string",
-        "operationId": "user_agent_info.post",
+        "operationId": "UserAgentInfoPost",
         "parameters": [
           {
             "enum": [
@@ -1916,6 +2096,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/UserAgentInfoResponse"
             }
@@ -1939,6 +2120,7 @@
             "user-id": []
           }
         ],
+        "summary": "User Agent Info",
         "tags": [
           "Data Tools"
         ],
@@ -1953,8 +2135,11 @@
     },
     "/verify-security-code": {
       "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
         "description": "Check if a security code from one of the verify APIs is valid",
-        "operationId": "verify_security_code.post",
+        "operationId": "VerifySecurityCodePost",
         "parameters": [
           {
             "enum": [
@@ -1977,6 +2162,7 @@
         "responses": {
           "200": {
             "description": "",
+            "examples": {},
             "schema": {
               "$ref": "#/definitions/VerifySecurityCodeResponse"
             }
@@ -2000,6 +2186,7 @@
             "user-id": []
           }
         ],
+        "summary": "Verify Security Code",
         "tags": [
           "Telephony"
         ],
@@ -2015,9 +2202,6 @@
   },
   "definitions": {
     "ApiError": {
-      "allOf": [
-        {}
-      ],
       "properties": {
         "apiError": {
           "description": "API error code. If set and > 0 then an API error has occurred your request could not be completed",
@@ -2254,6 +2438,14 @@
           "description": "True if this address is a free-mail address",
           "type": "boolean"
         },
+        "isPersonal": {
+          "description": "True if this address belongs to a person. False if this is a role based address, e.g. admin@, help@, office@, etc.",
+          "type": "boolean"
+        },
+        "provider": {
+          "description": "The email service provider domain",
+          "type": "string"
+        },
         "syntaxError": {
           "description": "True if this address has a syntax error",
           "type": "boolean"
@@ -2275,9 +2467,89 @@
         "isFreemail",
         "email",
         "isDisposable",
-        "typosFixed"
+        "typosFixed",
+        "isPersonal",
+        "provider"
       ],
       "title": "Email Validate Response",
+      "type": "object"
+    },
+    "EmailVerifyResponse": {
+      "properties": {
+        "domain": {
+          "description": "The email domain",
+          "type": "string"
+        },
+        "domainError": {
+          "description": "True if this address has a domain error (e.g. no valid mail server records)",
+          "type": "boolean"
+        },
+        "email": {
+          "description": "The full email address (this could be different to the supplied address if typos-fixed is true)",
+          "type": "string"
+        },
+        "isCatchAll": {
+          "description": "True if this email domain has a catch-all policy (it will accept mail for any username)",
+          "type": "boolean"
+        },
+        "isDisposable": {
+          "description": "True if this address is a disposable, temporary or darknet related email address",
+          "type": "boolean"
+        },
+        "isFreemail": {
+          "description": "True if this address is a free-mail address",
+          "type": "boolean"
+        },
+        "isPersonal": {
+          "description": "True if this address is for a person. False if this is a role based address, e.g. admin@, help@, office@, etc.",
+          "type": "boolean"
+        },
+        "provider": {
+          "description": "The email service provider domain",
+          "type": "string"
+        },
+        "smtpResponse": {
+          "description": "The raw SMTP response message received during verification",
+          "type": "string"
+        },
+        "smtpStatus": {
+          "description": "The SMTP verification status for the address (see API docs for full details)",
+          "type": "string"
+        },
+        "syntaxError": {
+          "description": "True if this address has a syntax error",
+          "type": "boolean"
+        },
+        "typosFixed": {
+          "description": "True if typos have been fixed",
+          "type": "boolean"
+        },
+        "valid": {
+          "description": "Is this a valid email address (syntax and domain is valid)",
+          "type": "boolean"
+        },
+        "verified": {
+          "description": "True if this address has passed SMTP verification. Check the smtp-status and smtp-response fields for specific verification details",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "valid",
+        "verified",
+        "email",
+        "typosFixed",
+        "syntaxError",
+        "domainError",
+        "domain",
+        "provider",
+        "isFreemail",
+        "isDisposable",
+        "isPersonal",
+        "smtpStatus",
+        "smtpResponse",
+        "isCatchAll"
+      ],
+      "title": "Email Verify Response",
       "type": "object"
     },
     "GeocodeAddressResponse": {
@@ -2355,6 +2627,10 @@
     },
     "HlrLookupResponse": {
       "properties": {
+        "country": {
+          "description": "The phone number country",
+          "type": "string"
+        },
         "countryCode": {
           "description": "Number location ISO 2-letter country code",
           "type": "string"
@@ -2446,7 +2722,8 @@
         "location",
         "originNetwork",
         "isMobile",
-        "isRoaming"
+        "isRoaming",
+        "country"
       ],
       "title": "HLR Lookup Response",
       "type": "object"
@@ -2502,6 +2779,17 @@
     },
     "IpBlocklistResponse": {
       "properties": {
+        "blocklists": {
+          "description": "An array of strings indicating which blocklists this IP is listed on (empty if not listed)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ip": {
+          "description": "The IP address",
+          "type": "string"
+        },
         "isBot": {
           "description": "IP is hosting a malicious bot or is part of a botnet",
           "type": "boolean"
@@ -2562,6 +2850,7 @@
         }
       },
       "required": [
+        "ip",
         "isBot",
         "isExploitBot",
         "isMalware",
@@ -2575,7 +2864,8 @@
         "isSpamBot",
         "isListed",
         "isVpn",
-        "lastSeen"
+        "lastSeen",
+        "blocklists"
       ],
       "title": "IP Blocklist Response",
       "type": "object"
@@ -2584,6 +2874,10 @@
       "properties": {
         "city": {
           "description": "Full city name (if detectable)",
+          "type": "string"
+        },
+        "continentCode": {
+          "description": "ISO 2-letter continent code",
           "type": "string"
         },
         "country": {
@@ -2625,7 +2919,8 @@
         "countryCode",
         "latitude",
         "region",
-        "longitude"
+        "longitude",
+        "continentCode"
       ],
       "title": "IP Info Response",
       "type": "object"
@@ -2636,11 +2931,15 @@
           "description": "Full city name (if detectable)",
           "type": "string"
         },
+        "continentCode": {
+          "description": "ISO 2-letter continent code",
+          "type": "string"
+        },
         "country": {
           "description": "Full country name",
           "type": "string"
         },
-        "country-code": {
+        "countryCode": {
           "description": "ISO 2-letter country code",
           "type": "string"
         },
@@ -2652,19 +2951,27 @@
           "description": "The IP address",
           "type": "string"
         },
-        "provider-description": {
+        "isHosting": {
+          "description": "True if this IP belongs to a hosting company. Note that this can still be true even if the provider type is VPN/proxy, this occurs in the case that the IP is detected as both types",
+          "type": "boolean"
+        },
+        "isIsp": {
+          "description": "True if this IP belongs to an ISP. Note that this can still be true even if the provider type is VPN/proxy, this occurs in the case that the IP is detected as both types",
+          "type": "boolean"
+        },
+        "providerDescription": {
           "description": "A description of the provider, usually extracted from the providers website or WHOIS record",
           "type": "string"
         },
-        "provider-domain": {
+        "providerDomain": {
           "description": "The domain name of the provider",
           "type": "string"
         },
-        "provider-type": {
+        "providerType": {
           "description": "The detected provider type. See API docs for specific provider type details",
           "type": "string"
         },
-        "provider-website": {
+        "providerWebsite": {
           "description": "The website URL for the provider",
           "type": "string"
         },
@@ -2680,15 +2987,18 @@
       "required": [
         "valid",
         "country",
-        "provider-type",
-        "country-code",
+        "providerType",
+        "countryCode",
         "hostname",
-        "provider-domain",
+        "providerDomain",
         "city",
-        "provider-website",
+        "providerWebsite",
         "ip",
         "region",
-        "provider-description"
+        "providerDescription",
+        "continentCode",
+        "isHosting",
+        "isIsp"
       ],
       "title": "IP Probe Response",
       "type": "object"
@@ -2771,6 +3081,10 @@
     },
     "PhoneValidateResponse": {
       "properties": {
+        "country": {
+          "description": "The phone number country",
+          "type": "string"
+        },
         "countryCode": {
           "description": "Number location ISO 2-letter country code",
           "type": "string"
@@ -2812,7 +3126,8 @@
         "isMobile",
         "type",
         "internationalNumber",
-        "localNumber"
+        "localNumber",
+        "country"
       ],
       "title": "Phone Validate Response",
       "type": "object"

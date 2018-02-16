@@ -139,6 +139,20 @@ amazonaws_shield.DescribeSubscription({}, context)
 #### Output
 * output [DescribeSubscriptionResponse](#describesubscriptionresponse)
 
+### GetSubscriptionState
+
+
+
+```js
+amazonaws_shield.GetSubscriptionState({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetSubscriptionStateResponse](#getsubscriptionstateresponse)
+
 ### ListAttacks
 
 
@@ -182,6 +196,7 @@ amazonaws_shield.ListProtections({}, context)
 * AttackDetail `object`: The details of a DDoS attack.
   * AttackCounters [SummarizedCounterList](#summarizedcounterlist)
   * AttackId [AttackId](#attackid)
+  * AttackProperties [AttackProperties](#attackproperties)
   * EndTime [AttackTimestamp](#attacktimestamp)
   * Mitigations [MitigationList](#mitigationlist)
   * ResourceArn [ResourceArn](#resourcearn)
@@ -190,6 +205,24 @@ amazonaws_shield.ListProtections({}, context)
 
 ### AttackId
 * AttackId `string`
+
+### AttackLayer
+* AttackLayer `string` (values: NETWORK, APPLICATION)
+
+### AttackProperties
+* AttackProperties `array`
+  * items [AttackProperty](#attackproperty)
+
+### AttackProperty
+* AttackProperty `object`: Details of the described attack.
+  * AttackLayer [AttackLayer](#attacklayer)
+  * AttackPropertyIdentifier [AttackPropertyIdentifier](#attackpropertyidentifier)
+  * TopContributors [TopContributors](#topcontributors)
+  * Total [Long](#long)
+  * Unit [Unit](#unit)
+
+### AttackPropertyIdentifier
+* AttackPropertyIdentifier `string` (values: DESTINATION_URL, REFERRER, SOURCE_ASN, SOURCE_COUNTRY, SOURCE_IP_ADDRESS, SOURCE_USER_AGENT)
 
 ### AttackSummaries
 * AttackSummaries `array`
@@ -213,6 +246,11 @@ amazonaws_shield.ListProtections({}, context)
 ### AttackVectorDescriptionList
 * AttackVectorDescriptionList `array`
   * items [AttackVectorDescription](#attackvectordescription)
+
+### Contributor
+* Contributor `object`: A contributor to the attack and their contribution.
+  * Name [String](#string)
+  * Value [Long](#long)
 
 ### CreateProtectionRequest
 * CreateProtectionRequest `object`
@@ -271,6 +309,13 @@ amazonaws_shield.ListProtections({}, context)
 ### DurationInSeconds
 * DurationInSeconds `integer`
 
+### GetSubscriptionStateRequest
+* GetSubscriptionStateRequest `object`
+
+### GetSubscriptionStateResponse
+* GetSubscriptionStateResponse `object`
+  * SubscriptionState **required** [SubscriptionState](#subscriptionstate)
+
 ### Integer
 * Integer `integer`
 
@@ -297,7 +342,7 @@ amazonaws_shield.ListProtections({}, context)
 * LimitType `string`
 
 ### LimitsExceededException
-* LimitsExceededException `object`: Exception that indicates that the operation would exceed a limit.
+* LimitsExceededException `object`: <p>Exception that indicates that the operation would exceed a limit.</p> <p> <code>Type</code> is the type of limit that would be exceeded.</p> <p> <code>Limit</code> is the threshold that would be exceeded.</p>
   * Limit [LimitNumber](#limitnumber)
   * Type [LimitType](#limittype)
   * message [errorMessage](#errormessage)
@@ -326,8 +371,11 @@ amazonaws_shield.ListProtections({}, context)
   * Protections [Protections](#protections)
 
 ### LockedSubscriptionException
-* LockedSubscriptionException `object`: Exception that indicates that the subscription has been modified by another client. You can retry the request.
+* LockedSubscriptionException `object`: Exception that indicates that the subscription you are trying to delete has not yet completed the 1-year commitment. You cannot delete this subscription.
   * message [errorMessage](#errormessage)
+
+### Long
+* Long `integer`
 
 ### MaxResults
 * MaxResults `integer`
@@ -397,6 +445,9 @@ amazonaws_shield.ListProtections({}, context)
   * StartTime [Timestamp](#timestamp)
   * TimeCommitmentInSeconds [DurationInSeconds](#durationinseconds)
 
+### SubscriptionState
+* SubscriptionState `string` (values: ACTIVE, INACTIVE)
+
 ### SummarizedAttackVector
 * SummarizedAttackVector `object`: A summary of information about the attack.
   * VectorCounters [SummarizedCounterList](#summarizedcounterlist)
@@ -429,6 +480,13 @@ amazonaws_shield.ListProtections({}, context)
 
 ### Token
 * Token `string`
+
+### TopContributors
+* TopContributors `array`
+  * items [Contributor](#contributor)
+
+### Unit
+* Unit `string` (values: BITS, BYTES, PACKETS, REQUESTS)
 
 ### errorMessage
 * errorMessage `string`

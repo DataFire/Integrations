@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Ad Exchange Buyer",
     "version": "v1.4",
     "x-apiClientRegistration": {
@@ -44,11 +49,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -166,6 +181,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -222,6 +240,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -257,11 +278,11 @@
         "operationId": "accounts.patch",
         "parameters": [
           {
-            "description": "The account id",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
           },
           {
             "description": "Confirmation for erasing bidder and cookie matching urls.",
@@ -270,11 +291,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
+            "description": "The account id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -289,6 +310,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -301,11 +325,11 @@
         "operationId": "accounts.update",
         "parameters": [
           {
-            "description": "The account id",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
           },
           {
             "description": "Confirmation for erasing bidder and cookie matching urls.",
@@ -314,11 +338,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
+            "description": "The account id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -332,6 +356,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -356,6 +383,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -412,6 +442,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -475,6 +508,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -544,6 +580,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -588,6 +627,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -673,6 +715,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -727,6 +772,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -766,6 +814,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -857,6 +908,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -896,6 +950,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -987,6 +1044,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1015,13 +1075,6 @@
             "type": "string"
           },
           {
-            "description": "The start time of the report in ISO 8601 timestamp format using UTC.",
-            "in": "query",
-            "name": "startDateTime",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Maximum number of entries returned on one result page. If not set, the default is 100. Optional.",
             "in": "query",
             "maximum": 1000,
@@ -1033,6 +1086,13 @@
             "description": "A continuation token, used to page through performance reports. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response. Optional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The start time of the report in ISO 8601 timestamp format using UTC.",
+            "in": "query",
+            "name": "startDateTime",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1047,6 +1107,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1103,6 +1166,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1165,6 +1231,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1201,6 +1270,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1239,6 +1311,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1282,18 +1357,18 @@
             "type": "string"
           },
           {
-            "description": "The specific id of the configuration to update.",
-            "in": "path",
-            "name": "configId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/PretargetingConfig"
             }
+          },
+          {
+            "description": "The specific id of the configuration to update.",
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1307,6 +1382,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1327,18 +1405,18 @@
             "type": "string"
           },
           {
-            "description": "The specific id of the configuration to update.",
-            "in": "path",
-            "name": "configId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/PretargetingConfig"
             }
+          },
+          {
+            "description": "The specific id of the configuration to update.",
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1352,6 +1430,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1390,17 +1471,17 @@
         "operationId": "marketplaceprivateauction.updateproposal",
         "parameters": [
           {
-            "in": "path",
-            "name": "privateAuctionId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/UpdatePrivateAuctionProposalRequest"
             }
+          },
+          {
+            "in": "path",
+            "name": "privateAuctionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1411,6 +1492,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1443,6 +1527,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1499,6 +1586,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1579,6 +1669,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1610,6 +1703,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1667,6 +1763,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -1704,16 +1803,16 @@
         "operationId": "marketplacedeals.list",
         "parameters": [
           {
+            "description": "Query string to retrieve specific deals.",
+            "in": "query",
+            "name": "pqlQuery",
+            "type": "string"
+          },
+          {
             "description": "The proposalId to get deals for. To search across all proposals specify order_id = '-' as part of the URL.",
             "in": "path",
             "name": "proposalId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Query string to retrieve specific deals.",
-            "in": "query",
-            "name": "pqlQuery",
             "type": "string"
           }
         ],
@@ -1728,6 +1827,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1789,18 +1891,18 @@
         "operationId": "marketplacedeals.delete",
         "parameters": [
           {
-            "description": "The proposalId to delete deals from.",
-            "in": "path",
-            "name": "proposalId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/DeleteOrderDealsRequest"
             }
+          },
+          {
+            "description": "The proposalId to delete deals from.",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1814,6 +1916,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1852,18 +1957,18 @@
         "operationId": "marketplacedeals.insert",
         "parameters": [
           {
-            "description": "proposalId for which deals need to be added.",
-            "in": "path",
-            "name": "proposalId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AddOrderDealsRequest"
             }
+          },
+          {
+            "description": "proposalId for which deals need to be added.",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1877,6 +1982,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1915,18 +2023,18 @@
         "operationId": "marketplacedeals.update",
         "parameters": [
           {
-            "description": "The proposalId to edit deals on.",
-            "in": "path",
-            "name": "proposalId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/EditAllOrderDealsRequest"
             }
+          },
+          {
+            "description": "The proposalId to edit deals on.",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1940,6 +2048,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -1955,16 +2066,16 @@
         "operationId": "marketplacenotes.list",
         "parameters": [
           {
+            "description": "Query string to retrieve specific notes. To search the text contents of notes, please use syntax like \"WHERE note.note = \"foo\" or \"WHERE note.note LIKE \"%bar%\"",
+            "in": "query",
+            "name": "pqlQuery",
+            "type": "string"
+          },
+          {
             "description": "The proposalId to get notes for. To search across all proposals specify order_id = '-' as part of the URL.",
             "in": "path",
             "name": "proposalId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Query string to retrieve specific notes. To search the text contents of notes, please use syntax like \"WHERE note.note = \"foo\" or \"WHERE note.note LIKE \"%bar%\"",
-            "in": "query",
-            "name": "pqlQuery",
             "type": "string"
           }
         ],
@@ -1979,6 +2090,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2040,18 +2154,18 @@
         "operationId": "marketplacenotes.insert",
         "parameters": [
           {
-            "description": "The proposalId to add notes for.",
-            "in": "path",
-            "name": "proposalId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AddOrderNotesRequest"
             }
+          },
+          {
+            "description": "The proposalId to add notes for.",
+            "in": "path",
+            "name": "proposalId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2065,6 +2179,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2119,6 +2236,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -2156,6 +2276,13 @@
         "operationId": "proposals.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
+          },
+          {
             "description": "The proposal id to update.",
             "in": "path",
             "name": "proposalId",
@@ -2183,13 +2310,6 @@
             "name": "updateAction",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Proposal"
-            }
           }
         ],
         "responses": {
@@ -2204,6 +2324,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
         ],
@@ -2215,6 +2338,13 @@
         "description": "Update the given proposal",
         "operationId": "proposals.update",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
+          },
           {
             "description": "The proposal id to update.",
             "in": "path",
@@ -2243,13 +2373,6 @@
             "name": "updateAction",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Proposal"
-            }
           }
         ],
         "responses": {
@@ -2263,6 +2386,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }
@@ -2296,6 +2422,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/adexchange.buyer"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/adexchange.buyer"
             ]
           }

@@ -192,8 +192,8 @@ google_blogger.pages.insert({
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to add the page to.
-  * isDraft `boolean`: Whether to create the page as a draft (default: false).
   * body [Page](#page)
+  * isDraft `boolean`: Whether to create the page as a draft (default: false).
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -272,10 +272,10 @@ google_blogger.pages.patch({
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
+  * body [Page](#page)
   * pageId **required** `string`: The ID of the Page.
   * publish `boolean`: Whether a publish action should be performed when the page is updated (default: false).
   * revert `boolean`: Whether a revert action should be performed when the page is updated (default: false).
-  * body [Page](#page)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -301,10 +301,10 @@ google_blogger.pages.update({
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
+  * body [Page](#page)
   * pageId **required** `string`: The ID of the Page.
   * publish `boolean`: Whether a publish action should be performed when the page is updated (default: false).
   * revert `boolean`: Whether a revert action should be performed when the page is updated (default: false).
-  * body [Page](#page)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -440,10 +440,10 @@ google_blogger.posts.insert({
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to add the post to.
+  * body [Post](#post)
   * fetchBody `boolean`: Whether the body content of the post is included with the result (default: true).
   * fetchImages `boolean`: Whether image URL metadata for each post is included in the returned result (default: false).
   * isDraft `boolean`: Whether to create the post as a draft (default: false).
-  * body [Post](#post)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -469,8 +469,8 @@ google_blogger.posts.getByPath({
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to fetch the post from.
-  * path **required** `string`: Path of the Post to retrieve.
   * maxComments `integer`: Maximum number of comments to pull back on a post.
+  * path **required** `string`: Path of the Post to retrieve.
   * view `string` (values: ADMIN, AUTHOR, READER): Access level with which to view the returned result. Note that some fields require elevated access.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -497,9 +497,9 @@ google_blogger.posts.search({
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to fetch the post from.
-  * q **required** `string`: Query terms to search this blog for matching posts.
   * fetchBodies `boolean`: Whether the body content of posts is included (default: true). This should be set to false when the post bodies are not required, to help minimize traffic.
   * orderBy `string` (values: published, updated): Sort search results
+  * q **required** `string`: Query terms to search this blog for matching posts.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -551,10 +551,10 @@ google_blogger.posts.get({
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to fetch the post from.
-  * postId **required** `string`: The ID of the post
   * fetchBody `boolean`: Whether the body content of the post is included (default: true). This should be set to false when the post bodies are not required, to help minimize traffic.
   * fetchImages `boolean`: Whether image URL metadata for each post is included (default: false).
   * maxComments `integer`: Maximum number of comments to pull back on a post.
+  * postId **required** `string`: The ID of the post
   * view `string` (values: ADMIN, AUTHOR, READER): Access level with which to view the returned result. Note that some fields require elevated access.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -581,13 +581,13 @@ google_blogger.posts.patch({
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
-  * postId **required** `string`: The ID of the Post.
+  * body [Post](#post)
   * fetchBody `boolean`: Whether the body content of the post is included with the result (default: true).
   * fetchImages `boolean`: Whether image URL metadata for each post is included in the returned result (default: false).
   * maxComments `integer`: Maximum number of comments to retrieve with the returned post.
+  * postId **required** `string`: The ID of the Post.
   * publish `boolean`: Whether a publish action should be performed when the post is updated (default: false).
   * revert `boolean`: Whether a revert action should be performed when the post is updated (default: false).
-  * body [Post](#post)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -613,13 +613,13 @@ google_blogger.posts.update({
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
-  * postId **required** `string`: The ID of the Post.
+  * body [Post](#post)
   * fetchBody `boolean`: Whether the body content of the post is included with the result (default: true).
   * fetchImages `boolean`: Whether image URL metadata for each post is included in the returned result (default: false).
   * maxComments `integer`: Maximum number of comments to retrieve with the returned post.
+  * postId **required** `string`: The ID of the Post.
   * publish `boolean`: Whether a publish action should be performed when the post is updated (default: false).
   * revert `boolean`: Whether a revert action should be performed when the post is updated (default: false).
-  * body [Post](#post)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -645,11 +645,11 @@ google_blogger.comments.list({
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to fetch comments from.
-  * postId **required** `string`: ID of the post to fetch posts from.
   * endDate `string`: Latest date of comment to fetch, a date-time with RFC 3339 formatting.
   * fetchBodies `boolean`: Whether the body content of the comments is included.
   * maxResults `integer`: Maximum number of comments to include in the result.
   * pageToken `string`: Continuation token if request is paged.
+  * postId **required** `string`: ID of the post to fetch posts from.
   * startDate `string`: Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
   * status `array`
   * view `string` (values: ADMIN, AUTHOR, READER): Access level with which to view the returned result. Note that some fields require elevated access.
@@ -671,16 +671,16 @@ Delete a comment by ID.
 ```js
 google_blogger.comments.delete({
   "blogId": "",
-  "postId": "",
-  "commentId": ""
+  "commentId": "",
+  "postId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
-  * postId **required** `string`: The ID of the Post.
   * commentId **required** `string`: The ID of the comment to delete.
+  * postId **required** `string`: The ID of the Post.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -699,16 +699,16 @@ Gets one comment by ID.
 ```js
 google_blogger.comments.get({
   "blogId": "",
-  "postId": "",
-  "commentId": ""
+  "commentId": "",
+  "postId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * blogId **required** `string`: ID of the blog to containing the comment.
-  * postId **required** `string`: ID of the post to fetch posts from.
   * commentId **required** `string`: The ID of the comment to get.
+  * postId **required** `string`: ID of the post to fetch posts from.
   * view `string` (values: ADMIN, AUTHOR, READER): Access level for the requested comment (default: READER). Note that some comments will require elevated permissions, for example comments where the parent posts which is in a draft state, or comments that are pending moderation.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -728,16 +728,16 @@ Marks a comment as not spam.
 ```js
 google_blogger.comments.approve({
   "blogId": "",
-  "postId": "",
-  "commentId": ""
+  "commentId": "",
+  "postId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
-  * postId **required** `string`: The ID of the Post.
   * commentId **required** `string`: The ID of the comment to mark as not spam.
+  * postId **required** `string`: The ID of the Post.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -756,16 +756,16 @@ Removes the content of a comment.
 ```js
 google_blogger.comments.removeContent({
   "blogId": "",
-  "postId": "",
-  "commentId": ""
+  "commentId": "",
+  "postId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
-  * postId **required** `string`: The ID of the Post.
   * commentId **required** `string`: The ID of the comment to delete content from.
+  * postId **required** `string`: The ID of the Post.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -784,16 +784,16 @@ Marks a comment as spam.
 ```js
 google_blogger.comments.markAsSpam({
   "blogId": "",
-  "postId": "",
-  "commentId": ""
+  "commentId": "",
+  "postId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * blogId **required** `string`: The ID of the Blog.
-  * postId **required** `string`: The ID of the Post.
   * commentId **required** `string`: The ID of the comment to mark as spam.
+  * postId **required** `string`: The ID of the Post.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -894,10 +894,10 @@ google_blogger.blogs.listByUser({
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * fetchUserInfo `boolean`: Whether the response is a list of blogs with per-user information instead of just blogs.
   * role `array`: User access types for blogs to include in the results, e.g. AUTHOR will return blogs where the user has author level access. If no roles are specified, defaults to ADMIN and AUTHOR roles.
   * status `array`: Blog statuses to include in the result (default: Live blogs only). Note that ADMIN access is required to view deleted blogs.
+  * userId **required** `string`: ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * view `string` (values: ADMIN, AUTHOR, READER): Access level with which to view the blogs. Note that some fields require elevated access.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -916,16 +916,16 @@ Gets one blog and user info pair by blogId and userId.
 
 ```js
 google_blogger.blogUserInfos.get({
-  "userId": "",
-  "blogId": ""
+  "blogId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * blogId **required** `string`: The ID of the blog to get.
   * maxPosts `integer`: Maximum number of posts to pull back with the blog.
+  * userId **required** `string`: ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -943,14 +943,13 @@ Retrieves a list of post and post user info pairs, possibly filtered. The post u
 
 ```js
 google_blogger.postUserInfos.list({
-  "userId": "",
-  "blogId": ""
+  "blogId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * blogId **required** `string`: ID of the blog to fetch posts from.
   * endDate `string`: Latest post date to fetch, a date-time with RFC 3339 formatting.
   * fetchBodies `boolean`: Whether the body content of posts is included. Default is false.
@@ -960,6 +959,7 @@ google_blogger.postUserInfos.list({
   * pageToken `string`: Continuation token if the request is paged.
   * startDate `string`: Earliest post date to fetch, a date-time with RFC 3339 formatting.
   * status `array`
+  * userId **required** `string`: ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * view `string` (values: ADMIN, AUTHOR, READER): Access level with which to view the returned result. Note that some fields require elevated access.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -978,18 +978,18 @@ Gets one post and user info pair, by post ID and user ID. The post user info con
 
 ```js
 google_blogger.postUserInfos.get({
-  "userId": "",
   "blogId": "",
-  "postId": ""
+  "postId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * blogId **required** `string`: The ID of the blog.
-  * postId **required** `string`: The ID of the post to get.
   * maxComments `integer`: Maximum number of comments to pull back on a post.
+  * postId **required** `string`: The ID of the post to get.
+  * userId **required** `string`: ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

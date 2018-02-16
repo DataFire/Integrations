@@ -67,6 +67,35 @@ google_iam.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
+### iamPolicies.queryAuditableServices
+Returns a list of services that support service level audit logging
+configuration for the given resource.
+
+
+```js
+google_iam.iamPolicies.queryAuditableServices({}, context)
+```
+
+#### Input
+* input `object`
+  * body [QueryAuditableServicesRequest](#queryauditableservicesrequest)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [QueryAuditableServicesResponse](#queryauditableservicesresponse)
+
 ### permissions.queryTestablePermissions
 Lists the permissions testable on a resource.
 A permission is testable if it can be tested for an identity on a resource.
@@ -141,19 +170,19 @@ google_iam.roles.queryGrantableRoles({}, context)
 #### Input
 * input `object`
   * body [QueryGrantableRolesRequest](#querygrantablerolesrequest)
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [QueryGrantableRolesResponse](#querygrantablerolesresponse)
@@ -178,19 +207,19 @@ google_iam.organizations.roles.delete({
 * input `object`
   * etag `string`: Used to perform a consistent read-modify-write.
   * name **required** `string`: The resource name of the role in one of the following formats:
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Role](#role)
@@ -209,19 +238,19 @@ google_iam.organizations.roles.get({
 * input `object`
   * name **required** `string`: The resource name of the role in one of the following formats:
   * publicKeyType `string` (values: TYPE_NONE, TYPE_X509_PEM_FILE, TYPE_RAW_PUBLIC_KEY): The output format of the public key requested.
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Role](#role)
@@ -241,19 +270,19 @@ google_iam.organizations.roles.patch({
   * body [Role](#role)
   * name **required** `string`: The resource name of the role in one of the following formats:
   * updateMask `string`: A mask describing which fields in the Role have changed.
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Role](#role)
@@ -276,19 +305,19 @@ google_iam.projects.serviceAccounts.update({
 * input `object`
   * body [ServiceAccount](#serviceaccount)
   * name **required** `string`: The resource name of the service account in the following format:
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ServiceAccount](#serviceaccount)
@@ -307,19 +336,19 @@ google_iam.projects.serviceAccounts.keys.list({
 * input `object`
   * keyTypes `array`: Filters the types of keys the user wants to include in the list
   * name **required** `string`: The resource name of the service account in the following format:
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListServiceAccountKeysResponse](#listserviceaccountkeysresponse)
@@ -339,19 +368,19 @@ google_iam.projects.serviceAccounts.keys.create({
 * input `object`
   * body [CreateServiceAccountKeyRequest](#createserviceaccountkeyrequest)
   * name **required** `string`: The resource name of the service account in the following format:
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ServiceAccountKey](#serviceaccountkey)
@@ -369,21 +398,21 @@ google_iam.projects.serviceAccounts.list({
 #### Input
 * input `object`
   * name **required** `string`: Required. The resource name of the project associated with the service
-  * pageToken `string`: Optional pagination token returned in an earlier
   * pageSize `integer`: Optional limit on the number of service accounts to include in the
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
+  * pageToken `string`: Optional pagination token returned in an earlier
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListServiceAccountsResponse](#listserviceaccountsresponse)
@@ -401,21 +430,21 @@ google_iam.projects.serviceAccounts.create({
 
 #### Input
 * input `object`
-  * name **required** `string`: Required. The resource name of the project associated with the service
   * body [CreateServiceAccountRequest](#createserviceaccountrequest)
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
+  * name **required** `string`: Required. The resource name of the project associated with the service
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ServiceAccount](#serviceaccount)
@@ -434,19 +463,19 @@ google_iam.projects.serviceAccounts.signBlob({
 * input `object`
   * body [SignBlobRequest](#signblobrequest)
   * name **required** `string`: The resource name of the service account in the following format:
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [SignBlobResponse](#signblobresponse)
@@ -469,19 +498,19 @@ google_iam.projects.serviceAccounts.signJwt({
 * input `object`
   * body [SignJwtRequest](#signjwtrequest)
   * name **required** `string`: The resource name of the service account in the following format:
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [SignJwtResponse](#signjwtresponse)
@@ -530,7 +559,7 @@ google_iam.organizations.roles.list({
 #### Input
 * input `object`
   * pageSize `integer`: Optional limit on the number of roles to include in the response.
-  * pageToken `string` (values: BASIC, FULL): Optional pagination token returned in an earlier ListRolesResponse.
+  * pageToken `string`: Optional pagination token returned in an earlier ListRolesResponse.
   * parent **required** `string`: The resource name of the parent resource in one of the following formats:
   * showDeleted `boolean`: Include Roles that have been deleted.
   * view `string` (values: BASIC, FULL): Optional view for the returned Role objects.
@@ -596,19 +625,19 @@ google_iam.projects.serviceAccounts.getIamPolicy({
 #### Input
 * input `object`
   * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Policy](#policy)
@@ -628,19 +657,19 @@ google_iam.projects.serviceAccounts.setIamPolicy({
 * input `object`
   * body [SetIamPolicyRequest](#setiampolicyrequest)
   * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Policy](#policy)
@@ -660,19 +689,19 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 * input `object`
   * body [TestIamPermissionsRequest](#testiampermissionsrequest)
   * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
-  * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
@@ -685,6 +714,10 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 * AuditData `object`: Audit log information specific to Cloud IAM. This message is serialized
   * policyDelta [PolicyDelta](#policydelta)
 
+### AuditableService
+* AuditableService `object`: Contains information about an auditable service.
+  * name `string`: Public name of the service.
+
 ### Binding
 * Binding `object`: Associates `members` with a `role`.
   * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
@@ -694,7 +727,6 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 ### BindingDelta
 * BindingDelta `object`: One delta entry for Binding. Each individual change (only one member in each
   * action `string` (values: ACTION_UNSPECIFIED, ADD, REMOVE): The action that was performed on a Binding.
-  * condition [Expr](#expr)
   * member `string`: A single identity requesting access for a Cloud Platform resource.
   * role `string`: Role that is assigned to `members`.
 
@@ -705,8 +737,8 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 
 ### CreateServiceAccountKeyRequest
 * CreateServiceAccountKeyRequest `object`: The service account key create request.
-  * keyAlgorithm `string` (values: KEY_ALG_UNSPECIFIED, KEY_ALG_RSA_1024, KEY_ALG_RSA_2048, KEY_ALG_GCS_SYMMETRIC_HMAC): Which type of key and algorithm to use for the key.
-  * privateKeyType `string` (values: TYPE_UNSPECIFIED, TYPE_PKCS12_FILE, TYPE_GOOGLE_CREDENTIALS_FILE): The output format of the private key. `GOOGLE_CREDENTIALS_FILE` is the
+  * keyAlgorithm `string` (values: KEY_ALG_UNSPECIFIED, KEY_ALG_RSA_1024, KEY_ALG_RSA_2048): Which type of key and algorithm to use for the key.
+  * privateKeyType `string` (values: TYPE_UNSPECIFIED, TYPE_PKCS12_FILE, TYPE_GOOGLE_CREDENTIALS_FILE): The output format of the private key. The default value is
 
 ### CreateServiceAccountRequest
 * CreateServiceAccountRequest `object`: The service account create request.
@@ -715,13 +747,6 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
-
-### Expr
-* Expr `object`: Represents an expression text. Example:
-  * description `string`: An optional description of the expression. This is a longer text which
-  * expression `string`: Textual representation of an expression in
-  * location `string`: An optional string indicating the location of the expression for error
-  * title `string`: An optional title for the expression, i.e. a short string describing
 
 ### ListRolesResponse
 * ListRolesResponse `object`: The response containing the roles defined under a resource.
@@ -742,6 +767,7 @@ google_iam.projects.serviceAccounts.testIamPermissions({
 
 ### Permission
 * Permission `object`: A permission which can be included by a role.
+  * apiDisabled `boolean`: The service API associated with the permission is not enabled.
   * customRolesSupportLevel `string` (values: SUPPORTED, TESTING, NOT_SUPPORTED): The current custom role support level.
   * description `string`: A brief description of what this Permission is used for.
   * name `string`: The name of this Permission.
@@ -754,12 +780,21 @@ google_iam.projects.serviceAccounts.testIamPermissions({
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
 
 ### PolicyDelta
 * PolicyDelta `object`: The difference delta between two policies.
   * bindingDeltas `array`: The delta for Bindings between two policies.
     * items [BindingDelta](#bindingdelta)
+
+### QueryAuditableServicesRequest
+* QueryAuditableServicesRequest `object`: A request to get the list of auditable services for a resource.
+  * fullResourceName `string`: Required. The full resource name to query from the list of auditable
+
+### QueryAuditableServicesResponse
+* QueryAuditableServicesResponse `object`: A response containing a list of auditable services for a resource.
+  * services `array`: The auditable services for a resource.
+    * items [AuditableService](#auditableservice)
 
 ### QueryGrantableRolesRequest
 * QueryGrantableRolesRequest `object`: The grantable role query request.
@@ -803,13 +838,13 @@ google_iam.projects.serviceAccounts.testIamPermissions({
   * email `string`: @OutputOnly The email address of the service account.
   * etag `string`: Used to perform a consistent read-modify-write.
   * name `string`: The resource name of the service account in the following format:
-  * oauth2ClientId `string`: @OutputOnly. The OAuth2 client id for the service account.
+  * oauth2ClientId `string`: @OutputOnly The OAuth2 client id for the service account.
   * projectId `string`: @OutputOnly The id of the project that owns the service account.
   * uniqueId `string`: @OutputOnly The unique and stable id of the service account.
 
 ### ServiceAccountKey
 * ServiceAccountKey `object`: Represents a service account key.
-  * keyAlgorithm `string` (values: KEY_ALG_UNSPECIFIED, KEY_ALG_RSA_1024, KEY_ALG_RSA_2048, KEY_ALG_GCS_SYMMETRIC_HMAC): Specifies the algorithm (and possibly key size) for the key.
+  * keyAlgorithm `string` (values: KEY_ALG_UNSPECIFIED, KEY_ALG_RSA_1024, KEY_ALG_RSA_2048): Specifies the algorithm (and possibly key size) for the key.
   * name `string`: The resource name of the service account key in the following format
   * privateKeyData `string`: The private key data. Only provided in `CreateServiceAccountKey`
   * privateKeyType `string` (values: TYPE_UNSPECIFIED, TYPE_PKCS12_FILE, TYPE_GOOGLE_CREDENTIALS_FILE): The output format for the private key.

@@ -9,7 +9,7 @@ npm install --save @datafire/shipstation
 ```js
 let shipstation = require('@datafire/shipstation').create();
 
-shipstation.accounts.listtags.get(null).then(data => {
+shipstation.webhooks.subscribe.post({}).then(data => {
   console.log(data);
 });
 ```
@@ -198,11 +198,25 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.accounts.registeraccount.post(null, context)
+shipstation.accounts.registeraccount.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * addr1 `string`
+    * addr2 `string`
+    * city `string`
+    * companyName `string`
+    * countryCode `string`
+    * email `string`
+    * firstName `string`
+    * lastName `string`
+    * password `string`
+    * phone `string`
+    * shippingOriginCountryCode `string`
+    * state `string`
+    * zip `string`
 
 #### Output
 *Output schema unknown*
@@ -440,11 +454,14 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.addtag.post(null, context)
+shipstation.orders.addtag.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * orderId `number`
+    * tagId `number`
 
 #### Output
 *Output schema unknown*
@@ -459,11 +476,15 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.assignuser.post(null, context)
+shipstation.orders.assignuser.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * orderIds `array`
+      * items `number`
+    * userId `string`
 
 #### Output
 *Output schema unknown*
@@ -487,11 +508,26 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.createlabelfororder.post(null, context)
+shipstation.orders.createlabelfororder.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * advancedOptions `null`
+    * carrierCode `string`
+    * confirmation `null`
+    * dimensions `null`
+    * insuranceOptions `null`
+    * internationalOptions `null`
+    * orderId `number`
+    * packageCode `string`
+    * serviceCode `string`
+    * shipDate `string`
+    * testLabel `boolean`
+    * weight `object`
+      * units `string`
+      * value `number`
 
 #### Output
 *Output schema unknown*
@@ -534,11 +570,114 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.createorder.post(null, context)
+shipstation.orders.createorder.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * advancedOptions `object`
+      * billToAccount `null`
+      * billToCountryCode `null`
+      * billToParty `null`
+      * billToPostalCode `null`
+      * containsAlcohol `boolean`
+      * customField1 `string`
+      * customField2 `string`
+      * customField3 `string`
+      * mergedIds `array`
+
+      * mergedOrSplit `boolean`
+      * nonMachinable `boolean`
+      * parentId `null`
+      * saturdayDelivery `boolean`
+      * source `string`
+      * storeId `number`
+      * warehouseId `number`
+    * amountPaid `number`
+    * billTo `object`
+      * city `null`
+      * company `null`
+      * country `null`
+      * name `string`
+      * phone `null`
+      * postalCode `null`
+      * residential `null`
+      * state `null`
+      * street1 `null`
+      * street2 `null`
+      * street3 `null`
+    * carrierCode `string`
+    * confirmation `string`
+    * customerEmail `string`
+    * customerId `number`
+    * customerNotes `string`
+    * customerUsername `string`
+    * dimensions `object`
+      * height `number`
+      * length `number`
+      * units `string`
+      * width `number`
+    * gift `boolean`
+    * giftMessage `string`
+    * insuranceOptions `object`
+      * insureShipment `boolean`
+      * insuredValue `number`
+      * provider `string`
+    * internalNotes `string`
+    * internationalOptions `object`
+      * contents `null`
+      * customsItems `null`
+    * items `array`
+      * items `object`
+        * adjustment **required** `boolean`
+        * fulfillmentSku **required** `string`
+        * imageUrl **required** `null`
+        * lineItemKey **required** `string`
+        * name **required** `string`
+        * options **required** `array`
+          * items `object`
+            * name `string`
+            * value `string`
+        * productId **required** `number`
+        * quantity **required** `number`
+        * shippingAmount **required** `number`
+        * sku **required** `string`
+        * taxAmount **required** `number`
+        * unitPrice **required** `number`
+        * upc **required** `string`
+        * warehouseLocation **required** `string`
+        * weight **required** `object`
+          * units `string`
+          * value `number`
+    * orderDate `string`
+    * orderKey `string`
+    * orderNumber `string`
+    * orderStatus `string`
+    * packageCode `string`
+    * paymentDate `string`
+    * paymentMethod `string`
+    * requestedShippingService `string`
+    * serviceCode `string`
+    * shipByDate `string`
+    * shipDate `string`
+    * shipTo `object`
+      * city `string`
+      * company `string`
+      * country `string`
+      * name `string`
+      * phone `string`
+      * postalCode `string`
+      * residential `boolean`
+      * state `string`
+      * street1 `string`
+      * street2 `string`
+      * street3 `null`
+    * shippingAmount `number`
+    * taxAmount `number`
+    * weight `object`
+      * units `string`
+      * value `number`
 
 #### Output
 *Output schema unknown*
@@ -552,11 +691,115 @@ Order, required | An array of [**Order**](http://www.shipstation.com/developer-a
 
 
 ```js
-shipstation.orders.createorders.post(null, context)
+shipstation.orders.createorders.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `array`
+    * items `object`
+      * advancedOptions `object`
+        * billToAccount `null`
+        * billToCountryCode `null`
+        * billToParty `null`
+        * billToPostalCode `null`
+        * containsAlcohol `boolean`
+        * customField1 `string`
+        * customField2 `string`
+        * customField3 `string`
+        * mergedIds `array`
+
+        * mergedOrSplit `boolean`
+        * nonMachinable `boolean`
+        * parentId `null`
+        * saturdayDelivery `boolean`
+        * source `string`
+        * storeId `number`
+        * warehouseId `number`
+      * amountPaid `number`
+      * billTo `object`
+        * city `null`
+        * company `null`
+        * country `null`
+        * name `string`
+        * phone `null`
+        * postalCode `null`
+        * residential `null`
+        * state `null`
+        * street1 `null`
+        * street2 `null`
+        * street3 `null`
+      * carrierCode `string`
+      * confirmation `string`
+      * customerEmail `string`
+      * customerId `number`
+      * customerNotes `string`
+      * customerUsername `string`
+      * dimensions `object`
+        * height `number`
+        * length `number`
+        * units `string`
+        * width `number`
+      * gift `boolean`
+      * giftMessage `string`
+      * insuranceOptions `object`
+        * insureShipment `boolean`
+        * insuredValue `number`
+        * provider `string`
+      * internalNotes `string`
+      * internationalOptions `object`
+        * contents `null`
+        * customsItems `null`
+      * items `array`
+        * items `object`
+          * adjustment **required** `boolean`
+          * fulfillmentSku **required** `string`
+          * imageUrl **required** `null`
+          * lineItemKey **required** `string`
+          * name **required** `string`
+          * options **required** `array`
+            * items `object`
+              * name `string`
+              * value `string`
+          * productId **required** `number`
+          * quantity **required** `number`
+          * shippingAmount **required** `number`
+          * sku **required** `string`
+          * taxAmount **required** `number`
+          * unitPrice **required** `number`
+          * upc **required** `string`
+          * warehouseLocation **required** `string`
+          * weight **required** `object`
+            * units `string`
+            * value `number`
+      * orderDate `string`
+      * orderKey `string`
+      * orderNumber `string`
+      * orderStatus `string`
+      * packageCode `string`
+      * paymentDate `string`
+      * paymentMethod `string`
+      * requestedShippingService `string`
+      * serviceCode `string`
+      * shipByDate `string`
+      * shipDate `string`
+      * shipTo `object`
+        * city `string`
+        * company `string`
+        * country `string`
+        * name `string`
+        * phone `string`
+        * postalCode `string`
+        * residential `boolean`
+        * state `string`
+        * street1 `string`
+        * street2 `string`
+        * street3 `null`
+      * shippingAmount `number`
+      * taxAmount `number`
+      * weight `object`
+        * units `string`
+        * value `number`
 
 #### Output
 *Output schema unknown*
@@ -573,11 +816,14 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.holduntil.post(null, context)
+shipstation.orders.holduntil.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * holdUntilDate `string`
+    * orderId `number`
 
 #### Output
 *Output schema unknown*
@@ -628,11 +874,18 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.markasshipped.post(null, context)
+shipstation.orders.markasshipped.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * carrierCode `string`
+    * notifyCustomer `boolean`
+    * notifySalesChannel `boolean`
+    * orderId `number`
+    * shipDate `string`
+    * trackingNumber `string`
 
 #### Output
 *Output schema unknown*
@@ -647,11 +900,14 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.removetag.post(null, context)
+shipstation.orders.removetag.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * orderId `number`
+    * tagId `number`
 
 #### Output
 *Output schema unknown*
@@ -667,11 +923,13 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.restorefromhold.post(null, context)
+shipstation.orders.restorefromhold.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * orderId `number`
 
 #### Output
 *Output schema unknown*
@@ -685,11 +943,14 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.orders.unassignuser.post(null, context)
+shipstation.orders.unassignuser.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * orderIds `array`
+      * items `number`
 
 #### Output
 *Output schema unknown*
@@ -843,6 +1104,37 @@ shipstation.products.productId.put({
 #### Input
 * input `object`
   * productId **required** `number`: The system generated identifier for the Product.
+  * body `object`
+    * active `boolean`
+    * aliases `null`
+    * customsCountryCode `null`
+    * customsDescription `null`
+    * customsTariffNo `null`
+    * customsValue `null`
+    * defaultCarrierCode `null`
+    * defaultConfirmation `null`
+    * defaultCost `null`
+    * defaultIntlCarrierCode `null`
+    * defaultIntlConfirmation `null`
+    * defaultIntlPackageCode `null`
+    * defaultIntlServiceCode `null`
+    * defaultPackageCode `null`
+    * defaultServiceCode `null`
+    * fulfillmentSku `null`
+    * height `null`
+    * internalNotes `null`
+    * length `null`
+    * name `string`
+    * noCustoms `null`
+    * price `number`
+    * productCategory `null`
+    * productId `number`
+    * productType `null`
+    * sku `string`
+    * tags `null`
+    * warehouseLocation `null`
+    * weightOz `null`
+    * width `null`
 
 #### Output
 *Output schema unknown*
@@ -938,11 +1230,53 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.shipments.createlabel.post(null, context)
+shipstation.shipments.createlabel.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * advancedOptions `null`
+    * carrierCode `string`
+    * confirmation `string`
+    * dimensions `object`
+      * height `number`
+      * length `number`
+      * units `string`
+      * width `number`
+    * insuranceOptions `null`
+    * internationalOptions `null`
+    * packageCode `string`
+    * serviceCode `string`
+    * shipDate `string`
+    * shipFrom `object`
+      * city `string`
+      * company `string`
+      * country `string`
+      * name `string`
+      * phone `null`
+      * postalCode `string`
+      * residential `boolean`
+      * state `string`
+      * street1 `string`
+      * street2 `string`
+      * street3 `null`
+    * shipTo `object`
+      * city `string`
+      * company `string`
+      * country `string`
+      * name `string`
+      * phone `null`
+      * postalCode `string`
+      * residential `boolean`
+      * state `string`
+      * street1 `string`
+      * street2 `string`
+      * street3 `null`
+    * testLabel `boolean`
+    * weight `object`
+      * units `string`
+      * value `number`
 
 #### Output
 *Output schema unknown*
@@ -967,11 +1301,30 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.shipments.getrates.post(null, context)
+shipstation.shipments.getrates.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * carrierCode `string`
+    * confirmation `string`
+    * dimensions `object`
+      * height `number`
+      * length `number`
+      * units `string`
+      * width `number`
+    * fromPostalCode `string`
+    * packageCode `null`
+    * residential `boolean`
+    * serviceCode `null`
+    * toCity `string`
+    * toCountry `string`
+    * toPostalCode `string`
+    * toState `string`
+    * weight `object`
+      * units `string`
+      * value `number`
 
 #### Output
 *Output schema unknown*
@@ -985,11 +1338,13 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.shipments.voidlabel.post(null, context)
+shipstation.shipments.voidlabel.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * shipmentId `number`
 
 #### Output
 *Output schema unknown*
@@ -1085,11 +1440,13 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.stores.deactivate.post(null, context)
+shipstation.stores.deactivate.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * storeId `string`
 
 #### Output
 *Output schema unknown*
@@ -1136,11 +1493,13 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.stores.reactivate.post(null, context)
+shipstation.stores.reactivate.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * storeId `string`
 
 #### Output
 *Output schema unknown*
@@ -1160,6 +1519,9 @@ shipstation.stores.refreshstore_storeId_storeId_refreshDate_refreshDate.post({
 * input `object`
   * storeId **required** `number`: Specifies the store which will get refreshed.  If the storeId is not specified, a store refresh will be initiated for all refreshable stores on that account.
   * refreshDate **required** `string`: Specifies the starting date for new order imports.  If the refreshDate is not specified, ShipStation will use the last recorded refreshDate for that store.
+  * body `object`
+    * refreshDate `string`
+    * storeId `number`
 
 #### Output
 *Output schema unknown*
@@ -1261,11 +1623,27 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.warehouses.createwarehouse.post(null, context)
+shipstation.warehouses.createwarehouse.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * isDefault `boolean`
+    * originAddress `object`
+      * city `string`
+      * company `string`
+      * country `string`
+      * name `string`
+      * phone `string`
+      * postalCode `string`
+      * residential `boolean`
+      * state `string`
+      * street1 `string`
+      * street2 `null`
+      * street3 `null`
+    * returnAddress `null`
+    * warehouseName `string`
 
 #### Output
 *Output schema unknown*
@@ -1336,11 +1714,16 @@ Name               |Data Type          |Description
 
 
 ```js
-shipstation.webhooks.subscribe.post(null, context)
+shipstation.webhooks.subscribe.post({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * body `object`
+    * event `string`
+    * friendly_name `string`
+    * store_id `null`
+    * target_url `string`
 
 #### Output
 *Output schema unknown*

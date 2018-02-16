@@ -168,6 +168,27 @@ amazonaws_waf.CreateRule({
 #### Output
 * output [CreateRuleResponse](#createruleresponse)
 
+### CreateRuleGroup
+
+
+
+```js
+amazonaws_waf.CreateRuleGroup({
+  "Name": "",
+  "MetricName": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateRuleGroupResponse](#createrulegroupresponse)
+
 ### CreateSizeConstraintSet
 
 
@@ -382,6 +403,25 @@ amazonaws_waf.DeleteRule({
 
 #### Output
 * output [DeleteRuleResponse](#deleteruleresponse)
+
+### DeleteRuleGroup
+
+
+
+```js
+amazonaws_waf.DeleteRuleGroup({
+  "RuleGroupId": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteRuleGroupResponse](#deleterulegroupresponse)
 
 ### DeleteSizeConstraintSet
 
@@ -627,6 +667,23 @@ amazonaws_waf.GetRule({
 #### Output
 * output [GetRuleResponse](#getruleresponse)
 
+### GetRuleGroup
+
+
+
+```js
+amazonaws_waf.GetRuleGroup({
+  "RuleGroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetRuleGroupResponse](#getrulegroupresponse)
+
 ### GetSampledRequests
 
 
@@ -720,6 +777,23 @@ amazonaws_waf.GetXssMatchSet({
 
 #### Output
 * output [GetXssMatchSetResponse](#getxssmatchsetresponse)
+
+### ListActivatedRulesInRuleGroup
+
+
+
+```js
+amazonaws_waf.ListActivatedRulesInRuleGroup({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+  * RuleGroupId [ResourceId](#resourceid)
+
+#### Output
+* output [ListActivatedRulesInRuleGroupResponse](#listactivatedrulesinrulegroupresponse)
 
 ### ListByteMatchSets
 
@@ -817,6 +891,22 @@ amazonaws_waf.ListRegexPatternSets({}, context)
 #### Output
 * output [ListRegexPatternSetsResponse](#listregexpatternsetsresponse)
 
+### ListRuleGroups
+
+
+
+```js
+amazonaws_waf.ListRuleGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListRuleGroupsResponse](#listrulegroupsresponse)
+
 ### ListRules
 
 
@@ -864,6 +954,22 @@ amazonaws_waf.ListSqlInjectionMatchSets({}, context)
 
 #### Output
 * output [ListSqlInjectionMatchSetsResponse](#listsqlinjectionmatchsetsresponse)
+
+### ListSubscribedRuleGroups
+
+
+
+```js
+amazonaws_waf.ListSubscribedRuleGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListSubscribedRuleGroupsResponse](#listsubscribedrulegroupsresponse)
 
 ### ListWebACLs
 
@@ -1046,6 +1152,27 @@ amazonaws_waf.UpdateRule({
 #### Output
 * output [UpdateRuleResponse](#updateruleresponse)
 
+### UpdateRuleGroup
+
+
+
+```js
+amazonaws_waf.UpdateRuleGroup({
+  "RuleGroupId": "",
+  "Updates": [],
+  "ChangeToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+  * Updates **required** [RuleGroupUpdates](#rulegroupupdates)
+
+#### Output
+* output [UpdateRuleGroupResponse](#updaterulegroupresponse)
+
 ### UpdateSizeConstraintSet
 
 
@@ -1139,7 +1266,8 @@ amazonaws_waf.UpdateXssMatchSet({
 
 ### ActivatedRule
 * ActivatedRule `object`: <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p> <p>To specify whether to insert or delete a <code>Rule</code>, use the <code>Action</code> parameter in the <a>WebACLUpdate</a> data type.</p>
-  * Action **required** [WafAction](#wafaction)
+  * Action [WafAction](#wafaction)
+  * OverrideAction [WafOverrideAction](#wafoverrideaction)
   * Priority **required** [RulePriority](#rulepriority)
   * RuleId **required** [ResourceId](#resourceid)
   * Type [WafRuleType](#wafruletype)
@@ -1264,6 +1392,17 @@ amazonaws_waf.UpdateXssMatchSet({
   * ChangeToken [ChangeToken](#changetoken)
   * RegexPatternSet [RegexPatternSet](#regexpatternset)
 
+### CreateRuleGroupRequest
+* CreateRuleGroupRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateRuleGroupResponse
+* CreateRuleGroupResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * RuleGroup [RuleGroup](#rulegroup)
+
 ### CreateRuleRequest
 * CreateRuleRequest `object`
   * ChangeToken **required** [ChangeToken](#changetoken)
@@ -1369,6 +1508,15 @@ amazonaws_waf.UpdateXssMatchSet({
 
 ### DeleteRegexPatternSetResponse
 * DeleteRegexPatternSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteRuleGroupRequest
+* DeleteRuleGroupRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
+### DeleteRuleGroupResponse
+* DeleteRuleGroupResponse `object`
   * ChangeToken [ChangeToken](#changetoken)
 
 ### DeleteRuleRequest
@@ -1533,6 +1681,14 @@ amazonaws_waf.UpdateXssMatchSet({
 * GetRegexPatternSetResponse `object`
   * RegexPatternSet [RegexPatternSet](#regexpatternset)
 
+### GetRuleGroupRequest
+* GetRuleGroupRequest `object`
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
+### GetRuleGroupResponse
+* GetRuleGroupResponse `object`
+  * RuleGroup [RuleGroup](#rulegroup)
+
 ### GetRuleRequest
 * GetRuleRequest `object`
   * RuleId **required** [ResourceId](#resourceid)
@@ -1661,6 +1817,17 @@ amazonaws_waf.UpdateXssMatchSet({
 ### IPString
 * IPString `string`
 
+### ListActivatedRulesInRuleGroupRequest
+* ListActivatedRulesInRuleGroupRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+  * RuleGroupId [ResourceId](#resourceid)
+
+### ListActivatedRulesInRuleGroupResponse
+* ListActivatedRulesInRuleGroupResponse `object`
+  * ActivatedRules [ActivatedRules](#activatedrules)
+  * NextMarker [NextMarker](#nextmarker)
+
 ### ListByteMatchSetsRequest
 * ListByteMatchSetsRequest `object`
   * Limit [PaginationLimit](#paginationlimit)
@@ -1721,6 +1888,16 @@ amazonaws_waf.UpdateXssMatchSet({
   * NextMarker [NextMarker](#nextmarker)
   * RegexPatternSets [RegexPatternSetSummaries](#regexpatternsetsummaries)
 
+### ListRuleGroupsRequest
+* ListRuleGroupsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListRuleGroupsResponse
+* ListRuleGroupsResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * RuleGroups [RuleGroupSummaries](#rulegroupsummaries)
+
 ### ListRulesRequest
 * ListRulesRequest `object`
   * Limit [PaginationLimit](#paginationlimit)
@@ -1750,6 +1927,16 @@ amazonaws_waf.UpdateXssMatchSet({
 * ListSqlInjectionMatchSetsResponse `object`: The response to a <a>ListSqlInjectionMatchSets</a> request.
   * NextMarker [NextMarker](#nextmarker)
   * SqlInjectionMatchSets [SqlInjectionMatchSetSummaries](#sqlinjectionmatchsetsummaries)
+
+### ListSubscribedRuleGroupsRequest
+* ListSubscribedRuleGroupsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListSubscribedRuleGroupsResponse
+* ListSubscribedRuleGroupsResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * RuleGroups [SubscribedRuleGroupSummaries](#subscribedrulegroupsummaries)
 
 ### ListWebACLsRequest
 * ListWebACLsRequest `object`
@@ -1797,7 +1984,7 @@ amazonaws_waf.UpdateXssMatchSet({
 * PaginationLimit `integer`
 
 ### ParameterExceptionField
-* ParameterExceptionField `string` (values: CHANGE_ACTION, WAF_ACTION, PREDICATE_TYPE, IPSET_TYPE, BYTE_MATCH_FIELD_TYPE, SQL_INJECTION_MATCH_FIELD_TYPE, BYTE_MATCH_TEXT_TRANSFORMATION, BYTE_MATCH_POSITIONAL_CONSTRAINT, SIZE_CONSTRAINT_COMPARISON_OPERATOR, GEO_MATCH_LOCATION_TYPE, GEO_MATCH_LOCATION_VALUE, RATE_KEY, RULE_TYPE, NEXT_MARKER)
+* ParameterExceptionField `string` (values: CHANGE_ACTION, WAF_ACTION, WAF_OVERRIDE_ACTION, PREDICATE_TYPE, IPSET_TYPE, BYTE_MATCH_FIELD_TYPE, SQL_INJECTION_MATCH_FIELD_TYPE, BYTE_MATCH_TEXT_TRANSFORMATION, BYTE_MATCH_POSITIONAL_CONSTRAINT, SIZE_CONSTRAINT_COMPARISON_OPERATOR, GEO_MATCH_LOCATION_TYPE, GEO_MATCH_LOCATION_VALUE, RATE_KEY, RULE_TYPE, NEXT_MARKER)
 
 ### ParameterExceptionParameter
 * ParameterExceptionParameter `string`
@@ -1917,6 +2104,30 @@ amazonaws_waf.UpdateXssMatchSet({
   * Predicates **required** [Predicates](#predicates)
   * RuleId **required** [ResourceId](#resourceid)
 
+### RuleGroup
+* RuleGroup `object`: <p>A collection of predefined rules that you can add to a web ACL.</p> <p>Rule groups are subject to the following limits:</p> <ul> <li> <p>Three rule groups per account. You can request an increase to this limit by contacting customer support.</p> </li> <li> <p>One rule group per web ACL.</p> </li> <li> <p>Ten rules per rule group.</p> </li> </ul>
+  * MetricName [MetricName](#metricname)
+  * Name [ResourceName](#resourcename)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
+### RuleGroupSummaries
+* RuleGroupSummaries `array`
+  * items [RuleGroupSummary](#rulegroupsummary)
+
+### RuleGroupSummary
+* RuleGroupSummary `object`: Contains the identifier and the friendly name or description of the <code>RuleGroup</code>.
+  * Name **required** [ResourceName](#resourcename)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
+### RuleGroupUpdate
+* RuleGroupUpdate `object`: Specifies an <code>ActivatedRule</code> and indicates whether you want to add it to a <code>RuleGroup</code> or delete it from a <code>RuleGroup</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * ActivatedRule **required** [ActivatedRule](#activatedrule)
+
+### RuleGroupUpdates
+* RuleGroupUpdates `array`
+  * items [RuleGroupUpdate](#rulegroupupdate)
+
 ### RulePriority
 * RulePriority `integer`
 
@@ -1945,6 +2156,7 @@ amazonaws_waf.UpdateXssMatchSet({
 * SampledHTTPRequest `object`: The response from a <a>GetSampledRequests</a> request includes a <code>SampledHTTPRequests</code> complex type that appears as <code>SampledRequests</code> in the response syntax. <code>SampledHTTPRequests</code> contains one <code>SampledHTTPRequest</code> object for each web request that is returned by <code>GetSampledRequests</code>.
   * Action [Action](#action)
   * Request **required** [HTTPRequest](#httprequest)
+  * RuleWithinRuleGroup [ResourceId](#resourceid)
   * Timestamp [Timestamp](#timestamp)
   * Weight **required** [SampleWeight](#sampleweight)
 
@@ -2023,6 +2235,16 @@ amazonaws_waf.UpdateXssMatchSet({
 * SqlInjectionMatchTuples `array`
   * items [SqlInjectionMatchTuple](#sqlinjectionmatchtuple)
 
+### SubscribedRuleGroupSummaries
+* SubscribedRuleGroupSummaries `array`
+  * items [SubscribedRuleGroupSummary](#subscribedrulegroupsummary)
+
+### SubscribedRuleGroupSummary
+* SubscribedRuleGroupSummary `object`: A summary of the rule groups you are subscribed to.
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+
 ### TextTransformation
 * TextTransformation `string` (values: NONE, COMPRESS_WHITE_SPACE, HTML_ENTITY_DECODE, LOWERCASE, CMD_LINE, URL_DECODE)
 
@@ -2096,6 +2318,16 @@ amazonaws_waf.UpdateXssMatchSet({
 
 ### UpdateRegexPatternSetResponse
 * UpdateRegexPatternSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateRuleGroupRequest
+* UpdateRuleGroupRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleGroupId **required** [ResourceId](#resourceid)
+  * Updates **required** [RuleGroupUpdates](#rulegroupupdates)
+
+### UpdateRuleGroupResponse
+* UpdateRuleGroupResponse `object`
   * ChangeToken [ChangeToken](#changetoken)
 
 ### UpdateRuleRequest
@@ -2198,6 +2430,10 @@ amazonaws_waf.UpdateXssMatchSet({
 * WAFStaleDataException `object`: The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
   * message [errorMessage](#errormessage)
 
+### WAFSubscriptionNotFoundException
+* WAFSubscriptionNotFoundException `object`: The specified subscription does not exist.
+  * message [errorMessage](#errormessage)
+
 ### WafAction
 * WafAction `object`: For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. 
   * Type **required** [WafActionType](#wafactiontype)
@@ -2205,8 +2441,15 @@ amazonaws_waf.UpdateXssMatchSet({
 ### WafActionType
 * WafActionType `string` (values: BLOCK, ALLOW, COUNT)
 
+### WafOverrideAction
+* WafOverrideAction `object`: The action to take if any rule within the <code>RuleGroup</code> matches a request. 
+  * Type **required** [WafOverrideActionType](#wafoverrideactiontype)
+
+### WafOverrideActionType
+* WafOverrideActionType `string` (values: NONE, COUNT)
+
 ### WafRuleType
-* WafRuleType `string` (values: REGULAR, RATE_BASED)
+* WafRuleType `string` (values: REGULAR, RATE_BASED, GROUP)
 
 ### WebACL
 * WebACL `object`: Contains the <code>Rules</code> that identify the requests that you want to allow, block, or count. In a <code>WebACL</code>, you also specify a default action (<code>ALLOW</code> or <code>BLOCK</code>), and the action for each <code>Rule</code> that you add to a <code>WebACL</code>, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the <code>WebACL</code> with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one <code>Rule</code> to a <code>WebACL</code>, a request needs to match only one of the specifications to be allowed, blocked, or counted. For more information, see <a>UpdateWebACL</a>.

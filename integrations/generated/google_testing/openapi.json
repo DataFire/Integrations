@@ -795,6 +795,13 @@
             "$ref": "#/definitions/RoboDirective"
           },
           "type": "array"
+        },
+        "startingIntents": {
+          "description": "The intents used to launch the app for the crawl.\nIf none are provided, then the main launcher activity is launched.\nIf some are provided, then only those provided are launched (the main\nlauncher activity must be provided explicitly).",
+          "items": {
+            "$ref": "#/definitions/RoboStartingIntent"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -1050,6 +1057,11 @@
       },
       "type": "object"
     },
+    "LauncherActivityIntent": {
+      "description": "Specifies an intent that starts the main launcher activity.",
+      "properties": {},
+      "type": "object"
+    },
     "Locale": {
       "description": "A location/region designation for language.",
       "properties": {
@@ -1062,7 +1074,7 @@
           "type": "string"
         },
         "region": {
-          "description": "A human-friendy string representing the region for this locale.\nExample: \"United States\"\nNot present for every locale.\n@OutputOnly",
+          "description": "A human-friendly string representing the region for this locale.\nExample: \"United States\"\nNot present for every locale.\n@OutputOnly",
           "type": "string"
         },
         "tags": {
@@ -1174,6 +1186,39 @@
         },
         "resourceName": {
           "description": "The android resource name of the target UI element\nFor example,\n   in Java: R.string.foo\n   in xml: @string/foo\nOnly the “foo” part is needed.\nReference doc:\nhttps://developer.android.com/guide/topics/resources/accessing-resources.html\nRequired",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoboStartingIntent": {
+      "description": "Message for specifying the start activities to crawl",
+      "properties": {
+        "launcherActivity": {
+          "$ref": "#/definitions/LauncherActivityIntent"
+        },
+        "startActivity": {
+          "$ref": "#/definitions/StartActivityIntent"
+        }
+      },
+      "type": "object"
+    },
+    "StartActivityIntent": {
+      "description": "A starting intent specified by an action, uri, and categories.",
+      "properties": {
+        "action": {
+          "description": "Action name.\nRequired for START_ACTIVITY.",
+          "type": "string"
+        },
+        "categories": {
+          "description": "Intent categories to set on the intent.\nOptional.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "uri": {
+          "description": "URI for the action.\nOptional.",
           "type": "string"
         }
       },

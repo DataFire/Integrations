@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_data_mediastore",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS Elemental MediaStore Data Plane",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/data.mediastore/2017-09-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/mediastore-data/2017-09-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

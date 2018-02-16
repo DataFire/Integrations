@@ -43,6 +43,65 @@ amazonaws_lightsail.AllocateStaticIp({
 #### Output
 * output [AllocateStaticIpResult](#allocatestaticipresult)
 
+### AttachDisk
+
+
+
+```js
+amazonaws_lightsail.AttachDisk({
+  "diskName": "",
+  "instanceName": "",
+  "diskPath": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskName **required** [ResourceName](#resourcename)
+  * diskPath **required** [NonEmptyString](#nonemptystring)
+  * instanceName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [AttachDiskResult](#attachdiskresult)
+
+### AttachInstancesToLoadBalancer
+
+
+
+```js
+amazonaws_lightsail.AttachInstancesToLoadBalancer({
+  "loadBalancerName": "",
+  "instanceNames": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * instanceNames **required** [ResourceNameList](#resourcenamelist)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [AttachInstancesToLoadBalancerResult](#attachinstancestoloadbalancerresult)
+
+### AttachLoadBalancerTlsCertificate
+
+
+
+```js
+amazonaws_lightsail.AttachLoadBalancerTlsCertificate({
+  "loadBalancerName": "",
+  "certificateName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [AttachLoadBalancerTlsCertificateResult](#attachloadbalancertlscertificateresult)
+
 ### AttachStaticIp
 
 
@@ -80,6 +139,69 @@ amazonaws_lightsail.CloseInstancePublicPorts({
 
 #### Output
 * output [CloseInstancePublicPortsResult](#closeinstancepublicportsresult)
+
+### CreateDisk
+
+
+
+```js
+amazonaws_lightsail.CreateDisk({
+  "diskName": "",
+  "availabilityZone": "",
+  "sizeInGb": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * availabilityZone **required** [NonEmptyString](#nonemptystring)
+  * diskName **required** [ResourceName](#resourcename)
+  * sizeInGb **required** [integer](#integer)
+
+#### Output
+* output [CreateDiskResult](#creatediskresult)
+
+### CreateDiskFromSnapshot
+
+
+
+```js
+amazonaws_lightsail.CreateDiskFromSnapshot({
+  "diskName": "",
+  "diskSnapshotName": "",
+  "availabilityZone": "",
+  "sizeInGb": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * availabilityZone **required** [NonEmptyString](#nonemptystring)
+  * diskName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * sizeInGb **required** [integer](#integer)
+
+#### Output
+* output [CreateDiskFromSnapshotResult](#creatediskfromsnapshotresult)
+
+### CreateDiskSnapshot
+
+
+
+```js
+amazonaws_lightsail.CreateDiskSnapshot({
+  "diskName": "",
+  "diskSnapshotName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateDiskSnapshotResult](#createdisksnapshotresult)
 
 ### CreateDomain
 
@@ -177,6 +299,7 @@ amazonaws_lightsail.CreateInstancesFromSnapshot({
 
 #### Input
 * input `object`
+  * attachedDiskMapping [AttachedDiskMap](#attacheddiskmap)
   * availabilityZone **required** [string](#string)
   * bundleId **required** [NonEmptyString](#nonemptystring)
   * instanceNames **required** [StringList](#stringlist)
@@ -203,6 +326,85 @@ amazonaws_lightsail.CreateKeyPair({
 
 #### Output
 * output [CreateKeyPairResult](#createkeypairresult)
+
+### CreateLoadBalancer
+
+
+
+```js
+amazonaws_lightsail.CreateLoadBalancer({
+  "loadBalancerName": "",
+  "instancePort": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateAlternativeNames [DomainNameList](#domainnamelist)
+  * certificateDomainName [DomainName](#domainname)
+  * certificateName [ResourceName](#resourcename)
+  * healthCheckPath [string](#string)
+  * instancePort **required** [Port](#port)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateLoadBalancerResult](#createloadbalancerresult)
+
+### CreateLoadBalancerTlsCertificate
+
+
+
+```js
+amazonaws_lightsail.CreateLoadBalancerTlsCertificate({
+  "loadBalancerName": "",
+  "certificateName": "",
+  "certificateDomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateAlternativeNames [DomainNameList](#domainnamelist)
+  * certificateDomainName **required** [DomainName](#domainname)
+  * certificateName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateLoadBalancerTlsCertificateResult](#createloadbalancertlscertificateresult)
+
+### DeleteDisk
+
+
+
+```js
+amazonaws_lightsail.DeleteDisk({
+  "diskName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [DeleteDiskResult](#deletediskresult)
+
+### DeleteDiskSnapshot
+
+
+
+```js
+amazonaws_lightsail.DeleteDiskSnapshot({
+  "diskSnapshotName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [DeleteDiskSnapshotResult](#deletedisksnapshotresult)
 
 ### DeleteDomain
 
@@ -291,6 +493,79 @@ amazonaws_lightsail.DeleteKeyPair({
 #### Output
 * output [DeleteKeyPairResult](#deletekeypairresult)
 
+### DeleteLoadBalancer
+
+
+
+```js
+amazonaws_lightsail.DeleteLoadBalancer({
+  "loadBalancerName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [DeleteLoadBalancerResult](#deleteloadbalancerresult)
+
+### DeleteLoadBalancerTlsCertificate
+
+
+
+```js
+amazonaws_lightsail.DeleteLoadBalancerTlsCertificate({
+  "loadBalancerName": "",
+  "certificateName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateName **required** [ResourceName](#resourcename)
+  * force [boolean](#boolean)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [DeleteLoadBalancerTlsCertificateResult](#deleteloadbalancertlscertificateresult)
+
+### DetachDisk
+
+
+
+```js
+amazonaws_lightsail.DetachDisk({
+  "diskName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [DetachDiskResult](#detachdiskresult)
+
+### DetachInstancesFromLoadBalancer
+
+
+
+```js
+amazonaws_lightsail.DetachInstancesFromLoadBalancer({
+  "loadBalancerName": "",
+  "instanceNames": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * instanceNames **required** [ResourceNameList](#resourcenamelist)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [DetachInstancesFromLoadBalancerResult](#detachinstancesfromloadbalancerresult)
+
 ### DetachStaticIp
 
 
@@ -368,6 +643,70 @@ amazonaws_lightsail.GetBundles({}, context)
 
 #### Output
 * output [GetBundlesResult](#getbundlesresult)
+
+### GetDisk
+
+
+
+```js
+amazonaws_lightsail.GetDisk({
+  "diskName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [GetDiskResult](#getdiskresult)
+
+### GetDiskSnapshot
+
+
+
+```js
+amazonaws_lightsail.GetDiskSnapshot({
+  "diskSnapshotName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [GetDiskSnapshotResult](#getdisksnapshotresult)
+
+### GetDiskSnapshots
+
+
+
+```js
+amazonaws_lightsail.GetDiskSnapshots({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken [string](#string)
+
+#### Output
+* output [GetDiskSnapshotsResult](#getdisksnapshotsresult)
+
+### GetDisks
+
+
+
+```js
+amazonaws_lightsail.GetDisks({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken [string](#string)
+
+#### Output
+* output [GetDisksResult](#getdisksresult)
 
 ### GetDomain
 
@@ -577,6 +916,84 @@ amazonaws_lightsail.GetKeyPairs({}, context)
 
 #### Output
 * output [GetKeyPairsResult](#getkeypairsresult)
+
+### GetLoadBalancer
+
+
+
+```js
+amazonaws_lightsail.GetLoadBalancer({
+  "loadBalancerName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [GetLoadBalancerResult](#getloadbalancerresult)
+
+### GetLoadBalancerMetricData
+
+
+
+```js
+amazonaws_lightsail.GetLoadBalancerMetricData({
+  "loadBalancerName": "",
+  "metricName": "",
+  "period": 0,
+  "startTime": "",
+  "endTime": "",
+  "unit": "",
+  "statistics": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * endTime **required** [timestamp](#timestamp)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+  * metricName **required** [LoadBalancerMetricName](#loadbalancermetricname)
+  * period **required** [MetricPeriod](#metricperiod)
+  * startTime **required** [timestamp](#timestamp)
+  * statistics **required** [MetricStatisticList](#metricstatisticlist)
+  * unit **required** [MetricUnit](#metricunit)
+
+#### Output
+* output [GetLoadBalancerMetricDataResult](#getloadbalancermetricdataresult)
+
+### GetLoadBalancerTlsCertificates
+
+
+
+```js
+amazonaws_lightsail.GetLoadBalancerTlsCertificates({
+  "loadBalancerName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [GetLoadBalancerTlsCertificatesResult](#getloadbalancertlscertificatesresult)
+
+### GetLoadBalancers
+
+
+
+```js
+amazonaws_lightsail.GetLoadBalancers({}, context)
+```
+
+#### Input
+* input `object`
+  * pageToken [string](#string)
+
+#### Output
+* output [GetLoadBalancersResult](#getloadbalancersresult)
 
 ### GetOperation
 
@@ -823,6 +1240,7 @@ amazonaws_lightsail.StopInstance({
 
 #### Input
 * input `object`
+  * force [boolean](#boolean)
   * instanceName **required** [ResourceName](#resourcename)
 
 #### Output
@@ -861,6 +1279,27 @@ amazonaws_lightsail.UpdateDomainEntry({
 #### Output
 * output [UpdateDomainEntryResult](#updatedomainentryresult)
 
+### UpdateLoadBalancerAttribute
+
+
+
+```js
+amazonaws_lightsail.UpdateLoadBalancerAttribute({
+  "loadBalancerName": "",
+  "attributeName": "",
+  "attributeValue": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * attributeName **required** [LoadBalancerAttributeName](#loadbalancerattributename)
+  * attributeValue **required** [StringMax256](#stringmax256)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+#### Output
+* output [UpdateLoadBalancerAttributeResult](#updateloadbalancerattributeresult)
+
 
 
 ## Definitions
@@ -890,6 +1329,34 @@ amazonaws_lightsail.UpdateDomainEntry({
 * AllocateStaticIpResult `object`
   * operations [OperationList](#operationlist)
 
+### AttachDiskRequest
+* AttachDiskRequest `object`
+  * diskName **required** [ResourceName](#resourcename)
+  * diskPath **required** [NonEmptyString](#nonemptystring)
+  * instanceName **required** [ResourceName](#resourcename)
+
+### AttachDiskResult
+* AttachDiskResult `object`
+  * operations [OperationList](#operationlist)
+
+### AttachInstancesToLoadBalancerRequest
+* AttachInstancesToLoadBalancerRequest `object`
+  * instanceNames **required** [ResourceNameList](#resourcenamelist)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### AttachInstancesToLoadBalancerResult
+* AttachInstancesToLoadBalancerResult `object`
+  * operations [OperationList](#operationlist)
+
+### AttachLoadBalancerTlsCertificateRequest
+* AttachLoadBalancerTlsCertificateRequest `object`
+  * certificateName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### AttachLoadBalancerTlsCertificateResult
+* AttachLoadBalancerTlsCertificateResult `object`
+  * operations [OperationList](#operationlist)
+
 ### AttachStaticIpRequest
 * AttachStaticIpRequest `object`
   * instanceName **required** [ResourceName](#resourcename)
@@ -898,6 +1365,12 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### AttachStaticIpResult
 * AttachStaticIpResult `object`
   * operations [OperationList](#operationlist)
+
+### AttachedDiskMap
+* AttachedDiskMap `array`
+  * items `object`
+    * key [ResourceName](#resourcename)
+    * value [DiskMapList](#diskmaplist)
 
 ### AvailabilityZone
 * AvailabilityZone `object`: Describes an Availability Zone.
@@ -960,6 +1433,36 @@ amazonaws_lightsail.UpdateDomainEntry({
 * CloseInstancePublicPortsResult `object`
   * operation [Operation](#operation)
 
+### CreateDiskFromSnapshotRequest
+* CreateDiskFromSnapshotRequest `object`
+  * availabilityZone **required** [NonEmptyString](#nonemptystring)
+  * diskName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+  * sizeInGb **required** [integer](#integer)
+
+### CreateDiskFromSnapshotResult
+* CreateDiskFromSnapshotResult `object`
+  * operations [OperationList](#operationlist)
+
+### CreateDiskRequest
+* CreateDiskRequest `object`
+  * availabilityZone **required** [NonEmptyString](#nonemptystring)
+  * diskName **required** [ResourceName](#resourcename)
+  * sizeInGb **required** [integer](#integer)
+
+### CreateDiskResult
+* CreateDiskResult `object`
+  * operations [OperationList](#operationlist)
+
+### CreateDiskSnapshotRequest
+* CreateDiskSnapshotRequest `object`
+  * diskName **required** [ResourceName](#resourcename)
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+
+### CreateDiskSnapshotResult
+* CreateDiskSnapshotResult `object`
+  * operations [OperationList](#operationlist)
+
 ### CreateDomainEntryRequest
 * CreateDomainEntryRequest `object`
   * domainEntry **required** [DomainEntry](#domainentry)
@@ -988,6 +1491,7 @@ amazonaws_lightsail.UpdateDomainEntry({
 
 ### CreateInstancesFromSnapshotRequest
 * CreateInstancesFromSnapshotRequest `object`
+  * attachedDiskMapping [AttachedDiskMap](#attacheddiskmap)
   * availabilityZone **required** [string](#string)
   * bundleId **required** [NonEmptyString](#nonemptystring)
   * instanceNames **required** [StringList](#stringlist)
@@ -1023,6 +1527,46 @@ amazonaws_lightsail.UpdateDomainEntry({
   * operation [Operation](#operation)
   * privateKeyBase64 [Base64](#base64)
   * publicKeyBase64 [Base64](#base64)
+
+### CreateLoadBalancerRequest
+* CreateLoadBalancerRequest `object`
+  * certificateAlternativeNames [DomainNameList](#domainnamelist)
+  * certificateDomainName [DomainName](#domainname)
+  * certificateName [ResourceName](#resourcename)
+  * healthCheckPath [string](#string)
+  * instancePort **required** [Port](#port)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### CreateLoadBalancerResult
+* CreateLoadBalancerResult `object`
+  * operations [OperationList](#operationlist)
+
+### CreateLoadBalancerTlsCertificateRequest
+* CreateLoadBalancerTlsCertificateRequest `object`
+  * certificateAlternativeNames [DomainNameList](#domainnamelist)
+  * certificateDomainName **required** [DomainName](#domainname)
+  * certificateName **required** [ResourceName](#resourcename)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### CreateLoadBalancerTlsCertificateResult
+* CreateLoadBalancerTlsCertificateResult `object`
+  * operations [OperationList](#operationlist)
+
+### DeleteDiskRequest
+* DeleteDiskRequest `object`
+  * diskName **required** [ResourceName](#resourcename)
+
+### DeleteDiskResult
+* DeleteDiskResult `object`
+  * operations [OperationList](#operationlist)
+
+### DeleteDiskSnapshotRequest
+* DeleteDiskSnapshotRequest `object`
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+
+### DeleteDiskSnapshotResult
+* DeleteDiskSnapshotResult `object`
+  * operations [OperationList](#operationlist)
 
 ### DeleteDomainEntryRequest
 * DeleteDomainEntryRequest `object`
@@ -1065,6 +1609,41 @@ amazonaws_lightsail.UpdateDomainEntry({
 * DeleteKeyPairResult `object`
   * operation [Operation](#operation)
 
+### DeleteLoadBalancerRequest
+* DeleteLoadBalancerRequest `object`
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### DeleteLoadBalancerResult
+* DeleteLoadBalancerResult `object`
+  * operations [OperationList](#operationlist)
+
+### DeleteLoadBalancerTlsCertificateRequest
+* DeleteLoadBalancerTlsCertificateRequest `object`
+  * certificateName **required** [ResourceName](#resourcename)
+  * force [boolean](#boolean)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### DeleteLoadBalancerTlsCertificateResult
+* DeleteLoadBalancerTlsCertificateResult `object`
+  * operations [OperationList](#operationlist)
+
+### DetachDiskRequest
+* DetachDiskRequest `object`
+  * diskName **required** [ResourceName](#resourcename)
+
+### DetachDiskResult
+* DetachDiskResult `object`
+  * operations [OperationList](#operationlist)
+
+### DetachInstancesFromLoadBalancerRequest
+* DetachInstancesFromLoadBalancerRequest `object`
+  * instanceNames **required** [ResourceNameList](#resourcenamelist)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### DetachInstancesFromLoadBalancerResult
+* DetachInstancesFromLoadBalancerResult `object`
+  * operations [OperationList](#operationlist)
+
 ### DetachStaticIpRequest
 * DetachStaticIpRequest `object`
   * staticIpName **required** [ResourceName](#resourcename)
@@ -1074,9 +1653,9 @@ amazonaws_lightsail.UpdateDomainEntry({
   * operations [OperationList](#operationlist)
 
 ### Disk
-* Disk `object`: Describes the hard disk (an SSD).
+* Disk `object`: Describes a system disk or an block storage disk.
   * arn [NonEmptyString](#nonemptystring)
-  * attachedTo [string](#string)
+  * attachedTo [ResourceName](#resourcename)
   * attachmentState [string](#string)
   * createdAt [IsoDate](#isodate)
   * gbInUse [integer](#integer)
@@ -1088,11 +1667,45 @@ amazonaws_lightsail.UpdateDomainEntry({
   * path [string](#string)
   * resourceType [ResourceType](#resourcetype)
   * sizeInGb [integer](#integer)
+  * state [DiskState](#diskstate)
   * supportCode [string](#string)
 
 ### DiskList
 * DiskList `array`
   * items [Disk](#disk)
+
+### DiskMap
+* DiskMap `object`: Describes a block storage disk mapping.
+  * newDiskName [ResourceName](#resourcename)
+  * originalDiskPath [NonEmptyString](#nonemptystring)
+
+### DiskMapList
+* DiskMapList `array`
+  * items [DiskMap](#diskmap)
+
+### DiskSnapshot
+* DiskSnapshot `object`: Describes a block storage disk snapshot.
+  * arn [NonEmptyString](#nonemptystring)
+  * createdAt [IsoDate](#isodate)
+  * fromDiskArn [NonEmptyString](#nonemptystring)
+  * fromDiskName [ResourceName](#resourcename)
+  * location [ResourceLocation](#resourcelocation)
+  * name [ResourceName](#resourcename)
+  * progress [string](#string)
+  * resourceType [ResourceType](#resourcetype)
+  * sizeInGb [integer](#integer)
+  * state [DiskSnapshotState](#disksnapshotstate)
+  * supportCode [string](#string)
+
+### DiskSnapshotList
+* DiskSnapshotList `array`
+  * items [DiskSnapshot](#disksnapshot)
+
+### DiskSnapshotState
+* DiskSnapshotState `string` (values: pending, completed, error, unknown)
+
+### DiskState
+* DiskState `string` (values: pending, error, available, in-use, unknown)
 
 ### Domain
 * Domain `object`: Describes a domain where you are storing recordsets in Lightsail.
@@ -1107,6 +1720,7 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### DomainEntry
 * DomainEntry `object`: Describes a domain recordset entry.
   * id [NonEmptyString](#nonemptystring)
+  * isAlias [boolean](#boolean)
   * name [DomainName](#domainname)
   * options [DomainEntryOptions](#domainentryoptions)
   * target [string](#string)
@@ -1134,6 +1748,10 @@ amazonaws_lightsail.UpdateDomainEntry({
 
 ### DomainName
 * DomainName `string`
+
+### DomainNameList
+* DomainNameList `array`
+  * items [DomainName](#domainname)
 
 ### DownloadDefaultKeyPairRequest
 * DownloadDefaultKeyPairRequest `object`
@@ -1170,6 +1788,40 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### GetBundlesResult
 * GetBundlesResult `object`
   * bundles [BundleList](#bundlelist)
+  * nextPageToken [string](#string)
+
+### GetDiskRequest
+* GetDiskRequest `object`
+  * diskName **required** [ResourceName](#resourcename)
+
+### GetDiskResult
+* GetDiskResult `object`
+  * disk [Disk](#disk)
+
+### GetDiskSnapshotRequest
+* GetDiskSnapshotRequest `object`
+  * diskSnapshotName **required** [ResourceName](#resourcename)
+
+### GetDiskSnapshotResult
+* GetDiskSnapshotResult `object`
+  * diskSnapshot [DiskSnapshot](#disksnapshot)
+
+### GetDiskSnapshotsRequest
+* GetDiskSnapshotsRequest `object`
+  * pageToken [string](#string)
+
+### GetDiskSnapshotsResult
+* GetDiskSnapshotsResult `object`
+  * diskSnapshots [DiskSnapshotList](#disksnapshotlist)
+  * nextPageToken [string](#string)
+
+### GetDisksRequest
+* GetDisksRequest `object`
+  * pageToken [string](#string)
+
+### GetDisksResult
+* GetDisksResult `object`
+  * disks [DiskList](#disklist)
   * nextPageToken [string](#string)
 
 ### GetDomainRequest
@@ -1280,6 +1932,46 @@ amazonaws_lightsail.UpdateDomainEntry({
   * keyPairs [KeyPairList](#keypairlist)
   * nextPageToken [string](#string)
 
+### GetLoadBalancerMetricDataRequest
+* GetLoadBalancerMetricDataRequest `object`
+  * endTime **required** [timestamp](#timestamp)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+  * metricName **required** [LoadBalancerMetricName](#loadbalancermetricname)
+  * period **required** [MetricPeriod](#metricperiod)
+  * startTime **required** [timestamp](#timestamp)
+  * statistics **required** [MetricStatisticList](#metricstatisticlist)
+  * unit **required** [MetricUnit](#metricunit)
+
+### GetLoadBalancerMetricDataResult
+* GetLoadBalancerMetricDataResult `object`
+  * metricData [MetricDatapointList](#metricdatapointlist)
+  * metricName [LoadBalancerMetricName](#loadbalancermetricname)
+
+### GetLoadBalancerRequest
+* GetLoadBalancerRequest `object`
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### GetLoadBalancerResult
+* GetLoadBalancerResult `object`
+  * loadBalancer [LoadBalancer](#loadbalancer)
+
+### GetLoadBalancerTlsCertificatesRequest
+* GetLoadBalancerTlsCertificatesRequest `object`
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### GetLoadBalancerTlsCertificatesResult
+* GetLoadBalancerTlsCertificatesResult `object`
+  * tlsCertificates [LoadBalancerTlsCertificateList](#loadbalancertlscertificatelist)
+
+### GetLoadBalancersRequest
+* GetLoadBalancersRequest `object`
+  * pageToken [string](#string)
+
+### GetLoadBalancersResult
+* GetLoadBalancersResult `object`
+  * loadBalancers [LoadBalancerList](#loadbalancerlist)
+  * nextPageToken [string](#string)
+
 ### GetOperationRequest
 * GetOperationRequest `object`
   * operationId **required** [NonEmptyString](#nonemptystring)
@@ -1384,6 +2076,22 @@ amazonaws_lightsail.UpdateDomainEntry({
   * disks [DiskList](#disklist)
   * ramSizeInGb [float](#float)
 
+### InstanceHealthReason
+* InstanceHealthReason `string` (values: Lb.RegistrationInProgress, Lb.InitialHealthChecking, Lb.InternalError, Instance.ResponseCodeMismatch, Instance.Timeout, Instance.FailedHealthChecks, Instance.NotRegistered, Instance.NotInUse, Instance.DeregistrationInProgress, Instance.InvalidState, Instance.IpUnusable)
+
+### InstanceHealthState
+* InstanceHealthState `string` (values: initial, healthy, unhealthy, unused, draining, unavailable)
+
+### InstanceHealthSummary
+* InstanceHealthSummary `object`: Describes information about the health of the instance.
+  * instanceHealth [InstanceHealthState](#instancehealthstate)
+  * instanceHealthReason [InstanceHealthReason](#instancehealthreason)
+  * instanceName [ResourceName](#resourcename)
+
+### InstanceHealthSummaryList
+* InstanceHealthSummaryList `array`
+  * items [InstanceHealthSummary](#instancehealthsummary)
+
 ### InstanceList
 * InstanceList `array`
   * items [Instance](#instance)
@@ -1432,6 +2140,7 @@ amazonaws_lightsail.UpdateDomainEntry({
 * InstanceSnapshot `object`: Describes the snapshot of the virtual private server, or <i>instance</i>.
   * arn [NonEmptyString](#nonemptystring)
   * createdAt [IsoDate](#isodate)
+  * fromAttachedDisks [DiskList](#disklist)
   * fromBlueprintId [string](#string)
   * fromBundleId [string](#string)
   * fromInstanceArn [NonEmptyString](#nonemptystring)
@@ -1492,6 +2201,127 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### KeyPairList
 * KeyPairList `array`
   * items [KeyPair](#keypair)
+
+### LoadBalancer
+* LoadBalancer `object`: Describes the Lightsail load balancer.
+  * arn [NonEmptyString](#nonemptystring)
+  * configurationOptions [LoadBalancerConfigurationOptions](#loadbalancerconfigurationoptions)
+  * createdAt [IsoDate](#isodate)
+  * dnsName [NonEmptyString](#nonemptystring)
+  * healthCheckPath [NonEmptyString](#nonemptystring)
+  * instanceHealthSummary [InstanceHealthSummaryList](#instancehealthsummarylist)
+  * instancePort [integer](#integer)
+  * location [ResourceLocation](#resourcelocation)
+  * name [ResourceName](#resourcename)
+  * protocol [LoadBalancerProtocol](#loadbalancerprotocol)
+  * publicPorts [PortList](#portlist)
+  * resourceType [ResourceType](#resourcetype)
+  * state [LoadBalancerState](#loadbalancerstate)
+  * supportCode [string](#string)
+  * tlsCertificateSummaries [LoadBalancerTlsCertificateSummaryList](#loadbalancertlscertificatesummarylist)
+
+### LoadBalancerAttributeName
+* LoadBalancerAttributeName `string` (values: HealthCheckPath, SessionStickinessEnabled, SessionStickiness_LB_CookieDurationSeconds)
+
+### LoadBalancerConfigurationOptions
+* LoadBalancerConfigurationOptions `array`
+  * items `object`
+    * key [LoadBalancerAttributeName](#loadbalancerattributename)
+    * value [string](#string)
+
+### LoadBalancerList
+* LoadBalancerList `array`
+  * items [LoadBalancer](#loadbalancer)
+
+### LoadBalancerMetricName
+* LoadBalancerMetricName `string` (values: ClientTLSNegotiationErrorCount, HealthyHostCount, UnhealthyHostCount, HTTPCode_LB_4XX_Count, HTTPCode_LB_5XX_Count, HTTPCode_Instance_2XX_Count, HTTPCode_Instance_3XX_Count, HTTPCode_Instance_4XX_Count, HTTPCode_Instance_5XX_Count, InstanceResponseTime, RejectedConnectionCount, RequestCount)
+
+### LoadBalancerProtocol
+* LoadBalancerProtocol `string` (values: HTTP_HTTPS, HTTP)
+
+### LoadBalancerState
+* LoadBalancerState `string` (values: active, provisioning, active_impaired, failed, unknown)
+
+### LoadBalancerTlsCertificate
+* LoadBalancerTlsCertificate `object`: <p>Describes a load balancer TLS/SSL certificate.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
+  * arn [NonEmptyString](#nonemptystring)
+  * createdAt [IsoDate](#isodate)
+  * domainName [DomainName](#domainname)
+  * domainValidationRecords [LoadBalancerTlsCertificateDomainValidationRecordList](#loadbalancertlscertificatedomainvalidationrecordlist)
+  * failureReason [LoadBalancerTlsCertificateFailureReason](#loadbalancertlscertificatefailurereason)
+  * isAttached [boolean](#boolean)
+  * issuedAt [IsoDate](#isodate)
+  * issuer [NonEmptyString](#nonemptystring)
+  * keyAlgorithm [NonEmptyString](#nonemptystring)
+  * loadBalancerName [ResourceName](#resourcename)
+  * location [ResourceLocation](#resourcelocation)
+  * name [ResourceName](#resourcename)
+  * notAfter [IsoDate](#isodate)
+  * notBefore [IsoDate](#isodate)
+  * renewalSummary [LoadBalancerTlsCertificateRenewalSummary](#loadbalancertlscertificaterenewalsummary)
+  * resourceType [ResourceType](#resourcetype)
+  * revocationReason [LoadBalancerTlsCertificateRevocationReason](#loadbalancertlscertificaterevocationreason)
+  * revokedAt [IsoDate](#isodate)
+  * serial [NonEmptyString](#nonemptystring)
+  * signatureAlgorithm [NonEmptyString](#nonemptystring)
+  * status [LoadBalancerTlsCertificateStatus](#loadbalancertlscertificatestatus)
+  * subject [NonEmptyString](#nonemptystring)
+  * subjectAlternativeNames [StringList](#stringlist)
+  * supportCode [string](#string)
+
+### LoadBalancerTlsCertificateDomainStatus
+* LoadBalancerTlsCertificateDomainStatus `string` (values: PENDING_VALIDATION, FAILED, SUCCESS)
+
+### LoadBalancerTlsCertificateDomainValidationOption
+* LoadBalancerTlsCertificateDomainValidationOption `object`: Contains information about the domain names on a TLS/SSL certificate that you will use to validate domain ownership.
+  * domainName [DomainName](#domainname)
+  * validationStatus [LoadBalancerTlsCertificateDomainStatus](#loadbalancertlscertificatedomainstatus)
+
+### LoadBalancerTlsCertificateDomainValidationOptionList
+* LoadBalancerTlsCertificateDomainValidationOptionList `array`
+  * items [LoadBalancerTlsCertificateDomainValidationOption](#loadbalancertlscertificatedomainvalidationoption)
+
+### LoadBalancerTlsCertificateDomainValidationRecord
+* LoadBalancerTlsCertificateDomainValidationRecord `object`: Describes the validation record of each domain name in the TLS/SSL certificate.
+  * domainName [DomainName](#domainname)
+  * name [NonEmptyString](#nonemptystring)
+  * type [NonEmptyString](#nonemptystring)
+  * validationStatus [LoadBalancerTlsCertificateDomainStatus](#loadbalancertlscertificatedomainstatus)
+  * value [NonEmptyString](#nonemptystring)
+
+### LoadBalancerTlsCertificateDomainValidationRecordList
+* LoadBalancerTlsCertificateDomainValidationRecordList `array`
+  * items [LoadBalancerTlsCertificateDomainValidationRecord](#loadbalancertlscertificatedomainvalidationrecord)
+
+### LoadBalancerTlsCertificateFailureReason
+* LoadBalancerTlsCertificateFailureReason `string` (values: NO_AVAILABLE_CONTACTS, ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, OTHER)
+
+### LoadBalancerTlsCertificateList
+* LoadBalancerTlsCertificateList `array`
+  * items [LoadBalancerTlsCertificate](#loadbalancertlscertificate)
+
+### LoadBalancerTlsCertificateRenewalStatus
+* LoadBalancerTlsCertificateRenewalStatus `string` (values: PENDING_AUTO_RENEWAL, PENDING_VALIDATION, SUCCESS, FAILED)
+
+### LoadBalancerTlsCertificateRenewalSummary
+* LoadBalancerTlsCertificateRenewalSummary `object`: Contains information about the status of Lightsail's managed renewal for the certificate.
+  * domainValidationOptions [LoadBalancerTlsCertificateDomainValidationOptionList](#loadbalancertlscertificatedomainvalidationoptionlist)
+  * renewalStatus [LoadBalancerTlsCertificateRenewalStatus](#loadbalancertlscertificaterenewalstatus)
+
+### LoadBalancerTlsCertificateRevocationReason
+* LoadBalancerTlsCertificateRevocationReason `string` (values: UNSPECIFIED, KEY_COMPROMISE, CA_COMPROMISE, AFFILIATION_CHANGED, SUPERCEDED, CESSATION_OF_OPERATION, CERTIFICATE_HOLD, REMOVE_FROM_CRL, PRIVILEGE_WITHDRAWN, A_A_COMPROMISE)
+
+### LoadBalancerTlsCertificateStatus
+* LoadBalancerTlsCertificateStatus `string` (values: PENDING_VALIDATION, ISSUED, INACTIVE, EXPIRED, VALIDATION_TIMED_OUT, REVOKED, FAILED, UNKNOWN)
+
+### LoadBalancerTlsCertificateSummary
+* LoadBalancerTlsCertificateSummary `object`: Provides a summary of TLS/SSL certificate metadata.
+  * isAttached [boolean](#boolean)
+  * name [ResourceName](#resourcename)
+
+### LoadBalancerTlsCertificateSummaryList
+* LoadBalancerTlsCertificateSummaryList `array`
+  * items [LoadBalancerTlsCertificateSummary](#loadbalancertlscertificatesummary)
 
 ### MetricDatapoint
 * MetricDatapoint `object`: Describes the metric data point.
@@ -1576,7 +2406,7 @@ amazonaws_lightsail.UpdateDomainEntry({
 * OperationStatus `string` (values: NotStarted, Started, Failed, Completed)
 
 ### OperationType
-* OperationType `string` (values: DeleteInstance, CreateInstance, StopInstance, StartInstance, RebootInstance, OpenInstancePublicPorts, PutInstancePublicPorts, CloseInstancePublicPorts, AllocateStaticIp, ReleaseStaticIp, AttachStaticIp, DetachStaticIp, UpdateDomainEntry, DeleteDomainEntry, CreateDomain, DeleteDomain, CreateInstanceSnapshot, DeleteInstanceSnapshot, CreateInstancesFromSnapshot)
+* OperationType `string` (values: DeleteInstance, CreateInstance, StopInstance, StartInstance, RebootInstance, OpenInstancePublicPorts, PutInstancePublicPorts, CloseInstancePublicPorts, AllocateStaticIp, ReleaseStaticIp, AttachStaticIp, DetachStaticIp, UpdateDomainEntry, DeleteDomainEntry, CreateDomain, DeleteDomain, CreateInstanceSnapshot, DeleteInstanceSnapshot, CreateInstancesFromSnapshot, CreateLoadBalancer, DeleteLoadBalancer, AttachInstancesToLoadBalancer, DetachInstancesFromLoadBalancer, UpdateLoadBalancerAttribute, CreateLoadBalancerTlsCertificate, DeleteLoadBalancerTlsCertificate, AttachLoadBalancerTlsCertificate, CreateDisk, DeleteDisk, AttachDisk, DetachDisk, CreateDiskSnapshot, DeleteDiskSnapshot, CreateDiskFromSnapshot)
 
 ### PasswordData
 * PasswordData `object`: The password data for the Windows Server-based instance, including the ciphertext and the key pair name.
@@ -1605,6 +2435,10 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### PortInfoList
 * PortInfoList `array`
   * items [PortInfo](#portinfo)
+
+### PortList
+* PortList `array`
+  * items [Port](#port)
 
 ### PortState
 * PortState `string` (values: open, closed)
@@ -1657,8 +2491,12 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### ResourceName
 * ResourceName `string`
 
+### ResourceNameList
+* ResourceNameList `array`
+  * items [ResourceName](#resourcename)
+
 ### ResourceType
-* ResourceType `string` (values: Instance, StaticIp, KeyPair, InstanceSnapshot, Domain, PeeredVpc)
+* ResourceType `string` (values: Instance, StaticIp, KeyPair, InstanceSnapshot, Domain, PeeredVpc, LoadBalancer, LoadBalancerTlsCertificate, Disk, DiskSnapshot)
 
 ### ServiceException
 * ServiceException `object`: A general service exception.
@@ -1693,6 +2531,7 @@ amazonaws_lightsail.UpdateDomainEntry({
 
 ### StopInstanceRequest
 * StopInstanceRequest `object`
+  * force [boolean](#boolean)
   * instanceName **required** [ResourceName](#resourcename)
 
 ### StopInstanceResult
@@ -1702,6 +2541,9 @@ amazonaws_lightsail.UpdateDomainEntry({
 ### StringList
 * StringList `array`
   * items [string](#string)
+
+### StringMax256
+* StringMax256 `string`
 
 ### UnauthenticatedException
 * UnauthenticatedException `object`: Lightsail throws this exception when the user has not been authenticated.
@@ -1724,6 +2566,16 @@ amazonaws_lightsail.UpdateDomainEntry({
 
 ### UpdateDomainEntryResult
 * UpdateDomainEntryResult `object`
+  * operations [OperationList](#operationlist)
+
+### UpdateLoadBalancerAttributeRequest
+* UpdateLoadBalancerAttributeRequest `object`
+  * attributeName **required** [LoadBalancerAttributeName](#loadbalancerattributename)
+  * attributeValue **required** [StringMax256](#stringmax256)
+  * loadBalancerName **required** [ResourceName](#resourcename)
+
+### UpdateLoadBalancerAttributeResult
+* UpdateLoadBalancerAttributeResult `object`
   * operations [OperationList](#operationlist)
 
 ### boolean

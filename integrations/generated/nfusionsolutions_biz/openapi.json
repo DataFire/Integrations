@@ -583,6 +583,13 @@
             "type": "string"
           },
           {
+            "description": "optional - unit of meaure, defaults to troy ounces. allowed values are:\r\nmg=milligram\r\ng=gram\r\nkg=kilogram\r\ngr=grain\r\noz=ounce\r\ntoz=troy ounce\r\nct=carat\r\ndwt=pennyweight",
+            "in": "query",
+            "name": "unitofmeasure",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "<b>REQUIRED</b> - auth token",
             "in": "query",
             "name": "token",
@@ -644,6 +651,13 @@
             "description": "optional - currency for pricing, defaults to USD",
             "in": "query",
             "name": "currency",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optional - unit of meaure, defaults to troy ounces. allowed values are:\r\nmg=milligram\r\ng=gram\r\nkg=kilogram\r\ngr=grain\r\noz=ounce\r\ntoz=troy ounce\r\nct=carat\r\ndwt=pennyweight",
+            "in": "query",
+            "name": "unitofmeasure",
             "required": false,
             "type": "string"
           },
@@ -739,6 +753,13 @@
             "description": "optional - currency for pricing, defaults to USD",
             "in": "query",
             "name": "currency",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "optional - unit of meaure, defaults to troy ounces. allowed values are:\r\nmg=milligram\r\ng=gram\r\nkg=kilogram\r\ngr=grain\r\noz=ounce\r\ntoz=troy ounce\r\nct=carat\r\ndwt=pennyweight",
+            "in": "query",
+            "name": "unitofmeasure",
             "required": false,
             "type": "string"
           },

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_metering_marketplace",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWSMarketplace Metering",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/metering.marketplace/2016-01-14/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/meteringmarketplace/2016-01-14/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

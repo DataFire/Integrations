@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Creates and manages your customers and their subscriptions.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Enterprise Apps Reseller",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -47,12 +52,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
         "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
+        "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -157,17 +173,17 @@
         "operationId": "customers.insert",
         "parameters": [
           {
-            "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
-            "in": "query",
-            "name": "customerAuthToken",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Customer"
             }
+          },
+          {
+            "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
+            "in": "query",
+            "name": "customerAuthToken",
+            "type": "string"
           }
         ],
         "responses": {
@@ -181,6 +197,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -215,10 +234,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
@@ -255,18 +280,18 @@
         "operationId": "customers.patch",
         "parameters": [
           {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Customer"
             }
+          },
+          {
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -281,6 +306,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
@@ -293,18 +321,18 @@
         "operationId": "customers.update",
         "parameters": [
           {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Customer"
             }
+          },
+          {
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -318,6 +346,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -356,11 +387,11 @@
         "operationId": "subscriptions.insert",
         "parameters": [
           {
-            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
-            "in": "path",
-            "name": "customerId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
           },
           {
             "description": "The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center.",
@@ -369,11 +400,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            }
+            "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
+            "in": "path",
+            "name": "customerId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -387,6 +418,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -409,13 +443,6 @@
             "type": "string"
           },
           {
-            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The deletionType query string enables the cancellation, downgrade, or suspension of a subscription.",
             "enum": [
               "cancel",
@@ -425,6 +452,13 @@
             ],
             "in": "query",
             "name": "deletionType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.",
+            "in": "path",
+            "name": "subscriptionId",
             "required": true,
             "type": "string"
           }
@@ -437,6 +471,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -476,10 +513,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
@@ -567,6 +610,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
@@ -604,6 +650,13 @@
         "operationId": "subscriptions.changePlan",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ChangePlanRequest"
+            }
+          },
+          {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
             "name": "customerId",
@@ -616,13 +669,6 @@
             "name": "subscriptionId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ChangePlanRequest"
-            }
           }
         ],
         "responses": {
@@ -636,6 +682,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -674,6 +723,13 @@
         "operationId": "subscriptions.changeRenewalSettings",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RenewalSettings"
+            }
+          },
+          {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
             "name": "customerId",
@@ -686,13 +742,6 @@
             "name": "subscriptionId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RenewalSettings"
-            }
           }
         ],
         "responses": {
@@ -706,6 +755,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -744,6 +796,13 @@
         "operationId": "subscriptions.changeSeats",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Seats"
+            }
+          },
+          {
             "description": "Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.",
             "in": "path",
             "name": "customerId",
@@ -756,13 +815,6 @@
             "name": "subscriptionId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Seats"
-            }
           }
         ],
         "responses": {
@@ -776,6 +828,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -840,6 +895,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
@@ -903,6 +961,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
@@ -927,10 +988,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }
@@ -1010,6 +1077,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           }
         ],
@@ -1064,6 +1134,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order"
             ]
           }
@@ -1123,10 +1196,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/apps.order"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/apps.order"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/apps.order.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/apps.order.readonly"
             ]
           }

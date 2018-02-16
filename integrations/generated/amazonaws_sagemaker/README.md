@@ -80,6 +80,7 @@ amazonaws_sagemaker.CreateEndpointConfig({
 #### Input
 * input `object`
   * EndpointConfigName **required** [EndpointConfigName](#endpointconfigname)
+  * KmsKeyId [KmsKeyId](#kmskeyid)
   * ProductionVariants **required** [ProductionVariantList](#productionvariantlist)
   * Tags [TagList](#taglist)
 
@@ -95,16 +96,16 @@ amazonaws_sagemaker.CreateModel({
   "ModelName": "",
   "PrimaryContainer": {
     "Image": ""
-  }
+  },
+  "ExecutionRoleArn": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ExecutionRoleArn [RoleArn](#rolearn)
+  * ExecutionRoleArn **required** [RoleArn](#rolearn)
   * ModelName **required** [ModelName](#modelname)
   * PrimaryContainer **required** [ContainerDefinition](#containerdefinition)
-  * SupplementalContainers [ContainerDefinitionList](#containerdefinitionlist)
   * Tags [TagList](#taglist)
 
 #### Output
@@ -660,10 +661,6 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * Image **required** [Image](#image)
   * ModelDataUrl [Url](#url)
 
-### ContainerDefinitionList
-* ContainerDefinitionList `array`
-  * items [ContainerDefinition](#containerdefinition)
-
 ### ContainerHostname
 * ContainerHostname `string`
 
@@ -673,6 +670,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 ### CreateEndpointConfigInput
 * CreateEndpointConfigInput `object`
   * EndpointConfigName **required** [EndpointConfigName](#endpointconfigname)
+  * KmsKeyId [KmsKeyId](#kmskeyid)
   * ProductionVariants **required** [ProductionVariantList](#productionvariantlist)
   * Tags [TagList](#taglist)
 
@@ -692,10 +690,9 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 
 ### CreateModelInput
 * CreateModelInput `object`
-  * ExecutionRoleArn [RoleArn](#rolearn)
+  * ExecutionRoleArn **required** [RoleArn](#rolearn)
   * ModelName **required** [ModelName](#modelname)
   * PrimaryContainer **required** [ContainerDefinition](#containerdefinition)
-  * SupplementalContainers [ContainerDefinitionList](#containerdefinitionlist)
   * Tags [TagList](#taglist)
 
 ### CreateModelOutput
@@ -781,6 +778,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * CreationTime **required** [Timestamp](#timestamp)
   * EndpointConfigArn **required** [EndpointConfigArn](#endpointconfigarn)
   * EndpointConfigName **required** [EndpointConfigName](#endpointconfigname)
+  * KmsKeyId [KmsKeyId](#kmskeyid)
   * ProductionVariants **required** [ProductionVariantList](#productionvariantlist)
 
 ### DescribeEndpointInput
@@ -809,7 +807,6 @@ amazonaws_sagemaker.UpdateNotebookInstance({
   * ModelArn **required** [ModelArn](#modelarn)
   * ModelName **required** [ModelName](#modelname)
   * PrimaryContainer **required** [ContainerDefinition](#containerdefinition)
-  * SupplementalContainers **required** [ContainerDefinitionList](#containerdefinitionlist)
 
 ### DescribeNotebookInstanceInput
 * DescribeNotebookInstanceInput `object`
@@ -1179,6 +1176,7 @@ amazonaws_sagemaker.UpdateNotebookInstance({
 * ResourceConfig `object`: Describes the resources, including ML compute instances and ML storage volumes, to use for model training. 
   * InstanceCount **required** [TrainingInstanceCount](#traininginstancecount)
   * InstanceType **required** [TrainingInstanceType](#traininginstancetype)
+  * VolumeKmsKeyId [KmsKeyId](#kmskeyid)
   * VolumeSizeInGB **required** [VolumeSizeInGB](#volumesizeingb)
 
 ### ResourceInUse

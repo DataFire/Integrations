@@ -40,6 +40,55 @@ amazonaws_guardduty.ListDetectors({}, context)
 #### Output
 * output [ListDetectorsResponse](#listdetectorsresponse)
 
+### CreateDetector
+
+
+
+```js
+amazonaws_guardduty.CreateDetector({}, context)
+```
+
+#### Input
+* input `object`
+  * Enable [Enable](#enable)
+
+#### Output
+* output [CreateDetectorResponse](#createdetectorresponse)
+
+### DeleteDetector
+
+
+
+```js
+amazonaws_guardduty.DeleteDetector({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+
+#### Output
+* output [DeleteDetectorResponse](#deletedetectorresponse)
+
+### GetDetector
+
+
+
+```js
+amazonaws_guardduty.GetDetector({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+
+#### Output
+* output [GetDetectorResponse](#getdetectorresponse)
+
 ### UpdateDetector
 
 
@@ -212,6 +261,65 @@ amazonaws_guardduty.ListIPSets({
 #### Output
 * output [ListIPSetsResponse](#listipsetsresponse)
 
+### CreateIPSet
+
+
+
+```js
+amazonaws_guardduty.CreateIPSet({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * Activate [Activate](#activate)
+  * Format [IpSetFormat](#ipsetformat)
+  * Location [Location](#location)
+  * Name [Name](#name)
+
+#### Output
+* output [CreateIPSetResponse](#createipsetresponse)
+
+### DeleteIPSet
+
+
+
+```js
+amazonaws_guardduty.DeleteIPSet({
+  "detectorId": "",
+  "ipSetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * ipSetId **required** `string`
+
+#### Output
+* output [DeleteIPSetResponse](#deleteipsetresponse)
+
+### GetIPSet
+
+
+
+```js
+amazonaws_guardduty.GetIPSet({
+  "detectorId": "",
+  "ipSetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * ipSetId **required** `string`
+
+#### Output
+* output [GetIPSetResponse](#getipsetresponse)
+
 ### UpdateIPSet
 
 
@@ -251,6 +359,25 @@ amazonaws_guardduty.GetMasterAccount({
 #### Output
 * output [GetMasterAccountResponse](#getmasteraccountresponse)
 
+### AcceptInvitation
+
+
+
+```js
+amazonaws_guardduty.AcceptInvitation({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * InvitationId [InvitationId](#invitationid)
+  * MasterId [MasterId](#masterid)
+
+#### Output
+* output [AcceptInvitationResponse](#acceptinvitationresponse)
+
 ### DisassociateFromMasterAccount
 
 
@@ -286,6 +413,24 @@ amazonaws_guardduty.ListMembers({
 
 #### Output
 * output [ListMembersResponse](#listmembersresponse)
+
+### CreateMembers
+
+
+
+```js
+amazonaws_guardduty.CreateMembers({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * AccountDetails [AccountDetails](#accountdetails)
+
+#### Output
+* output [CreateMembersResponse](#createmembersresponse)
 
 ### DeleteMembers
 
@@ -415,6 +560,65 @@ amazonaws_guardduty.ListThreatIntelSets({
 #### Output
 * output [ListThreatIntelSetsResponse](#listthreatintelsetsresponse)
 
+### CreateThreatIntelSet
+
+
+
+```js
+amazonaws_guardduty.CreateThreatIntelSet({
+  "detectorId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * Activate [Activate](#activate)
+  * Format [ThreatIntelSetFormat](#threatintelsetformat)
+  * Location [Location](#location)
+  * Name [Name](#name)
+
+#### Output
+* output [CreateThreatIntelSetResponse](#createthreatintelsetresponse)
+
+### DeleteThreatIntelSet
+
+
+
+```js
+amazonaws_guardduty.DeleteThreatIntelSet({
+  "detectorId": "",
+  "threatIntelSetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * threatIntelSetId **required** `string`
+
+#### Output
+* output [DeleteThreatIntelSetResponse](#deletethreatintelsetresponse)
+
+### GetThreatIntelSet
+
+
+
+```js
+amazonaws_guardduty.GetThreatIntelSet({
+  "detectorId": "",
+  "threatIntelSetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * detectorId **required** `string`
+  * threatIntelSetId **required** `string`
+
+#### Output
+* output [GetThreatIntelSetResponse](#getthreatintelsetresponse)
+
 ### UpdateThreatIntelSet
 
 
@@ -509,6 +713,13 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 ### AcceptInvitationResponse
 * AcceptInvitationResponse `object`
 
+### AccessKeyDetails
+* AccessKeyDetails `object`: The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
+  * AccessKeyId [__string](#__string)
+  * PrincipalId [__string](#__string)
+  * UserName [__string](#__string)
+  * UserType [__string](#__string)
+
 ### AccountDetail
 * AccountDetail `object`: An object containing the member's accountId and email address.
   * AccountId [AccountId](#accountid)
@@ -531,6 +742,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
   * AwsApiCallAction [AwsApiCallAction](#awsapicallaction)
   * DnsRequestAction [DnsRequestAction](#dnsrequestaction)
   * NetworkConnectionAction [NetworkConnectionAction](#networkconnectionaction)
+  * PortProbeAction [PortProbeAction](#portprobeaction)
 
 ### Activate
 * Activate `boolean`: Whether we should start processing the list immediately or not.
@@ -962,6 +1174,10 @@ amazonaws_guardduty.DeleteInvitations({}, context)
   * Members [Members](#members)
   * NextToken [NextToken](#nexttoken)
 
+### ListOfPortProbeDetail
+* ListOfPortProbeDetail `array`
+  * items [PortProbeDetail](#portprobedetail)
+
 ### ListThreatIntelSetsRequest
 * ListThreatIntelSetsRequest `object`
 
@@ -1065,6 +1281,16 @@ amazonaws_guardduty.DeleteInvitations({}, context)
   * Isp [__string](#__string)
   * Org [__string](#__string)
 
+### PortProbeAction
+* PortProbeAction `object`: Information about the PORT_PROBE action described in this finding.
+  * Blocked [__boolean](#__boolean)
+  * PortProbeDetails [ListOfPortProbeDetail](#listofportprobedetail)
+
+### PortProbeDetail
+* PortProbeDetail `object`: Details about the port probe finding.
+  * LocalPortDetails [LocalPortDetails](#localportdetails)
+  * RemoteIpDetails [RemoteIpDetails](#remoteipdetails)
+
 ### PrivateDnsName
 * PrivateDnsName `string`: Private DNS name of the EC2 instance.
 
@@ -1104,6 +1330,7 @@ amazonaws_guardduty.DeleteInvitations({}, context)
 
 ### Resource
 * Resource `object`: The AWS resource associated with the activity that prompted GuardDuty to generate a finding.
+  * AccessKeyDetails [AccessKeyDetails](#accesskeydetails)
   * InstanceDetails [InstanceDetails](#instancedetails)
   * ResourceType [__string](#__string)
 

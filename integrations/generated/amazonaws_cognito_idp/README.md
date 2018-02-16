@@ -283,10 +283,12 @@ amazonaws_cognito_idp.AdminInitiateAuth({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * AuthFlow **required** [AuthFlowType](#authflowtype)
   * AuthParameters [AuthParametersType](#authparameterstype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ClientMetadata [ClientMetadataType](#clientmetadatatype)
+  * ContextData [ContextDataType](#contextdatatype)
   * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
 
 #### Output
@@ -355,6 +357,27 @@ amazonaws_cognito_idp.AdminListGroupsForUser({
 #### Output
 * output [AdminListGroupsForUserResponse](#adminlistgroupsforuserresponse)
 
+### AdminListUserAuthEvents
+
+
+
+```js
+amazonaws_cognito_idp.AdminListUserAuthEvents({
+  "UserPoolId": "",
+  "Username": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults [QueryLimitType](#querylimittype)
+  * NextToken [PaginationKey](#paginationkey)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+#### Output
+* output [AdminListUserAuthEventsResponse](#adminlistuserautheventsresponse)
+
 ### AdminRemoveUserFromGroup
 
 
@@ -409,14 +432,37 @@ amazonaws_cognito_idp.AdminRespondToAuthChallenge({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ChallengeName **required** [ChallengeNameType](#challengenametype)
   * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
   * ClientId **required** [ClientIdType](#clientidtype)
+  * ContextData [ContextDataType](#contextdatatype)
   * Session [SessionType](#sessiontype)
   * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
 
 #### Output
 * output [AdminRespondToAuthChallengeResponse](#adminrespondtoauthchallengeresponse)
+
+### AdminSetUserMFAPreference
+
+
+
+```js
+amazonaws_cognito_idp.AdminSetUserMFAPreference({
+  "Username": "",
+  "UserPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
+  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+#### Output
+* output [AdminSetUserMFAPreferenceResponse](#adminsetusermfapreferenceresponse)
 
 ### AdminSetUserSettings
 
@@ -438,6 +484,29 @@ amazonaws_cognito_idp.AdminSetUserSettings({
 
 #### Output
 * output [AdminSetUserSettingsResponse](#adminsetusersettingsresponse)
+
+### AdminUpdateAuthEventFeedback
+
+
+
+```js
+amazonaws_cognito_idp.AdminUpdateAuthEventFeedback({
+  "UserPoolId": "",
+  "Username": "",
+  "EventId": "",
+  "FeedbackValue": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EventId **required** [EventIdType](#eventidtype)
+  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+#### Output
+* output [AdminUpdateAuthEventFeedbackResponse](#adminupdateautheventfeedbackresponse)
 
 ### AdminUpdateDeviceStatus
 
@@ -501,6 +570,22 @@ amazonaws_cognito_idp.AdminUserGlobalSignOut({
 #### Output
 * output [AdminUserGlobalSignOutResponse](#adminuserglobalsignoutresponse)
 
+### AssociateSoftwareToken
+
+
+
+```js
+amazonaws_cognito_idp.AssociateSoftwareToken({}, context)
+```
+
+#### Input
+* input `object`
+  * AccessToken [TokenModelType](#tokenmodeltype)
+  * Session [SessionType](#sessiontype)
+
+#### Output
+* output [AssociateSoftwareTokenResponse](#associatesoftwaretokenresponse)
+
 ### ChangePassword
 
 
@@ -558,10 +643,12 @@ amazonaws_cognito_idp.ConfirmForgotPassword({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
   * Password **required** [PasswordType](#passwordtype)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 #### Output
@@ -581,10 +668,12 @@ amazonaws_cognito_idp.ConfirmSignUp({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
   * ForceAliasCreation [ForceAliasCreation](#forcealiascreation)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 #### Output
@@ -707,6 +796,7 @@ amazonaws_cognito_idp.CreateUserPool({
   * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
   * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
   * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
+  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
   * UserPoolTags [UserPoolTagsType](#userpooltagstype)
   * UsernameAttributes [UsernameAttributesListType](#usernameattributeslisttype)
   * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
@@ -730,6 +820,7 @@ amazonaws_cognito_idp.CreateUserPoolClient({
   * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
   * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
   * AllowedOAuthScopes [ScopeListType](#scopelisttype)
+  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
   * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
   * ClientName **required** [ClientNameType](#clientnametype)
   * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
@@ -950,6 +1041,24 @@ amazonaws_cognito_idp.DescribeResourceServer({
 #### Output
 * output [DescribeResourceServerResponse](#describeresourceserverresponse)
 
+### DescribeRiskConfiguration
+
+
+
+```js
+amazonaws_cognito_idp.DescribeRiskConfiguration({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientId [ClientIdType](#clientidtype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+#### Output
+* output [DescribeRiskConfigurationResponse](#describeriskconfigurationresponse)
+
 ### DescribeUserImportJob
 
 
@@ -1053,8 +1162,10 @@ amazonaws_cognito_idp.ForgotPassword({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 #### Output
@@ -1133,6 +1244,23 @@ amazonaws_cognito_idp.GetIdentityProviderByIdentifier({
 #### Output
 * output [GetIdentityProviderByIdentifierResponse](#getidentityproviderbyidentifierresponse)
 
+### GetSigningCertificate
+
+
+
+```js
+amazonaws_cognito_idp.GetSigningCertificate({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+#### Output
+* output [GetSigningCertificateResponse](#getsigningcertificateresponse)
+
 ### GetUICustomization
 
 
@@ -1187,6 +1315,23 @@ amazonaws_cognito_idp.GetUserAttributeVerificationCode({
 #### Output
 * output [GetUserAttributeVerificationCodeResponse](#getuserattributeverificationcoderesponse)
 
+### GetUserPoolMfaConfig
+
+
+
+```js
+amazonaws_cognito_idp.GetUserPoolMfaConfig({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+#### Output
+* output [GetUserPoolMfaConfigResponse](#getuserpoolmfaconfigresponse)
+
 ### GlobalSignOut
 
 
@@ -1217,10 +1362,12 @@ amazonaws_cognito_idp.InitiateAuth({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * AuthFlow **required** [AuthFlowType](#authflowtype)
   * AuthParameters [AuthParametersType](#authparameterstype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ClientMetadata [ClientMetadataType](#clientmetadatatype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
 
 #### Output
 * output [InitiateAuthResponse](#initiateauthresponse)
@@ -1413,8 +1560,10 @@ amazonaws_cognito_idp.ResendConfirmationCode({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 #### Output
@@ -1433,13 +1582,36 @@ amazonaws_cognito_idp.RespondToAuthChallenge({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ChallengeName **required** [ChallengeNameType](#challengenametype)
   * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * Session [SessionType](#sessiontype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
 
 #### Output
 * output [RespondToAuthChallengeResponse](#respondtoauthchallengeresponse)
+
+### SetRiskConfiguration
+
+
+
+```js
+amazonaws_cognito_idp.SetRiskConfiguration({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountTakeoverRiskConfiguration [AccountTakeoverRiskConfigurationType](#accounttakeoverriskconfigurationtype)
+  * ClientId [ClientIdType](#clientidtype)
+  * CompromisedCredentialsRiskConfiguration [CompromisedCredentialsRiskConfigurationType](#compromisedcredentialsriskconfigurationtype)
+  * RiskExceptionConfiguration [RiskExceptionConfigurationType](#riskexceptionconfigurationtype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+#### Output
+* output [SetRiskConfigurationResponse](#setriskconfigurationresponse)
 
 ### SetUICustomization
 
@@ -1460,6 +1632,45 @@ amazonaws_cognito_idp.SetUICustomization({
 
 #### Output
 * output [SetUICustomizationResponse](#setuicustomizationresponse)
+
+### SetUserMFAPreference
+
+
+
+```js
+amazonaws_cognito_idp.SetUserMFAPreference({
+  "AccessToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
+  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
+
+#### Output
+* output [SetUserMFAPreferenceResponse](#setusermfapreferenceresponse)
+
+### SetUserPoolMfaConfig
+
+
+
+```js
+amazonaws_cognito_idp.SetUserPoolMfaConfig({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
+  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
+  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+#### Output
+* output [SetUserPoolMfaConfigResponse](#setuserpoolmfaconfigresponse)
 
 ### SetUserSettings
 
@@ -1494,10 +1705,12 @@ amazonaws_cognito_idp.SignUp({
 
 #### Input
 * input `object`
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * Password **required** [PasswordType](#passwordtype)
   * SecretHash [SecretHashType](#secrethashtype)
   * UserAttributes [AttributeListType](#attributelisttype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
   * ValidationData [AttributeListType](#attributelisttype)
 
@@ -1541,6 +1754,31 @@ amazonaws_cognito_idp.StopUserImportJob({
 
 #### Output
 * output [StopUserImportJobResponse](#stopuserimportjobresponse)
+
+### UpdateAuthEventFeedback
+
+
+
+```js
+amazonaws_cognito_idp.UpdateAuthEventFeedback({
+  "UserPoolId": "",
+  "Username": "",
+  "EventId": "",
+  "FeedbackToken": "",
+  "FeedbackValue": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EventId **required** [EventIdType](#eventidtype)
+  * FeedbackToken **required** [TokenModelType](#tokenmodeltype)
+  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+#### Output
+* output [UpdateAuthEventFeedbackResponse](#updateautheventfeedbackresponse)
 
 ### UpdateDeviceStatus
 
@@ -1671,6 +1909,7 @@ amazonaws_cognito_idp.UpdateUserPool({
   * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
   * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
   * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
+  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
   * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
   * UserPoolTags [UserPoolTagsType](#userpooltagstype)
   * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
@@ -1694,6 +1933,7 @@ amazonaws_cognito_idp.UpdateUserPoolClient({
   * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
   * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
   * AllowedOAuthScopes [ScopeListType](#scopelisttype)
+  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
   * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ClientName [ClientNameType](#clientnametype)
@@ -1708,6 +1948,26 @@ amazonaws_cognito_idp.UpdateUserPoolClient({
 
 #### Output
 * output [UpdateUserPoolClientResponse](#updateuserpoolclientresponse)
+
+### VerifySoftwareToken
+
+
+
+```js
+amazonaws_cognito_idp.VerifySoftwareToken({
+  "UserCode": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessToken [TokenModelType](#tokenmodeltype)
+  * FriendlyDeviceName [StringType](#stringtype)
+  * Session [SessionType](#sessiontype)
+  * UserCode **required** [SoftwareTokenMFAUserCodeType](#softwaretokenmfausercodetype)
+
+#### Output
+* output [VerifySoftwareTokenResponse](#verifysoftwaretokenresponse)
 
 ### VerifyUserAttribute
 
@@ -1737,6 +1997,28 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### AWSAccountIdType
 * AWSAccountIdType `string`
 
+### AccountTakeoverActionNotifyType
+* AccountTakeoverActionNotifyType `boolean`
+
+### AccountTakeoverActionType
+* AccountTakeoverActionType `object`: Account takeover action type.
+  * EventAction **required** [AccountTakeoverEventActionType](#accounttakeovereventactiontype)
+  * Notify **required** [AccountTakeoverActionNotifyType](#accounttakeoveractionnotifytype)
+
+### AccountTakeoverActionsType
+* AccountTakeoverActionsType `object`: Account takeover actions type.
+  * HighAction [AccountTakeoverActionType](#accounttakeoveractiontype)
+  * LowAction [AccountTakeoverActionType](#accounttakeoveractiontype)
+  * MediumAction [AccountTakeoverActionType](#accounttakeoveractiontype)
+
+### AccountTakeoverEventActionType
+* AccountTakeoverEventActionType `string` (values: BLOCK, MFA_IF_CONFIGURED, MFA_REQUIRED, NO_ACTION)
+
+### AccountTakeoverRiskConfigurationType
+* AccountTakeoverRiskConfigurationType `object`: Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+  * Actions **required** [AccountTakeoverActionsType](#accounttakeoveractionstype)
+  * NotifyConfiguration [NotifyConfigurationType](#notifyconfigurationtype)
+
 ### AddCustomAttributesRequest
 * AddCustomAttributesRequest `object`: Represents the request to add custom attributes.
   * CustomAttributes **required** [CustomAttributesListType](#customattributeslisttype)
@@ -1760,7 +2042,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * AdminConfirmSignUpResponse `object`: Represents the response from the server for the request to confirm registration.
 
 ### AdminCreateUserConfigType
-* AdminCreateUserConfigType `object`: The type of configuration for creating a new user profile.
+* AdminCreateUserConfigType `object`: The configuration for creating a new user profile.
   * AllowAdminCreateUserOnly [BooleanType](#booleantype)
   * InviteMessageTemplate [MessageTemplateType](#messagetemplatetype)
   * UnusedAccountValidityDays [AdminCreateUserUnusedAccountValidityDaysType](#admincreateuserunusedaccountvaliditydaystype)
@@ -1846,18 +2128,22 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * AdminGetUserResponse `object`: Represents the response from the server from the request to get the specified user as an administrator.
   * Enabled [BooleanType](#booleantype)
   * MFAOptions [MFAOptionListType](#mfaoptionlisttype)
+  * PreferredMfaSetting [StringType](#stringtype)
   * UserAttributes [AttributeListType](#attributelisttype)
   * UserCreateDate [DateType](#datetype)
   * UserLastModifiedDate [DateType](#datetype)
+  * UserMFASettingList [UserMFASettingListType](#usermfasettinglisttype)
   * UserStatus [UserStatusType](#userstatustype)
   * Username **required** [UsernameType](#usernametype)
 
 ### AdminInitiateAuthRequest
 * AdminInitiateAuthRequest `object`: Initiates the authorization request, as an administrator.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * AuthFlow **required** [AuthFlowType](#authflowtype)
   * AuthParameters [AuthParametersType](#authparameterstype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ClientMetadata [ClientMetadataType](#clientmetadatatype)
+  * ContextData [ContextDataType](#contextdatatype)
   * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
 
 ### AdminInitiateAuthResponse
@@ -1900,6 +2186,18 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * Groups [GroupListType](#grouplisttype)
   * NextToken [PaginationKey](#paginationkey)
 
+### AdminListUserAuthEventsRequest
+* AdminListUserAuthEventsRequest `object`
+  * MaxResults [QueryLimitType](#querylimittype)
+  * NextToken [PaginationKey](#paginationkey)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+### AdminListUserAuthEventsResponse
+* AdminListUserAuthEventsResponse `object`
+  * AuthEvents [AuthEventsType](#autheventstype)
+  * NextToken [PaginationKey](#paginationkey)
+
 ### AdminRemoveUserFromGroupRequest
 * AdminRemoveUserFromGroupRequest `object`
   * GroupName **required** [GroupNameType](#groupnametype)
@@ -1916,9 +2214,11 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### AdminRespondToAuthChallengeRequest
 * AdminRespondToAuthChallengeRequest `object`: The request to respond to the authentication challenge, as an administrator.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ChallengeName **required** [ChallengeNameType](#challengenametype)
   * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
   * ClientId **required** [ClientIdType](#clientidtype)
+  * ContextData [ContextDataType](#contextdatatype)
   * Session [SessionType](#sessiontype)
   * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
 
@@ -1929,6 +2229,16 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * ChallengeParameters [ChallengeParametersType](#challengeparameterstype)
   * Session [SessionType](#sessiontype)
 
+### AdminSetUserMFAPreferenceRequest
+* AdminSetUserMFAPreferenceRequest `object`
+  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
+  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+### AdminSetUserMFAPreferenceResponse
+* AdminSetUserMFAPreferenceResponse `object`
+
 ### AdminSetUserSettingsRequest
 * AdminSetUserSettingsRequest `object`: Represents the request to set user settings as an administrator.
   * MFAOptions **required** [MFAOptionListType](#mfaoptionlisttype)
@@ -1937,6 +2247,16 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### AdminSetUserSettingsResponse
 * AdminSetUserSettingsResponse `object`: Represents the response from the server to set user settings as an administrator.
+
+### AdminUpdateAuthEventFeedbackRequest
+* AdminUpdateAuthEventFeedbackRequest `object`
+  * EventId **required** [EventIdType](#eventidtype)
+  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+### AdminUpdateAuthEventFeedbackResponse
+* AdminUpdateAuthEventFeedbackResponse `object`
 
 ### AdminUpdateDeviceStatusRequest
 * AdminUpdateDeviceStatusRequest `object`: The request to update the device status, as an administrator.
@@ -1965,6 +2285,9 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### AdminUserGlobalSignOutResponse
 * AdminUserGlobalSignOutResponse `object`: The global sign-out response, as an administrator.
 
+### AdvancedSecurityModeType
+* AdvancedSecurityModeType `string` (values: OFF, AUDIT, ENFORCED)
+
 ### AliasAttributeType
 * AliasAttributeType `string` (values: phone_number, email, preferred_username)
 
@@ -1976,8 +2299,29 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * AliasExistsException `object`: This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.
   * message [MessageType](#messagetype)
 
+### AnalyticsConfigurationType
+* AnalyticsConfigurationType `object`: The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.
+  * ApplicationId **required** [HexStringType](#hexstringtype)
+  * ExternalId **required** [StringType](#stringtype)
+  * RoleArn **required** [ArnType](#arntype)
+  * UserDataShared [BooleanType](#booleantype)
+
+### AnalyticsMetadataType
+* AnalyticsMetadataType `object`: <p>An Amazon Pinpoint analytics endpoint.</p> <p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p>
+  * AnalyticsEndpointId [StringType](#stringtype)
+
 ### ArnType
 * ArnType `string`
+
+### AssociateSoftwareTokenRequest
+* AssociateSoftwareTokenRequest `object`
+  * AccessToken [TokenModelType](#tokenmodeltype)
+  * Session [SessionType](#sessiontype)
+
+### AssociateSoftwareTokenResponse
+* AssociateSoftwareTokenResponse `object`
+  * SecretCode [SecretCodeType](#secretcodetype)
+  * Session [SessionType](#sessiontype)
 
 ### AttributeDataType
 * AttributeDataType `string` (values: String, Number, DateTime, Boolean)
@@ -2010,8 +2354,23 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### AttributeValueType
 * AttributeValueType `string`
 
+### AuthEventType
+* AuthEventType `object`: The authentication event type.
+  * ChallengeResponses [ChallengeResponseListType](#challengeresponselisttype)
+  * CreationDate [DateType](#datetype)
+  * EventContextData [EventContextDataType](#eventcontextdatatype)
+  * EventFeedback [EventFeedbackType](#eventfeedbacktype)
+  * EventId [StringType](#stringtype)
+  * EventResponse [EventResponseType](#eventresponsetype)
+  * EventRisk [EventRiskType](#eventrisktype)
+  * EventType [EventType](#eventtype)
+
+### AuthEventsType
+* AuthEventsType `array`
+  * items [AuthEventType](#autheventtype)
+
 ### AuthFlowType
-* AuthFlowType `string` (values: USER_SRP_AUTH, REFRESH_TOKEN_AUTH, REFRESH_TOKEN, CUSTOM_AUTH, ADMIN_NO_SRP_AUTH)
+* AuthFlowType `string` (values: USER_SRP_AUTH, REFRESH_TOKEN_AUTH, REFRESH_TOKEN, CUSTOM_AUTH, ADMIN_NO_SRP_AUTH, USER_PASSWORD_AUTH)
 
 ### AuthParametersType
 * AuthParametersType `array`
@@ -2020,13 +2379,17 @@ amazonaws_cognito_idp.VerifyUserAttribute({
     * value [StringType](#stringtype)
 
 ### AuthenticationResultType
-* AuthenticationResultType `object`: The result type of the authentication result.
+* AuthenticationResultType `object`: The authentication result.
   * AccessToken [TokenModelType](#tokenmodeltype)
   * ExpiresIn [IntegerType](#integertype)
   * IdToken [TokenModelType](#tokenmodeltype)
   * NewDeviceMetadata [NewDeviceMetadataType](#newdevicemetadatatype)
   * RefreshToken [TokenModelType](#tokenmodeltype)
   * TokenType [StringType](#stringtype)
+
+### BlockedIPRangeListType
+* BlockedIPRangeListType `array`
+  * items [StringType](#stringtype)
 
 ### BooleanType
 * BooleanType `boolean`
@@ -2041,14 +2404,29 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * CallbackURLsListType `array`
   * items [RedirectUrlType](#redirecturltype)
 
+### ChallengeName
+* ChallengeName `string` (values: Password, Mfa)
+
 ### ChallengeNameType
-* ChallengeNameType `string` (values: SMS_MFA, PASSWORD_VERIFIER, CUSTOM_CHALLENGE, DEVICE_SRP_AUTH, DEVICE_PASSWORD_VERIFIER, ADMIN_NO_SRP_AUTH, NEW_PASSWORD_REQUIRED)
+* ChallengeNameType `string` (values: SMS_MFA, SOFTWARE_TOKEN_MFA, SELECT_MFA_TYPE, MFA_SETUP, PASSWORD_VERIFIER, CUSTOM_CHALLENGE, DEVICE_SRP_AUTH, DEVICE_PASSWORD_VERIFIER, ADMIN_NO_SRP_AUTH, NEW_PASSWORD_REQUIRED)
 
 ### ChallengeParametersType
 * ChallengeParametersType `array`
   * items `object`
     * key [StringType](#stringtype)
     * value [StringType](#stringtype)
+
+### ChallengeResponse
+* ChallengeResponse `string` (values: Success, Failure)
+
+### ChallengeResponseListType
+* ChallengeResponseListType `array`
+  * items [ChallengeResponseType](#challengeresponsetype)
+
+### ChallengeResponseType
+* ChallengeResponseType `object`: The challenge response type.
+  * ChallengeName [ChallengeName](#challengename)
+  * ChallengeResponse [ChallengeResponse](#challengeresponse)
 
 ### ChallengeResponsesType
 * ChallengeResponsesType `array`
@@ -2092,7 +2470,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * items [CodeDeliveryDetailsType](#codedeliverydetailstype)
 
 ### CodeDeliveryDetailsType
-* CodeDeliveryDetailsType `object`: The type of code delivery details being returned from the server.
+* CodeDeliveryDetailsType `object`: The code delivery details being returned from the server.
   * AttributeName [AttributeNameType](#attributenametype)
   * DeliveryMedium [DeliveryMediumType](#deliverymediumtype)
   * Destination [StringType](#stringtype)
@@ -2107,6 +2485,18 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### CompletionMessageType
 * CompletionMessageType `string`
+
+### CompromisedCredentialsActionsType
+* CompromisedCredentialsActionsType `object`: The compromised credentials actions type
+  * EventAction **required** [CompromisedCredentialsEventActionType](#compromisedcredentialseventactiontype)
+
+### CompromisedCredentialsEventActionType
+* CompromisedCredentialsEventActionType `string` (values: BLOCK, NO_ACTION)
+
+### CompromisedCredentialsRiskConfigurationType
+* CompromisedCredentialsRiskConfigurationType `object`: The compromised credentials risk configuration type.
+  * Actions **required** [CompromisedCredentialsActionsType](#compromisedcredentialsactionstype)
+  * EventFilter [EventFiltersType](#eventfilterstype)
 
 ### ConcurrentModificationException
 * ConcurrentModificationException `object`: This exception is thrown if two or more modifications are happening concurrently.
@@ -2125,10 +2515,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ConfirmForgotPasswordRequest
 * ConfirmForgotPasswordRequest `object`: The request representing the confirmation for a password reset.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
   * Password **required** [PasswordType](#passwordtype)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 ### ConfirmForgotPasswordResponse
@@ -2136,10 +2528,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ConfirmSignUpRequest
 * ConfirmSignUpRequest `object`: Represents the request to confirm registration of a user.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ConfirmationCode **required** [ConfirmationCodeType](#confirmationcodetype)
   * ForceAliasCreation [ForceAliasCreation](#forcealiascreation)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 ### ConfirmSignUpResponse
@@ -2147,6 +2541,14 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ConfirmationCodeType
 * ConfirmationCodeType `string`
+
+### ContextDataType
+* ContextDataType `object`: Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+  * EncodedData [StringType](#stringtype)
+  * HttpHeaders **required** [HttpHeaderList](#httpheaderlist)
+  * IpAddress **required** [StringType](#stringtype)
+  * ServerName **required** [StringType](#stringtype)
+  * ServerPath **required** [StringType](#stringtype)
 
 ### CreateGroupRequest
 * CreateGroupRequest `object`
@@ -2199,6 +2601,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
   * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
   * AllowedOAuthScopes [ScopeListType](#scopelisttype)
+  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
   * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
   * ClientName **required** [ClientNameType](#clientnametype)
   * DefaultRedirectURI [RedirectUrlType](#redirecturltype)
@@ -2240,6 +2643,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
   * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
   * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
+  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
   * UserPoolTags [UserPoolTagsType](#userpooltagstype)
   * UsernameAttributes [UsernameAttributesListType](#usernameattributeslisttype)
   * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
@@ -2330,6 +2734,15 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * DescribeResourceServerResponse `object`
   * ResourceServer **required** [ResourceServerType](#resourceservertype)
 
+### DescribeRiskConfigurationRequest
+* DescribeRiskConfigurationRequest `object`
+  * ClientId [ClientIdType](#clientidtype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+### DescribeRiskConfigurationResponse
+* DescribeRiskConfigurationResponse `object`
+  * RiskConfiguration **required** [RiskConfigurationType](#riskconfigurationtype)
+
 ### DescribeUserImportJobRequest
 * DescribeUserImportJobRequest `object`: Represents the request to describe the user import job.
   * JobId **required** [UserImportJobIdType](#userimportjobidtype)
@@ -2368,7 +2781,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * DescriptionType `string`
 
 ### DeviceConfigurationType
-* DeviceConfigurationType `object`: The type of configuration for the user pool's device tracking.
+* DeviceConfigurationType `object`: The configuration for the user pool's device tracking.
   * ChallengeRequiredOnNewDevice [BooleanType](#booleantype)
   * DeviceOnlyRememberedOnUserPrompt [BooleanType](#booleantype)
 
@@ -2429,6 +2842,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * ReplyToEmailAddress [EmailAddressType](#emailaddresstype)
   * SourceArn [ArnType](#arntype)
 
+### EmailNotificationBodyType
+* EmailNotificationBodyType `string`
+
+### EmailNotificationSubjectType
+* EmailNotificationSubjectType `string`
+
 ### EmailVerificationMessageByLinkType
 * EmailVerificationMessageByLinkType `string`
 
@@ -2441,6 +2860,45 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### EmailVerificationSubjectType
 * EmailVerificationSubjectType `string`
 
+### EnableSoftwareTokenMFAException
+* EnableSoftwareTokenMFAException `object`: This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).
+  * message [MessageType](#messagetype)
+
+### EventContextDataType
+* EventContextDataType `object`: Specifies the user context data captured at the time of an event request.
+  * City [StringType](#stringtype)
+  * Country [StringType](#stringtype)
+  * DeviceName [StringType](#stringtype)
+  * IpAddress [StringType](#stringtype)
+  * Timezone [StringType](#stringtype)
+
+### EventFeedbackType
+* EventFeedbackType `object`: Specifies the event feedback type.
+  * FeedbackDate [DateType](#datetype)
+  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
+  * Provider **required** [StringType](#stringtype)
+
+### EventFilterType
+* EventFilterType `string` (values: SIGN_IN, PASSWORD_CHANGE, SIGN_UP)
+
+### EventFiltersType
+* EventFiltersType `array`
+  * items [EventFilterType](#eventfiltertype)
+
+### EventIdType
+* EventIdType `string`
+
+### EventResponseType
+* EventResponseType `string` (values: Success, Failure)
+
+### EventRiskType
+* EventRiskType `object`: The event risk type.
+  * RiskDecision [RiskDecisionType](#riskdecisiontype)
+  * RiskLevel [RiskLevelType](#riskleveltype)
+
+### EventType
+* EventType `string` (values: SignIn, SignUp, ForgotPassword)
+
 ### ExpiredCodeException
 * ExpiredCodeException `object`: This exception is thrown if a code has expired.
   * message [MessageType](#messagetype)
@@ -2450,7 +2908,10 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * items [ExplicitAuthFlowsType](#explicitauthflowstype)
 
 ### ExplicitAuthFlowsType
-* ExplicitAuthFlowsType `string` (values: ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY)
+* ExplicitAuthFlowsType `string` (values: ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH)
+
+### FeedbackValueType
+* FeedbackValueType `string` (values: Valid, Invalid)
 
 ### ForceAliasCreation
 * ForceAliasCreation `boolean`
@@ -2462,8 +2923,10 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ForgotPasswordRequest
 * ForgotPasswordRequest `object`: Represents the request to reset a user's password.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 ### ForgotPasswordResponse
@@ -2509,6 +2972,14 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * GetIdentityProviderByIdentifierResponse `object`
   * IdentityProvider **required** [IdentityProviderType](#identityprovidertype)
 
+### GetSigningCertificateRequest
+* GetSigningCertificateRequest `object`: Request to get a signing certificate from Cognito.
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+### GetSigningCertificateResponse
+* GetSigningCertificateResponse `object`: Response from Cognito for a signing certificate request.
+  * Certificate [StringType](#stringtype)
+
 ### GetUICustomizationRequest
 * GetUICustomizationRequest `object`
   * ClientId [ClientIdType](#clientidtype)
@@ -2527,6 +2998,16 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * GetUserAttributeVerificationCodeResponse `object`: The verification code response returned by the server response to get the user attribute verification code.
   * CodeDeliveryDetails [CodeDeliveryDetailsType](#codedeliverydetailstype)
 
+### GetUserPoolMfaConfigRequest
+* GetUserPoolMfaConfigRequest `object`
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+### GetUserPoolMfaConfigResponse
+* GetUserPoolMfaConfigResponse `object`
+  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
+  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
+  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
+
 ### GetUserRequest
 * GetUserRequest `object`: Represents the request to get information about the user.
   * AccessToken **required** [TokenModelType](#tokenmodeltype)
@@ -2534,7 +3015,9 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### GetUserResponse
 * GetUserResponse `object`: Represents the response from the server from the request to get information about the user.
   * MFAOptions [MFAOptionListType](#mfaoptionlisttype)
+  * PreferredMfaSetting [StringType](#stringtype)
   * UserAttributes **required** [AttributeListType](#attributelisttype)
+  * UserMFASettingList [UserMFASettingListType](#usermfasettinglisttype)
   * Username **required** [UsernameType](#usernametype)
 
 ### GlobalSignOutRequest
@@ -2565,6 +3048,18 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * RoleArn [ArnType](#arntype)
   * UserPoolId [UserPoolIdType](#userpoolidtype)
 
+### HexStringType
+* HexStringType `string`
+
+### HttpHeader
+* HttpHeader `object`: The HTTP header.
+  * headerName [StringType](#stringtype)
+  * headerValue [StringType](#stringtype)
+
+### HttpHeaderList
+* HttpHeaderList `array`
+  * items [HttpHeader](#httpheader)
+
 ### IdentityProviderType
 * IdentityProviderType `object`: A container for information about an identity provider.
   * AttributeMapping [AttributeMappingType](#attributemappingtype)
@@ -2594,10 +3089,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### InitiateAuthRequest
 * InitiateAuthRequest `object`: Initiates the authentication request.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * AuthFlow **required** [AuthFlowType](#authflowtype)
   * AuthParameters [AuthParametersType](#authparameterstype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ClientMetadata [ClientMetadataType](#clientmetadatatype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
 
 ### InitiateAuthResponse
 * InitiateAuthResponse `object`: Initiates the authentication response.
@@ -2646,7 +3143,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * message [MessageType](#messagetype)
 
 ### LambdaConfigType
-* LambdaConfigType `object`: Specifies the type of configuration for AWS Lambda triggers.
+* LambdaConfigType `object`: Specifies the configuration for AWS Lambda triggers.
   * CreateAuthChallenge [ArnType](#arntype)
   * CustomMessage [ArnType](#arntype)
   * DefineAuthChallenge [ArnType](#arntype)
@@ -2654,6 +3151,8 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * PostConfirmation [ArnType](#arntype)
   * PreAuthentication [ArnType](#arntype)
   * PreSignUp [ArnType](#arntype)
+  * PreTokenGeneration [ArnType](#arntype)
+  * UserMigration [ArnType](#arntype)
   * VerifyAuthChallengeResponse [ArnType](#arntype)
 
 ### LimitExceededException
@@ -2812,6 +3311,21 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * NotAuthorizedException `object`: This exception is thrown when a user is not authorized.
   * message [MessageType](#messagetype)
 
+### NotifyConfigurationType
+* NotifyConfigurationType `object`: The notify configuration type.
+  * BlockEmail [NotifyEmailType](#notifyemailtype)
+  * From [StringType](#stringtype)
+  * MfaEmail [NotifyEmailType](#notifyemailtype)
+  * NoActionEmail [NotifyEmailType](#notifyemailtype)
+  * ReplyTo [StringType](#stringtype)
+  * SourceArn **required** [ArnType](#arntype)
+
+### NotifyEmailType
+* NotifyEmailType `object`: The notify email type.
+  * HtmlBody [EmailNotificationBodyType](#emailnotificationbodytype)
+  * Subject **required** [EmailNotificationSubjectType](#emailnotificationsubjecttype)
+  * TextBody [EmailNotificationBodyType](#emailnotificationbodytype)
+
 ### NumberAttributeConstraintsType
 * NumberAttributeConstraintsType `object`: The minimum and maximum value of an attribute that is of the number data type.
   * MaxValue [StringType](#stringtype)
@@ -2904,8 +3418,10 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### ResendConfirmationCodeRequest
 * ResendConfirmationCodeRequest `object`: Represents the request to resend the confirmation code.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * SecretHash [SecretHashType](#secrethashtype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
 
 ### ResendConfirmationCodeResponse
@@ -2950,10 +3466,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### RespondToAuthChallengeRequest
 * RespondToAuthChallengeRequest `object`: The request to respond to an authentication challenge.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ChallengeName **required** [ChallengeNameType](#challengenametype)
   * ChallengeResponses [ChallengeResponsesType](#challengeresponsestype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * Session [SessionType](#sessiontype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
 
 ### RespondToAuthChallengeResponse
 * RespondToAuthChallengeResponse `object`: The response to respond to the authentication challenge.
@@ -2962,8 +3480,33 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * ChallengeParameters [ChallengeParametersType](#challengeparameterstype)
   * Session [SessionType](#sessiontype)
 
+### RiskConfigurationType
+* RiskConfigurationType `object`: The risk configuration type.
+  * AccountTakeoverRiskConfiguration [AccountTakeoverRiskConfigurationType](#accounttakeoverriskconfigurationtype)
+  * ClientId [ClientIdType](#clientidtype)
+  * CompromisedCredentialsRiskConfiguration [CompromisedCredentialsRiskConfigurationType](#compromisedcredentialsriskconfigurationtype)
+  * LastModifiedDate [DateType](#datetype)
+  * RiskExceptionConfiguration [RiskExceptionConfigurationType](#riskexceptionconfigurationtype)
+  * UserPoolId [UserPoolIdType](#userpoolidtype)
+
+### RiskDecisionType
+* RiskDecisionType `string` (values: NoRisk, AccountTakeover, Block)
+
+### RiskExceptionConfigurationType
+* RiskExceptionConfigurationType `object`: The type of the configuration to override the risk decision.
+  * BlockedIPRangeList [BlockedIPRangeListType](#blockediprangelisttype)
+  * SkippedIPRangeList [SkippedIPRangeListType](#skippediprangelisttype)
+
+### RiskLevelType
+* RiskLevelType `string` (values: Low, Medium, High)
+
 ### S3BucketType
 * S3BucketType `string`
+
+### SMSMfaSettingsType
+* SMSMfaSettingsType `object`: The SMS multi-factor authentication (MFA) settings type.
+  * Enabled [BooleanType](#booleantype)
+  * PreferredMfa [BooleanType](#booleantype)
 
 ### SchemaAttributeType
 * SchemaAttributeType `object`: Contains information about the schema attribute.
@@ -2997,11 +3540,26 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * SearchedAttributeNamesListType `array`
   * items [AttributeNameType](#attributenametype)
 
+### SecretCodeType
+* SecretCodeType `string`
+
 ### SecretHashType
 * SecretHashType `string`
 
 ### SessionType
 * SessionType `string`
+
+### SetRiskConfigurationRequest
+* SetRiskConfigurationRequest `object`
+  * AccountTakeoverRiskConfiguration [AccountTakeoverRiskConfigurationType](#accounttakeoverriskconfigurationtype)
+  * ClientId [ClientIdType](#clientidtype)
+  * CompromisedCredentialsRiskConfiguration [CompromisedCredentialsRiskConfigurationType](#compromisedcredentialsriskconfigurationtype)
+  * RiskExceptionConfiguration [RiskExceptionConfigurationType](#riskexceptionconfigurationtype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+### SetRiskConfigurationResponse
+* SetRiskConfigurationResponse `object`
+  * RiskConfiguration **required** [RiskConfigurationType](#riskconfigurationtype)
 
 ### SetUICustomizationRequest
 * SetUICustomizationRequest `object`
@@ -3014,6 +3572,28 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * SetUICustomizationResponse `object`
   * UICustomization **required** [UICustomizationType](#uicustomizationtype)
 
+### SetUserMFAPreferenceRequest
+* SetUserMFAPreferenceRequest `object`
+  * AccessToken **required** [TokenModelType](#tokenmodeltype)
+  * SMSMfaSettings [SMSMfaSettingsType](#smsmfasettingstype)
+  * SoftwareTokenMfaSettings [SoftwareTokenMfaSettingsType](#softwaretokenmfasettingstype)
+
+### SetUserMFAPreferenceResponse
+* SetUserMFAPreferenceResponse `object`
+
+### SetUserPoolMfaConfigRequest
+* SetUserPoolMfaConfigRequest `object`
+  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
+  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
+  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+
+### SetUserPoolMfaConfigResponse
+* SetUserPoolMfaConfigResponse `object`
+  * MfaConfiguration [UserPoolMfaType](#userpoolmfatype)
+  * SmsMfaConfiguration [SmsMfaConfigType](#smsmfaconfigtype)
+  * SoftwareTokenMfaConfiguration [SoftwareTokenMfaConfigType](#softwaretokenmfaconfigtype)
+
 ### SetUserSettingsRequest
 * SetUserSettingsRequest `object`: Represents the request to set user settings.
   * AccessToken **required** [TokenModelType](#tokenmodeltype)
@@ -3024,10 +3604,12 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 
 ### SignUpRequest
 * SignUpRequest `object`: Represents the request to register a user.
+  * AnalyticsMetadata [AnalyticsMetadataType](#analyticsmetadatatype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * Password **required** [PasswordType](#passwordtype)
   * SecretHash [SecretHashType](#secrethashtype)
   * UserAttributes [AttributeListType](#attributelisttype)
+  * UserContextData [UserContextDataType](#usercontextdatatype)
   * Username **required** [UsernameType](#usernametype)
   * ValidationData [AttributeListType](#attributelisttype)
 
@@ -3037,13 +3619,38 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * UserConfirmed **required** [BooleanType](#booleantype)
   * UserSub **required** [StringType](#stringtype)
 
+### SkippedIPRangeListType
+* SkippedIPRangeListType `array`
+  * items [StringType](#stringtype)
+
 ### SmsConfigurationType
 * SmsConfigurationType `object`: The SMS configuration type.
   * ExternalId [StringType](#stringtype)
   * SnsCallerArn **required** [ArnType](#arntype)
 
+### SmsMfaConfigType
+* SmsMfaConfigType `object`: The SMS text message multi-factor authentication (MFA) configuration type.
+  * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
+  * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
+
 ### SmsVerificationMessageType
 * SmsVerificationMessageType `string`
+
+### SoftwareTokenMFANotFoundException
+* SoftwareTokenMFANotFoundException `object`: This exception is thrown when the software token TOTP multi-factor authentication (MFA) is not enabled for the user pool.
+  * message [MessageType](#messagetype)
+
+### SoftwareTokenMFAUserCodeType
+* SoftwareTokenMFAUserCodeType `string`
+
+### SoftwareTokenMfaConfigType
+* SoftwareTokenMfaConfigType `object`: The type used for enabling software token MFA at the user pool level.
+  * Enabled [BooleanType](#booleantype)
+
+### SoftwareTokenMfaSettingsType
+* SoftwareTokenMfaSettingsType `object`: The type used for enabling software token MFA at the user level.
+  * Enabled [BooleanType](#booleantype)
+  * PreferredMfa [BooleanType](#booleantype)
 
 ### StartUserImportJobRequest
 * StartUserImportJobRequest `object`: Represents the request to start the user import job.
@@ -3067,7 +3674,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * UserImportJob [UserImportJobType](#userimportjobtype)
 
 ### StringAttributeConstraintsType
-* StringAttributeConstraintsType `object`: The type of constraints associated with an attribute of the string type.
+* StringAttributeConstraintsType `object`: The constraints associated with a string attribute.
   * MaxLength [StringType](#stringtype)
   * MinLength [StringType](#stringtype)
 
@@ -3110,6 +3717,17 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### UnsupportedUserStateException
 * UnsupportedUserStateException `object`: The request failed because the user is in an unsupported state.
   * message [MessageType](#messagetype)
+
+### UpdateAuthEventFeedbackRequest
+* UpdateAuthEventFeedbackRequest `object`
+  * EventId **required** [EventIdType](#eventidtype)
+  * FeedbackToken **required** [TokenModelType](#tokenmodeltype)
+  * FeedbackValue **required** [FeedbackValueType](#feedbackvaluetype)
+  * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
+  * Username **required** [UsernameType](#usernametype)
+
+### UpdateAuthEventFeedbackResponse
+* UpdateAuthEventFeedbackResponse `object`
 
 ### UpdateDeviceStatusRequest
 * UpdateDeviceStatusRequest `object`: Represents the request to update the device status.
@@ -3169,6 +3787,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
   * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
   * AllowedOAuthScopes [ScopeListType](#scopelisttype)
+  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
   * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
   * ClientId **required** [ClientIdType](#clientidtype)
   * ClientName [ClientNameType](#clientnametype)
@@ -3199,12 +3818,17 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * SmsAuthenticationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
   * SmsConfiguration [SmsConfigurationType](#smsconfigurationtype)
   * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
+  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
   * UserPoolId **required** [UserPoolIdType](#userpoolidtype)
   * UserPoolTags [UserPoolTagsType](#userpooltagstype)
   * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
 
 ### UpdateUserPoolResponse
 * UpdateUserPoolResponse `object`: Represents the response from the server when you make a request to update the user pool.
+
+### UserContextDataType
+* UserContextDataType `object`: Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+  * EncodedData [StringType](#stringtype)
 
 ### UserFilterType
 * UserFilterType `string`
@@ -3246,6 +3870,10 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * UserLambdaValidationException `object`: This exception is thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.
   * message [MessageType](#messagetype)
 
+### UserMFASettingListType
+* UserMFASettingListType `array`
+  * items [StringType](#stringtype)
+
 ### UserNotConfirmedException
 * UserNotConfirmedException `object`: This exception is thrown when a user is not confirmed successfully.
   * message [MessageType](#messagetype)
@@ -3253,6 +3881,14 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### UserNotFoundException
 * UserNotFoundException `object`: This exception is thrown when a user is not found.
   * message [MessageType](#messagetype)
+
+### UserPoolAddOnNotEnabledException
+* UserPoolAddOnNotEnabledException `object`: This exception is thrown when user pool add-ons are not enabled.
+  * message [MessageType](#messagetype)
+
+### UserPoolAddOnsType
+* UserPoolAddOnsType `object`: The user pool add-ons type.
+  * AdvancedSecurityMode **required** [AdvancedSecurityModeType](#advancedsecuritymodetype)
 
 ### UserPoolClientDescription
 * UserPoolClientDescription `object`: The description of the user pool client.
@@ -3269,6 +3905,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * AllowedOAuthFlows [OAuthFlowsType](#oauthflowstype)
   * AllowedOAuthFlowsUserPoolClient [BooleanType](#booleantype)
   * AllowedOAuthScopes [ScopeListType](#scopelisttype)
+  * AnalyticsConfiguration [AnalyticsConfigurationType](#analyticsconfigurationtype)
   * CallbackURLs [CallbackURLsListType](#callbackurlslisttype)
   * ClientId [ClientIdType](#clientidtype)
   * ClientName [ClientNameType](#clientnametype)
@@ -3307,7 +3944,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 * UserPoolNameType `string`
 
 ### UserPoolPolicyType
-* UserPoolPolicyType `object`: The type of policy in a user pool.
+* UserPoolPolicyType `object`: The policy associated with a user pool.
   * PasswordPolicy [PasswordPolicyType](#passwordpolicytype)
 
 ### UserPoolTaggingException
@@ -3321,12 +3958,13 @@ amazonaws_cognito_idp.VerifyUserAttribute({
     * value [StringType](#stringtype)
 
 ### UserPoolType
-* UserPoolType `object`: A container for information about the user pool type.
+* UserPoolType `object`: A container for information about the user pool.
   * AdminCreateUserConfig [AdminCreateUserConfigType](#admincreateuserconfigtype)
   * AliasAttributes [AliasAttributesListType](#aliasattributeslisttype)
   * AutoVerifiedAttributes [VerifiedAttributesListType](#verifiedattributeslisttype)
   * CreationDate [DateType](#datetype)
   * DeviceConfiguration [DeviceConfigurationType](#deviceconfigurationtype)
+  * Domain [DomainType](#domaintype)
   * EmailConfiguration [EmailConfigurationType](#emailconfigurationtype)
   * EmailConfigurationFailure [StringType](#stringtype)
   * EmailVerificationMessage [EmailVerificationMessageType](#emailverificationmessagetype)
@@ -3344,6 +3982,7 @@ amazonaws_cognito_idp.VerifyUserAttribute({
   * SmsConfigurationFailure [StringType](#stringtype)
   * SmsVerificationMessage [SmsVerificationMessageType](#smsverificationmessagetype)
   * Status [StatusType](#statustype)
+  * UserPoolAddOns [UserPoolAddOnsType](#userpooladdonstype)
   * UserPoolTags [UserPoolTagsType](#userpooltagstype)
   * UsernameAttributes [UsernameAttributesListType](#usernameattributeslisttype)
   * VerificationMessageTemplate [VerificationMessageTemplateType](#verificationmessagetemplatetype)
@@ -3394,6 +4033,21 @@ amazonaws_cognito_idp.VerifyUserAttribute({
 ### VerifiedAttributesListType
 * VerifiedAttributesListType `array`
   * items [VerifiedAttributeType](#verifiedattributetype)
+
+### VerifySoftwareTokenRequest
+* VerifySoftwareTokenRequest `object`
+  * AccessToken [TokenModelType](#tokenmodeltype)
+  * FriendlyDeviceName [StringType](#stringtype)
+  * Session [SessionType](#sessiontype)
+  * UserCode **required** [SoftwareTokenMFAUserCodeType](#softwaretokenmfausercodetype)
+
+### VerifySoftwareTokenResponse
+* VerifySoftwareTokenResponse `object`
+  * Session [SessionType](#sessiontype)
+  * Status [VerifySoftwareTokenResponseType](#verifysoftwaretokenresponsetype)
+
+### VerifySoftwareTokenResponseType
+* VerifySoftwareTokenResponseType `string` (values: SUCCESS, ERROR)
 
 ### VerifyUserAttributeRequest
 * VerifyUserAttributeRequest `object`: Represents the request to verify user attributes.

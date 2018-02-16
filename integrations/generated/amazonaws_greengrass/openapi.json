@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "AWS Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.",
     "license": {
@@ -183,9 +184,105 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a core definition. You may optionally provide the initial version of the core definition or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass Groups must each contain exactly 1 AWS Greengrass Core.",
+        "operationId": "CreateCoreDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCoreDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCoreDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/cores/{CoreDefinitionId}": {
+      "delete": {
+        "description": "Deletes a core definition. The core definition must not have been used in a deployment.",
+        "operationId": "DeleteCoreDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCoreDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "CoreDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteCoreDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a core definition version.",
+        "operationId": "GetCoreDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCoreDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "CoreDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCoreDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -313,7 +410,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a version of a core definition that has already been defined. AWS Greengrass Groups must each contain exactly 1 AWS Greengrass Core.",
+        "operationId": "CreateCoreDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCoreDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "CoreDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCoreDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}": {
       "get": {
@@ -437,9 +568,105 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a device definition. You may optinally provide the initial version of the device definition or use ``CreateDeviceDefinitionVersion`` at a later time.",
+        "operationId": "CreateDeviceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDeviceDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDeviceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/devices/{DeviceDefinitionId}": {
+      "delete": {
+        "description": "Deletes a device definition. The device definition must not have been used in a deployment.",
+        "operationId": "DeleteDeviceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDeviceDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DeviceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDeviceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a device definition.",
+        "operationId": "GetDeviceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDeviceDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DeviceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDeviceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -567,7 +794,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a version of a device definition that has already been defined.",
+        "operationId": "CreateDeviceDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDeviceDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DeviceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDeviceDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}": {
       "get": {
@@ -691,9 +952,105 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ``CreateFunctionDefinitionVersion`` later.",
+        "operationId": "CreateFunctionDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFunctionDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFunctionDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/functions/{FunctionDefinitionId}": {
+      "delete": {
+        "description": "Deletes a Lambda function definition. The Lambda function definition must not have been used in a deployment.",
+        "operationId": "DeleteFunctionDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFunctionDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFunctionDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a Lambda function definition, such as its creation time and latest version.",
+        "operationId": "GetFunctionDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFunctionDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFunctionDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -821,7 +1178,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Create a version of a Lambda function definition that has already been defined.",
+        "operationId": "CreateFunctionDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFunctionDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFunctionDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}": {
       "get": {
@@ -945,9 +1336,105 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a logger definition. You may optionally provide the initial version of the logger definition or use ``CreateLoggerDefinitionVersion`` at a later time.",
+        "operationId": "CreateLoggerDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLoggerDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLoggerDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/loggers/{LoggerDefinitionId}": {
+      "delete": {
+        "description": "Deletes a logger definition. The logger definition must not have been used in a deployment.",
+        "operationId": "DeleteLoggerDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLoggerDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LoggerDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLoggerDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a logger definition.",
+        "operationId": "GetLoggerDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLoggerDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LoggerDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLoggerDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1075,7 +1562,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a version of a logger definition that has already been defined.",
+        "operationId": "CreateLoggerDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLoggerDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LoggerDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLoggerDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}": {
       "get": {
@@ -1108,6 +1629,390 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetLoggerDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/greengrass/definition/resources": {
+      "get": {
+        "description": "Retrieves a list of resource definitions.",
+        "operationId": "ListResourceDefinitions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListResourceDefinitionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourceDefinitionsResponse"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ``CreateResourceDefinitionVersion`` later.",
+        "operationId": "CreateResourceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateResourceDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResourceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
+    },
+    "/greengrass/definition/resources/{ResourceDefinitionId}": {
+      "delete": {
+        "description": "Deletes a resource definition.",
+        "operationId": "DeleteResourceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteResourceDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteResourceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a resource definition, such as its creation time and latest version.",
+        "operationId": "GetResourceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetResourceDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates a resource definition.",
+        "operationId": "UpdateResourceDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateResourceDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateResourceDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
+    },
+    "/greengrass/definition/resources/{ResourceDefinitionId}/versions": {
+      "get": {
+        "description": "Lists the versions of a resource definition.",
+        "operationId": "ListResourceDefinitionVersions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListResourceDefinitionVersionsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourceDefinitionVersionsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create a version of a resource definition that has already been defined.",
+        "operationId": "CreateResourceDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateResourceDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResourceDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
+    },
+    "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}": {
+      "get": {
+        "description": "Retrieves information about a resource definition version, such as which resources are included in the version.",
+        "operationId": "GetResourceDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetResourceDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "ResourceDefinitionVersionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourceDefinitionVersionResponse"
             }
           },
           "480": {
@@ -1199,9 +2104,105 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a subscription definition. You may optionally provide the initial version of the subscription definition or use ``CreateSubscriptionDefinitionVersion`` at a later time.",
+        "operationId": "CreateSubscriptionDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSubscriptionDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSubscriptionDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}": {
+      "delete": {
+        "description": "Deletes a subscription definition. The subscription definition must not have been used in a deployment.",
+        "operationId": "DeleteSubscriptionDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSubscriptionDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "SubscriptionDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSubscriptionDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a subscription definition.",
+        "operationId": "GetSubscriptionDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSubscriptionDefinitionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "SubscriptionDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSubscriptionDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1329,7 +2330,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a version of a subscription definition which has already been defined.",
+        "operationId": "CreateSubscriptionDefinitionVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSubscriptionDefinitionVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "SubscriptionDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSubscriptionDefinitionVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}": {
       "get": {
@@ -1453,9 +2488,105 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a group. You may optionally provide the initial version of the group or use ''CreateGroupVersion'' at a later time.",
+        "operationId": "CreateGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/groups/{GroupId}": {
+      "delete": {
+        "description": "Deletes a group. The group must not have been used in deployment.",
+        "operationId": "DeleteGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteGroupRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves information about a group.",
+        "operationId": "GetGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetGroupRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1589,9 +2720,89 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a CA for the group. If a CA already exists, it will rotate the existing CA.",
+        "operationId": "CreateGroupCertificateAuthority",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateGroupCertificateAuthorityRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGroupCertificateAuthorityResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry": {
+      "get": {
+        "description": "Retrieves the current configuration for the CA used by the group.",
+        "operationId": "GetGroupCertificateConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetGroupCertificateConfigurationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetGroupCertificateConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1802,7 +3013,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a deployment.",
+        "operationId": "CreateDeployment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDeploymentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDeploymentResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/groups/{GroupId}/deployments/$reset": {
       "parameters": [
@@ -1941,6 +3186,46 @@
       ]
     },
     "/greengrass/groups/{GroupId}/role": {
+      "delete": {
+        "description": "Disassociates the role from a group.",
+        "operationId": "DisassociateRoleFromGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateRoleFromGroupRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateRoleFromGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Retrieves the role associated with a particular group.",
         "operationId": "GetAssociatedRole",
@@ -2009,7 +3294,47 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Associates a role with a group. The role will be used by the AWS Greengrass core in order to access AWS cloud services. The role's permissions will allow Greengrass core Lambda functions to perform actions against the cloud.",
+        "operationId": "AssociateRoleToGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateRoleToGroupRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateRoleToGroupResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/groups/{GroupId}/versions": {
       "get": {
@@ -2074,7 +3399,41 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a version of a group which has already been defined.",
+        "operationId": "CreateGroupVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateGroupVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGroupVersionResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/groups/{GroupId}/versions/{GroupVersionId}": {
       "get": {
@@ -2148,6 +3507,34 @@
       ]
     },
     "/greengrass/servicerole": {
+      "delete": {
+        "description": "Disassociates the service role from the account. Without a service role, deployments will not work.",
+        "operationId": "DisassociateServiceRoleFromAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateServiceRoleFromAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateServiceRoleFromAccountResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Retrieves the service role that is attached to the account.",
         "operationId": "GetServiceRoleForAccount",
@@ -2204,9 +3591,83 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Associates a role which is used by AWS Greengrass. AWS Greengrass uses the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. It needs to have minimum permissions in policy ``AWSGreengrassResourceAccessRolePolicy``",
+        "operationId": "AssociateServiceRoleToAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateServiceRoleToAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateServiceRoleToAccountResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
     },
     "/greengrass/things/{ThingName}/connectivityInfo": {
+      "get": {
+        "description": "Retrieves the connectivity information for a core.",
+        "operationId": "GetConnectivityInfo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetConnectivityInfoRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ThingName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetConnectivityInfoResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2260,6 +3721,71 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/UpdateConnectivityInfoResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/greengrass/updates": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an Iot Job that will trigger your Greengrass Cores to update the software they are running.",
+        "operationId": "CreateSoftwareUpdateJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSoftwareUpdateJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSoftwareUpdateJobResponse"
             }
           },
           "480": {
@@ -2718,7 +4244,11 @@
         },
         "LoggerDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Logger definitionv ersion arn for this group."
+          "description": "Logger definition version arn for this group."
+        },
+        "ResourceDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Resource definition version arn for this group."
         },
         "SubscriptionDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
@@ -2820,6 +4350,118 @@
         "Version": {
           "$ref": "#/definitions/__string",
           "description": "Unique Id of a version."
+        }
+      },
+      "type": "object"
+    },
+    "CreateResourceDefinitionRequest": {
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/ResourceDefinitionVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the resource definition"
+        }
+      },
+      "type": "object"
+    },
+    "CreateResourceDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object"
+    },
+    "CreateResourceDefinitionVersionRequest": {
+      "properties": {
+        "Resources": {
+          "$ref": "#/definitions/ListOfResource",
+          "description": "List of resources."
+        }
+      },
+      "type": "object"
+    },
+    "CreateResourceDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object"
+    },
+    "CreateSoftwareUpdateJobRequest": {
+      "properties": {
+        "S3UrlSignerRole": {
+          "$ref": "#/definitions/S3UrlSignerRole"
+        },
+        "SoftwareToUpdate": {
+          "$ref": "#/definitions/SoftwareToUpdate"
+        },
+        "UpdateAgentLogLevel": {
+          "$ref": "#/definitions/UpdateAgentLogLevel"
+        },
+        "UpdateTargets": {
+          "$ref": "#/definitions/UpdateTargets"
+        },
+        "UpdateTargetsArchitecture": {
+          "$ref": "#/definitions/UpdateTargetsArchitecture"
+        },
+        "UpdateTargetsOperatingSystem": {
+          "$ref": "#/definitions/UpdateTargetsOperatingSystem"
+        }
+      },
+      "type": "object"
+    },
+    "CreateSoftwareUpdateJobResponse": {
+      "properties": {
+        "IotJobArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Iot Job Arn corresponding to this update."
+        },
+        "IotJobId": {
+          "$ref": "#/definitions/__string",
+          "description": "The Iot Job Id corresponding to this update."
         }
       },
       "type": "object"
@@ -2971,6 +4613,14 @@
       "type": "object"
     },
     "DeleteLoggerDefinitionResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteResourceDefinitionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteResourceDefinitionResponse": {
       "properties": {},
       "type": "object"
     },
@@ -3158,6 +4808,14 @@
     "FunctionConfigurationEnvironment": {
       "description": "Environment of the function configuration",
       "properties": {
+        "AccessSysfs": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Flag to allow lambda access sys filesystem."
+        },
+        "ResourceAccessPolicies": {
+          "$ref": "#/definitions/ListOfResourceAccessPolicy",
+          "description": "Policies for the function to access resources."
+        },
         "Variables": {
           "$ref": "#/definitions/MapOf__string",
           "description": "Environment variables for the lambda function."
@@ -3437,7 +5095,7 @@
         },
         "Definition": {
           "$ref": "#/definitions/FunctionDefinitionVersion",
-          "description": "Information on the definition."
+          "description": "Information on the definition"
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -3624,6 +5282,72 @@
       },
       "type": "object"
     },
+    "GetResourceDefinitionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetResourceDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object"
+    },
+    "GetResourceDefinitionVersionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetResourceDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the resource definition version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the resource definition version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/ResourceDefinitionVersion",
+          "description": "Information on definition."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource definition the version belongs to."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Version of the resource definition version."
+        }
+      },
+      "type": "object"
+    },
     "GetServiceRoleForAccountRequest": {
       "properties": {},
       "type": "object"
@@ -3773,6 +5497,20 @@
       },
       "type": "object"
     },
+    "GroupOwnerSetting": {
+      "description": "Group owner related settings for local resources.",
+      "properties": {
+        "AutoAddGroupOwner": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Eanble the auto added group owner."
+        },
+        "GroupOwner": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the group owner."
+        }
+      },
+      "type": "object"
+    },
     "GroupVersion": {
       "description": "Information on group version",
       "properties": {
@@ -3790,7 +5528,11 @@
         },
         "LoggerDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
-          "description": "Logger definitionv ersion arn for this group."
+          "description": "Logger definition version arn for this group."
+        },
+        "ResourceDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Resource definition version arn for this group."
         },
         "SubscriptionDefinitionVersionArn": {
           "$ref": "#/definitions/__string",
@@ -4075,6 +5817,18 @@
       },
       "type": "array"
     },
+    "ListOfResource": {
+      "items": {
+        "$ref": "#/definitions/Resource"
+      },
+      "type": "array"
+    },
+    "ListOfResourceAccessPolicy": {
+      "items": {
+        "$ref": "#/definitions/ResourceAccessPolicy"
+      },
+      "type": "array"
+    },
     "ListOfSubscription": {
       "items": {
         "$ref": "#/definitions/Subscription"
@@ -4086,6 +5840,40 @@
         "$ref": "#/definitions/VersionInformation"
       },
       "type": "array"
+    },
+    "ListResourceDefinitionVersionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListResourceDefinitionVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object"
+    },
+    "ListResourceDefinitionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListResourceDefinitionsResponse": {
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object"
     },
     "ListSubscriptionDefinitionVersionsRequest": {
       "properties": {},
@@ -4131,6 +5919,38 @@
         "Versions": {
           "$ref": "#/definitions/ListOfVersionInformation",
           "description": "Versions"
+        }
+      },
+      "type": "object"
+    },
+    "LocalDeviceResourceData": {
+      "description": "Attributes that define the Local Device Resource.",
+      "properties": {
+        "GroupOwnerSetting": {
+          "$ref": "#/definitions/GroupOwnerSetting",
+          "description": "Group owner related settings for local resources."
+        },
+        "SourcePath": {
+          "$ref": "#/definitions/__string",
+          "description": "Local source path of the resource."
+        }
+      },
+      "type": "object"
+    },
+    "LocalVolumeResourceData": {
+      "description": "Attributes that define the Local Volume Resource.",
+      "properties": {
+        "DestinationPath": {
+          "$ref": "#/definitions/__string",
+          "description": "Local destination path of the resource."
+        },
+        "GroupOwnerSetting": {
+          "$ref": "#/definitions/GroupOwnerSetting",
+          "description": "Group owner related settings for local resources."
+        },
+        "SourcePath": {
+          "$ref": "#/definitions/__string",
+          "description": "Local source path of the resource."
         }
       },
       "type": "object"
@@ -4209,6 +6029,14 @@
       },
       "type": "array"
     },
+    "Permission": {
+      "description": "Type of permissions a function could have to access a resource.",
+      "enum": [
+        "ro",
+        "rw"
+      ],
+      "type": "string"
+    },
     "ResetDeploymentsRequest": {
       "description": "Information needed to perform a reset of a group's deployments.",
       "properties": {
@@ -4231,6 +6059,74 @@
         }
       },
       "type": "object"
+    },
+    "Resource": {
+      "description": "Information on the resource.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Resource Id."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "A descriptive resource name."
+        },
+        "ResourceDataContainer": {
+          "$ref": "#/definitions/ResourceDataContainer",
+          "description": "A container of data for all resource types."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceAccessPolicy": {
+      "description": "Policy for the function to access a resource.",
+      "properties": {
+        "Permission": {
+          "$ref": "#/definitions/Permission",
+          "description": "The function's access permission to the resource."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource. A reference to the resource definiton."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceDataContainer": {
+      "description": "A container of data for all resource types.",
+      "properties": {
+        "LocalDeviceResourceData": {
+          "$ref": "#/definitions/LocalDeviceResourceData",
+          "description": "Attributes that define the Local Device Resource."
+        },
+        "LocalVolumeResourceData": {
+          "$ref": "#/definitions/LocalVolumeResourceData",
+          "description": "Attributes that define the Local Volume Resource."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceDefinitionVersion": {
+      "description": "Information on resource definition version",
+      "properties": {
+        "Resources": {
+          "$ref": "#/definitions/ListOfResource",
+          "description": "List of resources."
+        }
+      },
+      "type": "object"
+    },
+    "S3UrlSignerRole": {
+      "description": "The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.",
+      "type": "string"
+    },
+    "SoftwareToUpdate": {
+      "description": "The piece of software on the Greengrass Core that will be updated.",
+      "enum": [
+        "core",
+        "ota_agent"
+      ],
+      "type": "string"
     },
     "Subscription": {
       "description": "Information on subscription",
@@ -4263,6 +6159,20 @@
         }
       },
       "type": "object"
+    },
+    "UpdateAgentLogLevel": {
+      "description": "The minimum level of log statements that should be logged by the OTA Agent during an update.",
+      "enum": [
+        "NONE",
+        "TRACE",
+        "DEBUG",
+        "VERBOSE",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "FATAL"
+      ],
+      "type": "string"
     },
     "UpdateConnectivityInfoRequest": {
       "description": "connectivity info request",
@@ -4378,6 +6288,19 @@
       "properties": {},
       "type": "object"
     },
+    "UpdateResourceDefinitionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateResourceDefinitionResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "UpdateSubscriptionDefinitionRequest": {
       "properties": {
         "Name": {
@@ -4390,6 +6313,31 @@
     "UpdateSubscriptionDefinitionResponse": {
       "properties": {},
       "type": "object"
+    },
+    "UpdateTargets": {
+      "description": "The target arns that this update will be applied to.",
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "UpdateTargetsArchitecture": {
+      "description": "The architecture of the Cores in the targets of an update",
+      "enum": [
+        "armv7l",
+        "x86_64",
+        "aarch64"
+      ],
+      "type": "string"
+    },
+    "UpdateTargetsOperatingSystem": {
+      "description": "The operating system of the Cores in the targets of an update",
+      "enum": [
+        "ubuntu",
+        "raspbian",
+        "amazon_linux"
+      ],
+      "type": "string"
     },
     "VersionInformation": {
       "description": "Information on the version",

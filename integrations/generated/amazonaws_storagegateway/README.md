@@ -215,6 +215,7 @@ amazonaws_storagegateway.CreateNFSFileShare({
   * ClientToken **required** [ClientToken](#clienttoken)
   * DefaultStorageClass [StorageClass](#storageclass)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * GuessMIMETypeEnabled [Boolean](#boolean)
   * KMSEncrypted [Boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * LocationARN **required** [LocationARN](#locationarn)
@@ -908,6 +909,23 @@ amazonaws_storagegateway.ListVolumes({}, context)
 #### Output
 * output [ListVolumesOutput](#listvolumesoutput)
 
+### NotifyWhenUploaded
+
+
+
+```js
+amazonaws_storagegateway.NotifyWhenUploaded({
+  "FileShareARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FileShareARN **required** [FileShareARN](#filesharearn)
+
+#### Output
+* output [NotifyWhenUploadedOutput](#notifywhenuploadedoutput)
+
 ### RefreshCache
 
 
@@ -1167,6 +1185,7 @@ amazonaws_storagegateway.UpdateNFSFileShare({
   * ClientList [FileShareClientList](#fileshareclientlist)
   * DefaultStorageClass [StorageClass](#storageclass)
   * FileShareARN **required** [FileShareARN](#filesharearn)
+  * GuessMIMETypeEnabled [Boolean](#boolean)
   * KMSEncrypted [Boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
@@ -1232,7 +1251,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * TapeDriveType [TapeDriveType](#tapedrivetype)
 
 ### ActivateGatewayOutput
-* ActivateGatewayOutput `object`: <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015 the gateway ARN contains the gateway name rather than the gateway id. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>
+* ActivateGatewayOutput `object`: <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the gateway name rather than the gateway ID. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### ActivationKey
@@ -1296,6 +1315,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * VolumeSizeInBytes [long](#long)
   * VolumeStatus [VolumeStatus](#volumestatus)
   * VolumeType [VolumeType](#volumetype)
+  * VolumeUsedInBytes [VolumeUsedInBytes](#volumeusedinbytes)
   * VolumeiSCSIAttributes [VolumeiSCSIAttributes](#volumeiscsiattributes)
 
 ### CachediSCSIVolumes
@@ -1358,6 +1378,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * ClientToken **required** [ClientToken](#clienttoken)
   * DefaultStorageClass [StorageClass](#storageclass)
   * GatewayARN **required** [GatewayARN](#gatewayarn)
+  * GuessMIMETypeEnabled [Boolean](#boolean)
   * KMSEncrypted [Boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * LocationARN **required** [LocationARN](#locationarn)
@@ -1463,11 +1484,11 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * FileShareARN [FileShareARN](#filesharearn)
 
 ### DeleteGatewayInput
-* DeleteGatewayInput `object`: A JSON object containing the id of the gateway to delete.
+* DeleteGatewayInput `object`: A JSON object containing the ID of the gateway to delete.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### DeleteGatewayOutput
-* DeleteGatewayOutput `object`: A JSON object containing the id of the deleted gateway.
+* DeleteGatewayOutput `object`: A JSON object containing the ID of the deleted gateway.
   * GatewayARN [GatewayARN](#gatewayarn)
 
 ### DeleteSnapshotScheduleInput
@@ -1544,7 +1565,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * ChapCredentials [ChapCredentials](#chapcredentials)
 
 ### DescribeGatewayInformationInput
-* DescribeGatewayInformationInput `object`: A JSON object containing the id of the gateway.
+* DescribeGatewayInformationInput `object`: A JSON object containing the ID of the gateway.
   * GatewayARN **required** [GatewayARN](#gatewayarn)
 
 ### DescribeGatewayInformationOutput
@@ -1916,7 +1937,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 * MinuteOfHour `integer`
 
 ### NFSFileShareDefaults
-* NFSFileShareDefaults `object`: Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway architecture.
+* NFSFileShareDefaults `object`: Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway type.
   * DirectoryMode [PermissionMode](#permissionmode)
   * FileMode [PermissionMode](#permissionmode)
   * GroupId [PermissionId](#permissionid)
@@ -1930,6 +1951,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * FileShareId [FileShareId](#fileshareid)
   * FileShareStatus [FileShareStatus](#filesharestatus)
   * GatewayARN [GatewayARN](#gatewayarn)
+  * GuessMIMETypeEnabled [Boolean](#boolean)
   * KMSEncrypted [boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * LocationARN [LocationARN](#locationarn)
@@ -1954,6 +1976,18 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### NextUpdateAvailabilityDate
 * NextUpdateAvailabilityDate `string`
+
+### NotificationId
+* NotificationId `string`: The randomly generated ID of the notification that was sent. This ID is in UUID format.
+
+### NotifyWhenUploadedInput
+* NotifyWhenUploadedInput `object`
+  * FileShareARN **required** [FileShareARN](#filesharearn)
+
+### NotifyWhenUploadedOutput
+* NotifyWhenUploadedOutput `object`
+  * FileShareARN [FileShareARN](#filesharearn)
+  * NotificationId [NotificationId](#notificationid)
 
 ### NumTapesToCreate
 * NumTapesToCreate `integer`
@@ -2084,6 +2118,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * VolumeSizeInBytes [long](#long)
   * VolumeStatus [VolumeStatus](#volumestatus)
   * VolumeType [VolumeType](#volumetype)
+  * VolumeUsedInBytes [VolumeUsedInBytes](#volumeusedinbytes)
   * VolumeiSCSIAttributes [VolumeiSCSIAttributes](#volumeiscsiattributes)
 
 ### StorediSCSIVolumes
@@ -2259,6 +2294,7 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
   * ClientList [FileShareClientList](#fileshareclientlist)
   * DefaultStorageClass [StorageClass](#storageclass)
   * FileShareARN **required** [FileShareARN](#filesharearn)
+  * GuessMIMETypeEnabled [Boolean](#boolean)
   * KMSEncrypted [Boolean](#boolean)
   * KMSKey [KMSKey](#kmskey)
   * NFSFileShareDefaults [NFSFileShareDefaults](#nfsfilesharedefaults)
@@ -2356,6 +2392,9 @@ amazonaws_storagegateway.UpdateVTLDeviceType({
 
 ### VolumeType
 * VolumeType `string`
+
+### VolumeUsedInBytes
+* VolumeUsedInBytes `integer`
 
 ### VolumeiSCSIAttributes
 * VolumeiSCSIAttributes `object`: Lists iSCSI information about a volume.

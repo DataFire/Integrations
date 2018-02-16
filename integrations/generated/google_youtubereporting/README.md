@@ -77,23 +77,23 @@ google_youtubereporting.jobs.list({}, context)
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
-  * pageToken `string`: A token identifying a page of results the server should return. Typically,
   * includeSystemManaged `boolean`: If set to true, also system-managed jobs will be returned; otherwise only
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * pageSize `integer`: Requested page size. Server may return fewer jobs than requested.
+  * pageToken `string`: A token identifying a page of results the server should return. Typically,
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListJobsResponse](#listjobsresponse)
@@ -108,21 +108,21 @@ google_youtubereporting.jobs.create({}, context)
 
 #### Input
 * input `object`
-  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * body [Job](#job)
+  * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Job](#job)
@@ -142,18 +142,18 @@ google_youtubereporting.jobs.delete({
   * jobId **required** `string`: The ID of the job to delete.
   * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -173,18 +173,18 @@ google_youtubereporting.jobs.get({
   * jobId **required** `string`: The ID of the job to retrieve.
   * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Job](#job)
@@ -202,26 +202,26 @@ google_youtubereporting.jobs.reports.list({
 
 #### Input
 * input `object`
+  * createdAfter `string`: If set, only reports created after the specified date/time are returned.
   * jobId **required** `string`: The ID of the job.
   * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
-  * startTimeBefore `string`: If set, only reports whose start time is smaller than the specified
-  * createdAfter `string`: If set, only reports created after the specified date/time are returned.
+  * pageSize `integer`: Requested page size. Server may return fewer report types than requested.
   * pageToken `string`: A token identifying a page of results the server should return. Typically,
   * startTimeAtOrAfter `string`: If set, only reports whose start time is greater than or equal the
-  * pageSize `integer`: Requested page size. Server may return fewer report types than requested.
+  * startTimeBefore `string`: If set, only reports whose start time is smaller than the specified
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListReportsResponse](#listreportsresponse)
@@ -240,21 +240,21 @@ google_youtubereporting.jobs.reports.get({
 #### Input
 * input `object`
   * jobId **required** `string`: The ID of the job.
-  * reportId **required** `string`: The ID of the report to retrieve.
   * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
+  * reportId **required** `string`: The ID of the report to retrieve.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Report](#report)
@@ -272,23 +272,23 @@ google_youtubereporting.media.download({
 
 #### Input
 * input `object`
-  * resourceName **required** `string`: Name of the media that is being downloaded.  See
+  * resourceName **required** `string`: Name of the media that is being downloaded.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
-* output [Media](#media)
+* output [GdataMedia](#gdatamedia)
 
 ### reportTypes.list
 Lists report types.
@@ -300,23 +300,23 @@ google_youtubereporting.reportTypes.list({}, context)
 
 #### Input
 * input `object`
-  * pageToken `string`: A token identifying a page of results the server should return. Typically,
   * includeSystemManaged `boolean`: If set to true, also system-managed report types will be returned;
-  * pageSize `integer`: Requested page size. Server may return fewer report types than requested.
   * onBehalfOfContentOwner `string`: The content owner's external ID on which behalf the user is acting on. If
+  * pageSize `integer`: Requested page size. Server may return fewer report types than requested.
+  * pageToken `string`: A token identifying a page of results the server should return. Typically,
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
   * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListReportTypesResponse](#listreporttypesresponse)
@@ -327,6 +327,109 @@ google_youtubereporting.reportTypes.list({}, context)
 
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+
+### GdataBlobstore2Info
+* GdataBlobstore2Info `object`: gdata
+  * blobGeneration `string`: gdata
+  * blobId `string`: gdata
+  * downloadReadHandle `string`: gdata
+  * readToken `string`: gdata
+  * uploadMetadataContainer `string`: gdata
+
+### GdataCompositeMedia
+* GdataCompositeMedia `object`: gdata
+  * blobRef `string`: gdata
+  * blobstore2Info [GdataBlobstore2Info](#gdatablobstore2info)
+  * cosmoBinaryReference `string`: gdata
+  * crc32cHash `integer`: gdata
+  * inline `string`: gdata
+  * length `string`: gdata
+  * md5Hash `string`: gdata
+  * objectId [GdataObjectId](#gdataobjectid)
+  * path `string`: gdata
+  * referenceType `string` (values: PATH, BLOB_REF, INLINE, BIGSTORE_REF, COSMO_BINARY_REFERENCE): gdata
+  * sha1Hash `string`: gdata
+
+### GdataContentTypeInfo
+* GdataContentTypeInfo `object`: gdata
+  * bestGuess `string`: gdata
+  * fromBytes `string`: gdata
+  * fromFileName `string`: gdata
+  * fromHeader `string`: gdata
+  * fromUrlPath `string`: gdata
+
+### GdataDiffChecksumsResponse
+* GdataDiffChecksumsResponse `object`: gdata
+  * checksumsLocation [GdataCompositeMedia](#gdatacompositemedia)
+  * chunkSizeBytes `string`: gdata
+  * objectLocation [GdataCompositeMedia](#gdatacompositemedia)
+  * objectSizeBytes `string`: gdata
+  * objectVersion `string`: gdata
+
+### GdataDiffDownloadResponse
+* GdataDiffDownloadResponse `object`: gdata
+  * objectLocation [GdataCompositeMedia](#gdatacompositemedia)
+
+### GdataDiffUploadRequest
+* GdataDiffUploadRequest `object`: gdata
+  * checksumsInfo [GdataCompositeMedia](#gdatacompositemedia)
+  * objectInfo [GdataCompositeMedia](#gdatacompositemedia)
+  * objectVersion `string`: gdata
+
+### GdataDiffUploadResponse
+* GdataDiffUploadResponse `object`: gdata
+  * objectVersion `string`: gdata
+  * originalObject [GdataCompositeMedia](#gdatacompositemedia)
+
+### GdataDiffVersionResponse
+* GdataDiffVersionResponse `object`: gdata
+  * objectSizeBytes `string`: gdata
+  * objectVersion `string`: gdata
+
+### GdataDownloadParameters
+* GdataDownloadParameters `object`: gdata
+  * allowGzipCompression `boolean`: gdata
+  * ignoreRange `boolean`: gdata
+
+### GdataMedia
+* GdataMedia `object`: gdata
+  * algorithm `string`: gdata
+  * bigstoreObjectRef `string`: gdata
+  * blobRef `string`: gdata
+  * blobstore2Info [GdataBlobstore2Info](#gdatablobstore2info)
+  * compositeMedia `array`: gdata
+    * items [GdataCompositeMedia](#gdatacompositemedia)
+  * contentType `string`: gdata
+  * contentTypeInfo [GdataContentTypeInfo](#gdatacontenttypeinfo)
+  * cosmoBinaryReference `string`: gdata
+  * crc32cHash `integer`: gdata
+  * diffChecksumsResponse [GdataDiffChecksumsResponse](#gdatadiffchecksumsresponse)
+  * diffDownloadResponse [GdataDiffDownloadResponse](#gdatadiffdownloadresponse)
+  * diffUploadRequest [GdataDiffUploadRequest](#gdatadiffuploadrequest)
+  * diffUploadResponse [GdataDiffUploadResponse](#gdatadiffuploadresponse)
+  * diffVersionResponse [GdataDiffVersionResponse](#gdatadiffversionresponse)
+  * downloadParameters [GdataDownloadParameters](#gdatadownloadparameters)
+  * filename `string`: gdata
+  * hash `string`: gdata
+  * hashVerified `boolean`: gdata
+  * inline `string`: gdata
+  * isPotentialRetry `boolean`: gdata
+  * length `string`: gdata
+  * md5Hash `string`: gdata
+  * mediaId `string`: gdata
+  * objectId [GdataObjectId](#gdataobjectid)
+  * path `string`: gdata
+  * referenceType `string` (values: PATH, BLOB_REF, INLINE, GET_MEDIA, COMPOSITE_MEDIA, BIGSTORE_REF, DIFF_VERSION_RESPONSE, DIFF_CHECKSUMS_RESPONSE, DIFF_DOWNLOAD_RESPONSE, DIFF_UPLOAD_REQUEST, DIFF_UPLOAD_RESPONSE, COSMO_BINARY_REFERENCE, ARBITRARY_BYTES): gdata
+  * sha1Hash `string`: gdata
+  * sha256Hash `string`: gdata
+  * timestamp `string`: gdata
+  * token `string`: gdata
+
+### GdataObjectId
+* GdataObjectId `object`: gdata
+  * bucketName `string`: gdata
+  * generation `string`: gdata
+  * objectName `string`: gdata
 
 ### Job
 * Job `object`: A job creating reports of a specific type.
@@ -354,10 +457,6 @@ google_youtubereporting.reportTypes.list({}, context)
   * nextPageToken `string`: A token to retrieve next page of results.
   * reports `array`: The list of report types.
     * items [Report](#report)
-
-### Media
-* Media `object`: Media resource.
-  * resourceName `string`: Name of the media resource.
 
 ### Report
 * Report `object`: A report's metadata including the URL from which the report itself can be

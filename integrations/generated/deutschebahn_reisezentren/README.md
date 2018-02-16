@@ -54,6 +54,27 @@ deutschebahn_reisezentren.reisezentren.loc.lat.lon.get({
 #### Output
 * output [TravelCenter](#travelcenter)
 
+### reisezentren.loc.lat.lon.dist.get
+Get stations in a given radius
+
+
+```js
+deutschebahn_reisezentren.reisezentren.loc.lat.lon.dist.get({
+  "lat": 0,
+  "lon": 0,
+  "dist": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude
+  * lon **required** `number`: Longitude
+  * dist **required** `number`: Radius
+
+#### Output
+* output [TravelCenter](#travelcenter)
+
 ### reisezentren.id.get
 Get information about a specific station
 

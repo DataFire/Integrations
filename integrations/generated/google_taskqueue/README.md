@@ -83,9 +83,9 @@ google_taskqueue.taskqueues.get({
 
 #### Input
 * input `object`
+  * getStats `boolean`: Whether to get stats. Optional.
   * project **required** `string`: The project under which the queue lies.
   * taskqueue **required** `string`: The id of the taskqueue to get the properties of.
-  * getStats `boolean`: Whether to get stats. Optional.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -136,9 +136,9 @@ google_taskqueue.tasks.insert({
 
 #### Input
 * input `object`
+  * body [Task](#task)
   * project **required** `string`: The project under which the queue lies
   * taskqueue **required** `string`: The taskqueue to insert the task into
-  * body [Task](#task)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -156,21 +156,21 @@ Lease 1 or more tasks from a TaskQueue.
 
 ```js
 google_taskqueue.tasks.lease({
-  "project": "",
-  "taskqueue": "",
+  "leaseSecs": 0,
   "numTasks": 0,
-  "leaseSecs": 0
+  "project": "",
+  "taskqueue": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project under which the queue lies.
-  * taskqueue **required** `string`: The taskqueue to lease a task from.
-  * numTasks **required** `integer`: The number of tasks to lease.
-  * leaseSecs **required** `integer`: The lease in seconds.
   * groupByTag `boolean`: When true, all returned tasks will have the same tag
+  * leaseSecs **required** `integer`: The lease in seconds.
+  * numTasks **required** `integer`: The number of tasks to lease.
+  * project **required** `string`: The project under which the queue lies.
   * tag `string`: The tag allowed for tasks in the response. Must only be specified if group_by_tag is true. If group_by_tag is true and tag is not specified the tag will be that of the oldest task by eta, i.e. the first available tag
+  * taskqueue **required** `string`: The taskqueue to lease a task from.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -189,16 +189,16 @@ Delete a task from a TaskQueue.
 ```js
 google_taskqueue.tasks.delete({
   "project": "",
-  "taskqueue": "",
-  "task": ""
+  "task": "",
+  "taskqueue": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The project under which the queue lies.
-  * taskqueue **required** `string`: The taskqueue to delete a task from.
   * task **required** `string`: The id of the task to delete.
+  * taskqueue **required** `string`: The taskqueue to delete a task from.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -217,16 +217,16 @@ Get a particular task from a TaskQueue.
 ```js
 google_taskqueue.tasks.get({
   "project": "",
-  "taskqueue": "",
-  "task": ""
+  "task": "",
+  "taskqueue": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The project under which the queue lies.
-  * taskqueue **required** `string`: The taskqueue in which the task belongs.
   * task **required** `string`: The task to get properties of.
+  * taskqueue **required** `string`: The taskqueue in which the task belongs.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -244,20 +244,20 @@ Update tasks that are leased out of a TaskQueue. This method supports patch sema
 
 ```js
 google_taskqueue.tasks.patch({
+  "newLeaseSeconds": 0,
   "project": "",
-  "taskqueue": "",
   "task": "",
-  "newLeaseSeconds": 0
+  "taskqueue": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project under which the queue lies.
-  * taskqueue **required** `string`
-  * task **required** `string`
-  * newLeaseSeconds **required** `integer`: The new lease in seconds.
   * body [Task](#task)
+  * newLeaseSeconds **required** `integer`: The new lease in seconds.
+  * project **required** `string`: The project under which the queue lies.
+  * task **required** `string`
+  * taskqueue **required** `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -275,20 +275,20 @@ Update tasks that are leased out of a TaskQueue.
 
 ```js
 google_taskqueue.tasks.update({
+  "newLeaseSeconds": 0,
   "project": "",
-  "taskqueue": "",
   "task": "",
-  "newLeaseSeconds": 0
+  "taskqueue": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project under which the queue lies.
-  * taskqueue **required** `string`
-  * task **required** `string`
-  * newLeaseSeconds **required** `integer`: The new lease in seconds.
   * body [Task](#task)
+  * newLeaseSeconds **required** `integer`: The new lease in seconds.
+  * project **required** `string`: The project under which the queue lies.
+  * task **required** `string`
+  * taskqueue **required** `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

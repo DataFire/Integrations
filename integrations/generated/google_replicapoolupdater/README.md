@@ -83,11 +83,11 @@ google_replicapoolupdater.zoneOperations.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: Name of the project scoping this request.
-  * zone **required** `string`: Name of the zone scoping this request.
   * filter `string`: Optional. Filter expression for filtering listed resources.
   * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
   * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+  * project **required** `string`: Name of the project scoping this request.
+  * zone **required** `string`: Name of the zone scoping this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -105,17 +105,17 @@ Retrieves the specified zone-specific operation resource.
 
 ```js
 google_replicapoolupdater.zoneOperations.get({
+  "operation": "",
   "project": "",
-  "zone": "",
-  "operation": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the operation resource to return.
   * project **required** `string`: Name of the project scoping this request.
   * zone **required** `string`: Name of the zone scoping this request.
-  * operation **required** `string`: Name of the operation resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -140,11 +140,11 @@ google_replicapoolupdater.rollingUpdates.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
   * filter `string`: Optional. Filter expression for filtering listed resources.
   * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
   * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+  * project **required** `string`: The Google Developers Console project name.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -169,9 +169,9 @@ google_replicapoolupdater.rollingUpdates.insert({
 
 #### Input
 * input `object`
+  * body [RollingUpdate](#rollingupdate)
   * project **required** `string`: The Google Developers Console project name.
   * zone **required** `string`: The name of the zone in which the update's target resides.
-  * body [RollingUpdate](#rollingupdate)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -190,16 +190,16 @@ Returns information about an update.
 ```js
 google_replicapoolupdater.rollingUpdates.get({
   "project": "",
-  "zone": "",
-  "rollingUpdate": ""
+  "rollingUpdate": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
   * rollingUpdate **required** `string`: The name of the update.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -218,16 +218,16 @@ Cancels an update. The update must be PAUSED before it can be cancelled. This ha
 ```js
 google_replicapoolupdater.rollingUpdates.cancel({
   "project": "",
-  "zone": "",
-  "rollingUpdate": ""
+  "rollingUpdate": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
   * rollingUpdate **required** `string`: The name of the update.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -246,19 +246,19 @@ Lists the current status for each instance within a given update.
 ```js
 google_replicapoolupdater.rollingUpdates.listInstanceUpdates({
   "project": "",
-  "zone": "",
-  "rollingUpdate": ""
+  "rollingUpdate": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
-  * rollingUpdate **required** `string`: The name of the update.
   * filter `string`: Optional. Filter expression for filtering listed resources.
   * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
   * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+  * project **required** `string`: The Google Developers Console project name.
+  * rollingUpdate **required** `string`: The name of the update.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -277,16 +277,16 @@ Pauses the update in state from ROLLING_FORWARD or ROLLING_BACK. Has no effect i
 ```js
 google_replicapoolupdater.rollingUpdates.pause({
   "project": "",
-  "zone": "",
-  "rollingUpdate": ""
+  "rollingUpdate": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
   * rollingUpdate **required** `string`: The name of the update.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -305,16 +305,16 @@ Continues an update in PAUSED state. Has no effect if invoked when the state of 
 ```js
 google_replicapoolupdater.rollingUpdates.resume({
   "project": "",
-  "zone": "",
-  "rollingUpdate": ""
+  "rollingUpdate": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
   * rollingUpdate **required** `string`: The name of the update.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -333,16 +333,16 @@ Rolls back the update in state from ROLLING_FORWARD or PAUSED. Has no effect if 
 ```js
 google_replicapoolupdater.rollingUpdates.rollback({
   "project": "",
-  "zone": "",
-  "rollingUpdate": ""
+  "rollingUpdate": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The Google Developers Console project name.
-  * zone **required** `string`: The name of the zone in which the update's target resides.
   * rollingUpdate **required** `string`: The name of the update.
+  * zone **required** `string`: The name of the zone in which the update's target resides.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<p>The WorkDocs API is designed for the following use cases:</p> <ul> <li> <p>File Migration: File migration applications are supported for users who want to migrate their files from an on-premises or off-premises file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.</p> </li> <li> <p>Security: Support security applications are supported for users who have additional security needs, such as antivirus or data loss prevention. The API actions, along with AWS CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs. Then, the application can take the necessary actions and replace the target file. If the target file violates the policy, the application can also choose to email the user.</p> </li> <li> <p>eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic or record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to replicate data for eDiscovery, backup, or analytical applications.</p> </li> </ul> <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.</p>",
     "license": {
@@ -335,6 +336,143 @@
       }
     },
     "/api/v1/documents/{DocumentId}": {
+      "delete": {
+        "description": "Permanently deletes the specified document and its associated metadata.",
+        "operationId": "DeleteDocument",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDocumentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "484": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "485": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves details of a document.",
+        "operationId": "GetDocument",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDocumentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDocumentResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "InvalidPasswordException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPasswordException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -649,6 +787,149 @@
       ]
     },
     "/api/v1/documents/{DocumentId}/versions/{VersionId}": {
+      "delete": {
+        "description": "Aborts the upload of the specified document version that was previously initiated by <a>InitiateDocumentVersionUpload</a>. The client should make this call only when it no longer intends to upload the document version, or fails to do so.",
+        "operationId": "AbortDocumentVersionUpload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AbortDocumentVersionUploadRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "VersionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves version metadata for the specified document.",
+        "operationId": "GetDocumentVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDocumentVersionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "VersionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDocumentVersionResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "486": {
+            "description": "InvalidPasswordException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPasswordException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1178,6 +1459,143 @@
       }
     },
     "/api/v1/folders/{FolderId}": {
+      "delete": {
+        "description": "Permanently deletes the specified folder and its contents.",
+        "operationId": "DeleteFolder",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFolderRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FolderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "484": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "485": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves the metadata of the specified folder.",
+        "operationId": "GetFolder",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFolderRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FolderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFolderResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1288,6 +1706,61 @@
       }
     },
     "/api/v1/folders/{FolderId}/contents": {
+      "delete": {
+        "description": "Deletes the contents of the specified folder.",
+        "operationId": "DeleteFolderContents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFolderContentsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FolderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "<p>Describes the contents of the specified folder, including its documents and subfolders.</p> <p>By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.</p>",
         "operationId": "DescribeFolderContents",
@@ -1485,6 +1958,83 @@
         }
       ]
     },
+    "/api/v1/groups": {
+      "get": {
+        "description": "Describes the groups specified by query.",
+        "operationId": "DescribeGroups",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "482": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/api/v1/me": {
       "get": {
         "description": "Retrieves details of the current user for whom the authentication token was generated. This is not a valid action for SigV4 (administrative API) clients.",
@@ -1570,7 +2120,7 @@
     },
     "/api/v1/me/root": {
       "get": {
-        "description": "Describes the current user's special folders; the <code>RootFolder</code> and the <code>RecyleBin</code>. <code>RootFolder</code> is the root of user's files and folders and <code>RecyleBin</code> is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.",
+        "description": "Describes the current user's special folders; the <code>RootFolder</code> and the <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.",
         "operationId": "DescribeRootFolders",
         "parameters": [
           {
@@ -1726,7 +2276,53 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>Configure WorkDocs to use Amazon SNS notifications.</p> <p>The endpoint receives a confirmation message, and must confirm the subscription. For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.confirm\">Confirm the Subscription</a> in the <i>Amazon Simple Notification Service Developer Guide</i>.</p>",
+        "operationId": "CreateNotificationSubscription",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateNotificationSubscriptionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "OrganizationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateNotificationSubscriptionResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "481": {
+            "description": "TooManySubscriptionsException",
+            "schema": {
+              "$ref": "#/definitions/TooManySubscriptionsException"
+            }
+          },
+          "482": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     },
     "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}": {
       "delete": {
@@ -1907,7 +2503,77 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Adds one or more custom properties to the specified resource (a folder, document, or version).",
+        "operationId": "CreateCustomMetadata",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCustomMetadataRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCustomMetadataResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "484": {
+            "description": "CustomMetadataLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/CustomMetadataLimitExceededException"
+            }
+          },
+          "485": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     },
     "/api/v1/resources/{ResourceId}/labels": {
       "delete": {
@@ -1996,7 +2662,71 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "put": {
+        "description": "Adds the specified list of labels to the given resource (a document or folder)",
+        "operationId": "CreateLabels",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLabelsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLabelsResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyLabelsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyLabelsException"
+            }
+          }
+        }
+      }
     },
     "/api/v1/resources/{ResourceId}/permissions": {
       "delete": {
@@ -2021,6 +2751,58 @@
         "responses": {
           "204": {
             "description": "Success"
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "482": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes the permissions of a specified resource.",
+        "operationId": "DescribeResourcePermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeResourcePermissionsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeResourcePermissionsResponse"
+            }
           },
           "480": {
             "description": "UnauthorizedOperationException",
@@ -2076,7 +2858,59 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a set of permissions for the specified folder or document. The resource permissions are overwritten if the principals already have different permissions.",
+        "operationId": "AddResourcePermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddResourcePermissionsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddResourcePermissionsResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "482": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     },
     "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}": {
       "delete": {
@@ -2259,9 +3093,116 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a user in a Simple AD or Microsoft AD directory. The status of a newly created user is \"ACTIVE\". New users can access Amazon WorkDocs.",
+        "operationId": "CreateUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateUserResponse"
+            }
+          },
+          "480": {
+            "description": "EntityAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     },
     "/api/v1/users/{UserId}": {
+      "delete": {
+        "description": "Deletes the specified user from a Simple AD or Microsoft AD directory.",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "UserId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -2358,6 +3299,12 @@
             "schema": {
               "$ref": "#/definitions/DeactivatingLastSystemUserException"
             }
+          },
+          "487": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
           }
         }
       }
@@ -2446,7 +3393,65 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Activates the specified user. Only active users can access Amazon WorkDocs.",
+        "operationId": "ActivateUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ActivateUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "UserId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ActivateUserResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -2543,6 +3548,10 @@
     },
     "AddResourcePermissionsRequest": {
       "properties": {
+        "NotificationOptions": {
+          "$ref": "#/definitions/NotificationOptions",
+          "description": "The notification options."
+        },
         "Principals": {
           "$ref": "#/definitions/SharePrincipalList",
           "description": "The users, groups, or organization being granted permission."
@@ -2566,6 +3575,13 @@
       "format": "password",
       "maxLength": 8199,
       "minLength": 1,
+      "type": "string"
+    },
+    "BooleanEnumType": {
+      "enum": [
+        "TRUE",
+        "FALSE"
+      ],
       "type": "string"
     },
     "BooleanType": {
@@ -2636,14 +3652,16 @@
           "description": "The ID of the comment."
         },
         "CommentStatus": {
-          "$ref": "#/definitions/CommentStatusType"
+          "$ref": "#/definitions/CommentStatusType",
+          "description": "The status of the comment."
         },
         "Contributor": {
           "$ref": "#/definitions/User",
           "description": "The user who made the comment."
         },
         "CreatedTimestamp": {
-          "$ref": "#/definitions/TimestampType"
+          "$ref": "#/definitions/TimestampType",
+          "description": "The timestamp that the comment was created."
         },
         "RecipientId": {
           "$ref": "#/definitions/IdType",
@@ -2763,7 +3781,7 @@
     "CreateLabelsRequest": {
       "properties": {
         "Labels": {
-          "$ref": "#/definitions/Labels",
+          "$ref": "#/definitions/SharedLabels",
           "description": "List of labels to add to the resource."
         }
       },
@@ -2784,7 +3802,7 @@
         },
         "Protocol": {
           "$ref": "#/definitions/SubscriptionProtocolType",
-          "description": "The protocol to use. The supported value is https, which delivers JSON-encoded messasges using HTTPS POST."
+          "description": "The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST."
         },
         "SubscriptionType": {
           "$ref": "#/definitions/SubscriptionType",
@@ -3024,6 +4042,23 @@
       },
       "type": "object"
     },
+    "DescribeGroupsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeGroupsResponse": {
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupMetadataList",
+          "description": "The list of groups."
+        },
+        "Marker": {
+          "$ref": "#/definitions/MarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object"
+    },
     "DescribeNotificationSubscriptionsRequest": {
       "properties": {},
       "type": "object"
@@ -3126,7 +4161,7 @@
           "description": "The ID of the document."
         },
         "Labels": {
-          "$ref": "#/definitions/Labels",
+          "$ref": "#/definitions/SharedLabels",
           "description": "List of labels on the document."
         },
         "LatestVersionMetadata": {
@@ -3215,11 +4250,11 @@
       "properties": {
         "ContentCreatedTimestamp": {
           "$ref": "#/definitions/TimestampType",
-          "description": "The time stamp when the content of the document was originally created."
+          "description": "The timestamp when the content of the document was originally created."
         },
         "ContentModifiedTimestamp": {
           "$ref": "#/definitions/TimestampType",
-          "description": "The time stamp when the content of the document was modified."
+          "description": "The timestamp when the content of the document was modified."
         },
         "ContentType": {
           "$ref": "#/definitions/DocumentContentType",
@@ -3227,7 +4262,7 @@
         },
         "CreatedTimestamp": {
           "$ref": "#/definitions/TimestampType",
-          "description": "The time stamp when the document was first uploaded."
+          "description": "The timestamp when the document was first uploaded."
         },
         "CreatorId": {
           "$ref": "#/definitions/IdType",
@@ -3239,7 +4274,7 @@
         },
         "ModifiedTimestamp": {
           "$ref": "#/definitions/TimestampType",
-          "description": "The time stamp when the document was last uploaded."
+          "description": "The timestamp when the document was last uploaded."
         },
         "Name": {
           "$ref": "#/definitions/ResourceNameType",
@@ -3326,7 +4361,7 @@
       "type": "string"
     },
     "FailedDependencyException": {
-      "description": "The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected active directory.",
+      "description": "The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessageType"
@@ -3364,7 +4399,7 @@
           "description": "The ID of the folder."
         },
         "Labels": {
-          "$ref": "#/definitions/Labels",
+          "$ref": "#/definitions/SharedLabels",
           "description": "List of labels on the folder."
         },
         "LatestVersionSize": {
@@ -3553,11 +4588,11 @@
       "properties": {
         "ContentCreatedTimestamp": {
           "$ref": "#/definitions/TimestampType",
-          "description": "The time stamp when the content of the document was originally created."
+          "description": "The timestamp when the content of the document was originally created."
         },
         "ContentModifiedTimestamp": {
           "$ref": "#/definitions/TimestampType",
-          "description": "The time stamp when the content of the document was modified."
+          "description": "The timestamp when the content of the document was modified."
         },
         "ContentType": {
           "$ref": "#/definitions/DocumentContentType",
@@ -3599,7 +4634,7 @@
       "type": "object"
     },
     "InvalidArgumentException": {
-      "description": "The pagination marker and/or limit fields are not valid.",
+      "description": "The pagination marker or limit fields are not valid.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessageType"
@@ -3616,18 +4651,14 @@
       },
       "type": "object"
     },
-    "Label": {
-      "maxLength": 32,
-      "minLength": 1,
-      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
-      "type": "string"
-    },
-    "Labels": {
-      "items": {
-        "$ref": "#/definitions/Label"
+    "InvalidPasswordException": {
+      "description": "The password is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
       },
-      "maxItems": 20,
-      "type": "array"
+      "type": "object"
     },
     "LimitExceededException": {
       "description": "The maximum of 100,000 folders under the parent folder has been exceeded.",
@@ -3671,6 +4702,20 @@
       "minLength": 0,
       "type": "string"
     },
+    "NotificationOptions": {
+      "description": "Set of options which defines notification preferences of given action.",
+      "properties": {
+        "EmailMessage": {
+          "$ref": "#/definitions/MessageType",
+          "description": "Text value to be included in the email body."
+        },
+        "SendEmail": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Boolean value to indicate an email notification should be sent to the receipients."
+        }
+      },
+      "type": "object"
+    },
     "OrderType": {
       "enum": [
         "ASCENDING",
@@ -3690,7 +4735,7 @@
       "type": "string"
     },
     "Participants": {
-      "description": "Describes the users and/or user groups.",
+      "description": "Describes the users or user groups.",
       "properties": {
         "Groups": {
           "$ref": "#/definitions/GroupMetadataList",
@@ -3729,6 +4774,10 @@
         "$ref": "#/definitions/PermissionInfo"
       },
       "type": "array"
+    },
+    "PositiveIntegerType": {
+      "minimum": 1,
+      "type": "integer"
     },
     "PositiveSizeType": {
       "minimum": 0,
@@ -3813,7 +4862,7 @@
         },
         "OriginalName": {
           "$ref": "#/definitions/ResourceNameType",
-          "description": "The original name of the resource prior to a rename operation."
+          "description": "The original name of the resource before a rename operation."
         },
         "Owner": {
           "$ref": "#/definitions/UserMetadata",
@@ -3993,6 +5042,19 @@
       ],
       "type": "string"
     },
+    "SharedLabel": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string"
+    },
+    "SharedLabels": {
+      "items": {
+        "$ref": "#/definitions/SharedLabel"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
     "SignedHeaderMap": {
       "items": {
         "properties": {
@@ -4144,7 +5206,7 @@
         },
         "ResourceState": {
           "$ref": "#/definitions/ResourceStateType",
-          "description": "The resource state of the document. Note that only ACTIVE and RECYCLED are supported."
+          "description": "The resource state of the document. Only ACTIVE and RECYCLED are supported."
         }
       },
       "type": "object"
@@ -4170,7 +5232,7 @@
         },
         "ResourceState": {
           "$ref": "#/definitions/ResourceStateType",
-          "description": "The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted values from the API."
+          "description": "The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API."
         }
       },
       "type": "object"
@@ -4180,6 +5242,10 @@
         "GivenName": {
           "$ref": "#/definitions/UserAttributeValueType",
           "description": "The given name of the user."
+        },
+        "GrantPoweruserPrivileges": {
+          "$ref": "#/definitions/BooleanEnumType",
+          "description": "Boolean value to determine whether the user is granted Poweruser privileges."
         },
         "Locale": {
           "$ref": "#/definitions/LocaleType",
@@ -4344,7 +5410,7 @@
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
-          "description": "The username of the user."
+          "description": "The name of the user."
         }
       },
       "type": "object"
@@ -4382,7 +5448,7 @@
         },
         "StorageUtilizedInBytes": {
           "$ref": "#/definitions/SizeType",
-          "description": "The amount of storage utilized, in bytes."
+          "description": "The amount of storage used, in bytes."
         }
       },
       "type": "object"
@@ -4390,7 +5456,10 @@
     "UserType": {
       "enum": [
         "USER",
-        "ADMIN"
+        "ADMIN",
+        "POWERUSER",
+        "MINIMALUSER",
+        "WORKSPACESUSER"
       ],
       "type": "string"
     },

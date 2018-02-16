@@ -335,7 +335,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates a model in Amazon SageMaker. In the request, you name the model and describe one or more containers. For each container, you specify the docker image containing inference code, artifacts (from prior training), and custom environment map that the inference code uses when you deploy the model into production. </p> <p>Use this API to create a model only if you want to use Amazon SageMaker hosting services. To host your model, you create an endpoint configuration with the <code>CreateEndpointConfig</code> API, and then create an endpoint with the <code>CreateEndpoint</code> API. </p> <p>Amazon SageMaker then deploys all of the containers that you defined for the model in the hosting environment. </p> <p>In the <code>CreateModel</code> request, you must define at least one container with the <code>PrimaryContainer</code> parameter. You can optionally specify additional containers with the <code>SupplementalContainers</code> parameter. </p> <p>In the request, you also provide an IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute hosting instances. In addition, you also use the IAM role to manage permissions the inference code needs. For example, if the inference code access any other AWS resources, you grant necessary permissions via this role.</p>",
+        "description": "<p>Creates a model in Amazon SageMaker. In the request, you name the model and describe one or more containers. For each container, you specify the docker image containing inference code, artifacts (from prior training), and custom environment map that the inference code uses when you deploy the model into production. </p> <p>Use this API to create a model only if you want to use Amazon SageMaker hosting services. To host your model, you create an endpoint configuration with the <code>CreateEndpointConfig</code> API, and then create an endpoint with the <code>CreateEndpoint</code> API. </p> <p>Amazon SageMaker then deploys all of the containers that you defined for the model in the hosting environment. </p> <p>In the <code>CreateModel</code> request, you must define a container with the <code>PrimaryContainer</code> parameter. </p> <p>In the request, you also provide an IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute hosting instances. In addition, you also use the IAM role to manage permissions the inference code needs. For example, if the inference code access any other AWS resources, you grant necessary permissions via this role.</p>",
         "operationId": "CreateModel",
         "parameters": [
           {
@@ -855,20 +855,9 @@
               },
               {
                 "argument": "EndpointStatus",
-                "expected": "Creating",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "argument": "EndpointStatus",
                 "expected": "Failed",
                 "matcher": "path",
                 "state": "failure"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
               },
               {
                 "expected": "ValidationException",
@@ -876,8 +865,7 @@
                 "state": "failure"
               }
             ],
-            "delay": 120,
-            "interval": 120,
+            "delay": 30,
             "maxAttempts": 120,
             "operation": "DescribeEndpoint"
           },
@@ -890,67 +878,13 @@
               },
               {
                 "argument": "EndpointStatus",
-                "expected": "Deleting",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "argument": "EndpointStatus",
                 "expected": "Failed",
                 "matcher": "path",
                 "state": "failure"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
               }
             ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
-            "operation": "DescribeEndpoint"
-          },
-          {
-            "acceptors": [
-              {
-                "argument": "EndpointName",
-                "expected": "200",
-                "matcher": "path",
-                "state": "success"
-              },
-              {
-                "argument": "EndpointStatus",
-                "expected": "Updating",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "argument": "EndpointStatus",
-                "expected": "RollingBack",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "argument": "EndpointStatus",
-                "expected": "Failed",
-                "matcher": "path",
-                "state": "failure"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
-              },
-              {
-                "expected": "ValidationException",
-                "matcher": "error",
-                "state": "retry"
-              }
-            ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
+            "delay": 30,
+            "maxAttempts": 60,
             "operation": "DescribeEndpoint"
           }
         ]
@@ -1123,32 +1057,14 @@
                 "state": "success"
               },
               {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
-              },
-              {
                 "argument": "NotebookInstanceStatus",
                 "expected": "Failed",
                 "matcher": "path",
                 "state": "failure"
-              },
-              {
-                "argument": "NotebookInstanceStatus",
-                "expected": "Stopped",
-                "matcher": "path",
-                "state": "failure"
-              },
-              {
-                "argument": "NotebookInstanceStatus",
-                "expected": "Stopping",
-                "matcher": "path",
-                "state": "failure"
               }
             ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
+            "delay": 30,
+            "maxAttempts": 60,
             "operation": "DescribeNotebookInstance"
           },
           {
@@ -1161,25 +1077,13 @@
               },
               {
                 "argument": "NotebookInstanceStatus",
-                "expected": "Stopping",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
-              },
-              {
-                "argument": "NotebookInstanceStatus",
                 "expected": "Failed",
                 "matcher": "path",
                 "state": "failure"
               }
             ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
+            "delay": 30,
+            "maxAttempts": 60,
             "operation": "DescribeNotebookInstance"
           },
           {
@@ -1191,25 +1095,13 @@
               },
               {
                 "argument": "NotebookInstanceStatus",
-                "expected": "Deleting",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
-              },
-              {
-                "argument": "NotebookInstanceStatus",
                 "expected": "Failed",
                 "matcher": "path",
                 "state": "failure"
               }
             ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
+            "delay": 30,
+            "maxAttempts": 60,
             "operation": "DescribeNotebookInstance"
           }
         ]
@@ -1283,25 +1175,9 @@
               },
               {
                 "argument": "TrainingJobStatus",
-                "expected": "Stopping",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "argument": "TrainingJobStatus",
                 "expected": "Stopped",
                 "matcher": "path",
                 "state": "success"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
-              },
-              {
-                "expected": "ValidationException",
-                "matcher": "error",
-                "state": "failure"
               },
               {
                 "argument": "TrainingJobStatus",
@@ -1310,99 +1186,13 @@
                 "state": "failure"
               },
               {
-                "argument": "TrainingJobStatus",
-                "expected": "Deleting",
-                "matcher": "path",
-                "state": "failure"
-              }
-            ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
-            "operation": "DescribeTrainingJob"
-          },
-          {
-            "acceptors": [
-              {
-                "expected": "ValidationException",
-                "matcher": "error",
-                "state": "success"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Deleting",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
-              }
-            ],
-            "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
-            "operation": "DescribeTrainingJob"
-          },
-          {
-            "acceptors": [
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Created",
-                "matcher": "path",
-                "state": "success"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Completed",
-                "matcher": "path",
-                "state": "success"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "InProgress",
-                "matcher": "path",
-                "state": "retry"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Failed",
-                "matcher": "path",
-                "state": "failure"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Stopping",
-                "matcher": "path",
-                "state": "failure"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Stopped",
-                "matcher": "path",
-                "state": "failure"
-              },
-              {
-                "argument": "TrainingJobStatus",
-                "expected": "Deleting",
-                "matcher": "path",
-                "state": "failure"
-              },
-              {
                 "expected": "ValidationException",
                 "matcher": "error",
                 "state": "failure"
-              },
-              {
-                "expected": "ThrottlingException",
-                "matcher": "error",
-                "state": "retry"
               }
             ],
             "delay": 120,
-            "interval": 120,
-            "maxAttempts": 120,
+            "maxAttempts": 180,
             "operation": "DescribeTrainingJob"
           }
         ]
@@ -1841,7 +1631,7 @@
         }
       ],
       "post": {
-        "description": "Launches an ML compute instance with the latest version of the libraries and attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the notebook instance status to <code>InService</code>. A notebook instance's status must be <code>InService</code> (is this same as \"Running\" in the console?) before you can connect to your Jupyter notebook. ",
+        "description": "Launches an ML compute instance with the latest version of the libraries and attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the notebook instance status to <code>InService</code>. A notebook instance's status must be <code>InService</code> before you can connect to your Jupyter notebook. ",
         "operationId": "StartNotebookInstance",
         "parameters": [
           {
@@ -2062,7 +1852,7 @@
         }
       ],
       "post": {
-        "description": "Updates variant weight, capacity, or both of one or more variants associated with an endpoint. This operation updates weight, capacity, or both for the previously provisioned endpoint. When it receives the request, Amazon SageMaker sets the endpoint status to <code>Updating</code>. After updating the endpoint, it sets the status to <code>InService</code>. To check the status of an endpoint, use the <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html\">DescribeEndpoint</a> API. ",
+        "description": "Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, Amazon SageMaker sets the endpoint status to <code>Updating</code>. After updating the endpoint, it sets the status to <code>InService</code>. To check the status of an endpoint, use the <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html\">DescribeEndpoint</a> API. ",
         "operationId": "UpdateEndpointWeightsAndCapacities",
         "parameters": [
           {
@@ -2267,13 +2057,6 @@
       ],
       "type": "object"
     },
-    "ContainerDefinitionList": {
-      "items": {
-        "$ref": "#/definitions/ContainerDefinition"
-      },
-      "maxItems": 5,
-      "type": "array"
-    },
     "ContainerHostname": {
       "maxLength": 63,
       "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
@@ -2288,6 +2071,10 @@
         "EndpointConfigName": {
           "$ref": "#/definitions/EndpointConfigName",
           "description": "The name of the endpoint configuration. You specify this name in a <a href=\"http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> request. "
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint."
         },
         "ProductionVariants": {
           "$ref": "#/definitions/ProductionVariantList",
@@ -2363,10 +2150,6 @@
           "$ref": "#/definitions/ContainerDefinition",
           "description": "The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed into production. "
         },
-        "SupplementalContainers": {
-          "$ref": "#/definitions/ContainerDefinitionList",
-          "description": "The additional optional containers to deploy."
-        },
         "Tags": {
           "$ref": "#/definitions/TagList",
           "description": "An array of key-value pairs. For more information, see <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. "
@@ -2374,7 +2157,8 @@
       },
       "required": [
         "ModelName",
-        "PrimaryContainer"
+        "PrimaryContainer",
+        "ExecutionRoleArn"
       ],
       "type": "object"
     },
@@ -2636,6 +2420,10 @@
           "$ref": "#/definitions/EndpointConfigName",
           "description": "Name of the Amazon SageMaker endpoint configuration."
         },
+        "KmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance."
+        },
         "ProductionVariants": {
           "$ref": "#/definitions/ProductionVariantList",
           "description": "An array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint."
@@ -2739,16 +2527,11 @@
         "PrimaryContainer": {
           "$ref": "#/definitions/ContainerDefinition",
           "description": "The location of the primary inference code, associated artifacts, and custom environment map that the inference code uses when it is deployed in production. "
-        },
-        "SupplementalContainers": {
-          "$ref": "#/definitions/ContainerDefinitionList",
-          "description": "The description of additional optional containers that you defined when creating the model."
         }
       },
       "required": [
         "ModelName",
         "PrimaryContainer",
-        "SupplementalContainers",
         "ExecutionRoleArn",
         "CreationTime",
         "ModelArn"
@@ -3777,6 +3560,10 @@
         "InstanceType": {
           "$ref": "#/definitions/TrainingInstanceType",
           "description": "The ML compute instance type. "
+        },
+        "VolumeKmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job."
         },
         "VolumeSizeInGB": {
           "$ref": "#/definitions/VolumeSizeInGB",

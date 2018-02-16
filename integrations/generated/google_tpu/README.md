@@ -244,7 +244,7 @@ google_tpu.projects.locations.operations.cancel({
 * output [Empty](#empty)
 
 ### projects.locations.nodes.reimage
-Reimage a node's OS.
+Reimages a node's OS.
 
 
 ```js
@@ -287,6 +287,68 @@ google_tpu.projects.locations.nodes.reset({
 #### Input
 * input `object`
   * body [ResetNodeRequest](#resetnoderequest)
+  * name **required** `string`: The resource name.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.nodes.start
+Starts a node.
+
+
+```js
+google_tpu.projects.locations.nodes.start({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [StartNodeRequest](#startnoderequest)
+  * name **required** `string`: The resource name.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Operation](#operation)
+
+### projects.locations.nodes.stop
+Stops a node.
+
+
+```js
+google_tpu.projects.locations.nodes.stop({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [StopNodeRequest](#stopnoderequest)
   * name **required** `string`: The resource name.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
@@ -369,6 +431,40 @@ google_tpu.projects.locations.nodes.create({
 #### Output
 * output [Operation](#operation)
 
+### projects.locations.tensorflowVersions.list
+Lists TensorFlow versions supported by this API.
+
+
+```js
+google_tpu.projects.locations.tensorflowVersions.list({
+  "parent": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: List filter.
+  * orderBy `string`: Sort results.
+  * pageSize `integer`: The maximum number of items to return.
+  * pageToken `string`: The next_page_token value returned from a previous List request, if any.
+  * parent **required** `string`: The parent resource name.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListTensorFlowVersionsResponse](#listtensorflowversionsresponse)
+
 
 
 ## Definitions
@@ -394,6 +490,12 @@ google_tpu.projects.locations.nodes.create({
   * operations `array`: A list of operations that matches the specified filter in the request.
     * items [Operation](#operation)
 
+### ListTensorFlowVersionsResponse
+* ListTensorFlowVersionsResponse `object`: Response for ListTensorFlowVersions.
+  * nextPageToken `string`: The next page token or empty if none.
+  * tensorflowVersions `array`: The listed nodes.
+    * items [TensorFlowVersion](#tensorflowversion)
+
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
   * labels `object`: Cross-service attributes for the location. For example
@@ -409,18 +511,20 @@ google_tpu.projects.locations.nodes.create({
 ### Node
 * Node `object`: A TPU instance.
   * acceleratorType `string`: The type of hardware accelerators associated with this node.
-  * cidrBlock `string`: The CIDR block that the TPU node will use when selecting //an IP address.
-  * createTime `string`: The time when the node was created.
+  * cidrBlock `string`: The CIDR block that the TPU node will use when selecting an IP address.
+  * createTime `string`: Output only.
   * description `string`: The user-supplied description of the TPU. Maximum of 512 characters.
-  * healthDescription `string`: If this field is populated, it contains a description of why the TPU Node
+  * health `string` (values: HEALTH_UNSPECIFIED, HEALTHY, UNHEALTHY, TIMEOUT): The health status of the TPU node.
+  * healthDescription `string`: Output only.
   * ipAddress `string`: Output only.
-  * name `string`: The immutable name of the TPU
+  * labels `object`: Resource labels to represent user-provided metadata.
+  * name `string`: Output only.
   * network `string`: The name of a network they wish to peer the TPU node to. It must be a
   * networkEndpoints `array`: Output only. The network endpoints where TPU workers can be accessed and sent work.
     * items [NetworkEndpoint](#networkendpoint)
   * port `string`: Output only.
-  * serviceAccount `string`: The service account used to run the tensor flow services within the node.
-  * state `string` (values: STATE_UNSPECIFIED, CREATING, READY, RESTARTING, REIMAGING, DELETING, REPAIRING): The current state for the TPU Node.
+  * serviceAccount `string`: Output only.
+  * state `string` (values: STATE_UNSPECIFIED, CREATING, READY, RESTARTING, REIMAGING, DELETING, REPAIRING, STOPPED): Output only.
   * tensorflowVersion `string`: The version of Tensorflow running in the Node.
 
 ### Operation
@@ -448,11 +552,22 @@ google_tpu.projects.locations.nodes.create({
 ### ResetNodeRequest
 * ResetNodeRequest `object`: Request for ResetNode.
 
+### StartNodeRequest
+* StartNodeRequest `object`: Request for StartNode.
+
 ### Status
 * Status `object`: The `Status` type defines a logical error model that is suitable for different
   * code `integer`: The status code, which should be an enum value of google.rpc.Code.
   * details `array`: A list of messages that carry the error details.  There is a common set of
     * items `object`
   * message `string`: A developer-facing error message, which should be in English. Any
+
+### StopNodeRequest
+* StopNodeRequest `object`: Request for StopNode.
+
+### TensorFlowVersion
+* TensorFlowVersion `object`: A tensorflow version that a Node can be configured with.
+  * name `string`: The resource name.
+  * version `string`: the tensorflow version.
 
 

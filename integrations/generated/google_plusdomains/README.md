@@ -233,8 +233,8 @@ google_plusdomains.circles.patch({
 
 #### Input
 * input `object`
-  * circleId **required** `string`: The ID of the circle to update.
   * body [Circle](#circle)
+  * circleId **required** `string`: The ID of the circle to update.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -258,8 +258,8 @@ google_plusdomains.circles.update({
 
 #### Input
 * input `object`
-  * circleId **required** `string`: The ID of the circle to update.
   * body [Circle](#circle)
+  * circleId **required** `string`: The ID of the circle to update.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -409,9 +409,9 @@ google_plusdomains.activities.insert({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user to create the activity on behalf of. Its value should be "me", to indicate the authenticated user.
-  * preview `boolean`: If "true", extract the potential media attachments for a URL. The response will include all possible attachments for a URL, including video, photos, and articles based on the content of the page.
   * body [Activity](#activity)
+  * preview `boolean`: If "true", extract the potential media attachments for a URL. The response will include all possible attachments for a URL, including video, photos, and articles based on the content of the page.
+  * userId **required** `string`: The ID of the user to create the activity on behalf of. Its value should be "me", to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -429,17 +429,17 @@ List all of the activities in the specified collection for a particular user.
 
 ```js
 google_plusdomains.activities.list({
-  "userId": "",
-  "collection": ""
+  "collection": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user to get activities for. The special value "me" can be used to indicate the authenticated user.
   * collection **required** `string` (values: user): The collection of activities to list.
   * maxResults `integer`: The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
   * pageToken `string`: The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+  * userId **required** `string`: The ID of the user to get activities for. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -463,9 +463,9 @@ google_plusdomains.audiences.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user to get audiences for. The special value "me" can be used to indicate the authenticated user.
   * maxResults `integer`: The maximum number of circles to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
   * pageToken `string`: The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+  * userId **required** `string`: The ID of the user to get audiences for. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -489,9 +489,9 @@ google_plusdomains.circles.list({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user to get circles for. The special value "me" can be used to indicate the authenticated user.
   * maxResults `integer`: The maximum number of circles to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
   * pageToken `string`: The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+  * userId **required** `string`: The ID of the user to get circles for. The special value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -515,8 +515,8 @@ google_plusdomains.circles.insert({
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user to create the circle on behalf of. The value "me" can be used to indicate the authenticated user.
   * body [Circle](#circle)
+  * userId **required** `string`: The ID of the user to create the circle on behalf of. The value "me" can be used to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -534,16 +534,16 @@ Add a new media item to an album. The current upload size limitations are 36MB f
 
 ```js
 google_plusdomains.media.insert({
-  "userId": "",
-  "collection": ""
+  "collection": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: The ID of the user to create the activity on behalf of.
-  * collection **required** `string` (values: cloud)
   * body [Media](#media)
+  * collection **required** `string` (values: cloud)
+  * userId **required** `string`: The ID of the user to create the activity on behalf of.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -561,18 +561,18 @@ List all of the people in the specified collection.
 
 ```js
 google_plusdomains.people.list({
-  "userId": "",
-  "collection": ""
+  "collection": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: Get the collection of people for the person identified. Use "me" to indicate the authenticated user.
   * collection **required** `string` (values: circled): The collection of people to list.
   * maxResults `integer`: The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
   * orderBy `string` (values: alphabetical, best): The order to return people in.
   * pageToken `string`: The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+  * userId **required** `string`: Get the collection of people for the person identified. Use "me" to indicate the authenticated user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

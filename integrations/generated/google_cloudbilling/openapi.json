@@ -223,40 +223,40 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -373,40 +373,40 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -451,40 +451,40 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -495,19 +495,19 @@
         "operationId": "projects.updateBillingInfo",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProjectBillingInfo"
+            }
+          },
+          {
             "description": "The resource name of the project associated with the billing information\nthat you want to update. For example, `projects/tokyo-rain-123`.",
             "in": "path",
             "name": "name",
             "required": true,
             "type": "string",
             "x-reservedExpansion": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ProjectBillingInfo"
-            }
           }
         ],
         "responses": {
@@ -535,7 +535,7 @@
     },
     "/v1/{name}/projects": {
       "get": {
-        "description": "Lists the projects associated with a billing account. The current\nauthenticated user must be an [owner of the billing\naccount](https://support.google.com/cloud/answer/4430947).",
+        "description": "Lists the projects associated with a billing account. The current\nauthenticated user must have the \"billing.resourceAssociations.list\" IAM\npermission, which is often given to billing account\n[viewers](https://support.google.com/cloud/answer/4430947).",
         "operationId": "billingAccounts.projects.list",
         "parameters": [
           {
@@ -583,40 +583,40 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/fields"
         },
         {
           "$ref": "#/parameters/alt"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/bearer_token"
         },
         {
           "$ref": "#/parameters/callback"
         },
         {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/pp"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
         },
         {
           "$ref": "#/parameters/upload_protocol"
@@ -635,7 +635,7 @@
             "type": "string"
           },
           {
-            "description": "Optional exclusive end time of the time range for which the pricing\nversions will be returned. Timestamps in the future are not allowed.\nMaximum allowable time range is 1 month (31 days). Time range as a whole\nis optional. If not specified, the latest pricing will be returned (up to\n12 hours old at most).",
+            "description": "Optional exclusive end time of the time range for which the pricing\nversions will be returned. Timestamps in the future are not allowed.\nThe time range has to be within a single calendar month in\nAmerica/Los_Angeles timezone. Time range as a whole is optional. If not\nspecified, the latest pricing will be returned (up to 12 hours old at\nmost).",
             "in": "query",
             "name": "endTime",
             "type": "string"
@@ -661,7 +661,7 @@
             "x-reservedExpansion": true
           },
           {
-            "description": "Optional inclusive start time of the time range for which the pricing\nversions will be returned. Timestamps in the future are not allowed.\nMaximum allowable time range is 1 month (31 days). Time range as a whole\nis optional. If not specified, the latest pricing will be returned (up to\n12 hours old at most).",
+            "description": "Optional inclusive start time of the time range for which the pricing\nversions will be returned. Timestamps in the future are not allowed.\nThe time range has to be within a single calendar month in\nAmerica/Los_Angeles timezone. Time range as a whole is optional. If not\nspecified, the latest pricing will be returned (up to 12 hours old at\nmost).",
             "in": "query",
             "name": "startTime",
             "type": "string"
@@ -925,12 +925,12 @@
           "description": "Aggregation Info. This can be left unspecified if the pricing expression\ndoesn't require aggregation."
         },
         "currencyConversionRate": {
-          "description": "Conversion rate for currency conversion, from USD to the currency specified\nin the request. If the currency is not specified this defaults to 1.0.\nExample: USD * currency_conversion_rate = JPY",
+          "description": "Conversion rate used for currency conversion, from USD to the currency\nspecified in the request. This includes any surcharge collected for billing\nin non USD currency. If a currency is not specified in the request this\ndefaults to 1.0.\nExample: USD * currency_conversion_rate = JPY",
           "format": "double",
           "type": "number"
         },
         "effectiveTime": {
-          "description": "The timestamp from which this pricing was effective.",
+          "description": "The timestamp from which this pricing was effective within the requested\ntime range. This is guaranteed to be greater than or equal to the\nstart_time field in the request and less than the end_time field in the\nrequest. If a time range was not specified in the request this field will\nbe equivalent to a time within the last 12 hours, indicating the latest\npricing info.",
           "format": "google-datetime",
           "type": "string"
         },

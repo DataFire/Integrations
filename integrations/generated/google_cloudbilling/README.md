@@ -81,18 +81,18 @@ google_cloudbilling.billingAccounts.list({}, context)
 * input `object`
   * pageSize `integer`: Requested page size. The maximum page size is 100; this is also the
   * pageToken `string`: A token identifying a page of results to return. This should be a
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -142,18 +142,18 @@ google_cloudbilling.billingAccounts.get({
 #### Input
 * input `object`
   * name **required** `string`: The resource name of the billing account to retrieve. For example,
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -175,18 +175,18 @@ google_cloudbilling.projects.getBillingInfo({
 #### Input
 * input `object`
   * name **required** `string`: The resource name of the project for which billing information is
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -234,20 +234,20 @@ google_cloudbilling.projects.updateBillingInfo({
 
 #### Input
 * input `object`
-  * name **required** `string`: The resource name of the project associated with the billing information
   * body [ProjectBillingInfo](#projectbillinginfo)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * name **required** `string`: The resource name of the project associated with the billing information
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -255,8 +255,9 @@ google_cloudbilling.projects.updateBillingInfo({
 
 ### billingAccounts.projects.list
 Lists the projects associated with a billing account. The current
-authenticated user must be an [owner of the billing
-account](https://support.google.com/cloud/answer/4430947).
+authenticated user must have the "billing.resourceAssociations.list" IAM
+permission, which is often given to billing account
+[viewers](https://support.google.com/cloud/answer/4430947).
 
 
 ```js
@@ -270,18 +271,18 @@ google_cloudbilling.billingAccounts.projects.list({
   * name **required** `string`: The resource name of the billing account associated with the projects that
   * pageSize `integer`: Requested page size. The maximum page size is 100; this is also the
   * pageToken `string`: A token identifying a page of results to be returned. This should be a
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -389,8 +390,8 @@ google_cloudbilling.services.skus.list({
 ### PricingInfo
 * PricingInfo `object`: Represents the pricing information for a SKU at a single point of time.
   * aggregationInfo [AggregationInfo](#aggregationinfo)
-  * currencyConversionRate `number`: Conversion rate for currency conversion, from USD to the currency specified
-  * effectiveTime `string`: The timestamp from which this pricing was effective.
+  * currencyConversionRate `number`: Conversion rate used for currency conversion, from USD to the currency
+  * effectiveTime `string`: The timestamp from which this pricing was effective within the requested
   * pricingExpression [PricingExpression](#pricingexpression)
   * summary `string`: An optional human readable summary of the pricing information, has a
 

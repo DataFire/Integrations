@@ -251,13 +251,6 @@
         "operationId": "datasets.list",
         "parameters": [
           {
-            "description": "Project ID of the datasets to be listed",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Whether to list all datasets, including hidden ones",
             "in": "query",
             "name": "all",
@@ -279,6 +272,13 @@
             "description": "Page token, returned by a previous call, to request the next page of results",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Project ID of the datasets to be listed",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -348,18 +348,18 @@
         "operationId": "datasets.insert",
         "parameters": [
           {
-            "description": "Project ID of the new dataset",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Dataset"
             }
+          },
+          {
+            "description": "Project ID of the new dataset",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -399,13 +399,6 @@
         "operationId": "datasets.delete",
         "parameters": [
           {
-            "description": "Project ID of the dataset being deleted",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Dataset ID of dataset being deleted",
             "in": "path",
             "name": "datasetId",
@@ -417,6 +410,13 @@
             "in": "query",
             "name": "deleteContents",
             "type": "boolean"
+          },
+          {
+            "description": "Project ID of the dataset being deleted",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -451,16 +451,16 @@
         "operationId": "datasets.get",
         "parameters": [
           {
-            "description": "Project ID of the requested dataset",
+            "description": "Dataset ID of the requested dataset",
             "in": "path",
-            "name": "projectId",
+            "name": "datasetId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Dataset ID of the requested dataset",
+            "description": "Project ID of the requested dataset",
             "in": "path",
-            "name": "datasetId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           }
@@ -531,11 +531,11 @@
         "operationId": "datasets.patch",
         "parameters": [
           {
-            "description": "Project ID of the dataset being updated",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
           },
           {
             "description": "Dataset ID of the dataset being updated",
@@ -545,11 +545,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Dataset"
-            }
+            "description": "Project ID of the dataset being updated",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -587,11 +587,11 @@
         "operationId": "datasets.update",
         "parameters": [
           {
-            "description": "Project ID of the dataset being updated",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
           },
           {
             "description": "Dataset ID of the dataset being updated",
@@ -601,11 +601,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Dataset"
-            }
+            "description": "Project ID of the dataset being updated",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -645,13 +645,6 @@
         "operationId": "tables.list",
         "parameters": [
           {
-            "description": "Project ID of the tables to list",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Dataset ID of the tables to list",
             "in": "path",
             "name": "datasetId",
@@ -668,6 +661,13 @@
             "description": "Page token, returned by a previous call, to request the next page of results",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Project ID of the tables to list",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -737,11 +737,11 @@
         "operationId": "tables.insert",
         "parameters": [
           {
-            "description": "Project ID of the new table",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Table"
+            }
           },
           {
             "description": "Dataset ID of the new table",
@@ -751,11 +751,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Table"
-            }
+            "description": "Project ID of the new table",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -795,16 +795,16 @@
         "operationId": "tables.delete",
         "parameters": [
           {
-            "description": "Project ID of the table to delete",
+            "description": "Dataset ID of the table to delete",
             "in": "path",
-            "name": "projectId",
+            "name": "datasetId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Dataset ID of the table to delete",
+            "description": "Project ID of the table to delete",
             "in": "path",
-            "name": "datasetId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -848,13 +848,6 @@
         "operationId": "tables.get",
         "parameters": [
           {
-            "description": "Project ID of the requested table",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Dataset ID of the requested table",
             "in": "path",
             "name": "datasetId",
@@ -862,9 +855,9 @@
             "type": "string"
           },
           {
-            "description": "Table ID of the requested table",
+            "description": "Project ID of the requested table",
             "in": "path",
-            "name": "tableId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -872,6 +865,13 @@
             "description": "List of fields to return (comma-separated). If unspecified, all fields are returned",
             "in": "query",
             "name": "selectedFields",
+            "type": "string"
+          },
+          {
+            "description": "Table ID of the requested table",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -941,11 +941,11 @@
         "operationId": "tables.patch",
         "parameters": [
           {
-            "description": "Project ID of the table to update",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Table"
+            }
           },
           {
             "description": "Dataset ID of the table to update",
@@ -955,18 +955,18 @@
             "type": "string"
           },
           {
+            "description": "Project ID of the table to update",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Table ID of the table to update",
             "in": "path",
             "name": "tableId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Table"
-            }
           }
         ],
         "responses": {
@@ -1004,11 +1004,11 @@
         "operationId": "tables.update",
         "parameters": [
           {
-            "description": "Project ID of the table to update",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Table"
+            }
           },
           {
             "description": "Dataset ID of the table to update",
@@ -1018,18 +1018,18 @@
             "type": "string"
           },
           {
+            "description": "Project ID of the table to update",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Table ID of the table to update",
             "in": "path",
             "name": "tableId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Table"
-            }
           }
         ],
         "responses": {
@@ -1069,23 +1069,9 @@
         "operationId": "tabledata.list",
         "parameters": [
           {
-            "description": "Project ID of the table to read",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Dataset ID of the table to read",
             "in": "path",
             "name": "datasetId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Table ID of the table to read",
-            "in": "path",
-            "name": "tableId",
             "required": true,
             "type": "string"
           },
@@ -1102,6 +1088,13 @@
             "type": "string"
           },
           {
+            "description": "Project ID of the table to read",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "List of fields to return (comma-separated). If unspecified, all fields are returned",
             "in": "query",
             "name": "selectedFields",
@@ -1111,6 +1104,13 @@
             "description": "Zero-based index of the starting row to read",
             "in": "query",
             "name": "startIndex",
+            "type": "string"
+          },
+          {
+            "description": "Table ID of the table to read",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1205,11 +1205,11 @@
         "operationId": "tabledata.insertAll",
         "parameters": [
           {
-            "description": "Project ID of the destination table.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TableDataInsertAllRequest"
+            }
           },
           {
             "description": "Dataset ID of the destination table.",
@@ -1219,18 +1219,18 @@
             "type": "string"
           },
           {
+            "description": "Project ID of the destination table.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Table ID of the destination table.",
             "in": "path",
             "name": "tableId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TableDataInsertAllRequest"
-            }
           }
         ],
         "responses": {
@@ -1278,13 +1278,6 @@
         "operationId": "jobs.list",
         "parameters": [
           {
-            "description": "Project ID of the jobs to list",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Whether to display jobs owned by all users in the project. Default false",
             "in": "query",
             "name": "allUsers",
@@ -1300,6 +1293,13 @@
             "description": "Page token, returned by a previous call, to request the next page of results",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Project ID of the jobs to list",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1397,18 +1397,18 @@
         "operationId": "jobs.insert",
         "parameters": [
           {
-            "description": "Project ID of the project that will be billed for the job",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Job"
             }
+          },
+          {
+            "description": "Project ID of the project that will be billed for the job",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1472,16 +1472,22 @@
         "operationId": "jobs.get",
         "parameters": [
           {
-            "description": "[Required] Project ID of the requested job",
+            "description": "[Required] Job ID of the requested job",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "[Required] Job ID of the requested job",
+            "description": "[Experimental] The geographic location of the job. Required except for US and EU.",
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "description": "[Required] Project ID of the requested job",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           }
@@ -1577,16 +1583,22 @@
         "operationId": "jobs.cancel",
         "parameters": [
           {
-            "description": "[Required] Project ID of the job to cancel",
+            "description": "[Required] Job ID of the job to cancel",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "[Required] Job ID of the job to cancel",
+            "description": "[Experimental] The geographic location of the job. Required except for US and EU.",
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "description": "[Required] Project ID of the job to cancel",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           }
@@ -1651,18 +1663,18 @@
         "operationId": "jobs.query",
         "parameters": [
           {
-            "description": "Project ID of the project billed for the query",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/QueryRequest"
             }
+          },
+          {
+            "description": "Project ID of the project billed for the query",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1710,17 +1722,16 @@
         "operationId": "jobs.getQueryResults",
         "parameters": [
           {
-            "description": "[Required] Project ID of the query job",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "[Required] Job ID of the query job",
             "in": "path",
             "name": "jobId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "[Experimental] The geographic location where the job should run. Required except for US and EU.",
+            "in": "query",
+            "name": "location",
             "type": "string"
           },
           {
@@ -1733,6 +1744,13 @@
             "description": "Page token, returned by a previous call, to request the next page of results",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "[Required] Project ID of the query job",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           },
           {
@@ -2118,6 +2136,10 @@
                 },
                 "description": "The labels associated with this dataset. You can use these to organize and group your datasets.",
                 "type": "object"
+              },
+              "location": {
+                "description": "[Experimental] The geographic location where the data resides.",
+                "type": "string"
               }
             },
             "type": "object"
@@ -2185,6 +2207,11 @@
     },
     "ExplainQueryStage": {
       "properties": {
+        "completedParallelInputs": {
+          "description": "Number of parallel input segments completed.",
+          "format": "int64",
+          "type": "string"
+        },
         "computeMsAvg": {
           "description": "Milliseconds the average shard spent on CPU-bound tasks.",
           "format": "int64",
@@ -2212,6 +2239,11 @@
         },
         "name": {
           "description": "Human-readable name for stage.",
+          "type": "string"
+        },
+        "parallelInputs": {
+          "description": "Number of parallel input segments to be processed.",
+          "format": "int64",
           "type": "string"
         },
         "readMsAvg": {
@@ -2530,11 +2562,16 @@
           "$ref": "#/definitions/JobConfigurationExtract",
           "description": "[Pick one] Configures an extract job."
         },
+        "jobTimeoutMs": {
+          "description": "[Optional] Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.",
+          "format": "int64",
+          "type": "string"
+        },
         "labels": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "[Experimental] The labels associated with this job. You can use these to organize and group your jobs. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.",
+          "description": "The labels associated with this job. You can use these to organize and group your jobs. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.",
           "type": "object"
         },
         "load": {
@@ -2658,7 +2695,7 @@
           "type": "string"
         },
         "schemaUpdateOptions": {
-          "description": "Allows the schema of the desitination table to be updated as a side effect of the load job if a schema is autodetected or supplied in the job configuration. Schema update options are supported in two cases: when writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE and the destination table is a partition of a table, specified by partition decorators. For normal tables, WRITE_TRUNCATE will always overwrite the schema. One or more of the following values are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original schema to nullable.",
+          "description": "Allows the schema of the destination table to be updated as a side effect of the load job if a schema is autodetected or supplied in the job configuration. Schema update options are supported in two cases: when writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE and the destination table is a partition of a table, specified by partition decorators. For normal tables, WRITE_TRUNCATE will always overwrite the schema. One or more of the following values are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original schema to nullable.",
           "items": {
             "type": "string"
           },
@@ -2896,6 +2933,10 @@
           "description": "[Required] The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.",
           "type": "string"
         },
+        "location": {
+          "$ref": "#/definitions/Location",
+          "description": "[Experimental] The geographic location of the job. Required except for US and EU."
+        },
         "projectId": {
           "description": "[Required] The ID of the project containing this job.",
           "type": "string"
@@ -2905,6 +2946,11 @@
     },
     "JobStatistics": {
       "properties": {
+        "completionRatio": {
+          "description": "[Experimental] [Output-only] Job progress (0.0 -> 1.0) for LOAD and EXTRACT jobs.",
+          "format": "double",
+          "type": "number"
+        },
         "creationTime": {
           "description": "[Output-only] Creation time of this job, in milliseconds since the epoch. This field will be present on all jobs.",
           "format": "int64",
@@ -2959,6 +3005,11 @@
           "$ref": "#/definitions/TableReference",
           "description": "[Output-only, Experimental] The DDL target table. Present only for CREATE/DROP TABLE/VIEW queries."
         },
+        "estimatedBytesProcessed": {
+          "description": "[Output-only] The original estimate of bytes processed for the job.",
+          "format": "int64",
+          "type": "string"
+        },
         "numDmlAffectedRows": {
           "description": "[Output-only] The number of rows affected by a DML statement. Present only for DML statements INSERT, UPDATE or DELETE.",
           "format": "int64",
@@ -2972,7 +3023,7 @@
           "type": "array"
         },
         "referencedTables": {
-          "description": "[Output-only, Experimental] Referenced tables for the job. Queries that reference more than 50 tables will not have a complete list.",
+          "description": "[Output-only] Referenced tables for the job. Queries that reference more than 50 tables will not have a complete list.",
           "items": {
             "$ref": "#/definitions/TableReference"
           },
@@ -2980,11 +3031,18 @@
         },
         "schema": {
           "$ref": "#/definitions/TableSchema",
-          "description": "[Output-only, Experimental] The schema of the results. Present only for successful dry run of non-legacy SQL queries."
+          "description": "[Output-only] The schema of the results. Present only for successful dry run of non-legacy SQL queries."
         },
         "statementType": {
-          "description": "[Output-only, Experimental] The type of query statement, if valid.",
+          "description": "[Output-only, Experimental] The type of query statement, if valid. Possible values (new values might be added in the future): \"SELECT\": SELECT query. \"INSERT\": INSERT query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language \"UPDATE\": UPDATE query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language \"DELETE\": DELETE query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language \"CREATE_TABLE\": CREATE [OR REPLACE] TABLE without AS SELECT. \"CREATE_TABLE_AS_SELECT\": CREATE [OR REPLACE] TABLE ... AS SELECT ... \"DROP_TABLE\": DROP TABLE query. \"CREATE_VIEW\": CREATE [OR REPLACE] VIEW ... AS SELECT ... \"DROP_VIEW\": DROP VIEW query.",
           "type": "string"
+        },
+        "timeline": {
+          "description": "[Output-only] Describes a timeline of job execution.",
+          "items": {
+            "$ref": "#/definitions/QueryTimelineSample"
+          },
+          "type": "array"
         },
         "totalBytesBilled": {
           "description": "[Output-only] Total bytes billed for the job.",
@@ -3082,6 +3140,9 @@
       "type": "object"
     },
     "JsonValue": {},
+    "Location": {
+      "type": "string"
+    },
     "ProjectList": {
       "properties": {
         "etag": {
@@ -3234,6 +3295,10 @@
           "description": "The resource type of the request.",
           "type": "string"
         },
+        "location": {
+          "$ref": "#/definitions/Location",
+          "description": "[Experimental] The geographic location where the job should run. Required except for US and EU."
+        },
         "maxResults": {
           "description": "[Optional] The maximum number of rows of data to return per page of results. Setting this flag to a small value such as 1000 and then paging through results might improve reliability when the query result set is large. In addition to this limit, responses are also limited to 10 MB. By default, there is no maximum row count, and only the byte limit applies.",
           "format": "uint32",
@@ -3335,6 +3400,36 @@
       },
       "type": "object"
     },
+    "QueryTimelineSample": {
+      "properties": {
+        "activeInputs": {
+          "description": "Total number of active workers. This does not correspond directly to slot usage. This is the largest value observed since the last sample.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "completedInputs": {
+          "description": "Total parallel units of work completed by this query.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "elapsedMs": {
+          "description": "Milliseconds elapsed since the start of query execution.",
+          "format": "int64",
+          "type": "string"
+        },
+        "pendingInputs": {
+          "description": "Total parallel units of work remaining for the active stages.",
+          "format": "int64",
+          "type": "string"
+        },
+        "totalSlotMs": {
+          "description": "Cumulative slot-ms consumed by the query.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Streamingbuffer": {
       "properties": {
         "estimatedBytes": {
@@ -3375,7 +3470,7 @@
           "type": "string"
         },
         "expirationTime": {
-          "description": "[Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed.",
+          "description": "[Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed. The defaultTableExpirationMs property of the encapsulating dataset can be used to set a default expirationTime on newly created tables.",
           "format": "int64",
           "type": "string"
         },
@@ -3400,7 +3495,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "[Experimental] The labels associated with this table. You can use these to organize and group your tables. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.",
+          "description": "The labels associated with this table. You can use these to organize and group your tables. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.",
           "type": "object"
         },
         "lastModifiedTime": {
@@ -3638,7 +3733,7 @@
                 "additionalProperties": {
                   "type": "string"
                 },
-                "description": "[Experimental] The labels associated with this table. You can use these to organize and group your tables.",
+                "description": "The labels associated with this table. You can use these to organize and group your tables.",
                 "type": "object"
               },
               "tableReference": {

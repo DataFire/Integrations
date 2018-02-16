@@ -40,6 +40,58 @@ amazonaws_mediapackage.ListChannels({}, context)
 #### Output
 * output [ListChannelsResponse](#listchannelsresponse)
 
+### CreateChannel
+
+
+
+```js
+amazonaws_mediapackage.CreateChannel({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description [__string](#__string)
+  * Id **required** [__string](#__string)
+
+#### Output
+* output [CreateChannelResponse](#createchannelresponse)
+
+### DeleteChannel
+
+
+
+```js
+amazonaws_mediapackage.DeleteChannel({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DescribeChannel
+
+
+
+```js
+amazonaws_mediapackage.DescribeChannel({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [DescribeChannelResponse](#describechannelresponse)
+
 ### UpdateChannel
 
 
@@ -90,6 +142,67 @@ amazonaws_mediapackage.ListOriginEndpoints({}, context)
 
 #### Output
 * output [ListOriginEndpointsResponse](#listoriginendpointsresponse)
+
+### CreateOriginEndpoint
+
+
+
+```js
+amazonaws_mediapackage.CreateOriginEndpoint({
+  "ChannelId": "",
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ChannelId **required** [__string](#__string)
+  * DashPackage [DashPackage](#dashpackage)
+  * Description [__string](#__string)
+  * HlsPackage [HlsPackage](#hlspackage)
+  * Id **required** [__string](#__string)
+  * ManifestName [__string](#__string)
+  * MssPackage [MssPackage](#msspackage)
+  * StartoverWindowSeconds [__integer](#__integer)
+  * TimeDelaySeconds [__integer](#__integer)
+  * Whitelist [ListOf__string](#listof__string)
+
+#### Output
+* output [CreateOriginEndpointResponse](#createoriginendpointresponse)
+
+### DeleteOriginEndpoint
+
+
+
+```js
+amazonaws_mediapackage.DeleteOriginEndpoint({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DescribeOriginEndpoint
+
+
+
+```js
+amazonaws_mediapackage.DescribeOriginEndpoint({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+* output [DescribeOriginEndpointResponse](#describeoriginendpointresponse)
 
 ### UpdateOriginEndpoint
 

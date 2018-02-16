@@ -115,7 +115,7 @@ google_firebaseremoteconfig.projects.updateRemoteConfig({
 
 ### RemoteConfigCondition
 * RemoteConfigCondition `object`: A single RemoteConfig Condition.  A list of these (because order matters) are
-  * description `string`: Optional.
+  * description `string`: DO NOT USE. Implementation removed and will not be added unless requested.
   * expression `string`: Required.
   * name `string`: Required.
   * tagColor `string` (values: CONDITION_DISPLAY_COLOR_UNSPECIFIED, BLUE, BROWN, CYAN, DEEP_ORANGE, GREEN, INDIGO, LIME, ORANGE, PINK, PURPLE, TEAL): Optional.

@@ -371,6 +371,128 @@ zuora.createToken({
 #### Output
 * output [tokenResponse](#tokenresponse)
 
+### GET_PaymentRuns
+Retrieves the information about all payment runs. You can define filterable fields to restrict the data returned in the response.
+
+
+
+```js
+zuora.GET_PaymentRuns({}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * pageSize `integer`: Number of rows returned per page.
+  * fieldsFilterable `string`: This parameter restricts the data returned in the response. You can use this parameter to supply a dimension you want to filter on.
+  * sort `string`: This parameter restricts the order of the data returned in the response. You can use this parameter to supply a dimension you want to sort on.
+
+#### Output
+* output [GETPaymentRunCollectionType](#getpaymentruncollectiontype)
+
+### POST_PaymentRun
+Creates a payment run. You can create a payment run to be executed immediately after it is created, or a scheduced payment run to be executed in future.
+
+The `accountId`, `batch`, `billCycleDay`, `currency`, `paymentGatewayId`, and `billingRunId` fields are used to determine which invoices to be paid in the payment run. If none of these fields is specified in the request body, the corresponding payment run collects payments for all accounts.
+
+
+
+```js
+zuora.POST_PaymentRun({
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * body **required** [POSTPaymentRunRequest](#postpaymentrunrequest)
+
+#### Output
+* output [GETPaymentRunType](#getpaymentruntype)
+
+### searchInventory
+Deletes a payment run. Only payment runs with the Canceled or Error status can be deleted.
+
+
+
+```js
+zuora.searchInventory({
+  "paymentRunId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * paymentRunId **required** `string`: The unique ID of a payment run. For example, 402890245f097f39015f0f074a2e0566.
+
+#### Output
+* output [CommonResponseType](#commonresponsetype)
+
+### GET_PaymentRun
+Retrives the information about a specific payment run.
+
+
+
+```js
+zuora.GET_PaymentRun({
+  "paymentRunId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * paymentRunId **required** `string`: The unique ID of a payment run. For example, 402890245f097f39015f0f074a2e0566.
+
+#### Output
+* output [GETPaymentRunType](#getpaymentruntype)
+
+### PUT_PaymentRun
+Updates the information about an unexecuted payment run. Only pending payment runs can be updated.
+
+If none of the **accountId**, **batch**, **billCycleDay**, **currency**, **paymentGatewayId**, and **billingRunId** fields is specified in the request body, the corresponding payment run collects payments for all accounts.
+
+
+
+```js
+zuora.PUT_PaymentRun({
+  "paymentRunId": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * paymentRunId **required** `string`: The unique ID of a payment run. For example, 402890245f097f39015f0f074a2e0566.
+  * body **required** [PUTPaymentRunRequest](#putpaymentrunrequest)
+
+#### Output
+* output [GETPaymentRunType](#getpaymentruntype)
+
+### payment_runs.paymentRunId.summary.get
+Retrives the summary of a payment run.
+
+
+
+```js
+zuora.payment_runs.paymentRunId.summary.get({
+  "paymentRunId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * paymentRunId **required** `string`: The unique ID of a payment run. For example, 402890245f097f39015f0f074a2e0566.
+
+#### Output
+* output [GETPaymentRunSummaryResponse](#getpaymentrunsummaryresponse)
+
 ### GET_AllAccountingCodes
 This reference describes how to query all accounting codes in your chart of accounts through the REST API.
 
@@ -853,6 +975,7 @@ This API call is CORS Enabled, so you can use client-side Javascript to invoke t
 2. The request must provide either a **creditCard** structure or the **hpmCreditCardPaymentMethodId** field (but not both). The one provided becomes the default payment method for this account. If the credit card information is declined or can't be verified, then the account is not created.
 3. Customer accounts created with this call are automatically be set to Auto Pay.
 4. If either the **workEmail** or **personalEmail** are specified, then the account's email delivery preference is automatically set to `true`. (In that case, emails go to the **workEmail** address, if it exists, or else the **personalEmail**.) If neither field is specified, the email delivery preference is automatically set to `false`.
+5. You cannot use this operation to create subscriptions if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
 
 ## Defaults for customerAcceptanceDate and serviceActivationDate
 Default values for **customerAcceptanceDate** and **serviceActivationDate** are set as follows.
@@ -988,7 +1111,9 @@ zuora.POST_GenerateBillingDocuments({
 
 Use the amend call to change a subscription, such as upgrading the subscription.
 
-**Note:** Zuora recommends that you use [Update subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription) to amend subscriptions.
+## Notes
+* This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+* If you do not have the Orders feature enabled, Zuora recommends that you use [Update subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription) to amend subscriptions.
 
 The amend call:
 
@@ -1176,7 +1301,7 @@ zuora.Action_POSTgenerate({
 The query call sends a query expression by specifying the object to query, the fields to retrieve from that object, and any filters to determine whether a given object should be queried.
 
 
-You can use ZOQL (Zuora Object Query Language) to construct those queries, passing them through the `queryString`.
+You can use [Zuora Object Query Language](https://knowledgecenter.zuora.com/DC_Developers/K_Zuora_Object_Query_Language) (ZOQL) to construct those queries, passing them through the `queryString`.
 
 
 Once the call is made, the API executes the query against the specified object and returns a query response object to your application. Your application can then iterate through rows in the query response to retrieve information.
@@ -1243,7 +1368,9 @@ zuora.Action_POSTqueryMore({
 
 ### Action_POSTsubscribe
 
-This call performs many actions.  Use the subscribe call to bundle information required to create at least one new subscription. 
+This call performs many actions.  Use the subscribe call to bundle information required to create at least one new subscription.
+
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
 
 The call takes in an array of SubscribeRequests. Because it takes an array, you can submit a batch of subscription requests at once. You can create up to 50 different subscriptions in a single subscribe call.
 
@@ -1296,7 +1423,7 @@ You can use either the subscribe call or the create call to create the objects a
 ### Use the Subscribe Call 
 The subscribe call bundles up all the information you need for a subscription. Use the subscribe call to create new subscriptions when you have all the information you need.
 
-Subscribe calls cannot update BillTo, SoldTo, and Payment information objects cannot be updated if there is an existing account ID in the call. These objects are not supported in a subscribe call.
+Subscribe calls cannot update BillTo, SoldTo, and Account objects. Payment information objects cannot be updated if there is an existing account ID in the call. These objects are not supported in a subscribe call.
 
 ### Use the Create Call 
 The create call is more useful when you want to develop in stages. For example, if you want to first create an account, then a contact, and so on. If you do not have all information available, use the create call. To create a subscription, you must activate the account from Draft status to Active by calling the subscribe call.
@@ -2288,7 +2415,7 @@ zuora.PUT_UnapplyCreditMemo({
 * output [GETCreditMemoType](#getcreditmemotype)
 
 ### GET_BreakdownCreditMemoByOrder
-**Note:** This operation is only available if you have the [Advanced AR Settlement](https://knowledgecenter.zuora.com/CB_Billing/Advanced_AR_Settlement) and [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) features enabled. If you wish to have access to the features, submit a request at [Zuora Global Support](http://support.zuora.com/).
+**Note:** This operation is only available if you have the [Advanced AR Settlement](https://knowledgecenter.zuora.com/CB_Billing/Advanced_AR_Settlement) and [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) features enabled. If you wish to have access to the features, submit a request at [Zuora Global Support](http://support.zuora.com/). If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 
 Retrieves a specified credit memo that is broken down by orders. The credit memo items might be broken down into a list of order rated items.
@@ -2412,6 +2539,28 @@ zuora.POST_DebitMemoFromPrpc({
 
 #### Output
 * output [GETDebitMemoType](#getdebitmemotype)
+
+### PUT_BatchUpdateDebitMemos
+**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+
+Updates the due date for multiple debit memos in batches with one call. 
+
+
+
+```js
+zuora.PUT_BatchUpdateDebitMemos({
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * body **required** [PUTBatchDebitMemosRequest](#putbatchdebitmemosrequest)
+
+#### Output
+* output [CommonResponseType](#commonresponsetype)
 
 ### DELETE_DebitMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
@@ -2677,25 +2826,40 @@ The information returned by this call is useful if you are using [CRUD: Create E
 The response contains an XML document that lists the fields of the specified object. Each of the object's fields is represented by a `<field>` element in the XML document.
     
 Each `<field>` element contains the following elements:
-  * `<name>` - API name of the field
-  * `<label>` - Name of the field in the Zuora user interface
-  * `<type>` - Data type of the field. For example, `text`, `decimal`, or `picklist`. If the data type is `picklist`, the `<field>` element contains an `<options>` element that lists the possible values of the field
-  * `<contexts>` - Specifies the availability of the field. If the `<contexts>` element lists the `export` context, the field is available for use in data source exports
 
-For example:
+| Element      | Description                                                                                                                                                                                                                                                                                  |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<name>`     | API name of the field.                                                                                                                                                                                                                                                                       |
+| `<label>`    | Name of the field in the Zuora user interface.                                                                                                                                                                                                                                               |
+| `<type>`     | Data type of the field. The possible data types are: `boolean`, `date`, `datetime`, `decimal`, `integer`, `picklist`, `text`, `timestamp`, and `ZOQL`. If the data type is `picklist`, the `<field>` element contains an `<options>` element that lists the possible values of the field.    |
+| `<contexts>` | Specifies the availability of the field. If the `<contexts>` element lists the `export` context, the field is available for use in data source exports.                                                                                                                                                |
+
+The `<field>` element contains other elements that provide legacy information about the field. This information is not directly related to the REST API.
+
+Response sample:
 ```xml
-<field>
-  <name>TaxMode</name>
-  <label>Tax Mode</label>
-  <type>picklist</type>
-  <options>
-    <option>TaxExclusive</option>
-    <option>TaxInclusive</option>
-  </options>
-  <contexts>
-    <context>export</context>
-  </contexts>
-</field>
+<?xml version="1.0" encoding="UTF-8"?>
+<object>
+  <name>ProductRatePlanCharge</name>
+  <label>Product Rate Plan Charge</label>
+  <fields>
+    ...
+    <field>
+      <name>TaxMode</name>
+      <label>Tax Mode</label>
+      <type>picklist</type>
+      <options>
+        <option>TaxExclusive</option>
+        <option>TaxInclusive</option>
+      </options>
+      <contexts>
+        <context>export</context>
+      </contexts>
+      ...
+    </field>
+    ...
+  </fields>
+</object>
 ```
 
 It is strongly recommended that your integration checks `<contexts>` elements in the response. If your integration does not check `<contexts>` elements, your integration may process fields that are not available for use in data source exports. See [Changes to the Describe API](https://knowledgecenter.zuora.com/DC_Developers/M_Export_ZOQL/Changes_to_the_Describe_API) for more information.
@@ -3119,6 +3283,48 @@ zuora.Get_HostedPages({}, context)
 #### Output
 * output [GetHostedPagesType](#gethostedpagestype)
 
+### PUT_BatchUpdateInvoices
+Updates multiple invoices in batches with one call. 
+
+
+
+```js
+zuora.PUT_BatchUpdateInvoices({
+  "Request": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * Request **required** [PutBatchInvoiceType](#putbatchinvoicetype)
+
+#### Output
+* output [CommonResponseType](#commonresponsetype)
+
+### PUT_UpdateInvoice
+Updates a specific invoice. 
+
+
+
+```js
+zuora.PUT_UpdateInvoice({
+  "invoiceId": "",
+  "Request": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * invoiceId **required** `string`: The ID of the invoice. For example, 2c92c8955bd63cc1015bd7c151af02ab.
+  * Request **required** [PutInvoiceType](#putinvoicetype)
+
+#### Output
+* output [PutInvoiceResponseType](#putinvoiceresponsetype)
+
 ### POST_CreditMemoFromInvoice
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
@@ -3245,7 +3451,7 @@ zuora.PUT_ReverseInvoice({
 * output [PutReverseInvoiceResponseType](#putreverseinvoiceresponsetype)
 
 ### GET_BreakdownInvoiceByOrder
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 
 Retrieves a specified invoice that is broken down by orders. The invoice items might be broken down into a list of order rated items.
@@ -3652,7 +3858,9 @@ zuora.Object_PUTAccount({
 * output [ProxyCreateOrModifyResponse](#proxycreateormodifyresponse)
 
 ### Object_POSTAmendment
-This operation has some limitations. Zuora recommends that you use [Update subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription) to amend subscriptions. If you need to create an Amendment object, Zuora recommends that you use [Amend](https://www.zuora.com/developer/api-reference/#operation/Action_POSTamend) instead of CRUD: Create Amendment.
+## Notes
+* This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+* This operation has some limitations. If you do not have the Orders feature enabled, Zuora recommends that you use [Update subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription) to amend subscriptions. If you need to create an Amendment object, Zuora recommends that you use [Amend](https://www.zuora.com/developer/api-reference/#operation/Action_POSTamend) instead of CRUD: Create Amendment.
 
 
 
@@ -3675,7 +3883,8 @@ zuora.Object_POSTAmendment({
 * output [ProxyCreateOrModifyResponse](#proxycreateormodifyresponse)
 
 ### Object_DELETEAmendment
-CRUD: Delete amendment
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 
 
 ```js
@@ -3714,7 +3923,8 @@ zuora.Object_GETAmendment({
 * output [ProxyGetAmendment](#proxygetamendment)
 
 ### Object_PUTAmendment
-CRUD: Update amendment
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 
 
 ```js
@@ -4065,6 +4275,30 @@ zuora.Object_GETFeature({
 
 #### Output
 * output [ProxyGetFeature](#proxygetfeature)
+
+### Object_POSTImport
+Creates a data import.
+
+
+
+```js
+zuora.Object_POSTImport({
+  "ImportType": "",
+  "Name": "",
+  "File": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * ImportType **required** `string` (values: Usage, Payment, Quote, TaxationDetail, UpdateAccountingCode, CreateRevenueSchedule, UpdateRevenueSchedule, DeleteRevenueSchedule, ImportFXRate, MPU): The type of data to import.
+  * Name **required** `string`: A descriptive name for the import.
+  * File **required** `string`: The data to import.
+
+#### Output
+* output [ProxyPostImport](#proxypostimport)
 
 ### Object_GETImport
 CRUD: Retrieve Import
@@ -5103,7 +5337,8 @@ zuora.Object_GETSubscriptionProductFeature({
 * output [ProxyGetSubscriptionProductFeature](#proxygetsubscriptionproductfeature)
 
 ### Object_DELETESubscription
-CRUD: Delete Subscription
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 
 
 ```js
@@ -5142,7 +5377,8 @@ zuora.Object_GETSubscription({
 * output [ProxyGetSubscription](#proxygetsubscription)
 
 ### Object_PUTSubscription
-CRUD: Update Subscription
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 
 
 ```js
@@ -5456,7 +5692,7 @@ amount due is collected. The operation depends on the parameters you
 specify.
 
 - To generate one or more new invoices for that customer and collect
-payment on the generated invoice(s), leave the **invoiceId** field empty. 
+payment on the generated and other unpaid invoice(s), leave the **invoiceId** field empty. 
 
 - To collect payment on an existing invoice, specify the invoice ID. 
 
@@ -5499,7 +5735,7 @@ zuora.POST_TransactionInvoicePayment({
 * output [POSTInvoiceCollectResponseType](#postinvoicecollectresponsetype)
 
 ### GET_AllOrders
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 
 Retrieves information about all orders in your tenant. By default, it returns the first page of the orders. 
@@ -5523,8 +5759,36 @@ zuora.GET_AllOrders({}, context)
 #### Output
 * output [GetAllOrdersResponseType](#getallordersresponsetype)
 
+### POST_Order
+**Note:** This feature is only available if you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled. We are actively soliciting feedback from a small set of early adopters. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+
+Creates and activates an order. You can create subscriptions and make changes to subscriptions by creating orders. Creating a draft order is currently not supported.
+
+See [Known Limitations in Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/C_Known_Limitations_in_Orders) for more information.
+
+
+
+```js
+zuora.POST_Order({
+  "body": {
+    "orderDate": "",
+    "subscriptions": []
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * body **required** [POSTOrderRequestType](#postorderrequesttype)
+
+#### Output
+* output [PostOrderResponseType](#postorderresponsetype)
+
 ### GET_OrdersByInvoiceOwner
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 Retrieves the detailed information about all orders for a specified invoice owner.
 
@@ -5550,8 +5814,34 @@ zuora.GET_OrdersByInvoiceOwner({
 #### Output
 * output [GetOrdersResponse](#getordersresponse)
 
+### POST_PreviewOrder
+**Note:** This feature is only available if you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled. We are actively soliciting feedback from a small set of early adopters. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+
+Retrieves the preview of the charge metrics and invoice items of a specified order. This operation is only an order preview and no order is created.
+
+
+
+```js
+zuora.POST_PreviewOrder({
+  "body": {
+    "orderDate": "",
+    "subscriptions": []
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * body **required** [POSTOrderPreviewRequestType](#postorderpreviewrequesttype)
+
+#### Output
+* output [PostOrderPreviewResponseType](#postorderpreviewresponsetype)
+
 ### GET_OrdersBySubscriptionNumber
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 Retrieves the detailed information about all orders for a specified subscription. Any orders containing the changes on the specified subscription are returned.
 
@@ -5578,7 +5868,7 @@ zuora.GET_OrdersBySubscriptionNumber({
 * output [GetOrdersResponse](#getordersresponse)
 
 ### GET_OrdersBySubscriptionOwner
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 Retrieves the detailed information about all orders for a specified subscription owner. Any orders containing the changes on the subscriptions owned by this account are returned.
 
@@ -5604,8 +5894,58 @@ zuora.GET_OrdersBySubscriptionOwner({
 #### Output
 * output [GetOrdersResponse](#getordersresponse)
 
+### GET_SubscriptionTermInfo
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
+
+Retrieves the terms of the specified subscription.
+
+
+
+```js
+zuora.GET_SubscriptionTermInfo({
+  "subscriptionNumber": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * subscriptionNumber **required** `string`: The number of the subscription to retrieve terms for. For example, A-S00000001.
+  * version `integer`: The version of the subscription to retrieve terms for. If you do not specify this parameter, Zuora returns the terms for the latest version of the subscription.
+  * page `integer`: The page number of the terms retrieved.
+  * pageSize `integer`: Number of rows returned per page.
+
+#### Output
+* output [GetSubscriptionTermInfoResponseType](#getsubscriptionterminforesponsetype)
+
+### DELETE_Order
+**Note:** This feature is only available if you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled. We are actively soliciting feedback from a small set of early adopters. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+
+Deletes a specified order. All the subscriptions changed by this order are deleted. After the deletion, the subscriptions are rolled back to the previous version. 
+
+You are not allowed to delete an order if the charges that are affected by this order are invoiced.
+
+
+
+```js
+zuora.DELETE_Order({
+  "orderNumber": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * orderNumber **required** `string`: The number of the order to be deleted.
+
+#### Output
+* output [CommonResponse](#commonresponse)
+
 ### GET_Order
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 
 Retrieves the detailed information about a specified order.
@@ -5628,7 +5968,7 @@ zuora.GET_Order({
 * output [GetOrderResponse](#getorderresponse)
 
 ### GET_OrderBillingInfo
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 Retrieves the billing information about a specified order. The information includes the billed and unbilled amount of the order.
 
@@ -5650,8 +5990,32 @@ zuora.GET_OrderBillingInfo({
 #### Output
 * output [GetOrderBillingInfoResponseType](#getorderbillinginforesponsetype)
 
+### PUT_UpdateOrderCustomFields
+**Note:** This feature is only available if you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled. We are actively soliciting feedback from a small set of early adopters. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+Updates the custom fields of a specified order.
+
+
+
+```js
+zuora.PUT_UpdateOrderCustomFields({
+  "orderNumber": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * orderNumber **required** `string`: The order number.
+  * body **required** [PUTOrderPatchRequestType](#putorderpatchrequesttype)
+
+#### Output
+* output [CommonResponse](#commonresponse)
+
 ### GET_OrderMetricsforEvergreenSubscription
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 
 Retrieves the metrics of an evergreen subscription in a specified order.
@@ -5680,7 +6044,7 @@ zuora.GET_OrderMetricsforEvergreenSubscription({
 * output [GetOrderResponse](#getorderresponse)
 
 ### GET_OrderRatedResult
-**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you. If you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled, you already have the Order Metrics feature enabled.
 
 Retrieves the rated results of all the subscriptions in the specified order.
 
@@ -7221,6 +7585,8 @@ zuora.GET_RevenueAutomationStartDate({}, context)
 This REST API reference describes how to create a new subscription for an existing customer account.
 
 ## Notes
+This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 If invoiceCollect is `true`, the call will not return success = `true` unless the subscription, invoice, and payment are all successful.
 
 Default values for **customerAcceptanceDate** and **serviceActivationDate** are set as follows.
@@ -7282,6 +7648,7 @@ zuora.GET_SubscriptionsByAccount({
 The REST API reference describes how to create a new subscription in preview mode. This call does not require a valid customer account. It can be used to show potential new customers a preview of a subscription with complete details and charges before creating an account, or to let existing customers preview a subscription with all charges before committing.
 
 ## Notes
+- This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
 - The response of the Preview Subscription call is based on the REST API minor version you set in the request header. The response structure might be different if you use different minor version numbers. 
 
 - If you have the Advanced AR Settlement feature enabled, we recommend that you set the `zuora-version` parameter to `207.0` or later. Otherwise, an error is returned.
@@ -7347,6 +7714,7 @@ Use this call to make the following kinds of changes to a subscription:
   * Change the quantity or price of an existing subscription rate plan
 
 ## Notes
+* This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
 * The Update Subscription call creates a new subscription, which has the old subscription number but a new subscription ID.  The old subscription is canceled but remains in the system.
 * In one request, this call can make:
   * Up to 9 combined add, update, and remove changes
@@ -7394,6 +7762,8 @@ zuora.PUT_Subscription({
 ### PUT_CancelSubscription
 This REST API reference describes how to cancel an active subscription.
 
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 
 
 ```js
@@ -7420,6 +7790,8 @@ zuora.PUT_CancelSubscription({
 ### PUT_RenewSubscription
 Renews a termed subscription using existing renewal terms.
 
+ **Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information.
+
 
 
 ```js
@@ -7444,6 +7816,8 @@ zuora.PUT_RenewSubscription({
 This REST API reference describes how to resume a suspended subscription. 
 
 This feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://suport.zuora.com). 
+
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information. This feature is also unavailable if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled.
 
 
 
@@ -7471,6 +7845,8 @@ zuora.PUT_ResumeSubscription({
 This REST API reference describes how to suspend an active subscription. 
 
 This feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://suport.zuora.com).
+
+**Note:** This feature is unavailable if you have the Orders feature enabled. See [Orders Migration Guidance](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/AB_Orders_Migration_Guidance) for more information. This feature is also unavailable if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled.
 
 
 
@@ -7516,6 +7892,31 @@ zuora.GET_SubscriptionsByKeyAndVersion({
 
 #### Output
 * output [GETSubscriptionTypeWithSuccess](#getsubscriptiontypewithsuccess)
+
+### PUT_UpdateSubscriptionCustomFields
+**Note:** This feature is only available if you have the [Orders](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders) feature enabled. We are actively soliciting feedback from a small set of early adopters. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+
+Updates the custom fields of a specified subscription.
+
+
+
+```js
+zuora.PUT_UpdateSubscriptionCustomFields({
+  "subscriptionNumber": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * entityId `string`: The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * entityName `string`: The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+  * subscriptionNumber **required** `string`: The subscription number to be updated.
+  * body **required** [PUTSubscriptionPatchRequestType](#putsubscriptionpatchrequesttype)
+
+#### Output
+* output [CommonResponse](#commonresponse)
 
 ### DELETE_TaxationItem
 Deletes a specific taxation item by ID.
@@ -7634,7 +8035,7 @@ zuora.GET_TransactionPayment({
 This REST API reference describes how to post or import usage data for one or more accounts in the CSV  format. There are no path or query parameters. The data is uploade using the HTTP multipart/form-data POST method and applied to the user's tenant. 
 
 ## How this REST API Call Works
-The content of the upload file must follow the format used by the UI import tool. It must be a comma-separated (CSV) file with a corresponding .csv extension. The file size must not exceed 4MB. Click [here](https://knowledgecenter.zuora.com/@api/deki/files/4105/UsageFileFormat.csv) to download the usage file template.
+The content of the upload file must follow the format used by the UI import tool. It must be a comma-separated (CSV) file with a corresponding .csv extension. The length of the file name must not exceed 50 characters. The file size must not exceed 4MB. Click [here](https://knowledgecenter.zuora.com/@api/deki/files/4105/UsageFileFormat.csv) to download the usage file template.
 
 At the completion of the upload, before actually processing the file contents, theAPI returns a response containing the byte count of the received file and a URL for checking the status of the import process.  Of the five possible results displayed at that URL Pending, Processing, Completed, Canceled, and Failed) only a Completed status indicates that the import was successful.  The operation is atomic; if any record fails, the file is rejected.  In that case, the entire import is rolled back and all stored data is returned to its original state.
 
@@ -7802,6 +8203,38 @@ zuora.PUT_SendUserAccessRequests({
 
 ## Definitions
 
+### Account
+* Account `object`: The information of the new account to be created with the order.
+  * accountNumber `string`
+  * batch `string`
+  * billCycleDay **required** `integer`
+  * billToContact **required** [Contact](#contact)
+  * communicationProfileId `string`
+  * creditCard [creditCard](#creditcard)
+  * crmId `string`
+  * currency **required** `string`: 3 uppercase character currency code
+  * customFields [CustomFields](#customfields)
+  * hpmCreditCardPaymentMethodId `string`
+  * invoiceTemplateId `string`
+  * name **required** `string`
+  * notes `string`
+  * paymentGateway `string`
+  * paymentTerm `string`
+  * soldToContact [Contact](#contact)
+  * taxInfo [TaxInfo](#taxinfo)
+
+### AccountCreditCardHolder
+* AccountCreditCardHolder `object`
+  * addressLine1 `string`
+  * addressLine2 `string`
+  * cardHolderName `string`
+  * city `string`
+  * country `string`
+  * email `string`
+  * phone `string`
+  * state `string`
+  * zipCode `string`
+
 ### AmendRequest
 * AmendRequest `object`
   * AmendOptions `object`: Use the `AmendOptions` container to specify billing options, such as invoice generation and when to process payments.
@@ -7923,12 +8356,28 @@ zuora.PUT_SendUserAccessRequests({
   * invoices `array`: Container for invoices.
     * items [PaymentInvoiceApplicationApplyRequestType](#paymentinvoiceapplicationapplyrequesttype)
 
+### BatchDebitMemoType
+* debitmemos `object`
+  * dueDate `string`: The date by which the payment for the debit memo is due, in `yyyy-mm-dd` format.
+  * id `string`: The ID of the debit memo to be updated.
+
+### BatchInvoiceType
+* invoices `object`
+  * dueDate `string`: The date by which the payment for this invoice is due. 
+  * id `string`: The ID of the invoice to be updated.
+  * transferredToAccounting `string` (values: Processing, Yes, Error, Ignore): Whether the invoice was transferred to an external accounting system.
+
 ### BillingDocumentQueryResponseElementType
 * BillingDocumentQueryResponseElementType `object`
   * documents `array`: Container for billing documents.
     * items [GETBillingDocumentsResponseType](#getbillingdocumentsresponsetype)
   * nextPage `string`: URL to retrieve the next page of the response if it exists; otherwise absent.
   * success `boolean`: Returns `true` if the request was processed successfully.
+
+### BillingOptions
+* BillingOptions `object`
+  * documentDate `string`
+  * targetDate `string`
 
 ### BillingOverride
 * BillingOverride `object`
@@ -7981,6 +8430,33 @@ zuora.PUT_SendUserAccessRequests({
   * startDate [TriggerParams](#triggerparams)
   * uniqueToken `string`: A unique string to represent the rate plan charge in the order. The unique token is used to perform multiple actions against a newly added rate plan. For example, if you want to add and update a product in the same order, you would assign a unique token to the product rate plan when added and use that token in future order actions.
 
+### ChargePreviewMetrics
+* ChargePreviewMetrics `object`
+  * chargeNumber `string`
+  * cmrr `object`
+    * discount `number`: Total discountCmrr of all discount charges which are applied to one specific recurring charge. This value is calculated from the rating results for the latest subscription version in the order. Only selects the applied discount charge when its endDateCondition is "Subscription_End".
+    * discountDelta `number`: Delta discountCmrr value between the order base and the latest subscription version.
+    * regular `number`
+    * regularDelta `number`
+  * originRatePlanId `string`
+  * productRatePlanChargeId `string`
+  * productRatePlanId `string`
+  * tax `object`
+    * discount `number`: Total tax amount of all discount charges which are applied to one specific recurring charge. This value is calculated from the rating results for the latest subscription version in the order.
+    * discountDelta `number`: Delta discount TAX value between the base and the latest subscription version in the order for the specific recurring charge.
+    * regular `number`
+    * regularDelta `number`: Delta tax value between the base and the latest subscription version in the order.
+  * tcb `object`
+    * discount `number`: Total contract billing amount of all discount charges which are applied to one specific recurring charge. This value is calculated from the rating results for the latest subscription version in the order.
+    * discountDelta `number`: Delta discount TCB value between the base and the latest subscription version for specific recurring charge in the order.
+    * regular `number`
+    * regularDelta `number`: Delta TCB value between the base and the latest subscription version in the order.
+  * tcv `object`
+    * discount `number`: Always equals to discountTcb.
+    * discountDelta `number`: Always equals to delta discountTcb.
+    * regular `number`
+    * regularDelta `number`
+
 ### ChargeRatedResult
 * ChargeRatedResult `object`
   * appliedToChargeNumber `string`: The regular charge number that this discount charge is applied to.
@@ -8008,11 +8484,33 @@ zuora.PUT_SendUserAccessRequests({
 
 ### CommonResponse
 * CommonResponse `object`
-  * success `boolean`: Indicates if the order creation has succeeded.
+  * success `boolean`: Indicates whether the call succeeded.
 
 ### CommonResponseType
 * CommonResponseType `object`
   * success `boolean`: Returns `true` if the request was processed successfully.
+
+### Contact
+* Contact `object`
+  * address1 `string`
+  * address2 `string`
+  * city `string`
+  * country `string`
+  * county `string`
+  * fax `string`
+  * firstName **required** `string`
+  * homePhone `string`
+  * lastName **required** `string`
+  * mobilePhone `string`
+  * nickname `string`
+  * otherPhone `string`
+  * otherPhoneType `string` (values: Work, Mobile, Home, Other)
+  * personalEmail `string`
+  * postalCode `string`
+  * state `string`
+  * taxRegion `string`
+  * workEmail `string`
+  * workPhone `string`
 
 ### CreateEntityResponseType
 * CreateEntityResponseType `object`
@@ -8129,6 +8627,7 @@ zuora.PUT_SendUserAccessRequests({
   * items `array`: Container for items.
     * items [CreditMemoItemFromInvoiceItemType](#creditmemoitemfrominvoiceitemtype)
   * reasonCode `string`: A code identifying the reason for the transaction. The value must be an existing reason code or empty. If you do not specify a value, Zuora uses the default reason code.
+  * taxAutoCalculation `boolean`: Whether to automatically calculate taxes in the credit memo.
 
 ### CreditMemoItemBreakdown
 * CreditMemoItemBreakdown `object`
@@ -8248,6 +8747,7 @@ zuora.PUT_SendUserAccessRequests({
   * items `array`: Container for items.
     * items [DebitMemoItemFromInvoiceItemType](#debitmemoitemfrominvoiceitemtype)
   * reasonCode `string`: A code identifying the reason for the transaction. The value must be an existing reason code or empty. If you do not specify a value, Zuora uses the default reason code.
+  * taxAutoCalculation `boolean`: Whether to automatically calculate taxes in the debit memo.
 
 ### DebitMemoItemFromInvoiceItemType
 * items `object`
@@ -8292,9 +8792,13 @@ zuora.PUT_SendUserAccessRequests({
 ### DiscountPricingOverride
 * DiscountPricingOverride `object`
   * applyDiscountTo `string` (values: ONETIME, RECURRING, USAGE, ONETIMERECURRING, ONETIMEUSAGE, RECURRINGUSAGE, ONETIMERECURRINGUSAGE)
-  * discountAmount `number`
+  * discountAmount `number`: Only applicable if the charge is a fixed-amount discount.
   * discountLevel `string` (values: rateplan, subscription, account)
-  * discountPercentage `number`
+  * discountPercentage `number`: Only applicable if the charge is a percentage discount.
+
+### DiscountPricingUpdate
+* DiscountPricingUpdate `object`
+  * discountPercentage `number`: The amount of the discount as a percentage. This field is only used for percentage discounts. 
 
 ### ElectronicPaymentOptions
 * ElectronicPaymentOptions `object`
@@ -8310,7 +8814,6 @@ zuora.PUT_SendUserAccessRequests({
 ### Error
 * Error `object`
   * Code `string`
-  * Field `string`
   * Message `string`
 
 ### EventRevenueItemType
@@ -9573,7 +10076,7 @@ zuora.PUT_SendUserAccessRequests({
   * cardNumber `string`: Credit or debit card number, 16 characters or less, masked for security purposes.
   * cardType `string`: The type of credit card or debit card being billed.  Possible values are: `Visa`, `MasterCard`, `AmericanExpress`, `Discover`.
   * defaultPaymentMethod `boolean`: Contains true if this is the default payment method for this customer, otherwise false.
-  * expirationMonth `string`: Two-digit expiration month (01 - 12).
+  * expirationMonth `string`: One or two digit(s) expiration month (1-12).
   * expirationYear `string`: Four-digit expiration year.
   * id `string`: Unique ID generated by Zuora when this payment method was created.
 
@@ -9613,6 +10116,56 @@ zuora.PUT_SendUserAccessRequests({
   * parts `array`: Container for payment parts.
     * items [GETPaymentPartTypewithSuccess](#getpaymentparttypewithsuccess)
   * success `boolean`: Returns `true` if the request was processed successfully.
+
+### GETPaymentRunCollectionType
+* GETPaymentRunCollectionType `object`
+  * items `array`: Container for payment runs.
+    * items [GETPaymentRunType](#getpaymentruntype)
+  * nextPage `string`: The URL for requesting the next page of the response, if it exists; otherwise absent.
+  * success `boolean`: Returns `true` if the request was processed successfully.
+
+### GETPaymentRunSummaryResponse
+* GETPaymentRunSummaryResponse `object`
+  * numberOfErrors `integer`: The number of payments with the status of `Error` and `Processing`.
+  * numberOfPayments `integer`: The number of payments that are successfully processed in the payment run.
+  * numberOfReceivables `integer`: The total number of receivables that are picked up for processing in the payment run.
+  * numberOfUnprocessedReceivables `integer`: The number of unprocessed receivables with remaining positive balances after the payment run.
+  * success `boolean`: Returns `true` if the request was processed successfully.
+  * totalValues `array`
+    * items [GETPaymentRunSummaryTotalValues](#getpaymentrunsummarytotalvalues)
+
+### GETPaymentRunSummaryTotalValues
+* totalValues `object`
+  * totalValueOfErrors `string`: The total amount of receivables associated with the payments with the status of `Error` and `Processing`.
+  * totalValueOfPayments `string`: The total amount of payments that are successfully processed in the payment run.
+  * totalValueOfReceivables `string`: The total amount of receivables associated with the payment run.
+  * totalValueOfUnprocessedReceivables `string`: The total amount of  unprocessed receivables with remaining positive balances after the payment run.
+
+### GETPaymentRunType
+* GETPaymentRunType `object`
+  * accountId `string`: The ID of the customer account associated with the payment run.
+  * applyCreditBalance `boolean`: **Note:** This field is only available if you have the Credit Balance feature enabled and the Advanced AR Settlement feature disabled.
+  * autoApplyCreditMemo `boolean`: **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+  * autoApplyUnappliedPayment `boolean`: **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+  * batch `string`: The alias name given to a batch.
+  * billCycleDay `integer`: The billing cycle day (BCD), the day of the month when a bill run generates invoices for the account. 
+  * billingRunId `string`: The ID of the bill run.
+  * completedOn `string`: The date and time when the payment run is completed, in `yyyy-mm-dd hh:mm:ss` format. For example, 2017-03-01 11:39:58.
+  * consolidatedPayment `boolean`: **Note:** The **Process Electronic Payment** permission also needs to be allowed for a Manage Payment Runs role to work. See [Payments Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/e_Payments_Roles) for more information. 
+  * createdById `string`: The ID of the Zuora user who created the payment run.
+  * createdDate `string`: The date and time when the payment run was created, in `yyyy-mm-dd hh:mm:ss` format. For example, 2017-03-01 15:31:10.
+  * currency `string`: A currency defined in the web-based UI administrative settings.
+  * executedOn `string`: The date and time when the payment run is executed, in `yyyy-mm-dd hh:mm:ss` format. For example, 2017-03-01 11:30:37.
+  * id `string`: The ID of the payment run.
+  * number `string`: The identification number of the payment run.
+  * paymentGatewayId `string`: The ID of the gateway instance that processes the payment.
+  * processPaymentWithClosedPM `boolean`: **Note:** The **Process Electronic Payment** permission also needs to be allowed for a Manage Payment Runs role to work. See [Payments Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/e_Payments_Roles) for more information. 
+  * runDate `string`: The date and time when the scheduled payment run is to be executed for collecting payments.
+  * status `string` (values: Pending, Processing, Completed, Error, Canceled): The status of the created payment run.
+  * success `boolean`: Returns `true` if the request was processed successfully.
+  * targetDate `string`: The target date used to determine which invoices to be collected in the payment run. 
+  * updatedById `string`: The ID of the Zuora user who last updated the payment run.
+  * updatedDate `string`: The date and time when the payment run was last updated, in `yyyy-mm-dd hh:mm:ss` format. For example, 2017-03-02 15:36:10.
 
 ### GETPaymentType
 * payments `object`
@@ -10410,7 +10963,7 @@ zuora.PUT_SendUserAccessRequests({
   * nextPage `string`: URL to retrieve the next page of the response if it exists; otherwise absent.
   * orders `array`
     * items [Order](#order)
-  * success `boolean`: Indicates if the order creation has succeeded.
+  * success `boolean`: Indicates whether the call succeeded.
 
 ### GetBillingPreviewRunResponse
 * GetBillingPreviewRunResponse `object`: get billingPreviewRun response
@@ -10463,7 +11016,7 @@ zuora.PUT_SendUserAccessRequests({
 
 ### GetOrderBillingInfoResponseType
 * GetOrderBillingInfoResponseType
-  * success `boolean`: Indicates if the order creation has succeeded.
+  * success `boolean`: Indicates whether the call succeeded.
   * billingInfo `object`
     * billedAmount `number`
     * currency `string`: Currency code.
@@ -10472,17 +11025,17 @@ zuora.PUT_SendUserAccessRequests({
 
 ### GetOrderRatedResultResponseType
 * GetOrderRatedResultResponseType
-  * success `boolean`: Indicates if the order creation has succeeded.
+  * success `boolean`: Indicates whether the call succeeded.
   * orderRatedResult [OrderRatedResult](#orderratedresult)
 
 ### GetOrderResponse
 * GetOrderResponse
-  * success `boolean`: Indicates if the order creation has succeeded.
+  * success `boolean`: Indicates whether the call succeeded.
   * order [Order](#order)
 
 ### GetOrdersResponse
 * GetOrdersResponse
-  * success `boolean`: Indicates if the order creation has succeeded.
+  * success `boolean`: Indicates whether the call succeeded.
   * nextPage `string`: URL to retrieve the next page of the response if it exists; otherwise absent.
   * orders `array`
     * items [Order](#order)
@@ -10495,6 +11048,13 @@ zuora.PUT_SendUserAccessRequests({
   * id `string`: Feature ID.
   * name `string`: Feature name, up to 255 characters long.
   * status `string`
+
+### GetSubscriptionTermInfoResponseType
+* GetSubscriptionTermInfoResponseType
+  * success `boolean`: Indicates whether the call succeeded.
+  * nextPage `string`: The URL of the next page of terms.
+  * terms `array`
+    * items [Term](#term)
 
 ### InitialTerm
 * InitialTerm `object`: The first term of the subscription.
@@ -10623,6 +11183,24 @@ zuora.PUT_SendUserAccessRequests({
   * startDate `string`
   * subscriptionNumber `string`
 
+### InvoiceItemPreviewResult
+* InvoiceItemPreviewResult `object`
+  * additionalInfo `object`
+    * quantity `number`
+    * unitOfMeasure `string`
+  * amountWithoutTax `number`
+  * appliedToChargeNumber `string`: Available when the chargeNumber of the charge that discount applies to was specified in the request or when the order is amending an existing subscription.
+  * chargeDescription `string`
+  * chargeName `string`
+  * chargeNumber `string`: Available when the chargeNumber was specified in the request or when the order is amending an existing subscription.
+  * processingType `string` (values: Charge, Discount, Tax)
+  * productName `string`
+  * productRatePlanChargeId `string`
+  * serviceEndDate `string`
+  * serviceStartDate `string`
+  * subscriptionNumber `string`
+  * taxAmount `number`
+
 ### InvoicePayment
 * InvoicePayment `object`
   * Amount **required** `string`: The amount of the payment to apply to an invoice.
@@ -10725,6 +11303,19 @@ zuora.PUT_SendUserAccessRequests({
     * specificUpdateDate `string`: Used for the 'update before update' and 'update before remove' cases.
     * uniqueToken `string`: A unique string to represent the rate plan charge in the order. The unique token is used to perform multiple actions against a newly added rate plan. For example, if you want to add and update a product in the same order, you would assign a unique token to the product rate plan when added and use that token in future order actions.
     * originRatePlanId `string`: The original rate plan id.
+
+### OrderActionRequest
+* OrderActionRequest `object`: For each specific type of order actions, corresponding parameters need to be specified. For example, if the 'updateProduct' node provided for the 'AddProduct' type, an error response will return. 'RenewSubscription' does not have have a specific parameter.
+  * addProduct [RatePlanOverride](#rateplanoverride)
+  * cancelSubscription [CancelSubscription](#cancelsubscription)
+  * createSubscription [CreateSubscription](#createsubscription)
+  * customFields [CustomFields](#customfields)
+  * ownerTransfer [OwnerTransfer](#ownertransfer)
+  * removeProduct [RemoveProduct](#removeproduct)
+  * termsAndConditions [TermsAndConditions](#termsandconditions)
+  * triggerDates [TriggerDates](#triggerdates)
+  * type **required** `string` (values: CreateSubscription, TermsAndConditions, AddProduct, UpdateProduct, RemoveProduct, RenewSubscription, CancelSubscription, OwnerTransfer): Type of the order action. For each specific type of order actions, corresponding parameters need to be specified. For example, if the 'updateProduct' node provided for the 'AddProduct' type, an error response will return. The 'RenewSubscription' type does not require any parameter.
+  * updateProduct [RatePlanUpdate](#rateplanupdate)
 
 ### OrderMetrics
 * OrderMetrics `array`
@@ -11111,6 +11702,36 @@ zuora.PUT_SendUserAccessRequests({
 * POSTMemoPdfResponse `object`
   * success `boolean`: Returns `true` if the request was processed successfully.
 
+### POSTOrderPreviewRequestType
+* POSTOrderPreviewRequestType `object`
+  * customFields [CustomFields](#customfields)
+  * existingAccountNumber `string`: The account number that this order will be created under. It can be either the accountNumber or the account info. It will return an error if both are specified.
+  * orderDate **required** `string`: The date when the order is signed. All of the order actions under this order will use this order date as the contract effective date.
+  * orderNumber `string`: The order number of this order.
+  * previewAccountInfo [PreviewAccountInfo](#previewaccountinfo)
+  * previewOptions [PreviewOptions](#previewoptions)
+  * subscriptions **required** `array`: Each item includes a set of order actions, which will be applied to the same base subscription.
+    * items `object`
+      * customFields [CustomFields](#customfields)
+      * orderActions `array`: The actions to be applied to the subscription. Order actions will be stored with the sequence when it was provided in the request.
+        * items [OrderActionRequest](#orderactionrequest)
+      * subscriptionNumber `string`: Leave this field empty to represent new subscription creation, or specify a subscription number to update an existing subscription.
+
+### POSTOrderRequestType
+* POSTOrderRequestType `object`
+  * customFields [CustomFields](#customfields)
+  * existingAccountNumber `string`: The account number that this order will be created under. It can be either the accountNumber or the account info provided. It will return an error if both are specified.
+  * newAccount [Account](#account)
+  * orderDate **required** `string`: The date when the order is signed. All the order actions under this order will use this order date as the contract effective date.
+  * orderNumber `string`: The order number of the new order. If not provided, system will auto-generate a number for this order.
+  * processingOptions [ProcessingOptions](#processingoptions)
+  * subscriptions **required** `array`: Each item includes a set of order actions, which will be applied to the same base subscription.
+    * items `object`
+      * customFields [CustomFields](#customfields)
+      * orderActions `array`: The actions to be applied to the subscription. Order actions will be stored with the sequence when it was provided in the request.
+        * items [OrderActionRequest](#orderactionrequest)
+      * subscriptionNumber `string`: Leave this empty to represent new subscription creation. Specify a subscription number to update an existing subscription.
+
 ### POSTPaymentMethodDecryption
 * POSTPaymentMethodDecryption `object`
   * accountID **required** `string`: ID of the billing account on which the payment method will be created.
@@ -11159,10 +11780,26 @@ zuora.PUT_SendUserAccessRequests({
   * creditCardNumber **required** `string`: Credit card number, a string of up to 16 characters. This field can only be set when creating a new payment method; it cannot be queried or updated.
   * creditCardType **required** `string`: Possible values are: `Visa`, `MasterCard`, `AmericanExpress`, `Discover`.
   * defaultPaymentMethod `boolean`: Specify true to make this card the default payment method; otherwise, omit this parameter to keep the current default payment method.
-  * expirationMonth **required** `string`: Two-digit expiration month (01-12).
+  * expirationMonth **required** `string`: One or two digit(s) expiration month (1-12).
   * expirationYear **required** `string`: Four-digit expiration year.
   * numConsecutiveFailures `integer`: The number of consecutive failed payments for this payment method. It is reset to `0` upon successful payment. 
   * securityCode `string`: The CVV or CVV2 security code for the credit card or debit card. Only required if changing expirationMonth, expirationYear, or cardHolderName. To ensure PCI compliance, this value isn't stored and can't be queried.
+
+### POSTPaymentRunRequest
+* POSTPaymentRunRequest `object`
+  * accountId `string`: The ID of the customer account associated with the payment run.
+  * applyCreditBalance `boolean`: **Note:** This field is only available if you have the Credit Balance feature enabled and the Advanced AR Settlement feature disabled.
+  * autoApplyCreditMemo `boolean`: **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+  * autoApplyUnappliedPayment `boolean`: **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+  * batch `string`: The alias name given to a batch. The batch name is a string of 50 characters or less.
+  * billCycleDay `integer`: The billing cycle day (BCD), the day of the month when a bill run generates invoices for the account. The value must be equal to or less then 31, and 31 is mean the EOM.
+  * billingRunId `string`: The ID of a bill run.
+  * consolidatedPayment `boolean`: **Note:** The **Process Electronic Payment** permission also needs to be allowed for a Manage Payment Runs role to work. See [Payments Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/e_Payments_Roles) for more information. 
+  * currency `string`: A currency defined in the web-based UI administrative settings.
+  * paymentGatewayId `string`: The ID of the gateway instance that processes the payment.
+  * processPaymentWithClosedPM `boolean`: **Note:** The **Process Electronic Payment** permission also needs to be allowed for a Manage Payment Runs role to work. See [Payments Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/e_Payments_Roles) for more information. 
+  * runDate `string`: The date and time when the scheduled payment run is to be executed, in `yyyy-mm-dd hh:mm:ss` format. The backend will ignore mintues and seconds in the field value. For example, if you specify `2017-03-01 11:30:37` for this value, this payment run will be run at 2017-03-01 11:00:00.
+  * targetDate `string`: The target date used to determine which invoices to be paid in the payment run. The payments are collected for all invoices with the due date no later than the target date.
 
 ### POSTQuoteDocResponseType
 * POSTQuoteDocResponseType `object`
@@ -11272,7 +11909,7 @@ zuora.PUT_SendUserAccessRequests({
 * chargeOverrides `object`
   * applyDiscountTo `string`: Specifies the type of charges that you want a specific discount to apply to.
   * billCycleDay `string`: Sets the bill cycle day (BCD) for the charge. The BCD determines which day of the month the customer is billed.
-  * billCycleType `string`: Specifies how to determine the billing day for the charge. When this field is set to `SpecificDayOfMonth`, set the `BillCycleDay` field. When this field is set to `SpecificDayOfWeek`, set the `weeklyBillCycleDay` field.
+  * billCycleType `string`: Specifies how to determine the billing day for the charge. When this field is set to `SpecificDayofMonth`, set the `BillCycleDay` field. When this field is set to `SpecificDayofWeek`, set the `weeklyBillCycleDay` field.
   * billingPeriod `string`: Billing period for the charge. The start day of the billing period is also called the bill cycle day (BCD).
   * billingPeriodAlignment `string`: Aligns charges within the same subscription if multiple charges begin on different dates.
   * billingTiming `string`: Billing timing for the charge for recurring charge types. Not avaliable for one time, usage, and discount charges.
@@ -11648,6 +12285,11 @@ zuora.PUT_SendUserAccessRequests({
   * description `string`: Description of the attachment.
   * fileName `string`: File name of the attachment. The value should not contain the file extension. Only the file name without the extension can be edited.
 
+### PUTBatchDebitMemosRequest
+* PUTBatchDebitMemosRequest `object`
+  * debitMemos `array`: Container for debit memo update details.
+    * items [BatchDebitMemoType](#batchdebitmemotype)
+
 ### PUTCatalogType
 * PUTCatalogType `object`
   * toEntityIds **required** `array`: The entity that you want to share the product with.
@@ -11702,6 +12344,7 @@ zuora.PUT_SendUserAccessRequests({
 * PUTDebitMemoType `object`
   * comment `string`: Comments about the debit memo.
   * customField__c `string`: Any custom fields defined for this object. The custom field
+  * dueDate `string`: The date by which the payment for the debit memo is due, in `yyyy-mm-dd` format.
   * effectiveDate `string`: The date when the debit memo takes effect.
   * items `array`: Container for debit memo items.
     * items [PUTDebitMemoItemType](#putdebitmemoitemtype)
@@ -11736,6 +12379,17 @@ zuora.PUT_SendUserAccessRequests({
   * customField__c `string`: Any custom fields defined for this object. The custom field name is case-sensitive.
   * type **required** `string` (values: Credit, Debit): Type of journal entry item. 
 
+### PUTOrderPatchRequestType
+* PUTOrderPatchRequestType `object`
+  * customFields [CustomFields](#customfields)
+  * subscriptions `array`
+    * items `object`
+      * orderActions `array`
+        * items `object`
+          * customFields [CustomFields](#customfields)
+          * sequence `integer`: The sequence number of the order action in the order.
+      * subscriptionNumber `string`
+
 ### PUTPaymentMethodResponseType
 * PUTPaymentMethodResponseType `object`
   * paymentMethodId `string`: ID of the updated payment method.
@@ -11750,13 +12404,29 @@ zuora.PUT_SendUserAccessRequests({
   * country `string`: Country; must be a valid country name or abbreviation.
   * defaultPaymentMethod `boolean`: Specify "true" to make this card the default payment method; otherwise, omit this parameter to keep the current default payment method.
   * email `string`: Card holder's email address, 80 characters or less.
-  * expirationMonth `string`: Two-digit expiration month (01-12).
+  * expirationMonth `string`: One or two digit(s) expiration month (1-12).
   * expirationYear `string`: Four-digit expiration year.
   * numConsecutiveFailures `integer`: The number of consecutive failed payments for this payment method. It is reset to `0` upon successful payment. 
   * phone `string`: Phone number, 40 characters or less.
   * securityCode `string`: The CVV or CVV2 security code for the credit card or debit card. Only required if changing expirationMonth, expirationYear, or cardHolderName. To ensure PCI compliance, this value isn't stored and can't be queried.
   * state `string`: State; must be a valid state name or 2-character abbreviation.
   * zipCode `string`: Zip code, 20 characters or less.
+
+### PUTPaymentRunRequest
+* PUTPaymentRunRequest `object`
+  * accountId `string`: The ID of the customer account associated with the payment run.
+  * applyCreditBalance `boolean`: **Note:** This field is only available if you have the Credit Balance feature enabled and the Advanced AR Settlement feature disabled.
+  * autoApplyCreditMemo `boolean`: **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+  * autoApplyUnappliedPayment `boolean`: **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+  * batch `string`: The alias name given to a batch. The batch name is a string of 50 characters or less.
+  * billCycleDay `integer`: The billing cycle day (BCD), the day of the month when a bill run generates invoices for the account. The value must be equal to or less then 31, and 31 is mean the EOM.
+  * billingRunId `string`: The ID of a bill run.
+  * consolidatedPayment `boolean`: **Note:** The **Process Electronic Payment** permission also needs to be allowed for a Manage Payment Runs role to work. See [Payments Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/e_Payments_Roles) for more information. 
+  * currency `string`: A currency defined in the web-based UI administrative settings.
+  * paymentGatewayId `string`: The ID of the gateway instance that processes the payment.
+  * processPaymentWithClosedPM `boolean`: **Note:** The **Process Electronic Payment** permission also needs to be allowed for a Manage Payment Runs role to work. See [Payments Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/e_Payments_Roles) for more information. 
+  * runDate `string`: The date and time when the scheduled payment run is to be executed, in `yyyy-mm-dd hh:mm:ss` format. The backend will ignore mintues and seconds in the field value. For example, if you specify `2017-03-01 11:30:37` for this value, this payment run will be run at 2017-03-01 11:00:00.
+  * targetDate `string`: The target date used to determine which invoices to be paid in the payment run. The payments are collected for all invoices with the due date no later than the target date.
 
 ### PUTRSBasicInfoType
 * PUTRSBasicInfoType `object`
@@ -11820,7 +12490,7 @@ zuora.PUT_SendUserAccessRequests({
 * chargeOverrides `object`
   * applyDiscountTo `string`: Specifies the type of charges that you want a specific discount to apply to.
   * billCycleDay `string`: Sets the bill cycle day (BCD) for the charge. The BCD determines which day of the month customer is billed.
-  * billCycleType `string`: Specifies how to determine the billing day for the charge. When this field is set to `SpecificDayOfMonth`, set the `BillCycleDay` field. When this field is set to `SpecificDayOfWeek`, set the `weeklyBillCycleDay` field.
+  * billCycleType `string`: Specifies how to determine the billing day for the charge. When this field is set to `SpecificDayofMonth`, set the `BillCycleDay` field. When this field is set to `SpecificDayofWeek`, set the `weeklyBillCycleDay` field.
   * billingPeriod `string`: Billing period for the charge. The start day of the billing period is also called the bill cycle day (BCD).
   * billingPeriodAlignment `string`: Aligns charges within the same subscription if multiple charges begin on different dates.
   * billingTiming `string`: Billing timing for the charge for recurring charge types. Not avaliable for one time, usage and discount charges.
@@ -11921,6 +12591,18 @@ zuora.PUT_SendUserAccessRequests({
   * ratePlanId **required** `string`: ID of a rate plan for this subscription.
   * serviceActivationDate `string`: The date when the update amendment is activated in yyyy-mm-dd format.
   * specificUpdateDate `string`: The date when the Update Product amendment takes effect. This field is only applicable if there is already a future-dated Update Product amendment on the subscription. The format of the date is yyyy-mm-dd.
+
+### PUTSubscriptionPatchRequestType
+* PUTSubscriptionPatchRequestType `object`
+  * customFields [CustomFields](#customfields)
+  * ratePlans `array`
+    * items `object`
+      * charges `array`
+        * items `object`
+          * chargeNumber `string`
+          * customFields [CustomFields](#customfields)
+      * customFields [CustomFields](#customfields)
+      * ratePlanId `string`: The rate plan id in any version of the subscription. This will be linked to the only one rate plan in the current version.
 
 ### PUTSubscriptionPreviewInvoiceItemsType
 * invoiceItems `object`
@@ -12254,6 +12936,25 @@ zuora.PUT_SendUserAccessRequests({
   * totalAmount **required** `number`: The total amount of the refund. The amount cannot exceed the unapplied amount of the associated credit memo. If the original credit memo was applied to one or more invoices or debit memos, you have to unapply a full or partial credit memo from the invoices or debit memos, and then refund the full or partial unapplied credit memo to your customers.
   * type **required** `string` (values: External, Electronic): The type of the refund.
 
+### PostOrderPreviewResponseType
+* PostOrderPreviewResponseType
+  * success `boolean`: Indicates whether the call succeeded.
+  * previewResult [PreviewResult](#previewresult)
+
+### PostOrderResponseType
+* PostOrderResponseType
+  * success `boolean`: Indicates whether the call succeeded.
+  * accountNumber `string`: The account number for the order.
+  * creditMemoNumbers `array`: An array of the credit memo numbers generated in this order request. The credit memo is only available if you have the Avdanced AR Settlement feature enabled.
+    * items `string`
+  * invoiceNumbers `array`: An array of the invoice numbers generated in this order request. Normally it includes one invoice number only, but can include multiple items when a subscription was tagged as invoice separately.
+    * items `string`
+  * orderNumber `string`: The number of the order created.
+  * paidAmount `string`: The total amount collected in this order request.
+  * paymentNumber `string`: The payment number that collected in this order request.
+  * subscriptionNumbers `array`: An array of number of subscriptions included in this order.
+    * items `string`
+
 ### PostRefundType
 * PostRefundType `object`
   * comment `string`: Comments about the refund.
@@ -12269,6 +12970,62 @@ zuora.PUT_SendUserAccessRequests({
   * secondRefundReferenceId `string`: The transaction ID returned by the payment gateway if there is an additional transaction for the refund. Use this field to reconcile payments between your gateway and Zuora Payments.
   * totalAmount **required** `number`: The total amount of the refund. The amount cannot exceed the unapplied amount of the associated payment. If the original payment was applied to one or more invoices or debit memos, you have to unapply a full or partial payment from the invoices or debit memos, and then refund the full or partial unapplied payment to your customers. 
   * type **required** `string` (values: External, Electronic): The type of the refund.
+
+### PreviewAccountInfo
+* PreviewAccountInfo `object`: The account info required for an order preview.
+  * billCycleDay **required** `integer`
+  * currency **required** `string`: 3 uppercase character currency code
+  * customFields [CustomFields](#customfields)
+  * soldToContact **required** [PreviewContactInfo](#previewcontactinfo)
+
+### PreviewContactInfo
+* PreviewContactInfo `object`
+  * city `string`
+  * country `string`
+  * county `string`
+  * postalCode `string`
+  * state `string`
+  * taxRegion `string`
+
+### PreviewOptions
+* PreviewOptions `object`
+  * previewThruType `string` (values: SpecificDate, TermEnd): The options on how the preview through date is calculated. Available for preview only. The 'TermEnd' option is invalid when any subscription included in this order is evergreen. 
+  * previewTypes `array`
+    * items `string` (values: ChargeMetrics, BillingDocs, OrderMetrics): One or more types of the preview.
+  * specificPreviewThruDate `string`: The end date of the order preview. You can preview the invoice charges through the preview through date. (Invoice preview only)
+
+### PreviewResult
+* PreviewResult `object`: The result of each type of preview. Returned only when the current request is preview call.
+  * chargeMetrics `array`
+    * items `object`
+      * charges `array`
+        * items [ChargePreviewMetrics](#chargepreviewmetrics)
+      * subscriptionNumber `string`: The number of the subscription that has been affected by this order. When creating a subscription, this value will not show if the subscription number was not specified in the request.
+  * creditMemos `array`
+    * items `object`
+      * amount `number`
+      * amountWithoutTax `number`
+      * creditMemoItems `array`
+        * items [InvoiceItemPreviewResult](#invoiceitempreviewresult)
+      * targetDate `string`
+      * taxAmount `number`
+  * invoices `array`
+    * items `object`
+      * amount `number`
+      * amountWithoutTax `number`
+      * invoiceItems `array`
+        * items [InvoiceItemPreviewResult](#invoiceitempreviewresult)
+      * targetDate `string`
+      * taxAmount `number`
+  * orderMetrics `array`
+    * items `object`
+      * orderActions `array`
+        * items `object`
+          * orderMetrics `array`
+            * items [OrderMetrics](#ordermetrics)
+          * sequence `string`
+          * type `string`
+      * subscriptionNumber `string`
 
 ### PriceChangeParams
 * PriceChangeParams `object`: The group fields of the price change related function.
@@ -12295,6 +13052,7 @@ zuora.PUT_SendUserAccessRequests({
 
 ### PricingUpdate
 * PricingUpdate `object`
+  * discount [DiscountPricingUpdate](#discountpricingupdate)
   * recurringFlatFee [RecurringFlatFeePricingUpdate](#recurringflatfeepricingupdate)
   * recurringPerUnit [RecurringPerUnitPricingUpdate](#recurringperunitpricingupdate)
   * recurringTiered [RecurringTieredPricingUpdate](#recurringtieredpricingupdate)
@@ -12305,6 +13063,12 @@ zuora.PUT_SendUserAccessRequests({
   * usageTiered [UsageTieredPricingUpdate](#usagetieredpricingupdate)
   * usageTieredWithOverage [UsageTieredWithOveragePricingUpdate](#usagetieredwithoveragepricingupdate)
   * usageVolume [UsageVolumePricingUpdate](#usagevolumepricingupdate)
+
+### ProcessingOptions
+* ProcessingOptions `object`: Invoice or Payment.
+  * billingOptions [BillingOptions](#billingoptions)
+  * collectPayment `boolean`: Indicates if the current request needs to collect payments. This value can not be 'true' when 'runBilling' flag is 'false'.
+  * runBilling `boolean`: Indicates if the current request needs to generate an invoice. The invoice will be generated against all subscriptions included in this order.
 
 ### ProvisionEntityResponseType
 * ProvisionEntityResponseType `object`
@@ -12379,7 +13143,7 @@ zuora.PUT_SendUserAccessRequests({
 
 ### ProxyActionqueryRequest
 * ProxyActionqueryRequest `object`
-  * queryString **required** `string`: ZOQL expression that specifies the object to query, the fields to retrieve, and any filters.
+  * queryString **required** `string`: [ZOQL](https://knowledgecenter.zuora.com/DC_Developers/K_Zuora_Object_Query_Language) expression that specifies the object to query, the fields to retrieve, and any filters.
 
 ### ProxyActionqueryResponse
 * ProxyActionqueryResponse `object`
@@ -12502,7 +13266,7 @@ zuora.PUT_SendUserAccessRequests({
   * Address2 `string`:  The second line of the contact's address.
   * City `string`:  The city of the contact's address.
   * Country `string`:  The country of the contact's address. 
-  * County `string`:  The country. May optionally be used by Zuora Tax to calculate county tax.
+  * County `string`:  The county. May optionally be used by Zuora Tax to calculate county tax.
   * Description `string`:  A description for the contact.
   * Fax `string`:  The contact's fax number.
   * FirstName **required** `string`:  The contact's first name.
@@ -12855,7 +13619,7 @@ zuora.PUT_SendUserAccessRequests({
   * Address2 `string`:  The second line of the contact's address.
   * City `string`:  The city of the contact's address.
   * Country `string`:  The country of the contact's address. 
-  * County `string`:  The country. May optionally be used by Zuora Tax to calculate county tax.
+  * County `string`:  The county. May optionally be used by Zuora Tax to calculate county tax.
   * CreatedById `string`: The ID of the Zuora user who created the contact. **Character limit**: 32 **Values**: automatically generated 
   * CreatedDate `string`: The date when the contact was created. **Character limit**: 29 **Values**: automatically generated 
   * Description `string`:  A description for the contact.
@@ -13742,7 +14506,7 @@ zuora.PUT_SendUserAccessRequests({
   * Address2 `string`:  The second line of the contact's address.
   * City `string`:  The city of the contact's address.
   * Country `string`:  The country of the contact's address. 
-  * County `string`:  The country. May optionally be used by Zuora Tax to calculate county tax.
+  * County `string`:  The county. May optionally be used by Zuora Tax to calculate county tax.
   * Description `string`:  A description for the contact.
   * Fax `string`:  The contact's fax number.
   * FirstName `string`:  The contact's first name.
@@ -13934,6 +14698,16 @@ zuora.PUT_SendUserAccessRequests({
     * items `object`
   * size `integer`
 
+### ProxyPostImport
+* ProxyPostImport `object`
+  * Id `string`: The ID of the Import object that was created.
+  * Success `boolean`: Indicates whether the call succeeded.
+
+### PutBatchInvoiceType
+* PutBatchInvoiceType `object`
+  * invoices `array`: Container for invoice update details.
+    * items [BatchInvoiceType](#batchinvoicetype)
+
 ### PutCreditMemoTaxItemType
 * taxItems `object`
   * amount `number`: The amount of the taxation item in the credit memo item.
@@ -13968,6 +14742,39 @@ zuora.PUT_SendUserAccessRequests({
   * taxRate `number`: The tax rate applied to the debit memo.
   * taxRateDescription `string`: The description of the tax rate.
   * taxRateType `string` (values: Percentage, FlatFee): The type of the tax rate applied to the debit memo.
+
+### PutInvoiceResponseType
+* PutInvoiceResponseType `object`
+  * accountId `string`: The ID of the customer account associated with the invoice.
+  * amount `number`: The total amount of the invoice.
+  * balance `number`: The balance of the invoice.
+  * cancelledById `string`: The ID of the Zuora user who cancelled the invoice.
+  * cancelledOn `string`: The date and time when the invoice was cancelled, in `yyyy-mm-dd hh:mm:ss` format.
+  * comment `string`: Comments about the invoice. 
+  * createdById `string`: The ID of the Zuora user who created the invoice.
+  * createdDate `string`: The date and time when the invoice was created, in `yyyy-mm-dd hh:mm:ss` format. For example, 2017-03-01 15:31:10.
+  * creditBalanceAdjustmentAmount `number`: **Note:** This filed is only available if you have the Credit Balance feature enabled and the Advanced AR Settlement feature disabled.
+  * currency `string`: A currency defined in the web-based UI administrative settings.
+  * customField__c `string`: Any custom fields defined for this object. The custom field name is case-sensitive.
+  * dueDate `string`: The date by which the payment for this invoice is due. 
+  * id `string`: The unique ID of the invoice.
+  * invoiceDate `string`: The date on which to generate the invoice.
+  * number `string`: The unique identification number of the invoice.
+  * postedById `string`: The ID of the Zuora user who posted the invoice.
+  * postedOn `string`: The date and time when the invoice was posted, in `yyyy-mm-dd hh:mm:ss` format. 
+  * status `string` (values: Draft, Posted, Canceled, Error): The status of the invoice.
+  * success `boolean`: Returns `true` if the request was processed successfully.
+  * targetDate `string`: The target date for the invoice, in `yyyy-mm-dd` format. For example, 2017-07-20. 
+  * taxAmount `number`: The amount of taxation.
+  * totalTaxExemptAmount `number`: The total amount of taxes or VAT for which the customer has an exemption.
+  * transferredToAccounting `string` (values: Processing, Yes, Error, Ignore): Whether the invoice was transferred to an external accounting system.
+  * updatedById `string`: The ID of the Zuora user who last updated the invoice.
+  * updatedDate `string`: The date and time when the invoice was last updated, in `yyyy-mm-dd hh:mm:ss` format. For example, 2017-03-02 15:36:10.
+
+### PutInvoiceType
+* PutInvoiceType `object`
+  * dueDate `string`: The date by which the payment for this invoice is due. 
+  * transferredToAccounting `string` (values: Processing, Yes, Error, Ignore): Whether the invoice was transferred to an external accounting system.
 
 ### PutReverseInvoiceResponseType
 * PutReverseInvoiceResponseType `object`
@@ -14593,6 +15400,25 @@ zuora.PUT_SendUserAccessRequests({
     * items [ChargeRatedResult](#chargeratedresult)
   * subscriptionNumber `string`
 
+### TaxInfo
+* TaxInfo `object`: The taxation permission is required to specify tax info.
+  * VATId `string`
+  * companyCode `string`
+  * exemptCertificateId `string`
+  * exemptCertificateType `string`
+  * exemptDescription `string`
+  * exemptEffectiveDate `string`
+  * exemptExpirationDate `string`
+  * exemptIssuingJurisdiction `string`
+  * exemptStatus `string` (values: No, Yes, PendingVerification): Possible values are 'No', 'Yes', or 'PendingVerification'.
+
+### Term
+* Term `object`: List of terms for the subscription.
+  * endDate `string`: The end date of the term.
+  * isEvergreen `boolean`: Indicates whether the term is evergreen.
+  * startDate `string`: The start date of the term.
+  * termNumber `number`: The term number.
+
 ### Terms
 * Terms `object`
   * autoRenew `boolean`
@@ -14775,6 +15601,15 @@ zuora.PUT_SendUserAccessRequests({
   * priceIncreasePercentage `number`
   * tiers `array`
     * items [ChargeTier](#chargetier)
+
+### creditCard
+* creditCard `object`: The default payment method of the account. Only credit card type payment method is supported.
+  * cardHolderInfo [AccountCreditCardHolder](#accountcreditcardholder)
+  * cardNumber `string`
+  * cardType `string`: The credit card type, such as Visa, MasterCard, AmericanExpress, Discover, JCB, CUP, Diners.
+  * expirationMonth `integer`: The range is from 1 to 12.
+  * expirationYear `integer`: The range is from 1980 to 2500
+  * securityCode `string`
 
 ### tokenResponse
 * tokenResponse `object`

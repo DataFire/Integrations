@@ -94,7 +94,7 @@ geneea.topicPost({}).then(data => {
 
     <h2>More information</h2>
     <p>
-        <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation" target="_blank">
+        <a href="https://help.geneea.com/index.html" target="_blank">
         The Interpretor Public Documentation
         </a>
     </p>
@@ -311,10 +311,7 @@ geneea.topicPost({}, context)
   * key `integer`
 
 ### Information_about_a_user_account.
-* Information_about_a_user_account. `object`
-  * remainingQuotas `array`: Remaining quotas for the user account.
-    * items [Entry«string,long»](#entry«string,long»)
-  * type `string`: Type (plan) of the user account.
+
 
 ### Label
 * Label `object`: The topic label
@@ -337,12 +334,7 @@ geneea.topicPost({}, context)
   * url `string`: URL of a document to be analysed, mutually exclusive with the 'text' parameter
 
 ### Response_for_the_text_correction
-* Response_for_the_text_correction `object`
-  * corrected `boolean`
-  * correctedText **required** `string`: Corrected text of the document
-  * diacritized `boolean`
-  * language **required** `string`: The used language of the document
-  * text `string`: The raw text of the document which has been analysed
+
 
 ### SentimentResponse
 * SentimentResponse `object`: Response for the sentiment analysis

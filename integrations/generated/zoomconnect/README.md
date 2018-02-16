@@ -12,7 +12,7 @@ let zoomconnect = require('@datafire/zoomconnect').create({
   token: ""
 });
 
-zoomconnect.sms.send_bulk.post({}).then(data => {
+zoomconnect.voice.single_text.post({}).then(data => {
   console.log(data);
 });
 ```
@@ -50,7 +50,7 @@ zoomconnect.transfer({}, context)
   * body [WebServiceTransferCreditsRequest](#webservicetransfercreditsrequest)
 
 #### Output
-*Output schema unknown*
+* output [WebServiceUser](#webserviceuser)
 
 ### search
 Find a user for a particular email address
@@ -792,6 +792,103 @@ zoomconnect.templates.templateId.get({
 #### Output
 * output [WebServiceTemplate](#webservicetemplate)
 
+### voice.all.get
+Returns all voice messages
+
+
+```js
+zoomconnect.voice.all.get({}, context)
+```
+
+#### Input
+* input `object`
+  * pageSize `integer`: number of elements to return at a time
+  * page `integer`: page number
+  * status `string` (values: SCHEDULED, UNKNOWN, SENT, FAILED, FAILED_REFUNDED, FAILED_OPTOUT, DELIVERED): filter by message status
+  * fromDateTimeSent `string`: date format: yyyyMMdd
+  * toDateTimeSent `string`: date format: yyyyMMdd
+  * toNumber `string`: phone number the message was sent to
+  * message `string`: search matching message text
+  * campaign `string`: search by campaign
+  * dataField `string`: search by data field
+  * deleted `boolean`: return only deleted / not deleted messages
+
+#### Output
+* output [WebServiceVoiceMessages](#webservicevoicemessages)
+
+### voice.single_audio.post
+Send a single audio voice message to one recipient. Note, Content-Type header must be set to multipart/form-data for this request.
+
+
+```js
+zoomconnect.voice.single_audio.post({
+  "file": "",
+  "recipientNumber": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * file **required** `string`: audio file to play, supports MP3 or WAV format
+  * recipientNumber **required** `string`: the phone number of the recipient to send to
+  * campaign `string`: optional campaign name
+  * dataField `string`: optional extra data
+  * retryCount `integer`: optional number of times to retry unanswered call
+  * retryMinimumInterval `integer`: optional minimum interval in minutes between retry attempts
+  * retryMaximumInterval `integer`: optional maximum interval in minutes between retry attempts
+
+#### Output
+* output [WebServiceSendVoiceMessageResponse](#webservicesendvoicemessageresponse)
+
+### voice.single_text.post
+Send a single text voice message to one recipient
+
+
+```js
+zoomconnect.voice.single_text.post({}, context)
+```
+
+#### Input
+* input `object`
+  * body [WebServiceVoiceMessageSendSingleTextRequest](#webservicevoicemessagesendsingletextrequest)
+
+#### Output
+* output [WebServiceSendVoiceMessageResponse](#webservicesendvoicemessageresponse)
+
+### voice.messageId.delete
+Deletes a  message
+
+
+```js
+zoomconnect.voice.messageId.delete({
+  "messageId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+*Output schema unknown*
+
+### voice.messageId.get
+Returns details for a single message
+
+
+```js
+zoomconnect.voice.messageId.get({
+  "messageId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+* output [WebServiceVoiceMessage](#webservicevoicemessage)
+
 
 
 ## Definitions
@@ -928,6 +1025,11 @@ zoomconnect.templates.templateId.get({
   * sendSmsResponses `array`
     * items [WebServiceSendSmsResponse](#webservicesendsmsresponse)
 
+### WebServiceSendVoiceMessageResponse
+* WebServiceSendVoiceMessageResponse `object`: WebServiceSendVoiceMessageResponse
+  * error `string`
+  * voiceMessageId `string`
+
 ### WebServiceTemplate
 * WebServiceTemplate `object`: WebServiceTemplate
   * data `string`
@@ -964,5 +1066,43 @@ zoomconnect.templates.templateId.get({
 * WebServiceUsers `object`: WebServiceUsers
   * webServiceUserList `array`
     * items [WebServiceUser](#webserviceuser)
+
+### WebServiceVoiceMessage
+* WebServiceVoiceMessage `object`: WebServiceVoiceMessage
+  * audioFileUrl `string`
+  * campaign `string`
+  * dateTimeSent `string`
+  * deleted `boolean`
+  * language `string`
+  * links `array`
+    * items [Link](#link)
+  * message `string`
+  * messageStatus `string`
+  * toNumber `string`
+  * userDataField `string`
+  * voiceMessageId `string`
+
+### WebServiceVoiceMessageSendSingleTextRequest
+* WebServiceVoiceMessageSendSingleTextRequest `object`: WebServiceVoiceMessageSendSingleTextRequest
+  * campaign `string`
+  * dataField `string`
+  * language `string`
+  * message `string`
+  * recipientNumber `string`
+  * retryCount `integer`
+  * retryMaximumInterval `integer`
+  * retryMinimumInterval `integer`
+
+### WebServiceVoiceMessages
+* WebServiceVoiceMessages `object`: WebServiceVoiceMessages
+  * elements `integer`
+  * links `array`
+    * items [Link](#link)
+  * messages `array`
+    * items [WebServiceVoiceMessage](#webservicevoicemessage)
+  * page `integer`
+  * pageSize `integer`
+  * totalElements `integer`
+  * totalPages `integer`
 
 

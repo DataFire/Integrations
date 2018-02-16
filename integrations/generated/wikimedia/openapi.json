@@ -22,7 +22,7 @@
       "media"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_Wikipedia_profile_image.jpeg"
     },
     "x-origin": [
       {
@@ -1605,6 +1605,70 @@
         "operationId": "metrics.pageviews.per_article.project.access.agent.article.granularity.start.end.get"
       }
     },
+    "/metrics/pageviews/top-by-country/{project}/{access}/{year}/{month}": {
+      "get": {
+        "description": "Lists the pageviews to this project, split by country of origin for a given month.\nBecause of privacy reasons, pageviews are given in a bucketed format, and countries\nwith less than 100 views do not get reported.\nStability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+        "parameters": [
+          {
+            "description": "If you want to filter by project, use the domain of any Wikimedia project,\nfor example 'en.wikipedia.org', 'www.mediawiki.org' or 'commons.wikimedia.org'.\n",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If you want to filter by access method, use one of desktop, mobile-app or mobile-web.\nIf you are interested in pageviews regardless of access method, use all-access.\n",
+            "enum": [
+              "all-access",
+              "desktop",
+              "mobile-app",
+              "mobile-web"
+            ],
+            "in": "path",
+            "name": "access",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The year of the date for which to retrieve top countries, in YYYY format.",
+            "in": "path",
+            "name": "year",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The month of the date for which to retrieve top countries, in MM format.\n",
+            "in": "path",
+            "name": "month",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of top countries by pageviews in the project",
+            "schema": {
+              "$ref": "#/definitions/by-country"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/problem"
+            }
+          }
+        },
+        "summary": "Get pageviews by country and access method.",
+        "tags": [
+          "Pageviews data"
+        ],
+        "x-monitor": false,
+        "operationId": "metrics.pageviews.top_by_country.project.access.year.month.get"
+      }
+    },
     "/metrics/pageviews/top/{project}/{access}/{year}/{month}/{day}": {
       "get": {
         "description": "Lists the 1000 most viewed articles for a given project and timespan (month or day).\nYou can filter by access method.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
@@ -2197,6 +2261,47 @@
         }
       }
     },
+    "by-country": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "access": {
+                "type": "string"
+              },
+              "countries": {
+                "items": {
+                  "properties": {
+                    "country": {
+                      "type": "string"
+                    },
+                    "rank": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "views": {
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              "month": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "year": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
     "cx_dict": {
       "properties": {
         "source": {
@@ -2630,7 +2735,22 @@
                 "type": "string"
               },
               "articles": {
-                "type": "string"
+                "items": {
+                  "properties": {
+                    "article": {
+                      "type": "string"
+                    },
+                    "rank": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "views": {
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  }
+                },
+                "type": "array"
               },
               "day": {
                 "type": "string"

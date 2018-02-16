@@ -10,7 +10,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "Amazon Mobile Analytics is a service for collecting, visualizing, and understanding app usage data at scale.",
     "license": {

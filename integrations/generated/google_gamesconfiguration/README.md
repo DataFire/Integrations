@@ -275,15 +275,15 @@ Uploads an image for a resource with the given ID and image type.
 
 ```js
 google_gamesconfiguration.imageConfigurations.upload({
-  "resourceId": "",
-  "imageType": ""
+  "imageType": "",
+  "resourceId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * resourceId **required** `string`: The ID of the resource used by this method.
   * imageType **required** `string` (values: ACHIEVEMENT_ICON, LEADERBOARD_ICON): Selects which image in a resource for this method.
+  * resourceId **required** `string`: The ID of the resource used by this method.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -355,8 +355,8 @@ google_gamesconfiguration.leaderboardConfigurations.patch({
 
 #### Input
 * input `object`
-  * leaderboardId **required** `string`: The ID of the leaderboard.
   * body [LeaderboardConfiguration](#leaderboardconfiguration)
+  * leaderboardId **required** `string`: The ID of the leaderboard.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -380,8 +380,8 @@ google_gamesconfiguration.leaderboardConfigurations.update({
 
 #### Input
 * input `object`
-  * leaderboardId **required** `string`: The ID of the leaderboard.
   * body [LeaderboardConfiguration](#leaderboardconfiguration)
+  * leaderboardId **required** `string`: The ID of the leaderboard.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

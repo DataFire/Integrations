@@ -12,7 +12,7 @@ let neutrinoapi = require('@datafire/neutrinoapi').create({
   "user-id": ""
 });
 
-neutrinoapi.bad_word_filter.post({
+neutrinoapi.BadWordFilterPost({
   "content": ""
 }).then(data => {
   console.log(data);
@@ -25,12 +25,12 @@ The general-purpose API
 
 ## Actions
 
-### bad_word_filter.post
+### BadWordFilterPost
 Detect bad words, swear words and profanity in a given text
 
 
 ```js
-neutrinoapi.bad_word_filter.post({
+neutrinoapi.BadWordFilterPost({
   "content": ""
 }, context)
 ```
@@ -44,12 +44,12 @@ neutrinoapi.bad_word_filter.post({
 #### Output
 * output [BadWordFilterResponse](#badwordfilterresponse)
 
-### bin_lookup.post
+### BinLookupPost
 Perform a BIN (Bank Identification Number) or IIN (Issuer Identification Number) lookup. See: https://www.neutrinoapi.com/api/bin-lookup/
 
 
 ```js
-neutrinoapi.bin_lookup.post({
+neutrinoapi.BinLookupPost({
   "bin-number": ""
 }, context)
 ```
@@ -63,12 +63,12 @@ neutrinoapi.bin_lookup.post({
 #### Output
 * output [BinLookupResponse](#binlookupresponse)
 
-### code_highlight.post
+### CodeHighlightPost
 Code highlight will take raw source code and convert into nicely formatted HTML with syntax and keyword highlighting
 
 
 ```js
-neutrinoapi.code_highlight.post({
+neutrinoapi.CodeHighlightPost({
   "content": "",
   "type": ""
 }, context)
@@ -83,12 +83,12 @@ neutrinoapi.code_highlight.post({
 #### Output
 * output `string`
 
-### Convert
+### ConvertPost
 A powerful unit and currency conversion tool
 
 
 ```js
-neutrinoapi.Convert({
+neutrinoapi.ConvertPost({
   "from-value": "",
   "from-type": "",
   "to-type": ""
@@ -105,12 +105,12 @@ neutrinoapi.Convert({
 #### Output
 * output [ConvertResponse](#convertresponse)
 
-### email_validate.post
+### EmailValidatePost
 Parse, validate and clean an email address
 
 
 ```js
-neutrinoapi.email_validate.post({
+neutrinoapi.EmailValidatePost({
   "email": ""
 }, context)
 ```
@@ -124,12 +124,30 @@ neutrinoapi.email_validate.post({
 #### Output
 * output [EmailValidateResponse](#emailvalidateresponse)
 
-### geocode_address.post
+### EmailVerifyPost
+SMTP based email address verification
+
+
+```js
+neutrinoapi.EmailVerifyPost({
+  "email": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * email **required** `string`: An email address
+  * fix-typos `boolean`: Automatically attempt to fix typos in the address
+
+#### Output
+* output [EmailVerifyResponse](#emailverifyresponse)
+
+### GeocodeAddressPost
 Geocode an address, partial address or the name of a location
 
 
 ```js
-neutrinoapi.geocode_address.post({
+neutrinoapi.GeocodeAddressPost({
   "address": ""
 }, context)
 ```
@@ -145,12 +163,12 @@ neutrinoapi.geocode_address.post({
 #### Output
 * output [GeocodeAddressResponse](#geocodeaddressresponse)
 
-### geocode_reverse.post
+### GeocodeReversePost
 Convert a geographic coordinate (latitude and longitude) into a real world address or location.
 
 
 ```js
-neutrinoapi.geocode_reverse.post({
+neutrinoapi.GeocodeReversePost({
   "latitude": 0,
   "longitude": 0
 }, context)
@@ -166,12 +184,12 @@ neutrinoapi.geocode_reverse.post({
 #### Output
 * output [GeocodeReverseResponse](#geocodereverseresponse)
 
-### hlr_lookup.post
+### HlrLookupPost
 Connect to the global mobile cellular network and retrieve the status of a mobile device
 
 
 ```js
-neutrinoapi.hlr_lookup.post({
+neutrinoapi.HlrLookupPost({
   "number": ""
 }, context)
 ```
@@ -185,12 +203,12 @@ neutrinoapi.hlr_lookup.post({
 #### Output
 * output [HlrLookupResponse](#hlrlookupresponse)
 
-### host_reputation.post
+### HostReputationPost
 Check the reputation of an IP address or domain against a comprehensive list of blacklists and blocklists (DNSBLs)
 
 
 ```js
-neutrinoapi.host_reputation.post({
+neutrinoapi.HostReputationPost({
   "host": ""
 }, context)
 ```
@@ -203,12 +221,12 @@ neutrinoapi.host_reputation.post({
 #### Output
 * output [HostReputationResponse](#hostreputationresponse)
 
-### html_clean.post
+### HtmlCleanPost
 Clean and sanitize untrusted HTML
 
 
 ```js
-neutrinoapi.html_clean.post({
+neutrinoapi.HtmlCleanPost({
   "content": "",
   "output-type": ""
 }, context)
@@ -222,12 +240,12 @@ neutrinoapi.html_clean.post({
 #### Output
 * output `string`
 
-### html_extract_tags.post
+### HtmlExtractTagsPost
 Extract specific HTML tag contents or attributes from complex HTML or XHTML content
 
 
 ```js
-neutrinoapi.html_extract_tags.post({
+neutrinoapi.HtmlExtractTagsPost({
   "content": "",
   "tag": ""
 }, context)
@@ -244,12 +262,12 @@ neutrinoapi.html_extract_tags.post({
 #### Output
 * output [HtmlExtractResponse](#htmlextractresponse)
 
-### html5_render.post
+### Html5RenderPost
 Render HTML and HTML5 content to PDF, JPG or PNG
 
 
 ```js
-neutrinoapi.html5_render.post({
+neutrinoapi.Html5RenderPost({
   "content": ""
 }, context)
 ```
@@ -279,12 +297,12 @@ neutrinoapi.html5_render.post({
 #### Output
 * output `string`
 
-### image_resize.post
+### ImageResizePost
 Resize an image and output as either JPEG or PNG. See: https://www.neutrinoapi.com/api/image-resize/
 
 
 ```js
-neutrinoapi.image_resize.post({
+neutrinoapi.ImageResizePost({
   "image-url": "",
   "width": 0,
   "height": 0
@@ -301,12 +319,12 @@ neutrinoapi.image_resize.post({
 #### Output
 * output `string`
 
-### image_watermark.post
+### ImageWatermarkPost
 Watermark one image with another image. See: https://www.neutrinoapi.com/api/image-watermark/
 
 
 ```js
-neutrinoapi.image_watermark.post({
+neutrinoapi.ImageWatermarkPost({
   "image-url": "",
   "watermark-url": ""
 }, context)
@@ -325,12 +343,12 @@ neutrinoapi.image_watermark.post({
 #### Output
 * output `string`
 
-### ip_blocklist.post
+### IpBlocklistPost
 The IP Blocklist API will detect potentially malicious or dangerous IP addresses
 
 
 ```js
-neutrinoapi.ip_blocklist.post({
+neutrinoapi.IpBlocklistPost({
   "ip": ""
 }, context)
 ```
@@ -343,12 +361,12 @@ neutrinoapi.ip_blocklist.post({
 #### Output
 * output [IpBlocklistResponse](#ipblocklistresponse)
 
-### ip_info.post
+### IpInfoPost
 Get location information about an IP address and do reverse DNS (PTR) lookups.
 
 
 ```js
-neutrinoapi.ip_info.post({
+neutrinoapi.IpInfoPost({
   "ip": ""
 }, context)
 ```
@@ -362,12 +380,12 @@ neutrinoapi.ip_info.post({
 #### Output
 * output [IpInfoResponse](#ipinforesponse)
 
-### ip_probe.post
+### IpProbePost
 Analyze and extract provider information for an IP address
 
 
 ```js
-neutrinoapi.ip_probe.post({
+neutrinoapi.IpProbePost({
   "ip": ""
 }, context)
 ```
@@ -380,12 +398,12 @@ neutrinoapi.ip_probe.post({
 #### Output
 * output [IpProbeResponse](#ipproberesponse)
 
-### phone_playback.post
+### PhonePlaybackPost
 Make an automated call to any valid phone number and playback an audio message
 
 
 ```js
-neutrinoapi.phone_playback.post({
+neutrinoapi.PhonePlaybackPost({
   "number": "",
   "audio-url": ""
 }, context)
@@ -400,12 +418,12 @@ neutrinoapi.phone_playback.post({
 #### Output
 * output [PhonePlaybackResponse](#phoneplaybackresponse)
 
-### phone_validate.post
+### PhoneValidatePost
 Parse, validate and get location information about a phone number
 
 
 ```js
-neutrinoapi.phone_validate.post({
+neutrinoapi.PhoneValidatePost({
   "number": ""
 }, context)
 ```
@@ -420,12 +438,12 @@ neutrinoapi.phone_validate.post({
 #### Output
 * output [PhoneValidateResponse](#phonevalidateresponse)
 
-### phone_verify.post
+### PhoneVerifyPost
 Make an automated call to any valid phone number and playback a unique security code
 
 
 ```js
-neutrinoapi.phone_verify.post({
+neutrinoapi.PhoneVerifyPost({
   "number": ""
 }, context)
 ```
@@ -443,12 +461,12 @@ neutrinoapi.phone_verify.post({
 #### Output
 * output [PhoneVerifyResponse](#phoneverifyresponse)
 
-### qr_code.post
+### QrCodePost
 Generate a QR code as a PNG image. See: https://www.neutrinoapi.com/api/qr-code/
 
 
 ```js
-neutrinoapi.qr_code.post({
+neutrinoapi.QrCodePost({
   "content": ""
 }, context)
 ```
@@ -464,12 +482,12 @@ neutrinoapi.qr_code.post({
 #### Output
 * output `string`
 
-### sms_verify.post
+### SmsVerifyPost
 Send a unique security code to any mobile device via SMS
 
 
 ```js
-neutrinoapi.sms_verify.post({
+neutrinoapi.SmsVerifyPost({
   "number": ""
 }, context)
 ```
@@ -486,12 +504,12 @@ neutrinoapi.sms_verify.post({
 #### Output
 * output [SmsVerifyResponse](#smsverifyresponse)
 
-### url_info.post
+### UrlInfoPost
 Parse, analyze and retrieve content from the supplied URL
 
 
 ```js
-neutrinoapi.url_info.post({
+neutrinoapi.UrlInfoPost({
   "url": "",
   "fetch-content": true
 }, context)
@@ -506,12 +524,12 @@ neutrinoapi.url_info.post({
 #### Output
 * output [UrlInfoResponse](#urlinforesponse)
 
-### user_agent_info.post
+### UserAgentInfoPost
 Parse, validate and get detailed user-agent information from a user agent string
 
 
 ```js
-neutrinoapi.user_agent_info.post({
+neutrinoapi.UserAgentInfoPost({
   "user-agent": ""
 }, context)
 ```
@@ -524,12 +542,12 @@ neutrinoapi.user_agent_info.post({
 #### Output
 * output [UserAgentInfoResponse](#useragentinforesponse)
 
-### verify_security_code.post
+### VerifySecurityCodePost
 Check if a security code from one of the verify APIs is valid
 
 
 ```js
-neutrinoapi.verify_security_code.post({
+neutrinoapi.VerifySecurityCodePost({
   "security-code": 0
 }, context)
 ```
@@ -603,9 +621,28 @@ neutrinoapi.verify_security_code.post({
   * email **required** `string`: The full email address (this could be different to the supplied address if fix-typos is used)
   * isDisposable **required** `boolean`: True if this address is a disposable, temporary or darknet related email address
   * isFreemail **required** `boolean`: True if this address is a free-mail address
+  * isPersonal **required** `boolean`: True if this address belongs to a person. False if this is a role based address, e.g. admin@, help@, office@, etc.
+  * provider **required** `string`: The email service provider domain
   * syntaxError **required** `boolean`: True if this address has a syntax error
   * typosFixed **required** `boolean`: True if typos have been fixed
   * valid **required** `boolean`: Is this a valid email
+
+### EmailVerifyResponse
+* Email Verify Response `object`
+  * domain **required** `string`: The email domain
+  * domainError **required** `boolean`: True if this address has a domain error (e.g. no valid mail server records)
+  * email **required** `string`: The full email address (this could be different to the supplied address if typos-fixed is true)
+  * isCatchAll **required** `boolean`: True if this email domain has a catch-all policy (it will accept mail for any username)
+  * isDisposable **required** `boolean`: True if this address is a disposable, temporary or darknet related email address
+  * isFreemail **required** `boolean`: True if this address is a free-mail address
+  * isPersonal **required** `boolean`: True if this address is for a person. False if this is a role based address, e.g. admin@, help@, office@, etc.
+  * provider **required** `string`: The email service provider domain
+  * smtpResponse **required** `string`: The raw SMTP response message received during verification
+  * smtpStatus **required** `string`: The SMTP verification status for the address (see API docs for full details)
+  * syntaxError **required** `boolean`: True if this address has a syntax error
+  * typosFixed **required** `boolean`: True if typos have been fixed
+  * valid **required** `boolean`: Is this a valid email address (syntax and domain is valid)
+  * verified **required** `boolean`: True if this address has passed SMTP verification. Check the smtp-status and smtp-response fields for specific verification details
 
 ### GeocodeAddressResponse
 * Geocode Address Response `object`
@@ -626,6 +663,7 @@ neutrinoapi.verify_security_code.post({
 
 ### HlrLookupResponse
 * HLR Lookup Response `object`
+  * country **required** `string`: The phone number country
   * countryCode **required** `string`: Number location ISO 2-letter country code
   * hlrStatus **required** `string`: The HLR lookup status. See API docs for specific status details
   * hlrValid **required** `boolean`: Was the HLR lookup successful. If true then this is a working and registered cell-phone or mobile device (SMS and phone calls will be delivered)
@@ -660,6 +698,9 @@ neutrinoapi.verify_security_code.post({
 
 ### IpBlocklistResponse
 * IP Blocklist Response `object`
+  * blocklists **required** `array`: An array of strings indicating which blocklists this IP is listed on (empty if not listed)
+    * items `string`
+  * ip **required** `string`: The IP address
   * isBot **required** `boolean`: IP is hosting a malicious bot or is part of a botnet
   * isDshield **required** `boolean`: IP has been flagged on DShield (dshield.org)
   * isExploitBot **required** `boolean`: IP is hosting an exploit finding bot or exploit scanning software
@@ -678,6 +719,7 @@ neutrinoapi.verify_security_code.post({
 ### IpInfoResponse
 * IP Info Response `object`
   * city **required** `string`: Full city name (if detectable)
+  * continentCode **required** `string`: ISO 2-letter continent code
   * country **required** `string`: Full country name
   * countryCode **required** `string`: ISO 2-letter country code
   * hostname **required** `string`: The IPs hostname (only set if reverse-lookup has been used)
@@ -689,14 +731,17 @@ neutrinoapi.verify_security_code.post({
 ### IpProbeResponse
 * IP Probe Response `object`
   * city **required** `string`: Full city name (if detectable)
+  * continentCode **required** `string`: ISO 2-letter continent code
   * country **required** `string`: Full country name
-  * country-code **required** `string`: ISO 2-letter country code
+  * countryCode **required** `string`: ISO 2-letter country code
   * hostname **required** `string`: The IPs hostname (PTR)
   * ip **required** `string`: The IP address
-  * provider-description **required** `string`: A description of the provider, usually extracted from the providers website or WHOIS record
-  * provider-domain **required** `string`: The domain name of the provider
-  * provider-type **required** `string`: The detected provider type. See API docs for specific provider type details
-  * provider-website **required** `string`: The website URL for the provider
+  * isHosting **required** `boolean`: True if this IP belongs to a hosting company. Note that this can still be true even if the provider type is VPN/proxy, this occurs in the case that the IP is detected as both types
+  * isIsp **required** `boolean`: True if this IP belongs to an ISP. Note that this can still be true even if the provider type is VPN/proxy, this occurs in the case that the IP is detected as both types
+  * providerDescription **required** `string`: A description of the provider, usually extracted from the providers website or WHOIS record
+  * providerDomain **required** `string`: The domain name of the provider
+  * providerType **required** `string`: The detected provider type. See API docs for specific provider type details
+  * providerWebsite **required** `string`: The website URL for the provider
   * region **required** `string`: Full region name (if detectable)
   * valid **required** `boolean`: Is this a valid IPv4 or IPv6 address
 
@@ -719,6 +764,7 @@ neutrinoapi.verify_security_code.post({
 
 ### PhoneValidateResponse
 * Phone Validate Response `object`
+  * country **required** `string`: The phone number country
   * countryCode **required** `string`: Number location ISO 2-letter country code
   * internationalCallingCode **required** `string`: Numbers international calling code
   * internationalNumber **required** `string`: Number represented in international format

@@ -11,7 +11,7 @@ let mashape_geodb = require('@datafire/mashape_geodb').create({
   UserSecurity: ""
 });
 
-mashape_geodb.getLocalesUsingGET({}).then(data => {
+mashape_geodb.getTimezonesUsingGET({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,7 +23,7 @@ This developer-centric REST API focuses on getting global city and region data. 
 ## Actions
 
 ### findCitiesUsingGET
-Get cities, filtering by optional criteria. If no criteria are set, you will get back all known cities with a population of at least 1000. (Currently over 115,000.) If countryCode is specified, the country info will be omitted in the response.
+Find cities, filtering by optional criteria. If no criteria are set, you will get back all known cities with a population of at least 1000. (Currently over 115,000.) If countryCode is specified, the country info will be omitted in the response.
 
 
 ```js
@@ -39,6 +39,7 @@ mashape_geodb.findCitiesUsingGET({}, context)
   * nearLocation `string`: Only cities near this location. Latitude/longitude in ISO-6709 format: ±DD.DDDD±DDD.DDDD
   * nearLocationRadius `integer`: The location radius within which to find cities
   * nearLocationRadiusUnit `string`: The location radius unit of distance: MI | KM
+  * timeZoneIds `string`: Only cities in these time-zones
   * includeDeleted `string`: Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE
   * limit `integer`: The maximum number of results to retrieve
   * offset `integer`: The zero-ary offset index into the results
@@ -63,6 +64,43 @@ mashape_geodb.getCityUsingGET({
 #### Output
 * output [CityResponse](#cityresponse)
 
+### getCityDateTimeUsingGET
+Get city date-time
+
+
+```js
+mashape_geodb.getCityDateTimeUsingGET({
+  "cityId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * cityId **required** `integer`: cityId
+
+#### Output
+* output [DateTimeResponse](#datetimeresponse)
+
+### getCityDistanceUsingGET
+Get distance to the given city
+
+
+```js
+mashape_geodb.getCityDistanceUsingGET({
+  "cityId": 0,
+  "fromCityId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * cityId **required** `integer`: cityId
+  * fromCityId **required** `integer`: Distance from this city
+  * distanceUnit `string`: The unit of distance: MI | KM
+
+#### Output
+* output [DistanceResponse](#distanceresponse)
+
 ### findNearbyCitiesUsingGET
 Get nearby cities
 
@@ -86,8 +124,25 @@ mashape_geodb.findNearbyCitiesUsingGET({
 #### Output
 * output [CitiesResponse](#citiesresponse)
 
+### getCityTimeUsingGET
+Get city time
+
+
+```js
+mashape_geodb.getCityTimeUsingGET({
+  "cityId": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * cityId **required** `integer`: cityId
+
+#### Output
+* output [TimeResponse](#timeresponse)
+
 ### getCountriesUsingGET
-Get countries, filtering by optional criteria. If no criteria are set, you will get back all known countries.
+Find countries, filtering by optional criteria. If no criteria are set, you will get back all known countries.
 
 
 ```js
@@ -96,6 +151,7 @@ mashape_geodb.getCountriesUsingGET({}, context)
 
 #### Input
 * input `object`
+  * namePrefix `string`: Only countries whose names start with this prefix
   * currencyCode `string`: Only countries supporting this currency
   * limit `integer`: The maximum number of results to retrieve
   * offset `integer`: The zero-ary offset index into the results
@@ -133,6 +189,7 @@ mashape_geodb.getRegionsUsingGET({
 #### Input
 * input `object`
   * countryCode **required** `string`: An ISO-3166 country code
+  * namePrefix `string`: Only regions whose names start with this prefix
   * limit `integer`: The maximum number of results to retrieve
   * offset `integer`: The zero-ary offset index into the results
 
@@ -182,7 +239,7 @@ mashape_geodb.findRegionCitiesUsingGET({
 * output [CitiesResponse](#citiesresponse)
 
 ### getCurrenciesUsingGET
-Get currencies, filtering by optional criteria. If no criteria are set, you will get back all known currencies.
+Find currencies, filtering by optional criteria. If no criteria are set, you will get back all known currencies.
 
 
 ```js
@@ -214,6 +271,56 @@ mashape_geodb.getLocalesUsingGET({}, context)
 #### Output
 * output [LocalesResponse](#localesresponse)
 
+### getTimezonesUsingGET
+Get all known time-zones
+
+
+```js
+mashape_geodb.getTimezonesUsingGET({}, context)
+```
+
+#### Input
+* input `object`
+  * limit `integer`: The maximum number of results to retrieve
+  * offset `integer`: The zero-ary offset index into the results
+
+#### Output
+* output [TimeZonesResponse](#timezonesresponse)
+
+### getTimeZoneDateTimeUsingGET
+Get time-zone date-time
+
+
+```js
+mashape_geodb.getTimeZoneDateTimeUsingGET({
+  "zoneId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zoneId **required** `string`: zoneId
+
+#### Output
+* output [DateTimeResponse](#datetimeresponse)
+
+### getTimeZoneTimeUsingGET
+Get time-zone time
+
+
+```js
+mashape_geodb.getTimeZoneTimeUsingGET({
+  "zoneId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * zoneId **required** `string`: zoneId
+
+#### Output
+* output [TimeResponse](#timeresponse)
+
 
 
 ## Definitions
@@ -240,6 +347,7 @@ mashape_geodb.getLocalesUsingGET({}, context)
   * population `integer`
   * region `string`
   * regionCode `string`
+  * timezone `string`
 
 ### CityResponse
 * CityResponse `object`
@@ -252,7 +360,10 @@ mashape_geodb.getLocalesUsingGET({}, context)
   * city `string`
   * country `string`
   * countryCode `string`
+  * distance `number`: Included if the result of a distance query
   * id `integer`
+  * latitude `number`
+  * longitude `number`
   * region `string`
   * regionCode `string`
 
@@ -300,6 +411,18 @@ mashape_geodb.getLocalesUsingGET({}, context)
   * code `string`: A ISO-4217 currency code
   * countryCodes `array`: A list of ISO-3166 country codes
     * items `string`
+
+### DateTimeResponse
+* DateTimeResponse `object`
+  * data `string`
+  * errors `array`
+    * items [WftError](#wfterror)
+
+### DistanceResponse
+* DistanceResponse `object`
+  * data `number`
+  * errors `array`
+    * items [WftError](#wfterror)
 
 ### GeoLocation
 * GeoLocation `object`
@@ -361,6 +484,28 @@ mashape_geodb.getLocalesUsingGET({}, context)
   * errors `array`: A list of WftErrors
     * items [WftError](#wfterror)
   * links `array`: A list of Links
+    * items [Link](#link)
+  * metadata [Metadata](#metadata)
+
+### TimeResponse
+* TimeResponse `object`
+  * data `string`
+  * errors `array`
+    * items [WftError](#wfterror)
+
+### TimeZoneDescriptor
+* TimeZoneDescriptor `object`
+  * id `string`
+  * name `string`
+  * rawUtcOffsetHours `integer`
+
+### TimeZonesResponse
+* TimeZonesResponse `object`
+  * data `array`
+    * items [TimeZoneDescriptor](#timezonedescriptor)
+  * errors `array`
+    * items [WftError](#wfterror)
+  * links `array`
     * items [Link](#link)
   * metadata [Metadata](#metadata)
 

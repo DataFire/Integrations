@@ -79,8 +79,8 @@ google_urlshortener.url.get({
 
 #### Input
 * input `object`
-  * shortUrl **required** `string`: The short URL, including the protocol.
   * projection `string` (values: ANALYTICS_CLICKS, ANALYTICS_TOP_STRINGS, FULL): Additional information to return.
+  * shortUrl **required** `string`: The short URL, including the protocol.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

@@ -2828,10 +2828,13 @@
     "rcr1_Facilities": {
       "description": "Facilities Object",
       "properties": {
-        "ActiveLower48": {
+        "AIRIDs": {
+          "description": "Air Facility System (AFS) ID.",
+          "example": "DC0000001100195254",
+          "title": "AIR Facility System ID",
           "type": "string"
         },
-        "AirIDs": {
+        "ActiveLower48": {
           "type": "string"
         },
         "CWAIDs": {
@@ -2968,7 +2971,7 @@
           "example": "9611.17",
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacTRILandReleases": {
@@ -3179,7 +3182,7 @@
         "RCRAMapIcon": {
           "type": "string"
         },
-        "RCRANaics": {
+        "RCRANAICS": {
           "type": "string"
         },
         "RCRAName": {
@@ -3277,6 +3280,12 @@
           "example": "1",
           "title": "Violation Flag",
           "type": "string"
+        },
+        "WebDocs": {
+          "description": "Contains flags that identify what web accessible documents are available for the facility.",
+          "example": "C6",
+          "title": "Web Documents",
+          "type": "string"
         }
       },
       "required": [
@@ -3301,13 +3310,13 @@
         "FacUsMexBorderFlg",
         "RCRAImpWaterFlg",
         "RCRAUniverse",
-        "RCRANaics",
-        "FacSicCodes",
+        "RCRANAICS",
+        "FacSICCodes",
         "FacPercentMinority",
         "FacPopulationDensity",
         "FacFederalAgencyCode",
         "ChesapeakeBayFlag",
-        "AirIDs",
+        "AIRIDs",
         "CWAIDs",
         "RCRAIDs",
         "TRIIDs",
@@ -3725,10 +3734,13 @@
     "rcr2_Facilities": {
       "description": "Facilities Object",
       "properties": {
-        "ActiveLower48": {
+        "AIRIDs": {
+          "description": "Air Facility System (AFS) ID.",
+          "example": "DC0000001100195254",
+          "title": "AIR Facility System ID",
           "type": "string"
         },
-        "AirIDs": {
+        "ActiveLower48": {
           "type": "string"
         },
         "CWAIDs": {
@@ -3865,7 +3877,7 @@
           "example": "9611.17",
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacTRILandReleases": {
@@ -4082,7 +4094,7 @@
         "RCRAMapIcon": {
           "type": "string"
         },
-        "RCRANaics": {
+        "RCRANAICS": {
           "type": "string"
         },
         "RCRAName": {
@@ -4180,6 +4192,12 @@
           "example": "1",
           "title": "Violation Flag",
           "type": "string"
+        },
+        "WebDocs": {
+          "description": "Contains flags that identify what web accessible documents are available for the facility.",
+          "example": "C6",
+          "title": "Web Documents",
+          "type": "string"
         }
       },
       "required": [
@@ -4205,13 +4223,13 @@
         "FacUsMexBorderFlg",
         "RCRAImpWaterFlg",
         "RCRAUniverse",
-        "RCRANaics",
-        "FacSicCodes",
+        "RCRANAICS",
+        "FacSICCodes",
         "FacPercentMinority",
         "FacPopulationDensity",
         "FacFederalAgencyCode",
         "ChesapeakeBayFlag",
-        "AirIDs",
+        "AIRIDs",
         "CWAIDs",
         "RCRAIDs",
         "TRIIDs",
@@ -4565,8 +4583,8 @@
         "Message",
         "QueryRows",
         "QueryID",
-        "PageNo",
-        "Facilities"
+        "Facilities",
+        "PageNo"
       ],
       "type": "object"
     },
@@ -4727,7 +4745,7 @@
           "example": 9611.17,
           "type": "number"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacTRILandReleases": {
@@ -4938,7 +4956,7 @@
         "RCRAMapIcon": {
           "type": "string"
         },
-        "RCRANaics": {
+        "RCRANAICS": {
           "type": "string"
         },
         "RCRAName": {
@@ -5036,6 +5054,12 @@
           "example": 1,
           "title": "Violation Flag",
           "type": "number"
+        },
+        "WebDocs": {
+          "description": "Contains flags that identify what web accessible documents are available for the facility.",
+          "example": "C6",
+          "title": "Web Documents",
+          "type": "string"
         }
       },
       "required": [
@@ -5058,8 +5082,8 @@
         "FacUsMexBorderFlg",
         "RCRAImpWaterFlg",
         "RCRAUniverse",
-        "RCRANaics",
-        "FacSicCodes",
+        "RCRANAICS",
+        "FacSICCodes",
         "FacPercentMinority",
         "FacPopulationDensity",
         "FacFederalAgencyCode",

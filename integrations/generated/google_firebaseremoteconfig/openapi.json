@@ -279,7 +279,7 @@
       "description": "A single RemoteConfig Condition.  A list of these (because order matters) are\npart of a single RemoteConfig template.",
       "properties": {
         "description": {
-          "description": "Optional.\nA description for this Condition. Length must be less than or equal to\n100 characters (or more precisely, unicode code points, which is defined in\njava/com/google/wireless/android/config/ConstsExporter.java).\nA description may contain any Unicode characters",
+          "description": "DO NOT USE. Implementation removed and will not be added unless requested.\nA description for this Condition. Length must be less than or equal to\n100 characters (or more precisely, unicode code points, which is defined in\njava/com/google/wireless/android/config/ConstsExporter.java).\nA description may contain any Unicode characters",
           "type": "string"
         },
         "expression": {

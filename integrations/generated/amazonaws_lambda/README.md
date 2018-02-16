@@ -62,6 +62,64 @@ amazonaws_lambda.ListEventSourceMappings({}, context)
 #### Output
 * output [ListEventSourceMappingsResponse](#listeventsourcemappingsresponse)
 
+### CreateEventSourceMapping
+
+
+
+```js
+amazonaws_lambda.CreateEventSourceMapping({
+  "EventSourceArn": "",
+  "FunctionName": "",
+  "StartingPosition": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BatchSize [BatchSize](#batchsize)
+  * Enabled [Enabled](#enabled)
+  * EventSourceArn **required** [Arn](#arn)
+  * FunctionName **required** [FunctionName](#functionname)
+  * StartingPosition **required** [EventSourcePosition](#eventsourceposition)
+  * StartingPositionTimestamp [Date](#date)
+
+#### Output
+*Output schema unknown*
+
+### DeleteEventSourceMapping
+
+
+
+```js
+amazonaws_lambda.DeleteEventSourceMapping({
+  "UUID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UUID **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetEventSourceMapping
+
+
+
+```js
+amazonaws_lambda.GetEventSourceMapping({
+  "UUID": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UUID **required** `string`
+
+#### Output
+* output [EventSourceMappingConfiguration](#eventsourcemappingconfiguration)
+
 ### UpdateEventSourceMapping
 
 
@@ -133,6 +191,23 @@ amazonaws_lambda.ListFunctions({}, context)
 #### Output
 * output [ListFunctionsResponse](#listfunctionsresponse)
 
+### DeleteFunction
+
+
+
+```js
+amazonaws_lambda.DeleteFunction({
+  "FunctionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetFunction
 
 
@@ -167,6 +242,67 @@ amazonaws_lambda.ListAliases({
 #### Output
 * output [ListAliasesResponse](#listaliasesresponse)
 
+### CreateAlias
+
+
+
+```js
+amazonaws_lambda.CreateAlias({
+  "FunctionName": "",
+  "Name": "",
+  "FunctionVersion": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+  * Description [Description](#description)
+  * FunctionVersion **required** [Version](#version)
+  * Name **required** [Alias](#alias)
+  * RoutingConfig [AliasRoutingConfiguration](#aliasroutingconfiguration)
+
+#### Output
+*Output schema unknown*
+
+### DeleteAlias
+
+
+
+```js
+amazonaws_lambda.DeleteAlias({
+  "FunctionName": "",
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+  * Name **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetAlias
+
+
+
+```js
+amazonaws_lambda.GetAlias({
+  "FunctionName": "",
+  "Name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+  * Name **required** `string`
+
+#### Output
+* output [AliasConfiguration](#aliasconfiguration)
+
 ### UpdateAlias
 
 
@@ -184,6 +320,8 @@ amazonaws_lambda.UpdateAlias({
   * Name **required** `string`
   * Description [Description](#description)
   * FunctionVersion [Version](#version)
+  * RevisionId [String](#string)
+  * RoutingConfig [AliasRoutingConfiguration](#aliasroutingconfiguration)
 
 #### Output
 * output [AliasConfiguration](#aliasconfiguration)
@@ -203,10 +341,28 @@ amazonaws_lambda.UpdateFunctionCode({
   * FunctionName **required** `string`
   * DryRun [Boolean](#boolean)
   * Publish [Boolean](#boolean)
+  * RevisionId [String](#string)
   * S3Bucket [S3Bucket](#s3bucket)
   * S3Key [S3Key](#s3key)
   * S3ObjectVersion [S3ObjectVersion](#s3objectversion)
   * ZipFile [Blob](#blob)
+
+#### Output
+* output [FunctionConfiguration](#functionconfiguration)
+
+### GetFunctionConfiguration
+
+
+
+```js
+amazonaws_lambda.GetFunctionConfiguration({
+  "FunctionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
 
 #### Output
 * output [FunctionConfiguration](#functionconfiguration)
@@ -230,6 +386,7 @@ amazonaws_lambda.UpdateFunctionConfiguration({
   * Handler [Handler](#handler)
   * KMSKeyArn [KMSKeyArn](#kmskeyarn)
   * MemorySize [MemorySize](#memorysize)
+  * RevisionId [String](#string)
   * Role [RoleArn](#rolearn)
   * Runtime [Runtime](#runtime)
   * Timeout [Timeout](#timeout)
@@ -274,6 +431,33 @@ amazonaws_lambda.GetPolicy({
 #### Output
 * output [GetPolicyResponse](#getpolicyresponse)
 
+### AddPermission
+
+
+
+```js
+amazonaws_lambda.AddPermission({
+  "FunctionName": "",
+  "StatementId": "",
+  "Action": "",
+  "Principal": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+  * Action **required** [Action](#action)
+  * EventSourceToken [EventSourceToken](#eventsourcetoken)
+  * Principal **required** [Principal](#principal)
+  * RevisionId [String](#string)
+  * SourceAccount [SourceOwner](#sourceowner)
+  * SourceArn [Arn](#arn)
+  * StatementId **required** [StatementId](#statementid)
+
+#### Output
+*Output schema unknown*
+
 ### RemovePermission
 
 
@@ -293,6 +477,23 @@ amazonaws_lambda.RemovePermission({
 #### Output
 *Output schema unknown*
 
+### ListVersionsByFunction
+
+
+
+```js
+amazonaws_lambda.ListVersionsByFunction({
+  "FunctionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+
+#### Output
+* output [ListVersionsByFunctionResponse](#listversionsbyfunctionresponse)
+
 ### PublishVersion
 
 
@@ -308,6 +509,7 @@ amazonaws_lambda.PublishVersion({
   * FunctionName **required** `string`
   * CodeSha256 [String](#string)
   * Description [Description](#description)
+  * RevisionId [String](#string)
 
 #### Output
 *Output schema unknown*
@@ -343,6 +545,78 @@ amazonaws_lambda.UntagResource({
 #### Output
 *Output schema unknown*
 
+### ListTags
+
+
+
+```js
+amazonaws_lambda.ListTags({
+  "ARN": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ARN **required** `string`
+
+#### Output
+* output [ListTagsResponse](#listtagsresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_lambda.TagResource({
+  "ARN": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ARN **required** `string`
+  * Tags **required** [Tags](#tags)
+
+#### Output
+*Output schema unknown*
+
+### DeleteFunctionConcurrency
+
+
+
+```js
+amazonaws_lambda.DeleteFunctionConcurrency({
+  "FunctionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### PutFunctionConcurrency
+
+
+
+```js
+amazonaws_lambda.PutFunctionConcurrency({
+  "FunctionName": "",
+  "ReservedConcurrentExecutions": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionName **required** `string`
+  * ReservedConcurrentExecutions **required** [ReservedConcurrentExecutions](#reservedconcurrentexecutions)
+
+#### Output
+* output [Concurrency](#concurrency)
+
 
 
 ## Definitions
@@ -353,6 +627,7 @@ amazonaws_lambda.UntagResource({
   * CodeSizeZipped [Long](#long)
   * ConcurrentExecutions [Integer](#integer)
   * TotalCodeSize [Long](#long)
+  * UnreservedConcurrentExecutions [UnreservedConcurrentExecutions](#unreservedconcurrentexecutions)
 
 ### AccountUsage
 * AccountUsage `object`: Provides code size usage and function count associated with the current account and region.
@@ -367,6 +642,7 @@ amazonaws_lambda.UntagResource({
   * Action **required** [Action](#action)
   * EventSourceToken [EventSourceToken](#eventsourcetoken)
   * Principal **required** [Principal](#principal)
+  * RevisionId [String](#string)
   * SourceAccount [SourceOwner](#sourceowner)
   * SourceArn [Arn](#arn)
   * StatementId **required** [StatementId](#statementid)
@@ -374,6 +650,15 @@ amazonaws_lambda.UntagResource({
 ### AddPermissionResponse
 * AddPermissionResponse `object`: <p/>
   * Statement [String](#string)
+
+### AdditionalVersion
+* AdditionalVersion `string`
+
+### AdditionalVersionWeights
+* AdditionalVersionWeights `array`
+  * items `object`
+    * key [AdditionalVersion](#additionalversion)
+    * value [Weight](#weight)
 
 ### Alias
 * Alias `string`
@@ -384,10 +669,16 @@ amazonaws_lambda.UntagResource({
   * Description [Description](#description)
   * FunctionVersion [Version](#version)
   * Name [Alias](#alias)
+  * RevisionId [String](#string)
+  * RoutingConfig [AliasRoutingConfiguration](#aliasroutingconfiguration)
 
 ### AliasList
 * AliasList `array`
   * items [AliasConfiguration](#aliasconfiguration)
+
+### AliasRoutingConfiguration
+* AliasRoutingConfiguration `object`: The parent object that implements what percentage of traffic will invoke each function version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+  * AdditionalVersionWeights [AdditionalVersionWeights](#additionalversionweights)
 
 ### Arn
 * Arn `string`
@@ -409,11 +700,16 @@ amazonaws_lambda.UntagResource({
   * Type [String](#string)
   * message [String](#string)
 
+### Concurrency
+* Concurrency `object`
+  * ReservedConcurrentExecutions [ReservedConcurrentExecutions](#reservedconcurrentexecutions)
+
 ### CreateAliasRequest
 * CreateAliasRequest `object`
   * Description [Description](#description)
   * FunctionVersion **required** [Version](#version)
   * Name **required** [Alias](#alias)
+  * RoutingConfig [AliasRoutingConfiguration](#aliasroutingconfiguration)
 
 ### CreateEventSourceMappingRequest
 * CreateEventSourceMappingRequest `object`: <p/>
@@ -454,6 +750,9 @@ amazonaws_lambda.UntagResource({
 
 ### DeleteEventSourceMappingRequest
 * DeleteEventSourceMappingRequest `object`: <p/>
+
+### DeleteFunctionConcurrencyRequest
+* DeleteFunctionConcurrencyRequest `object`
 
 ### DeleteFunctionRequest
 * DeleteFunctionRequest `object`
@@ -561,6 +860,7 @@ amazonaws_lambda.UntagResource({
   * LastModified [Timestamp](#timestamp)
   * MasterArn [FunctionArn](#functionarn)
   * MemorySize [MemorySize](#memorysize)
+  * RevisionId [String](#string)
   * Role [RoleArn](#rolearn)
   * Runtime [Runtime](#runtime)
   * Timeout [Timeout](#timeout)
@@ -601,6 +901,7 @@ amazonaws_lambda.UntagResource({
 ### GetFunctionResponse
 * GetFunctionResponse `object`: This response contains the object for the Lambda function location (see <a>FunctionCodeLocation</a>.
   * Code [FunctionCodeLocation](#functioncodelocation)
+  * Concurrency [Concurrency](#concurrency)
   * Configuration [FunctionConfiguration](#functionconfiguration)
   * Tags [Tags](#tags)
 
@@ -610,6 +911,7 @@ amazonaws_lambda.UntagResource({
 ### GetPolicyResponse
 * GetPolicyResponse `object`: <p/>
   * Policy [String](#string)
+  * RevisionId [String](#string)
 
 ### Handler
 * Handler `string`
@@ -621,7 +923,7 @@ amazonaws_lambda.UntagResource({
 * Integer `integer`
 
 ### InvalidParameterValueException
-* InvalidParameterValueException `object`: One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. You will also get this exception if you have selected a deprecated runtime, such as Node v0.10.42. 
+* InvalidParameterValueException `object`: One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception.
   * Type [String](#string)
   * message [String](#string)
 
@@ -759,6 +1061,11 @@ amazonaws_lambda.UntagResource({
   * Type [String](#string)
   * message [String](#string)
 
+### PreconditionFailedException
+* PreconditionFailedException `object`: The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your resource.
+  * Type [String](#string)
+  * message [String](#string)
+
 ### Principal
 * Principal `string`
 
@@ -766,6 +1073,11 @@ amazonaws_lambda.UntagResource({
 * PublishVersionRequest `object`: <p/>
   * CodeSha256 [String](#string)
   * Description [Description](#description)
+  * RevisionId [String](#string)
+
+### PutFunctionConcurrencyRequest
+* PutFunctionConcurrencyRequest `object`
+  * ReservedConcurrentExecutions **required** [ReservedConcurrentExecutions](#reservedconcurrentexecutions)
 
 ### Qualifier
 * Qualifier `string`
@@ -777,6 +1089,9 @@ amazonaws_lambda.UntagResource({
 * RequestTooLargeException `object`: The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. 
   * Type [String](#string)
   * message [String](#string)
+
+### ReservedConcurrentExecutions
+* ReservedConcurrentExecutions `integer`
 
 ### ResourceArn
 * ResourceArn `string`
@@ -795,7 +1110,7 @@ amazonaws_lambda.UntagResource({
 * RoleArn `string`
 
 ### Runtime
-* Runtime `string` (values: nodejs, nodejs4.3, nodejs6.10, java8, python2.7, python3.6, dotnetcore1.0, nodejs4.3-edge)
+* Runtime `string` (values: nodejs, nodejs4.3, nodejs6.10, java8, python2.7, python3.6, dotnetcore1.0, dotnetcore2.0, nodejs4.3-edge, go1.x)
 
 ### S3Bucket
 * S3Bucket `string`
@@ -863,7 +1178,7 @@ amazonaws_lambda.UntagResource({
     * value [TagValue](#tagvalue)
 
 ### ThrottleReason
-* ThrottleReason `string` (values: ConcurrentInvocationLimitExceeded, FunctionInvocationRateLimitExceeded, CallerRateLimitExceeded)
+* ThrottleReason `string` (values: ConcurrentInvocationLimitExceeded, FunctionInvocationRateLimitExceeded, ReservedFunctionConcurrentInvocationLimitExceeded, ReservedFunctionInvocationRateLimitExceeded, CallerRateLimitExceeded)
 
 ### Timeout
 * Timeout `integer`
@@ -872,7 +1187,7 @@ amazonaws_lambda.UntagResource({
 * Timestamp `string`
 
 ### TooManyRequestsException
-* TooManyRequestsException `object`: <p/>
+* TooManyRequestsException `object`:  
   * Reason [ThrottleReason](#throttlereason)
   * Type [String](#string)
   * message [String](#string)
@@ -888,6 +1203,9 @@ amazonaws_lambda.UntagResource({
 ### TracingMode
 * TracingMode `string` (values: Active, PassThrough)
 
+### UnreservedConcurrentExecutions
+* UnreservedConcurrentExecutions `integer`
+
 ### UnsupportedMediaTypeException
 * UnsupportedMediaTypeException `object`: The content type of the <code>Invoke</code> request body is not JSON.
   * Type [String](#string)
@@ -900,6 +1218,8 @@ amazonaws_lambda.UntagResource({
 * UpdateAliasRequest `object`
   * Description [Description](#description)
   * FunctionVersion [Version](#version)
+  * RevisionId [String](#string)
+  * RoutingConfig [AliasRoutingConfiguration](#aliasroutingconfiguration)
 
 ### UpdateEventSourceMappingRequest
 * UpdateEventSourceMappingRequest `object`: <p/>
@@ -911,6 +1231,7 @@ amazonaws_lambda.UntagResource({
 * UpdateFunctionCodeRequest `object`: <p/>
   * DryRun [Boolean](#boolean)
   * Publish [Boolean](#boolean)
+  * RevisionId [String](#string)
   * S3Bucket [S3Bucket](#s3bucket)
   * S3Key [S3Key](#s3key)
   * S3ObjectVersion [S3ObjectVersion](#s3objectversion)
@@ -924,6 +1245,7 @@ amazonaws_lambda.UntagResource({
   * Handler [Handler](#handler)
   * KMSKeyArn [KMSKeyArn](#kmskeyarn)
   * MemorySize [MemorySize](#memorysize)
+  * RevisionId [String](#string)
   * Role [RoleArn](#rolearn)
   * Runtime [Runtime](#runtime)
   * Timeout [Timeout](#timeout)
@@ -946,5 +1268,8 @@ amazonaws_lambda.UntagResource({
 
 ### VpcId
 * VpcId `string`
+
+### Weight
+* Weight `number`
 
 

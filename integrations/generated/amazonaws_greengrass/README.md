@@ -38,6 +38,56 @@ amazonaws_greengrass.ListCoreDefinitions({}, context)
 #### Output
 * output [ListCoreDefinitionsResponse](#listcoredefinitionsresponse)
 
+### CreateCoreDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateCoreDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [CoreDefinitionVersion](#coredefinitionversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateCoreDefinitionResponse](#createcoredefinitionresponse)
+
+### DeleteCoreDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteCoreDefinition({
+  "CoreDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CoreDefinitionId **required** `string`
+
+#### Output
+* output [DeleteCoreDefinitionResponse](#deletecoredefinitionresponse)
+
+### GetCoreDefinition
+
+
+
+```js
+amazonaws_greengrass.GetCoreDefinition({
+  "CoreDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CoreDefinitionId **required** `string`
+
+#### Output
+* output [GetCoreDefinitionResponse](#getcoredefinitionresponse)
+
 ### UpdateCoreDefinition
 
 
@@ -73,6 +123,24 @@ amazonaws_greengrass.ListCoreDefinitionVersions({
 #### Output
 * output [ListCoreDefinitionVersionsResponse](#listcoredefinitionversionsresponse)
 
+### CreateCoreDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateCoreDefinitionVersion({
+  "CoreDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CoreDefinitionId **required** `string`
+  * Cores [ListOfCore](#listofcore)
+
+#### Output
+* output [CreateCoreDefinitionVersionResponse](#createcoredefinitionversionresponse)
+
 ### GetCoreDefinitionVersion
 
 
@@ -105,6 +173,56 @@ amazonaws_greengrass.ListDeviceDefinitions({}, context)
 
 #### Output
 * output [ListDeviceDefinitionsResponse](#listdevicedefinitionsresponse)
+
+### CreateDeviceDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateDeviceDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [DeviceDefinitionVersion](#devicedefinitionversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateDeviceDefinitionResponse](#createdevicedefinitionresponse)
+
+### DeleteDeviceDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteDeviceDefinition({
+  "DeviceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeviceDefinitionId **required** `string`
+
+#### Output
+* output [DeleteDeviceDefinitionResponse](#deletedevicedefinitionresponse)
+
+### GetDeviceDefinition
+
+
+
+```js
+amazonaws_greengrass.GetDeviceDefinition({
+  "DeviceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeviceDefinitionId **required** `string`
+
+#### Output
+* output [GetDeviceDefinitionResponse](#getdevicedefinitionresponse)
 
 ### UpdateDeviceDefinition
 
@@ -141,6 +259,24 @@ amazonaws_greengrass.ListDeviceDefinitionVersions({
 #### Output
 * output [ListDeviceDefinitionVersionsResponse](#listdevicedefinitionversionsresponse)
 
+### CreateDeviceDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateDeviceDefinitionVersion({
+  "DeviceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeviceDefinitionId **required** `string`
+  * Devices [ListOfDevice](#listofdevice)
+
+#### Output
+* output [CreateDeviceDefinitionVersionResponse](#createdevicedefinitionversionresponse)
+
 ### GetDeviceDefinitionVersion
 
 
@@ -173,6 +309,56 @@ amazonaws_greengrass.ListFunctionDefinitions({}, context)
 
 #### Output
 * output [ListFunctionDefinitionsResponse](#listfunctiondefinitionsresponse)
+
+### CreateFunctionDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateFunctionDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [FunctionDefinitionVersion](#functiondefinitionversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateFunctionDefinitionResponse](#createfunctiondefinitionresponse)
+
+### DeleteFunctionDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteFunctionDefinition({
+  "FunctionDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionDefinitionId **required** `string`
+
+#### Output
+* output [DeleteFunctionDefinitionResponse](#deletefunctiondefinitionresponse)
+
+### GetFunctionDefinition
+
+
+
+```js
+amazonaws_greengrass.GetFunctionDefinition({
+  "FunctionDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionDefinitionId **required** `string`
+
+#### Output
+* output [GetFunctionDefinitionResponse](#getfunctiondefinitionresponse)
 
 ### UpdateFunctionDefinition
 
@@ -209,6 +395,24 @@ amazonaws_greengrass.ListFunctionDefinitionVersions({
 #### Output
 * output [ListFunctionDefinitionVersionsResponse](#listfunctiondefinitionversionsresponse)
 
+### CreateFunctionDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateFunctionDefinitionVersion({
+  "FunctionDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FunctionDefinitionId **required** `string`
+  * Functions [ListOfFunction](#listoffunction)
+
+#### Output
+* output [CreateFunctionDefinitionVersionResponse](#createfunctiondefinitionversionresponse)
+
 ### GetFunctionDefinitionVersion
 
 
@@ -241,6 +445,56 @@ amazonaws_greengrass.ListLoggerDefinitions({}, context)
 
 #### Output
 * output [ListLoggerDefinitionsResponse](#listloggerdefinitionsresponse)
+
+### CreateLoggerDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateLoggerDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [LoggerDefinitionVersion](#loggerdefinitionversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateLoggerDefinitionResponse](#createloggerdefinitionresponse)
+
+### DeleteLoggerDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteLoggerDefinition({
+  "LoggerDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LoggerDefinitionId **required** `string`
+
+#### Output
+* output [DeleteLoggerDefinitionResponse](#deleteloggerdefinitionresponse)
+
+### GetLoggerDefinition
+
+
+
+```js
+amazonaws_greengrass.GetLoggerDefinition({
+  "LoggerDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LoggerDefinitionId **required** `string`
+
+#### Output
+* output [GetLoggerDefinitionResponse](#getloggerdefinitionresponse)
 
 ### UpdateLoggerDefinition
 
@@ -277,6 +531,24 @@ amazonaws_greengrass.ListLoggerDefinitionVersions({
 #### Output
 * output [ListLoggerDefinitionVersionsResponse](#listloggerdefinitionversionsresponse)
 
+### CreateLoggerDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateLoggerDefinitionVersion({
+  "LoggerDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * LoggerDefinitionId **required** `string`
+  * Loggers [ListOfLogger](#listoflogger)
+
+#### Output
+* output [CreateLoggerDefinitionVersionResponse](#createloggerdefinitionversionresponse)
+
 ### GetLoggerDefinitionVersion
 
 
@@ -296,6 +568,142 @@ amazonaws_greengrass.GetLoggerDefinitionVersion({
 #### Output
 * output [GetLoggerDefinitionVersionResponse](#getloggerdefinitionversionresponse)
 
+### ListResourceDefinitions
+
+
+
+```js
+amazonaws_greengrass.ListResourceDefinitions({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListResourceDefinitionsResponse](#listresourcedefinitionsresponse)
+
+### CreateResourceDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateResourceDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [ResourceDefinitionVersion](#resourcedefinitionversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateResourceDefinitionResponse](#createresourcedefinitionresponse)
+
+### DeleteResourceDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteResourceDefinition({
+  "ResourceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceDefinitionId **required** `string`
+
+#### Output
+* output [DeleteResourceDefinitionResponse](#deleteresourcedefinitionresponse)
+
+### GetResourceDefinition
+
+
+
+```js
+amazonaws_greengrass.GetResourceDefinition({
+  "ResourceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceDefinitionId **required** `string`
+
+#### Output
+* output [GetResourceDefinitionResponse](#getresourcedefinitionresponse)
+
+### UpdateResourceDefinition
+
+
+
+```js
+amazonaws_greengrass.UpdateResourceDefinition({
+  "ResourceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceDefinitionId **required** `string`
+  * Name [__string](#__string)
+
+#### Output
+* output [UpdateResourceDefinitionResponse](#updateresourcedefinitionresponse)
+
+### ListResourceDefinitionVersions
+
+
+
+```js
+amazonaws_greengrass.ListResourceDefinitionVersions({
+  "ResourceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceDefinitionId **required** `string`
+
+#### Output
+* output [ListResourceDefinitionVersionsResponse](#listresourcedefinitionversionsresponse)
+
+### CreateResourceDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateResourceDefinitionVersion({
+  "ResourceDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceDefinitionId **required** `string`
+  * Resources [ListOfResource](#listofresource)
+
+#### Output
+* output [CreateResourceDefinitionVersionResponse](#createresourcedefinitionversionresponse)
+
+### GetResourceDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.GetResourceDefinitionVersion({
+  "ResourceDefinitionId": "",
+  "ResourceDefinitionVersionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceDefinitionId **required** `string`
+  * ResourceDefinitionVersionId **required** `string`
+
+#### Output
+* output [GetResourceDefinitionVersionResponse](#getresourcedefinitionversionresponse)
+
 ### ListSubscriptionDefinitions
 
 
@@ -309,6 +717,56 @@ amazonaws_greengrass.ListSubscriptionDefinitions({}, context)
 
 #### Output
 * output [ListSubscriptionDefinitionsResponse](#listsubscriptiondefinitionsresponse)
+
+### CreateSubscriptionDefinition
+
+
+
+```js
+amazonaws_greengrass.CreateSubscriptionDefinition({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [SubscriptionDefinitionVersion](#subscriptiondefinitionversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateSubscriptionDefinitionResponse](#createsubscriptiondefinitionresponse)
+
+### DeleteSubscriptionDefinition
+
+
+
+```js
+amazonaws_greengrass.DeleteSubscriptionDefinition({
+  "SubscriptionDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionDefinitionId **required** `string`
+
+#### Output
+* output [DeleteSubscriptionDefinitionResponse](#deletesubscriptiondefinitionresponse)
+
+### GetSubscriptionDefinition
+
+
+
+```js
+amazonaws_greengrass.GetSubscriptionDefinition({
+  "SubscriptionDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionDefinitionId **required** `string`
+
+#### Output
+* output [GetSubscriptionDefinitionResponse](#getsubscriptiondefinitionresponse)
 
 ### UpdateSubscriptionDefinition
 
@@ -345,6 +803,24 @@ amazonaws_greengrass.ListSubscriptionDefinitionVersions({
 #### Output
 * output [ListSubscriptionDefinitionVersionsResponse](#listsubscriptiondefinitionversionsresponse)
 
+### CreateSubscriptionDefinitionVersion
+
+
+
+```js
+amazonaws_greengrass.CreateSubscriptionDefinitionVersion({
+  "SubscriptionDefinitionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionDefinitionId **required** `string`
+  * Subscriptions [ListOfSubscription](#listofsubscription)
+
+#### Output
+* output [CreateSubscriptionDefinitionVersionResponse](#createsubscriptiondefinitionversionresponse)
+
 ### GetSubscriptionDefinitionVersion
 
 
@@ -377,6 +853,56 @@ amazonaws_greengrass.ListGroups({}, context)
 
 #### Output
 * output [ListGroupsResponse](#listgroupsresponse)
+
+### CreateGroup
+
+
+
+```js
+amazonaws_greengrass.CreateGroup({}, context)
+```
+
+#### Input
+* input `object`
+  * InitialVersion [GroupVersion](#groupversion)
+  * Name [__string](#__string)
+
+#### Output
+* output [CreateGroupResponse](#creategroupresponse)
+
+### DeleteGroup
+
+
+
+```js
+amazonaws_greengrass.DeleteGroup({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+
+#### Output
+* output [DeleteGroupResponse](#deletegroupresponse)
+
+### GetGroup
+
+
+
+```js
+amazonaws_greengrass.GetGroup({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+
+#### Output
+* output [GetGroupResponse](#getgroupresponse)
 
 ### UpdateGroup
 
@@ -412,6 +938,40 @@ amazonaws_greengrass.ListGroupCertificateAuthorities({
 
 #### Output
 * output [ListGroupCertificateAuthoritiesResponse](#listgroupcertificateauthoritiesresponse)
+
+### CreateGroupCertificateAuthority
+
+
+
+```js
+amazonaws_greengrass.CreateGroupCertificateAuthority({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+
+#### Output
+* output [CreateGroupCertificateAuthorityResponse](#creategroupcertificateauthorityresponse)
+
+### GetGroupCertificateConfiguration
+
+
+
+```js
+amazonaws_greengrass.GetGroupCertificateConfiguration({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+
+#### Output
+* output [GetGroupCertificateConfigurationResponse](#getgroupcertificateconfigurationresponse)
 
 ### UpdateGroupCertificateConfiguration
 
@@ -467,6 +1027,26 @@ amazonaws_greengrass.ListDeployments({
 #### Output
 * output [ListDeploymentsResponse](#listdeploymentsresponse)
 
+### CreateDeployment
+
+
+
+```js
+amazonaws_greengrass.CreateDeployment({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+  * DeploymentId [__string](#__string)
+  * DeploymentType [DeploymentType](#deploymenttype)
+  * GroupVersionId [__string](#__string)
+
+#### Output
+* output [CreateDeploymentResponse](#createdeploymentresponse)
+
 ### ResetDeployments
 
 
@@ -504,6 +1084,23 @@ amazonaws_greengrass.GetDeploymentStatus({
 #### Output
 * output [GetDeploymentStatusResponse](#getdeploymentstatusresponse)
 
+### DisassociateRoleFromGroup
+
+
+
+```js
+amazonaws_greengrass.DisassociateRoleFromGroup({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+
+#### Output
+* output [DisassociateRoleFromGroupResponse](#disassociaterolefromgroupresponse)
+
 ### GetAssociatedRole
 
 
@@ -521,6 +1118,24 @@ amazonaws_greengrass.GetAssociatedRole({
 #### Output
 * output [GetAssociatedRoleResponse](#getassociatedroleresponse)
 
+### AssociateRoleToGroup
+
+
+
+```js
+amazonaws_greengrass.AssociateRoleToGroup({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+  * RoleArn [__string](#__string)
+
+#### Output
+* output [AssociateRoleToGroupResponse](#associateroletogroupresponse)
+
 ### ListGroupVersions
 
 
@@ -537,6 +1152,29 @@ amazonaws_greengrass.ListGroupVersions({
 
 #### Output
 * output [ListGroupVersionsResponse](#listgroupversionsresponse)
+
+### CreateGroupVersion
+
+
+
+```js
+amazonaws_greengrass.CreateGroupVersion({
+  "GroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupId **required** `string`
+  * CoreDefinitionVersionArn [__string](#__string)
+  * DeviceDefinitionVersionArn [__string](#__string)
+  * FunctionDefinitionVersionArn [__string](#__string)
+  * LoggerDefinitionVersionArn [__string](#__string)
+  * ResourceDefinitionVersionArn [__string](#__string)
+  * SubscriptionDefinitionVersionArn [__string](#__string)
+
+#### Output
+* output [CreateGroupVersionResponse](#creategroupversionresponse)
 
 ### GetGroupVersion
 
@@ -557,6 +1195,20 @@ amazonaws_greengrass.GetGroupVersion({
 #### Output
 * output [GetGroupVersionResponse](#getgroupversionresponse)
 
+### DisassociateServiceRoleFromAccount
+
+
+
+```js
+amazonaws_greengrass.DisassociateServiceRoleFromAccount({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [DisassociateServiceRoleFromAccountResponse](#disassociateservicerolefromaccountresponse)
+
 ### GetServiceRoleForAccount
 
 
@@ -570,6 +1222,38 @@ amazonaws_greengrass.GetServiceRoleForAccount({}, context)
 
 #### Output
 * output [GetServiceRoleForAccountResponse](#getserviceroleforaccountresponse)
+
+### AssociateServiceRoleToAccount
+
+
+
+```js
+amazonaws_greengrass.AssociateServiceRoleToAccount({}, context)
+```
+
+#### Input
+* input `object`
+  * RoleArn [__string](#__string)
+
+#### Output
+* output [AssociateServiceRoleToAccountResponse](#associateserviceroletoaccountresponse)
+
+### GetConnectivityInfo
+
+
+
+```js
+amazonaws_greengrass.GetConnectivityInfo({
+  "ThingName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ThingName **required** `string`
+
+#### Output
+* output [GetConnectivityInfoResponse](#getconnectivityinforesponse)
 
 ### UpdateConnectivityInfo
 
@@ -588,6 +1272,26 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 
 #### Output
 * output [UpdateConnectivityInfoResponse](#updateconnectivityinforesponse)
+
+### CreateSoftwareUpdateJob
+
+
+
+```js
+amazonaws_greengrass.CreateSoftwareUpdateJob({}, context)
+```
+
+#### Input
+* input `object`
+  * S3UrlSignerRole [S3UrlSignerRole](#s3urlsignerrole)
+  * SoftwareToUpdate [SoftwareToUpdate](#softwaretoupdate)
+  * UpdateAgentLogLevel [UpdateAgentLogLevel](#updateagentloglevel)
+  * UpdateTargets [UpdateTargets](#updatetargets)
+  * UpdateTargetsArchitecture [UpdateTargetsArchitecture](#updatetargetsarchitecture)
+  * UpdateTargetsOperatingSystem [UpdateTargetsOperatingSystem](#updatetargetsoperatingsystem)
+
+#### Output
+* output [CreateSoftwareUpdateJobResponse](#createsoftwareupdatejobresponse)
 
 
 
@@ -749,6 +1453,7 @@ amazonaws_greengrass.UpdateConnectivityInfo({
   * DeviceDefinitionVersionArn [__string](#__string)
   * FunctionDefinitionVersionArn [__string](#__string)
   * LoggerDefinitionVersionArn [__string](#__string)
+  * ResourceDefinitionVersionArn [__string](#__string)
   * SubscriptionDefinitionVersionArn [__string](#__string)
 
 ### CreateGroupVersionResponse
@@ -783,6 +1488,46 @@ amazonaws_greengrass.UpdateConnectivityInfo({
   * CreationTimestamp [__string](#__string)
   * Id [__string](#__string)
   * Version [__string](#__string)
+
+### CreateResourceDefinitionRequest
+* CreateResourceDefinitionRequest `object`
+  * InitialVersion [ResourceDefinitionVersion](#resourcedefinitionversion)
+  * Name [__string](#__string)
+
+### CreateResourceDefinitionResponse
+* CreateResourceDefinitionResponse `object`
+  * Arn [__string](#__string)
+  * CreationTimestamp [__string](#__string)
+  * Id [__string](#__string)
+  * LastUpdatedTimestamp [__string](#__string)
+  * LatestVersion [__string](#__string)
+  * LatestVersionArn [__string](#__string)
+  * Name [__string](#__string)
+
+### CreateResourceDefinitionVersionRequest
+* CreateResourceDefinitionVersionRequest `object`
+  * Resources [ListOfResource](#listofresource)
+
+### CreateResourceDefinitionVersionResponse
+* CreateResourceDefinitionVersionResponse `object`
+  * Arn [__string](#__string)
+  * CreationTimestamp [__string](#__string)
+  * Id [__string](#__string)
+  * Version [__string](#__string)
+
+### CreateSoftwareUpdateJobRequest
+* CreateSoftwareUpdateJobRequest `object`
+  * S3UrlSignerRole [S3UrlSignerRole](#s3urlsignerrole)
+  * SoftwareToUpdate [SoftwareToUpdate](#softwaretoupdate)
+  * UpdateAgentLogLevel [UpdateAgentLogLevel](#updateagentloglevel)
+  * UpdateTargets [UpdateTargets](#updatetargets)
+  * UpdateTargetsArchitecture [UpdateTargetsArchitecture](#updatetargetsarchitecture)
+  * UpdateTargetsOperatingSystem [UpdateTargetsOperatingSystem](#updatetargetsoperatingsystem)
+
+### CreateSoftwareUpdateJobResponse
+* CreateSoftwareUpdateJobResponse `object`
+  * IotJobArn [__string](#__string)
+  * IotJobId [__string](#__string)
 
 ### CreateSubscriptionDefinitionRequest
 * CreateSubscriptionDefinitionRequest `object`
@@ -849,6 +1594,12 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 
 ### DeleteLoggerDefinitionResponse
 * DeleteLoggerDefinitionResponse `object`
+
+### DeleteResourceDefinitionRequest
+* DeleteResourceDefinitionRequest `object`
+
+### DeleteResourceDefinitionResponse
+* DeleteResourceDefinitionResponse `object`
 
 ### DeleteSubscriptionDefinitionRequest
 * DeleteSubscriptionDefinitionRequest `object`
@@ -925,6 +1676,8 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 
 ### FunctionConfigurationEnvironment
 * FunctionConfigurationEnvironment `object`: Environment of the function configuration
+  * AccessSysfs [__boolean](#__boolean)
+  * ResourceAccessPolicies [ListOfResourceAccessPolicy](#listofresourceaccesspolicy)
   * Variables [MapOf__string](#mapof__string)
 
 ### FunctionDefinitionVersion
@@ -1101,6 +1854,30 @@ amazonaws_greengrass.UpdateConnectivityInfo({
   * Id [__string](#__string)
   * Version [__string](#__string)
 
+### GetResourceDefinitionRequest
+* GetResourceDefinitionRequest `object`
+
+### GetResourceDefinitionResponse
+* GetResourceDefinitionResponse `object`
+  * Arn [__string](#__string)
+  * CreationTimestamp [__string](#__string)
+  * Id [__string](#__string)
+  * LastUpdatedTimestamp [__string](#__string)
+  * LatestVersion [__string](#__string)
+  * LatestVersionArn [__string](#__string)
+  * Name [__string](#__string)
+
+### GetResourceDefinitionVersionRequest
+* GetResourceDefinitionVersionRequest `object`
+
+### GetResourceDefinitionVersionResponse
+* GetResourceDefinitionVersionResponse `object`
+  * Arn [__string](#__string)
+  * CreationTimestamp [__string](#__string)
+  * Definition [ResourceDefinitionVersion](#resourcedefinitionversion)
+  * Id [__string](#__string)
+  * Version [__string](#__string)
+
 ### GetServiceRoleForAccountRequest
 * GetServiceRoleForAccountRequest `object`
 
@@ -1154,12 +1931,18 @@ amazonaws_greengrass.UpdateConnectivityInfo({
   * LatestVersionArn [__string](#__string)
   * Name [__string](#__string)
 
+### GroupOwnerSetting
+* GroupOwnerSetting `object`: Group owner related settings for local resources.
+  * AutoAddGroupOwner [__boolean](#__boolean)
+  * GroupOwner [__string](#__string)
+
 ### GroupVersion
 * GroupVersion `object`: Information on group version
   * CoreDefinitionVersionArn [__string](#__string)
   * DeviceDefinitionVersionArn [__string](#__string)
   * FunctionDefinitionVersionArn [__string](#__string)
   * LoggerDefinitionVersionArn [__string](#__string)
+  * ResourceDefinitionVersionArn [__string](#__string)
   * SubscriptionDefinitionVersionArn [__string](#__string)
 
 ### InternalServerErrorException
@@ -1299,6 +2082,14 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 * ListOfLogger `array`
   * items [Logger](#logger)
 
+### ListOfResource
+* ListOfResource `array`
+  * items [Resource](#resource)
+
+### ListOfResourceAccessPolicy
+* ListOfResourceAccessPolicy `array`
+  * items [ResourceAccessPolicy](#resourceaccesspolicy)
+
 ### ListOfSubscription
 * ListOfSubscription `array`
   * items [Subscription](#subscription)
@@ -1306,6 +2097,22 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 ### ListOfVersionInformation
 * ListOfVersionInformation `array`
   * items [VersionInformation](#versioninformation)
+
+### ListResourceDefinitionVersionsRequest
+* ListResourceDefinitionVersionsRequest `object`
+
+### ListResourceDefinitionVersionsResponse
+* ListResourceDefinitionVersionsResponse `object`
+  * NextToken [__string](#__string)
+  * Versions [ListOfVersionInformation](#listofversioninformation)
+
+### ListResourceDefinitionsRequest
+* ListResourceDefinitionsRequest `object`
+
+### ListResourceDefinitionsResponse
+* ListResourceDefinitionsResponse `object`
+  * Definitions [ListOfDefinitionInformation](#listofdefinitioninformation)
+  * NextToken [__string](#__string)
 
 ### ListSubscriptionDefinitionVersionsRequest
 * ListSubscriptionDefinitionVersionsRequest `object`
@@ -1327,6 +2134,17 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 * ListVersionsResponse `object`: List of versions response
   * NextToken [__string](#__string)
   * Versions [ListOfVersionInformation](#listofversioninformation)
+
+### LocalDeviceResourceData
+* LocalDeviceResourceData `object`: Attributes that define the Local Device Resource.
+  * GroupOwnerSetting [GroupOwnerSetting](#groupownersetting)
+  * SourcePath [__string](#__string)
+
+### LocalVolumeResourceData
+* LocalVolumeResourceData `object`: Attributes that define the Local Volume Resource.
+  * DestinationPath [__string](#__string)
+  * GroupOwnerSetting [GroupOwnerSetting](#groupownersetting)
+  * SourcePath [__string](#__string)
 
 ### Logger
 * Logger `object`: Information on the Logger
@@ -1355,6 +2173,9 @@ amazonaws_greengrass.UpdateConnectivityInfo({
     * key [__string](#__string)
     * value [__string](#__string)
 
+### Permission
+* Permission `string` (values: ro, rw): Type of permissions a function could have to access a resource.
+
 ### ResetDeploymentsRequest
 * ResetDeploymentsRequest `object`: Information needed to perform a reset of a group's deployments.
   * Force [__boolean](#__boolean)
@@ -1363,6 +2184,32 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 * ResetDeploymentsResponse `object`
   * DeploymentArn [__string](#__string)
   * DeploymentId [__string](#__string)
+
+### Resource
+* Resource `object`: Information on the resource.
+  * Id [__string](#__string)
+  * Name [__string](#__string)
+  * ResourceDataContainer [ResourceDataContainer](#resourcedatacontainer)
+
+### ResourceAccessPolicy
+* ResourceAccessPolicy `object`: Policy for the function to access a resource.
+  * Permission [Permission](#permission)
+  * ResourceId [__string](#__string)
+
+### ResourceDataContainer
+* ResourceDataContainer `object`: A container of data for all resource types.
+  * LocalDeviceResourceData [LocalDeviceResourceData](#localdeviceresourcedata)
+  * LocalVolumeResourceData [LocalVolumeResourceData](#localvolumeresourcedata)
+
+### ResourceDefinitionVersion
+* ResourceDefinitionVersion `object`: Information on resource definition version
+  * Resources [ListOfResource](#listofresource)
+
+### S3UrlSignerRole
+* S3UrlSignerRole `string`: The IAM Role that Greengrass will use to create pre-signed URLs pointing towards the update artifact.
+
+### SoftwareToUpdate
+* SoftwareToUpdate `string` (values: core, ota_agent): The piece of software on the Greengrass Core that will be updated.
 
 ### Subscription
 * Subscription `object`: Information on subscription
@@ -1374,6 +2221,9 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 ### SubscriptionDefinitionVersion
 * SubscriptionDefinitionVersion `object`: Information on subscription definition version
   * Subscriptions [ListOfSubscription](#listofsubscription)
+
+### UpdateAgentLogLevel
+* UpdateAgentLogLevel `string` (values: NONE, TRACE, DEBUG, VERBOSE, INFO, WARN, ERROR, FATAL): The minimum level of log statements that should be logged by the OTA Agent during an update.
 
 ### UpdateConnectivityInfoRequest
 * UpdateConnectivityInfoRequest `object`: connectivity info request
@@ -1429,12 +2279,29 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 ### UpdateLoggerDefinitionResponse
 * UpdateLoggerDefinitionResponse `object`
 
+### UpdateResourceDefinitionRequest
+* UpdateResourceDefinitionRequest `object`
+  * Name [__string](#__string)
+
+### UpdateResourceDefinitionResponse
+* UpdateResourceDefinitionResponse `object`
+
 ### UpdateSubscriptionDefinitionRequest
 * UpdateSubscriptionDefinitionRequest `object`
   * Name [__string](#__string)
 
 ### UpdateSubscriptionDefinitionResponse
 * UpdateSubscriptionDefinitionResponse `object`
+
+### UpdateTargets
+* UpdateTargets `array`: The target arns that this update will be applied to.
+  * items [__string](#__string)
+
+### UpdateTargetsArchitecture
+* UpdateTargetsArchitecture `string` (values: armv7l, x86_64, aarch64): The architecture of the Cores in the targets of an update
+
+### UpdateTargetsOperatingSystem
+* UpdateTargetsOperatingSystem `string` (values: ubuntu, raspbian, amazon_linux): The operating system of the Cores in the targets of an update
 
 ### VersionInformation
 * VersionInformation `object`: Information on the version

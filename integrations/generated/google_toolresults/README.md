@@ -87,10 +87,10 @@ google_toolresults.projects.histories.list({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
   * filterByName `string`: If set, only return histories with the given name.
   * pageSize `integer`: The maximum number of Histories to fetch.
   * pageToken `string`: A continuation token to resume the query at the next item.
+  * projectId **required** `string`: A Project id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -120,9 +120,9 @@ google_toolresults.projects.histories.create({
 
 #### Input
 * input `object`
+  * body [History](#history)
   * projectId **required** `string`: A Project id.
   * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
-  * body [History](#history)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -144,15 +144,15 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.get({
-  "projectId": "",
-  "historyId": ""
+  "historyId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
   * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -176,17 +176,17 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.list({
-  "projectId": "",
-  "historyId": ""
+  "historyId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
   * historyId **required** `string`: A History id.
   * pageSize `integer`: The maximum number of Executions to fetch.
   * pageToken `string`: A continuation token to resume the query at the next item.
+  * projectId **required** `string`: A Project id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -210,17 +210,17 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.create({
-  "projectId": "",
-  "historyId": ""
+  "historyId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
-  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * body [Execution](#execution)
+  * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
+  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -242,17 +242,17 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.get({
-  "projectId": "",
+  "executionId": "",
   "historyId": "",
-  "executionId": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
   * executionId **required** `string`: An Execution id.
+  * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -274,19 +274,19 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.patch({
-  "projectId": "",
+  "executionId": "",
   "historyId": "",
-  "executionId": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id. Required.
-  * historyId **required** `string`: Required.
-  * executionId **required** `string`: Required.
-  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * body [Execution](#execution)
+  * executionId **required** `string`: Required.
+  * historyId **required** `string`: Required.
+  * projectId **required** `string`: A Project id. Required.
+  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -370,19 +370,19 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.steps.list({
-  "projectId": "",
+  "executionId": "",
   "historyId": "",
-  "executionId": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
   * executionId **required** `string`: A Execution id.
+  * historyId **required** `string`: A History id.
   * pageSize `integer`: The maximum number of Steps to fetch.
   * pageToken `string`: A continuation token to resume the query at the next item.
+  * projectId **required** `string`: A Project id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -406,19 +406,19 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.steps.create({
-  "projectId": "",
+  "executionId": "",
   "historyId": "",
-  "executionId": ""
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
-  * executionId **required** `string`: A Execution id.
-  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * body [Step](#step)
+  * executionId **required** `string`: A Execution id.
+  * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
+  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -440,18 +440,18 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.steps.get({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
   * executionId **required** `string`: A Execution id.
+  * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
   * stepId **required** `string`: A Step id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -474,21 +474,21 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.steps.patch({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
-  * executionId **required** `string`: A Execution id.
-  * stepId **required** `string`: A Step id.
-  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
   * body [Step](#step)
+  * executionId **required** `string`: A Execution id.
+  * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
+  * requestId `string`: A unique request ID for server to detect duplicated requests. For example, a UUID.
+  * stepId **required** `string`: A Step id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -508,18 +508,18 @@ May return any of the following error code(s): - NOT_FOUND - The specified PerfM
 
 ```js
 google_toolresults.projects.histories.executions.steps.getPerfMetricsSummary({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The cloud project
-  * historyId **required** `string`: A tool results history ID.
   * executionId **required** `string`: A tool results execution ID.
+  * historyId **required** `string`: A tool results history ID.
+  * projectId **required** `string`: The cloud project
   * stepId **required** `string`: A tool results step ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -540,20 +540,20 @@ May return any of the following error code(s): - NOT_FOUND - The containing Step
 
 ```js
 google_toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The cloud project
-  * historyId **required** `string`: A tool results history ID.
-  * executionId **required** `string`: A tool results execution ID.
-  * stepId **required** `string`: A tool results step ID.
   * body [PerfMetricsSummary](#perfmetricssummary)
+  * executionId **required** `string`: A tool results execution ID.
+  * historyId **required** `string`: A tool results history ID.
+  * projectId **required** `string`: The cloud project
+  * stepId **required** `string`: A tool results step ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -608,20 +608,20 @@ May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSumm
 
 ```js
 google_toolresults.projects.histories.executions.steps.perfSampleSeries.create({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The cloud project
-  * historyId **required** `string`: A tool results history ID.
-  * executionId **required** `string`: A tool results execution ID.
-  * stepId **required** `string`: A tool results step ID.
   * body [PerfSampleSeries](#perfsampleseries)
+  * executionId **required** `string`: A tool results execution ID.
+  * historyId **required** `string`: A tool results history ID.
+  * projectId **required** `string`: The cloud project
+  * stepId **required** `string`: A tool results step ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -641,21 +641,21 @@ May return any of the following error code(s): - NOT_FOUND - The specified PerfS
 
 ```js
 google_toolresults.projects.histories.executions.steps.perfSampleSeries.get({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
-  "stepId": "",
-  "sampleSeriesId": ""
+  "historyId": "",
+  "projectId": "",
+  "sampleSeriesId": "",
+  "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The cloud project
-  * historyId **required** `string`: A tool results history ID.
   * executionId **required** `string`: A tool results execution ID.
-  * stepId **required** `string`: A tool results step ID.
+  * historyId **required** `string`: A tool results history ID.
+  * projectId **required** `string`: The cloud project
   * sampleSeriesId **required** `string`: A sample series id
+  * stepId **required** `string`: A tool results step ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -675,23 +675,23 @@ May return any of the following canonical error codes: - OUT_OF_RANGE - The spec
 
 ```js
 google_toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
-  "stepId": "",
-  "sampleSeriesId": ""
+  "historyId": "",
+  "projectId": "",
+  "sampleSeriesId": "",
+  "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The cloud project
-  * historyId **required** `string`: A tool results history ID.
   * executionId **required** `string`: A tool results execution ID.
-  * stepId **required** `string`: A tool results step ID.
-  * sampleSeriesId **required** `string`: A sample series id
+  * historyId **required** `string`: A tool results history ID.
   * pageSize `integer`: The default page size is 500 samples, and the maximum size is 5000. If the page_size is greater than 5000, the effective page size will be 5000
   * pageToken `string`: Optional, the next_page_token returned in the previous response
+  * projectId **required** `string`: The cloud project
+  * sampleSeriesId **required** `string`: A sample series id
+  * stepId **required** `string`: A tool results step ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -711,22 +711,22 @@ May return any of the following canonical error codes: - NOT_FOUND - The contain
 
 ```js
 google_toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
-  "stepId": "",
-  "sampleSeriesId": ""
+  "historyId": "",
+  "projectId": "",
+  "sampleSeriesId": "",
+  "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: The cloud project
-  * historyId **required** `string`: A tool results history ID.
-  * executionId **required** `string`: A tool results execution ID.
-  * stepId **required** `string`: A tool results step ID.
-  * sampleSeriesId **required** `string`: A sample series id
   * body [BatchCreatePerfSamplesRequest](#batchcreateperfsamplesrequest)
+  * executionId **required** `string`: A tool results execution ID.
+  * historyId **required** `string`: A tool results history ID.
+  * projectId **required** `string`: The cloud project
+  * sampleSeriesId **required** `string`: A sample series id
+  * stepId **required** `string`: A tool results step ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -746,21 +746,21 @@ May return any of the following canonical error codes: - PERMISSION_DENIED - if 
 
 ```js
 google_toolresults.projects.histories.executions.steps.thumbnails.list({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
   * executionId **required** `string`: An Execution id.
-  * stepId **required** `string`: A Step id.
+  * historyId **required** `string`: A History id.
   * pageSize `integer`: The maximum number of thumbnails to fetch.
   * pageToken `string`: A continuation token to resume the query at the next item.
+  * projectId **required** `string`: A Project id.
+  * stepId **required** `string`: A Step id.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -782,20 +782,20 @@ May return any of the following canonical error codes:
 
 ```js
 google_toolresults.projects.histories.executions.steps.publishXunitXmlFiles({
-  "projectId": "",
-  "historyId": "",
   "executionId": "",
+  "historyId": "",
+  "projectId": "",
   "stepId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: A Project id.
-  * historyId **required** `string`: A History id.
-  * executionId **required** `string`: A Execution id.
-  * stepId **required** `string`: A Step id. Note: This step must include a TestExecutionStep.
   * body [PublishXunitXmlFilesRequest](#publishxunitxmlfilesrequest)
+  * executionId **required** `string`: A Execution id.
+  * historyId **required** `string`: A History id.
+  * projectId **required** `string`: A Project id.
+  * stepId **required** `string`: A Step id. Note: This step must include a TestExecutionStep.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1186,7 +1186,7 @@ google_toolresults.projects.initializeSettings({
   * errorMessage `string`: A brief human-readable message describing the issue. Required.
   * severity `string` (values: info, severe, unspecifiedSeverity, warning): Severity of issue. Required.
   * stackTrace [StackTrace](#stacktrace)
-  * type `string` (values: anr, compatibleWithOrchestrator, fatalException, nativeCrash, unspecifiedType, unusedRoboDirective): Type of issue. Required.
+  * type `string` (values: anr, compatibleWithOrchestrator, fatalException, launcherActivityNotFound, nativeCrash, startActivityNotFound, unspecifiedType, unusedRoboDirective): Type of issue. Required.
   * warning [Any](#any)
 
 ### TestSuiteOverview

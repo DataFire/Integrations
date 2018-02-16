@@ -16,8 +16,8 @@ let google_prediction = require('@datafire/google_prediction').create({
 });
 
 google_prediction.hostedmodels.predict({
-  "project": "",
-  "hostedModelName": ""
+  "hostedModelName": "",
+  "project": ""
 }).then(data => {
   console.log(data);
 });
@@ -76,16 +76,16 @@ Submit input and request an output against a hosted model.
 
 ```js
 google_prediction.hostedmodels.predict({
-  "project": "",
-  "hostedModelName": ""
+  "hostedModelName": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
-  * hostedModelName **required** `string`: The name of a hosted model.
   * body [Input](#input)
+  * hostedModelName **required** `string`: The name of a hosted model.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -109,8 +109,8 @@ google_prediction.trainedmodels.insert({
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
   * body [Insert](#insert)
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -134,9 +134,9 @@ google_prediction.trainedmodels.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
   * maxResults `integer`: Maximum number of results to return.
   * pageToken `string`: Pagination token.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -154,15 +154,15 @@ Delete a trained model.
 
 ```js
 google_prediction.trainedmodels.delete({
-  "project": "",
-  "id": ""
+  "id": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
   * id **required** `string`: The unique name for the predictive model.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -180,15 +180,15 @@ Check training status of your model.
 
 ```js
 google_prediction.trainedmodels.get({
-  "project": "",
-  "id": ""
+  "id": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
   * id **required** `string`: The unique name for the predictive model.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -206,16 +206,16 @@ Add new data to a trained model.
 
 ```js
 google_prediction.trainedmodels.update({
-  "project": "",
-  "id": ""
+  "id": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
-  * id **required** `string`: The unique name for the predictive model.
   * body [Update](#update)
+  * id **required** `string`: The unique name for the predictive model.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -233,15 +233,15 @@ Get analysis of the model and the data the model was trained on.
 
 ```js
 google_prediction.trainedmodels.analyze({
-  "project": "",
-  "id": ""
+  "id": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
   * id **required** `string`: The unique name for the predictive model.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -259,16 +259,16 @@ Submit model id and request a prediction.
 
 ```js
 google_prediction.trainedmodels.predict({
-  "project": "",
-  "id": ""
+  "id": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project associated with the model.
-  * id **required** `string`: The unique name for the predictive model.
   * body [Input](#input)
+  * id **required** `string`: The unique name for the predictive model.
+  * project **required** `string`: The project associated with the model.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

@@ -317,6 +317,34 @@ reverb.countries.get(null, context)
 #### Output
 *Output schema unknown*
 
+### csps.get
+Returns a set of comparison shopping pages based on the current params
+
+
+```js
+reverb.csps.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### csps.categories.get
+
+
+
+```js
+reverb.csps.categories.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
 ### curated_sets.slug.get
 
 
@@ -507,6 +535,7 @@ reverb.listings.post({}, context)
     * condition `object`: Condition
       * uuid **required** `string` (values: fbf35668-96a0-4baa-bcde-ab18d6b1b329, 6a9dfcad-600b-46c8-9e08-ce6e5057921e, 98777886-76d0-44c8-865e-bb40e669e934, f7a3f48c-972a-44c6-b01a-0cd27488d3f6, ae4d9114-1bd7-4ec5-a4ba-6653af5ac84d, df268ad1-c462-4ba6-b6db-e007e23922ea, ac5b9c1e-dc78-466d-b0b3-7cf712967a48, 6db7df88-293b-4017-a1c1-cdb5e599fa1a, 9225283f-60c2-4413-ad18-1f5eba7a856f, 7c3f45de-2ae0-4c81-8400-fdb6b1d74890): Condition UUID
     * description `string`: Product description. Please keep formatting to a minimum.
+    * exclusive_channel `string` (values: seller_site): Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'
     * finish `string`: Finish, e.g. 'Sunburst'
     * has_inventory `boolean`: Set true if selling more than one
     * inventory `integer`: Number of items available for sale. Reverb will increment and decrement automatically.
@@ -544,6 +573,9 @@ reverb.listings.post({}, context)
     * title `string`: Title of your listing
     * upc `string`: Valid UPC code
     * upc_does_not_apply `string`: True if a brand new product has no UPC code, ie for a handmade or custom item
+    * videos `array`: List of YouTube video urls. Note: ONLY ONE ALLOWED
+      * items `object`
+        * link **required** `string`: Valid YouTube url
     * year `string`: Supports many formats. Ex: 1979, mid-70s, late 90s
 
 #### Output
@@ -828,6 +860,7 @@ reverb.listings.slug.put({
     * condition `object`: Condition
       * uuid **required** `string` (values: fbf35668-96a0-4baa-bcde-ab18d6b1b329, 6a9dfcad-600b-46c8-9e08-ce6e5057921e, 98777886-76d0-44c8-865e-bb40e669e934, f7a3f48c-972a-44c6-b01a-0cd27488d3f6, ae4d9114-1bd7-4ec5-a4ba-6653af5ac84d, df268ad1-c462-4ba6-b6db-e007e23922ea, ac5b9c1e-dc78-466d-b0b3-7cf712967a48, 6db7df88-293b-4017-a1c1-cdb5e599fa1a, 9225283f-60c2-4413-ad18-1f5eba7a856f, 7c3f45de-2ae0-4c81-8400-fdb6b1d74890): Condition UUID
     * description `string`: Product description. Please keep formatting to a minimum.
+    * exclusive_channel `string` (values: seller_site): Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'
     * finish `string`: Finish, e.g. 'Sunburst'
     * has_inventory `boolean`: Set true if selling more than one
     * inventory `integer`: Number of items available for sale. Reverb will increment and decrement automatically.
@@ -865,6 +898,9 @@ reverb.listings.slug.put({
     * title `string`: Title of your listing
     * upc `string`: Valid UPC code
     * upc_does_not_apply `string`: True if a brand new product has no UPC code, ie for a handmade or custom item
+    * videos `array`: List of YouTube video urls. Note: ONLY ONE ALLOWED
+      * items `object`
+        * link **required** `string`: Valid YouTube url
     * year `string`: Supports many formats. Ex: 1979, mid-70s, late 90s
 
 #### Output
@@ -1087,6 +1123,7 @@ reverb.my.conversations.post({}, context)
       * items `string`
     * listing_id `integer`: The id of the listing being discussed
     * recipient_id `integer`: The id of the user you are trying to contact
+    * shop_id `string`: The id of the shop you are trying to contact
 
 #### Output
 *Output schema unknown*
@@ -2181,7 +2218,7 @@ reverb.my.orders.selling.id.ship.post({
 * input `object`
   * id **required** `string`
   * body `object`
-    * provider **required** `string`: Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, Other
+    * provider **required** `string`: Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, DPD, Other
     * send_notification **required** `boolean`: Should we send an email notification to the buyer
     * tracking_number **required** `string`: Tracking number provided by the shipping provider
 
@@ -2233,6 +2270,37 @@ Get payment
 
 ```js
 reverb.my.payments.selling.id.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### my.payouts.get
+Get a list of payouts
+
+
+```js
+reverb.my.payouts.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### my.payouts.id.line_items.get
+Read the line items of a payout
+
+
+```js
+reverb.my.payouts.id.line_items.get({
   "id": ""
 }, context)
 ```
@@ -2527,7 +2595,7 @@ reverb.products.reviews.id.put({
 *Output schema unknown*
 
 ### products.slug.reviews.get
-View reviews of a product
+View reviews of a comparison shopping page
 
 
 ```js
@@ -2780,6 +2848,23 @@ reverb.shop.vacation.post(null, context)
 
 #### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
+
+### shops.id.storefronts.get
+Get storefront details on a shop.
+
+
+```js
+reverb.shops.id.storefronts.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`
 
 #### Output
 *Output schema unknown*

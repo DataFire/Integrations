@@ -32,22 +32,22 @@ google_safebrowsing.encodedFullHashes.get({
 
 #### Input
 * input `object`
-  * encodedRequest **required** `string`: A serialized FindFullHashesRequest proto.
   * clientId `string`: A client ID that (hopefully) uniquely identifies the client implementation
   * clientVersion `string`: The version of the client implementation.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * encodedRequest **required** `string`: A serialized FindFullHashesRequest proto.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [FindFullHashesResponse](#findfullhashesresponse)
@@ -64,22 +64,22 @@ google_safebrowsing.encodedUpdates.get({
 
 #### Input
 * input `object`
-  * encodedRequest **required** `string`: A serialized FetchThreatListUpdatesRequest proto.
   * clientId `string`: A client ID that uniquely identifies the client implementation of the Safe
   * clientVersion `string`: The version of the client implementation.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * encodedRequest **required** `string`: A serialized FetchThreatListUpdatesRequest proto.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [FetchThreatListUpdatesResponse](#fetchthreatlistupdatesresponse)
@@ -95,22 +95,51 @@ google_safebrowsing.fullHashes.find({}, context)
 #### Input
 * input `object`
   * body [FindFullHashesRequest](#findfullhashesrequest)
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [FindFullHashesResponse](#findfullhashesresponse)
+
+### threatHits.create
+Reports a Safe Browsing threat list hit to Google. Only projects with
+TRUSTED_REPORTER visibility can use this method.
+
+
+```js
+google_safebrowsing.threatHits.create({}, context)
+```
+
+#### Input
+* input `object`
+  * body [ThreatHit](#threathit)
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
 
 ### threatListUpdates.fetch
 Fetches the most recent threat list updates. A client can request updates
@@ -124,19 +153,19 @@ google_safebrowsing.threatListUpdates.fetch({}, context)
 #### Input
 * input `object`
   * body [FetchThreatListUpdatesRequest](#fetchthreatlistupdatesrequest)
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [FetchThreatListUpdatesResponse](#fetchthreatlistupdatesresponse)
@@ -151,19 +180,19 @@ google_safebrowsing.threatLists.list({}, context)
 
 #### Input
 * input `object`
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListThreatListsResponse](#listthreatlistsresponse)
@@ -179,19 +208,19 @@ google_safebrowsing.threatMatches.find({}, context)
 #### Input
 * input `object`
   * body [FindThreatMatchesRequest](#findthreatmatchesrequest)
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [FindThreatMatchesResponse](#findthreatmatchesresponse)
@@ -211,11 +240,16 @@ google_safebrowsing.threatMatches.find({}, context)
 
 ### Constraints
 * Constraints `object`: The constraints for this update.
+  * deviceLocation `string`: A client's physical location, expressed as a ISO 31166-1 alpha-2
+  * language `string`: Requests the lists for a specific language. Expects ISO 639 alpha-2
   * maxDatabaseEntries `integer`: Sets the maximum number of entries that the client is willing to have
   * maxUpdateEntries `integer`: The maximum size in number of entries. The update will not contain more
   * region `string`: Requests the list for a specific geographic location. If not set the
   * supportedCompressions `array`: The compression types supported by the client.
     * items `string` (values: COMPRESSION_TYPE_UNSPECIFIED, RAW, RICE)
+
+### Empty
+* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
 
 ### FetchThreatListUpdatesRequest
 * FetchThreatListUpdatesRequest `object`: Describes a Safe Browsing API update request. Clients can request updates for
@@ -321,6 +355,16 @@ google_safebrowsing.threatMatches.find({}, context)
   * riceHashes [RiceDeltaEncoding](#ricedeltaencoding)
   * riceIndices [RiceDeltaEncoding](#ricedeltaencoding)
 
+### ThreatHit
+* ThreatHit `object`
+  * clientInfo [ClientInfo](#clientinfo)
+  * entry [ThreatEntry](#threatentry)
+  * platformType `string` (values: PLATFORM_TYPE_UNSPECIFIED, WINDOWS, LINUX, ANDROID, OSX, IOS, ANY_PLATFORM, ALL_PLATFORMS, CHROME): The platform type reported.
+  * resources `array`: The resources related to the threat hit.
+    * items [ThreatSource](#threatsource)
+  * threatType `string` (values: THREAT_TYPE_UNSPECIFIED, MALWARE, SOCIAL_ENGINEERING, UNWANTED_SOFTWARE, POTENTIALLY_HARMFUL_APPLICATION, SOCIAL_ENGINEERING_INTERNAL, API_ABUSE, MALICIOUS_BINARY, CSD_WHITELIST, CSD_DOWNLOAD_WHITELIST, CLIENT_INCIDENT, CLIENT_INCIDENT_WHITELIST, APK_MALWARE_OFFLINE, SUBRESOURCE_FILTER): The threat type reported.
+  * userInfo [UserInfo](#userinfo)
+
 ### ThreatInfo
 * ThreatInfo `object`: The information regarding one or more threats that a client submits when
   * platformTypes `array`: The platform types to be checked.
@@ -346,5 +390,17 @@ google_safebrowsing.threatMatches.find({}, context)
   * threatEntryMetadata [ThreatEntryMetadata](#threatentrymetadata)
   * threatEntryType `string` (values: THREAT_ENTRY_TYPE_UNSPECIFIED, URL, EXECUTABLE, IP_RANGE, CHROME_EXTENSION, FILENAME, CERT): The threat entry type matching this threat.
   * threatType `string` (values: THREAT_TYPE_UNSPECIFIED, MALWARE, SOCIAL_ENGINEERING, UNWANTED_SOFTWARE, POTENTIALLY_HARMFUL_APPLICATION, SOCIAL_ENGINEERING_INTERNAL, API_ABUSE, MALICIOUS_BINARY, CSD_WHITELIST, CSD_DOWNLOAD_WHITELIST, CLIENT_INCIDENT, CLIENT_INCIDENT_WHITELIST, APK_MALWARE_OFFLINE, SUBRESOURCE_FILTER): The threat type matching this threat.
+
+### ThreatSource
+* ThreatSource `object`: A single resource related to a threat hit.
+  * referrer `string`: Referrer of the resource. Only set if the referrer is available.
+  * remoteIp `string`: The remote IP of the resource in ASCII format. Either IPv4 or IPv6.
+  * type `string` (values: THREAT_SOURCE_TYPE_UNSPECIFIED, MATCHING_URL, TAB_URL, TAB_REDIRECT, TAB_RESOURCE): The type of source reported.
+  * url `string`: The URL of the resource.
+
+### UserInfo
+* UserInfo `object`: Details about the user that encountered the threat.
+  * regionCode `string`: The UN M.49 region code associated with the user's location.
+  * userId `string`: Unique user identifier defined by the client.
 
 

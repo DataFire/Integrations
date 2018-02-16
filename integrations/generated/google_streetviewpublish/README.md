@@ -84,7 +84,8 @@ CreatePhoto.
 
 This method returns the following error codes:
 
-* google.rpc.Code.INVALID_ARGUMENT if the request is malformed.
+* google.rpc.Code.INVALID_ARGUMENT if the request is malformed or if
+the uploaded photo is not a 360 photo.
 * google.rpc.Code.NOT_FOUND if the upload reference does not exist.
 * google.rpc.Code.RESOURCE_EXHAUSTED if the account has reached the
 storage limit.
@@ -135,6 +136,8 @@ This method returns the following error codes:
 create the requested photo.
 * google.rpc.Code.INVALID_ARGUMENT if the request is malformed.
 * google.rpc.Code.NOT_FOUND if the requested photo does not exist.
+* google.rpc.Code.UNAVAILABLE if the requested
+Photo is still being indexed.
 
 
 ```js
@@ -211,6 +214,8 @@ This method returns the following error codes:
 create the requested Photo.
 * google.rpc.Code.NOT_FOUND if the requested
 Photo does not exist.
+* google.rpc.Code.UNAVAILABLE if the requested
+Photo is still being indexed.
 
 
 ```js
@@ -289,6 +294,9 @@ google_streetviewpublish.photo.startUpload({}, context)
 ### photos.list
 Lists all the Photos that belong to
 the user.
+
+<aside class="note"><b>Note:</b> Recently created photos that are still
+being indexed are not returned in the response.</aside>
 
 
 ```js

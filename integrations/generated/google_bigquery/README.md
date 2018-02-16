@@ -102,11 +102,11 @@ google_bigquery.datasets.list({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the datasets to be listed
   * all `boolean`: Whether to list all datasets, including hidden ones
   * filter `string`: An expression for filtering the results of the request by label. The syntax is "labels.<name>[:<value>]". Multiple filters can be ANDed together by connecting with a space. Example: "labels.department:receiving labels.active". See Filtering datasets using labels for details.
   * maxResults `integer`: The maximum number of results to return
   * pageToken `string`: Page token, returned by a previous call, to request the next page of results
+  * projectId **required** `string`: Project ID of the datasets to be listed
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -130,8 +130,8 @@ google_bigquery.datasets.insert({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the new dataset
   * body [Dataset](#dataset)
+  * projectId **required** `string`: Project ID of the new dataset
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -149,16 +149,16 @@ Deletes the dataset specified by the datasetId value. Before you can delete a da
 
 ```js
 google_bigquery.datasets.delete({
-  "projectId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the dataset being deleted
   * datasetId **required** `string`: Dataset ID of dataset being deleted
   * deleteContents `boolean`: If True, delete all the tables in the dataset. If False and the dataset contains tables, the request will fail. Default is False
+  * projectId **required** `string`: Project ID of the dataset being deleted
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -176,15 +176,15 @@ Returns the dataset specified by datasetID.
 
 ```js
 google_bigquery.datasets.get({
-  "projectId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the requested dataset
   * datasetId **required** `string`: Dataset ID of the requested dataset
+  * projectId **required** `string`: Project ID of the requested dataset
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -202,16 +202,16 @@ Updates information in an existing dataset. The update method replaces the entir
 
 ```js
 google_bigquery.datasets.patch({
-  "projectId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the dataset being updated
-  * datasetId **required** `string`: Dataset ID of the dataset being updated
   * body [Dataset](#dataset)
+  * datasetId **required** `string`: Dataset ID of the dataset being updated
+  * projectId **required** `string`: Project ID of the dataset being updated
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -229,16 +229,16 @@ Updates information in an existing dataset. The update method replaces the entir
 
 ```js
 google_bigquery.datasets.update({
-  "projectId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the dataset being updated
-  * datasetId **required** `string`: Dataset ID of the dataset being updated
   * body [Dataset](#dataset)
+  * datasetId **required** `string`: Dataset ID of the dataset being updated
+  * projectId **required** `string`: Project ID of the dataset being updated
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -256,17 +256,17 @@ Lists all tables in the specified dataset. Requires the READER dataset role.
 
 ```js
 google_bigquery.tables.list({
-  "projectId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the tables to list
   * datasetId **required** `string`: Dataset ID of the tables to list
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: Page token, returned by a previous call, to request the next page of results
+  * projectId **required** `string`: Project ID of the tables to list
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -284,16 +284,16 @@ Creates a new, empty table in the dataset.
 
 ```js
 google_bigquery.tables.insert({
-  "projectId": "",
-  "datasetId": ""
+  "datasetId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the new table
-  * datasetId **required** `string`: Dataset ID of the new table
   * body [Table](#table)
+  * datasetId **required** `string`: Dataset ID of the new table
+  * projectId **required** `string`: Project ID of the new table
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -311,16 +311,16 @@ Deletes the table specified by tableId from the dataset. If the table contains d
 
 ```js
 google_bigquery.tables.delete({
-  "projectId": "",
   "datasetId": "",
+  "projectId": "",
   "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the table to delete
   * datasetId **required** `string`: Dataset ID of the table to delete
+  * projectId **required** `string`: Project ID of the table to delete
   * tableId **required** `string`: Table ID of the table to delete
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -339,18 +339,18 @@ Gets the specified table resource by table ID. This method does not return the d
 
 ```js
 google_bigquery.tables.get({
-  "projectId": "",
   "datasetId": "",
+  "projectId": "",
   "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the requested table
   * datasetId **required** `string`: Dataset ID of the requested table
-  * tableId **required** `string`: Table ID of the requested table
+  * projectId **required** `string`: Project ID of the requested table
   * selectedFields `string`: List of fields to return (comma-separated). If unspecified, all fields are returned
+  * tableId **required** `string`: Table ID of the requested table
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -368,18 +368,18 @@ Updates information in an existing table. The update method replaces the entire 
 
 ```js
 google_bigquery.tables.patch({
-  "projectId": "",
   "datasetId": "",
+  "projectId": "",
   "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the table to update
-  * datasetId **required** `string`: Dataset ID of the table to update
-  * tableId **required** `string`: Table ID of the table to update
   * body [Table](#table)
+  * datasetId **required** `string`: Dataset ID of the table to update
+  * projectId **required** `string`: Project ID of the table to update
+  * tableId **required** `string`: Table ID of the table to update
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -397,18 +397,18 @@ Updates information in an existing table. The update method replaces the entire 
 
 ```js
 google_bigquery.tables.update({
-  "projectId": "",
   "datasetId": "",
+  "projectId": "",
   "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the table to update
-  * datasetId **required** `string`: Dataset ID of the table to update
-  * tableId **required** `string`: Table ID of the table to update
   * body [Table](#table)
+  * datasetId **required** `string`: Dataset ID of the table to update
+  * projectId **required** `string`: Project ID of the table to update
+  * tableId **required** `string`: Table ID of the table to update
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -426,21 +426,21 @@ Retrieves table data from a specified set of rows. Requires the READER dataset r
 
 ```js
 google_bigquery.tabledata.list({
-  "projectId": "",
   "datasetId": "",
+  "projectId": "",
   "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the table to read
   * datasetId **required** `string`: Dataset ID of the table to read
-  * tableId **required** `string`: Table ID of the table to read
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: Page token, returned by a previous call, identifying the result set
+  * projectId **required** `string`: Project ID of the table to read
   * selectedFields `string`: List of fields to return (comma-separated). If unspecified, all fields are returned
   * startIndex `string`: Zero-based index of the starting row to read
+  * tableId **required** `string`: Table ID of the table to read
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -458,18 +458,18 @@ Streams data into BigQuery one record at a time without needing to run a load jo
 
 ```js
 google_bigquery.tabledata.insertAll({
-  "projectId": "",
   "datasetId": "",
+  "projectId": "",
   "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the destination table.
-  * datasetId **required** `string`: Dataset ID of the destination table.
-  * tableId **required** `string`: Table ID of the destination table.
   * body [TableDataInsertAllRequest](#tabledatainsertallrequest)
+  * datasetId **required** `string`: Dataset ID of the destination table.
+  * projectId **required** `string`: Project ID of the destination table.
+  * tableId **required** `string`: Table ID of the destination table.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -493,10 +493,10 @@ google_bigquery.jobs.list({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the jobs to list
   * allUsers `boolean`: Whether to display jobs owned by all users in the project. Default false
   * maxResults `integer`: Maximum number of results to return
   * pageToken `string`: Page token, returned by a previous call, to request the next page of results
+  * projectId **required** `string`: Project ID of the jobs to list
   * projection `string` (values: full, minimal): Restrict information returned to a set of selected fields
   * stateFilter `array`: Filter for job state
   * alt `string` (values: json): Data format for the response.
@@ -522,8 +522,8 @@ google_bigquery.jobs.insert({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the project that will be billed for the job
   * body [Job](#job)
+  * projectId **required** `string`: Project ID of the project that will be billed for the job
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -541,15 +541,16 @@ Returns information about a specific job. Job information is available for a six
 
 ```js
 google_bigquery.jobs.get({
-  "projectId": "",
-  "jobId": ""
+  "jobId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: [Required] Project ID of the requested job
   * jobId **required** `string`: [Required] Job ID of the requested job
+  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU.
+  * projectId **required** `string`: [Required] Project ID of the requested job
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -567,15 +568,16 @@ Requests that a job be cancelled. This call will return immediately, and the cli
 
 ```js
 google_bigquery.jobs.cancel({
-  "projectId": "",
-  "jobId": ""
+  "jobId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: [Required] Project ID of the job to cancel
   * jobId **required** `string`: [Required] Job ID of the job to cancel
+  * location `string`: [Experimental] The geographic location of the job. Required except for US and EU.
+  * projectId **required** `string`: [Required] Project ID of the job to cancel
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -599,8 +601,8 @@ google_bigquery.jobs.query({
 
 #### Input
 * input `object`
-  * projectId **required** `string`: Project ID of the project billed for the query
   * body [QueryRequest](#queryrequest)
+  * projectId **required** `string`: Project ID of the project billed for the query
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -618,17 +620,18 @@ Retrieves the results of a query job.
 
 ```js
 google_bigquery.jobs.getQueryResults({
-  "projectId": "",
-  "jobId": ""
+  "jobId": "",
+  "projectId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectId **required** `string`: [Required] Project ID of the query job
   * jobId **required** `string`: [Required] Job ID of the query job
+  * location `string`: [Experimental] The geographic location where the job should run. Required except for US and EU.
   * maxResults `integer`: Maximum number of results to read
   * pageToken `string`: Page token, returned by a previous call, to request the next page of results
+  * projectId **required** `string`: [Required] Project ID of the query job
   * startIndex `string`: Zero-based index of the starting row
   * timeoutMs `integer`: How long to wait for the query to complete, in milliseconds, before returning. Default is 10 seconds. If the timeout passes before the job completes, the 'jobComplete' field in the response will be false
   * alt `string` (values: json): Data format for the response.
@@ -736,6 +739,7 @@ google_bigquery.projects.getServiceAccount({
       * id `string`: The fully-qualified, unique, opaque ID of the dataset.
       * kind `string`: The resource type. This property always returns the value "bigquery#dataset".
       * labels `object`: The labels associated with this dataset. You can use these to organize and group your datasets.
+      * location `string`: [Experimental] The geographic location where the data resides.
   * etag `string`: A hash value of the results page. You can use this property to determine if the page has changed since the last request.
   * kind `string`: The list type. This property always returns the value "bigquery#datasetList".
   * nextPageToken `string`: A token that can be used to request the next results page. This property is omitted on the final results page.
@@ -758,12 +762,14 @@ google_bigquery.projects.getServiceAccount({
 
 ### ExplainQueryStage
 * ExplainQueryStage `object`
+  * completedParallelInputs `string`: Number of parallel input segments completed.
   * computeMsAvg `string`: Milliseconds the average shard spent on CPU-bound tasks.
   * computeMsMax `string`: Milliseconds the slowest shard spent on CPU-bound tasks.
   * computeRatioAvg `number`: Relative amount of time the average shard spent on CPU-bound tasks.
   * computeRatioMax `number`: Relative amount of time the slowest shard spent on CPU-bound tasks.
   * id `string`: Unique ID for stage within plan.
   * name `string`: Human-readable name for stage.
+  * parallelInputs `string`: Number of parallel input segments to be processed.
   * readMsAvg `string`: Milliseconds the average shard spent reading input.
   * readMsMax `string`: Milliseconds the slowest shard spent reading input.
   * readRatioAvg `number`: Relative amount of time the average shard spent reading input.
@@ -852,7 +858,8 @@ google_bigquery.projects.getServiceAccount({
   * copy [JobConfigurationTableCopy](#jobconfigurationtablecopy)
   * dryRun `boolean`: [Optional] If set, don't actually run this job. A valid query will return a mostly empty response with some processing statistics, while an invalid query will return the same error it would if it wasn't a dry run. Behavior of non-query jobs is undefined.
   * extract [JobConfigurationExtract](#jobconfigurationextract)
-  * labels `object`: [Experimental] The labels associated with this job. You can use these to organize and group your jobs. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.
+  * jobTimeoutMs `string`: [Optional] Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
+  * labels `object`: The labels associated with this job. You can use these to organize and group your jobs. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.
   * load [JobConfigurationLoad](#jobconfigurationload)
   * query [JobConfigurationQuery](#jobconfigurationquery)
 
@@ -886,7 +893,7 @@ google_bigquery.projects.getServiceAccount({
   * schema [TableSchema](#tableschema)
   * schemaInline `string`: [Deprecated] The inline schema. For CSV schemas, specify as "Field1:Type1[,Field2:Type2]*". For example, "foo:STRING, bar:INTEGER, baz:FLOAT".
   * schemaInlineFormat `string`: [Deprecated] The format of the schemaInline property.
-  * schemaUpdateOptions `array`: Allows the schema of the desitination table to be updated as a side effect of the load job if a schema is autodetected or supplied in the job configuration. Schema update options are supported in two cases: when writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE and the destination table is a partition of a table, specified by partition decorators. For normal tables, WRITE_TRUNCATE will always overwrite the schema. One or more of the following values are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original schema to nullable.
+  * schemaUpdateOptions `array`: Allows the schema of the destination table to be updated as a side effect of the load job if a schema is autodetected or supplied in the job configuration. Schema update options are supported in two cases: when writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE and the destination table is a partition of a table, specified by partition decorators. For normal tables, WRITE_TRUNCATE will always overwrite the schema. One or more of the following values are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original schema to nullable.
     * items `string`
   * skipLeadingRows `integer`: [Optional] The number of rows at the top of a CSV file that BigQuery will skip when loading the data. The default value is 0. This property is useful if you have header rows in the file that should be skipped.
   * sourceFormat `string`: [Optional] The format of the data files. For CSV files, specify "CSV". For datastore backups, specify "DATASTORE_BACKUP". For newline-delimited JSON, specify "NEWLINE_DELIMITED_JSON". For Avro, specify "AVRO". The default value is CSV.
@@ -951,10 +958,12 @@ google_bigquery.projects.getServiceAccount({
 ### JobReference
 * JobReference `object`
   * jobId `string`: [Required] The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
+  * location [Location](#location)
   * projectId `string`: [Required] The ID of the project containing this job.
 
 ### JobStatistics
 * JobStatistics `object`
+  * completionRatio `number`: [Experimental] [Output-only] Job progress (0.0 -> 1.0) for LOAD and EXTRACT jobs.
   * creationTime `string`: [Output-only] Creation time of this job, in milliseconds since the epoch. This field will be present on all jobs.
   * endTime `string`: [Output-only] End time of this job, in milliseconds since the epoch. This field will be present whenever a job is in the DONE state.
   * extract [JobStatistics4](#jobstatistics4)
@@ -969,13 +978,16 @@ google_bigquery.projects.getServiceAccount({
   * cacheHit `boolean`: [Output-only] Whether the query result was fetched from the query cache.
   * ddlOperationPerformed `string`: [Output-only, Experimental] The DDL operation performed, possibly dependent on the pre-existence of the DDL target. Possible values (new values might be added in the future): "CREATE": The query created the DDL target. "SKIP": No-op. Example cases: the query is CREATE TABLE IF NOT EXISTS while the table already exists, or the query is DROP TABLE IF EXISTS while the table does not exist. "REPLACE": The query replaced the DDL target. Example case: the query is CREATE OR REPLACE TABLE, and the table already exists. "DROP": The query deleted the DDL target.
   * ddlTargetTable [TableReference](#tablereference)
+  * estimatedBytesProcessed `string`: [Output-only] The original estimate of bytes processed for the job.
   * numDmlAffectedRows `string`: [Output-only] The number of rows affected by a DML statement. Present only for DML statements INSERT, UPDATE or DELETE.
   * queryPlan `array`: [Output-only] Describes execution plan for the query.
     * items [ExplainQueryStage](#explainquerystage)
-  * referencedTables `array`: [Output-only, Experimental] Referenced tables for the job. Queries that reference more than 50 tables will not have a complete list.
+  * referencedTables `array`: [Output-only] Referenced tables for the job. Queries that reference more than 50 tables will not have a complete list.
     * items [TableReference](#tablereference)
   * schema [TableSchema](#tableschema)
-  * statementType `string`: [Output-only, Experimental] The type of query statement, if valid.
+  * statementType `string`: [Output-only, Experimental] The type of query statement, if valid. Possible values (new values might be added in the future): "SELECT": SELECT query. "INSERT": INSERT query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language "UPDATE": UPDATE query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language "DELETE": DELETE query; see https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT. "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ... "DROP_TABLE": DROP TABLE query. "CREATE_VIEW": CREATE [OR REPLACE] VIEW ... AS SELECT ... "DROP_VIEW": DROP VIEW query.
+  * timeline `array`: [Output-only] Describes a timeline of job execution.
+    * items [QueryTimelineSample](#querytimelinesample)
   * totalBytesBilled `string`: [Output-only] Total bytes billed for the job.
   * totalBytesProcessed `string`: [Output-only] Total bytes processed for the job.
   * totalSlotMs `string`: [Output-only] Slot-milliseconds for the job.
@@ -1007,6 +1019,9 @@ google_bigquery.projects.getServiceAccount({
 
 ### JsonValue
 
+
+### Location
+* Location `string`
 
 ### ProjectList
 * ProjectList `object`
@@ -1054,6 +1069,7 @@ google_bigquery.projects.getServiceAccount({
   * defaultDataset [DatasetReference](#datasetreference)
   * dryRun `boolean`: [Optional] If set to true, BigQuery doesn't run the job. Instead, if the query is valid, BigQuery returns statistics about the job such as how many bytes would be processed. If the query is invalid, an error returns. The default value is false.
   * kind `string`: The resource type of the request.
+  * location [Location](#location)
   * maxResults `integer`: [Optional] The maximum number of rows of data to return per page of results. Setting this flag to a small value such as 1000 and then paging through results might improve reliability when the query result set is large. In addition to this limit, responses are also limited to 10 MB. By default, there is no maximum row count, and only the byte limit applies.
   * parameterMode `string`: Standard SQL only. Set to POSITIONAL to use positional (?) query parameters or to NAMED to use named (@myparam) query parameters in this query.
   * preserveNulls `boolean`: [Deprecated] This property is deprecated.
@@ -1080,6 +1096,14 @@ google_bigquery.projects.getServiceAccount({
   * totalBytesProcessed `string`: The total number of bytes processed for this query. If this query was a dry run, this is the number of bytes that would be processed if the query were run.
   * totalRows `string`: The total number of rows in the complete query result set, which can be more than the number of rows in this single page of results.
 
+### QueryTimelineSample
+* QueryTimelineSample `object`
+  * activeInputs `integer`: Total number of active workers. This does not correspond directly to slot usage. This is the largest value observed since the last sample.
+  * completedInputs `integer`: Total parallel units of work completed by this query.
+  * elapsedMs `string`: Milliseconds elapsed since the start of query execution.
+  * pendingInputs `string`: Total parallel units of work remaining for the active stages.
+  * totalSlotMs `string`: Cumulative slot-ms consumed by the query.
+
 ### Streamingbuffer
 * Streamingbuffer `object`
   * estimatedBytes `string`: [Output-only] A lower-bound estimate of the number of bytes currently in the streaming buffer.
@@ -1092,12 +1116,12 @@ google_bigquery.projects.getServiceAccount({
   * description `string`: [Optional] A user-friendly description of this table.
   * encryptionConfiguration [EncryptionConfiguration](#encryptionconfiguration)
   * etag `string`: [Output-only] A hash of this resource.
-  * expirationTime `string`: [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed.
+  * expirationTime `string`: [Optional] The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed. The defaultTableExpirationMs property of the encapsulating dataset can be used to set a default expirationTime on newly created tables.
   * externalDataConfiguration [ExternalDataConfiguration](#externaldataconfiguration)
   * friendlyName `string`: [Optional] A descriptive name for this table.
   * id `string`: [Output-only] An opaque ID uniquely identifying the table.
   * kind `string`: [Output-only] The type of the resource.
-  * labels `object`: [Experimental] The labels associated with this table. You can use these to organize and group your tables. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.
+  * labels `object`: The labels associated with this table. You can use these to organize and group your tables. Label keys and values can be no longer than 63 characters, can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter and each label in the list must have a different key.
   * lastModifiedTime `string`: [Output-only] The time when this table was last modified, in milliseconds since the epoch.
   * location `string`: [Output-only] The geographic location where the table resides. This value is inherited from the dataset.
   * numBytes `string`: [Output-only] The size of this table in bytes, excluding any data in the streaming buffer.
@@ -1164,7 +1188,7 @@ google_bigquery.projects.getServiceAccount({
       * friendlyName `string`: The user-friendly name for this table.
       * id `string`: An opaque ID of the table
       * kind `string`: The resource type.
-      * labels `object`: [Experimental] The labels associated with this table. You can use these to organize and group your tables.
+      * labels `object`: The labels associated with this table. You can use these to organize and group your tables.
       * tableReference [TableReference](#tablereference)
       * timePartitioning [TimePartitioning](#timepartitioning)
       * type `string`: The type of table. Possible values are: TABLE, VIEW.

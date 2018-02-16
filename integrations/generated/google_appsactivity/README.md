@@ -142,7 +142,7 @@ google_appsactivity.activities.list({}, context)
 * Permission `object`: Contains information about the permissions and type of access allowed with regards to a Google Drive object. This is a subset of the fields contained in a corresponding Drive Permissions object.
   * name `string`: The name of the user or group the permission applies to.
   * permissionId `string`: The ID for this permission. Corresponds to the Drive API's permission ID returned as part of the Drive Permissions resource.
-  * role `string` (values: commenter, owner, reader, writer): Indicates the Google Drive permissions role. The role determines a user's ability to read, write, or comment on the file.
+  * role `string` (values: commenter, owner, publishedReader, reader, writer): Indicates the Google Drive permissions role. The role determines a user's ability to read, write, or comment on the file.
   * type `string` (values: anyone, domain, group, user): Indicates how widely permissions are granted.
   * user [User](#user)
   * withLink `boolean`: Whether the permission requires a link to the file.

@@ -79,6 +79,26 @@ amazonaws_elasticfilesystem.DescribeFileSystems({}, context)
 #### Output
 * output [DescribeFileSystemsResponse](#describefilesystemsresponse)
 
+### CreateFileSystem
+
+
+
+```js
+amazonaws_elasticfilesystem.CreateFileSystem({
+  "CreationToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CreationToken **required** [CreationToken](#creationtoken)
+  * Encrypted [Encrypted](#encrypted)
+  * KmsKeyId [KmsKeyId](#kmskeyid)
+  * PerformanceMode [PerformanceMode](#performancemode)
+
+#### Output
+*Output schema unknown*
+
 ### DeleteFileSystem
 
 
@@ -110,6 +130,27 @@ amazonaws_elasticfilesystem.DescribeMountTargets({}, context)
 #### Output
 * output [DescribeMountTargetsResponse](#describemounttargetsresponse)
 
+### CreateMountTarget
+
+
+
+```js
+amazonaws_elasticfilesystem.CreateMountTarget({
+  "FileSystemId": "",
+  "SubnetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * FileSystemId **required** [FileSystemId](#filesystemid)
+  * IpAddress [IpAddress](#ipaddress)
+  * SecurityGroups [SecurityGroups](#securitygroups)
+  * SubnetId **required** [SubnetId](#subnetid)
+
+#### Output
+* output [MountTargetDescription](#mounttargetdescription)
+
 ### DeleteMountTarget
 
 
@@ -126,6 +167,23 @@ amazonaws_elasticfilesystem.DeleteMountTarget({
 
 #### Output
 *Output schema unknown*
+
+### DescribeMountTargetSecurityGroups
+
+
+
+```js
+amazonaws_elasticfilesystem.DescribeMountTargetSecurityGroups({
+  "MountTargetId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * MountTargetId **required** `string`
+
+#### Output
+* output [DescribeMountTargetSecurityGroupsResponse](#describemounttargetsecuritygroupsresponse)
 
 ### ModifyMountTargetSecurityGroups
 

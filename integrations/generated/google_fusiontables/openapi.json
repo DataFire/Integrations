@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "API for working with Fusion Tables data.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Fusion Tables",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -47,12 +52,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/fusiontables": "Manage your Fusion Tables",
         "https://www.googleapis.com/auth/fusiontables.readonly": "View your Fusion Tables"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/fusiontables": "Manage your Fusion Tables",
+        "https://www.googleapis.com/auth/fusiontables.readonly": "View your Fusion Tables"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -144,17 +160,17 @@
         "operationId": "query.sqlGet",
         "parameters": [
           {
+            "description": "Whether column names are included (in the first row). Default is true.",
+            "in": "query",
+            "name": "hdrs",
+            "type": "boolean"
+          },
+          {
             "description": "A SQL statement which can be any of \n- SELECT\n- SHOW\n- DESCRIBE",
             "in": "query",
             "name": "sql",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether column names are included (in the first row). Default is true.",
-            "in": "query",
-            "name": "hdrs",
-            "type": "boolean"
           },
           {
             "description": "Whether typed values are returned in the (JSON) response: numbers for numeric values and parsed geometries for KML values. Default is true.",
@@ -175,10 +191,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -215,17 +237,17 @@
         "operationId": "query.sql",
         "parameters": [
           {
+            "description": "Whether column names are included in the first row. Default is true.",
+            "in": "query",
+            "name": "hdrs",
+            "type": "boolean"
+          },
+          {
             "description": "A Fusion Tables SQL statement, which can be any of \n- SELECT\n- INSERT\n- UPDATE\n- DELETE\n- SHOW\n- DESCRIBE\n- CREATE",
             "in": "query",
             "name": "sql",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether column names are included in the first row. Default is true.",
-            "in": "query",
-            "name": "hdrs",
-            "type": "boolean"
           },
           {
             "description": "Whether typed values are returned in the (JSON) response: numbers for numeric values and parsed geometries for KML values. Default is true.",
@@ -246,10 +268,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -290,10 +318,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -349,6 +383,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -389,13 +426,6 @@
         "operationId": "table.importTable",
         "parameters": [
           {
-            "description": "The name to be assigned to the new table.",
-            "in": "query",
-            "name": "name",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The delimiter used to separate cell values. This can only consist of a single character. Default is ,.",
             "in": "query",
             "name": "delimiter",
@@ -405,6 +435,13 @@
             "description": "The encoding of the content. Default is UTF-8. Use auto-detect if you are unsure of the encoding.",
             "in": "query",
             "name": "encoding",
+            "type": "string"
+          },
+          {
+            "description": "The name to be assigned to the new table.",
+            "in": "query",
+            "name": "name",
+            "required": true,
             "type": "string"
           }
         ],
@@ -419,6 +456,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -449,6 +489,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -481,10 +524,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -521,11 +570,11 @@
         "operationId": "table.patch",
         "parameters": [
           {
-            "description": "ID of the table that is being updated.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Table"
+            }
           },
           {
             "description": "Whether the view definition is also updated. The specified view definition replaces the existing one. Only a view can be updated with a new definition.",
@@ -534,11 +583,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Table"
-            }
+            "description": "ID of the table that is being updated.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -553,6 +602,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -565,11 +617,11 @@
         "operationId": "table.update",
         "parameters": [
           {
-            "description": "ID of the table that is being updated.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Table"
+            }
           },
           {
             "description": "Whether the view definition is also updated. The specified view definition replaces the existing one. Only a view can be updated with a new definition.",
@@ -578,11 +630,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Table"
-            }
+            "description": "ID of the table that is being updated.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -596,6 +648,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -611,13 +666,6 @@
         "operationId": "column.list",
         "parameters": [
           {
-            "description": "Table whose columns are being listed.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Maximum number of columns to return. Default is 5.",
             "in": "query",
             "minimum": 0,
@@ -628,6 +676,13 @@
             "description": "Continuation token specifying which result page to return.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Table whose columns are being listed.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -643,10 +698,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -683,18 +744,18 @@
         "operationId": "column.insert",
         "parameters": [
           {
-            "description": "Table for which a new column is being added.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Column"
             }
+          },
+          {
+            "description": "Table for which a new column is being added.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -708,6 +769,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -723,16 +787,16 @@
         "operationId": "column.delete",
         "parameters": [
           {
-            "description": "Table from which the column is being deleted.",
+            "description": "Name or identifier for the column being deleted.",
             "in": "path",
-            "name": "tableId",
+            "name": "columnId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name or identifier for the column being deleted.",
+            "description": "Table from which the column is being deleted.",
             "in": "path",
-            "name": "columnId",
+            "name": "tableId",
             "required": true,
             "type": "string"
           }
@@ -746,6 +810,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -758,16 +825,16 @@
         "operationId": "column.get",
         "parameters": [
           {
-            "description": "Table to which the column belongs.",
+            "description": "Name or identifier for the column that is being requested.",
             "in": "path",
-            "name": "tableId",
+            "name": "columnId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Name or identifier for the column that is being requested.",
+            "description": "Table to which the column belongs.",
             "in": "path",
-            "name": "columnId",
+            "name": "tableId",
             "required": true,
             "type": "string"
           }
@@ -784,10 +851,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -824,11 +897,11 @@
         "operationId": "column.patch",
         "parameters": [
           {
-            "description": "Table for which the column is being updated.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Column"
+            }
           },
           {
             "description": "Name or identifier for the column that is being updated.",
@@ -838,11 +911,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Column"
-            }
+            "description": "Table for which the column is being updated.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -857,6 +930,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -869,11 +945,11 @@
         "operationId": "column.update",
         "parameters": [
           {
-            "description": "Table for which the column is being updated.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Column"
+            }
           },
           {
             "description": "Name or identifier for the column that is being updated.",
@@ -883,11 +959,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Column"
-            }
+            "description": "Table for which the column is being updated.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -901,6 +977,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -939,17 +1018,17 @@
         "operationId": "table.copy",
         "parameters": [
           {
+            "description": "Whether to also copy tabs, styles, and templates. Default is false.",
+            "in": "query",
+            "name": "copyPresentation",
+            "type": "boolean"
+          },
+          {
             "description": "ID of the table that is being copied.",
             "in": "path",
             "name": "tableId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to also copy tabs, styles, and templates. Default is false.",
-            "in": "query",
-            "name": "copyPresentation",
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -964,10 +1043,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1009,13 +1094,6 @@
         "operationId": "table.importRows",
         "parameters": [
           {
-            "description": "The table into which new rows are being imported.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The delimiter used to separate cell values. This can only consist of a single character. Default is ,.",
             "in": "query",
             "name": "delimiter",
@@ -1044,6 +1122,13 @@
             "in": "query",
             "name": "startLine",
             "type": "integer"
+          },
+          {
+            "description": "The table into which new rows are being imported.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1057,6 +1142,68 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ]
+          }
+        ],
+        "tags": [
+          "table"
+        ]
+      }
+    },
+    "/tables/{tableId}/refetch": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Replaces rows of the table with the rows of the spreadsheet that is first imported from. Current rows remain visible until all replacement rows are ready.",
+        "operationId": "table.refetchSheet",
+        "parameters": [
+          {
+            "description": "Table whose rows will be replaced from the spreadsheet.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1098,13 +1245,6 @@
         "operationId": "table.replaceRows",
         "parameters": [
           {
-            "description": "Table whose rows will be replaced.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The delimiter used to separate cell values. This can only consist of a single character. Default is ,.",
             "in": "query",
             "name": "delimiter",
@@ -1133,6 +1273,13 @@
             "in": "query",
             "name": "startLine",
             "type": "integer"
+          },
+          {
+            "description": "Table whose rows will be replaced.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1146,6 +1293,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1161,13 +1311,6 @@
         "operationId": "style.list",
         "parameters": [
           {
-            "description": "Table whose styles are being listed",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Maximum number of styles to return. Optional. Default is 5.",
             "in": "query",
             "minimum": 0,
@@ -1178,6 +1321,13 @@
             "description": "Continuation token specifying which result page to return. Optional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Table whose styles are being listed",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1193,10 +1343,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1233,18 +1389,18 @@
         "operationId": "style.insert",
         "parameters": [
           {
-            "description": "Table for which a new style is being added",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/StyleSetting"
             }
+          },
+          {
+            "description": "Table for which a new style is being added",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1258,6 +1414,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1273,18 +1432,18 @@
         "operationId": "style.delete",
         "parameters": [
           {
-            "description": "Table from which the style is being deleted",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Identifier (within a table) for the style being deleted",
             "in": "path",
             "name": "styleId",
             "required": true,
             "type": "integer"
+          },
+          {
+            "description": "Table from which the style is being deleted",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1295,6 +1454,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1308,18 +1470,18 @@
         "operationId": "style.get",
         "parameters": [
           {
-            "description": "Table to which the requested style belongs",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Identifier (integer) for a specific style in a table",
             "in": "path",
             "name": "styleId",
             "required": true,
             "type": "integer"
+          },
+          {
+            "description": "Table to which the requested style belongs",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1334,10 +1496,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1374,11 +1542,11 @@
         "operationId": "style.patch",
         "parameters": [
           {
-            "description": "Table whose style is being updated.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StyleSetting"
+            }
           },
           {
             "description": "Identifier (within a table) for the style being updated.",
@@ -1388,11 +1556,11 @@
             "type": "integer"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StyleSetting"
-            }
+            "description": "Table whose style is being updated.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1407,6 +1575,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -1419,11 +1590,11 @@
         "operationId": "style.update",
         "parameters": [
           {
-            "description": "Table whose style is being updated.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StyleSetting"
+            }
           },
           {
             "description": "Identifier (within a table) for the style being updated.",
@@ -1433,11 +1604,11 @@
             "type": "integer"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StyleSetting"
-            }
+            "description": "Table whose style is being updated.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1451,6 +1622,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1465,13 +1639,6 @@
         "description": "Retrieves a list of tasks.",
         "operationId": "task.list",
         "parameters": [
-          {
-            "description": "Table whose tasks are being listed.",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Maximum number of tasks to return. Default is 5.",
             "in": "query",
@@ -1490,6 +1657,13 @@
             "in": "query",
             "name": "startIndex",
             "type": "integer"
+          },
+          {
+            "description": "Table whose tasks are being listed.",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1504,10 +1678,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1569,6 +1749,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -1607,10 +1790,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1649,13 +1838,6 @@
         "operationId": "template.list",
         "parameters": [
           {
-            "description": "Identifier for the table whose templates are being requested",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Maximum number of templates to return. Optional. Default is 5.",
             "in": "query",
             "minimum": 0,
@@ -1666,6 +1848,13 @@
             "description": "Continuation token specifying which results page to return. Optional.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "Identifier for the table whose templates are being requested",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1681,10 +1870,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1721,18 +1916,18 @@
         "operationId": "template.insert",
         "parameters": [
           {
-            "description": "Table for which a new template is being created",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Template"
             }
+          },
+          {
+            "description": "Table for which a new template is being created",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1746,6 +1941,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1783,6 +1981,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }
@@ -1822,10 +2023,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables.readonly"
             ]
           }
@@ -1862,6 +2069,13 @@
         "operationId": "template.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Template"
+            }
+          },
+          {
             "description": "Table to which the updated template belongs",
             "in": "path",
             "name": "tableId",
@@ -1874,13 +2088,6 @@
             "name": "templateId",
             "required": true,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Template"
-            }
           }
         ],
         "responses": {
@@ -1895,6 +2102,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fusiontables"
             ]
           }
         ],
@@ -1906,6 +2116,13 @@
         "description": "Updates an existing template",
         "operationId": "template.update",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Template"
+            }
+          },
           {
             "description": "Table to which the updated template belongs",
             "in": "path",
@@ -1919,13 +2136,6 @@
             "name": "templateId",
             "required": true,
             "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Template"
-            }
           }
         ],
         "responses": {
@@ -1939,6 +2149,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fusiontables"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fusiontables"
             ]
           }

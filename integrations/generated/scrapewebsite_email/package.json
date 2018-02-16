@@ -1,6 +1,6 @@
 {
   "name": "@datafire/scrapewebsite_email",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Scrape Website Email API",
   "repository": {

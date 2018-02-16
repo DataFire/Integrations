@@ -22,20 +22,6 @@ Live API Documentation
 
 ## Actions
 
-### active_servers
-&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
-
-
-```js
-blazemeter.active_servers(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output [ApiResponse](#apiresponse)
-
 ### active_sessions
 &nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
 
@@ -48,7 +34,7 @@ blazemeter.active_sessions(null, context)
 *This action has no parameters*
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### panic_terminate
 &nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -60,10 +46,10 @@ blazemeter.panic_terminate({}, context)
 
 #### Input
 * input `object`
-  * blazemeter\Routing\v4\UserModel5 [UserModel5](#usermodel5)
+  * blazemeter\Routing\v4\UserModel5 [blazemeter\Routing\v4\UserModel5](#blazemeter\routing\v4\usermodel5)
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### retrieveCollections
 List organization multi-tests&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -79,7 +65,7 @@ blazemeter.retrieveCollections({}, context)
   * limit `string`
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### retrieveInvites
 &nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -108,7 +94,7 @@ blazemeter.retrieveLocations(null, context)
 *This action has no parameters*
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### retrieveMasters
 List user private masters&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -124,7 +110,7 @@ blazemeter.retrieveMasters({}, context)
   * limit `integer`
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### user.password.patch
 Update user name&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -138,10 +124,10 @@ blazemeter.user.password.patch({
 
 #### Input
 * input `object`
-  * blazemeter\Routing\v4\UserModel1 **required** [UserModel1](#usermodel1)
+  * blazemeter\Routing\v4\UserModel1 **required** [blazemeter\Routing\v4\UserModel1](#blazemeter\routing\v4\usermodel1)
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### user.password.post
 Update user name&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -155,10 +141,10 @@ blazemeter.user.password.post({
 
 #### Input
 * input `object`
-  * blazemeter\Routing\v4\UserModel3 **required** [UserModel3](#usermodel3)
+  * blazemeter\Routing\v4\UserModel3 **required** [blazemeter\Routing\v4\UserModel3](#blazemeter\routing\v4\usermodel3)
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### user.password.put
 Update user name&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -172,10 +158,10 @@ blazemeter.user.password.put({
 
 #### Input
 * input `object`
-  * blazemeter\Routing\v4\UserModel2 **required** [UserModel2](#usermodel2)
+  * blazemeter\Routing\v4\UserModel2 **required** [blazemeter\Routing\v4\UserModel2](#blazemeter\routing\v4\usermodel2)
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### retrieveProjects
 Get user projects&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -189,7 +175,7 @@ blazemeter.retrieveProjects(null, context)
 *This action has no parameters*
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### register_retrieve
 Registration&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -210,7 +196,7 @@ blazemeter.register_retrieve({
   * lastName `string`: Last name
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### register
 Registration&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -224,10 +210,10 @@ blazemeter.register({
 
 #### Input
 * input `object`
-  * blazemeter\Routing\v4\UserModel4 **required** [UserModel4](#usermodel4)
+  * blazemeter\Routing\v4\UserModel4 **required** [blazemeter\Routing\v4\UserModel4](#blazemeter\routing\v4\usermodel4)
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### retrieveTests
 List user private tests&nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -243,7 +229,7 @@ blazemeter.retrieveTests({}, context)
   * limit `string`
 
 #### Output
-* output [ApiResponse](#apiresponse)
+* output [blazemeter\Model\ApiResponse](#blazemeter\model\apiresponse)
 
 ### top
 &nbsp; <i class="fa fa-lg fa-unlock-alt"></i>
@@ -296,5 +282,23 @@ blazemeter.top(null, context)
 * UserModel5 `object`: UserModel5 Model
   * session_ids `array`
     * items `string`
+
+### blazemeter\Model\ApiResponse
+
+
+### blazemeter\Routing\v4\UserModel1
+
+
+### blazemeter\Routing\v4\UserModel2
+
+
+### blazemeter\Routing\v4\UserModel3
+
+
+### blazemeter\Routing\v4\UserModel4
+
+
+### blazemeter\Routing\v4\UserModel5
+
 
 

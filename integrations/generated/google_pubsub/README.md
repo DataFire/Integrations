@@ -15,7 +15,7 @@ let google_pubsub = require('@datafire/google_pubsub').create({
   redirect_uri: ""
 });
 
-google_pubsub.projects.topics.create({
+google_pubsub.projects.snapshots.patch({
   "name": ""
 }).then(data => {
   console.log(data);
@@ -70,6 +70,38 @@ google_pubsub.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
+### projects.snapshots.patch
+Updates an existing snapshot. Note that certain properties of a
+snapshot are not modifiable.
+
+
+```js
+google_pubsub.projects.snapshots.patch({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [UpdateSnapshotRequest](#updatesnapshotrequest)
+  * name **required** `string`: The name of the snapshot.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Snapshot](#snapshot)
+
 ### projects.topics.create
 Creates the given topic with the given name.
 
@@ -84,22 +116,54 @@ google_pubsub.projects.topics.create({
 * input `object`
   * body [Topic](#topic)
   * name **required** `string`: The name of the topic. It must have the format
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Topic](#topic)
+
+### projects.snapshots.list
+Lists the existing snapshots.
+
+
+```js
+google_pubsub.projects.snapshots.list({
+  "project": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pageSize `integer`: Maximum number of snapshots to return.
+  * pageToken `string`: The value returned by the last `ListSnapshotsResponse`; indicates that this
+  * project **required** `string`: The name of the cloud project that snapshots belong to.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListSnapshotsResponse](#listsnapshotsresponse)
 
 ### projects.subscriptions.list
 Lists matching subscriptions.
@@ -113,22 +177,22 @@ google_pubsub.projects.subscriptions.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: The name of the cloud project that subscriptions belong to.
-  * pageToken `string`: The value returned by the last `ListSubscriptionsResponse`; indicates that
   * pageSize `integer`: Maximum number of subscriptions to return.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * pageToken `string`: The value returned by the last `ListSubscriptionsResponse`; indicates that
+  * project **required** `string`: The name of the cloud project that subscriptions belong to.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListSubscriptionsResponse](#listsubscriptionsresponse)
@@ -145,22 +209,22 @@ google_pubsub.projects.topics.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: The name of the cloud project that topics belong to.
-  * pageToken `string`: The value returned by the last `ListTopicsResponse`; indicates that this is
   * pageSize `integer`: Maximum number of topics to return.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * pageToken `string`: The value returned by the last `ListTopicsResponse`; indicates that this is
+  * project **required** `string`: The name of the cloud project that topics belong to.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListTopicsResponse](#listtopicsresponse)
@@ -180,19 +244,19 @@ google_pubsub.projects.topics.getIamPolicy({
 #### Input
 * input `object`
   * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Policy](#policy)
@@ -210,21 +274,21 @@ google_pubsub.projects.topics.setIamPolicy({
 
 #### Input
 * input `object`
-  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
   * body [SetIamPolicyRequest](#setiampolicyrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Policy](#policy)
@@ -247,24 +311,87 @@ google_pubsub.projects.topics.testIamPermissions({
 
 #### Input
 * input `object`
-  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
   * body [TestIamPermissionsRequest](#testiampermissionsrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
+
+### projects.snapshots.delete
+Removes an existing snapshot. All messages retained in the snapshot
+are immediately dropped. After a snapshot is deleted, a new one may be
+created with the same name, but the new one has no association with the old
+snapshot or its subscription, unless the same subscription is specified.
+
+
+```js
+google_pubsub.projects.snapshots.delete({
+  "snapshot": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * snapshot **required** `string`: The name of the snapshot to delete.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Empty](#empty)
+
+### projects.snapshots.get
+Gets the configuration details of a snapshot.
+
+
+```js
+google_pubsub.projects.snapshots.get({
+  "snapshot": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * snapshot **required** `string`: The name of the snapshot to get.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Snapshot](#snapshot)
 
 ### projects.subscriptions.delete
 Deletes an existing subscription. All messages retained in the subscription
@@ -283,19 +410,19 @@ google_pubsub.projects.subscriptions.delete({
 #### Input
 * input `object`
   * subscription **required** `string`: The subscription to delete.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -313,19 +440,19 @@ google_pubsub.projects.subscriptions.get({
 #### Input
 * input `object`
   * subscription **required** `string`: The name of the subscription to get.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Subscription](#subscription)
@@ -348,21 +475,21 @@ google_pubsub.projects.subscriptions.acknowledge({
 
 #### Input
 * input `object`
-  * subscription **required** `string`: The subscription whose message is being acknowledged.
   * body [AcknowledgeRequest](#acknowledgerequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * subscription **required** `string`: The subscription whose message is being acknowledged.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -383,21 +510,21 @@ google_pubsub.projects.subscriptions.modifyAckDeadline({
 
 #### Input
 * input `object`
-  * subscription **required** `string`: The name of the subscription.
   * body [ModifyAckDeadlineRequest](#modifyackdeadlinerequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * subscription **required** `string`: The name of the subscription.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -419,21 +546,21 @@ google_pubsub.projects.subscriptions.modifyPushConfig({
 
 #### Input
 * input `object`
-  * subscription **required** `string`: The name of the subscription.
   * body [ModifyPushConfigRequest](#modifypushconfigrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * subscription **required** `string`: The name of the subscription.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -453,24 +580,56 @@ google_pubsub.projects.subscriptions.pull({
 
 #### Input
 * input `object`
-  * subscription **required** `string`: The subscription from which messages should be pulled.
   * body [PullRequest](#pullrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * subscription **required** `string`: The subscription from which messages should be pulled.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [PullResponse](#pullresponse)
+
+### projects.subscriptions.seek
+Seeks an existing subscription to a point in time or to a given snapshot,
+whichever is provided in the request.
+
+
+```js
+google_pubsub.projects.subscriptions.seek({
+  "subscription": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [SeekRequest](#seekrequest)
+  * subscription **required** `string`: The subscription to affect.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [SeekResponse](#seekresponse)
 
 ### projects.topics.delete
 Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
@@ -489,19 +648,19 @@ google_pubsub.projects.topics.delete({
 #### Input
 * input `object`
   * topic **required** `string`: Name of the topic to delete.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -519,25 +678,57 @@ google_pubsub.projects.topics.get({
 #### Input
 * input `object`
   * topic **required** `string`: The name of the topic to get.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Topic](#topic)
 
+### projects.topics.snapshots.list
+Lists the names of the snapshots on this topic.
+
+
+```js
+google_pubsub.projects.topics.snapshots.list({
+  "topic": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * pageSize `integer`: Maximum number of snapshot names to return.
+  * pageToken `string`: The value returned by the last `ListTopicSnapshotsResponse`; indicates
+  * topic **required** `string`: The name of the topic that snapshots are attached to.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListTopicSnapshotsResponse](#listtopicsnapshotsresponse)
+
 ### projects.topics.subscriptions.list
-Lists the name of the subscriptions for this topic.
+Lists the names of the subscriptions on this topic.
 
 
 ```js
@@ -548,22 +739,22 @@ google_pubsub.projects.topics.subscriptions.list({
 
 #### Input
 * input `object`
-  * topic **required** `string`: The name of the topic that subscriptions are attached to.
-  * pageToken `string`: The value returned by the last `ListTopicSubscriptionsResponse`; indicates
   * pageSize `integer`: Maximum number of subscription names to return.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * pageToken `string`: The value returned by the last `ListTopicSubscriptionsResponse`; indicates
+  * topic **required** `string`: The name of the topic that subscriptions are attached to.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListTopicSubscriptionsResponse](#listtopicsubscriptionsresponse)
@@ -582,21 +773,21 @@ google_pubsub.projects.topics.publish({
 
 #### Input
 * input `object`
-  * topic **required** `string`: The messages in the request will be published on this topic.
   * body [PublishRequest](#publishrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * bearer_token `string`: OAuth bearer token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
+  * topic **required** `string`: The messages in the request will be published on this topic.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [PublishResponse](#publishresponse)
@@ -616,14 +807,30 @@ google_pubsub.projects.topics.publish({
     * items `string`
   * role `string`: Role that is assigned to `members`.
 
+### CreateSnapshotRequest
+* CreateSnapshotRequest `object`: Request for the `CreateSnapshot` method.
+  * subscription `string`: The subscription whose backlog the snapshot retains.
+
 ### Empty
 * Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+
+### ListSnapshotsResponse
+* ListSnapshotsResponse `object`: Response for the `ListSnapshots` method.
+  * nextPageToken `string`: If not empty, indicates that there may be more snapshot that match the
+  * snapshots `array`: The resulting snapshots.
+    * items [Snapshot](#snapshot)
 
 ### ListSubscriptionsResponse
 * ListSubscriptionsResponse `object`: Response for the `ListSubscriptions` method.
   * nextPageToken `string`: If not empty, indicates that there may be more subscriptions that match
   * subscriptions `array`: The subscriptions that match the request.
     * items [Subscription](#subscription)
+
+### ListTopicSnapshotsResponse
+* ListTopicSnapshotsResponse `object`: Response for the `ListTopicSnapshots` method.
+  * nextPageToken `string`: If not empty, indicates that there may be more snapshots that match
+  * snapshots `array`: The names of the snapshots that match the request.
+    * items `string`
 
 ### ListTopicSubscriptionsResponse
 * ListTopicSubscriptionsResponse `object`: Response for the `ListTopicSubscriptions` method.
@@ -652,7 +859,7 @@ google_pubsub.projects.topics.publish({
   * bindings `array`: Associates a list of `members` to a `role`.
     * items [Binding](#binding)
   * etag `string`: `etag` is used for optimistic concurrency control as a way to help
-  * version `integer`: Version of the `Policy`. The default version is 0.
+  * version `integer`: Deprecated.
 
 ### PublishRequest
 * PublishRequest `object`: Request for the Publish method.
@@ -691,15 +898,31 @@ google_pubsub.projects.topics.publish({
   * ackId `string`: This ID can be used to acknowledge the received message.
   * message [PubsubMessage](#pubsubmessage)
 
+### SeekRequest
+* SeekRequest `object`: Request for the `Seek` method.
+  * snapshot `string`: The snapshot to seek to. The snapshot's topic must be the same as that of
+  * time `string`: The time to seek to.
+
+### SeekResponse
+* SeekResponse `object`
+
 ### SetIamPolicyRequest
 * SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
   * policy [Policy](#policy)
 
+### Snapshot
+* Snapshot `object`: A snapshot resource.
+  * expireTime `string`: The snapshot is guaranteed to exist up until this time.
+  * name `string`: The name of the snapshot.
+  * topic `string`: The name of the topic from which this snapshot is retaining messages.
+
 ### Subscription
 * Subscription `object`: A subscription resource.
   * ackDeadlineSeconds `integer`: This value is the maximum time after a subscriber receives a message
+  * messageRetentionDuration `string`: How long to retain unacknowledged messages in the subscription's backlog,
   * name `string`: The name of the subscription. It must have the format
   * pushConfig [PushConfig](#pushconfig)
+  * retainAckedMessages `boolean`: Indicates whether to retain acknowledged messages. If true, then
   * topic `string`: The name of the topic from which this subscription is receiving messages.
 
 ### TestIamPermissionsRequest
@@ -715,5 +938,15 @@ google_pubsub.projects.topics.publish({
 ### Topic
 * Topic `object`: A topic resource.
   * name `string`: The name of the topic. It must have the format
+
+### UpdateSnapshotRequest
+* UpdateSnapshotRequest `object`: Request for the UpdateSnapshot method.
+  * snapshot [Snapshot](#snapshot)
+  * updateMask `string`: Indicates which fields in the provided snapshot to update.
+
+### UpdateSubscriptionRequest
+* UpdateSubscriptionRequest `object`: Request for the UpdateSubscription method.
+  * subscription [Subscription](#subscription)
+  * updateMask `string`: Indicates which fields in the provided subscription to update.
 
 

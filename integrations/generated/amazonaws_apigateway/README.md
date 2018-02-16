@@ -13,7 +13,7 @@ let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').create({
   region: ""
 });
 
-amazonaws_apigateway.UpdateAccount({}).then(data => {
+amazonaws_apigateway.GetAccount({}).then(data => {
   console.log(data);
 });
 ```
@@ -23,6 +23,20 @@ amazonaws_apigateway.UpdateAccount({}).then(data => {
 <fullname>Amazon API Gateway</fullname> <p>Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.</p>
 
 ## Actions
+
+### GetAccount
+
+
+
+```js
+amazonaws_apigateway.GetAccount({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [Account](#account)
 
 ### UpdateAccount
 
@@ -54,6 +68,57 @@ amazonaws_apigateway.GetApiKeys({}, context)
 
 #### Output
 * output [ApiKeys](#apikeys)
+
+### CreateApiKey
+
+
+
+```js
+amazonaws_apigateway.CreateApiKey({}, context)
+```
+
+#### Input
+* input `object`
+  * customerId [String](#string)
+  * description [String](#string)
+  * enabled [Boolean](#boolean)
+  * generateDistinctId [Boolean](#boolean)
+  * name [String](#string)
+  * stageKeys [ListOfStageKeys](#listofstagekeys)
+  * value [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteApiKey
+
+
+
+```js
+amazonaws_apigateway.DeleteApiKey({}, context)
+```
+
+#### Input
+* input `object`
+  * apiKey `string`
+
+#### Output
+*Output schema unknown*
+
+### GetApiKey
+
+
+
+```js
+amazonaws_apigateway.GetApiKey({}, context)
+```
+
+#### Input
+* input `object`
+  * apiKey `string`
+
+#### Output
+* output [ApiKey](#apikey)
 
 ### UpdateApiKey
 
@@ -104,6 +169,51 @@ amazonaws_apigateway.GetClientCertificates({}, context)
 #### Output
 * output [ClientCertificates](#clientcertificates)
 
+### GenerateClientCertificate
+
+
+
+```js
+amazonaws_apigateway.GenerateClientCertificate({}, context)
+```
+
+#### Input
+* input `object`
+  * description [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteClientCertificate
+
+
+
+```js
+amazonaws_apigateway.DeleteClientCertificate({}, context)
+```
+
+#### Input
+* input `object`
+  * clientcertificateId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetClientCertificate
+
+
+
+```js
+amazonaws_apigateway.GetClientCertificate({}, context)
+```
+
+#### Input
+* input `object`
+  * clientcertificateId `string`
+
+#### Output
+* output [ClientCertificate](#clientcertificate)
+
 ### UpdateClientCertificate
 
 
@@ -135,6 +245,61 @@ amazonaws_apigateway.GetDomainNames({}, context)
 
 #### Output
 * output [DomainNames](#domainnames)
+
+### CreateDomainName
+
+
+
+```js
+amazonaws_apigateway.CreateDomainName({
+  "domainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * certificateArn [String](#string)
+  * certificateBody [String](#string)
+  * certificateChain [String](#string)
+  * certificateName [String](#string)
+  * certificatePrivateKey [String](#string)
+  * domainName **required** [String](#string)
+  * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
+  * regionalCertificateArn [String](#string)
+  * regionalCertificateName [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteDomainName
+
+
+
+```js
+amazonaws_apigateway.DeleteDomainName({}, context)
+```
+
+#### Input
+* input `object`
+  * domainName `string`
+
+#### Output
+*Output schema unknown*
+
+### GetDomainName
+
+
+
+```js
+amazonaws_apigateway.GetDomainName({}, context)
+```
+
+#### Input
+* input `object`
+  * domainName `string`
+
+#### Output
+* output [DomainName](#domainname)
 
 ### UpdateDomainName
 
@@ -169,6 +334,58 @@ amazonaws_apigateway.GetBasePathMappings({}, context)
 #### Output
 * output [BasePathMappings](#basepathmappings)
 
+### CreateBasePathMapping
+
+
+
+```js
+amazonaws_apigateway.CreateBasePathMapping({
+  "restApiId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * domainName `string`
+  * basePath [String](#string)
+  * restApiId **required** [String](#string)
+  * stage [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteBasePathMapping
+
+
+
+```js
+amazonaws_apigateway.DeleteBasePathMapping({}, context)
+```
+
+#### Input
+* input `object`
+  * domainName `string`
+  * basePath `string`
+
+#### Output
+*Output schema unknown*
+
+### GetBasePathMapping
+
+
+
+```js
+amazonaws_apigateway.GetBasePathMapping({}, context)
+```
+
+#### Input
+* input `object`
+  * domainName `string`
+  * basePath `string`
+
+#### Output
+* output [BasePathMapping](#basepathmapping)
+
 ### UpdateBasePathMapping
 
 
@@ -202,6 +419,60 @@ amazonaws_apigateway.GetRestApis({}, context)
 #### Output
 * output [RestApis](#restapis)
 
+### CreateRestApi
+
+
+
+```js
+amazonaws_apigateway.CreateRestApi({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiKeySource [ApiKeySourceType](#apikeysourcetype)
+  * binaryMediaTypes [ListOfString](#listofstring)
+  * cloneFrom [String](#string)
+  * description [String](#string)
+  * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
+  * minimumCompressionSize [NullableInteger](#nullableinteger)
+  * name **required** [String](#string)
+  * version [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteRestApi
+
+
+
+```js
+amazonaws_apigateway.DeleteRestApi({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetRestApi
+
+
+
+```js
+amazonaws_apigateway.GetRestApi({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+
+#### Output
+* output [RestApi](#restapi)
+
 ### UpdateRestApi
 
 
@@ -214,6 +485,24 @@ amazonaws_apigateway.UpdateRestApi({}, context)
 * input `object`
   * restapiId `string`
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
+
+#### Output
+* output [RestApi](#restapi)
+
+### PutRestApi
+
+
+
+```js
+amazonaws_apigateway.PutRestApi({
+  "body": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * body **required** [Blob](#blob)
 
 #### Output
 * output [RestApi](#restapi)
@@ -233,6 +522,65 @@ amazonaws_apigateway.GetAuthorizers({}, context)
 #### Output
 * output [Authorizers](#authorizers)
 
+### CreateAuthorizer
+
+
+
+```js
+amazonaws_apigateway.CreateAuthorizer({
+  "name": "",
+  "type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * authType [String](#string)
+  * authorizerCredentials [String](#string)
+  * authorizerResultTtlInSeconds [NullableInteger](#nullableinteger)
+  * authorizerUri [String](#string)
+  * identitySource [String](#string)
+  * identityValidationExpression [String](#string)
+  * name **required** [String](#string)
+  * providerARNs [ListOfARNs](#listofarns)
+  * type **required** [AuthorizerType](#authorizertype)
+
+#### Output
+*Output schema unknown*
+
+### DeleteAuthorizer
+
+
+
+```js
+amazonaws_apigateway.DeleteAuthorizer({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * authorizerId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetAuthorizer
+
+
+
+```js
+amazonaws_apigateway.GetAuthorizer({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * authorizerId `string`
+
+#### Output
+* output [Authorizer](#authorizer)
+
 ### UpdateAuthorizer
 
 
@@ -249,6 +597,27 @@ amazonaws_apigateway.UpdateAuthorizer({}, context)
 
 #### Output
 * output [Authorizer](#authorizer)
+
+### TestInvokeAuthorizer
+
+
+
+```js
+amazonaws_apigateway.TestInvokeAuthorizer({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * authorizerId `string`
+  * additionalContext [MapOfStringToString](#mapofstringtostring)
+  * body [String](#string)
+  * headers [MapOfHeaderValues](#mapofheadervalues)
+  * pathWithQueryString [String](#string)
+  * stageVariables [MapOfStringToString](#mapofstringtostring)
+
+#### Output
+* output [TestInvokeAuthorizerResponse](#testinvokeauthorizerresponse)
 
 ### GetDeployments
 
@@ -267,6 +636,60 @@ amazonaws_apigateway.GetDeployments({}, context)
 #### Output
 * output [Deployments](#deployments)
 
+### CreateDeployment
+
+
+
+```js
+amazonaws_apigateway.CreateDeployment({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * cacheClusterEnabled [NullableBoolean](#nullableboolean)
+  * cacheClusterSize [CacheClusterSize](#cacheclustersize)
+  * canarySettings [DeploymentCanarySettings](#deploymentcanarysettings)
+  * description [String](#string)
+  * stageDescription [String](#string)
+  * stageName [String](#string)
+  * variables [MapOfStringToString](#mapofstringtostring)
+
+#### Output
+*Output schema unknown*
+
+### DeleteDeployment
+
+
+
+```js
+amazonaws_apigateway.DeleteDeployment({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * deploymentId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetDeployment
+
+
+
+```js
+amazonaws_apigateway.GetDeployment({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * deploymentId `string`
+
+#### Output
+* output [Deployment](#deployment)
+
 ### UpdateDeployment
 
 
@@ -283,6 +706,43 @@ amazonaws_apigateway.UpdateDeployment({}, context)
 
 #### Output
 * output [Deployment](#deployment)
+
+### GetDocumentationParts
+
+
+
+```js
+amazonaws_apigateway.GetDocumentationParts({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+
+#### Output
+* output [DocumentationParts](#documentationparts)
+
+### CreateDocumentationPart
+
+
+
+```js
+amazonaws_apigateway.CreateDocumentationPart({
+  "location": {
+    "type": ""
+  },
+  "properties": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * location **required** [DocumentationPartLocation](#documentationpartlocation)
+  * properties **required** [String](#string)
+
+#### Output
+*Output schema unknown*
 
 ### ImportDocumentationParts
 
@@ -301,6 +761,38 @@ amazonaws_apigateway.ImportDocumentationParts({
 
 #### Output
 * output [DocumentationPartIds](#documentationpartids)
+
+### DeleteDocumentationPart
+
+
+
+```js
+amazonaws_apigateway.DeleteDocumentationPart({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * partId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetDocumentationPart
+
+
+
+```js
+amazonaws_apigateway.GetDocumentationPart({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * partId `string`
+
+#### Output
+* output [DocumentationPart](#documentationpart)
 
 ### UpdateDocumentationPart
 
@@ -334,6 +826,58 @@ amazonaws_apigateway.GetDocumentationVersions({}, context)
 #### Output
 * output [DocumentationVersions](#documentationversions)
 
+### CreateDocumentationVersion
+
+
+
+```js
+amazonaws_apigateway.CreateDocumentationVersion({
+  "documentationVersion": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * description [String](#string)
+  * documentationVersion **required** [String](#string)
+  * stageName [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteDocumentationVersion
+
+
+
+```js
+amazonaws_apigateway.DeleteDocumentationVersion({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * docVersion `string`
+
+#### Output
+*Output schema unknown*
+
+### GetDocumentationVersion
+
+
+
+```js
+amazonaws_apigateway.GetDocumentationVersion({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * docVersion `string`
+
+#### Output
+* output [DocumentationVersion](#documentationversion)
+
 ### UpdateDocumentationVersion
 
 
@@ -366,6 +910,38 @@ amazonaws_apigateway.GetGatewayResponses({}, context)
 #### Output
 * output [GatewayResponses](#gatewayresponses)
 
+### DeleteGatewayResponse
+
+
+
+```js
+amazonaws_apigateway.DeleteGatewayResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * responseType `string`
+
+#### Output
+*Output schema unknown*
+
+### GetGatewayResponse
+
+
+
+```js
+amazonaws_apigateway.GetGatewayResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * responseType `string`
+
+#### Output
+* output [GatewayResponse](#gatewayresponse)
+
 ### UpdateGatewayResponse
 
 
@@ -383,6 +959,25 @@ amazonaws_apigateway.UpdateGatewayResponse({}, context)
 #### Output
 * output [GatewayResponse](#gatewayresponse)
 
+### PutGatewayResponse
+
+
+
+```js
+amazonaws_apigateway.PutGatewayResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * responseType `string`
+  * responseParameters [MapOfStringToString](#mapofstringtostring)
+  * responseTemplates [MapOfStringToString](#mapofstringtostring)
+  * statusCode [StatusCode](#statuscode)
+
+#### Output
+*Output schema unknown*
+
 ### GetModels
 
 
@@ -399,6 +994,60 @@ amazonaws_apigateway.GetModels({}, context)
 
 #### Output
 * output [Models](#models)
+
+### CreateModel
+
+
+
+```js
+amazonaws_apigateway.CreateModel({
+  "name": "",
+  "contentType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * contentType **required** [String](#string)
+  * description [String](#string)
+  * name **required** [String](#string)
+  * schema [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteModel
+
+
+
+```js
+amazonaws_apigateway.DeleteModel({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * modelName `string`
+
+#### Output
+*Output schema unknown*
+
+### GetModel
+
+
+
+```js
+amazonaws_apigateway.GetModel({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * modelName `string`
+
+#### Output
+* output [Model](#model)
 
 ### UpdateModel
 
@@ -447,6 +1096,56 @@ amazonaws_apigateway.GetRequestValidators({}, context)
 
 #### Output
 * output [RequestValidators](#requestvalidators)
+
+### CreateRequestValidator
+
+
+
+```js
+amazonaws_apigateway.CreateRequestValidator({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * name [String](#string)
+  * validateRequestBody [Boolean](#boolean)
+  * validateRequestParameters [Boolean](#boolean)
+
+#### Output
+*Output schema unknown*
+
+### DeleteRequestValidator
+
+
+
+```js
+amazonaws_apigateway.DeleteRequestValidator({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * requestvalidatorId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetRequestValidator
+
+
+
+```js
+amazonaws_apigateway.GetRequestValidator({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * requestvalidatorId `string`
+
+#### Output
+* output [RequestValidator](#requestvalidator)
 
 ### UpdateRequestValidator
 
@@ -501,6 +1200,38 @@ amazonaws_apigateway.CreateResource({
 #### Output
 *Output schema unknown*
 
+### DeleteResource
+
+
+
+```js
+amazonaws_apigateway.DeleteResource({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetResource
+
+
+
+```js
+amazonaws_apigateway.GetResource({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+
+#### Output
+* output [Resource](#resource)
+
 ### UpdateResource
 
 
@@ -517,6 +1248,40 @@ amazonaws_apigateway.UpdateResource({}, context)
 
 #### Output
 * output [Resource](#resource)
+
+### DeleteMethod
+
+
+
+```js
+amazonaws_apigateway.DeleteMethod({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+
+#### Output
+*Output schema unknown*
+
+### GetMethod
+
+
+
+```js
+amazonaws_apigateway.GetMethod({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+
+#### Output
+* output [Method](#method)
 
 ### UpdateMethod
 
@@ -536,6 +1301,89 @@ amazonaws_apigateway.UpdateMethod({}, context)
 #### Output
 * output [Method](#method)
 
+### TestInvokeMethod
+
+
+
+```js
+amazonaws_apigateway.TestInvokeMethod({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * body [String](#string)
+  * clientCertificateId [String](#string)
+  * headers [MapOfHeaderValues](#mapofheadervalues)
+  * pathWithQueryString [String](#string)
+  * stageVariables [MapOfStringToString](#mapofstringtostring)
+
+#### Output
+* output [TestInvokeMethodResponse](#testinvokemethodresponse)
+
+### PutMethod
+
+
+
+```js
+amazonaws_apigateway.PutMethod({
+  "authorizationType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * apiKeyRequired [Boolean](#boolean)
+  * authorizationScopes [ListOfString](#listofstring)
+  * authorizationType **required** [String](#string)
+  * authorizerId [String](#string)
+  * operationName [String](#string)
+  * requestModels [MapOfStringToString](#mapofstringtostring)
+  * requestParameters [MapOfStringToBoolean](#mapofstringtoboolean)
+  * requestValidatorId [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteIntegration
+
+
+
+```js
+amazonaws_apigateway.DeleteIntegration({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+
+#### Output
+*Output schema unknown*
+
+### GetIntegration
+
+
+
+```js
+amazonaws_apigateway.GetIntegration({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+
+#### Output
+* output [Integration](#integration)
+
 ### UpdateIntegration
 
 
@@ -553,6 +1401,74 @@ amazonaws_apigateway.UpdateIntegration({}, context)
 
 #### Output
 * output [Integration](#integration)
+
+### PutIntegration
+
+
+
+```js
+amazonaws_apigateway.PutIntegration({
+  "type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * cacheKeyParameters [ListOfString](#listofstring)
+  * cacheNamespace [String](#string)
+  * connectionId [String](#string)
+  * connectionType [ConnectionType](#connectiontype)
+  * contentHandling [ContentHandlingStrategy](#contenthandlingstrategy)
+  * credentials [String](#string)
+  * integrationHttpMethod [String](#string)
+  * passthroughBehavior [String](#string)
+  * requestParameters [MapOfStringToString](#mapofstringtostring)
+  * requestTemplates [MapOfStringToString](#mapofstringtostring)
+  * timeoutInMillis [NullableInteger](#nullableinteger)
+  * type **required** [IntegrationType](#integrationtype)
+  * uri [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteIntegrationResponse
+
+
+
+```js
+amazonaws_apigateway.DeleteIntegrationResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * statusCode `string`
+
+#### Output
+*Output schema unknown*
+
+### GetIntegrationResponse
+
+
+
+```js
+amazonaws_apigateway.GetIntegrationResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * statusCode `string`
+
+#### Output
+* output [IntegrationResponse](#integrationresponse)
 
 ### UpdateIntegrationResponse
 
@@ -573,6 +1489,64 @@ amazonaws_apigateway.UpdateIntegrationResponse({}, context)
 #### Output
 * output [IntegrationResponse](#integrationresponse)
 
+### PutIntegrationResponse
+
+
+
+```js
+amazonaws_apigateway.PutIntegrationResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * statusCode `string`
+  * contentHandling [ContentHandlingStrategy](#contenthandlingstrategy)
+  * responseParameters [MapOfStringToString](#mapofstringtostring)
+  * responseTemplates [MapOfStringToString](#mapofstringtostring)
+  * selectionPattern [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteMethodResponse
+
+
+
+```js
+amazonaws_apigateway.DeleteMethodResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * statusCode `string`
+
+#### Output
+*Output schema unknown*
+
+### GetMethodResponse
+
+
+
+```js
+amazonaws_apigateway.GetMethodResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * statusCode `string`
+
+#### Output
+* output [MethodResponse](#methodresponse)
+
 ### UpdateMethodResponse
 
 
@@ -592,6 +1566,26 @@ amazonaws_apigateway.UpdateMethodResponse({}, context)
 #### Output
 *Output schema unknown*
 
+### PutMethodResponse
+
+
+
+```js
+amazonaws_apigateway.PutMethodResponse({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * resourceId `string`
+  * httpMethod `string`
+  * statusCode `string`
+  * responseModels [MapOfStringToString](#mapofstringtostring)
+  * responseParameters [MapOfStringToBoolean](#mapofstringtoboolean)
+
+#### Output
+*Output schema unknown*
+
 ### GetStages
 
 
@@ -606,6 +1600,65 @@ amazonaws_apigateway.GetStages({}, context)
 
 #### Output
 * output [Stages](#stages)
+
+### CreateStage
+
+
+
+```js
+amazonaws_apigateway.CreateStage({
+  "stageName": "",
+  "deploymentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * cacheClusterEnabled [Boolean](#boolean)
+  * cacheClusterSize [CacheClusterSize](#cacheclustersize)
+  * canarySettings [CanarySettings](#canarysettings)
+  * deploymentId **required** [String](#string)
+  * description [String](#string)
+  * documentationVersion [String](#string)
+  * stageName **required** [String](#string)
+  * tags [MapOfStringToString](#mapofstringtostring)
+  * variables [MapOfStringToString](#mapofstringtostring)
+
+#### Output
+*Output schema unknown*
+
+### DeleteStage
+
+
+
+```js
+amazonaws_apigateway.DeleteStage({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * stageName `string`
+
+#### Output
+*Output schema unknown*
+
+### GetStage
+
+
+
+```js
+amazonaws_apigateway.GetStage({}, context)
+```
+
+#### Input
+* input `object`
+  * restapiId `string`
+  * stageName `string`
+
+#### Output
+* output [Stage](#stage)
 
 ### UpdateStage
 
@@ -736,6 +1789,54 @@ amazonaws_apigateway.GetSdkType({}, context)
 #### Output
 * output [SdkType](#sdktype)
 
+### UntagResource
+
+
+
+```js
+amazonaws_apigateway.UntagResource({}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn `string`
+
+#### Output
+*Output schema unknown*
+
+### GetTags
+
+
+
+```js
+amazonaws_apigateway.GetTags({}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn `string`
+
+#### Output
+* output [Tags](#tags)
+
+### TagResource
+
+
+
+```js
+amazonaws_apigateway.TagResource({
+  "tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn `string`
+  * tags **required** [MapOfStringToString](#mapofstringtostring)
+
+#### Output
+*Output schema unknown*
+
 ### GetUsagePlans
 
 
@@ -751,6 +1852,61 @@ amazonaws_apigateway.GetUsagePlans({}, context)
 
 #### Output
 * output [UsagePlans](#usageplans)
+
+### CreateUsagePlan
+
+
+
+```js
+amazonaws_apigateway.CreateUsagePlan({
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiStages [ListOfApiStage](#listofapistage)
+  * description [String](#string)
+  * name **required** [String](#string)
+  * quota [QuotaSettings](#quotasettings)
+  * throttle [ThrottleSettings](#throttlesettings)
+
+#### Output
+*Output schema unknown*
+
+### DeleteUsagePlan
+
+
+
+```js
+amazonaws_apigateway.DeleteUsagePlan({
+  "usageplanId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * usageplanId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### GetUsagePlan
+
+
+
+```js
+amazonaws_apigateway.GetUsagePlan({
+  "usageplanId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * usageplanId **required** `string`
+
+#### Output
+* output [UsagePlan](#usageplan)
 
 ### UpdateUsagePlan
 
@@ -788,6 +1944,46 @@ amazonaws_apigateway.GetUsagePlanKeys({
 
 #### Output
 * output [UsagePlanKeys](#usageplankeys)
+
+### CreateUsagePlanKey
+
+
+
+```js
+amazonaws_apigateway.CreateUsagePlanKey({
+  "usageplanId": "",
+  "keyId": "",
+  "keyType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * usageplanId **required** `string`
+  * keyId **required** [String](#string)
+  * keyType **required** [String](#string)
+
+#### Output
+*Output schema unknown*
+
+### DeleteUsagePlanKey
+
+
+
+```js
+amazonaws_apigateway.DeleteUsagePlanKey({
+  "usageplanId": "",
+  "keyId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * usageplanId **required** `string`
+  * keyId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### GetUsagePlanKey
 
@@ -847,12 +2043,99 @@ amazonaws_apigateway.GetUsage({
 #### Output
 * output [Usage](#usage)
 
+### GetVpcLinks
+
+
+
+```js
+amazonaws_apigateway.GetVpcLinks({}, context)
+```
+
+#### Input
+* input `object`
+  * limit `string`
+  * position `string`
+
+#### Output
+* output [VpcLinks](#vpclinks)
+
+### CreateVpcLink
+
+
+
+```js
+amazonaws_apigateway.CreateVpcLink({
+  "name": "",
+  "targetArns": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * description [String](#string)
+  * name **required** [String](#string)
+  * targetArns **required** [ListOfString](#listofstring)
+
+#### Output
+*Output schema unknown*
+
+### DeleteVpcLink
+
+
+
+```js
+amazonaws_apigateway.DeleteVpcLink({}, context)
+```
+
+#### Input
+* input `object`
+  * vpclinkId `string`
+
+#### Output
+*Output schema unknown*
+
+### GetVpcLink
+
+
+
+```js
+amazonaws_apigateway.GetVpcLink({}, context)
+```
+
+#### Input
+* input `object`
+  * vpclinkId `string`
+
+#### Output
+* output [VpcLink](#vpclink)
+
+### UpdateVpcLink
+
+
+
+```js
+amazonaws_apigateway.UpdateVpcLink({}, context)
+```
+
+#### Input
+* input `object`
+  * vpclinkId `string`
+  * patchOperations [ListOfPatchOperation](#listofpatchoperation)
+
+#### Output
+* output [VpcLink](#vpclink)
+
 
 
 ## Definitions
 
+### AccessLogSettings
+* AccessLogSettings `object`: Access log settings, including the access log format and access log destination ARN.
+  * destinationArn [String](#string)
+  * format [String](#string)
+
 ### Account
-* Account `object`: <p>Represents an AWS account that is associated with Amazon API Gateway.</p> <div class="remarks"> <p>To view the account info, call <code>GET</code> on this resource.</p> <h4>Error Codes</h4> <p>The following exception may be thrown when the request fails.</p> <ul> <li>UnauthorizedException</li> <li>NotFoundException</li> <li>TooManyRequestsException</li> </ul> <p>For detailed error code information, including the corresponding HTTP Status Codes, see <a href="http://docs.aws.amazon.com/apigateway/api-reference/handling-errors/#api-error-codes">API Gateway Error Codes</a></p> <h4>Example: Get the information about an account.</h4> <h5>Request</h5> <pre><code>GET /account HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160531T184618Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash} </code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } } </code></pre> <p>In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.</p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-limits.html">API Gateway Limits</a> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">Developer Guide</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html">AWS CLI</a> </div>
+* Account `object`: <p>Represents an AWS account that is associated with API Gateway.</p> <div class="remarks"> <p>To view the account info, call <code>GET</code> on this resource.</p> <h4>Error Codes</h4> <p>The following exception may be thrown when the request fails.</p> <ul> <li>UnauthorizedException</li> <li>NotFoundException</li> <li>TooManyRequestsException</li> </ul> <p>For detailed error code information, including the corresponding HTTP Status Codes, see <a href="http://docs.aws.amazon.com/apigateway/api-reference/handling-errors/#api-error-codes">API Gateway Error Codes</a></p> <h4>Example: Get the information about an account.</h4> <h5>Request</h5> <pre><code>GET /account HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160531T184618Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash} </code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } } </code></pre> <p>In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.</p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-limits.html">API Gateway Limits</a> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">Developer Guide</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html">AWS CLI</a> </div>
   * apiKeyVersion [String](#string)
   * cloudwatchRoleArn [String](#string)
   * features [ListOfString](#listofstring)
@@ -874,6 +2157,9 @@ amazonaws_apigateway.GetUsage({
 * ApiKeyIds `object`: The identifier of an <a>ApiKey</a> used in a <a>UsagePlan</a>.
   * ids [ListOfString](#listofstring)
   * warnings [ListOfString](#listofstring)
+
+### ApiKeySourceType
+* ApiKeySourceType `string` (values: HEADER, AUTHORIZER)
 
 ### ApiKeys
 * ApiKeys `object`: <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a> </div>
@@ -937,6 +2223,13 @@ amazonaws_apigateway.GetUsage({
 ### CacheClusterStatus
 * CacheClusterStatus `string` (values: CREATE_IN_PROGRESS, AVAILABLE, DELETE_IN_PROGRESS, NOT_AVAILABLE, FLUSH_IN_PROGRESS): Returns the status of the <b>CacheCluster</b>.
 
+### CanarySettings
+* CanarySettings `object`: Configuration settings of a canary deployment.
+  * deploymentId [String](#string)
+  * percentTraffic [Double](#double)
+  * stageVariableOverrides [MapOfStringToString](#mapofstringtostring)
+  * useStageCache [Boolean](#boolean)
+
 ### ClientCertificate
 * ClientCertificate `object`: <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p> <div class="remarks">Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom <a>Authorizer</a> or an Amazon Cognito user pool.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a> </div>
   * clientCertificateId [String](#string)
@@ -953,6 +2246,9 @@ amazonaws_apigateway.GetUsage({
 ### ConflictException
 * ConflictException `object`: The request configuration has conflicts. For details, see the accompanying error message.
   * message [String](#string)
+
+### ConnectionType
+* ConnectionType `string` (values: INTERNET, VPC_LINK)
 
 ### ContentHandlingStrategy
 * ContentHandlingStrategy `string` (values: CONVERT_TO_BINARY, CONVERT_TO_TEXT)
@@ -980,15 +2276,16 @@ amazonaws_apigateway.GetUsage({
   * type **required** [AuthorizerType](#authorizertype)
 
 ### CreateBasePathMappingRequest
-* CreateBasePathMappingRequest `object`: Requests Amazon API Gateway to create a new <a>BasePathMapping</a> resource.
+* CreateBasePathMappingRequest `object`: Requests API Gateway to create a new <a>BasePathMapping</a> resource.
   * basePath [String](#string)
   * restApiId **required** [String](#string)
   * stage [String](#string)
 
 ### CreateDeploymentRequest
-* CreateDeploymentRequest `object`: Requests Amazon API Gateway to create a <a>Deployment</a> resource.
+* CreateDeploymentRequest `object`: Requests API Gateway to create a <a>Deployment</a> resource.
   * cacheClusterEnabled [NullableBoolean](#nullableboolean)
   * cacheClusterSize [CacheClusterSize](#cacheclustersize)
+  * canarySettings [DeploymentCanarySettings](#deploymentcanarysettings)
   * description [String](#string)
   * stageDescription [String](#string)
   * stageName [String](#string)
@@ -1031,26 +2328,30 @@ amazonaws_apigateway.GetUsage({
   * validateRequestParameters [Boolean](#boolean)
 
 ### CreateResourceRequest
-* CreateResourceRequest `object`: Requests Amazon API Gateway to create a <a>Resource</a> resource.
+* CreateResourceRequest `object`: Requests API Gateway to create a <a>Resource</a> resource.
   * pathPart **required** [String](#string)
 
 ### CreateRestApiRequest
 * CreateRestApiRequest `object`: The POST Request to add a new <a>RestApi</a> resource to your collection.
+  * apiKeySource [ApiKeySourceType](#apikeysourcetype)
   * binaryMediaTypes [ListOfString](#listofstring)
   * cloneFrom [String](#string)
   * description [String](#string)
   * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
+  * minimumCompressionSize [NullableInteger](#nullableinteger)
   * name **required** [String](#string)
   * version [String](#string)
 
 ### CreateStageRequest
-* CreateStageRequest `object`: Requests Amazon API Gateway to create a <a>Stage</a> resource.
+* CreateStageRequest `object`: Requests API Gateway to create a <a>Stage</a> resource.
   * cacheClusterEnabled [Boolean](#boolean)
   * cacheClusterSize [CacheClusterSize](#cacheclustersize)
+  * canarySettings [CanarySettings](#canarysettings)
   * deploymentId **required** [String](#string)
   * description [String](#string)
   * documentationVersion [String](#string)
   * stageName **required** [String](#string)
+  * tags [MapOfStringToString](#mapofstringtostring)
   * variables [MapOfStringToString](#mapofstringtostring)
 
 ### CreateUsagePlanKeyRequest
@@ -1066,6 +2367,12 @@ amazonaws_apigateway.GetUsage({
   * quota [QuotaSettings](#quotasettings)
   * throttle [ThrottleSettings](#throttlesettings)
 
+### CreateVpcLinkRequest
+* CreateVpcLinkRequest `object`: Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.
+  * description [String](#string)
+  * name **required** [String](#string)
+  * targetArns **required** [ListOfString](#listofstring)
+
 ### DeleteApiKeyRequest
 * DeleteApiKeyRequest `object`: A request to delete the <a>ApiKey</a> resource.
 
@@ -1079,7 +2386,7 @@ amazonaws_apigateway.GetUsage({
 * DeleteClientCertificateRequest `object`: A request to delete the <a>ClientCertificate</a> resource.
 
 ### DeleteDeploymentRequest
-* DeleteDeploymentRequest `object`: Requests Amazon API Gateway to delete a <a>Deployment</a> resource.
+* DeleteDeploymentRequest `object`: Requests API Gateway to delete a <a>Deployment</a> resource.
 
 ### DeleteDocumentationPartRequest
 * DeleteDocumentationPartRequest `object`: Deletes an existing documentation part of an API.
@@ -1118,7 +2425,7 @@ amazonaws_apigateway.GetUsage({
 * DeleteRestApiRequest `object`: Request to delete the specified API from your collection.
 
 ### DeleteStageRequest
-* DeleteStageRequest `object`: Requests Amazon API Gateway to delete a <a>Stage</a> resource.
+* DeleteStageRequest `object`: Requests API Gateway to delete a <a>Stage</a> resource.
 
 ### DeleteUsagePlanKeyRequest
 * DeleteUsagePlanKeyRequest `object`: The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.
@@ -1126,12 +2433,21 @@ amazonaws_apigateway.GetUsage({
 ### DeleteUsagePlanRequest
 * DeleteUsagePlanRequest `object`: The DELETE request to delete a usage plan of a given plan Id.
 
+### DeleteVpcLinkRequest
+* DeleteVpcLinkRequest `object`: Deletes an existing <a>VpcLink</a> of a specified identifier.
+
 ### Deployment
 * Deployment `object`: <p>An immutable representation of a <a>RestApi</a> resource that can be called by users using <a>Stages</a>. A deployment must be associated with a <a>Stage</a> for it to be callable over the Internet.</p> <div class="remarks">To create a deployment, call <code>POST</code> on the <a>Deployments</a> resource of a <a>RestApi</a>. To view, update, or delete a deployment, call <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> on the specified deployment resource (<code>/restapis/{restapi_id}/deployments/{deployment_id}</code>).</div> <div class="seeAlso"><a>RestApi</a>, <a>Deployments</a>, <a>Stage</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>, <a href="https://aws.amazon.com/tools/">AWS SDKs</a> </div>
   * apiSummary [PathToMapOfMethodSnapshot](#pathtomapofmethodsnapshot)
   * createdDate [Timestamp](#timestamp)
   * description [String](#string)
   * id [String](#string)
+
+### DeploymentCanarySettings
+* DeploymentCanarySettings `object`: The input configuration for a canary deployment.
+  * percentTraffic [Double](#double)
+  * stageVariableOverrides [MapOfStringToString](#mapofstringtostring)
+  * useStageCache [Boolean](#boolean)
 
 ### Deployments
 * Deployments `object`: <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p> <div class="remarks">To create a new deployment of a <a>RestApi</a>, make a <code>POST</code> request against this resource. To view, update, or delete an existing deployment, make a <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> request, respectively, on a specified <a>Deployment</a> resource.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploying an API</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>, <a href="https://aws.amazon.com/tools/">AWS SDKs</a> </div>
@@ -1145,7 +2461,7 @@ amazonaws_apigateway.GetUsage({
   * properties [String](#string)
 
 ### DocumentationPartIds
-* DocumentationPartIds `object`: <p>A collection of the imported <a>DocumentationPart</a> identifiers.</p> <div class="remarks">This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into Amazon API Gateway</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a href="http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/">documentationpart:import</a>, <a>DocumentationPart</a> </div>
+* DocumentationPartIds `object`: <p>A collection of the imported <a>DocumentationPart</a> identifiers.</p> <div class="remarks">This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into API Gateway</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a href="http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/">documentationpart:import</a>, <a>DocumentationPart</a> </div>
   * ids [ListOfString](#listofstring)
   * warnings [ListOfString](#listofstring)
 
@@ -1180,16 +2496,18 @@ amazonaws_apigateway.GetUsage({
   * position [String](#string)
 
 ### DomainName
-* DomainName `object`: <p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p> <div class="Remarks"> <p>When you deploy an API, Amazon API Gateway creates a default host name for the API. This default API host name is of the <code>{restapi-id}.execute-api.{region}.amazonaws.com</code> format. With the default host name, you can access the API's root resource with the URL of <code>https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/</code>. When you set up a custom domain name of <code>apis.example.com</code> for this API, you can then access the same resource using the URL of the <code>https://apis.examples.com/myApi</code>, where <code>myApi</code> is the base path mapping (<a>BasePathMapping</a>) of your API under the custom domain name. </p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Set a Custom Host Name for an API</a> </div>
+* DomainName `object`: <p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p> <div class="Remarks"> <p>When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the <code>{restapi-id}.execute-api.{region}.amazonaws.com</code> format. With the default host name, you can access the API's root resource with the URL of <code>https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/</code>. When you set up a custom domain name of <code>apis.example.com</code> for this API, you can then access the same resource using the URL of the <code>https://apis.examples.com/myApi</code>, where <code>myApi</code> is the base path mapping (<a>BasePathMapping</a>) of your API under the custom domain name. </p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Set a Custom Host Name for an API</a> </div>
   * certificateArn [String](#string)
   * certificateName [String](#string)
   * certificateUploadDate [Timestamp](#timestamp)
   * distributionDomainName [String](#string)
+  * distributionHostedZoneId [String](#string)
   * domainName [String](#string)
   * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
   * regionalCertificateArn [String](#string)
   * regionalCertificateName [String](#string)
   * regionalDomainName [String](#string)
+  * regionalHostedZoneId [String](#string)
 
 ### DomainNames
 * DomainNames `object`: <p>Represents a collection of <a>DomainName</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side Certificate</a> </div>
@@ -1214,10 +2532,10 @@ amazonaws_apigateway.GetUsage({
 * FlushStageAuthorizersCacheRequest `object`: Request to flush authorizer cache entries on a specified stage.
 
 ### FlushStageCacheRequest
-* FlushStageCacheRequest `object`: Requests Amazon API Gateway to flush a stage's cache.
+* FlushStageCacheRequest `object`: Requests API Gateway to flush a stage's cache.
 
 ### GatewayResponse
-* GatewayResponse `object`: <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by Amazon API Gateway</a> <div class="example"> <h4>Example: Get a Gateway Response of a given response type</h4> <h5>Request</h5> <p>This example shows how to get a gateway response of the <code>MISSING_AUTHNETICATION_TOKEN</code> type.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T202516Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=1b52460e3159c1a26cff29093855d50ea141c1c5b937528fecaf60f51129697a Cache-Control: no-cache Postman-Token: 3b2a1ce9-c848-2e26-2e2f-9c2caefbed45 </code></pre> <p>The response type is specified as a URL path.</p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "&apos;a.b.c&apos;", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"&apos;404&apos;\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
+* GatewayResponse `object`: <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a> <div class="example"> <h4>Example: Get a Gateway Response of a given response type</h4> <h5>Request</h5> <p>This example shows how to get a gateway response of the <code>MISSING_AUTHENTICATION_TOKEN</code> type.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T202516Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=1b52460e3159c1a26cff29093855d50ea141c1c5b937528fecaf60f51129697a Cache-Control: no-cache Postman-Token: 3b2a1ce9-c848-2e26-2e2f-9c2caefbed45 </code></pre> <p>The response type is specified as a URL path.</p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "&apos;a.b.c&apos;", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"&apos;404&apos;\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
   * defaultResponse [Boolean](#boolean)
   * responseParameters [MapOfStringToString](#mapofstringtostring)
   * responseTemplates [MapOfStringToString](#mapofstringtostring)
@@ -1228,7 +2546,7 @@ amazonaws_apigateway.GetUsage({
 * GatewayResponseType `string` (values: DEFAULT_4XX, DEFAULT_5XX, RESOURCE_NOT_FOUND, UNAUTHORIZED, INVALID_API_KEY, ACCESS_DENIED, AUTHORIZER_FAILURE, AUTHORIZER_CONFIGURATION_ERROR, INVALID_SIGNATURE, EXPIRED_TOKEN, MISSING_AUTHENTICATION_TOKEN, INTEGRATION_FAILURE, INTEGRATION_TIMEOUT, API_CONFIGURATION_ERROR, UNSUPPORTED_MEDIA_TYPE, BAD_REQUEST_PARAMETERS, BAD_REQUEST_BODY, REQUEST_TOO_LARGE, THROTTLED, QUOTA_EXCEEDED)
 
 ### GatewayResponses
-* GatewayResponses `object`: <p>The collection of the <a>GatewayResponse</a> instances of a <a>RestApi</a> as a <code>responseType</code>-to-<a>GatewayResponse</a> object map of key-value pairs. As such, pagination is not supported for querying this collection.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by Amazon API Gateway</a> <div class="example"> <h4>Example: Get the collection of gateway responses of an API</h4> <h5>Request</h5> <p>This example request shows how to retrieve the <a>GatewayResponses</a> collection from an API.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T220604Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=59b42fe54a76a5de8adf2c67baa6d39206f8e9ad49a1d77ccc6a5da3103a398a Cache-Control: no-cache Postman-Token: 5637af27-dc29-fc5c-9dfe-0645d52cb515 </code></pre> <p></p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "first": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "gatewayresponse:by-type": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "item": [ { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } ] }, "_embedded": { "item": [ { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_FAILURE", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "RESOURCE_NOT_FOUND", "statusCode": "404" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "REQUEST_TOO_LARGE", "statusCode": "413" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "THROTTLED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNSUPPORTED_MEDIA_TYPE", "statusCode": "415" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_5XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_4XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_PARAMETERS", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_BODY", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "EXPIRED_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "ACCESS_DENIED", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_API_KEY", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNAUTHORIZED", "statusCode": "401" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "API_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "QUOTA_EXCEEDED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_TIMEOUT", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_SIGNATURE", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_FAILURE", "statusCode": "500" } ] } }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
+* GatewayResponses `object`: <p>The collection of the <a>GatewayResponse</a> instances of a <a>RestApi</a> as a <code>responseType</code>-to-<a>GatewayResponse</a> object map of key-value pairs. As such, pagination is not supported for querying this collection.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a> <div class="example"> <h4>Example: Get the collection of gateway responses of an API</h4> <h5>Request</h5> <p>This example request shows how to retrieve the <a>GatewayResponses</a> collection from an API.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T220604Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=59b42fe54a76a5de8adf2c67baa6d39206f8e9ad49a1d77ccc6a5da3103a398a Cache-Control: no-cache Postman-Token: 5637af27-dc29-fc5c-9dfe-0645d52cb515 </code></pre> <p></p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "first": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "gatewayresponse:by-type": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "item": [ { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } ] }, "_embedded": { "item": [ { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_FAILURE", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "RESOURCE_NOT_FOUND", "statusCode": "404" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "REQUEST_TOO_LARGE", "statusCode": "413" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "THROTTLED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNSUPPORTED_MEDIA_TYPE", "statusCode": "415" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_5XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_4XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_PARAMETERS", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_BODY", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "EXPIRED_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "ACCESS_DENIED", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_API_KEY", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNAUTHORIZED", "statusCode": "401" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "API_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "QUOTA_EXCEEDED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_TIMEOUT", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_SIGNATURE", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_FAILURE", "statusCode": "500" } ] } }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
   * items [ListOfGatewayResponse](#listofgatewayresponse)
   * position [String](#string)
 
@@ -1237,7 +2555,7 @@ amazonaws_apigateway.GetUsage({
   * description [String](#string)
 
 ### GetAccountRequest
-* GetAccountRequest `object`: Requests Amazon API Gateway to get information about the current <a>Account</a> resource.
+* GetAccountRequest `object`: Requests API Gateway to get information about the current <a>Account</a> resource.
 
 ### GetApiKeyRequest
 * GetApiKeyRequest `object`: A request to get information about the current <a>ApiKey</a> resource.
@@ -1264,10 +2582,10 @@ amazonaws_apigateway.GetUsage({
 * GetClientCertificatesRequest `object`: A request to get information about a collection of <a>ClientCertificate</a> resources.
 
 ### GetDeploymentRequest
-* GetDeploymentRequest `object`: Requests Amazon API Gateway to get information about a <a>Deployment</a> resource.
+* GetDeploymentRequest `object`: Requests API Gateway to get information about a <a>Deployment</a> resource.
 
 ### GetDeploymentsRequest
-* GetDeploymentsRequest `object`: Requests Amazon API Gateway to get information about a <a>Deployments</a> collection.
+* GetDeploymentsRequest `object`: Requests API Gateway to get information about a <a>Deployments</a> collection.
 
 ### GetDocumentationPartRequest
 * GetDocumentationPartRequest `object`: Gets a specified documentation part of a given API.
@@ -1294,10 +2612,10 @@ amazonaws_apigateway.GetUsage({
 * GetGatewayResponseRequest `object`: Gets a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.
 
 ### GetGatewayResponsesRequest
-* GetGatewayResponsesRequest `object`: Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the Amazon API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.
+* GetGatewayResponsesRequest `object`: Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.
 
 ### GetIntegrationRequest
-* GetIntegrationRequest `object`: Represents a get integration request.
+* GetIntegrationRequest `object`: Represents a request to get the integration configuration.
 
 ### GetIntegrationResponseRequest
 * GetIntegrationResponseRequest `object`: Represents a get integration response request.
@@ -1345,10 +2663,13 @@ amazonaws_apigateway.GetUsage({
 * GetSdkTypesRequest `object`: Get the <a>SdkTypes</a> collection.
 
 ### GetStageRequest
-* GetStageRequest `object`: Requests Amazon API Gateway to get information about a <a>Stage</a> resource.
+* GetStageRequest `object`: Requests API Gateway to get information about a <a>Stage</a> resource.
 
 ### GetStagesRequest
-* GetStagesRequest `object`: Requests Amazon API Gateway to get information about one or more <a>Stage</a> resources.
+* GetStagesRequest `object`: Requests API Gateway to get information about one or more <a>Stage</a> resources.
+
+### GetTagsRequest
+* GetTagsRequest `object`: Gets the Tags collection for a given resource.
 
 ### GetUsagePlanKeyRequest
 * GetUsagePlanKeyRequest `object`: The GET request to get a usage plan key of a given key identifier.
@@ -1365,6 +2686,12 @@ amazonaws_apigateway.GetUsage({
 ### GetUsageRequest
 * GetUsageRequest `object`: The GET request to get the usage data of a usage plan in a specified time interval.
 
+### GetVpcLinkRequest
+* GetVpcLinkRequest `object`: Gets a specified VPC link under the caller's account in a region.
+
+### GetVpcLinksRequest
+* GetVpcLinksRequest `object`: Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.
+
 ### ImportApiKeysRequest
 * ImportApiKeysRequest `object`: The POST request to import API keys from an external source, such as a CSV-formatted file.
   * body **required** [Blob](#blob)
@@ -1374,7 +2701,7 @@ amazonaws_apigateway.GetUsage({
   * body **required** [Blob](#blob)
 
 ### ImportRestApiRequest
-* ImportRestApiRequest `object`: A POST request to import an API to Amazon API Gateway using an input of an API definition file.
+* ImportRestApiRequest `object`: A POST request to import an API to API Gateway using an input of an API definition file.
   * body **required** [Blob](#blob)
 
 ### Integer
@@ -1384,6 +2711,8 @@ amazonaws_apigateway.GetUsage({
 * Integration `object`: <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p> <div class="remarks">In the API Gateway console, the built-in Lambda integration is an AWS integration.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
   * cacheKeyParameters [ListOfString](#listofstring)
   * cacheNamespace [String](#string)
+  * connectionId [String](#string)
+  * connectionType [ConnectionType](#connectiontype)
   * contentHandling [ContentHandlingStrategy](#contenthandlingstrategy)
   * credentials [String](#string)
   * httpMethod [String](#string)
@@ -1391,6 +2720,7 @@ amazonaws_apigateway.GetUsage({
   * passthroughBehavior [String](#string)
   * requestParameters [MapOfStringToString](#mapofstringtostring)
   * requestTemplates [MapOfStringToString](#mapofstringtostring)
+  * timeoutInMillis [Integer](#integer)
   * type [IntegrationType](#integrationtype)
   * uri [String](#string)
 
@@ -1403,7 +2733,7 @@ amazonaws_apigateway.GetUsage({
   * statusCode [StatusCode](#statuscode)
 
 ### IntegrationType
-* IntegrationType `string` (values: HTTP, AWS, MOCK, HTTP_PROXY, AWS_PROXY): The integration type. The valid value is <code>HTTP</code> for integrating with an HTTP back end, <code>AWS</code> for any AWS service endpoints, <code>MOCK</code> for testing without actually invoking the back end, <code>HTTP_PROXY</code> for integrating with the HTTP proxy integration, or <code>AWS_PROXY</code> for integrating with the Lambda proxy integration type.
+* IntegrationType `string` (values: HTTP, AWS, MOCK, HTTP_PROXY, AWS_PROXY): The integration type. The valid value is <code>HTTP</code> for integrating an API method with an HTTP backend; <code>AWS</code> with any AWS service endpoints; <code>MOCK</code> for testing without actually invoking the backend; <code>HTTP_PROXY</code> for integrating with the HTTP proxy integration; <code>AWS_PROXY</code> for integrating with the Lambda proxy integration. 
 
 ### LimitExceededException
 * LimitExceededException `object`: The request exceeded the rate limit. Retry after the specified time period.
@@ -1513,6 +2843,13 @@ amazonaws_apigateway.GetUsage({
 * ListOfUsagePlanKey `array`
   * items [UsagePlanKey](#usageplankey)
 
+### ListOfVpcLink
+* ListOfVpcLink `array`
+  * items [VpcLink](#vpclink)
+
+### LocationStatusType
+* LocationStatusType `string` (values: DOCUMENTED, UNDOCUMENTED)
+
 ### Long
 * Long `integer`
 
@@ -1579,6 +2916,7 @@ amazonaws_apigateway.GetUsage({
 ### Method
 * Method `object`: <p> Represents a client-facing interface by which the client calls the API to access back-end resources. A <b>Method</b> resource is integrated with an <a>Integration</a> resource. Both consist of a request and one or more responses. The method request takes the client input that is passed to the back end through the integration request. A method response returns the output from the back end to the client through an integration response. A method request is embodied in a <b>Method</b> resource, whereas an integration request is embodied in an <a>Integration</a> resource. On the other hand, a method response is represented by a <a>MethodResponse</a> resource, whereas an integration response is represented by an <a>IntegrationResponse</a> resource. </p> <div class="remarks"> <p/> <h4>Example: Retrive the GET method on a specified resource</h4> <h5>Request</h5> <p>The following example request retrieves the information about the GET method on an API resource (<code>3kzxbg5sa2</code>) of an API (<code>fugvjdxtri</code>). </p> <pre><code>GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T210259Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": [ { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }</code></pre> <p>In the example above, the response template for the <code>200 OK</code> response maps the JSON output from the <code>ListStreams</code> action in the back end to an XML output. The mapping template is URL-encoded as <code>%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E</code> and the output is decoded using the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference">$util.urlDecode()</a> helper function.</p> </div> <div class="seeAlso"> <a>MethodResponse</a>, <a>Integration</a>, <a>IntegrationResponse</a>, <a>Resource</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html">Set up an API's method</a> </div>
   * apiKeyRequired [NullableBoolean](#nullableboolean)
+  * authorizationScopes [ListOfString](#listofstring)
   * authorizationType [String](#string)
   * authorizerId [String](#string)
   * httpMethod [String](#string)
@@ -1665,12 +3003,15 @@ amazonaws_apigateway.GetUsage({
 * PutIntegrationRequest `object`: Sets up a method's integration.
   * cacheKeyParameters [ListOfString](#listofstring)
   * cacheNamespace [String](#string)
+  * connectionId [String](#string)
+  * connectionType [ConnectionType](#connectiontype)
   * contentHandling [ContentHandlingStrategy](#contenthandlingstrategy)
   * credentials [String](#string)
   * integrationHttpMethod [String](#string)
   * passthroughBehavior [String](#string)
   * requestParameters [MapOfStringToString](#mapofstringtostring)
   * requestTemplates [MapOfStringToString](#mapofstringtostring)
+  * timeoutInMillis [NullableInteger](#nullableinteger)
   * type **required** [IntegrationType](#integrationtype)
   * uri [String](#string)
 
@@ -1684,6 +3025,7 @@ amazonaws_apigateway.GetUsage({
 ### PutMethodRequest
 * PutMethodRequest `object`: Request to add a method to an existing <a>Resource</a> resource.
   * apiKeyRequired [Boolean](#boolean)
+  * authorizationScopes [ListOfString](#listofstring)
   * authorizationType **required** [String](#string)
   * authorizerId [String](#string)
   * operationName [String](#string)
@@ -1739,11 +3081,13 @@ amazonaws_apigateway.GetUsage({
 
 ### RestApi
 * RestApi `object`: <p>Represents a REST API.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
+  * apiKeySource [ApiKeySourceType](#apikeysourcetype)
   * binaryMediaTypes [ListOfString](#listofstring)
   * createdDate [Timestamp](#timestamp)
   * description [String](#string)
   * endpointConfiguration [EndpointConfiguration](#endpointconfiguration)
   * id [String](#string)
+  * minimumCompressionSize [NullableInteger](#nullableinteger)
   * name [String](#string)
   * version [String](#string)
   * warnings [ListOfString](#listofstring)
@@ -1783,9 +3127,11 @@ amazonaws_apigateway.GetUsage({
 
 ### Stage
 * Stage `object`: <p>Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a> </div>
+  * accessLogSettings [AccessLogSettings](#accesslogsettings)
   * cacheClusterEnabled [Boolean](#boolean)
   * cacheClusterSize [CacheClusterSize](#cacheclustersize)
   * cacheClusterStatus [CacheClusterStatus](#cacheclusterstatus)
+  * canarySettings [CanarySettings](#canarysettings)
   * clientCertificateId [String](#string)
   * createdDate [Timestamp](#timestamp)
   * deploymentId [String](#string)
@@ -1794,6 +3140,7 @@ amazonaws_apigateway.GetUsage({
   * lastUpdatedDate [Timestamp](#timestamp)
   * methodSettings [MapOfMethodSettings](#mapofmethodsettings)
   * stageName [String](#string)
+  * tags [MapOfStringToString](#mapofstringtostring)
   * variables [MapOfStringToString](#mapofstringtostring)
 
 ### StageKey
@@ -1810,6 +3157,14 @@ amazonaws_apigateway.GetUsage({
 
 ### String
 * String `string`
+
+### TagResourceRequest
+* TagResourceRequest `object`: Adds or updates Tags on a gievn resource.
+  * tags **required** [MapOfStringToString](#mapofstringtostring)
+
+### Tags
+* Tags `object`: A collection of Tags associated with a given resource.
+  * tags [MapOfStringToString](#mapofstringtostring)
 
 ### Template
 * Template `object`: <p>Represents a mapping template used to transform a payload.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings">Mapping Templates</a> </div>
@@ -1868,8 +3223,11 @@ amazonaws_apigateway.GetUsage({
 * UnauthorizedException `object`: The request is denied because the caller has insufficient permissions.
   * message [String](#string)
 
+### UntagResourceRequest
+* UntagResourceRequest `object`: Removes Tags from a given resource.
+
 ### UpdateAccountRequest
-* UpdateAccountRequest `object`: Requests Amazon API Gateway to change information about the current <a>Account</a> resource.
+* UpdateAccountRequest `object`: Requests API Gateway to change information about the current <a>Account</a> resource.
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
 
 ### UpdateApiKeyRequest
@@ -1889,7 +3247,7 @@ amazonaws_apigateway.GetUsage({
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
 
 ### UpdateDeploymentRequest
-* UpdateDeploymentRequest `object`: Requests Amazon API Gateway to change information about a <a>Deployment</a> resource.
+* UpdateDeploymentRequest `object`: Requests API Gateway to change information about a <a>Deployment</a> resource.
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
 
 ### UpdateDocumentationPartRequest
@@ -1941,7 +3299,7 @@ amazonaws_apigateway.GetUsage({
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
 
 ### UpdateStageRequest
-* UpdateStageRequest `object`: Requests Amazon API Gateway to change information about a <a>Stage</a> resource.
+* UpdateStageRequest `object`: Requests API Gateway to change information about a <a>Stage</a> resource.
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
 
 ### UpdateUsagePlanRequest
@@ -1950,6 +3308,10 @@ amazonaws_apigateway.GetUsage({
 
 ### UpdateUsageRequest
 * UpdateUsageRequest `object`: The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.
+  * patchOperations [ListOfPatchOperation](#listofpatchoperation)
+
+### UpdateVpcLinkRequest
+* UpdateVpcLinkRequest `object`: Updates an existing <a>VpcLink</a> of a specified identifier.
   * patchOperations [ListOfPatchOperation](#listofpatchoperation)
 
 ### Usage
@@ -1985,6 +3347,23 @@ amazonaws_apigateway.GetUsage({
 ### UsagePlans
 * UsagePlans `object`: <p>Represents a collection of usage plans for an AWS account.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
   * items [ListOfUsagePlan](#listofusageplan)
+  * position [String](#string)
+
+### VpcLink
+* VpcLink `object`: <p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p> <div class="remarks"> <p><p>To enable access to a resource in an Amazon Virtual Private Cloud through Amazon API Gateway, you, as an API developer, create a <a>VpcLink</a> resource targeted for one or more network load balancers of the VPC and then integrate an API method with a private integration that uses the <a>VpcLink</a>. The private integration has an integration type of <code>HTTP</code> or <code>HTTP_PROXY</code> and has a connection type of <code>VPC_LINK</code>. The integration uses the <code>connectionId</code> property to identify the <a>VpcLink</a> used.</p> </p> </div>
+  * description [String](#string)
+  * id [String](#string)
+  * name [String](#string)
+  * status [VpcLinkStatus](#vpclinkstatus)
+  * statusMessage [String](#string)
+  * targetArns [ListOfString](#listofstring)
+
+### VpcLinkStatus
+* VpcLinkStatus `string` (values: AVAILABLE, PENDING, DELETING, FAILED)
+
+### VpcLinks
+* VpcLinks `object`: <p>The collection of VPC links under the caller's account in a region.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html">Getting Started with Private Integrations</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html">Set up Private Integrations</a> </div>
+  * items [ListOfVpcLink](#listofvpclink)
   * position [String](#string)
 
 

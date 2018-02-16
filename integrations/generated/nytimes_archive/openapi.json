@@ -15,6 +15,7 @@
       "url": "http://developer.nytimes.com/signup"
     },
     "x-apisguru-categories": [
+      "media",
       "open_data"
     ],
     "x-logo": {
@@ -136,9 +137,7 @@
           "type": "string"
         },
         "blog": {
-          "items": {
-            "type": "string"
-          },
+          "items": {},
           "type": "array"
         },
         "byline": {
@@ -150,9 +149,7 @@
               "type": "string"
             },
             "person": {
-              "items": {
-                "type": "string"
-              },
+              "items": {},
               "type": "array"
             }
           },

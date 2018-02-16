@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Searches for books and manages your Google Books library.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Books",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -47,11 +52,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/books": "Manage your books"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/books": "Manage your books"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -123,6 +138,9 @@
     },
     {
       "name": "dictionary"
+    },
+    {
+      "name": "familysharing"
     },
     {
       "name": "layers"
@@ -217,6 +235,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -269,6 +290,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -326,6 +350,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -359,6 +386,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -390,6 +420,198 @@
         }
       ]
     },
+    "/familysharing/getFamilyInfo": {
+      "get": {
+        "description": "Gets information regarding the family that the user is part of.",
+        "operationId": "familysharing.getFamilyInfo",
+        "parameters": [
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/FamilyInfo"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
+            ]
+          }
+        ],
+        "tags": [
+          "familysharing"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
+    },
+    "/familysharing/share": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Initiates sharing of the content with the user's family. Empty response indicates success.",
+        "operationId": "familysharing.share",
+        "parameters": [
+          {
+            "description": "The docid to share.",
+            "in": "query",
+            "name": "docId",
+            "type": "string"
+          },
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "The volume to share.",
+            "in": "query",
+            "name": "volumeId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
+            ]
+          }
+        ],
+        "tags": [
+          "familysharing"
+        ]
+      }
+    },
+    "/familysharing/unshare": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Initiates revoking content that has already been shared with the user's family. Empty response indicates success.",
+        "operationId": "familysharing.unshare",
+        "parameters": [
+          {
+            "description": "The docid to unshare.",
+            "in": "query",
+            "name": "docId",
+            "type": "string"
+          },
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "The volume to unshare.",
+            "in": "query",
+            "name": "volumeId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
+            ]
+          }
+        ],
+        "tags": [
+          "familysharing"
+        ]
+      }
+    },
     "/myconfig/getUserSettings": {
       "get": {
         "description": "Gets the current settings for the user.",
@@ -405,6 +627,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -466,17 +691,6 @@
         "operationId": "myconfig.releaseDownloadAccess",
         "parameters": [
           {
-            "collectionFormat": "multi",
-            "description": "The volume(s) to release restrictions for.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "volumeIds",
-            "required": true,
-            "type": "array"
-          },
-          {
             "description": "The device/version ID from which to release the restriction.",
             "in": "query",
             "name": "cpksver",
@@ -494,6 +708,17 @@
             "in": "query",
             "name": "source",
             "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The volume(s) to release restrictions for.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "volumeIds",
+            "required": true,
+            "type": "array"
           }
         ],
         "responses": {
@@ -507,6 +732,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -545,27 +773,6 @@
         "operationId": "myconfig.requestAccess",
         "parameters": [
           {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The volume to request concurrent/download restrictions for.",
-            "in": "query",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The client nonce value.",
-            "in": "query",
-            "name": "nonce",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The device/version ID from which to request the restrictions.",
             "in": "query",
             "name": "cpksver",
@@ -588,6 +795,27 @@
             "in": "query",
             "name": "locale",
             "type": "string"
+          },
+          {
+            "description": "The client nonce value.",
+            "in": "query",
+            "name": "nonce",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The volume to request concurrent/download restrictions for.",
+            "in": "query",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -601,6 +829,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -639,20 +870,6 @@
         "operationId": "myconfig.syncVolumeLicenses",
         "parameters": [
           {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The client nonce value.",
-            "in": "query",
-            "name": "nonce",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The device/version ID from which to release the restriction.",
             "in": "query",
             "name": "cpksver",
@@ -685,10 +902,24 @@
             "type": "string"
           },
           {
+            "description": "The client nonce value.",
+            "in": "query",
+            "name": "nonce",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Set to true to show pre-ordered books. Defaults to false.",
             "in": "query",
             "name": "showPreorders",
             "type": "boolean"
+          },
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "required": true,
+            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -712,6 +943,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -768,6 +1002,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -861,6 +1098,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -939,6 +1179,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1006,6 +1249,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1041,6 +1287,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1084,17 +1333,17 @@
             "type": "string"
           },
           {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Annotation"
             }
+          },
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1108,6 +1357,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1140,6 +1392,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1203,6 +1458,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1263,20 +1521,6 @@
         "operationId": "mylibrary.bookshelves.addVolume",
         "parameters": [
           {
-            "description": "ID of bookshelf to which to add a volume.",
-            "in": "path",
-            "name": "shelf",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "ID of volume to add.",
-            "in": "query",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The reason for which the book is added to the library.",
             "enum": [
               "IOS_PREX",
@@ -1288,9 +1532,23 @@
             "type": "string"
           },
           {
+            "description": "ID of bookshelf to which to add a volume.",
+            "in": "path",
+            "name": "shelf",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "String to identify the originator of this request.",
             "in": "query",
             "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "ID of volume to add.",
+            "in": "query",
+            "name": "volumeId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1302,6 +1560,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1362,6 +1623,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1406,6 +1670,12 @@
             "type": "string"
           },
           {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
+          },
+          {
             "description": "ID of volume to move.",
             "in": "query",
             "name": "volumeId",
@@ -1418,12 +1688,6 @@
             "name": "volumePosition",
             "required": true,
             "type": "integer"
-          },
-          {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
-            "type": "string"
           }
         ],
         "responses": {
@@ -1434,6 +1698,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1472,20 +1739,6 @@
         "operationId": "mylibrary.bookshelves.removeVolume",
         "parameters": [
           {
-            "description": "ID of bookshelf from which to remove a volume.",
-            "in": "path",
-            "name": "shelf",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "ID of volume to remove.",
-            "in": "query",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The reason for which the book is removed from the library.",
             "enum": [
               "ONBOARDING"
@@ -1495,9 +1748,23 @@
             "type": "string"
           },
           {
+            "description": "ID of bookshelf from which to remove a volume.",
+            "in": "path",
+            "name": "shelf",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "String to identify the originator of this request.",
             "in": "query",
             "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "ID of volume to remove.",
+            "in": "query",
+            "name": "volumeId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1509,6 +1776,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1523,13 +1793,6 @@
         "description": "Gets volume information for volumes on a bookshelf.",
         "operationId": "mylibrary.bookshelves.volumes.list",
         "parameters": [
-          {
-            "description": "The bookshelf ID or name retrieve volumes for.",
-            "in": "path",
-            "name": "shelf",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "ISO-3166-1 code to override the IP-based location.",
             "in": "query",
@@ -1557,6 +1820,13 @@
             "description": "Full-text search query string in this bookshelf.",
             "in": "query",
             "name": "q",
+            "type": "string"
+          },
+          {
+            "description": "The bookshelf ID or name retrieve volumes for.",
+            "in": "path",
+            "name": "shelf",
+            "required": true,
             "type": "string"
           },
           {
@@ -1590,6 +1860,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1628,13 +1901,6 @@
         "operationId": "mylibrary.readingpositions.get",
         "parameters": [
           {
-            "description": "ID of volume for which to retrieve a reading position.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Volume content version for which this reading position is requested.",
             "in": "query",
             "name": "contentVersion",
@@ -1644,6 +1910,13 @@
             "description": "String to identify the originator of this request.",
             "in": "query",
             "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "ID of volume for which to retrieve a reading position.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1658,6 +1931,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1719,27 +1995,6 @@
         "operationId": "mylibrary.readingpositions.setPosition",
         "parameters": [
           {
-            "description": "ID of volume for which to update the reading position.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "RFC 3339 UTC format timestamp associated with this reading position.",
-            "in": "query",
-            "name": "timestamp",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Position string for the new volume reading position.",
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Action that caused this reading position to be set.",
             "enum": [
               "bookmark",
@@ -1766,9 +2021,30 @@
             "type": "string"
           },
           {
+            "description": "Position string for the new volume reading position.",
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "String to identify the originator of this request.",
             "in": "query",
             "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "RFC 3339 UTC format timestamp associated with this reading position.",
+            "in": "query",
+            "name": "timestamp",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ID of volume for which to update the reading position.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1780,6 +2056,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1795,16 +2074,16 @@
         "operationId": "notification.get",
         "parameters": [
           {
+            "description": "ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating notification title and body.",
+            "in": "query",
+            "name": "locale",
+            "type": "string"
+          },
+          {
             "description": "String to identify the notification.",
             "in": "query",
             "name": "notification_id",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating notification title and body.",
-            "in": "query",
-            "name": "locale",
             "type": "string"
           },
           {
@@ -1825,6 +2104,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1880,6 +2162,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1968,6 +2253,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2038,6 +2326,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2155,6 +2446,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2243,6 +2537,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2305,6 +2602,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2365,6 +2665,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2402,13 +2705,6 @@
         "operationId": "series.membership.get",
         "parameters": [
           {
-            "description": "String that identifies the series",
-            "in": "query",
-            "name": "series_id",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Number of maximum results per page to be included in the response.",
             "in": "query",
             "name": "page_size",
@@ -2418,6 +2714,13 @@
             "description": "The value of the nextToken from the previous page.",
             "in": "query",
             "name": "page_token",
+            "type": "string"
+          },
+          {
+            "description": "String that identifies the series",
+            "in": "query",
+            "name": "series_id",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2432,6 +2735,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2470,16 +2776,16 @@
         "operationId": "bookshelves.list",
         "parameters": [
           {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
+          },
+          {
             "description": "ID of user for whom to retrieve bookshelves.",
             "in": "path",
             "name": "userId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
             "type": "string"
           }
         ],
@@ -2494,6 +2800,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2532,13 +2841,6 @@
         "operationId": "bookshelves.get",
         "parameters": [
           {
-            "description": "ID of user for whom to retrieve bookshelves.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "ID of bookshelf to retrieve.",
             "in": "path",
             "name": "shelf",
@@ -2549,6 +2851,13 @@
             "description": "String to identify the originator of this request.",
             "in": "query",
             "name": "source",
+            "type": "string"
+          },
+          {
+            "description": "ID of user for whom to retrieve bookshelves.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -2563,6 +2872,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2601,11 +2913,11 @@
         "operationId": "bookshelves.volumes.list",
         "parameters": [
           {
-            "description": "ID of user for whom to retrieve bookshelf volumes.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "description": "Maximum number of results to return",
+            "in": "query",
+            "minimum": 0,
+            "name": "maxResults",
+            "type": "integer"
           },
           {
             "description": "ID of bookshelf to retrieve volumes.",
@@ -2613,13 +2925,6 @@
             "name": "shelf",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Maximum number of results to return",
-            "in": "query",
-            "minimum": 0,
-            "name": "maxResults",
-            "type": "integer"
           },
           {
             "description": "Set to true to show pre-ordered books. Defaults to false.",
@@ -2639,6 +2944,13 @@
             "minimum": 0,
             "name": "startIndex",
             "type": "integer"
+          },
+          {
+            "description": "ID of user for whom to retrieve bookshelf volumes.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2652,6 +2964,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2689,13 +3004,6 @@
         "description": "Performs a book search.",
         "operationId": "volumes.list",
         "parameters": [
-          {
-            "description": "Full-text search query string.",
-            "in": "query",
-            "name": "q",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Restrict to volumes by download availability.",
             "enum": [
@@ -2790,6 +3098,13 @@
             "type": "string"
           },
           {
+            "description": "Full-text search query string.",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Set to true to show books available for preorder. Defaults to false.",
             "in": "query",
             "name": "showPreorders",
@@ -2820,6 +3135,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2938,6 +3256,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3009,6 +3330,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3069,6 +3393,12 @@
         "operationId": "volumes.recommended.rate",
         "parameters": [
           {
+            "description": "ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.",
+            "in": "query",
+            "name": "locale",
+            "type": "string"
+          },
+          {
             "description": "Rating to be given to the volume.",
             "enum": [
               "HAVE_IT",
@@ -3080,22 +3410,16 @@
             "type": "string"
           },
           {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
+            "type": "string"
+          },
+          {
             "description": "ID of the source volume.",
             "in": "query",
             "name": "volumeId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.",
-            "in": "query",
-            "name": "locale",
-            "type": "string"
-          },
-          {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
             "type": "string"
           }
         ],
@@ -3110,6 +3434,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3189,6 +3516,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3225,13 +3555,6 @@
         "description": "Gets volume information for a single volume.",
         "operationId": "volumes.get",
         "parameters": [
-          {
-            "description": "ID of volume to retrieve.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "ISO-3166-1 code to override the IP-based location.",
             "in": "query",
@@ -3270,6 +3593,13 @@
             "in": "query",
             "name": "user_library_consistent_read",
             "type": "boolean"
+          },
+          {
+            "description": "ID of volume to retrieve.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3283,6 +3613,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3321,13 +3654,6 @@
         "operationId": "volumes.associated.list",
         "parameters": [
           {
-            "description": "ID of the source volume.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Association type.",
             "enum": [
               "end-of-sample",
@@ -3359,6 +3685,13 @@
             "in": "query",
             "name": "source",
             "type": "string"
+          },
+          {
+            "description": "ID of the source volume.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3372,6 +3705,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3410,20 +3746,6 @@
         "operationId": "layers.volumeAnnotations.list",
         "parameters": [
           {
-            "description": "The volume to retrieve annotations for.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID for the layer to get the annotations.",
-            "in": "path",
-            "name": "layerId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The content version for the requested volume.",
             "in": "query",
             "name": "contentVersion",
@@ -3440,6 +3762,13 @@
             "description": "The end position to end retrieving data from.",
             "in": "query",
             "name": "endPosition",
+            "type": "string"
+          },
+          {
+            "description": "The ID for the layer to get the annotations.",
+            "in": "path",
+            "name": "layerId",
+            "required": true,
             "type": "string"
           },
           {
@@ -3503,6 +3832,13 @@
             "in": "query",
             "name": "volumeAnnotationsVersion",
             "type": "string"
+          },
+          {
+            "description": "The volume to retrieve annotations for.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3516,6 +3852,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3554,9 +3893,9 @@
         "operationId": "layers.volumeAnnotations.get",
         "parameters": [
           {
-            "description": "The volume to retrieve annotations for.",
+            "description": "The ID of the volume annotation to retrieve.",
             "in": "path",
-            "name": "volumeId",
+            "name": "annotationId",
             "required": true,
             "type": "string"
           },
@@ -3564,13 +3903,6 @@
             "description": "The ID for the layer to get the annotations.",
             "in": "path",
             "name": "layerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the volume annotation to retrieve.",
-            "in": "path",
-            "name": "annotationId",
             "required": true,
             "type": "string"
           },
@@ -3585,6 +3917,13 @@
             "in": "query",
             "name": "source",
             "type": "string"
+          },
+          {
+            "description": "The volume to retrieve annotations for.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3598,6 +3937,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3636,27 +3978,6 @@
         "operationId": "layers.annotationData.list",
         "parameters": [
           {
-            "description": "The volume to retrieve annotation data for.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID for the layer to get the annotation data.",
-            "in": "path",
-            "name": "layerId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The content version for the requested volume.",
-            "in": "query",
-            "name": "contentVersion",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set.",
             "in": "query",
@@ -3667,10 +3988,24 @@
             "type": "array"
           },
           {
+            "description": "The content version for the requested volume.",
+            "in": "query",
+            "name": "contentVersion",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The requested pixel height for any images. If height is provided width must also be provided.",
             "in": "query",
             "name": "h",
             "type": "integer"
+          },
+          {
+            "description": "The ID for the layer to get the annotation data.",
+            "in": "path",
+            "name": "layerId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.",
@@ -3718,6 +4053,13 @@
             "type": "string"
           },
           {
+            "description": "The volume to retrieve annotation data for.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The requested pixel width for any images. If width is provided height must also be provided.",
             "in": "query",
             "name": "w",
@@ -3735,6 +4077,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3773,18 +4118,10 @@
         "operationId": "layers.annotationData.get",
         "parameters": [
           {
-            "description": "The volume to retrieve annotations for.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID for the layer to get the annotations.",
-            "in": "path",
-            "name": "layerId",
-            "required": true,
-            "type": "string"
+            "description": "For the dictionary layer. Whether or not to allow web definitions.",
+            "in": "query",
+            "name": "allowWebDefinitions",
+            "type": "boolean"
           },
           {
             "description": "The ID of the annotation data to retrieve.",
@@ -3801,16 +4138,17 @@
             "type": "string"
           },
           {
-            "description": "For the dictionary layer. Whether or not to allow web definitions.",
-            "in": "query",
-            "name": "allowWebDefinitions",
-            "type": "boolean"
-          },
-          {
             "description": "The requested pixel height for any images. If height is provided width must also be provided.",
             "in": "query",
             "name": "h",
             "type": "integer"
+          },
+          {
+            "description": "The ID for the layer to get the annotations.",
+            "in": "path",
+            "name": "layerId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'.",
@@ -3832,6 +4170,13 @@
             "type": "string"
           },
           {
+            "description": "The volume to retrieve annotations for.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The requested pixel width for any images. If width is provided height must also be provided.",
             "in": "query",
             "name": "w",
@@ -3849,6 +4194,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3887,13 +4235,6 @@
         "operationId": "layers.list",
         "parameters": [
           {
-            "description": "The volume to retrieve layers for.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The content version for the requested volume.",
             "in": "query",
             "name": "contentVersion",
@@ -3918,6 +4259,13 @@
             "in": "query",
             "name": "source",
             "type": "string"
+          },
+          {
+            "description": "The volume to retrieve layers for.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3931,6 +4279,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3969,10 +4320,15 @@
         "operationId": "layers.get",
         "parameters": [
           {
-            "description": "The volume to retrieve layers for.",
-            "in": "path",
-            "name": "volumeId",
-            "required": true,
+            "description": "The content version for the requested volume.",
+            "in": "query",
+            "name": "contentVersion",
+            "type": "string"
+          },
+          {
+            "description": "String to identify the originator of this request.",
+            "in": "query",
+            "name": "source",
             "type": "string"
           },
           {
@@ -3983,15 +4339,10 @@
             "type": "string"
           },
           {
-            "description": "The content version for the requested volume.",
-            "in": "query",
-            "name": "contentVersion",
-            "type": "string"
-          },
-          {
-            "description": "String to identify the originator of this request.",
-            "in": "query",
-            "name": "source",
+            "description": "The volume to retrieve layers for.",
+            "in": "path",
+            "name": "volumeId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -4006,6 +4357,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -4836,6 +5190,41 @@
       },
       "type": "object"
     },
+    "FamilyInfo": {
+      "properties": {
+        "kind": {
+          "default": "books#familyInfo",
+          "description": "Resource type.",
+          "type": "string"
+        },
+        "membership": {
+          "description": "Family membership info of the user that made the request.",
+          "properties": {
+            "acquirePermission": {
+              "description": "Restrictions on user buying and acquiring content.",
+              "type": "string"
+            },
+            "ageGroup": {
+              "description": "The age group of the user.",
+              "type": "string"
+            },
+            "allowedMaturityRating": {
+              "description": "The maximum allowed maturity rating for the user.",
+              "type": "string"
+            },
+            "isInFamily": {
+              "type": "boolean"
+            },
+            "role": {
+              "description": "The role of the user in the family.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "Geolayerdata": {
       "properties": {
         "common": {
@@ -5376,6 +5765,14 @@
         },
         "notification": {
           "properties": {
+            "matchMyInterests": {
+              "properties": {
+                "opted_state": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
             "moreFromAuthors": {
               "properties": {
                 "opted_state": {
@@ -5385,6 +5782,14 @@
               "type": "object"
             },
             "moreFromSeries": {
+              "properties": {
+                "opted_state": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "priceDrop": {
               "properties": {
                 "opted_state": {
                   "type": "string"

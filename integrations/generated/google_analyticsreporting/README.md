@@ -78,19 +78,19 @@ google_analyticsreporting.reports.batchGet({}, context)
 #### Input
 * input `object`
   * body [GetReportsRequest](#getreportsrequest)
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * bearer_token `string`: OAuth bearer token.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [GetReportsResponse](#getreportsresponse)
@@ -160,11 +160,14 @@ google_analyticsreporting.reports.batchGet({}, context)
 * GetReportsRequest `object`: The batch request containing multiple report request.
   * reportRequests `array`: Requests, each request will have a separate response.
     * items [ReportRequest](#reportrequest)
+  * useResourceQuotas `boolean`: Enables
 
 ### GetReportsResponse
 * GetReportsResponse `object`: The main response class which holds the reports from the Reporting API
+  * queryCost `integer`: The amount of resource quota tokens deducted to execute the query. Includes
   * reports `array`: Responses corresponding to each of the request.
     * items [Report](#report)
+  * resourceQuotasRemaining [ResourceQuotasRemaining](#resourcequotasremaining)
 
 ### Metric
 * Metric `object`: [Metrics](https://support.google.com/analytics/answer/1033861)
@@ -296,6 +299,11 @@ google_analyticsreporting.reports.batchGet({}, context)
     * items `string`
   * metrics `array`: List of metrics for each requested DateRange.
     * items [DateRangeValues](#daterangevalues)
+
+### ResourceQuotasRemaining
+* ResourceQuotasRemaining `object`: The resource quota tokens remaining for the property after the request is
+  * dailyQuotaTokensRemaining `integer`: Daily resource quota remaining remaining.
+  * hourlyQuotaTokensRemaining `integer`: Hourly resource quota tokens remaining.
 
 ### Segment
 * Segment `object`: The segment definition, if the report needs to be segmented.

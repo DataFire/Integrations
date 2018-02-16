@@ -45,6 +45,7 @@ amazonaws_firehose.CreateDeliveryStream({
   * KinesisStreamSourceConfiguration [KinesisStreamSourceConfiguration](#kinesisstreamsourceconfiguration)
   * RedshiftDestinationConfiguration [RedshiftDestinationConfiguration](#redshiftdestinationconfiguration)
   * S3DestinationConfiguration [S3DestinationConfiguration](#s3destinationconfiguration)
+  * SplunkDestinationConfiguration [SplunkDestinationConfiguration](#splunkdestinationconfiguration)
 
 #### Output
 * output [CreateDeliveryStreamOutput](#createdeliverystreamoutput)
@@ -163,6 +164,7 @@ amazonaws_firehose.UpdateDestination({
   * ExtendedS3DestinationUpdate [ExtendedS3DestinationUpdate](#extendeds3destinationupdate)
   * RedshiftDestinationUpdate [RedshiftDestinationUpdate](#redshiftdestinationupdate)
   * S3DestinationUpdate [S3DestinationUpdate](#s3destinationupdate)
+  * SplunkDestinationUpdate [SplunkDestinationUpdate](#splunkdestinationupdate)
 
 #### Output
 * output [UpdateDestinationOutput](#updatedestinationoutput)
@@ -173,9 +175,6 @@ amazonaws_firehose.UpdateDestination({
 
 ### AWSKMSKeyARN
 * AWSKMSKeyARN `string`
-
-### AccessKeyId
-* AccessKeyId `string`
 
 ### BooleanObject
 * BooleanObject `boolean`
@@ -222,6 +221,7 @@ amazonaws_firehose.UpdateDestination({
   * KinesisStreamSourceConfiguration [KinesisStreamSourceConfiguration](#kinesisstreamsourceconfiguration)
   * RedshiftDestinationConfiguration [RedshiftDestinationConfiguration](#redshiftdestinationconfiguration)
   * S3DestinationConfiguration [S3DestinationConfiguration](#s3destinationconfiguration)
+  * SplunkDestinationConfiguration [SplunkDestinationConfiguration](#splunkdestinationconfiguration)
 
 ### CreateDeliveryStreamOutput
 * CreateDeliveryStreamOutput `object`
@@ -298,6 +298,7 @@ amazonaws_firehose.UpdateDestination({
   * ExtendedS3DestinationDescription [ExtendedS3DestinationDescription](#extendeds3destinationdescription)
   * RedshiftDestinationDescription [RedshiftDestinationDescription](#redshiftdestinationdescription)
   * S3DestinationDescription [S3DestinationDescription](#s3destinationdescription)
+  * SplunkDestinationDescription [SplunkDestinationDescription](#splunkdestinationdescription)
 
 ### DestinationDescriptionList
 * DestinationDescriptionList `array`
@@ -430,17 +431,17 @@ amazonaws_firehose.UpdateDestination({
   * S3BackupMode [S3BackupMode](#s3backupmode)
   * S3BackupUpdate [S3DestinationUpdate](#s3destinationupdate)
 
-### FirehoseSource
-* FirehoseSource `string`
+### HECAcknowledgmentTimeoutInSeconds
+* HECAcknowledgmentTimeoutInSeconds `integer`
 
-### GetKinesisStreamInput
-* GetKinesisStreamInput `object`
-  * DeliveryStreamARN **required** [DeliveryStreamARN](#deliverystreamarn)
+### HECEndpoint
+* HECEndpoint `string`
 
-### GetKinesisStreamOutput
-* GetKinesisStreamOutput `object`
-  * CredentialsForReadingKinesisStream [SessionCredentials](#sessioncredentials)
-  * KinesisStreamARN [KinesisStreamARN](#kinesisstreamarn)
+### HECEndpointType
+* HECEndpointType `string` (values: Raw, Event)
+
+### HECToken
+* HECToken `string`
 
 ### IntervalInSeconds
 * IntervalInSeconds `integer`
@@ -448,11 +449,6 @@ amazonaws_firehose.UpdateDestination({
 ### InvalidArgumentException
 * InvalidArgumentException `object`: The specified input parameter has a value that is not valid.
   * message [ErrorMessage](#errormessage)
-
-### InvalidStreamTypeException
-* InvalidStreamTypeException `object`
-  * message [ErrorMessage](#errormessage)
-  * source [FirehoseSource](#firehosesource)
 
 ### KMSEncryptionConfig
 * KMSEncryptionConfig `object`: Describes an encryption key for a destination in Amazon S3.
@@ -532,7 +528,7 @@ amazonaws_firehose.UpdateDestination({
   * items [ProcessorParameter](#processorparameter)
 
 ### ProcessorParameterName
-* ProcessorParameterName `string` (values: LambdaArn, NumberOfRetries)
+* ProcessorParameterName `string` (values: LambdaArn, NumberOfRetries, RoleArn, BufferSizeInMBs, BufferIntervalInSeconds)
 
 ### ProcessorParameterValue
 * ProcessorParameterValue `string`
@@ -675,22 +671,9 @@ amazonaws_firehose.UpdateDestination({
   * Prefix [Prefix](#prefix)
   * RoleARN [RoleARN](#rolearn)
 
-### SecretAccessKey
-* SecretAccessKey `string`
-
 ### ServiceUnavailableException
 * ServiceUnavailableException `object`: The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Firehose Limits</a>.
   * message [ErrorMessage](#errormessage)
-
-### SessionCredentials
-* SessionCredentials `object`
-  * AccessKeyId **required** [AccessKeyId](#accesskeyid)
-  * Expiration **required** [Timestamp](#timestamp)
-  * SecretAccessKey **required** [SecretAccessKey](#secretaccesskey)
-  * SessionToken **required** [SessionToken](#sessiontoken)
-
-### SessionToken
-* SessionToken `string`
 
 ### SizeInMBs
 * SizeInMBs `integer`
@@ -698,6 +681,52 @@ amazonaws_firehose.UpdateDestination({
 ### SourceDescription
 * SourceDescription `object`: Details about a Kinesis stream used as the source for a Kinesis Firehose delivery stream.
   * KinesisStreamSourceDescription [KinesisStreamSourceDescription](#kinesisstreamsourcedescription)
+
+### SplunkDestinationConfiguration
+* SplunkDestinationConfiguration `object`: Describes the configuration of a destination in Splunk.
+  * CloudWatchLoggingOptions [CloudWatchLoggingOptions](#cloudwatchloggingoptions)
+  * HECAcknowledgmentTimeoutInSeconds [HECAcknowledgmentTimeoutInSeconds](#hecacknowledgmenttimeoutinseconds)
+  * HECEndpoint **required** [HECEndpoint](#hecendpoint)
+  * HECEndpointType **required** [HECEndpointType](#hecendpointtype)
+  * HECToken **required** [HECToken](#hectoken)
+  * ProcessingConfiguration [ProcessingConfiguration](#processingconfiguration)
+  * RetryOptions [SplunkRetryOptions](#splunkretryoptions)
+  * S3BackupMode [SplunkS3BackupMode](#splunks3backupmode)
+  * S3Configuration **required** [S3DestinationConfiguration](#s3destinationconfiguration)
+
+### SplunkDestinationDescription
+* SplunkDestinationDescription `object`: Describes a destination in Splunk.
+  * CloudWatchLoggingOptions [CloudWatchLoggingOptions](#cloudwatchloggingoptions)
+  * HECAcknowledgmentTimeoutInSeconds [HECAcknowledgmentTimeoutInSeconds](#hecacknowledgmenttimeoutinseconds)
+  * HECEndpoint [HECEndpoint](#hecendpoint)
+  * HECEndpointType [HECEndpointType](#hecendpointtype)
+  * HECToken [HECToken](#hectoken)
+  * ProcessingConfiguration [ProcessingConfiguration](#processingconfiguration)
+  * RetryOptions [SplunkRetryOptions](#splunkretryoptions)
+  * S3BackupMode [SplunkS3BackupMode](#splunks3backupmode)
+  * S3DestinationDescription [S3DestinationDescription](#s3destinationdescription)
+
+### SplunkDestinationUpdate
+* SplunkDestinationUpdate `object`: Describes an update for a destination in Splunk.
+  * CloudWatchLoggingOptions [CloudWatchLoggingOptions](#cloudwatchloggingoptions)
+  * HECAcknowledgmentTimeoutInSeconds [HECAcknowledgmentTimeoutInSeconds](#hecacknowledgmenttimeoutinseconds)
+  * HECEndpoint [HECEndpoint](#hecendpoint)
+  * HECEndpointType [HECEndpointType](#hecendpointtype)
+  * HECToken [HECToken](#hectoken)
+  * ProcessingConfiguration [ProcessingConfiguration](#processingconfiguration)
+  * RetryOptions [SplunkRetryOptions](#splunkretryoptions)
+  * S3BackupMode [SplunkS3BackupMode](#splunks3backupmode)
+  * S3Update [S3DestinationUpdate](#s3destinationupdate)
+
+### SplunkRetryDurationInSeconds
+* SplunkRetryDurationInSeconds `integer`
+
+### SplunkRetryOptions
+* SplunkRetryOptions `object`: Configures retry behavior in case Kinesis Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+  * DurationInSeconds [SplunkRetryDurationInSeconds](#splunkretrydurationinseconds)
+
+### SplunkS3BackupMode
+* SplunkS3BackupMode `string` (values: FailedEventsOnly, AllEvents)
 
 ### Timestamp
 * Timestamp `string`
@@ -711,6 +740,7 @@ amazonaws_firehose.UpdateDestination({
   * ExtendedS3DestinationUpdate [ExtendedS3DestinationUpdate](#extendeds3destinationupdate)
   * RedshiftDestinationUpdate [RedshiftDestinationUpdate](#redshiftdestinationupdate)
   * S3DestinationUpdate [S3DestinationUpdate](#s3destinationupdate)
+  * SplunkDestinationUpdate [SplunkDestinationUpdate](#splunkdestinationupdate)
 
 ### UpdateDestinationOutput
 * UpdateDestinationOutput `object`

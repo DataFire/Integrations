@@ -894,15 +894,15 @@ Returns the specified address resource. Get a list of available addresses by mak
 
 ```js
 google_compute.globalAddresses.get({
-  "project": "",
-  "address": ""
+  "address": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * address **required** `string`: Name of the address resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1001,15 +1001,15 @@ Returns the specified BackendBucket resource. Get a list of available backend bu
 
 ```js
 google_compute.backendBuckets.get({
-  "project": "",
-  "backendBucket": ""
+  "backendBucket": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * backendBucket **required** `string`: Name of the BackendBucket resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1164,15 +1164,15 @@ Returns the specified BackendService resource. Get a list of available backend s
 
 ```js
 google_compute.backendServices.get({
-  "project": "",
-  "backendService": ""
+  "backendService": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * backendService **required** `string`: Name of the BackendService resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1246,16 +1246,16 @@ Gets the most recent health check results for this BackendService.
 
 ```js
 google_compute.backendServices.getHealth({
-  "project": "",
-  "backendService": ""
+  "backendService": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`
   * backendService **required** `string`: Name of the BackendService resource to which the queried instance belongs.
   * body [ResourceGroupReference](#resourcegroupreference)
+  * project **required** `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1354,15 +1354,15 @@ Returns the specified firewall.
 
 ```js
 google_compute.firewalls.get({
-  "project": "",
-  "firewall": ""
+  "firewall": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * firewall **required** `string`: Name of the firewall rule to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1403,7 +1403,7 @@ google_compute.firewalls.patch({
 * output [Operation](#operation)
 
 ### firewalls.update
-Updates the specified firewall rule with the data included in the request. Using PUT method, can only update following fields of firewall rule: allowed, description, sourceRanges, sourceTags, targetTags.
+Updates the specified firewall rule with the data included in the request. The PUT method can only update the following fields of firewall rule: allowed, description, sourceRanges, sourceTags, targetTags.
 
 
 ```js
@@ -1517,15 +1517,15 @@ Returns the specified GlobalForwardingRule resource. Get a list of available for
 
 ```js
 google_compute.globalForwardingRules.get({
-  "project": "",
-  "forwardingRule": ""
+  "forwardingRule": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * forwardingRule **required** `string`: Name of the ForwardingRule resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1652,15 +1652,15 @@ Returns the specified HealthCheck resource. Get a list of available health check
 
 ```js
 google_compute.healthChecks.get({
-  "project": "",
-  "healthCheck": ""
+  "healthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * healthCheck **required** `string`: Name of the HealthCheck resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1815,15 +1815,15 @@ Returns the specified HttpHealthCheck resource. Get a list of available HTTP hea
 
 ```js
 google_compute.httpHealthChecks.get({
-  "project": "",
-  "httpHealthCheck": ""
+  "httpHealthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * httpHealthCheck **required** `string`: Name of the HttpHealthCheck resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1978,15 +1978,15 @@ Returns the specified HttpsHealthCheck resource. Get a list of available HTTPS h
 
 ```js
 google_compute.httpsHealthChecks.get({
-  "project": "",
-  "httpsHealthCheck": ""
+  "httpsHealthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * httpsHealthCheck **required** `string`: Name of the HttpsHealthCheck resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2055,7 +2055,7 @@ google_compute.httpsHealthChecks.update({
 * output [Operation](#operation)
 
 ### images.list
-Retrieves the list of private images available to the specified project. Private images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.
+Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.
 
 
 ```js
@@ -2115,15 +2115,15 @@ Returns the latest image that is part of an image family and is not deprecated.
 
 ```js
 google_compute.images.getFromFamily({
-  "project": "",
-  "family": ""
+  "family": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * family **required** `string`: Name of the image family to search for.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2168,15 +2168,15 @@ Returns the specified image. Get a list of available images by making a list() r
 
 ```js
 google_compute.images.get({
-  "project": "",
-  "image": ""
+  "image": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * image **required** `string`: Name of the image resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2300,7 +2300,7 @@ google_compute.instanceTemplates.insert({
 * output [Operation](#operation)
 
 ### instanceTemplates.delete
-Deletes the specified instance template. If you delete an instance template that is being referenced from another instance group, the instance group will not be able to create or recreate virtual machine instances. Deleting an instance template is permanent and cannot be undone.
+Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It's not possible to delete templates which are in use by an instance group.
 
 
 ```js
@@ -2332,15 +2332,15 @@ Returns the specified instance template. Get a list of available instance templa
 
 ```js
 google_compute.instanceTemplates.get({
-  "project": "",
-  "instanceTemplate": ""
+  "instanceTemplate": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * instanceTemplate **required** `string`: The name of the instance template.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2547,15 +2547,15 @@ Returns the specified License resource.
 
 ```js
 google_compute.licenses.get({
-  "project": "",
-  "license": ""
+  "license": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * license **required** `string`: Name of the License resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2654,15 +2654,15 @@ Returns the specified network. Get a list of available networks by making a list
 
 ```js
 google_compute.networks.get({
-  "project": "",
-  "network": ""
+  "network": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * network **required** `string`: Name of the network to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2675,7 +2675,7 @@ google_compute.networks.get({
 * output [Network](#network)
 
 ### networks.patch
-Patches the specified network with the data included in the request.
+Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode.
 
 
 ```js
@@ -2819,15 +2819,15 @@ Deletes the specified Operations resource.
 
 ```js
 google_compute.globalOperations.delete({
-  "project": "",
-  "operation": ""
+  "operation": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * operation **required** `string`: Name of the Operations resource to delete.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2845,15 +2845,15 @@ Retrieves the specified Operations resource. Get a list of operations by making 
 
 ```js
 google_compute.globalOperations.get({
-  "project": "",
-  "operation": ""
+  "operation": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
   * operation **required** `string`: Name of the Operations resource to return.
+  * project **required** `string`: Project ID for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3961,9 +3961,9 @@ google_compute.urlMaps.validate({
 
 #### Input
 * input `object`
+  * body [UrlMapsValidateRequest](#urlmapsvalidaterequest)
   * project **required** `string`: Project ID for this request.
   * urlMap **required** `string`: Name of the UrlMap resource to be validated as.
-  * body [UrlMapsValidateRequest](#urlmapsvalidaterequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4203,17 +4203,17 @@ Returns the specified address resource.
 
 ```js
 google_compute.addresses.get({
+  "address": "",
   "project": "",
-  "region": "",
-  "address": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * address **required** `string`: Name of the address resource to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region for this request.
-  * address **required** `string`: Name of the address resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4376,17 +4376,17 @@ Returns the specified autoscaler.
 
 ```js
 google_compute.regionAutoscalers.get({
+  "autoscaler": "",
   "project": "",
-  "region": "",
-  "autoscaler": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * autoscaler **required** `string`: Name of the autoscaler to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region scoping this request.
-  * autoscaler **required** `string`: Name of the autoscaler to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4491,17 +4491,17 @@ Returns the specified regional BackendService resource.
 
 ```js
 google_compute.regionBackendServices.get({
+  "backendService": "",
   "project": "",
-  "region": "",
-  "backendService": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * backendService **required** `string`: Name of the BackendService resource to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region scoping this request.
-  * backendService **required** `string`: Name of the BackendService resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4579,18 +4579,18 @@ Gets the most recent health check results for this regional BackendService.
 
 ```js
 google_compute.regionBackendServices.getHealth({
+  "backendService": "",
   "project": "",
-  "region": "",
-  "backendService": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * backendService **required** `string`: Name of the BackendService resource for which to get health.
+  * body [ResourceGroupReference](#resourcegroupreference)
   * project **required** `string`
   * region **required** `string`: Name of the region scoping this request.
-  * backendService **required** `string`: Name of the BackendService resource to which the queried instance belongs.
-  * body [ResourceGroupReference](#resourcegroupreference)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4781,17 +4781,17 @@ Returns the specified ForwardingRule resource.
 
 ```js
 google_compute.forwardingRules.get({
+  "forwardingRule": "",
   "project": "",
-  "region": "",
-  "forwardingRule": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * forwardingRule **required** `string`: Name of the ForwardingRule resource to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region scoping this request.
-  * forwardingRule **required** `string`: Name of the ForwardingRule resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4928,17 +4928,17 @@ Returns all of the details about the specified managed instance group.
 
 ```js
 google_compute.regionInstanceGroupManagers.get({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instanceGroupManager **required** `string`: Name of the managed instance group to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region scoping this request.
-  * instanceGroupManager **required** `string`: Name of the managed instance group to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5024,21 +5024,21 @@ Lists the instances in the managed instance group and instances that are schedul
 
 ```js
 google_compute.regionInstanceGroupManagers.listManagedInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
-  * region **required** `string`: Name of the region scoping this request.
-  * instanceGroupManager **required** `string`: The name of the managed instance group.
   * filter `string`
+  * instanceGroupManager **required** `string`: The name of the managed instance group.
   * maxResults `integer`
   * order_by `string`
   * pageToken `string`
+  * project **required** `string`: Project ID for this request.
+  * region **required** `string`: Name of the region scoping this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5213,17 +5213,17 @@ Returns the specified instance group resource.
 
 ```js
 google_compute.regionInstanceGroups.get({
+  "instanceGroup": "",
   "project": "",
-  "region": "",
-  "instanceGroup": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instanceGroup **required** `string`: Name of the instance group resource to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region scoping this request.
-  * instanceGroup **required** `string`: Name of the instance group resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5449,17 +5449,17 @@ Deletes the specified region-specific Operations resource.
 
 ```js
 google_compute.regionOperations.delete({
+  "operation": "",
   "project": "",
-  "region": "",
-  "operation": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the Operations resource to delete.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region for this request.
-  * operation **required** `string`: Name of the Operations resource to delete.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5477,17 +5477,17 @@ Retrieves the specified region-specific Operations resource.
 
 ```js
 google_compute.regionOperations.get({
+  "operation": "",
   "project": "",
-  "region": "",
-  "operation": ""
+  "region": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the Operations resource to return.
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region for this request.
-  * operation **required** `string`: Name of the Operations resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5716,10 +5716,10 @@ google_compute.routers.preview({
 
 #### Input
 * input `object`
+  * body [Router](#router)
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region for this request.
   * router **required** `string`: Name of the Router resource to query.
-  * body [Router](#router)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6095,10 +6095,10 @@ google_compute.targetPools.getHealth({
 
 #### Input
 * input `object`
+  * body [InstanceReference](#instancereference)
   * project **required** `string`: Project ID for this request.
   * region **required** `string`: Name of the region scoping this request.
   * targetPool **required** `string`: Name of the TargetPool resource to which the queried instance belongs.
-  * body [InstanceReference](#instancereference)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6830,17 +6830,17 @@ Returns the specified autoscaler resource. Get a list of available autoscalers b
 
 ```js
 google_compute.autoscalers.get({
+  "autoscaler": "",
   "project": "",
-  "zone": "",
-  "autoscaler": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * autoscaler **required** `string`: Name of the autoscaler to return.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: Name of the zone for this request.
-  * autoscaler **required** `string`: Name of the autoscaler to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6888,17 +6888,17 @@ Returns the specified disk type. Get a list of available disk types by making a 
 
 ```js
 google_compute.diskTypes.get({
+  "diskType": "",
   "project": "",
-  "zone": "",
-  "diskType": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * diskType **required** `string`: Name of the disk type to return.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: The name of the zone for this request.
-  * diskType **required** `string`: Name of the disk type to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -7004,17 +7004,17 @@ Returns a specified persistent disk. Get a list of available persistent disks by
 
 ```js
 google_compute.disks.get({
+  "disk": "",
   "project": "",
-  "zone": "",
-  "disk": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * disk **required** `string`: Name of the persistent disk to return.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: The name of the zone for this request.
-  * disk **required** `string`: Name of the persistent disk to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -7058,7 +7058,7 @@ google_compute.disks.createSnapshot({
 * output [Operation](#operation)
 
 ### disks.resize
-Resizes the specified persistent disk.
+Resizes the specified persistent disk. You can only increase the size of the disk.
 
 
 ```js
@@ -7212,17 +7212,17 @@ Returns all of the details about the specified managed instance group. Get a lis
 
 ```js
 google_compute.instanceGroupManagers.get({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instanceGroupManager **required** `string`: The name of the managed instance group.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: The name of the zone where the managed instance group is located.
-  * instanceGroupManager **required** `string`: The name of the managed instance group.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -7308,21 +7308,21 @@ Lists all of the instances in the managed instance group. Each instance in the l
 
 ```js
 google_compute.instanceGroupManagers.listManagedInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
-  * zone **required** `string`: The name of the zone where the managed instance group is located.
-  * instanceGroupManager **required** `string`: The name of the managed instance group.
   * filter `string`
+  * instanceGroupManager **required** `string`: The name of the managed instance group.
   * maxResults `integer`
   * order_by `string`
   * pageToken `string`
+  * project **required** `string`: Project ID for this request.
+  * zone **required** `string`: The name of the zone where the managed instance group is located.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -7554,17 +7554,17 @@ Returns the specified instance group. Get a list of available instance groups by
 
 ```js
 google_compute.instanceGroups.get({
+  "instanceGroup": "",
   "project": "",
-  "zone": "",
-  "instanceGroup": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instanceGroup **required** `string`: The name of the instance group.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: The name of the zone where the instance group is located.
-  * instanceGroup **required** `string`: The name of the instance group.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -7794,17 +7794,17 @@ Returns the specified Instance resource. Get a list of available instances by ma
 
 ```js
 google_compute.instances.get({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * instance **required** `string`: Name of the instance resource to return.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: The name of the zone for this request.
-  * instance **required** `string`: Name of the instance resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -7942,6 +7942,38 @@ google_compute.instances.detachDisk({
 #### Output
 * output [Operation](#operation)
 
+### instances.listReferrers
+Retrieves the list of referrers to instances contained within the specified zone.
+
+
+```js
+google_compute.instances.listReferrers({
+  "instance": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * filter `string`: Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+  * instance **required** `string`: Name of the target instance scoping this request, or '-' if the request should span over all instances in the container.
+  * maxResults `integer`: The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+  * orderBy `string`: Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+  * pageToken `string`: Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+  * project **required** `string`: Project ID for this request.
+  * zone **required** `string`: The name of the zone for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [InstanceListReferrers](#instancelistreferrers)
+
 ### instances.reset
 Performs a reset on the instance. For more information, see Resetting an instance.
 
@@ -7977,19 +8009,19 @@ Returns the specified instance's serial port output.
 
 ```js
 google_compute.instances.getSerialPortOutput({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Project ID for this request.
-  * zone **required** `string`: The name of the zone for this request.
   * instance **required** `string`: Name of the instance scoping this request.
   * port `integer`: Specifies which COM or serial port to retrieve data from.
+  * project **required** `string`: Project ID for this request.
   * start `string`: Returns output starting from a specific byte position. Use this to page through output when the output is too large to return in a single request. For the initial request, leave this field unspecified. For subsequent calls, this field should be set to the next value returned in the previous call.
+  * zone **required** `string`: The name of the zone for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -8362,6 +8394,38 @@ google_compute.instances.stop({
 #### Output
 * output [Operation](#operation)
 
+### instances.updateAccessConfig
+Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+
+
+```js
+google_compute.instances.updateAccessConfig({
+  "instance": "",
+  "networkInterface": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [AccessConfig](#accessconfig)
+  * instance **required** `string`: The instance name for this request.
+  * networkInterface **required** `string`: The name of the network interface where the access config is attached.
+  * project **required** `string`: Project ID for this request.
+  * requestId `string`: An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+  * zone **required** `string`: The name of the zone for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [Operation](#operation)
+
 ### instances.setDeletionProtection
 Sets deletion protection on the instance.
 
@@ -8428,17 +8492,17 @@ Returns the specified machine type. Get a list of available machine types by mak
 
 ```js
 google_compute.machineTypes.get({
+  "machineType": "",
   "project": "",
-  "zone": "",
-  "machineType": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * machineType **required** `string`: Name of the machine type to return.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: The name of the zone for this request.
-  * machineType **required** `string`: Name of the machine type to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -8486,17 +8550,17 @@ Deletes the specified zone-specific Operations resource.
 
 ```js
 google_compute.zoneOperations.delete({
+  "operation": "",
   "project": "",
-  "zone": "",
-  "operation": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the Operations resource to delete.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: Name of the zone for this request.
-  * operation **required** `string`: Name of the Operations resource to delete.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -8514,17 +8578,17 @@ Retrieves the specified zone-specific Operations resource.
 
 ```js
 google_compute.zoneOperations.get({
+  "operation": "",
   "project": "",
-  "zone": "",
-  "operation": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the Operations resource to return.
   * project **required** `string`: Project ID for this request.
   * zone **required** `string`: Name of the zone for this request.
-  * operation **required** `string`: Name of the Operations resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -8630,16 +8694,16 @@ Returns the specified TargetInstance resource. Get a list of available target in
 ```js
 google_compute.targetInstances.get({
   "project": "",
-  "zone": "",
-  "targetInstance": ""
+  "targetInstance": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: Project ID for this request.
-  * zone **required** `string`: Name of the zone scoping this request.
   * targetInstance **required** `string`: Name of the TargetInstance resource to return.
+  * zone **required** `string`: Name of the zone scoping this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -8658,10 +8722,10 @@ google_compute.targetInstances.get({
 ### AcceleratorConfig
 * AcceleratorConfig `object`: A specification of the type and number of accelerator cards attached to the instance.
   * acceleratorCount `integer`: The number of the guest accelerator cards exposed to this instance.
-  * acceleratorType `string`: Full or partial URL of the accelerator type resource to expose to this instance.
+  * acceleratorType `string`: Full or partial URL of the accelerator type resource to attach to this instance. If you are creating an instance template, specify only the accelerator name.
 
 ### AcceleratorType
-* AcceleratorType `object`: An Accelerator Type resource.
+* AcceleratorType `object`: An Accelerator Type resource. (== resource_for beta.acceleratorTypes ==) (== resource_for v1.acceleratorTypes ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * deprecated [DeprecationStatus](#deprecationstatus)
   * description `string`: [Output Only] An optional textual description of the resource.
@@ -8670,7 +8734,7 @@ google_compute.targetInstances.get({
   * maximumCardsPerInstance `integer`: [Output Only] Maximum accelerator cards allowed per instance.
   * name `string`: [Output Only] Name of the resource.
   * selfLink `string`: [Output Only] Server-defined fully-qualified URL for this resource.
-  * zone `string`: [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a.
+  * zone `string`: [Output Only] The name of the zone where the accelerator type resides, such as us-central1-a. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### AcceleratorTypeAggregatedList
 * AcceleratorTypeAggregatedList `object`
@@ -8720,22 +8784,24 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of the resource. Always compute#accessConfig for access configs.
   * name `string`: The name of this access configuration. The default and recommended name is External NAT but you can use any arbitrary string you would like. For example, My external IP or Network Access.
   * natIP `string`: An external IP address associated with this instance. Specify an unused static external IP address available to the project or leave this field undefined to use an IP from a shared ephemeral IP address pool. If you specify a static external IP address, it must live in the same region as the zone of the instance.
+  * publicPtrDomainName `string`: The DNS domain name for the public PTR record. This field can only be set when the set_public_ptr field is enabled.
+  * setPublicPtr `boolean`: Specifies whether a public DNS ?PTR? record should be created to map the external IP address of the instance to a DNS domain name.
   * type `string` (values: ONE_TO_ONE_NAT): The type of configuration. The default and only option is ONE_TO_ONE_NAT.
 
 ### Address
-* Address `object`: A reserved address resource.
+* Address `object`: A reserved address resource. (== resource_for beta.addresses ==) (== resource_for v1.addresses ==) (== resource_for beta.globalAddresses ==) (== resource_for v1.globalAddresses ==)
   * address `string`: The static IP address represented by this resource.
-  * addressType `string` (values: EXTERNAL, INTERNAL, UNSPECIFIED_TYPE): The type of address to reserve. If unspecified, defaults to EXTERNAL.
+  * addressType `string` (values: EXTERNAL, INTERNAL, UNSPECIFIED_TYPE): The type of address to reserve, either INTERNAL or EXTERNAL. If unspecified, defaults to EXTERNAL.
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * ipVersion `string` (values: IPV4, IPV6, UNSPECIFIED_VERSION): The IP Version that will be used by this address. Valid options are IPV4 or IPV6. This can only be specified for a global address.
   * kind `string`: [Output Only] Type of the resource. Always compute#address for addresses.
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
-  * region `string`: [Output Only] URL of the region where the regional address resides. This field is not applicable to global addresses.
+  * region `string`: [Output Only] URL of the region where the regional address resides. This field is not applicable to global addresses. You must specify this field as part of the HTTP request URL. You cannot set this field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * status `string` (values: IN_USE, RESERVED): [Output Only] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
-  * subnetwork `string`: For external addresses, this field should not be used.
+  * subnetwork `string`: The URL of the subnetwork in which to reserve the address. If an IP address is specified, it must be within the subnetwork's IP range. This field can only be used with INTERNAL type with GCE_ENDPOINT/DNS_RESOLVER purposes.
   * users `array`: [Output Only] The URLs of the resources that are using this address.
     * items `string`
 
@@ -8808,11 +8874,12 @@ google_compute.targetInstances.get({
   * diskName `string`: Specifies the disk name. If not specified, the default is to use the name of the instance.
   * diskSizeGb `string`: Specifies the size of the disk in base-2 GB.
   * diskType `string`: Specifies the disk type to use to create the instance. If not specified, the default is pd-standard, specified using the full URL. For example:
+  * labels `object`: Labels to apply to this disk. These can be later modified by the disks.setLabels method. This field is only applicable for persistent disks.
   * sourceImage `string`: The source image to create this disk. When creating a new instance, one of initializeParams.sourceImage or disks.source is required except for local SSD.
   * sourceImageEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
 
 ### Autoscaler
-* Autoscaler `object`: Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
+* Autoscaler `object`: Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances. (== resource_for beta.autoscalers ==) (== resource_for v1.autoscalers ==) (== resource_for beta.regionAutoscalers ==) (== resource_for v1.regionAutoscalers ==)
   * autoscalingPolicy [AutoscalingPolicy](#autoscalingpolicy)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
@@ -8939,7 +9006,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### BackendService
-* BackendService `object`: A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
+* BackendService `object`: A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity. (== resource_for v1.backendService ==) (== resource_for beta.backendService ==)
   * affinityCookieTtlSec `integer`: Lifetime of cookies in seconds if session_affinity is GENERATED_COOKIE. If set to 0, the cookie is non-persistent and lasts only until the end of the browser session (or equivalent). The maximum allowed value for TTL is one day.
   * backends `array`: The list of backends that serve this BackendService.
     * items [Backend](#backend)
@@ -8959,7 +9026,7 @@ google_compute.targetInstances.get({
   * port `integer`: Deprecated in favor of portName. The TCP port to connect on the backend. The default value is 80.
   * portName `string`: Name of backend port. The same name should appear in the instance groups referenced by this service. Required when the load balancing scheme is EXTERNAL.
   * protocol `string` (values: HTTP, HTTPS, SSL, TCP, UDP): The protocol this BackendService uses to communicate with backends.
-  * region `string`: [Output Only] URL of the region where the regional backend service resides. This field is not applicable to global backend services.
+  * region `string`: [Output Only] URL of the region where the regional backend service resides. This field is not applicable to global backend services. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * sessionAffinity `string` (values: CLIENT_IP, CLIENT_IP_PORT_PROTO, CLIENT_IP_PROTO, GENERATED_COOKIE, NONE): Type of session affinity to use. The default is NONE.
   * timeoutSec `integer`: How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds.
@@ -9122,7 +9189,7 @@ google_compute.targetInstances.get({
   * state `string` (values: DELETED, DEPRECATED, OBSOLETE): The deprecation state of this resource. This can be DEPRECATED, OBSOLETE, or DELETED. Operations which create a new resource using a DEPRECATED resource will return successfully, but with a warning indicating the deprecated resource and recommending its replacement. Operations which use OBSOLETE or DELETED resources will be rejected and result in an error.
 
 ### Disk
-* Disk `object`: A Disk resource.
+* Disk `object`: A Disk resource. (== resource_for beta.disks ==) (== resource_for v1.disks ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * diskEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
@@ -9148,7 +9215,7 @@ google_compute.targetInstances.get({
   * type `string`: URL of the disk type resource describing which disk type to use to create the disk. Provide this when creating the disk.
   * users `array`: [Output Only] Links to the users of the disk (attached instances) in form: project/zones/zone/instances/instance
     * items `string`
-  * zone `string`: [Output Only] URL of the zone where the disk resides.
+  * zone `string`: [Output Only] URL of the zone where the disk resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### DiskAggregatedList
 * DiskAggregatedList `object`
@@ -9187,7 +9254,7 @@ google_compute.targetInstances.get({
   * targetDisk `string`: The URL of the target disk to move. This can be a full or partial URL. For example, the following are all valid URLs to a disk:  
 
 ### DiskType
-* DiskType `object`: A DiskType resource.
+* DiskType `object`: A DiskType resource. (== resource_for beta.diskTypes ==) (== resource_for v1.diskTypes ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * defaultDiskSizeGb `string`: [Output Only] Server-defined default disk size in GB.
   * deprecated [DeprecationStatus](#deprecationstatus)
@@ -9197,7 +9264,7 @@ google_compute.targetInstances.get({
   * name `string`: [Output Only] Name of the resource.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * validDiskSize `string`: [Output Only] An optional textual description of the valid disk size, such as "10GB-10TB".
-  * zone `string`: [Output Only] URL of the zone where the disk type resides.
+  * zone `string`: [Output Only] URL of the zone where the disk type resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### DiskTypeAggregatedList
 * DiskTypeAggregatedList `object`
@@ -9266,7 +9333,7 @@ google_compute.targetInstances.get({
       * ports `array`: An optional list of ports to which this rule applies. This field is only applicable for UDP or TCP protocol. Each entry must be either an integer or a range. If not specified, this rule applies to connections through any port.
         * items `string`
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
-  * denied `array`: The list of DENY rules specified by this firewall. Each rule specifies a protocol and port-range tuple that describes a permitted connection.
+  * denied `array`: The list of DENY rules specified by this firewall. Each rule specifies a protocol and port-range tuple that describes a denied connection.
     * items `object`
       * IPProtocol `string`: The IP protocol to which this rule applies. The protocol type is required when creating a firewall rule. This value can either be one of the following well known protocol strings (tcp, udp, icmp, esp, ah, ipip, sctp), or the IP protocol number.
       * ports `array`: An optional list of ports to which this rule applies. This field is only applicable for UDP or TCP protocol. Each entry must be either an integer or a range. If not specified, this rule applies to connections through any port.
@@ -9309,7 +9376,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### ForwardingRule
-* ForwardingRule `object`: A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple.
+* ForwardingRule `object`: A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple. (== resource_for beta.forwardingRules ==) (== resource_for v1.forwardingRules ==) (== resource_for beta.globalForwardingRules ==) (== resource_for v1.globalForwardingRules ==) (== resource_for beta.regionForwardingRules ==) (== resource_for v1.regionForwardingRules ==)
   * IPAddress `string`: The IP address that this forwarding rule is serving on behalf of.
   * IPProtocol `string` (values: AH, ESP, ICMP, SCTP, TCP, UDP): The IP protocol to which this rule applies. Valid options are TCP, UDP, ESP, AH, SCTP or ICMP.
   * backendService `string`: This field is not used for external load balancing.
@@ -9324,7 +9391,7 @@ google_compute.targetInstances.get({
   * portRange `string`: This field is used along with the target field for TargetHttpProxy, TargetHttpsProxy, TargetSslProxy, TargetTcpProxy, TargetVpnGateway, TargetPool, TargetInstance.
   * ports `array`: This field is used along with the backend_service field for internal load balancing.
     * items `string`
-  * region `string`: [Output Only] URL of the region where the regional forwarding rule resides. This field is not applicable to global forwarding rules.
+  * region `string`: [Output Only] URL of the region where the regional forwarding rule resides. This field is not applicable to global forwarding rules. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * subnetwork `string`: This field is not used for external load balancing.
   * target `string`: The URL of the target resource to receive the matched traffic. For regional forwarding rules, this target must live in the same region as the forwarding rule. For global forwarding rules, this target must be a global load balancing resource. The forwarded traffic must be of a type appropriate to the target object.
@@ -9379,7 +9446,7 @@ google_compute.targetInstances.get({
 
 ### GuestOsFeature
 * GuestOsFeature `object`: Guest OS features.
-  * type `string` (values: FEATURE_TYPE_UNSPECIFIED, VIRTIO_SCSI_MULTIQUEUE, WINDOWS): The type of supported feature. Currently only VIRTIO_SCSI_MULTIQUEUE is supported. For newer Windows images, the server might also populate this property with the value WINDOWS to indicate that this is a Windows image.
+  * type `string` (values: FEATURE_TYPE_UNSPECIFIED, MULTI_IP_SUBNET, VIRTIO_SCSI_MULTIQUEUE, WINDOWS): The ID of a supported feature. Read  Enabling guest operating system features to see a list of available options.
 
 ### HTTPHealthCheck
 * HTTPHealthCheck `object`
@@ -9514,14 +9581,14 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### Image
-* Image `object`: An Image resource.
+* Image `object`: An Image resource. (== resource_for beta.images ==) (== resource_for v1.images ==)
   * archiveSizeBytes `string`: Size of the image tar.gz archive stored in Google Cloud Storage (in bytes).
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * deprecated [DeprecationStatus](#deprecationstatus)
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * diskSizeGb `string`: Size of the image when restored onto a persistent disk (in GB).
   * family `string`: The name of the image family to which this image belongs. You can create disks by specifying an image family instead of a specific image name. The image family always returns its latest image that is not deprecated. The name of the image family must comply with RFC1035.
-  * guestOsFeatures `array`: A list of features to enable on the guest OS. Applicable for bootable images only. Currently, only one feature can be enabled, VIRTIO_SCSI_MULTIQUEUE, which allows each virtual CPU to have its own queue. For Windows images, you can only enable VIRTIO_SCSI_MULTIQUEUE on images with driver version 1.2.0.1621 or higher. Linux images with kernel versions 3.17 and higher will support VIRTIO_SCSI_MULTIQUEUE.
+  * guestOsFeatures `array`: A list of features to enable on the guest operating system. Applicable only for bootable images. Read  Enabling guest operating system features to see a list of available options.
     * items [GuestOsFeature](#guestosfeature)
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * imageEncryptionKey [CustomerEncryptionKey](#customerencryptionkey)
@@ -9562,7 +9629,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### Instance
-* Instance `object`: An Instance resource.
+* Instance `object`: An Instance resource. (== resource_for beta.instances ==) (== resource_for v1.instances ==)
   * canIpForward `boolean`: Allows this instance to send and receive packets with non-matching destination or source IPs. This is required if you plan to use this instance to forward routes. For more information, see Enabling IP Forwarding.
   * cpuPlatform `string`: [Output Only] The CPU platform used by this instance.
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
@@ -9590,7 +9657,7 @@ google_compute.targetInstances.get({
   * status `string` (values: PROVISIONING, RUNNING, STAGING, STOPPED, STOPPING, SUSPENDED, SUSPENDING, TERMINATED): [Output Only] The status of the instance. One of the following values: PROVISIONING, STAGING, RUNNING, STOPPING, STOPPED, SUSPENDING, SUSPENDED, and TERMINATED.
   * statusMessage `string`: [Output Only] An optional, human-readable explanation of the status.
   * tags [Tags](#tags)
-  * zone `string`: [Output Only] URL of the zone where the instance resides.
+  * zone `string`: [Output Only] URL of the zone where the instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### InstanceAggregatedList
 * InstanceAggregatedList `object`
@@ -9608,7 +9675,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### InstanceGroup
-* InstanceGroup `object`
+* InstanceGroup `object`: InstanceGroups (== resource_for beta.instanceGroups ==) (== resource_for v1.instanceGroups ==) (== resource_for beta.regionInstanceGroups ==) (== resource_for v1.regionInstanceGroups ==)
   * creationTimestamp `string`: [Output Only] The creation timestamp for this instance group in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * fingerprint `string`: [Output Only] The fingerprint of the named ports. The system uses this fingerprint to detect conflicts when multiple users change the named ports concurrently.
@@ -9656,7 +9723,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### InstanceGroupManager
-* InstanceGroupManager `object`: An Instance Group Manager resource.
+* InstanceGroupManager `object`: An Instance Group Manager resource. (== resource_for beta.instanceGroupManagers ==) (== resource_for v1.instanceGroupManagers ==) (== resource_for beta.regionInstanceGroupManagers ==) (== resource_for v1.regionInstanceGroupManagers ==)
   * baseInstanceName `string`: The base instance name to use for instances in this group. The value must be 1-58 characters long. Instances are named by appending a hyphen and a random four-character string to the base instance name. The base instance name must comply with RFC1035.
   * creationTimestamp `string`: [Output Only] The creation timestamp for this managed instance group in RFC3339 text format.
   * currentActions [InstanceGroupManagerActionsSummary](#instancegroupmanageractionssummary)
@@ -9824,6 +9891,22 @@ google_compute.targetInstances.get({
         * value `string`: [Output Only] A warning data value corresponding to the key.
     * message `string`: [Output Only] A human-readable description of the warning code.
 
+### InstanceListReferrers
+* InstanceListReferrers `object`: Contains a list of instance referrers.
+  * id `string`: [Output Only] Unique identifier for the resource; defined by the server.
+  * items `array`: A list of Reference resources.
+    * items [Reference](#reference)
+  * kind `string`: [Output Only] Type of resource. Always compute#instanceListReferrers for lists of Instance referrers.
+  * nextPageToken `string`: [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
+  * selfLink `string`: [Output Only] Server-defined URL for this resource.
+  * warning `object`: [Output Only] Informational warning message.
+    * code `string` (values: CLEANUP_FAILED, DEPRECATED_RESOURCE_USED, DEPRECATED_TYPE_USED, DISK_SIZE_LARGER_THAN_IMAGE_SIZE, EXPERIMENTAL_TYPE_USED, EXTERNAL_API_WARNING, FIELD_VALUE_OVERRIDEN, INJECTED_KERNELS_DEPRECATED, MISSING_TYPE_DEPENDENCY, NEXT_HOP_ADDRESS_NOT_ASSIGNED, NEXT_HOP_CANNOT_IP_FORWARD, NEXT_HOP_INSTANCE_NOT_FOUND, NEXT_HOP_INSTANCE_NOT_ON_NETWORK, NEXT_HOP_NOT_RUNNING, NOT_CRITICAL_ERROR, NO_RESULTS_ON_PAGE, REQUIRED_TOS_AGREEMENT, RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, RESOURCE_NOT_DELETED, SCHEMA_VALIDATION_IGNORED, SINGLE_INSTANCE_PROPERTY_TEMPLATE, UNDECLARED_PROPERTIES, UNREACHABLE): [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
+    * data `array`: [Output Only] Metadata about this warning in key: value format. For example:
+      * items `object`
+        * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
+        * value `string`: [Output Only] A warning data value corresponding to the key.
+    * message `string`: [Output Only] A human-readable description of the warning code.
+
 ### InstanceMoveRequest
 * InstanceMoveRequest `object`
   * destinationZone `string`: The URL of the destination zone to move the instance. This can be a full or partial URL. For example, the following are all valid URLs to a zone:  
@@ -9853,7 +9936,7 @@ google_compute.targetInstances.get({
   * instance `string`: The URL for a specific instance.
 
 ### InstanceTemplate
-* InstanceTemplate `object`: An Instance Template resource.
+* InstanceTemplate `object`: An Instance Template resource. (== resource_for beta.instanceTemplates ==) (== resource_for v1.instanceTemplates ==)
   * creationTimestamp `string`: [Output Only] The creation timestamp for this instance template in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] A unique identifier for this instance template. The server defines this identifier.
@@ -9927,8 +10010,8 @@ google_compute.targetInstances.get({
     * items [CustomerEncryptionKeyProtectedDisk](#customerencryptionkeyprotecteddisk)
 
 ### Interconnect
-* Interconnect `object`: Protocol definitions for Mixer API to support Interconnect. Next available tag: 25
-  * adminEnabled `boolean`: Administrative status of the interconnect. When this is set to ?true?, the Interconnect is functional and may carry traffic (assuming there are functional InterconnectAttachments and other requirements are satisfied). When set to ?false?, no packets will be carried over this Interconnect and no BGP routes will be exchanged over it. By default, it is set to ?true?.
+* Interconnect `object`: Represents an Interconnects resource. The Interconnects resource is a dedicated connection between Google's network and your on-premises network. For more information, see the  Dedicated overview page. (== resource_for v1.interconnects ==) (== resource_for beta.interconnects ==)
+  * adminEnabled `boolean`: Administrative status of the interconnect. When this is set to true, the Interconnect is functional and can carry traffic. When set to false, no packets can be carried over the interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
   * circuitInfos `array`: [Output Only] List of CircuitInfo objects, that describe the individual circuits in this LAG.
     * items [InterconnectCircuitInfo](#interconnectcircuitinfo)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
@@ -9941,32 +10024,32 @@ google_compute.targetInstances.get({
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * interconnectAttachments `array`: [Output Only] A list of the URLs of all InterconnectAttachments configured to use this Interconnect.
     * items `string`
-  * interconnectType `string` (values: DEDICATED, IT_PRIVATE)
+  * interconnectType `string` (values: DEDICATED, IT_PRIVATE): Type of interconnect. Note that "IT_PRIVATE" has been deprecated in favor of "DEDICATED"
   * kind `string`: [Output Only] Type of the resource. Always compute#interconnect for interconnects.
-  * linkType `string` (values: LINK_TYPE_ETHERNET_10G_LR)
+  * linkType `string` (values: LINK_TYPE_ETHERNET_10G_LR): Type of link requested. This field indicates speed of each of the links in the bundle, not the entire bundle. Only 10G per link is allowed for a dedicated interconnect. Options: Ethernet_10G_LR
   * location `string`: URL of the InterconnectLocation object that represents where this connection is to be provisioned.
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * nocContactEmail `string`: Email address to contact the customer NOC for operations and maintenance notifications regarding this Interconnect. If specified, this will be used for notifications in addition to all other forms described, such as Stackdriver logs alerting and Cloud Notifications.
-  * operationalStatus `string` (values: ACTIVE, OS_ACTIVE, OS_UNPROVISIONED, UNPROVISIONED): [Output Only] The current status of whether or not this Interconnect is functional.
+  * operationalStatus `string` (values: OS_ACTIVE, OS_UNPROVISIONED): [Output Only] The current status of whether or not this Interconnect is functional.
   * peerIpAddress `string`: [Output Only] IP address configured on the customer side of the Interconnect link. The customer should configure this IP address during turnup when prompted by Google NOC. This can be used only for ping tests.
   * provisionedLinkCount `integer`: [Output Only] Number of links actually provisioned in this interconnect.
   * requestedLinkCount `integer`: Target number of physical links in the link bundle, as requested by the customer.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
 
 ### InterconnectAttachment
-* InterconnectAttachment `object`: Protocol definitions for Mixer API to support InterconnectAttachment. Next available tag: 23
+* InterconnectAttachment `object`: Represents an InterconnectAttachment (VLAN attachment) resource. For more information, see  Creating VLAN Attachments. (== resource_for beta.interconnectAttachments ==) (== resource_for v1.interconnectAttachments ==)
   * cloudRouterIpAddress `string`: [Output Only] IPv4 address + prefix length to be configured on Cloud Router Interface for this interconnect attachment.
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * customerRouterIpAddress `string`: [Output Only] IPv4 address + prefix length to be configured on the customer router subinterface for this interconnect attachment.
-  * description `string`: An optional description of this resource. Provide this property when you create the resource.
+  * description `string`: An optional description of this resource.
   * googleReferenceId `string`: [Output Only] Google reference ID, to be used when raising support tickets with Google or otherwise to debug backend connectivity issues.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * interconnect `string`: URL of the underlying Interconnect object that this attachment's traffic will traverse through.
   * kind `string`: [Output Only] Type of the resource. Always compute#interconnectAttachment for interconnect attachments.
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
-  * operationalStatus `string` (values: ACTIVE, OS_ACTIVE, OS_UNPROVISIONED, UNPROVISIONED): [Output Only] The current status of whether or not this interconnect attachment is functional.
+  * operationalStatus `string` (values: OS_ACTIVE, OS_UNPROVISIONED): [Output Only] The current status of whether or not this interconnect attachment is functional.
   * privateInterconnectInfo [InterconnectAttachmentPrivateInfo](#interconnectattachmentprivateinfo)
-  * region `string`: [Output Only] URL of the region where the regional interconnect attachment resides.
+  * region `string`: [Output Only] URL of the region where the regional interconnect attachment resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * router `string`: URL of the cloud router to be used for dynamic routing. This router must be in the same region as this InterconnectAttachment. The InterconnectAttachment will automatically connect the Interconnect to the network & region within which the Cloud Router is configured.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
 
@@ -10002,7 +10085,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### InterconnectAttachmentPrivateInfo
-* InterconnectAttachmentPrivateInfo `object`: Private information for an interconnect attachment when this belongs to an interconnect of type IT_PRIVATE.
+* InterconnectAttachmentPrivateInfo `object`: Information for an interconnect attachment when this belongs to an interconnect of type DEDICATED.
   * tag8021q `integer`: [Output Only] 802.1q encapsulation tag to be used for traffic between Google and the customer, going to and from this network and region.
 
 ### InterconnectAttachmentsScopedList
@@ -10019,7 +10102,7 @@ google_compute.targetInstances.get({
 
 ### InterconnectCircuitInfo
 * InterconnectCircuitInfo `object`: Describes a single physical circuit between the Customer and Google. CircuitInfo objects are created by Google, so all fields are output only. Next id: 4
-  * customerDemarcId `string`: Customer-side demarc ID for this circuit. This will only be set if it was provided by the Customer to Google during circuit turn-up.
+  * customerDemarcId `string`: Customer-side demarc ID for this circuit.
   * googleCircuitId `string`: Google-assigned unique ID for this circuit. Assigned at circuit turn-up.
   * googleDemarcId `string`: Google-side demarc ID for this circuit. Assigned at circuit turn-up and provided by Google to the customer in the LOA.
 
@@ -10040,11 +10123,11 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### InterconnectLocation
-* InterconnectLocation `object`: Protocol definitions for Mixer API to support InterconnectLocation.
+* InterconnectLocation `object`: Represents an InterconnectLocations resource. The InterconnectLocations resource describes the locations where you can connect to Google's networks. For more information, see  Colocation Facilities.
   * address `string`: [Output Only] The postal address of the Point of Presence, each line in the address is separated by a newline character.
-  * availabilityZone `string`: Availability zone for this location. Within a city, maintenance will not be simultaneously scheduled in more than one availability zone. Example: "zone1" or "zone2".
-  * city `string`: City designator used by the Interconnect UI to locate this InterconnectLocation within the Continent. For example: "Chicago, IL", "Amsterdam, Netherlands".
-  * continent `string` (values: AFRICA, ASIA_PAC, C_AFRICA, C_ASIA_PAC, C_EUROPE, C_NORTH_AMERICA, C_SOUTH_AMERICA, EUROPE, NORTH_AMERICA, SOUTH_AMERICA): Continent for this location. Used by the location picker in the Interconnect UI.
+  * availabilityZone `string`: [Output Only] Availability zone for this location. Within a metropolitan area (metro), maintenance will not be simultaneously scheduled in more than one availability zone. Example: "zone1" or "zone2".
+  * city `string`: [Output Only] Metropolitan area designator that indicates which city an interconnect is located. For example: "Chicago, IL", "Amsterdam, Netherlands".
+  * continent `string` (values: AFRICA, ASIA_PAC, C_AFRICA, C_ASIA_PAC, C_EUROPE, C_NORTH_AMERICA, C_SOUTH_AMERICA, EUROPE, NORTH_AMERICA, SOUTH_AMERICA): [Output Only] Continent for this location.
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: [Output Only] An optional description of the resource.
   * facilityProvider `string`: [Output Only] The name of the provider for this facility (e.g., EQUINIX).
@@ -10083,13 +10166,13 @@ google_compute.targetInstances.get({
 * InterconnectOutageNotification `object`: Description of a planned outage on this Interconnect. Next id: 9
   * affectedCircuits `array`: Iff issue_type is IT_PARTIAL_OUTAGE, a list of the Google-side circuit IDs that will be affected.
     * items `string`
-  * description `string`: Short user-visible description of the purpose of the outage.
-  * endTime `string`
-  * issueType `string` (values: IT_OUTAGE, IT_PARTIAL_OUTAGE, OUTAGE, PARTIAL_OUTAGE)
+  * description `string`: A description about the purpose of the outage.
+  * endTime `string`: Scheduled end time for the outage (milliseconds since Unix epoch).
+  * issueType `string` (values: IT_OUTAGE, IT_PARTIAL_OUTAGE, OUTAGE, PARTIAL_OUTAGE): Form this outage is expected to take. Note that the "IT_" versions of this enum have been deprecated in favor of the unprefixed values.
   * name `string`: Unique identifier for this outage notification.
-  * source `string` (values: GOOGLE, NSRC_GOOGLE)
-  * startTime `string`: Scheduled start and end times for the outage (milliseconds since Unix epoch).
-  * state `string` (values: ACTIVE, CANCELLED, NS_ACTIVE, NS_CANCELED)
+  * source `string` (values: GOOGLE, NSRC_GOOGLE): The party that generated this notification. Note that "NSRC_GOOGLE" has been deprecated in favor of "GOOGLE"
+  * startTime `string`: Scheduled start time for the outage (milliseconds since Unix epoch).
+  * state `string` (values: ACTIVE, CANCELLED, NS_ACTIVE, NS_CANCELED): State of this notification. Note that the "NS_" versions of this enum have been deprecated in favor of the unprefixed values.
 
 ### License
 * License `object`: A license resource.
@@ -10099,7 +10182,7 @@ google_compute.targetInstances.get({
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
 
 ### MachineType
-* MachineType `object`: A Machine Type resource.
+* MachineType `object`: A Machine Type resource. (== resource_for v1.machineTypes ==) (== resource_for beta.machineTypes ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * deprecated [DeprecationStatus](#deprecationstatus)
   * description `string`: [Output Only] An optional textual description of the resource.
@@ -10193,7 +10276,7 @@ google_compute.targetInstances.get({
   * port `integer`: The port number, which can be a value between 1 and 65535.
 
 ### Network
-* Network `object`: Represents a Network resource. Read Networks and Firewalls for more information.
+* Network `object`: Represents a Network resource. Read Networks and Firewalls for more information. (== resource_for v1.networks ==) (== resource_for beta.networks ==)
   * IPv4Range `string`: The range of internal addresses that are legal on this network. This range is a CIDR specification, for example: 192.168.0.0/16. Provided by the client when the network is created.
   * autoCreateSubnetworks `boolean`: When set to true, the network is created in "auto subnet mode". When set to false, the network is in "custom subnet mode".
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
@@ -10260,7 +10343,7 @@ google_compute.targetInstances.get({
   * name `string`: Name of the peering, which should conform to RFC1035.
 
 ### Operation
-* Operation `object`: An Operation resource, used to manage asynchronous API requests.
+* Operation `object`: An Operation resource, used to manage asynchronous API requests. (== resource_for v1.globalOperations ==) (== resource_for beta.globalOperations ==) (== resource_for v1.regionOperations ==) (== resource_for beta.regionOperations ==) (== resource_for v1.zoneOperations ==) (== resource_for beta.zoneOperations ==)
   * clientOperationId `string`: [Output Only] Reserved for future use.
   * creationTimestamp `string`: [Deprecated] This field is deprecated.
   * description `string`: [Output Only] A textual description of the operation, which is set when the operation is created.
@@ -10279,7 +10362,7 @@ google_compute.targetInstances.get({
   * name `string`: [Output Only] Name of the resource.
   * operationType `string`: [Output Only] The type of operation, such as insert, update, or delete, and so on.
   * progress `integer`: [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses.
-  * region `string`: [Output Only] The URL of the region where the operation resides. Only available when performing regional operations.
+  * region `string`: [Output Only] The URL of the region where the operation resides. Only available when performing regional operations. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * startTime `string`: [Output Only] The time that this operation was started by the server. This value is in RFC3339 text format.
   * status `string` (values: DONE, PENDING, RUNNING): [Output Only] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
@@ -10295,7 +10378,7 @@ google_compute.targetInstances.get({
           * key `string`: [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
           * value `string`: [Output Only] A warning data value corresponding to the key.
       * message `string`: [Output Only] A human-readable description of the warning code.
-  * zone `string`: [Output Only] The URL of the zone where the operation resides. Only available when performing per-zone operations.
+  * zone `string`: [Output Only] The URL of the zone where the operation resides. Only available when performing per-zone operations. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### OperationAggregatedList
 * OperationAggregatedList `object`
@@ -10355,7 +10438,7 @@ google_compute.targetInstances.get({
   * service `string`: The URL of the BackendService resource if this rule is matched.
 
 ### Project
-* Project `object`: A Project resource. Projects can only be created in the Google Cloud Platform Console. Unless marked otherwise, values can only be modified in the console.
+* Project `object`: A Project resource. For an overview of projects, see  Cloud Platform Resource Hierarchy. (== resource_for v1.projects ==) (== resource_for beta.projects ==)
   * commonInstanceMetadata [Metadata](#metadata)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * defaultServiceAccount `string`: [Output Only] Default service account used by VMs running in this project.
@@ -10393,11 +10476,18 @@ google_compute.targetInstances.get({
 ### Quota
 * Quota `object`: A quotas entry.
   * limit `number`: [Output Only] Quota limit for this metric.
-  * metric `string` (values: AUTOSCALERS, BACKEND_BUCKETS, BACKEND_SERVICES, COMMITMENTS, CPUS, CPUS_ALL_REGIONS, DISKS_TOTAL_GB, FIREWALLS, FORWARDING_RULES, HEALTH_CHECKS, IMAGES, INSTANCES, INSTANCE_GROUPS, INSTANCE_GROUP_MANAGERS, INSTANCE_TEMPLATES, INTERCONNECTS, IN_USE_ADDRESSES, LOCAL_SSD_TOTAL_GB, NETWORKS, NVIDIA_K80_GPUS, NVIDIA_P100_GPUS, PREEMPTIBLE_CPUS, PREEMPTIBLE_LOCAL_SSD_GB, REGIONAL_AUTOSCALERS, REGIONAL_INSTANCE_GROUP_MANAGERS, ROUTERS, ROUTES, SECURITY_POLICIES, SECURITY_POLICY_RULES, SNAPSHOTS, SSD_TOTAL_GB, SSL_CERTIFICATES, STATIC_ADDRESSES, SUBNETWORKS, TARGET_HTTPS_PROXIES, TARGET_HTTP_PROXIES, TARGET_INSTANCES, TARGET_POOLS, TARGET_SSL_PROXIES, TARGET_TCP_PROXIES, TARGET_VPN_GATEWAYS, URL_MAPS, VPN_TUNNELS): [Output Only] Name of the quota metric.
+  * metric `string` (values: AUTOSCALERS, BACKEND_BUCKETS, BACKEND_SERVICES, COMMITMENTS, CPUS, CPUS_ALL_REGIONS, DISKS_TOTAL_GB, FIREWALLS, FORWARDING_RULES, HEALTH_CHECKS, IMAGES, INSTANCES, INSTANCE_GROUPS, INSTANCE_GROUP_MANAGERS, INSTANCE_TEMPLATES, INTERCONNECTS, INTERNAL_ADDRESSES, IN_USE_ADDRESSES, LOCAL_SSD_TOTAL_GB, NETWORKS, NVIDIA_K80_GPUS, NVIDIA_P100_GPUS, PREEMPTIBLE_CPUS, PREEMPTIBLE_LOCAL_SSD_GB, PREEMPTIBLE_NVIDIA_K80_GPUS, PREEMPTIBLE_NVIDIA_P100_GPUS, REGIONAL_AUTOSCALERS, REGIONAL_INSTANCE_GROUP_MANAGERS, ROUTERS, ROUTES, SECURITY_POLICIES, SECURITY_POLICY_RULES, SNAPSHOTS, SSD_TOTAL_GB, SSL_CERTIFICATES, STATIC_ADDRESSES, SUBNETWORKS, TARGET_HTTPS_PROXIES, TARGET_HTTP_PROXIES, TARGET_INSTANCES, TARGET_POOLS, TARGET_SSL_PROXIES, TARGET_TCP_PROXIES, TARGET_VPN_GATEWAYS, URL_MAPS, VPN_TUNNELS): [Output Only] Name of the quota metric.
   * usage `number`: [Output Only] Current usage of this metric.
 
+### Reference
+* Reference `object`: Represents a reference to a resource.
+  * kind `string`: [Output Only] Type of the resource. Always compute#reference for references.
+  * referenceType `string`: A description of the reference type with no implied semantics. Possible values include:  
+  * referrer `string`: URL of the resource which refers to the target.
+  * target `string`: URL of the resource to which this reference points.
+
 ### Region
-* Region `object`: Region resource.
+* Region `object`: Region resource. (== resource_for beta.regions ==) (== resource_for v1.regions ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * deprecated [DeprecationStatus](#deprecationstatus)
   * description `string`: [Output Only] Textual description of the resource.
@@ -10598,7 +10688,7 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of resource. Always compute#router for routers.
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: URI of the network to which this router belongs.
-  * region `string`: [Output Only] URI of the region where the router resides.
+  * region `string`: [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
 
 ### RouterAggregatedList
@@ -10726,7 +10816,7 @@ google_compute.targetInstances.get({
     * items `string`
 
 ### Snapshot
-* Snapshot `object`: A persistent disk snapshot resource.
+* Snapshot `object`: A persistent disk snapshot resource. (== resource_for beta.snapshots ==) (== resource_for v1.snapshots ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * diskSizeGb `string`: [Output Only] Size of the snapshot, specified in GB.
@@ -10763,7 +10853,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### SslCertificate
-* SslCertificate `object`: An SslCertificate resource. This resource provides a mechanism to upload an SSL key and certificate to the load balancer to serve secure connections from the user.
+* SslCertificate `object`: An SslCertificate resource. This resource provides a mechanism to upload an SSL key and certificate to the load balancer to serve secure connections from the user. (== resource_for beta.sslCertificates ==) (== resource_for v1.sslCertificates ==)
   * certificate `string`: A local certificate file. The certificate must be in PEM format. The certificate chain must be no greater than 5 certs long. The chain must include at least one intermediate cert.
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
@@ -10790,10 +10880,10 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### Subnetwork
-* Subnetwork `object`: A Subnetwork resource.
+* Subnetwork `object`: A Subnetwork resource. (== resource_for beta.subnetworks ==) (== resource_for v1.subnetworks ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource. This field can be set only at resource creation time.
-  * gatewayAddress `string`: [Output Only] The gateway address for default routes to reach destination addresses outside this subnetwork. This field can be set only at resource creation time.
+  * gatewayAddress `string`: [Output Only] The gateway address for default routes to reach destination addresses outside this subnetwork.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
   * ipCidrRange `string`: The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. This field can be set only at resource creation time.
   * kind `string`: [Output Only] Type of the resource. Always compute#subnetwork for Subnetwork resources.
@@ -10876,7 +10966,7 @@ google_compute.targetInstances.get({
     * items `string`
 
 ### TargetHttpProxy
-* TargetHttpProxy `object`: A TargetHttpProxy resource. This resource defines an HTTP proxy.
+* TargetHttpProxy `object`: A TargetHttpProxy resource. This resource defines an HTTP proxy. (== resource_for beta.targetHttpProxies ==) (== resource_for v1.targetHttpProxies ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -10907,7 +10997,7 @@ google_compute.targetInstances.get({
     * items `string`
 
 ### TargetHttpsProxy
-* TargetHttpsProxy `object`: A TargetHttpsProxy resource. This resource defines an HTTPS proxy.
+* TargetHttpsProxy `object`: A TargetHttpsProxy resource. This resource defines an HTTPS proxy. (== resource_for beta.targetHttpsProxies ==) (== resource_for v1.targetHttpsProxies ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -10935,7 +11025,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### TargetInstance
-* TargetInstance `object`: A TargetInstance resource. This resource defines an endpoint instance that terminates traffic of certain protocols.
+* TargetInstance `object`: A TargetInstance resource. This resource defines an endpoint instance that terminates traffic of certain protocols. (== resource_for beta.targetInstances ==) (== resource_for v1.targetInstances ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -10944,7 +11034,7 @@ google_compute.targetInstances.get({
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * natPolicy `string` (values: NO_NAT): NAT option controlling how IPs are NAT'ed to the instance. Currently only NO_NAT (default value) is supported.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
-  * zone `string`: [Output Only] URL of the zone where the target instance resides.
+  * zone `string`: [Output Only] URL of the zone where the target instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
 
 ### TargetInstanceAggregatedList
 * TargetInstanceAggregatedList `object`
@@ -10990,7 +11080,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### TargetPool
-* TargetPool `object`: A TargetPool resource. This resource defines a pool of instances, an associated HttpHealthCheck resource, and the fallback target pool.
+* TargetPool `object`: A TargetPool resource. This resource defines a pool of instances, an associated HttpHealthCheck resource, and the fallback target pool. (== resource_for beta.targetPools ==) (== resource_for v1.targetPools ==)
   * backupPool `string`: This field is applicable only when the containing target pool is serving a forwarding rule as the primary pool, and its failoverRatio field is properly set to a value between [0, 1].
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
@@ -11093,7 +11183,7 @@ google_compute.targetInstances.get({
     * items `string`
 
 ### TargetSslProxy
-* TargetSslProxy `object`: A TargetSslProxy resource. This resource defines an SSL proxy.
+* TargetSslProxy `object`: A TargetSslProxy resource. This resource defines an SSL proxy. (== resource_for beta.targetSslProxies ==) (== resource_for v1.targetSslProxies ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -11130,7 +11220,7 @@ google_compute.targetInstances.get({
   * proxyHeader `string` (values: NONE, PROXY_V1): The new type of proxy header to append before sending data to the backend. NONE or PROXY_V1 are allowed.
 
 ### TargetTcpProxy
-* TargetTcpProxy `object`: A TargetTcpProxy resource. This resource defines a TCP proxy.
+* TargetTcpProxy `object`: A TargetTcpProxy resource. This resource defines a TCP proxy. (== resource_for beta.targetTcpProxies ==) (== resource_for v1.targetTcpProxies ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * id `string`: [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -11157,7 +11247,7 @@ google_compute.targetInstances.get({
     * message `string`: [Output Only] A human-readable description of the warning code.
 
 ### TargetVpnGateway
-* TargetVpnGateway `object`: Represents a Target VPN gateway resource.
+* TargetVpnGateway `object`: Represents a Target VPN gateway resource. (== resource_for beta.targetVpnGateways ==) (== resource_for v1.targetVpnGateways ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * forwardingRules `array`: [Output Only] A list of URLs to the ForwardingRule resources. ForwardingRules are created using compute.forwardingRules.insert and associated to a VPN gateway.
@@ -11166,7 +11256,7 @@ google_compute.targetInstances.get({
   * kind `string`: [Output Only] Type of resource. Always compute#targetVpnGateway for target VPN gateways.
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * network `string`: URL of the network to which this VPN gateway is attached. Provided by the client when the VPN gateway is created.
-  * region `string`: [Output Only] URL of the region where the target VPN gateway resides.
+  * region `string`: [Output Only] URL of the region where the target VPN gateway resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
   * status `string` (values: CREATING, DELETING, FAILED, READY): [Output Only] The status of the VPN gateway.
   * tunnels `array`: [Output Only] A list of URLs to VpnTunnel resources. VpnTunnels are created using compute.vpntunnels.insert method and associated to a VPN gateway.
@@ -11236,7 +11326,7 @@ google_compute.targetInstances.get({
   * pathMatchers `array`: The list of named PathMatchers to use against the URL.
     * items [PathMatcher](#pathmatcher)
   * selfLink `string`: [Output Only] Server-defined URL for the resource.
-  * tests `array`: The list of expected URL mappings. Request to update this UrlMap will succeed only if all of the test cases pass.
+  * tests `array`: The list of expected URL mapping tests. Request to update this UrlMap will succeed only if all of the test cases pass. You can specify a maximum of 100 tests per UrlMap.
     * items [UrlMapTest](#urlmaptest)
 
 ### UrlMapList
@@ -11289,7 +11379,7 @@ google_compute.targetInstances.get({
   * reportNamePrefix `string`: An optional prefix for the name of the usage report object stored in bucketName. If not supplied, defaults to usage. The report is stored as a CSV file named report_name_prefix_gce_YYYYMMDD.csv where YYYYMMDD is the day of the usage according to Pacific Time. If you supply a prefix, it should conform to Cloud Storage object naming conventions.
 
 ### VpnTunnel
-* VpnTunnel `object`
+* VpnTunnel `object`: VPN tunnel resource. (== resource_for beta.vpnTunnels ==) (== resource_for v1.vpnTunnels ==)
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.
   * description `string`: An optional description of this resource. Provide this property when you create the resource.
   * detailedStatus `string`: [Output Only] Detailed status message for the VPN tunnel.
@@ -11300,7 +11390,7 @@ google_compute.targetInstances.get({
     * items `string`
   * name `string`: Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
   * peerIp `string`: IP address of the peer VPN gateway. Only IPv4 is supported.
-  * region `string`: [Output Only] URL of the region where the VPN tunnel resides.
+  * region `string`: [Output Only] URL of the region where the VPN tunnel resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
   * remoteTrafficSelector `array`: Remote traffic selectors to use when establishing the VPN tunnel with peer VPN gateway. The value should be a CIDR formatted string, for example: 192.168.0.0/16. The ranges should be disjoint. Only IPv4 is supported.
     * items `string`
   * router `string`: URL of router resource to be used for dynamic routing.
@@ -11308,7 +11398,7 @@ google_compute.targetInstances.get({
   * sharedSecret `string`: Shared secret used to set the secure session between the Cloud VPN gateway and the peer VPN gateway.
   * sharedSecretHash `string`: Hash of the shared secret.
   * status `string` (values: ALLOCATING_RESOURCES, AUTHORIZATION_ERROR, DEPROVISIONING, ESTABLISHED, FAILED, FIRST_HANDSHAKE, NEGOTIATION_FAILURE, NETWORK_ERROR, NO_INCOMING_PACKETS, PROVISIONING, REJECTED, WAITING_FOR_FULL_CONFIG): [Output Only] The status of the VPN tunnel.
-  * targetVpnGateway `string`: URL of the VPN gateway with which this VPN tunnel is associated. Provided by the client when the VPN tunnel is created.
+  * targetVpnGateway `string`: URL of the Target VPN gateway with which this VPN tunnel is associated. Provided by the client when the VPN tunnel is created.
 
 ### VpnTunnelAggregatedList
 * VpnTunnelAggregatedList `object`
@@ -11375,7 +11465,7 @@ google_compute.targetInstances.get({
   * type `string` (values: PROJECT, XPN_RESOURCE_TYPE_UNSPECIFIED): The type of the service resource.
 
 ### Zone
-* Zone `object`: A Zone resource.
+* Zone `object`: A Zone resource. (== resource_for beta.zones ==) (== resource_for v1.zones ==)
   * availableCpuPlatforms `array`: [Output Only] Available cpu/platform selections for the zone.
     * items `string`
   * creationTimestamp `string`: [Output Only] Creation timestamp in RFC3339 text format.

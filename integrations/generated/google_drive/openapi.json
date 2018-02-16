@@ -284,13 +284,6 @@
         "operationId": "changes.list",
         "parameters": [
           {
-            "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.",
-            "in": "query",
-            "name": "pageToken",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": false,
             "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file.",
             "in": "query",
@@ -319,6 +312,13 @@
             "minimum": 1,
             "name": "pageSize",
             "type": "integer"
+          },
+          {
+            "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.",
+            "in": "query",
+            "name": "pageToken",
+            "required": true,
+            "type": "string"
           },
           {
             "default": false,
@@ -584,13 +584,6 @@
         "operationId": "changes.watch",
         "parameters": [
           {
-            "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.",
-            "in": "query",
-            "name": "pageToken",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": false,
             "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file.",
             "in": "query",
@@ -621,6 +614,20 @@
             "type": "integer"
           },
           {
+            "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.",
+            "in": "query",
+            "name": "pageToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "resource",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
+          },
+          {
             "default": false,
             "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive.",
             "in": "query",
@@ -646,13 +653,6 @@
             "in": "query",
             "name": "teamDriveId",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
           }
         ],
         "responses": {
@@ -1007,6 +1007,13 @@
         "operationId": "files.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          {
             "default": false,
             "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.",
             "in": "query",
@@ -1039,13 +1046,6 @@
             "in": "query",
             "name": "useContentAsIndexableText",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/File"
-            }
           }
         ],
         "responses": {
@@ -1278,18 +1278,18 @@
         "operationId": "files.get",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": false,
             "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
             "in": "query",
             "name": "acknowledgeAbuse",
             "type": "boolean"
+          },
+          {
+            "description": "The ID of the file.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "type": "string"
           },
           {
             "default": false,
@@ -1400,16 +1400,23 @@
         "operationId": "files.update",
         "parameters": [
           {
+            "description": "A comma-separated list of parent IDs to add.",
+            "in": "query",
+            "name": "addParents",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          {
             "description": "The ID of the file.",
             "in": "path",
             "name": "fileId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A comma-separated list of parent IDs to add.",
-            "in": "query",
-            "name": "addParents",
             "type": "string"
           },
           {
@@ -1444,13 +1451,6 @@
             "in": "query",
             "name": "useContentAsIndexableText",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/File"
-            }
           }
         ],
         "responses": {
@@ -1615,18 +1615,18 @@
         "operationId": "comments.create",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Comment"
             }
+          },
+          {
+            "description": "The ID of the file.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1666,16 +1666,16 @@
         "operationId": "comments.delete",
         "parameters": [
           {
-            "description": "The ID of the file.",
+            "description": "The ID of the comment.",
             "in": "path",
-            "name": "fileId",
+            "name": "commentId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the comment.",
+            "description": "The ID of the file.",
             "in": "path",
-            "name": "commentId",
+            "name": "fileId",
             "required": true,
             "type": "string"
           }
@@ -1712,16 +1712,16 @@
         "operationId": "comments.get",
         "parameters": [
           {
-            "description": "The ID of the file.",
+            "description": "The ID of the comment.",
             "in": "path",
-            "name": "fileId",
+            "name": "commentId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the comment.",
+            "description": "The ID of the file.",
             "in": "path",
-            "name": "commentId",
+            "name": "fileId",
             "required": true,
             "type": "string"
           },
@@ -1799,11 +1799,11 @@
         "operationId": "comments.update",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
           },
           {
             "description": "The ID of the comment.",
@@ -1813,11 +1813,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Comment"
-            }
+            "description": "The ID of the file.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1857,16 +1857,16 @@
         "operationId": "replies.list",
         "parameters": [
           {
-            "description": "The ID of the file.",
+            "description": "The ID of the comment.",
             "in": "path",
-            "name": "fileId",
+            "name": "commentId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the comment.",
+            "description": "The ID of the file.",
             "in": "path",
-            "name": "commentId",
+            "name": "fileId",
             "required": true,
             "type": "string"
           },
@@ -1959,11 +1959,11 @@
         "operationId": "replies.create",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
           },
           {
             "description": "The ID of the comment.",
@@ -1973,11 +1973,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Reply"
-            }
+            "description": "The ID of the file.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2017,16 +2017,16 @@
         "operationId": "replies.delete",
         "parameters": [
           {
-            "description": "The ID of the file.",
+            "description": "The ID of the comment.",
             "in": "path",
-            "name": "fileId",
+            "name": "commentId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the comment.",
+            "description": "The ID of the file.",
             "in": "path",
-            "name": "commentId",
+            "name": "fileId",
             "required": true,
             "type": "string"
           },
@@ -2070,13 +2070,6 @@
         "operationId": "replies.get",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The ID of the comment.",
             "in": "path",
             "name": "commentId",
@@ -2084,9 +2077,9 @@
             "type": "string"
           },
           {
-            "description": "The ID of the reply.",
+            "description": "The ID of the file.",
             "in": "path",
-            "name": "replyId",
+            "name": "fileId",
             "required": true,
             "type": "string"
           },
@@ -2096,6 +2089,13 @@
             "in": "query",
             "name": "includeDeleted",
             "type": "boolean"
+          },
+          {
+            "description": "The ID of the reply.",
+            "in": "path",
+            "name": "replyId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2164,11 +2164,11 @@
         "operationId": "replies.update",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
           },
           {
             "description": "The ID of the comment.",
@@ -2178,18 +2178,18 @@
             "type": "string"
           },
           {
+            "description": "The ID of the file.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the reply.",
             "in": "path",
             "name": "replyId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Reply"
-            }
           }
         ],
         "responses": {
@@ -2252,6 +2252,13 @@
         "operationId": "files.copy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          {
             "description": "The ID of the file.",
             "in": "path",
             "name": "fileId",
@@ -2284,13 +2291,6 @@
             "in": "query",
             "name": "supportsTeamDrives",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/File"
-            }
           }
         ],
         "responses": {
@@ -2451,6 +2451,13 @@
             "in": "query",
             "name": "supportsTeamDrives",
             "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2543,16 +2550,23 @@
         "operationId": "permissions.create",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Permission"
+            }
+          },
+          {
+            "description": "A plain text custom message to include in the notification email.",
+            "in": "query",
+            "name": "emailMessage",
+            "type": "string"
+          },
+          {
             "description": "The ID of the file or Team Drive.",
             "in": "path",
             "name": "fileId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "A custom message to include in the notification email.",
-            "in": "query",
-            "name": "emailMessage",
             "type": "string"
           },
           {
@@ -2576,11 +2590,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Permission"
-            }
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2639,6 +2653,13 @@
             "in": "query",
             "name": "supportsTeamDrives",
             "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2691,6 +2712,13 @@
             "description": "Whether the requesting application supports Team Drives.",
             "in": "query",
             "name": "supportsTeamDrives",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
             "type": "boolean"
           }
         ],
@@ -2784,6 +2812,13 @@
         "operationId": "permissions.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Permission"
+            }
+          },
+          {
             "description": "The ID of the file or Team Drive.",
             "in": "path",
             "name": "fileId",
@@ -2819,11 +2854,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Permission"
-            }
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the item belongs.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3039,6 +3074,13 @@
         "operationId": "revisions.get",
         "parameters": [
           {
+            "default": false,
+            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
+            "in": "query",
+            "name": "acknowledgeAbuse",
+            "type": "boolean"
+          },
+          {
             "description": "The ID of the file.",
             "in": "path",
             "name": "fileId",
@@ -3051,13 +3093,6 @@
             "name": "revisionId",
             "required": true,
             "type": "string"
-          },
-          {
-            "default": false,
-            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
-            "in": "query",
-            "name": "acknowledgeAbuse",
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -3158,6 +3193,13 @@
         "operationId": "revisions.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Revision"
+            }
+          },
+          {
             "description": "The ID of the file.",
             "in": "path",
             "name": "fileId",
@@ -3170,13 +3212,6 @@
             "name": "revisionId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Revision"
-            }
           }
         ],
         "responses": {
@@ -3247,13 +3282,6 @@
         "operationId": "files.watch",
         "parameters": [
           {
-            "description": "The ID of the file.",
-            "in": "path",
-            "name": "fileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": false,
             "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
             "in": "query",
@@ -3261,11 +3289,11 @@
             "type": "boolean"
           },
           {
-            "default": false,
-            "description": "Whether the requesting application supports Team Drives.",
-            "in": "query",
-            "name": "supportsTeamDrives",
-            "type": "boolean"
+            "description": "The ID of the file.",
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "type": "string"
           },
           {
             "in": "body",
@@ -3273,6 +3301,13 @@
             "schema": {
               "$ref": "#/definitions/Channel"
             }
+          },
+          {
+            "default": false,
+            "description": "Whether the requesting application supports Team Drives.",
+            "in": "query",
+            "name": "supportsTeamDrives",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3365,6 +3400,19 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Query string for searching Team Drives.",
+            "in": "query",
+            "name": "q",
+            "type": "string"
+          },
+          {
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then all Team Drives of the domain in which the requester is an administrator are returned.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3425,18 +3473,18 @@
         "operationId": "teamdrives.create",
         "parameters": [
           {
-            "description": "An ID, such as a random UUID, which uniquely identifies this user's request for idempotent creation of a Team Drive. A repeated request by the same user and with the same request ID will avoid creating duplicates by attempting to create the same Team Drive. If the Team Drive already exists a 409 error will be returned.",
-            "in": "query",
-            "name": "requestId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/TeamDrive"
             }
+          },
+          {
+            "description": "An ID, such as a random UUID, which uniquely identifies this user's request for idempotent creation of a Team Drive. A repeated request by the same user and with the same request ID will avoid creating duplicates by attempting to create the same Team Drive. If the Team Drive already exists a 409 error will be returned.",
+            "in": "query",
+            "name": "requestId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3504,6 +3552,13 @@
             "name": "teamDriveId",
             "required": true,
             "type": "string"
+          },
+          {
+            "default": false,
+            "description": "Whether the request should be treated as if it was issued by a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the Team Drive belongs.",
+            "in": "query",
+            "name": "useDomainAdminAccess",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3564,18 +3619,18 @@
         "operationId": "teamdrives.update",
         "parameters": [
           {
-            "description": "The ID of the Team Drive",
-            "in": "path",
-            "name": "teamDriveId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/TeamDrive"
             }
+          },
+          {
+            "description": "The ID of the Team Drive",
+            "in": "path",
+            "name": "teamDriveId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3608,6 +3663,10 @@
       "properties": {
         "appInstalled": {
           "description": "Whether the user has installed the requesting app.",
+          "type": "boolean"
+        },
+        "canCreateTeamDrives": {
+          "description": "Whether the user can create Team Drives.",
           "type": "boolean"
         },
         "exportFormats": {
@@ -4245,7 +4304,7 @@
           "type": "array"
         },
         "parents": {
-          "description": "The IDs of the parent folders which contain the file.\nIf not specified as part of a create request, the file will be placed directly in the My Drive folder. Update requests must use the addParents and removeParents parameters to modify the values.",
+          "description": "The IDs of the parent folders which contain the file.\nIf not specified as part of a create request, the file will be placed directly in the user's My Drive folder. If not specified as part of a copy request, the file will inherit any discoverable parents of the source file. Update requests must use the addParents and removeParents parameters to modify the parents list.",
           "items": {
             "type": "string"
           },
@@ -4789,6 +4848,11 @@
         },
         "colorRgb": {
           "description": "The color of this Team Drive as an RGB hex string. It can only be set on a drive.teamdrives.update request that does not set themeId.",
+          "type": "string"
+        },
+        "createdTime": {
+          "description": "The time at which the Team Drive was created (RFC 3339 date-time).",
+          "format": "date-time",
           "type": "string"
         },
         "id": {

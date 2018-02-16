@@ -55,6 +55,18 @@
       "name": "Accounts"
     },
     {
+      "description": "Actions",
+      "name": "Actions"
+    },
+    {
+      "description": "Actions - Call Instructions",
+      "name": "Action Details - Call Instructions"
+    },
+    {
+      "description": "CRM Activity Management",
+      "name": "CRM Activities"
+    },
+    {
       "description": "Cadence Management",
       "name": "Cadences"
     },
@@ -63,8 +75,16 @@
       "name": "Cadence Memberships"
     },
     {
+      "description": "Call Data Record Management",
+      "name": "Call Data Records"
+    },
+    {
       "description": "Call Management",
       "name": "Calls"
+    },
+    {
+      "description": "Caller ID Information",
+      "name": "Caller IDs"
     },
     {
       "description": "Custom Field Management",
@@ -93,6 +113,14 @@
     {
       "description": "Person Stage Management",
       "name": "Person Stages"
+    },
+    {
+      "description": "Recording Settings Information",
+      "name": "Recording Settings"
+    },
+    {
+      "description": "Steps",
+      "name": "Steps"
     },
     {
       "description": "Success Management",
@@ -133,6 +161,13 @@
             "type": "array"
           },
           {
+            "description": "Domain of the accounts to fetch. Domains are unique and lowercase",
+            "in": "query",
+            "name": "domain",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
             "in": "query",
             "name": "sort_by",
@@ -159,6 +194,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -619,12 +661,12 @@
         "operationId": "v2.accounts.id.json.put"
       }
     },
-    "/v2/activities/calls.json": {
+    "/v2/action_details/call_instructions.json": {
       "get": {
-        "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+        "description": "Fetches multiple call instruction records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
         "parameters": [
           {
-            "description": "IDs of calls to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+            "description": "IDs of call instructions to fetch.",
             "in": "query",
             "items": {
               "type": "integer"
@@ -660,6 +702,237 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CallInstruction"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "List call instructions",
+        "tags": [
+          "Action Details - Call Instructions"
+        ],
+        "operationId": "v2.action_details.call_instructions.json.get"
+      }
+    },
+    "/v2/action_details/call_instructions/{id}.json": {
+      "get": {
+        "description": "Fetches a call instruction, by ID only.\n",
+        "parameters": [
+          {
+            "description": "Call instructions ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CallInstruction"
+            }
+          }
+        },
+        "summary": "Fetch a call instructions",
+        "tags": [
+          "Action Details - Call Instructions"
+        ],
+        "operationId": "v2.action_details.call_instructions.id.json.get"
+      }
+    },
+    "/v2/actions.json": {
+      "get": {
+        "description": "Fetches multiple action records. The records can be filtered, paged, and sorted according to\nthe respective parameters. Only actions that are currently \"in_progess\" will be returned by\nthis endpoint.\n",
+        "parameters": [
+          {
+            "description": "IDs of actions to fetch.",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "ids",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Fetch actions by step ID",
+            "in": "query",
+            "name": "step_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter actions by type",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Equality filters that are applied to the due_on field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "due_on",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+            "in": "query",
+            "name": "sort_direction",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The current page to fetch results from. Defaults to 1",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Action"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "List actions",
+        "tags": [
+          "Actions"
+        ],
+        "operationId": "v2.actions.json.get"
+      }
+    },
+    "/v2/actions/{id}.json": {
+      "get": {
+        "description": "Fetches an action, by ID only.\nThis endpoint will only return actions that are in_progress or pending_activity.\nOnce an action is complete, the request for that action will return a 404 status code.\n",
+        "parameters": [
+          {
+            "description": "Action ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Action"
+            }
+          }
+        },
+        "summary": "Fetch an action",
+        "tags": [
+          "Actions"
+        ],
+        "operationId": "v2.actions.id.json.get"
+      }
+    },
+    "/v2/activities/calls.json": {
+      "get": {
+        "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+        "parameters": [
+          {
+            "description": "IDs of calls to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "ids",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "updated_at",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+            "in": "query",
+            "name": "sort_direction",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The current page to fetch results from. Defaults to 1",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -765,6 +1038,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -877,6 +1157,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1042,6 +1329,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1087,6 +1381,223 @@
           "Cadences"
         ],
         "operationId": "v2.cadences.id.json.get"
+      }
+    },
+    "/v2/call_data_records.json": {
+      "get": {
+        "description": "Fetches multiple call data records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nCall data records are records of all inbound and outbound calls through SalesLoft. A call data record may\nbe associated with a call, but does not have to be.\n",
+        "parameters": [
+          {
+            "description": "IDs of call data records to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "ids",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Return only call data records which have or do not have a call logged for them",
+            "in": "query",
+            "name": "has_call",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "updated_at",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+            "in": "query",
+            "name": "sort_direction",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The current page to fetch results from. Defaults to 1",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CallDataRecord"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "List call data records",
+        "tags": [
+          "Call Data Records"
+        ],
+        "operationId": "v2.call_data_records.json.get"
+      }
+    },
+    "/v2/call_data_records/{id}.json": {
+      "get": {
+        "description": "Fetches a call data record, by ID only.\n",
+        "parameters": [
+          {
+            "description": "CallDataRecord ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CallDataRecord"
+            }
+          }
+        },
+        "summary": "Fetch a call data record",
+        "tags": [
+          "Call Data Records"
+        ],
+        "operationId": "v2.call_data_records.id.json.get"
+      }
+    },
+    "/v2/crm_activities.json": {
+      "get": {
+        "description": "Fetches multiple crm activity records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+        "parameters": [
+          {
+            "description": "IDs of crm activities to fetch.",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "ids",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "updated_at",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+            "in": "query",
+            "name": "sort_direction",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The current page to fetch results from. Defaults to 1",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CrmActivity"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "List crm activities",
+        "tags": [
+          "CRM Activities"
+        ],
+        "operationId": "v2.crm_activities.json.get"
+      }
+    },
+    "/v2/crm_activities/{id}.json": {
+      "get": {
+        "description": "Fetches a crm activity, by ID only.\n",
+        "parameters": [
+          {
+            "description": "Crm activity ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CrmActivity"
+            }
+          }
+        },
+        "summary": "Fetch a crm activity",
+        "tags": [
+          "CRM Activities"
+        ],
+        "operationId": "v2.crm_activities.id.json.get"
       }
     },
     "/v2/custom_fields.json": {
@@ -1137,6 +1648,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1335,6 +1853,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1433,6 +1958,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1617,6 +2149,16 @@
             "type": "integer"
           },
           {
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "updated_at",
+            "required": false,
+            "type": "array"
+          },
+          {
             "description": "IDs of notes to fetch. If a record can't be found, that record won't be returned and your request will be successful",
             "in": "query",
             "items": {
@@ -1653,6 +2195,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1853,6 +2402,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2445,6 +3001,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2571,6 +3134,179 @@
         "operationId": "v2.person_stages.id.json.put"
       }
     },
+    "/v2/phone_numbers/caller_ids.json": {
+      "get": {
+        "description": "Each entry is a possible caller ID match for the number. Multiple\nentries may be returned if the phone number is present on more than one\nperson in the system.  Phone number should be in E.164 format.\n",
+        "parameters": [
+          {
+            "description": "E.164 Phone Number",
+            "in": "query",
+            "name": "phone_number",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CallerId"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "List caller ids",
+        "tags": [
+          "Caller IDs"
+        ],
+        "operationId": "v2.phone_numbers.caller_ids.json.get"
+      }
+    },
+    "/v2/phone_numbers/recording_settings/{id}.json": {
+      "get": {
+        "description": "Fetches the recording status for a given phone number, based on Do Not Record and Recording Governance for your team.\nPhone number should be in E.164 format.\n",
+        "parameters": [
+          {
+            "description": "E.164 Phone Number",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RecordingSetting"
+            }
+          }
+        },
+        "summary": "Fetch recording setting",
+        "tags": [
+          "Recording Settings"
+        ],
+        "operationId": "v2.phone_numbers.recording_settings.id.json.get"
+      }
+    },
+    "/v2/steps.json": {
+      "get": {
+        "description": "Fetches multiple step records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+        "parameters": [
+          {
+            "description": "IDs of steps to fetch.",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "ids",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "Filter by cadence ID",
+            "in": "query",
+            "name": "cadence_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by step type",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by whether a step has due actions",
+            "in": "query",
+            "name": "has_due_actions",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+            "in": "query",
+            "name": "sort_direction",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The current page to fetch results from. Defaults to 1",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Step"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "List steps",
+        "tags": [
+          "Steps"
+        ],
+        "operationId": "v2.steps.json.get"
+      }
+    },
+    "/v2/steps/{id}.json": {
+      "get": {
+        "description": "Fetches a step, by ID only.\n",
+        "parameters": [
+          {
+            "description": "Step ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Step"
+            }
+          }
+        },
+        "summary": "Fetch a step",
+        "tags": [
+          "Steps"
+        ],
+        "operationId": "v2.steps.id.json.get"
+      }
+    },
     "/v2/successes.json": {
       "get": {
         "description": "Fetches multiple success records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -2622,6 +3358,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2711,6 +3454,13 @@
             "name": "page",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+            "in": "query",
+            "name": "include_paging_counts",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2812,7 +3562,7 @@
       "properties": {
         "archived_at": {
           "description": "Datetime of when the Account was archived, if archived",
-          "example": "2017-11-28T21:25:05.212408-05:00",
+          "example": "2018-02-01T15:02:39.396392-05:00",
           "format": "date",
           "type": "string"
         },
@@ -2852,7 +3602,7 @@
         },
         "created_at": {
           "description": "Datetime of when the Account was created",
-          "example": "2017-11-28T21:25:05.212340-05:00",
+          "example": "2018-02-01T15:02:39.396254-05:00",
           "format": "date",
           "type": "string"
         },
@@ -2919,7 +3669,7 @@
         },
         "last_contacted_at": {
           "description": "Datetime this Account was last contacted",
-          "example": "2017-11-28T21:25:05.212924-05:00",
+          "example": "2018-02-01T15:02:39.397020-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3020,7 +3770,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the Account was last updated",
-          "example": "2017-11-28T21:25:05.212383-05:00",
+          "example": "2018-02-01T15:02:39.396329-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3040,6 +3790,72 @@
         }
       }
     },
+    "Action": {
+      "properties": {
+        "action_details": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The type specific action details",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/action_details/call_instructions/1",
+            "id": 1
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the Action was created",
+          "example": "2018-02-01T00:00:00.000000-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "due": {
+          "description": "Whether this step is due",
+          "example": true,
+          "type": "boolean"
+        },
+        "due_on": {
+          "description": "When action is due",
+          "example": "2018-02-01T15:02:39.560063-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of Action",
+          "example": 1,
+          "type": "integer"
+        },
+        "person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The subject of an action",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "status": {
+          "description": "The current state of the person on the cadence. Possible values are:\n\nin_progress: this action has not been completed\n\npending_activity: this action has been acted upon, but the action has not been completed.\n(i.e. the email is scheduled to send, but has not been delivered yet)\n",
+          "example": "in_progress",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of this action. Valid types are: email, phone, other. New types may be added in the future.\n",
+          "example": "phone",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the Action was last updated",
+          "example": "2018-02-01T15:02:39.559930-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User assigned to action",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        }
+      }
+    },
     "Cadence": {
       "properties": {
         "added_stage": {
@@ -3052,7 +3868,7 @@
         },
         "archived_at": {
           "description": "Datetime of when the cadence was archived, if archived",
-          "example": "2017-11-28T21:25:05.206433-05:00",
+          "example": "2018-02-01T15:02:39.419122-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3074,7 +3890,7 @@
         },
         "created_at": {
           "description": "Datetime of when the cadence was created",
-          "example": "2017-11-28T21:25:05.206361-05:00",
+          "example": "2018-02-01T15:02:39.419014-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3158,7 +3974,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the cadence was last updated",
-          "example": "2017-11-28T21:25:05.206407-05:00",
+          "example": "2018-02-01T15:02:39.419082-05:00",
           "format": "date",
           "type": "string"
         }
@@ -3182,7 +3998,7 @@
       "properties": {
         "added_at": {
           "description": "Datetime of when the person was last added to this cadence",
-          "example": "2017-11-28T21:25:05.222151-05:00",
+          "example": "2018-02-01T15:02:39.409933-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3208,7 +4024,7 @@
         },
         "created_at": {
           "description": "Datetime of when the person was first added to this cadence",
-          "example": "2017-11-28T21:25:05.222199-05:00",
+          "example": "2018-02-01T15:02:39.409985-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3244,7 +4060,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the record was last updated",
-          "example": "2017-11-28T21:25:05.222224-05:00",
+          "example": "2018-02-01T15:02:39.410015-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3311,7 +4127,7 @@
         },
         "created_at": {
           "description": "Datetime of when the call was created",
-          "example": "2017-11-28T21:25:05.288555-05:00",
+          "example": "2018-02-01T15:02:39.523939-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3319,6 +4135,7 @@
           "$ref": "#/definitions/EmbeddedResource",
           "description": "CRM Activity associated with the call",
           "example": {
+            "_href": "https://api.salesloft.com/v2/crm_activities/1",
             "id": 1
           }
         },
@@ -3370,7 +4187,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the call was last updated",
-          "example": "2017-11-28T21:25:05.288604-05:00",
+          "example": "2018-02-01T15:02:39.524003-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3384,11 +4201,197 @@
         }
       }
     },
+    "CallDataRecord": {
+      "properties": {
+        "call": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Call that this record was logged to, if logged to a call",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/activities/calls/1",
+            "id": 1
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the call was created",
+          "example": "2018-02-01T15:02:39.425319-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "direction": {
+          "description": "Direction of the call. Can be one of: inbound, outbound",
+          "example": "outbound",
+          "type": "string"
+        },
+        "duration": {
+          "description": "Length of the call in seconds",
+          "example": 60,
+          "type": "integer"
+        },
+        "from": {
+          "description": "Phone number that placed the call",
+          "example": "7705551234",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of CallDataRecord",
+          "example": 1,
+          "type": "integer"
+        },
+        "recording": {
+          "$ref": "#/definitions/EmbeddedRecordingResource",
+          "description": "The recording for this this call data record, with a status",
+          "example": {
+            "status": "completed",
+            "url": "http://example.com/recording/1"
+          }
+        },
+        "to": {
+          "description": "Phone number that received the call",
+          "example": "7705551234",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the call was last updated",
+          "example": "2018-02-01T15:02:39.425365-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that made or received the call, if the call was to a user",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/2",
+            "id": 2
+          }
+        }
+      }
+    },
+    "CallInstruction": {
+      "properties": {
+        "created_at": {
+          "description": "Datetime of when the call instructions were created",
+          "example": "2018-02-01T15:02:39.571365-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of call instructions",
+          "example": 1,
+          "type": "integer"
+        },
+        "instructions": {
+          "description": "The instructions",
+          "example": "Call once, leave voicemail if not answered. Conference conversation.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the call instructions were last updated",
+          "example": "2018-02-01T15:02:39.571468-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      }
+    },
+    "CallerId": {
+      "properties": {
+        "account_name": {
+          "description": "The account of the person calling",
+          "example": "Bunty Soap Company",
+          "type": "string"
+        },
+        "display_name": {
+          "description": "The name of the person calling",
+          "example": "Frank Galikanokus",
+          "type": "string"
+        },
+        "person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The person calling",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "title": {
+          "description": "The title of the person calling",
+          "example": "Transportation Coordinator",
+          "type": "string"
+        }
+      }
+    },
+    "CrmActivity": {
+      "properties": {
+        "activity_type": {
+          "description": "The type of activity that is being recorded, if available. The values can change over time, but could be one of: email, phone, email reminder, inmail",
+          "example": "phone",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Datetime of when the crm activity was created",
+          "example": "2018-02-01T15:02:39.431249-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "crm_id": {
+          "description": "The ID of the activity in Salesforce, if written to Salesforce",
+          "example": "00T0H00003w2FBhUAM",
+          "type": "string"
+        },
+        "custom_crm_fields": {
+          "description": "Additional fields that are logged to Salesforce, if mapped by the team at the time of writing to Salesforce",
+          "example": {
+            "ecorp__Call_Type__c": "inbound follow up"
+          },
+          "type": "object"
+        },
+        "description": {
+          "description": "The description field of the activity in Salesforce",
+          "example": "Timeline is 2 weeks for demo, set with Kate",
+          "type": "string"
+        },
+        "error": {
+          "description": "Information about why this crm activity failed to sync, if it did fail to sync. Failed activities will be automatically retried and may become successful in the future",
+          "type": "string"
+        },
+        "id": {
+          "description": "CrmActivity ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Person that this crm activity is for",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "subject": {
+          "description": "The subject field of the activity in Salesforce",
+          "example": "Call: Connected | Interested",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the crm activity was last updated",
+          "example": "2018-02-01T15:02:39.431293-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that triggered this crm activity",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/2",
+            "id": 2
+          }
+        }
+      }
+    },
     "CustomField": {
       "properties": {
         "created_at": {
           "description": "Datetime of when the Custom Field was created",
-          "example": "2017-11-28T21:25:05.229238-05:00",
+          "example": "2018-02-01T15:02:39.436288-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3409,7 +4412,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the Custom Field was last updated",
-          "example": "2017-11-28T21:25:05.229279-05:00",
+          "example": "2018-02-01T15:02:39.436326-05:00",
           "format": "date",
           "type": "string"
         }
@@ -3448,7 +4451,7 @@
         },
         "created_at": {
           "description": "Datetime of when the email was created",
-          "example": "2017-11-28T21:25:05.294316-05:00",
+          "example": "2018-02-01T15:02:39.530887-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3456,6 +4459,7 @@
           "$ref": "#/definitions/EmbeddedResource",
           "description": "CRM Activity associated with this email",
           "example": {
+            "_href": "https://api.salesloft.com/v2/crm_activities/1",
             "id": 1
           }
         },
@@ -3494,13 +4498,13 @@
         },
         "send_after": {
           "description": "When this email will be sent, or null if already sent",
-          "example": "2017-11-28T21:25:05.306963-05:00",
+          "example": "2018-02-01T15:02:39.543784-05:00",
           "format": "date",
           "type": "string"
         },
         "sent_at": {
           "description": "When this email was sent, or null if it was not sent",
-          "example": "2017-11-28T21:25:05.307022-05:00",
+          "example": "2018-02-01T15:02:39.543843-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3511,7 +4515,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the email was last updated",
-          "example": "2017-11-28T21:25:05.294364-05:00",
+          "example": "2018-02-01T15:02:39.530975-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3568,7 +4572,7 @@
       "properties": {
         "archived_at": {
           "description": "Datetime of when the email template was archived, if archived",
-          "example": "2017-11-28T21:25:05.277787-05:00",
+          "example": "2018-02-01T15:02:39.443876-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3600,7 +4604,7 @@
         },
         "created_at": {
           "description": "Datetime of when the email template was created",
-          "example": "2017-11-28T21:25:05.277704-05:00",
+          "example": "2018-02-01T15:02:39.443757-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3611,7 +4615,7 @@
         },
         "last_used_at": {
           "description": "Datetime of when the email template was last used",
-          "example": "2017-11-28T21:25:05.277762-05:00",
+          "example": "2018-02-01T15:02:39.443850-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3653,7 +4657,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the email template was last updated",
-          "example": "2017-11-28T21:25:05.277740-05:00",
+          "example": "2018-02-01T15:02:39.443798-05:00",
           "format": "date",
           "type": "string"
         }
@@ -3720,7 +4724,7 @@
       "properties": {
         "created_at": {
           "description": "Datetime of when the import was created",
-          "example": "2017-11-28T21:25:05.237669-05:00",
+          "example": "2018-02-01T15:02:39.450608-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3746,7 +4750,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the import was last updated, ignoring relationship changes",
-          "example": "2017-11-28T21:25:05.237714-05:00",
+          "example": "2018-02-01T15:02:39.450663-05:00",
           "format": "date",
           "type": "string"
         }
@@ -3777,7 +4781,7 @@
         },
         "created_at": {
           "description": "Datetime of when the note was created",
-          "example": "2017-11-28T21:25:05.245768-05:00",
+          "example": "2018-02-01T15:02:39.465679-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3788,7 +4792,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the note was last updated",
-          "example": "2017-11-28T21:25:05.245809-05:00",
+          "example": "2018-02-01T15:02:39.465758-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3841,7 +4845,7 @@
         },
         "created_at": {
           "description": "Datetime of when the person was created",
-          "example": "2017-11-28T21:25:05.252458-05:00",
+          "example": "2018-02-01T15:02:39.476041-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3908,7 +4912,7 @@
         },
         "last_contacted_at": {
           "description": "Last datetime this person was contacted",
-          "example": "2017-11-28T21:25:05.252554-05:00",
+          "example": "2018-02-01T15:02:39.476168-05:00",
           "format": "date",
           "type": "string"
         },
@@ -3932,7 +4936,7 @@
         },
         "last_replied_at": {
           "description": "Last datetime this person replied to an email",
-          "example": "2017-11-28T21:25:05.252575-05:00",
+          "example": "2018-02-01T15:02:39.476192-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4040,7 +5044,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the person was last updated",
-          "example": "2017-11-28T21:25:05.252529-05:00",
+          "example": "2018-02-01T15:02:39.476136-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4099,7 +5103,7 @@
       "properties": {
         "created_at": {
           "description": "Datetime of when the Person Stage was created",
-          "example": "2017-11-28T21:25:05.262156-05:00",
+          "example": "2018-02-01T15:02:39.490199-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4115,7 +5119,78 @@
         },
         "updated_at": {
           "description": "Datetime of when the Person Stage was last updated",
-          "example": "2017-11-28T21:25:05.262207-05:00",
+          "example": "2018-02-01T15:02:39.490254-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      }
+    },
+    "RecordingSetting": {
+      "properties": {
+        "recording_default": {
+          "description": "Whether this phone number should record by default",
+          "example": true,
+          "type": "boolean"
+        }
+      }
+    },
+    "Step": {
+      "properties": {
+        "cadence": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The cadence of the step",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/cadences/1",
+            "id": 1
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the Step was created",
+          "example": "2018-02-01T15:02:39.565505-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "day": {
+          "description": "Day this step is associated with up",
+          "example": 1,
+          "type": "integer"
+        },
+        "details": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Details pertaining to the specific step type",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/action_details/call_instructions/1",
+            "id": 1
+          }
+        },
+        "disabled": {
+          "description": "Whether this step is currently active",
+          "example": true,
+          "type": "boolean"
+        },
+        "display_name": {
+          "description": "Display name of the step",
+          "example": "Day 1: Step 2 - Phone",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of Step",
+          "example": 1,
+          "type": "integer"
+        },
+        "step_number": {
+          "description": "The number of the step for this day",
+          "example": 1,
+          "type": "integer"
+        },
+        "type": {
+          "description": "The type of the action scheduled by this step. Valid types are: email, phone, other. New types may be added in the future.\n",
+          "example": "phone",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the Step was last updated",
+          "example": "2018-02-01T15:02:39.565572-05:00",
           "format": "date",
           "type": "string"
         }
@@ -4134,7 +5209,7 @@
         },
         "created_at": {
           "description": "Datetime of when the success was created",
-          "example": "2017-11-28T21:25:05.273615-05:00",
+          "example": "2018-02-01T15:02:39.500168-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4176,19 +5251,19 @@
         },
         "succeeded_at": {
           "description": "Datetime of when the success was recorded",
-          "example": "2017-11-28T21:25:05.273699-05:00",
+          "example": "2018-02-01T15:02:39.500274-05:00",
           "format": "date",
           "type": "string"
         },
         "success_window_started_at": {
           "description": "Datetime of when this person was first worked, leading up to the success",
-          "example": "2017-11-28T21:25:05.273730-05:00",
+          "example": "2018-02-01T15:02:39.500302-05:00",
           "format": "date",
           "type": "string"
         },
         "updated_at": {
           "description": "Datetime of when the success was last updated",
-          "example": "2017-11-28T21:25:05.273665-05:00",
+          "example": "2018-02-01T15:02:39.500224-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4240,7 +5315,7 @@
         },
         "created_at": {
           "description": "Datetime of when the team was created",
-          "example": "2017-11-28T21:25:05.201896-05:00",
+          "example": "2018-02-01T15:02:39.506235-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4306,7 +5381,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the team was last updated",
-          "example": "2017-11-28T21:25:05.201970-05:00",
+          "example": "2018-02-01T15:02:39.506288-05:00",
           "format": "date",
           "type": "string"
         }
@@ -4316,7 +5391,7 @@
       "properties": {
         "archived_at": {
           "description": "Datetime of when the team template was archived, if archived",
-          "example": "2017-11-28T21:25:05.283353-05:00",
+          "example": "2018-02-01T15:02:39.511488-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4343,7 +5418,7 @@
         },
         "created_at": {
           "description": "Datetime of when the team template was created",
-          "example": "2017-11-28T21:25:05.283255-05:00",
+          "example": "2018-02-01T15:02:39.511362-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4354,7 +5429,7 @@
         },
         "last_modified_at": {
           "description": "Datetime of when the team template was last modified",
-          "example": "2017-11-28T21:25:05.283377-05:00",
+          "example": "2018-02-01T15:02:39.511548-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4368,7 +5443,7 @@
         },
         "last_used_at": {
           "description": "Datetime of when the team template was last used",
-          "example": "2017-11-28T21:25:05.283329-05:00",
+          "example": "2018-02-01T15:02:39.511464-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4389,7 +5464,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the team template was last updated",
-          "example": "2017-11-28T21:25:05.283298-05:00",
+          "example": "2018-02-01T15:02:39.511438-05:00",
           "format": "date",
           "type": "string"
         }
@@ -4443,7 +5518,7 @@
         },
         "created_at": {
           "description": "Datetime of when the user was created",
-          "example": "2017-11-28T21:25:05.196446-05:00",
+          "example": "2018-02-01T15:02:39.460736-05:00",
           "format": "date",
           "type": "string"
         },
@@ -4573,7 +5648,7 @@
         },
         "updated_at": {
           "description": "Datetime of when the user was last updated",
-          "example": "2017-11-28T21:25:05.196510-05:00",
+          "example": "2018-02-01T15:02:39.460810-05:00",
           "format": "date",
           "type": "string"
         }

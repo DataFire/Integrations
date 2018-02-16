@@ -564,6 +564,27 @@ jumpseller.customers.json.post({
 * output `array`
   * items [Customer](#customer)
 
+### customers.email.email.json.get
+Retrieve a single Customer.
+
+
+```js
+jumpseller.customers.email.email.json.get({
+  "login": "",
+  "authtoken": "",
+  "email": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * login **required** `string`: API OAuth login.
+  * authtoken **required** `string`: API OAuth token.
+  * email **required** `string`: Email of the Customer
+
+#### Output
+* output [Customer](#customer)
+
 ### customers.id.json.delete
 Delete an existing Category.
 
@@ -903,7 +924,7 @@ jumpseller.orders.status.status.json.get({
 * input `object`
   * login **required** `string`: API OAuth login.
   * authtoken **required** `string`: API OAuth token.
-  * status **required** `string` (values: Abandoned, Canceled, Pending Payment, Paid, Shipped): Status of the Order used as filter
+  * status **required** `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order used as filter
 
 #### Output
 * output `array`
@@ -931,7 +952,7 @@ jumpseller.orders.id.json.get({
 * output [Order](#order)
 
 ### orders.id.json.put
-Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ "order": {"status": "Shipped", "tracking_company": "other", "tracking_number": "123456789", "additional_information": "My custom message.", "additional_fields": [{"label": "Gift Name", "value": "Duarte"}, {"label": "Gift Wrapping Color", "value": "Green"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ "order": {"status": "Paid", "additional_information": "My custom message."}}' "https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX" -H "Content-Type:application/json" 
+Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ "order": {"status": "Paid", "tracking_company": "other", "tracking_number": "123456789", "additional_information": "My custom message.", "additional_fields": [{"label": "Gift Name", "value": "Duarte"}, {"label": "Gift Wrapping Color", "value": "Green"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ "order": {"status": "Paid", "additional_information": "My custom message."}}' "https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX" -H "Content-Type:application/json" 
 
 
 ```js
@@ -1792,8 +1813,7 @@ jumpseller.products.id.options.option_id.values.value_id.json.put({
   * body **required** [ProductOptionValueEdit](#productoptionvalueedit)
 
 #### Output
-* output `array`
-  * items [ProductOptionValue](#productoptionvalue)
+* output [ProductOptionValue](#productoptionvalue)
 
 ### products.id.variants.json.get
 Retrieve all Product Variants.
@@ -2185,6 +2205,8 @@ jumpseller.store.languages.json.get({
 ### CheckoutCustomFieldEditFields
 * CheckoutCustomFieldEditFields `object`
   * area `string` (values: contact, billing_shipping, other): Area of the CheckoutCustomField
+  * custom_field_select_options `array`: The values for the CheckoutCustomField selection
+    * items `string`
   * deletable `boolean`: True if the CheckoutCustomField can be removed from the store
   * label `string`: Label given to the CheckoutCustomField
   * position `integer`: Position of the CheckoutCustomField
@@ -2194,6 +2216,8 @@ jumpseller.store.languages.json.get({
 ### CheckoutCustomFieldFields
 * CheckoutCustomFieldFields `object`
   * area `string` (values: contact, billing_shipping, other): Area of the CheckoutCustomField
+  * custom_field_select_options `array`: The values for the CheckoutCustomField selection
+    * items `string`
   * deletable `boolean`: True if the CheckoutCustomField can be removed from the store
   * id `integer`: Unique identifier of the CheckoutCustomField
   * label `string`: Label given to the CheckoutCustomField
@@ -2355,7 +2379,7 @@ jumpseller.store.languages.json.get({
   * products `array`
     * items [OrderProduct](#orderproduct)
   * shipping_method_id `integer`: Shipping method e.g. Royal Mail
-  * status `string` (values: Abandoned, Canceled, Pending Payment, Paid, Shipped): Status of the Order
+  * status `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order
   * tracking_company `string`: Shipping Company used for the given Order
   * tracking_number `string`: Shipping Tracking Number used for the given Order
 
@@ -2372,17 +2396,18 @@ jumpseller.store.languages.json.get({
   * payment_method_name `string`: Payment Method name used e.g. PayPal
   * products `array`
     * items [OrderProduct](#orderproduct)
+  * shipment_status `string` (values: delivered, requested, in_transit, failed): Shipment Status for Order Fulfillment.
   * shipping `number`: Shipping value for the given Order
   * shipping_address [ShippingAddress](#shippingaddress)
   * shipping_method_id `integer`: Shipping method e.g. Royal Mail
   * shipping_method_name `string`: Shipping method e.g. Royal Mail
-  * status `string` (values: Abandoned, Canceled, Pending Payment, Paid, Shipped): Status of the Order
+  * status `string` (values: Abandoned, Canceled, Pending Payment, Paid): Status of the Order
   * subtotal `number`: Subtotal value for the given Order. Excluding taxes, shipping and discounts
   * tax `number`: Tax value for the given order
   * total `number`: Total value for the given Order. Including taxes, shipping and discounts
-  * tracking_company `string`: Company Used for the Shipment.
-  * tracking_number `string`: Tracking Number for the Shipment.
-  * tracking_url `string`: URL to track the Shipment.
+  * tracking_company `string`: Company Used for Order Fulfillment.
+  * tracking_number `string`: Tracking Number for Order Fulfillment.
+  * tracking_url `string`: Tracking URL for Order Fulfillment.
 
 ### OrderHistory
 * OrderHistory `object`
@@ -2636,6 +2661,7 @@ jumpseller.store.languages.json.get({
   * hooks_token `string`: Store Hooks Auth token
   * logo `string`: Store Logo URL
   * name `string`: Store Name
+  * timezone `string`: Store Timezone
   * url `string`: Store URL
 
 ### Variant

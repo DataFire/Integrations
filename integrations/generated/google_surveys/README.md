@@ -127,8 +127,8 @@ google_surveys.mobileapppanels.update({
 
 #### Input
 * input `object`
-  * panelId **required** `string`: External URL ID for the panel.
   * body [MobileAppPanel](#mobileapppanel)
+  * panelId **required** `string`: External URL ID for the panel.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -198,8 +198,8 @@ google_surveys.surveys.start({
 
 #### Input
 * input `object`
-  * resourceId **required** `string`
   * body [SurveysStartRequest](#surveysstartrequest)
+  * resourceId **required** `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -295,8 +295,8 @@ google_surveys.surveys.update({
 
 #### Input
 * input `object`
-  * surveyUrlId **required** `string`: External URL ID for the survey.
   * body [Survey](#survey)
+  * surveyUrlId **required** `string`: External URL ID for the survey.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -320,8 +320,8 @@ google_surveys.results.get({
 
 #### Input
 * input `object`
-  * surveyUrlId **required** `string`: External URL ID for the survey.
   * body [ResultsGetRequest](#resultsgetrequest)
+  * surveyUrlId **required** `string`: External URL ID for the survey.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

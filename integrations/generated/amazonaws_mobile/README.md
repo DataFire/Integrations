@@ -40,6 +40,23 @@ amazonaws_mobile.ListBundles({}, context)
 #### Output
 * output [ListBundlesResult](#listbundlesresult)
 
+### DescribeBundle
+
+
+
+```js
+amazonaws_mobile.DescribeBundle({
+  "bundleId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * bundleId **required** `string`
+
+#### Output
+* output [DescribeBundleResult](#describebundleresult)
+
 ### ExportBundle
 
 
@@ -103,6 +120,21 @@ amazonaws_mobile.ListProjects({}, context)
 
 #### Output
 * output [ListProjectsResult](#listprojectsresult)
+
+### CreateProject
+
+
+
+```js
+amazonaws_mobile.CreateProject({}, context)
+```
+
+#### Input
+* input `object`
+  * contents [Contents](#contents)
+
+#### Output
+* output [CreateProjectResult](#createprojectresult)
 
 ### DeleteProject
 

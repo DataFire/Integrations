@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_iot",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS IoT",
   "repository": {

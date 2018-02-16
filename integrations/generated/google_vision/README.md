@@ -78,19 +78,19 @@ google_vision.images.annotate({}, context)
 #### Input
 * input `object`
   * body [BatchAnnotateImagesRequest](#batchannotateimagesrequest)
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * callback `string`: JSONP
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [BatchAnnotateImagesResponse](#batchannotateimagesresponse)
@@ -139,6 +139,7 @@ google_vision.images.annotate({}, context)
 * Block `object`: Logical element on the page.
   * blockType `string` (values: UNKNOWN, TEXT, TABLE, PICTURE, RULER, BARCODE): Detected block type (text, image etc) for this block.
   * boundingBox [BoundingPoly](#boundingpoly)
+  * confidence `number`: Confidence of the OCR results on the block. Range [0, 1].
   * paragraphs `array`: List of paragraphs in this block (if this blocks is of type text).
     * items [Paragraph](#paragraph)
   * property [TextProperty](#textproperty)
@@ -195,7 +196,7 @@ google_vision.images.annotate({}, context)
 ### EntityAnnotation
 * EntityAnnotation `object`: Set of detected entity features.
   * boundingPoly [BoundingPoly](#boundingpoly)
-  * confidence `number`: The accuracy of the entity detection in an image.
+  * confidence `number`: **Deprecated. Use `score` instead.**
   * description `string`: Entity textual description, expressed in its `locale` language.
   * locale `string`: The language code for the locale in which the entity textual
   * locations `array`: The location information for the detected entity. Multiple
@@ -226,8 +227,9 @@ google_vision.images.annotate({}, context)
   * underExposedLikelihood `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Under-exposed likelihood.
 
 ### Feature
-* Feature `object`: Users describe the type of Google Cloud Vision API tasks to perform over
-  * maxResults `integer`: Maximum number of results of this type.
+* Feature `object`: The type of Google Cloud Vision API detection to perform, and the maximum
+  * maxResults `integer`: Maximum number of results of this type. Does not apply to
+  * model `string`: Model to use for the feature.
   * type `string` (values: TYPE_UNSPECIFIED, FACE_DETECTION, LANDMARK_DETECTION, LOGO_DETECTION, LABEL_DETECTION, TEXT_DETECTION, DOCUMENT_TEXT_DETECTION, SAFE_SEARCH_DETECTION, IMAGE_PROPERTIES, CROP_HINTS, WEB_DETECTION): The feature type.
 
 ### Image
@@ -241,15 +243,16 @@ google_vision.images.annotate({}, context)
   * languageHints `array`: List of languages to use for TEXT_DETECTION. In most cases, an empty value
     * items `string`
   * latLongRect [LatLongRect](#latlongrect)
+  * webDetectionParams [WebDetectionParams](#webdetectionparams)
 
 ### ImageProperties
 * ImageProperties `object`: Stores image properties, such as dominant colors.
   * dominantColors [DominantColorsAnnotation](#dominantcolorsannotation)
 
 ### ImageSource
-* ImageSource `object`: External image source (Google Cloud Storage image location).
-  * gcsImageUri `string`: NOTE: For new code `image_uri` below is preferred.
-  * imageUri `string`: Image URI which supports:
+* ImageSource `object`: External image source (Google Cloud Storage or web URL image location).
+  * gcsImageUri `string`: **Use `image_uri` instead.**
+  * imageUri `string`: The URI of the source image. Can be either:
 
 ### Landmark
 * Landmark `object`: A face-specific landmark (for example, a face feature).
@@ -274,6 +277,7 @@ google_vision.images.annotate({}, context)
 * Page `object`: Detected page from OCR.
   * blocks `array`: List of blocks of text, images etc on this page.
     * items [Block](#block)
+  * confidence `number`: Confidence of the OCR results on the page. Range [0, 1].
   * height `integer`: Page height in pixels.
   * property [TextProperty](#textproperty)
   * width `integer`: Page width in pixels.
@@ -281,6 +285,7 @@ google_vision.images.annotate({}, context)
 ### Paragraph
 * Paragraph `object`: Structural unit of text representing a number of words in certain order.
   * boundingBox [BoundingPoly](#boundingpoly)
+  * confidence `number`: Confidence of the OCR results for the paragraph. Range [0, 1].
   * property [TextProperty](#textproperty)
   * words `array`: List of words in this paragraph.
     * items [Word](#word)
@@ -301,6 +306,7 @@ google_vision.images.annotate({}, context)
 * SafeSearchAnnotation `object`: Set of features pertaining to the image, computed by computer vision
   * adult `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Represents the adult content likelihood for the image. Adult content may
   * medical `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Likelihood that this is a medical image.
+  * racy `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Likelihood that the request image contains racy content. Racy content may
   * spoof `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Spoof likelihood. The likelihood that an modification
   * violence `string` (values: UNKNOWN, VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY): Likelihood that this image contains violent content.
 
@@ -314,6 +320,7 @@ google_vision.images.annotate({}, context)
 ### Symbol
 * Symbol `object`: A single symbol representation.
   * boundingBox [BoundingPoly](#boundingpoly)
+  * confidence `number`: Confidence of the OCR results for the symbol. Range [0, 1].
   * property [TextProperty](#textproperty)
   * text `string`: The actual UTF-8 representation of the symbol.
 
@@ -336,6 +343,8 @@ google_vision.images.annotate({}, context)
 
 ### WebDetection
 * WebDetection `object`: Relevant information for the image from the Internet.
+  * bestGuessLabels `array`: Best guess text labels for the request image.
+    * items [WebLabel](#weblabel)
   * fullMatchingImages `array`: Fully matching images from the Internet.
     * items [WebImage](#webimage)
   * pagesWithMatchingImages `array`: Web pages containing the matching images from the Internet.
@@ -346,6 +355,10 @@ google_vision.images.annotate({}, context)
     * items [WebImage](#webimage)
   * webEntities `array`: Deduced entities from similar images on the Internet.
     * items [WebEntity](#webentity)
+
+### WebDetectionParams
+* WebDetectionParams `object`: Parameters for web detection request.
+  * includeGeoResults `boolean`: Whether to include results derived from the geo information in the image.
 
 ### WebEntity
 * WebEntity `object`: Entity deduced from similar images on the Internet.
@@ -358,14 +371,25 @@ google_vision.images.annotate({}, context)
   * score `number`: (Deprecated) Overall relevancy score for the image.
   * url `string`: The result image URL.
 
+### WebLabel
+* WebLabel `object`: Label to provide extra metadata for the web detection.
+  * label `string`: Label for extra metadata.
+  * languageCode `string`: The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
+
 ### WebPage
 * WebPage `object`: Metadata for web pages.
+  * fullMatchingImages `array`: Fully matching images on the page.
+    * items [WebImage](#webimage)
+  * pageTitle `string`: Title for the web page, may contain HTML markups.
+  * partialMatchingImages `array`: Partial matching images on the page.
+    * items [WebImage](#webimage)
   * score `number`: (Deprecated) Overall relevancy score for the web page.
   * url `string`: The result web page URL.
 
 ### Word
 * Word `object`: A word representation.
   * boundingBox [BoundingPoly](#boundingpoly)
+  * confidence `number`: Confidence of the OCR results for the word. Range [0, 1].
   * property [TextProperty](#textproperty)
   * symbols `array`: List of symbols in the word.
     * items [Symbol](#symbol)

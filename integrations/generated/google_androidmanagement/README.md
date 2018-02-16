@@ -413,6 +413,11 @@ google_androidmanagement.enterprises.webTokens.create({
 
 ## Definitions
 
+### AlwaysOnVpnPackage
+* AlwaysOnVpnPackage `object`: Configuration for an always-on VPN connection.
+  * lockdownEnabled `boolean`: Disallows networking when the VPN is not connected.
+  * packageName `string`: The package name of the VPN app.
+
 ### ApiLevelCondition
 * ApiLevelCondition `object`: A compliance rule condition which is satisfied if the Android Framework API level on the device does not meet a minimum requirement. There can only be one rule with this type of condition per policy.
   * minApiLevel `integer`: The minimum desired Android Framework API level. If the device does not meet the minimum requirement, this condition is satisfied. Must be greater than zero.
@@ -463,6 +468,7 @@ google_androidmanagement.enterprises.webTokens.create({
   * appliedPolicyName `string`: The name of the policy that is currently applied by the device.
   * appliedPolicyVersion `string`: The version of the policy that is currently applied by the device.
   * appliedState `string` (values: DEVICE_STATE_UNSPECIFIED, ACTIVE, DISABLED, DELETED, PROVISIONING): The state that is currently applied by the device.
+  * deviceSettings [DeviceSettings](#devicesettings)
   * disabledReason [UserFacingMessage](#userfacingmessage)
   * displays `array`: Displays on the device. This information is only available when displayInfoEnabled is true in the device's policy.
     * items [Display](#display)
@@ -491,6 +497,15 @@ google_androidmanagement.enterprises.webTokens.create({
   * softwareInfo [SoftwareInfo](#softwareinfo)
   * state `string` (values: DEVICE_STATE_UNSPECIFIED, ACTIVE, DISABLED, DELETED, PROVISIONING): The state that is intended to be applied to the device. This field may be modified by an update request. Note that UpdateDevice only handles toggling between ACTIVE and DISABLED states. Use the delete device method to cause the device to enter the DELETED state.
   * userName `string`: The resource name of the user that owns this device in the form enterprises/{enterpriseId}/users/{userId}.
+
+### DeviceSettings
+* DeviceSettings `object`: Information about security related device settings on device.
+  * adbEnabled `boolean`: If the ADB is enabled Settings.Global.ADB_ENABLED.
+  * developmentSettingsEnabled `boolean`: If the developer mode is enabled Settings.Global.DEVELOPMENT_SETTINGS_ENABLED.
+  * encryptionStatus `string` (values: ENCRYPTION_STATUS_UNSPECIFIED, UNSUPPORTED, INACTIVE, ACTIVATING, ACTIVE, ACTIVE_DEFAULT_KEY, ACTIVE_PER_USER): Encryption status from DevicePolicyManager.
+  * isDeviceSecure `boolean`: Device secured with PIN/password.
+  * isEncrypted `boolean`: Whether the storage encryption is enabled DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE or DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE_PER_USER in N+ devices.
+  * unknownSourcesEnabled `boolean`: If installing apps from unknown sources is enabled. Settings.Secure.INSTALL_NON_MARKET_APPS.
 
 ### Display
 * Display `object`: Device display information.
@@ -645,6 +660,11 @@ google_androidmanagement.enterprises.webTokens.create({
   * name `string`: The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should have the format of operations/some/unique/name.
   * response `object`: The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is google.protobuf.Empty. If the original method is standard Get/Create/Update, the response should be the resource. For other methods, the response should have the type XxxResponse, where Xxx is the original method name. For example, if the original method name is TakeSnapshot(), the inferred response type is TakeSnapshotResponse.
 
+### PackageNameList
+* PackageNameList `object`: A list of package names.
+  * packageNames `array`: A list of package names.
+    * items `string`
+
 ### PasswordRequirements
 * PasswordRequirements `object`: Requirements for the password used to unlock a device.
   * maximumFailedPasswordsForWipe `integer`: A device will be wiped after too many incorrect device-unlock passwords have been entered. A value of 0 means there is no restriction.
@@ -657,7 +677,7 @@ google_androidmanagement.enterprises.webTokens.create({
   * passwordMinimumNumeric `integer`: Minimum number of numerical digits required in the password. Only enforced when password_quality is COMPLEX.
   * passwordMinimumSymbols `integer`: Minimum number of symbols required in the password. Only enforced when password_quality is COMPLEX.
   * passwordMinimumUpperCase `integer`: Minimum number of upper case letters required in the password. Only enforced when password_quality is COMPLEX.
-  * passwordQuality `string` (values: PASSWORD_QUALITY_UNSPECIFIED, SOMETHING, NUMERIC, NUMERIC_COMPLEX, ALPHABETIC, ALPHANUMERIC, COMPLEX): The required password quality.
+  * passwordQuality `string` (values: PASSWORD_QUALITY_UNSPECIFIED, BIOMETRIC_WEAK, SOMETHING, NUMERIC, NUMERIC_COMPLEX, ALPHABETIC, ALPHANUMERIC, COMPLEX): The required password quality.
 
 ### PermissionGrant
 * PermissionGrant `object`: Configuration for an Android permission and its grant state.
@@ -674,41 +694,72 @@ google_androidmanagement.enterprises.webTokens.create({
 
 ### Policy
 * Policy `object`: A policy, which governs behavior for a device.
+  * accountTypesWithManagementDisabled `array`: Account types that cannot be managed by the user.
+    * items `string`
   * addUserDisabled `boolean`: Whether adding new users and profiles is disabled.
   * adjustVolumeDisabled `boolean`: Whether adjusting the master volume is disabled.
+  * alwaysOnVpnPackage [AlwaysOnVpnPackage](#alwaysonvpnpackage)
   * applications `array`: Policy applied to apps.
     * items [ApplicationPolicy](#applicationpolicy)
   * autoTimeRequired `boolean`: Whether auto time is required, which prevents the user from manually setting the date and time.
   * blockApplicationsEnabled `boolean`: Whether applications other than the ones configured in applications are blocked from being installed. When set, applications that were installed under a previous policy but no longer appear in the policy are automatically uninstalled.
+  * bluetoothConfigDisabled `boolean`: Whether configuring bluetooth is disabled.
+  * bluetoothContactSharingDisabled `boolean`: Whether bluetooth contact sharing is disabled.
+  * bluetoothDisabled `boolean`: Whether bluetooth is disabled. Prefer this setting over bluetooth_config_disabled because bluetooth_config_disabled can be bypassed by the user.
   * cameraDisabled `boolean`: Whether all cameras on the device are disabled.
+  * cellBroadcastsConfigDisabled `boolean`: Whether configuring cell broadcast is disabled.
   * complianceRules `array`: Rules declaring which mitigating actions to take when a device is not compliant with its policy. When the conditions for multiple rules are satisfied, all of the mitigating actions for the rules are taken. There is a maximum limit of 100 rules.
     * items [ComplianceRule](#compliancerule)
+  * createWindowsDisabled `boolean`: Whether creating windows besides app windows is disabled.
+  * credentialsConfigDisabled `boolean`: Whether configuring user credentials is disabled.
+  * dataRoamingDisabled `boolean`: Whether roaming data services are disabled.
   * debuggingFeaturesAllowed `boolean`: Whether the user is allowed to enable debugging features.
   * defaultPermissionPolicy `string` (values: PERMISSION_POLICY_UNSPECIFIED, PROMPT, GRANT, DENY): The default permission policy for requests for runtime permissions.
+  * ensureVerifyAppsEnabled `boolean`: Whether application verification is forced to be enabled.
   * factoryResetDisabled `boolean`: Whether factory resetting from settings is disabled.
   * frpAdminEmails `array`: Email addresses of device administrators for factory reset protection. When the device is factory reset, it will require one of these admins to log in with the Google account email and password to unlock the device. If no admins are specified, the device will not provide factory reset protection.
     * items `string`
   * funDisabled `boolean`: Whether the user is allowed to have fun. Controls whether the Easter egg game in Settings is disabled.
+  * installAppsDisabled `boolean`: Whether user installation of apps is disabled.
   * installUnknownSourcesAllowed `boolean`: Whether the user is allowed to enable the "Unknown Sources" setting, which allows installation of apps from unknown sources.
   * keyguardDisabled `boolean`: Whether the keyguard is disabled.
+  * keyguardDisabledFeatures `array`: Disabled keyguard customizations, such as widgets.
+    * items `string` (values: KEYGUARD_DISABLED_FEATURE_UNSPECIFIED, CAMERA, NOTIFICATIONS, UNREDACTED_NOTIFICATIONS, TRUST_AGENTS, DISABLE_FINGERPRINT, DISABLE_REMOTE_INPUT, ALL_FEATURES)
+  * kioskCustomLauncherEnabled `boolean`: Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the applications setting. The apps appear on a single page in alphabetical order. It is recommended to also use status_bar_disabled to block access to device settings.
+  * longSupportMessage [UserFacingMessage](#userfacingmessage)
   * maximumTimeToLock `string`: Maximum time in milliseconds for user activity until the device will lock. A value of 0 means there is no restriction.
+  * mobileNetworksConfigDisabled `boolean`: Whether configuring mobile networks is disabled.
   * modifyAccountsDisabled `boolean`: Whether adding or removing accounts is disabled.
+  * mountPhysicalMediaDisabled `boolean`: Whether the user mounting physical external media is disabled.
   * name `string`: The name of the policy in the form enterprises/{enterpriseId}/policies/{policyId}
   * networkEscapeHatchEnabled `boolean`: Whether the network escape hatch is enabled. If a network connection can't be made at boot time, the escape hatch prompts the user to temporarily connect to a network in order to refresh the device policy. After applying policy, the temporary network will be forgotten and the device will continue booting. This prevents being unable to connect to a network if there is no suitable network in the last policy and the device boots into an app in lock task mode, or the user is otherwise unable to reach device settings.
+  * networkResetDisabled `boolean`: Whether resetting network settings is disabled.
   * openNetworkConfiguration `object`: Network configuration for the device. See configure networks for more information.
+  * outgoingBeamDisabled `boolean`: Whether using NFC to beam out data from apps is disabled.
+  * outgoingCallsDisabled `boolean`: Whether outgoing calls are disabled.
   * passwordRequirements [PasswordRequirements](#passwordrequirements)
+  * permittedInputMethods [PackageNameList](#packagenamelist)
   * persistentPreferredActivities `array`: Default intent handler activities.
     * items [PersistentPreferredActivity](#persistentpreferredactivity)
+  * recommendedGlobalProxy [ProxyInfo](#proxyinfo)
   * removeUserDisabled `boolean`: Whether removing other users is disabled.
   * safeBootDisabled `boolean`: Whether rebooting the device into safe boot is disabled.
   * screenCaptureDisabled `boolean`: Whether screen capture is disabled.
+  * setUserIconDisabled `boolean`: Whether changing the user icon is disabled.
+  * setWallpaperDisabled `boolean`: Whether changing the wallpaper is disabled.
+  * shortSupportMessage [UserFacingMessage](#userfacingmessage)
+  * smsDisabled `boolean`: Whether sending or receiving SMS messages is disabled.
   * statusBarDisabled `boolean`: Whether the status bar is disabled. This disables notifications, quick settings and other screen overlays that allow escape from full-screen mode.
   * statusReportingSettings [StatusReportingSettings](#statusreportingsettings)
   * stayOnPluggedModes `array`: The battery plugged in modes for which the device stays on. When using this setting, it is recommended to clear maximum_time_to_lock so that the device doesn't lock itself while it stays on.
     * items `string` (values: BATTERY_PLUGGED_MODE_UNSPECIFIED, AC, USB, WIRELESS)
   * systemUpdate [SystemUpdate](#systemupdate)
+  * tetheringConfigDisabled `boolean`: Whether configuring tethering and portable hotspots is disabled.
+  * uninstallAppsDisabled `boolean`: Whether user uninstallation of applications is disabled.
   * unmuteMicrophoneDisabled `boolean`: Whether the microphone is muted and adjusting microphone volume is disabled.
+  * usbFileTransferDisabled `boolean`: Whether transferring files over USB is disabled.
   * version `string`: The version of the policy. This is a read-only field. The version is incremented each time the policy is updated.
+  * vpnConfigDisabled `boolean`: Whether configuring VPN is disabled.
   * wifiConfigDisabled `boolean`: Whether configuring WiFi access points is disabled.
   * wifiConfigsLockdownEnabled `boolean`: Whether WiFi networks defined in Open Network Configuration are locked so they cannot be edited by the user.
 
@@ -717,6 +768,14 @@ google_androidmanagement.enterprises.webTokens.create({
   * batteryLevel `number`: For BATTERY_LEVEL_COLLECTED events, the battery level as a percentage.
   * createTime `string`: The creation time of the event.
   * eventType `string` (values: POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED, BATTERY_LEVEL_COLLECTED, POWER_CONNECTED, POWER_DISCONNECTED, BATTERY_LOW, BATTERY_OKAY, BOOT_COMPLETED, SHUTDOWN): Event type.
+
+### ProxyInfo
+* ProxyInfo `object`: Configuration info for an HTTP proxy. For a direct proxy, set the host, port, and excluded_hosts fields. For a PAC script proxy, set the pac_uri field.
+  * excludedHosts `array`: For a direct proxy, the hosts for which the proxy is bypassed. The host names may contain wildcards such as *.example.com.
+    * items `string`
+  * host `string`: The host of the direct proxy.
+  * pacUri `string`: The URI of the PAC script used to configure the proxy.
+  * port `integer`: The port of the direct proxy.
 
 ### SignupUrl
 * SignupUrl `object`: An enterprise signup URL.
@@ -727,6 +786,8 @@ google_androidmanagement.enterprises.webTokens.create({
 * SoftwareInfo `object`: Information about device software.
   * androidBuildNumber `string`: Android build Id string meant for displaying to the user, e.g. shamu-userdebug 6.0.1 MOB30I 2756745 dev-keys.
   * androidBuildTime `string`: Build time.
+  * androidDevicePolicyVersionCode `integer`: The Android Device Policy app version code.
+  * androidDevicePolicyVersionName `string`: The Android Device Policy app version as displayed to the user.
   * androidVersion `string`: The user visible Android version string, e.g. 6.0.1.
   * bootloaderVersion `string`: The system bootloader version number, e.g. 0.6.7.
   * deviceKernelVersion `string`: Kernel version, e.g. 2.6.32.9-g103d848.
@@ -741,6 +802,7 @@ google_androidmanagement.enterprises.webTokens.create({
 
 ### StatusReportingSettings
 * StatusReportingSettings `object`: Settings controlling the behavior of status reports.
+  * deviceSettingsEnabled `boolean`: Whether device settings reporting is enabled.
   * displayInfoEnabled `boolean`: Whether displays reporting is enabled.
   * hardwareStatusEnabled `boolean`: Whether hardware status reporting is enabled.
   * memoryInfoEnabled `boolean`: Whether memory info reporting is enabled.

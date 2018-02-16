@@ -202,9 +202,183 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a <code>GraphqlApi</code> object.",
+        "operationId": "CreateGraphqlApi",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateGraphqlApiRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGraphqlApiResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "485": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "486": {
+            "description": "ApiLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ApiLimitExceededException"
+            }
+          }
+        }
+      }
     },
     "/v1/apis/{apiId}": {
+      "delete": {
+        "description": "Deletes a <code>GraphqlApi</code> object.",
+        "operationId": "DeleteGraphqlApi",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteGraphqlApiRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteGraphqlApiResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves a <code>GraphqlApi</code> object.",
+        "operationId": "GetGraphqlApi",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetGraphqlApiRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetGraphqlApiResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -374,7 +548,83 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a unique key that you can distribute to clients who are executing your API.",
+        "operationId": "CreateApiKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateApiKeyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateApiKeyResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "486": {
+            "description": "ApiKeyLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ApiKeyLimitExceededException"
+            }
+          },
+          "487": {
+            "description": "ApiKeyValidityOutOfBoundsException",
+            "schema": {
+              "$ref": "#/definitions/ApiKeyValidityOutOfBoundsException"
+            }
+          }
+        }
+      }
     },
     "/v1/apis/{apiId}/apikeys/{id}": {
       "delete": {
@@ -463,7 +713,77 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Updates an API key.",
+        "operationId": "UpdateApiKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateApiKeyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateApiKeyResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "485": {
+            "description": "ApiKeyValidityOutOfBoundsException",
+            "schema": {
+              "$ref": "#/definitions/ApiKeyValidityOutOfBoundsException"
+            }
+          }
+        }
+      }
     },
     "/v1/apis/{apiId}/datasources": {
       "get": {
@@ -546,9 +866,195 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a <code>DataSource</code> object.",
+        "operationId": "CreateDataSource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDataSourceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDataSourceResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
     },
     "/v1/apis/{apiId}/datasources/{name}": {
+      "delete": {
+        "description": "Deletes a <code>DataSource</code> object.",
+        "operationId": "DeleteDataSource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDataSourceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDataSourceResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves a <code>DataSource</code> object.",
+        "operationId": "GetDataSource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDataSourceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDataSourceResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -727,6 +1233,58 @@
       ]
     },
     "/v1/apis/{apiId}/schemacreation": {
+      "get": {
+        "description": "Retrieves the current status of a schema creation operation.",
+        "operationId": "GetSchemaCreationStatus",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSchemaCreationStatusRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSchemaCreationStatusResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -902,9 +1460,195 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a <code>Type</code> object.",
+        "operationId": "CreateType",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTypeRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateTypeResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
     },
     "/v1/apis/{apiId}/types/{typeName}": {
+      "delete": {
+        "description": "Deletes a <code>Type</code> object.",
+        "operationId": "DeleteType",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteTypeRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteTypeResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves a <code>Type</code> object.",
+        "operationId": "GetType",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetTypeRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTypeResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1086,9 +1830,189 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>Creates a <code>Resolver</code> object.</p> <p>A resolver converts incoming requests into a format that a data source can understand and converts the data source's responses into GraphQL.</p>",
+        "operationId": "CreateResolver",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateResolverRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResolverResponse"
+            }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
     },
     "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}": {
+      "delete": {
+        "description": "Deletes a <code>Resolver</code> object.",
+        "operationId": "DeleteResolver",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteResolverRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteResolverResponse"
+            }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Retrieves a <code>Resolver</code> object.",
+        "operationId": "GetResolver",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetResolverRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResolverResponse"
+            }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1194,7 +2118,7 @@
         },
         "expires": {
           "$ref": "#/definitions/Long",
-          "description": "The time when the API key expires."
+          "description": "The time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour."
         },
         "id": {
           "$ref": "#/definitions/String",
@@ -1205,6 +2129,15 @@
     },
     "ApiKeyLimitExceededException": {
       "description": "The API key exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "ApiKeyValidityOutOfBoundsException": {
+      "description": "The API key expiration must be set to a value between 1 and 365 days.",
       "properties": {
         "message": {
           "$ref": "#/definitions/String"
@@ -1264,6 +2197,10 @@
         "description": {
           "$ref": "#/definitions/String",
           "description": "A description of the purpose of the API key."
+        },
+        "expires": {
+          "$ref": "#/definitions/Long",
+          "description": "The time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time."
         }
       },
       "type": "object"
@@ -1330,7 +2267,7 @@
           "description": "The authentication type: API key, IAM, or Amazon Cognito User Pools."
         },
         "name": {
-          "$ref": "#/definitions/ResourceName",
+          "$ref": "#/definitions/String",
           "description": "A user-supplied name for the <code>GraphqlApi</code>."
         },
         "userPoolConfig": {
@@ -1365,7 +2302,7 @@
         },
         "requestMappingTemplate": {
           "$ref": "#/definitions/MappingTemplate",
-          "description": "<p>The mapping template to be used for requests.</p> <p>A resolver use a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).</p>"
+          "description": "<p>The mapping template to be used for requests.</p> <p>A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).</p>"
         },
         "responseMappingTemplate": {
           "$ref": "#/definitions/MappingTemplate",
@@ -1447,7 +2384,7 @@
         },
         "type": {
           "$ref": "#/definitions/DataSourceType",
-          "description": "The type of the data source."
+          "description": "<p>The type of the data source.</p> <ul> <li> <p> <b>AMAZON_DYNAMODB</b>: The data source is an Amazon DynamoDB table.</p> </li> <li> <p> <b>AMAZON_ELASTICSEARCH</b>: The data source is an Amazon Elasticsearch Service domain.</p> </li> <li> <p> <b>AWS_LAMBDA</b>: The data source is an AWS Lambda function.</p> </li> <li> <p> <b>NONE</b>: There is no data source. This type is used when the required information can be computed on the fly without connecting to a back-end data source.</p> </li> </ul>"
         }
       },
       "type": "object"
@@ -1456,7 +2393,8 @@
       "enum": [
         "AWS_LAMBDA",
         "AMAZON_DYNAMODB",
-        "AMAZON_ELASTICSEARCH"
+        "AMAZON_ELASTICSEARCH",
+        "NONE"
       ],
       "type": "string"
     },
@@ -1966,6 +2904,28 @@
       },
       "type": "object"
     },
+    "UpdateApiKeyRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the purpose of the API key."
+        },
+        "expires": {
+          "$ref": "#/definitions/Long",
+          "description": "The time after which the API key expires. The date is represented as seconds since the epoch."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateApiKeyResponse": {
+      "properties": {
+        "apiKey": {
+          "$ref": "#/definitions/ApiKey",
+          "description": "The API key."
+        }
+      },
+      "type": "object"
+    },
     "UpdateDataSourceRequest": {
       "properties": {
         "description": {
@@ -2014,7 +2974,7 @@
           "description": "The new authentication type for the <code>GraphqlApi</code> object."
         },
         "name": {
-          "$ref": "#/definitions/ResourceName",
+          "$ref": "#/definitions/String",
           "description": "The new name for the <code>GraphqlApi</code> object."
         },
         "userPoolConfig": {
@@ -2031,7 +2991,7 @@
       "properties": {
         "graphqlApi": {
           "$ref": "#/definitions/GraphqlApi",
-          "description": "The udpated <code>GraphqlApi</code> object."
+          "description": "The updated <code>GraphqlApi</code> object."
         }
       },
       "type": "object"

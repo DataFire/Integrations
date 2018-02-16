@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is AWS Lambda</a>, and for information about how the service works, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p>",
     "license": {
@@ -309,9 +310,165 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>Identifies a stream as an event source for a Lambda function. It can be either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda invokes the specified function when records are posted to the stream.</p> <p>This association between a stream source and a Lambda function is called the event source mapping.</p> <important> <p>This event source mapping is relevant only in the AWS Lambda pull model, where AWS Lambda invokes the function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p> </important> <p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p> <p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda function. A given Lambda function can be associated with multiple AWS event sources.</p> <p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p>",
+        "operationId": "CreateEventSourceMapping",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateEventSourceMappingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EventSourceMappingConfiguration"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
     },
     "/2015-03-31/event-source-mappings/{UUID}": {
+      "delete": {
+        "description": "<p>Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.</p> <p>This operation requires permission for the <code>lambda:DeleteEventSourceMapping</code> action.</p>",
+        "operationId": "DeleteEventSourceMapping",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteEventSourceMappingRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "UUID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EventSourceMappingConfiguration"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "<p>Returns configuration information for the specified event source mapping (see <a>CreateEventSourceMapping</a>).</p> <p>This operation requires permission for the <code>lambda:GetEventSourceMapping</code> action.</p>",
+        "operationId": "GetEventSourceMapping",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEventSourceMappingRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "UUID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EventSourceMappingConfiguration"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -575,6 +732,66 @@
       ]
     },
     "/2015-03-31/functions/{FunctionName}": {
+      "delete": {
+        "description": "<p>Deletes the specified Lambda function code and configuration.</p> <p>If you are using the versioning feature and you don't specify a function version in your <code>DeleteFunction</code> request, AWS Lambda will delete the function, including all its versions, and any aliases pointing to the function versions. To delete a specific function version, you must provide the function version via the <code>Qualifier</code> parameter. For information about function versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>When you delete a function the associated resource policy is also deleted. You will need to delete the event source mappings explicitly.</p> <p>This operation requires permission for the <code>lambda:DeleteFunction</code> action.</p>",
+        "operationId": "DeleteFunction",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFunctionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "484": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          }
+        }
+      },
       "get": {
         "description": "<p>Returns the configuration information of the Lambda function and a presigned URL link to the .zip file you uploaded with <a>CreateFunction</a> so you can download the .zip file. Note that the URL is valid for up to 10 minutes. The configuration information is the same information you provided as parameters when uploading the function.</p> <p>Using the optional <code>Qualifier</code> parameter, you can specify a specific function version for which you want this information. If you don't specify this parameter, the API uses unqualified function ARN which return information about the <code>$LATEST</code> version of the Lambda function. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>.</p> <p>This operation requires permission for the <code>lambda:GetFunction</code> action.</p>",
         "operationId": "GetFunction",
@@ -748,9 +965,189 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>Creates an alias that points to the specified Lambda function version. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html\">Introduction to AWS Lambda Aliases</a>.</p> <p>Alias names are unique for a given function. This requires permission for the lambda:CreateAlias action.</p>",
+        "operationId": "CreateAlias",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAliasRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AliasConfiguration"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     },
     "/2015-03-31/functions/{FunctionName}/aliases/{Name}": {
+      "delete": {
+        "description": "<p>Deletes the specified Lambda function alias. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html\">Introduction to AWS Lambda Aliases</a>.</p> <p>This requires permission for the lambda:DeleteAlias action.</p>",
+        "operationId": "DeleteAlias",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAliasRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "Name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "<p>Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html\">Introduction to AWS Lambda Aliases</a>.</p> <p>This requires permission for the <code>lambda:GetAlias</code> action.</p>",
+        "operationId": "GetAlias",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAliasRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "Name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AliasConfiguration"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -839,6 +1236,12 @@
             "description": "TooManyRequestsException",
             "schema": {
               "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
             }
           }
         }
@@ -934,11 +1337,74 @@
             "schema": {
               "$ref": "#/definitions/CodeStorageExceededException"
             }
+          },
+          "485": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
+            }
           }
         }
       }
     },
     "/2015-03-31/functions/{FunctionName}/configuration": {
+      "get": {
+        "description": "<p>Returns the configuration information of the Lambda function. This the same information you provided as parameters when uploading the function by using <a>CreateFunction</a>.</p> <p>If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional <code>Qualifier</code> parameter and specifying the function version or alias that points to it. If you don't provide it, the API returns information about the $LATEST version of the function. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>.</p> <p>This operation requires permission for the <code>lambda:GetFunctionConfiguration</code> operation.</p>",
+        "operationId": "GetFunctionConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFunctionConfigurationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FunctionConfiguration"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1028,6 +1494,12 @@
             "schema": {
               "$ref": "#/definitions/ResourceConflictException"
             }
+          },
+          "485": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
+            }
           }
         }
       }
@@ -1063,7 +1535,7 @@
         }
       ],
       "post": {
-        "description": "<p>Invokes a specific Lambda function. For an example, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually\">Create the Lambda Function and Test It Manually</a>. </p> <p>If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the <code>Qualifier</code> parameter in the request. If you don't provide the <code>Qualifier</code> parameter, the <code>$LATEST</code> version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p>",
+        "description": "<p>Invokes a specific Lambda function. For an example, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually\">Create the Lambda Function and Test It Manually</a>. </p> <p>If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the <code>Qualifier</code> parameter in the request. If you don't provide the <code>Qualifier</code> parameter, the <code>$LATEST</code> version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p> <note> <p>The <code>TooManyRequestsException</code> noted below will return the following: <code>ConcurrentInvocationLimitExceeded</code> will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account's unreserved concurrency limit. <code>ReservedFunctionConcurrentInvocationLimitExceeded</code> will be returned when a function with reserved concurrency exceeds its configured concurrency limit. </p> </note>",
         "operationId": "Invoke",
         "parameters": [
           {
@@ -1302,7 +1774,82 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "<p>Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. </p> <p>For information about the push model, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a>. </p> <p>If you are using versioning, the permissions you add are specific to the Lambda function version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p> <p>This operation requires permission for the <code>lambda:AddPermission</code> action.</p>",
+        "operationId": "AddPermission",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddPermissionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddPermissionResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "484": {
+            "description": "PolicyLengthExceededException",
+            "schema": {
+              "$ref": "#/definitions/PolicyLengthExceededException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "486": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
+            }
+          }
+        }
+      }
     },
     "/2015-03-31/functions/{FunctionName}/policy/{StatementId}": {
       "delete": {
@@ -1362,6 +1909,12 @@
             "schema": {
               "$ref": "#/definitions/TooManyRequestsException"
             }
+          },
+          "484": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
+            }
           }
         }
       },
@@ -1396,6 +1949,63 @@
       ]
     },
     "/2015-03-31/functions/{FunctionName}/versions": {
+      "get": {
+        "description": "List all versions of a function. For information about the versioning feature, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. ",
+        "operationId": "ListVersionsByFunction",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListVersionsByFunctionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListVersionsByFunctionResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1484,6 +2094,12 @@
             "description": "CodeStorageExceededException",
             "schema": {
               "$ref": "#/definitions/CodeStorageExceededException"
+            }
+          },
+          "485": {
+            "description": "PreconditionFailedException",
+            "schema": {
+              "$ref": "#/definitions/PreconditionFailedException"
             }
           }
         }
@@ -1604,6 +2220,58 @@
           }
         }
       },
+      "get": {
+        "description": "Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name).",
+        "operationId": "ListTags",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ARN",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "$ref": "#/parameters/Action"
@@ -1632,7 +2300,198 @@
         {
           "$ref": "#/parameters/X-Amz-SignedHeaders"
         }
-      ]
+      ],
+      "post": {
+        "description": "Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. ",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ARN",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/2017-10-31/functions/{FunctionName}/concurrency": {
+      "delete": {
+        "description": "Removes concurrent execution limits from this function. For more information, see <a>concurrent-executions</a>.",
+        "operationId": "DeleteFunctionConcurrency",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFunctionConcurrencyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Sets a limit on the number of concurrent executions available to this function. It is a subset of your account's total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you have a total of 900 available to allocate to individual functions. For more information, see <a>concurrent-executions</a>.",
+        "operationId": "PutFunctionConcurrency",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutFunctionConcurrencyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "FunctionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FunctionName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Concurrency"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1649,11 +2508,15 @@
         },
         "ConcurrentExecutions": {
           "$ref": "#/definitions/Integer",
-          "description": "Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html\">Lambda Function Concurrent Executions</a>. The default limit is 100."
+          "description": "Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html\">Lambda Function Concurrent Executions</a>. The default limit is 1000."
         },
         "TotalCodeSize": {
           "$ref": "#/definitions/Long",
           "description": "Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB. "
+        },
+        "UnreservedConcurrentExecutions": {
+          "$ref": "#/definitions/UnreservedConcurrentExecutions",
+          "description": "The number of concurrent executions available to functions that do not have concurrency limits set. For more information, see <a>concurrent-executions</a>."
         }
       },
       "type": "object"
@@ -1699,6 +2562,10 @@
           "$ref": "#/definitions/Principal",
           "description": "The principal who is getting this permission. It can be Amazon S3 service Principal (<code>s3.amazonaws.com</code>) if you want Amazon S3 to invoke the function, an AWS account ID if you are granting cross-account permission, or any valid AWS service principal such as <code>sns.amazonaws.com</code>. For example, you might want to allow a custom application in another AWS account to push events to AWS Lambda by invoking your function. "
         },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "An optional value you can use to ensure you are updating the latest update of the function version or alias. If the <code>RevisionID</code> you pass doesn't match the latest <code>RevisionId</code> of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias <code>RevisionID</code> using either or ."
+        },
         "SourceAccount": {
           "$ref": "#/definitions/SourceOwner",
           "description": "This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the <code>SourceArn</code> identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the <code>SourceArn</code>) owned by a specific account. "
@@ -1732,6 +2599,26 @@
       },
       "type": "object"
     },
+    "AdditionalVersion": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "[0-9]+",
+      "type": "string"
+    },
+    "AdditionalVersionWeights": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/AdditionalVersion"
+          },
+          "value": {
+            "$ref": "#/definitions/Weight"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "Alias": {
       "maxLength": 128,
       "minLength": 1,
@@ -1762,6 +2649,14 @@
         "Name": {
           "$ref": "#/definitions/Alias",
           "description": "Alias name."
+        },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "Represents the latest updated revision of the function or alias."
+        },
+        "RoutingConfig": {
+          "$ref": "#/definitions/AliasRoutingConfiguration",
+          "description": "Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>."
         }
       },
       "type": "object"
@@ -1771,6 +2666,16 @@
         "$ref": "#/definitions/AliasConfiguration"
       },
       "type": "array"
+    },
+    "AliasRoutingConfiguration": {
+      "description": "The parent object that implements what percentage of traffic will invoke each function version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.",
+      "properties": {
+        "AdditionalVersionWeights": {
+          "$ref": "#/definitions/AdditionalVersionWeights",
+          "description": "Set this value to dictate what percentage of traffic will invoke the updated function version. If set to an empty string, 100 percent of traffic will invoke <code>function-version</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>."
+        }
+      },
+      "type": "object"
     },
     "Arn": {
       "pattern": "arn:aws:([a-zA-Z0-9\\-])+:([a-z]{2}-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
@@ -1804,6 +2709,15 @@
       },
       "type": "object"
     },
+    "Concurrency": {
+      "properties": {
+        "ReservedConcurrentExecutions": {
+          "$ref": "#/definitions/ReservedConcurrentExecutions",
+          "description": "The number of concurrent executions reserved for this function. For more information, see <a>concurrent-executions</a>."
+        }
+      },
+      "type": "object"
+    },
     "CreateAliasRequest": {
       "properties": {
         "Description": {
@@ -1817,6 +2731,10 @@
         "Name": {
           "$ref": "#/definitions/Alias",
           "description": "Name for the alias you are creating."
+        },
+        "RoutingConfig": {
+          "$ref": "#/definitions/AliasRoutingConfiguration",
+          "description": "Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>."
         }
       },
       "required": [
@@ -1916,7 +2834,7 @@
         },
         "Runtime": {
           "$ref": "#/definitions/Runtime",
-          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. You can request a one-time extension until June 30, 2017 by going to the Lambda console and following the instructions provided. Failure to do so will result in an invalid parmaeter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
+          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
         },
         "Tags": {
           "$ref": "#/definitions/Tags",
@@ -1971,6 +2889,10 @@
       "example": {
         "UUID": "12345kxodurf3443"
       },
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFunctionConcurrencyRequest": {
       "properties": {},
       "type": "object"
     },
@@ -2275,6 +3197,10 @@
           "$ref": "#/definitions/MemorySize",
           "description": "The memory size, in MB, you configured for the function. Must be a multiple of 64 MB."
         },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "Represents the latest updated revision of the function or alias."
+        },
         "Role": {
           "$ref": "#/definitions/RoleArn",
           "description": "The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources."
@@ -2409,6 +3335,10 @@
         "Code": {
           "$ref": "#/definitions/FunctionCodeLocation"
         },
+        "Concurrency": {
+          "$ref": "#/definitions/Concurrency",
+          "description": "The concurrent execution limit set for this function. For more information, see <a>concurrent-executions</a>."
+        },
         "Configuration": {
           "$ref": "#/definitions/FunctionConfiguration"
         },
@@ -2437,6 +3367,10 @@
         "Policy": {
           "$ref": "#/definitions/String",
           "description": "The resource policy associated with the specified function. The response returns the same as a string using a backslash (\"\\\") as an escape character in the JSON."
+        },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "Represents the latest updated revision of the function or alias."
         }
       },
       "type": "object"
@@ -2453,7 +3387,7 @@
       "type": "integer"
     },
     "InvalidParameterValueException": {
-      "description": "One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. You will also get this exception if you have selected a deprecated runtime, such as Node v0.10.42. ",
+      "description": "One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception.",
       "properties": {
         "Type": {
           "$ref": "#/definitions/String",
@@ -2781,7 +3715,7 @@
       "type": "integer"
     },
     "MemorySize": {
-      "maximum": 1536,
+      "maximum": 3008,
       "minimum": 128,
       "type": "integer"
     },
@@ -2813,6 +3747,20 @@
       },
       "type": "object"
     },
+    "PreconditionFailedException": {
+      "description": "The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your resource.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        },
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        }
+      },
+      "type": "object"
+    },
     "Principal": {
       "pattern": ".*",
       "type": "string"
@@ -2827,13 +3775,29 @@
       "properties": {
         "CodeSha256": {
           "$ref": "#/definitions/String",
-          "description": "The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter value must match the SHA256 of the $LATEST version for the publication to succeed."
+          "description": "The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter, the value must match the SHA256 of the $LATEST version for the publication to succeed. You can use the <b>DryRun</b> parameter of <a>UpdateFunctionCode</a> to verify the hash value that will be returned before publishing your new version."
         },
         "Description": {
           "$ref": "#/definitions/Description",
           "description": "The description for the version you are publishing. If not provided, AWS Lambda copies the description from the $LATEST version."
+        },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "An optional value you can use to ensure you are updating the latest update of the function version or alias. If the <code>RevisionID</code> you pass doesn't match the latest <code>RevisionId</code> of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias <code>RevisionID</code> using either or ."
         }
       },
+      "type": "object"
+    },
+    "PutFunctionConcurrencyRequest": {
+      "properties": {
+        "ReservedConcurrentExecutions": {
+          "$ref": "#/definitions/ReservedConcurrentExecutions",
+          "description": "The concurrent execution limit reserved for this function. For more information, see <a>concurrent-executions</a>."
+        }
+      },
+      "required": [
+        "ReservedConcurrentExecutions"
+      ],
       "type": "object"
     },
     "Qualifier": {
@@ -2863,6 +3827,10 @@
         }
       },
       "type": "object"
+    },
+    "ReservedConcurrentExecutions": {
+      "minimum": 0,
+      "type": "integer"
     },
     "ResourceArn": {
       "pattern": "(arn:aws:[a-z0-9-.]+:.*)|()",
@@ -2907,7 +3875,9 @@
         "python2.7",
         "python3.6",
         "dotnetcore1.0",
-        "nodejs4.3-edge"
+        "dotnetcore2.0",
+        "nodejs4.3-edge",
+        "go1.x"
       ],
       "type": "string"
     },
@@ -3030,6 +4000,8 @@
       "enum": [
         "ConcurrentInvocationLimitExceeded",
         "FunctionInvocationRateLimitExceeded",
+        "ReservedFunctionConcurrentInvocationLimitExceeded",
+        "ReservedFunctionInvocationRateLimitExceeded",
         "CallerRateLimitExceeded"
       ],
       "type": "string"
@@ -3042,7 +4014,7 @@
       "type": "string"
     },
     "TooManyRequestsException": {
-      "description": "<p/>",
+      "description": " ",
       "properties": {
         "Reason": {
           "$ref": "#/definitions/ThrottleReason"
@@ -3083,6 +4055,10 @@
       ],
       "type": "string"
     },
+    "UnreservedConcurrentExecutions": {
+      "minimum": 0,
+      "type": "integer"
+    },
     "UnsupportedMediaTypeException": {
       "description": "The content type of the <code>Invoke</code> request body is not JSON.",
       "properties": {
@@ -3114,6 +4090,14 @@
         "FunctionVersion": {
           "$ref": "#/definitions/Version",
           "description": "Using this parameter you can change the Lambda function version to which the alias points."
+        },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "An optional value you can use to ensure you are updating the latest update of the function version or alias. If the <code>RevisionID</code> you pass doesn't match the latest <code>RevisionId</code> of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias <code>RevisionID</code> using either or ."
+        },
+        "RoutingConfig": {
+          "$ref": "#/definitions/AliasRoutingConfiguration",
+          "description": "Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>."
         }
       },
       "type": "object"
@@ -3155,11 +4139,15 @@
       "properties": {
         "DryRun": {
           "$ref": "#/definitions/Boolean",
-          "description": "This boolean parameter can be used to test your request to AWS Lambda to update the Lambda function and publish a version as an atomic operation. It will do all necessary computation and validation of your code but will not upload it or a publish a version. Each time this operation is invoked, the <code>CodeSha256</code> hash value the provided code will also be computed and returned in the response."
+          "description": "This boolean parameter can be used to test your request to AWS Lambda to update the Lambda function and publish a version as an atomic operation. It will do all necessary computation and validation of your code but will not upload it or a publish a version. Each time this operation is invoked, the <code>CodeSha256</code> hash value of the provided code will also be computed and returned in the response."
         },
         "Publish": {
           "$ref": "#/definitions/Boolean",
           "description": "This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation."
+        },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "An optional value you can use to ensure you are updating the latest update of the function version or alias. If the <code>RevisionID</code> you pass doesn't match the latest <code>RevisionId</code> of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias <code>RevisionID</code> using either or ."
         },
         "S3Bucket": {
           "$ref": "#/definitions/S3Bucket",
@@ -3217,13 +4205,17 @@
           "$ref": "#/definitions/MemorySize",
           "description": "The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB."
         },
+        "RevisionId": {
+          "$ref": "#/definitions/String",
+          "description": "An optional value you can use to ensure you are updating the latest update of the function version or alias. If the <code>RevisionID</code> you pass doesn't match the latest <code>RevisionId</code> of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias <code>RevisionID</code> using either or ."
+        },
         "Role": {
           "$ref": "#/definitions/RoleArn",
           "description": "The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function."
         },
         "Runtime": {
           "$ref": "#/definitions/Runtime",
-          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the Python runtime v3.6, set the value to \"python3.6\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. You can request a one-time extension until June 30, 2017 by going to the Lambda console and following the instructions provided. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
+          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the Python runtime v3.6, set the value to \"python3.6\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
         },
         "Timeout": {
           "$ref": "#/definitions/Timeout",
@@ -3279,6 +4271,12 @@
     },
     "VpcId": {
       "type": "string"
+    },
+    "Weight": {
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
     }
   }
 }

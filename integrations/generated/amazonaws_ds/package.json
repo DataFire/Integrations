@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_ds",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS Directory Service",
   "repository": {

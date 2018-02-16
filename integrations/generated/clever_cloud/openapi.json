@@ -621,6 +621,94 @@
         "operationId": "logs.appId.get"
       }
     },
+    "/logs/{appId}/drains": {
+      "get": {
+        "description": "Fetch the logs drains for a given application",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "<No description>"
+          }
+        },
+        "tags": [
+          "all",
+          "logs"
+        ],
+        "operationId": "logs.appId.drains.get"
+      },
+      "post": {
+        "description": "Add a log drain for a given application",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "<No description>"
+          }
+        },
+        "tags": [
+          "all",
+          "logs"
+        ],
+        "operationId": "logs.appId.drains.post"
+      }
+    },
+    "/logs/{appId}/drains/:idOrUrl": {
+      "delete": {
+        "description": "Delete the logs drain by id or url for a given application",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "<No description>"
+          }
+        },
+        "tags": [
+          "all",
+          "logs"
+        ],
+        "operationId": "logs.appId.drains._idOrUrl.delete"
+      },
+      "get": {
+        "description": "Fetch the logs drain by id or url for a given application",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "<No description>"
+          }
+        },
+        "tags": [
+          "all",
+          "logs"
+        ],
+        "operationId": "logs.appId.drains._idOrUrl.get"
+      }
+    },
     "/newsfeeds/blog": {
       "get": {
         "operationId": "getNewsfeedsBlog",
@@ -1392,7 +1480,10 @@
         ],
         "responses": {
           "200": {
-            "description": "createOrganisation"
+            "description": "createOrganisation",
+            "schema": {
+              "$ref": "#/definitions/Organisation"
+            }
           }
         },
         "tags": [
@@ -1471,7 +1562,10 @@
         ],
         "responses": {
           "200": {
-            "description": "editOrganisation"
+            "description": "editOrganisation",
+            "schema": {
+              "$ref": "#/definitions/Organisation"
+            }
           }
         },
         "tags": [
@@ -1533,7 +1627,10 @@
         ],
         "responses": {
           "200": {
-            "description": "createProvider"
+            "description": "createProvider",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
           }
         },
         "tags": [
@@ -1604,7 +1701,10 @@
         ],
         "responses": {
           "200": {
-            "description": "updateProviderInfos"
+            "description": "updateProviderInfos",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
           }
         },
         "tags": [
@@ -1678,7 +1778,10 @@
         ],
         "responses": {
           "200": {
-            "description": "addProviderFeature"
+            "description": "addProviderFeature",
+            "schema": {
+              "$ref": "#/definitions/Feature"
+            }
           }
         },
         "tags": [
@@ -1786,7 +1889,10 @@
         ],
         "responses": {
           "200": {
-            "description": "addProviderPlan"
+            "description": "addProviderPlan",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
           }
         },
         "tags": [
@@ -1901,7 +2007,10 @@
         ],
         "responses": {
           "200": {
-            "description": "editProviderPlan"
+            "description": "editProviderPlan",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
           }
         },
         "tags": [
@@ -2149,7 +2258,10 @@
         ],
         "responses": {
           "200": {
-            "description": "provisionAddon"
+            "description": "provisionAddon",
+            "schema": {
+              "$ref": "#/definitions/Addon"
+            }
           }
         },
         "tags": [
@@ -2280,7 +2392,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Update addon information"
+            "description": "Update addon information",
+            "schema": {
+              "$ref": "#/definitions/Addon"
+            }
           }
         },
         "tags": [
@@ -2397,7 +2512,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Update plan of an add-on."
+            "description": "Update plan of an add-on.",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
           }
         },
         "tags": [
@@ -2608,7 +2726,10 @@
         ],
         "responses": {
           "200": {
-            "description": "addApplication"
+            "description": "addApplication",
+            "schema": {
+              "$ref": "#/definitions/Application"
+            }
           }
         },
         "tags": [
@@ -2708,7 +2829,10 @@
         ],
         "responses": {
           "200": {
-            "description": "editApplication"
+            "description": "editApplication",
+            "schema": {
+              "$ref": "#/definitions/Application"
+            }
           }
         },
         "tags": [
@@ -2962,6 +3086,41 @@
           "applications",
           "organisations"
         ]
+      }
+    },
+    "/organisations/{id}/applications/{appId}/dependencies/env": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get env variables defined by application dependencies",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/LinkedAppEnv"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "all",
+          "applications",
+          "organisations"
+        ],
+        "operationId": "organisations.id.applications.appId.dependencies.env.get"
       }
     },
     "/organisations/{id}/applications/{appId}/dependencies/{dependencyId}": {
@@ -3235,7 +3394,10 @@
         ],
         "responses": {
           "200": {
-            "description": "editApplicationEnvironment"
+            "description": "editApplicationEnvironment",
+            "schema": {
+              "$ref": "#/definitions/ListEnv"
+            }
           }
         },
         "tags": [
@@ -3314,7 +3476,10 @@
         ],
         "responses": {
           "200": {
-            "description": "editApplicationEnv"
+            "description": "editApplicationEnv",
+            "schema": {
+              "$ref": "#/definitions/ListEnv"
+            }
           }
         },
         "tags": [
@@ -3369,7 +3534,10 @@
         ],
         "responses": {
           "default": {
-            "description": "updateExposedEnv"
+            "description": "updateExposedEnv",
+            "schema": {
+              "$ref": "#/definitions/ListEnv"
+            }
           }
         },
         "tags": [
@@ -4367,6 +4535,29 @@
         ]
       }
     },
+    "/organisations/{id}/payments/billings/unpaid": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "getUnpaidInvoices"
+          }
+        },
+        "tags": [
+          "all",
+          "organisations",
+          "payments"
+        ],
+        "operationId": "organisations.id.payments.billings.unpaid.get"
+      }
+    },
     "/organisations/{id}/payments/billings/{bid}": {
       "delete": {
         "operationId": "deleteOrganisationsIdPaymentsBillingsBid",
@@ -4643,6 +4834,52 @@
           "payments"
         ],
         "operationId": "organisations.id.payments.methods.mId.delete"
+      }
+    },
+    "/organisations/{id}/payments/monthlyinvoice": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "getMonthlyInvoice"
+          }
+        },
+        "tags": [
+          "all",
+          "organisations",
+          "payments"
+        ],
+        "operationId": "organisations.id.payments.monthlyinvoice.get"
+      }
+    },
+    "/organisations/{id}/payments/monthlyinvoice/maxcredit": {
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "setMaxCreditsPerMonth"
+          }
+        },
+        "tags": [
+          "all",
+          "organisations",
+          "payments"
+        ],
+        "operationId": "organisations.id.payments.monthlyinvoice.maxcredit.put"
       }
     },
     "/organisations/{id}/payments/recurring": {
@@ -5956,6 +6193,35 @@
           "applications",
           "self"
         ]
+      }
+    },
+    "/self/applications/{appId}/dependencies/env": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get env variables defined by application dependencies",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/LinkedAppEnv"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "all",
+          "applications",
+          "self"
+        ],
+        "operationId": "self.applications.appId.dependencies.env.get"
       }
     },
     "/self/applications/{appId}/dependencies/{dependencyId}": {
@@ -7513,6 +7779,36 @@
         ]
       }
     },
+    "/self/payments/monthlyinvoice": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "getMonthlyInvoice"
+          }
+        },
+        "tags": [
+          "all",
+          "payments",
+          "self"
+        ],
+        "operationId": "self.payments.monthlyinvoice.get"
+      }
+    },
+    "/self/payments/monthlyinvoice/maxcredit": {
+      "put": {
+        "responses": {
+          "default": {
+            "description": "setMaxCreditsPerMonth"
+          }
+        },
+        "tags": [
+          "all",
+          "payments",
+          "self"
+        ],
+        "operationId": "self.payments.monthlyinvoice.maxcredit.put"
+      }
+    },
     "/self/payments/recurring": {
       "delete": {
         "operationId": "deleteSelfPaymentsRecurring",
@@ -8151,21 +8447,7 @@
       ],
       "type": "object"
     },
-    "Change_Password": {
-      "properties": {
-        "newPassword": {
-          "type": "string"
-        },
-        "oldPassword": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "newPassword",
-        "oldPassword"
-      ],
-      "type": "object"
-    },
+    "Change_Password": {},
     "Conso": {
       "properties": {
         "appId": {
@@ -8537,8 +8819,7 @@
           "$ref": "#/definitions/Variant"
         },
         "version": {
-          "format": "int32",
-          "type": "integer"
+          "type": "string"
         }
       },
       "required": [
@@ -8573,6 +8854,28 @@
         "fingerprint",
         "key",
         "name"
+      ],
+      "type": "object"
+    },
+    "LinkedAppEnv": {
+      "properties": {
+        "app_id": {
+          "type": "string"
+        },
+        "app_name": {
+          "type": "string"
+        },
+        "env": {
+          "items": {
+            "$ref": "#/definitions/WannabeEnv"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "app_id",
+        "app_name",
+        "env"
       ],
       "type": "object"
     },
@@ -8680,10 +8983,17 @@
     },
     "PaymentData": {
       "properties": {
+        "deviceData": {
+          "type": "string"
+        },
         "token": {
           "type": "string"
         },
         "type": {
+          "enum": [
+            "NEW_CARD",
+            "EXISTING_CARD"
+          ],
           "type": "string"
         }
       },
@@ -8693,30 +9003,7 @@
       ],
       "type": "object"
     },
-    "Payment_Provider": {
-      "properties": {
-        "comingSoon": {
-          "default": false,
-          "type": "boolean"
-        },
-        "imgUrl": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "comingSoon",
-        "imgUrl",
-        "name",
-        "title"
-      ],
-      "type": "object"
-    },
+    "Payment_Provider": {},
     "Plan": {
       "properties": {
         "features": {
@@ -9140,19 +9427,7 @@
       ],
       "type": "object"
     },
-    "Transaction_Id": {
-      "description": "A simple transaction id",
-      "properties": {
-        "transactionId": {
-          "description": "The transaction Id",
-          "type": "string"
-        }
-      },
-      "required": [
-        "transactionId"
-      ],
-      "type": "object"
-    },
+    "Transaction_Id": {},
     "URL": {
       "description": "Must be a valid HTTP URL",
       "properties": {
@@ -9436,18 +9711,24 @@
           "default": false,
           "type": "boolean"
         },
-        "instance": {
-          "$ref": "#/definitions/Instance"
+        "instanceType": {
+          "type": "string"
+        },
+        "instanceVariant": {
+          "type": "string"
+        },
+        "instanceVersion": {
+          "type": "string"
         },
         "maxFlavor": {
-          "$ref": "#/definitions/Flavor"
+          "type": "string"
         },
         "maxInstances": {
           "format": "int32",
           "type": "integer"
         },
         "minFlavor": {
-          "$ref": "#/definitions/Flavor"
+          "type": "string"
         },
         "minInstances": {
           "format": "int32",
@@ -9490,7 +9771,6 @@
       "required": [
         "deploy",
         "enabled",
-        "instance",
         "maxInstances",
         "minInstances",
         "name",

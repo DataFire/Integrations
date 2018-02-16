@@ -436,14 +436,12 @@ Gets list of Project Timesheet Categories
 
 
 ```js
-avaza.ProjectTimesheetCategory_Get({
-  "ProjectID": 0
-}, context)
+avaza.ProjectTimesheetCategory_Get({}, context)
 ```
 
 #### Input
 * input `object`
-  * ProjectID **required** `integer`: Get categories filtered by ProjectID
+  * ProjectID `integer`: Get categories filtered by ProjectID
 
 #### Output
 * output [ProjectTimesheetCategoryList](#projecttimesheetcategorylist)
@@ -595,6 +593,23 @@ avaza.Timesheet_Post({
 #### Output
 * output [TimesheetDetails](#timesheetdetails)
 
+### Timesheet_Put
+Expects a full set of updated values for the timesheet
+
+
+```js
+avaza.Timesheet_Put({
+  "model": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * model **required** [UpdateTimesheetModel](#updatetimesheetmodel)
+
+#### Output
+* output [TimesheetDetails](#timesheetdetails)
+
 ### Timesheet_Delete
 Delete a Timesheet Entry
 
@@ -625,32 +640,6 @@ avaza.Timesheet_GetByID({
 #### Input
 * input `object`
   * id **required** `integer`: Timesheet ID number
-
-#### Output
-* output [TimesheetDetails](#timesheetdetails)
-
-### Timesheet_Put
-You can Mark a Timesheet as Invoiced/Uninvoiced. Useful if invoicing in an external system to lock timesheets. Note if the timesheet has been invoiced by Avaza you cannot mark it uninvoiced
-
-
-```js
-avaza.Timesheet_Put({
-  "id": 0
-}, context)
-```
-
-#### Input
-* input `object`
-  * id **required** `integer`: TimesheetEntryID number
-  * TaskIDFK `integer`
-  * UserIDFK `integer`
-  * ProjectIDFK `integer`
-  * TimeSheetCategoryIDFK `integer`
-  * Duration `number`
-  * EntryDate `string`
-  * Notes `string`
-  * isInvoiced `boolean`: Mark Timesheet as Invoiced (true/false)
-  * hasStartEndTime `boolean`
 
 #### Output
 * output [TimesheetDetails](#timesheetdetails)
@@ -744,6 +733,7 @@ avaza.Webhook_Delete({
 
 ### AccountDetails
 * AccountDetails `object`
+  * AccountID `integer`
   * CompanyName `string`
   * LockApprovedTimesheets `boolean`
   * TimesheetDayOfWeek `integer`
@@ -1208,11 +1198,23 @@ avaza.Webhook_Delete({
 
 ### ProjectMemberDetails
 * ProjectMemberDetails `object`
+  * BudgetAmount `number`
+  * CostAmount `number`
   * Email `string`
   * Firstname `string`
   * Fullname `string`
   * Lastname `string`
+  * RateAmount `number`
   * UserIDFK `integer`
+  * canCommentOnTasks `boolean`
+  * canCreateTasks `boolean`
+  * canDeleteTasks `boolean`
+  * canUpdateTasks `boolean`
+  * isMemberDisabled `boolean`
+  * isProjectManager `boolean`
+  * isTimesheetAllowed `boolean`
+  * isTimesheetApprovalRequired `boolean`
+  * isTimesheetApprover `boolean`
 
 ### ProjectSectionDetails
 * ProjectSectionDetails `object`
@@ -1365,6 +1367,18 @@ avaza.Webhook_Delete({
   * Timesheets `array`
     * items [TimesheetDetails](#timesheetdetails)
   * TotalCount `integer`
+
+### UpdateTimesheetModel
+* UpdateTimesheetModel `object`
+  * Duration `number`
+  * EntryDate `string`
+  * Notes `string`
+  * ProjectIDFK `integer`
+  * TaskIDFK `integer`
+  * TimeSheetCategoryIDFK `integer`
+  * TimeSheetEntryID `integer`
+  * UserIDFK `integer`
+  * hasStartEndTime `boolean`
 
 ### UserDetails
 * UserDetails `object`

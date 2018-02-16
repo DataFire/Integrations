@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Civic Information",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -108,17 +113,17 @@
         "operationId": "divisions.search",
         "parameters": [
           {
-            "description": "The search query. Queries can cover any parts of a OCD ID or a human readable division name. All words given in the query are treated as required patterns. In addition to that, most query operators of the Apache Lucene library are supported. See http://lucene.apache.org/core/2_9_4/queryparsersyntax.html",
-            "in": "query",
-            "name": "query",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/DivisionSearchRequest"
             }
+          },
+          {
+            "description": "The search query. Queries can cover any parts of a OCD ID or a human readable division name. All words given in the query are treated as required patterns. In addition to that, most query operators of the Apache Lucene library are supported. See http://lucene.apache.org/core/2_9_4/queryparsersyntax.html",
+            "in": "query",
+            "name": "query",
+            "type": "string"
           }
         ],
         "responses": {
@@ -218,6 +223,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RepresentativeInfoRequest"
+            }
+          },
+          {
             "default": true,
             "description": "Whether to return information about offices and officials. If false, only the top-level district information will be returned.",
             "in": "query",
@@ -267,13 +279,6 @@
             },
             "name": "roles",
             "type": "array"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/RepresentativeInfoRequest"
-            }
           }
         ],
         "responses": {
@@ -318,11 +323,11 @@
         "operationId": "representatives.representativeInfoByDivision",
         "parameters": [
           {
-            "description": "The Open Civic Data division identifier of the division to look up.",
-            "in": "path",
-            "name": "ocdId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DivisionRepresentativeInfoRequest"
+            }
           },
           {
             "collectionFormat": "multi",
@@ -344,6 +349,13 @@
             },
             "name": "levels",
             "type": "array"
+          },
+          {
+            "description": "The Open Civic Data division identifier of the division to look up.",
+            "in": "path",
+            "name": "ocdId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "If true, information about all divisions contained in the division requested will be included as well. For example, if querying ocd-division/country:us/district:dc, this would also return all DC's wards and ANCs.",
@@ -373,13 +385,6 @@
             },
             "name": "roles",
             "type": "array"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DivisionRepresentativeInfoRequest"
-            }
           }
         ],
         "responses": {
@@ -431,6 +436,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/VoterInfoRequest"
+            }
+          },
+          {
             "default": "0",
             "description": "The unique ID of the election to look up. A list of election IDs can be obtained at https://www.googleapis.com/civicinfo/{version}/elections",
             "in": "query",
@@ -450,13 +462,6 @@
             "in": "query",
             "name": "returnAllAvailableData",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/VoterInfoRequest"
-            }
           }
         ],
         "responses": {

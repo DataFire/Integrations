@@ -1556,12 +1556,12 @@
       "description": "Query options for group holds.",
       "properties": {
         "endTime": {
-          "description": "The end date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "description": "The end time range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
           "format": "google-datetime",
           "type": "string"
         },
         "startTime": {
-          "description": "The start date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "description": "The start time range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
           "format": "google-datetime",
           "type": "string"
         },
@@ -1576,12 +1576,12 @@
       "description": "Query options for mail holds.",
       "properties": {
         "endTime": {
-          "description": "The end date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "description": "The end time range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
           "format": "google-datetime",
           "type": "string"
         },
         "startTime": {
-          "description": "The start date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "description": "The start time range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
           "format": "google-datetime",
           "type": "string"
         },

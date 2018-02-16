@@ -1,0 +1,682 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "transcribe.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Operations and objects for transcribing speech to text.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Transcribe Service",
+    "version": "2017-10-26",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/transcribe-2017-10-26.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "transcribe",
+    "x-datafire": {
+      "name": "amazonaws_transcribe",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/transcribe/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about a transcription job. To see the status of the job, check the <code>Status</code> field. If the status is <code>COMPLETE</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.",
+        "operationId": "GetTranscriptionJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetTranscriptionJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTranscriptionJobResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListTranscriptionJobs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists transcription jobs with the specified status.",
+        "operationId": "ListTranscriptionJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTranscriptionJobsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTranscriptionJobsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/#StartTranscriptionJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts an asynchronous job to transcribe speech to text.",
+        "operationId": "StartTranscriptionJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartTranscriptionJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartTranscriptionJobResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BadRequestException": {
+      "description": "There is a problem with one of the input fields. Check the S3 bucket name, make sure that the job name is not a duplicate, and confirm that you are using the correct file format. Then resend your request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/FailureReason"
+        }
+      },
+      "type": "object"
+    },
+    "ConflictException": {
+      "description": "The <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with a different name.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "DateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "FailureReason": {
+      "type": "string"
+    },
+    "GetTranscriptionJobRequest": {
+      "properties": {
+        "TranscriptionJobName": {
+          "$ref": "#/definitions/TranscriptionJobName",
+          "description": "The name of the job."
+        }
+      },
+      "required": [
+        "TranscriptionJobName"
+      ],
+      "type": "object"
+    },
+    "GetTranscriptionJobResponse": {
+      "properties": {
+        "TranscriptionJob": {
+          "$ref": "#/definitions/TranscriptionJob",
+          "description": "An object that contains the results of the transcription job."
+        }
+      },
+      "type": "object"
+    },
+    "InternalFailureException": {
+      "description": "There was an internal error. Check the error message and try your request again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "LanguageCode": {
+      "enum": [
+        "en-US",
+        "es-US"
+      ],
+      "type": "string"
+    },
+    "LimitExceededException": {
+      "description": "Either you have sent too many requests or your input file is longer than 2 hours. Wait before you resend your request, or use a smaller file and resend the request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "ListTranscriptionJobsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of jobs to return in the response."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the result of the previous request to <code>ListTranscriptionJobs</code> was truncated, include the <code>NextToken</code> to fetch the next set of jobs."
+        },
+        "Status": {
+          "$ref": "#/definitions/TranscriptionJobStatus",
+          "description": "When specified, returns only transcription jobs with the specified status."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object"
+    },
+    "ListTranscriptionJobsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The size of the page is set by the <code>MaxResults</code> parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code> token. Include the token in the next request to the <code>ListTranscriptionJobs</code> operation to return in the next page of jobs."
+        },
+        "Status": {
+          "$ref": "#/definitions/TranscriptionJobStatus",
+          "description": "The requested status of the jobs returned."
+        },
+        "TranscriptionJobSummaries": {
+          "$ref": "#/definitions/TranscriptionJobSummaries",
+          "description": "A list of objects containing summary information for a transcription job."
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Media": {
+      "description": "Describes the input media file in a transcription request.",
+      "properties": {
+        "MediaFileUri": {
+          "$ref": "#/definitions/Uri",
+          "description": "<p>The S3 location of the input media file. The general form is:</p> <p> <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p>"
+        }
+      },
+      "type": "object"
+    },
+    "MediaFormat": {
+      "enum": [
+        "mp3",
+        "mp4",
+        "wav",
+        "flac"
+      ],
+      "type": "string"
+    },
+    "MediaSampleRateHertz": {
+      "maximum": 48000,
+      "minimum": 8000,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 8192,
+      "type": "string"
+    },
+    "NotFoundException": {
+      "description": "We can't find the requested job. Check the job name and try your request again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "StartTranscriptionJobRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code for the language used in the input media file."
+        },
+        "Media": {
+          "$ref": "#/definitions/Media",
+          "description": "An object that describes the input media for a transcription job."
+        },
+        "MediaFormat": {
+          "$ref": "#/definitions/MediaFormat",
+          "description": "The format of the input media file."
+        },
+        "MediaSampleRateHertz": {
+          "$ref": "#/definitions/MediaSampleRateHertz",
+          "description": "The sample rate, in Hertz, of the audio track in the input media file. "
+        },
+        "TranscriptionJobName": {
+          "$ref": "#/definitions/TranscriptionJobName",
+          "description": "The name of the job. The name must be unique within an AWS account."
+        }
+      },
+      "required": [
+        "TranscriptionJobName",
+        "LanguageCode",
+        "MediaFormat",
+        "Media"
+      ],
+      "type": "object"
+    },
+    "StartTranscriptionJobResponse": {
+      "properties": {
+        "TranscriptionJob": {
+          "$ref": "#/definitions/TranscriptionJob",
+          "description": "An object containing details of the asynchronous transcription job."
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "Transcript": {
+      "description": "Describes the output of a transcription job.",
+      "properties": {
+        "TranscriptFileUri": {
+          "$ref": "#/definitions/Uri",
+          "description": "<p>The S3 location where the transcription result is stored. The general form of this Uri is:</p> <p> <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/example.json</code> </p> <p> <code>https://s3-us-west-2.amazonaws.com/examplebucket/mediadocs/example.json</code> </p>"
+        }
+      },
+      "type": "object"
+    },
+    "TranscriptionJob": {
+      "description": "Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation.",
+      "properties": {
+        "CompletionTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "Timestamp of the date and time that the job completed."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "Timestamp of the date and time that the job was created."
+        },
+        "FailureReason": {
+          "$ref": "#/definitions/FailureReason",
+          "description": "If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains information about why the job failed."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code for the input speech."
+        },
+        "Media": {
+          "$ref": "#/definitions/Media",
+          "description": "An object that describes the input media for a transcription job."
+        },
+        "MediaFormat": {
+          "$ref": "#/definitions/MediaFormat",
+          "description": "The format of the input media file."
+        },
+        "MediaSampleRateHertz": {
+          "$ref": "#/definitions/MediaSampleRateHertz",
+          "description": "The sample rate, in Hertz, of the audio track in the input media file. "
+        },
+        "Transcript": {
+          "$ref": "#/definitions/Transcript",
+          "description": "An object that describes the output of the transcription job."
+        },
+        "TranscriptionJobName": {
+          "$ref": "#/definitions/TranscriptionJobName",
+          "description": "A name to identify the transcription job."
+        },
+        "TranscriptionJobStatus": {
+          "$ref": "#/definitions/TranscriptionJobStatus",
+          "description": "The identifier assigned to the job when it was created."
+        }
+      },
+      "type": "object"
+    },
+    "TranscriptionJobName": {
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "^[0-9a-zA-Z._-]+",
+      "type": "string"
+    },
+    "TranscriptionJobStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "FAILED",
+        "COMPLETED"
+      ],
+      "type": "string"
+    },
+    "TranscriptionJobSummaries": {
+      "items": {
+        "$ref": "#/definitions/TranscriptionJobSummary"
+      },
+      "type": "array"
+    },
+    "TranscriptionJobSummary": {
+      "description": "Provides a summary of information about a transcription job.",
+      "properties": {
+        "CompletionTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "Timestamp of the date and time that the job completed."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "Timestamp of the date and time that the job was created."
+        },
+        "FailureReason": {
+          "$ref": "#/definitions/FailureReason",
+          "description": "If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description of the error."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The language code for the input speech."
+        },
+        "TranscriptionJobName": {
+          "$ref": "#/definitions/TranscriptionJobName",
+          "description": "The name assigned to the transcription job when it was created."
+        },
+        "TranscriptionJobStatus": {
+          "$ref": "#/definitions/TranscriptionJobStatus",
+          "description": "The status of the transcription job. When the status is <code>COMPLETED</code>, use the <code>GetTranscriptionJob</code> operation to get the results of the transcription."
+        }
+      },
+      "type": "object"
+    },
+    "Uri": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "type": "string"
+    }
+  }
+}

@@ -466,10 +466,10 @@ clarify.v1search({}, context)
 * Ref [object](#object)
 
 ### Ref_(of_Bundle)
-* Ref_(of_Bundle) [object](#object)
+
 
 ### Ref_(of_Track)
-* Ref_(of_Track) [object](#object)
+
 
 ### ReportPeriod
 * ReportPeriod [object](#object)

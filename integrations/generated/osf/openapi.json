@@ -40,6 +40,63 @@
       "type": "openapi"
     }
   },
+  "tags": [
+    {
+      "description": "Welcome to the Open Science Framework API. With this API you can access users, projects, components, logs, and files from the [Open Science Framework](https://osf.io/). The Open Science Framework (OSF) is a free, open-source service maintained by the [Center for Open Science](http://cos.io/).\n\nThe OSF serves as a repository and archive for study designs, materials, data, manuscripts, or anything else associated with your research during the research process. Every project and file on the OSF has a permanent unique identifier, and every registration (a permanent, time-stamped version of your projects and files) can be assigned a DOI/ARK. You can use the OSF to measure your impact by monitoring the traffic to projects and files you make public. With the OSF you have full control of what parts of your research are public and what remains private.",
+      "name": "Introduction",
+      "x-traitTag": true
+    },
+    {
+      "description": "The OSF API generally conforms to the [JSON-API v1.0 spec](http://jsonapi.org/format/1.0/). Where exceptions exist, they will be noted. Each endpoint will have its own documentation, but there are some general principles.\n\nNote: Assume undocumented routes/features/fields are unstable.\n\n#### Canonical URLs\nAll canonical URLs have trailing slashes.  A request to an endpoint without a trailing slash will result in a **301 Redirect** to the canonical URL.  There are some exceptions when working with the Files API, so if a URL in a response does not have a slash, do not append one.\n#### Plurals\nEndpoints are always pluralized.  `/users/`, not `/user/`, `/nodes/`, not `/node/`.\n\nThe only exception are the node and preprint citation endpoints, which are `/citation/`, not `/citations/`.\n#### Common Actions\nEvery endpoint in the OSF API responds to `GET`, `HEAD`, and `OPTION` requests.\n\nYou must have adequate permissions to interact with any endpoint. Unauthorized use will result in **401 Unauthorized** or **403 Forbidden** responses.\n\nUse `HEAD` to probe an endpoint and make sure your headers are well-formed.\n\nA `GET` request will return a representation of the entity or entity collection referenced by the endpoint.\n\nAn `OPTIONS` request will return a JSON object that describes the endpoint, including the name, a description, the acceptable request formats, the allowed response formats, and any actions available via the endpoint.\n\n#### Testing\n##### Testing Server\nThe test-* subdomains of the osf are intended to match, at any given time, the current production environment of the Open Science Framework.\n\nWe have staging servers that will have newer features, including newer API features, that aren't ready for production. However, because those servers are subject to the whims of QA and whichever group needs to do specific testing, they aren't particular stable for API developers.\n\nThe test servers linked below are primarily for developing your API application on a stable system.\n\nhttps://test.osf.io/\n\nhttps://test-api.osf.io/v2/\n##### Ephemerality Notice\nExpect the server to be down from time to time while we update software, and don't expect that anything you create on here to exist long-term.\n\nWhile this is more stable than a staging server, we won't necessarily run data migrations if anything major happens to our database schema, so we may clear out the data on the test servers periodically.",
+      "name": "General Usage",
+      "x-traitTag": true
+    },
+    {
+      "description": "#### Token Auth\nTo use a Personal Access Token, make an `Authorization` header with the contents `Bearer <token>` as shown in the example below, replacing `<token>` with your token.\n\n    curl -X \"GET\" \"https://api.osf.io/v2/users/me/\" \\\n    -H \"Authorization: Bearer <token>\"\n\nTo make a Personal Access Token, visit your OSF settings page (either on the [OSF](https://osf.io/settings/tokens/) or our [testing server](https://test.osf.io/settings/tokens/)) to create one. You can limit the scope of the token, but remember that it has access to all of the information that you do within the limits of the scope, so be careful with your tokens.\n#### OAuth\nThe OSF allows third-party web applications to connect to the OSF on behalf of other users via the OAuth 2.0 web application flow.\nYou can add a developer application from the OSF settings page (either on the [OSF](https://osf.io/settings/tokens/) or our [testing server](https://test.osf.io/settings/tokens/)).\n\nWe will be adding narrative documentation for handling OAuth flows, but for now, if you're familiar with OAuth, you can check out the [CAS overlay documentation](https://github.com/CenterForOpenScience/cas-overlay#web-server-authorization) for options.\nWe've also created a [test application](https://github.com/abought/osf_oauth2_demo) for verifying that our OAuth workflow works correctly. If you set up an OAuth application on https://test.osf.io/, you should be able to add the client secret and client id to the settings file and it should work properly. If it does not, please let us know.",
+      "name": "Authentication",
+      "x-traitTag": true
+    },
+    {
+      "description": "All entity collection endpoints respond to the `page` query parameter as described in the [JSON-API spec](http://jsonapi.org/format/#fetching-pagination).\n\nHowever, links to the first, last, previous, and next pages of results are provided in the `links` key of the response, and you are encouraged to use those rather than adding query parameters by hand.\n\nIf there are only enough results to fill one page, the `first`, `last`, `prev`, and `next` links will be null.\n#### Versioning\nAs of version `2.3`, pagination links conform to the JSON API specification. Meta information was pulled out of the `links` object and placed in a top-level `meta` object.\n\nThe `meta` key contains the total number of entities available, as well as the current number of results displayed per page.",
+      "name": "Pagination",
+      "x-traitTag": true
+    },
+    {
+      "description": "Versioning can be specified in three different ways:\n\n#### URL Path Versioning\n+ `/v2/` or `/v3/`\n+ A version specified via the URL path is a **required** part of the URL.\n+ Only a major version can be specified via the URL path, i.e. `/v2.0.6/` is invalid, additionally, paths such as `/v2.0/` are invalid.\n+ If the default version of the API is within the major version specified in the URL path, the default version will be applied (i.e. if the default version is `2.3` and the URL path is `/v2/`, then version returned will be `2.3`).\n+ If the default version of the API is not within the major version specified in the URL path, the URL path version will be applied (i.e. if the default version is `3.0` and the URL path is `/v2/`, then the version returned will be `2.0`)\n\n#### Query Parameter Versioning\n+ `/v2/nodes/?version=2.1.6`\n+ Pinning to a specific version via a query parameter is **optional**.\n+ A specific version (major, minor, or patch) for a single request can be specified via the `version` query parameter, as long as it is an allowed version.\n+ If the version specified in the query parameter does not fall within the same major version specified in the URL path, i.e `/v2/nodes/?version=3.1.4` a 409 Conflict response will be returned.\n\n#### Header Versioning\n+ `Accept-Header=application/vnd.api+json;version=3.0.1`\n+ Pinning to a specific version via request header is **optional**.\n+ A specific version (major, minor, or patch) for a single request can be specified via the `Accept Header` of the request, as long as it is an allowed version.\n+ If the version specified in the header does not fall within the same major version specified in the URL path a 409 Conflict response will be returned.\n+ If both a header version and query parameter version are specified, the versions must match exactly or a 409 Conflict response will be returned (i.e. one does not take precedence over the other).\n\n#### CHANGELOG\n`v2.1`\n+ Pagination links conform to JSON API specification, i.e. `meta` information was pulled out of the `links` object and placed in a top-level `meta` object.\n+ Deprecate the `node_links` field in the **Node** and **Registration** serializers in favor of `linked_nodes` and `linked_registrations`.\n\n`v2.2`\n+ Modify institution nodes list so that affiliated components are also returned from `/v2/institutions/<id>/nodes/`.\n+ Ensure all existing date fields are standardized on UTC.\n\n`v2.3`\n+ Handle merged users more correctly on `/v2/users/`.\n\n`v2.4`\n+ Deprecate the `parents` field in the **Taxonomies** serializer.\n+ Deprecate the following fields in the **Preprint Provider** serializer:\n    + `social_facebook`, `social_instagram`, and `social_twitter`\n    + `banner_path`, `logo_path`, and `header_text`\n    + `email_contact`",
+      "name": "Versioning",
+      "x-traitTag": true
+    },
+    {
+      "description": "Entity collections can be filtered by adding a query parameter in the form:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`filter[<fieldname>]=<matching information>`\n\nString queries are filtered using substring matching. For example, if you were trying to find [Lise Meitner](http://en.wikipedia.org/wiki/Lise_Meitner):\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/users/?filter[full_name]=meitn`\n\nYou can filter on multiple fields, or the same field in different ways, by &-ing the query parameters together.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/users/?filter[full_name]=lise&filter[family_name]=mei`\n\nBoolean fields should be queried with `true` or `false`.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[registered]=true`\n\nYou can request multiple resources by filtering on id and placing comma-separated values in your query parameter.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[id]=aegu6,me23a`\n\nYou can filter with case-sensitivity or case-insensitivity by using `contains` and `icontains`, respectively.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[tags][icontains]=help`",
+      "name": "Filtering",
+      "x-traitTag": true
+    },
+    {
+      "description": "All endpoints respond to the `fields` query parameter as described in the [JSON-API spec](http://jsonapi.org/format/#fetching-sparse-fieldsets).\n\n\nFrom the specification:\n\n<blockquote>\n  <p>A client MAY request that an endpoint return only specific fields in the response on a per-type basis by including a fields[TYPE] parameter.</p>\n  <p>The value of the fields parameter MUST be a comma-separated (U+002C COMMA, “,”) list that refers to the name(s) of the fields to be returned.</p>\n  <p>If a client requests a restricted set of fields for a given resource type, an endpoint MUST NOT include additional fields in resource objects of that type in its response.</p>\n</blockquote>\n\n#### Basic Usage\n\nWhen making a request to an endpoint that returns a serialized object of some `type`, you can specify `fields[<type>]=<comma,separated,list,of,fields>` to receive a subset of the object's fields in the response.\n\n\nFor example, the request below will serialize only the `title` attribute and `children` relationship for each node in the response.\n\n\nhttps://api.osf.io/v2/nodes/?fields[nodes]=title,children\n\n\nSparse fieldsets can be used to restrict both attribute and relationship fields.\nNote that top-level objects (such as `type`, `id`, `attributes`, `relationships`, and `links`) will always be serialized and cannot be excluded.\n\n#### Advanced Usage\n\nSparse fieldsets can be used to restrict any entity returned in the response.\n\n\nFor example, the request below will serialize only the `full_name` attribute for each user (auto-embedded by the `embed=contributors` query parameter), and the `title` attribute for each node.\n\n\nhttps://api.osf.io/v2/nodes/?fields[nodes]=title,contributors&embed=contributors&fields[users]=full_name\n\n\nAny field specified in another query parameters used by the serializer (e.g. `embed`) must also be included in the sparse fieldset.\nFor example, fields that are being embedded on the sparse type (e.g. `nodes`) must also be included in `fields[<type>]` when using embeds, or the embed will be invalid.\n\n\nA request to embed contributors and restrict nodes to only return the `title` attribute should have the form:\n\n\nhttps://api.osf.io/v2/nodes/?embed=contributors&fields[nodes]=title,contributors\n\n\n**NOT**\n\n\nhttps://api.osf.io/v2/nodes/?embed=contributors&fields[nodes]=title\n",
+      "name": "Sparse Fieldsets",
+      "x-traitTag": true
+    },
+    {
+      "description": "All related resources that appear in the `relationships` attribute are embeddable, meaning it is possible to fetch a node and its contributors in a single request by adding a query parameter like:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?embed=contributors`\n\nThe embedded results will have the following structure:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`{relationship_name}: {full_embedded_response}`\n\nWhere `full_embedded_response` means the full API response resulting from a **GET** request to the `href` link of the corresponding related resource.\n\nThis means if there are no errors in processing the embedded request the response will have the format:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`data: {response}`\n\nAnd if there are errors processing the embedded request the response will have the format:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`errors: {errors}`\n\nMultiple embeds can be achieved with multiple query parameters separated by \"&\".\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?embed=contributors&embed=comments`\n\nSome endpoints are automatically embedded, such as the [node contributors](#Nodes_nodes_contributors_list) endpoint, which automatically embeds user information.",
+      "name": "Embedding",
+      "x-traitTag": true
+    },
+    {
+      "description": "## Attribute Validation\nEndpoints that allow creation or modification of entities generally limit updates to certain attributes of the entity.\n\nIf you attempt to set an attribute that does not permit updates (such as a `date_created` timestamp), the API will silently ignore that attribute.\n\nThis will not affect the response from the API: if the request would have succeeded without the updated attribute, it will still report as successful. Likewise, if the request would have failed without the attribute update, the API will still report a failure.\n\nTypoed or non-existent attributes will behave the same as non-updatable attributes and will be silently ignored. If a request is not working the way you expect, make sure to double check your spelling.\n## Create/Update Requests\n#### Formatting POST/PUT/PATCH Request Bodies\nThe OSF API follows the JSON-API spec for [create and update requests](http://jsonapi.org/format/1.0/#crud). This means all request bodies must be wrapped with some metadata.\n\nEach request body must be an object with a `data` key containing at least a `type` member. The value of the `type` member must agree with the `type` of the entities represented by the endpoint. If not, a **409 Conflict** will be returned.\n\nThe request should also contain an `attributes` member with an object containing the key-value pairs to be created/updated.\n\n**PUT/PATCH** requests must also have an `id` key that matches the ID part of the endpoint you are making a request to. If the `id` key does not match the ID part of the URL path, a **409 Conflict** error will be returned.\n\n#### Creating a Node via POST Example\n\n    POST /v2/nodes/\n    {\n      \"data\": {\n        \"type\": \"nodes\",\n        \"attributes\": {\n          \"title\" : \"A Phylogenetic Tree of Famous Internet Cats\",\n          \"category\" : \"project\",\n          \"description\" : \"How closely related are Grumpy Cat and C.H. Cheezburger? Is memefulness inheritable?\"\n        }\n      }\n    }\n\n\n#### Updating a User via PUT Example\n\n    PUT /v2/users/me/\n    {\n      \"data\": {\n        \"id\": \"3rqxc\",\n        \"type\": \"users\",\n        \"attributes\": {\n          \"full_name\" : \"Henrietta Swan Leavitt\",\n          \"given_name\" : \"Henrietta\",\n          \"middle_names\" : \"Swan\",\n          \"family_name\" : \"Leavitt\"\n        }\n      }\n    }\n\n**Note:** If you PUT/PATCH to the `/users/me/` endpoint, you must still provide your full user id in the `id` field of the request.  We do not support using the `me` alias in request bodies at this time.\n\n#### PUT vs. PATCH\nFor most endpoints that support updates via **PUT** requests, we also allow **PATCH** updates.\n\n**PUT** requests require all mandatory attributes to be set, even if their value is unchanged. **PATCH** requests may omit mandatory attributes, whose value will be unchanged.",
+      "name": "Request Formatting",
+      "x-traitTag": true
+    },
+    {
+      "description": "## Errors\nWhen a request fails for any reason, the OSF API will return an appropriate [HTTP response code](#Introduction_error_codes) and include a descriptive error in the body of the response.\n\nThe response body will be a JSON object with a key, `errors`, pointing to an array of error objects.\n\nIn general, these error objects will consist of a `detail` key with a detailed error message and a `source` object that may contain a field `pointer` that is a [JSON Pointer](https://tools.ietf.org/html/rfc6901) to the error-causing attribute.\n\nThe `error` objects may include additional information in accordance with the [JSON-API error spec](http://jsonapi.org/format/1.0/#error-objects).\n\n#### Example\nAn error response from an incorrect create node request:\n\n    {\n      \"errors\": [\n        {\n          \"source\": {\n            \"pointer\": \"/data/attributes/category\"\n          },\n          \"detail\": \"This field is required.\"\n        },\n        {\n          \"source\": {\n            \"pointer\": \"/data/type\"\n          },\n          \"detail\": \"This field may not be null.\"\n        },\n        {\n          \"source\": {\n            \"pointer\": \"/data/attributes/title\"\n          },\n          \"detail\": \"This field is required.\"\n        }\n      ]\n    }\n\n## Error Codes\nThe OSF API uses conventional HTTP response codes to indicate the success or failure of an API request.\n\nIn general, codes in the `2xx` range indicate success, codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, invalid authentication credentials were provided, etc.), and codes in the `5xx` range indicate an error with our API servers (these are rare, and if they occur consistently, should be [reported](mailto:support@osf.io)).\n\n`200` **OK**\n\nThe request was successful and everything worked as expected.\n\n`201` **Created**\n\nThe request was successful and a new resource was created. The newly created resource can be referenced by the ID returned in the response.\n\n`204` **No Content**\n\nThe request was sucessful but does not need to return an entity-body.\n\n`400` **Bad Request**\n\nThe request was unacceptable, often due to a missing required parameter or malformed data.\n\n`401` **Unauthorized**\n\nThe request requires user authentication, which was not provided.\n\n`403` **Forbidden**\n\nThe request was understood but not fulfilled, most likely due to invalid permissions.\n\n`404` **Not Found**\n\nThe requested resource does not exist.\n\n`405` **Method Not Allowed**\n\nThe method specified in the request is not allowed for the resource.\n\n`409` **Conflict**\n\nThe request could not be completed due to a conflict with the current state of the resource or within the request data.\n\n`410` **Gone**\n\nThe requested resource is no longer available, most likely because it was deleted.\n\n`429` **Too Many Requests**\n\nThe user has sent too many requests in a given amount of time.\n\nWait at least the amount of time specified in the `Retry-After` header of the response before sending another request.\n\n[Authenticated](#Introduction_authentication) requests have a rate limit of 10,000/day.\n\nUnauthenticated requests have a rate limit of 100/hour.\n\n`5xx` **Server Errors**\n\nThe API server encountered an unexpected error.",
+      "name": "Errors & Error Codes",
+      "x-traitTag": true
+    },
+    {
+      "description": "## Entities\nAn entity is a single resource that has been retrieved from the API, usually from an endpoint with the entity's ID as the final path part. A successful response from an entity request will be a JSON object with a top level `data` key pointing to a sub-object with the following members:\n#### ID\nThe identifier for the entity.  This **MUST** be included with all PUT and PATCH requests.\n#### Type\nThe type identifier of this entity.  This **MUST** be included with all create and update requests.\n#### Attributes\nThe properties of the entity.  Names, descriptions, etc.\n#### Relationships\nRelationships are URLs to other entities or entity collections that have a relationship to the entity.\n\nFor example, the node entity provides a `contributors` relationship that points to the endpoint to retrieve all contributors to that node. It is recommended to use these links rather than to filter general entity collection endpoints by IDs. They'll be faster, easier, and less error-prone.\n\nGenerally a relationship will have the following structure:\n\n\n    {relationship_name}: {\n      \"links\": {\n        \"related\": {\n          \"href\": {url_to_related_entity_or_entity_collection},\n          \"meta\": {}\n        }\n      }\n    }\n\n\nIf there are no related entities, `href` will be null.\n#### Embeds\nPlease see the [embedding](#Introduction_embedding) documentation.\n#### Links\nLinks are urls to alternative representations of the entity or actions that may be performed on the entity.\n\nMost entities will provide a `self` link that is the canonical endpoint for the entity where update and delete requests should be sent. Most entities will also provide an `html` link that directs to the entity's page on the Open Science Framework.\n## Entity Collections\nEntity collection endpoints return a list of entities and an additional data structure with pagination links, such as `next`, `prev`, `first`, and `last`.\n\nThe OSF API limits all entity collection responses to a maximum of 10 entities.\n\nThe response object has two keys:\n#### Data\nThe `data` key is an array of entities that match the query.\n\nEach entity in the array is the same representation that is returned from that entity's `self` link, meaning that refetching the entity is unnecessary.\n#### Links\nThe `links` key contains pagination information, including links to the previous, next, first, and last pages of results.\n\nThe `meta` key contains the total number of entities available, as well as the current number of results displayed per page.\n\nIf there are only enough results to fill one page, the `first`, `last`, `prev`, and `next` values will be null.",
+      "name": "Entities & Entity Collections",
+      "x-traitTag": true
+    }
+  ],
   "paths": {
     "/": {
       "get": {
@@ -283,36 +340,6 @@
           "Addons"
         ],
         "x-response-schema": "Addon"
-      }
-    },
-    "/attribute_validation/": {
-      "get": {
-        "description": "Endpoints that allow creation or modification of entities generally limit updates to certain attributes of the entity.\n\nIf you attempt to set an attribute that does not permit updates (such as a `date_created` timestamp), the API will silently ignore that attribute.\n\nThis will not affect the response from the API: if the request would have succeeded without the updated attribute, it will still report as successful. Likewise, if the request would have failed without the attribute update, the API will still report a failure.\n\nTypoed or non-existent attributes will behave the same as non-updatable attributes and will be silently ignored. If a request is not working the way you expect, make sure to double check your spelling.",
-        "operationId": "attribute_validation",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Attribute Validation",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/authentication/": {
-      "get": {
-        "description": "#### Token Auth\nTo use a Personal Access Token, make an `Authorization` header with the contents `Bearer <token>` as shown in the example below, replacing `<token>` with your token.\n\n    curl -X \"GET\" \"https://api.osf.io/v2/users/me/\" \\\n    -H \"Authorization: Bearer <token>\"\n\nTo make a Personal Access Token, visit your OSF settings page (either on the [OSF](https://osf.io/settings/tokens/) or our [testing server](https://test.osf.io/settings/tokens/)) to create one. You can limit the scope of the token, but remember that it has access to all of the information that you do within the limits of the scope, so be careful with your tokens.\n#### OAuth\nThe OSF allows third-party web applications to connect to the OSF on behalf of other users via the OAuth 2.0 web application flow.\nYou can add a developer application from the OSF settings page (either on the [OSF](https://osf.io/settings/tokens/) or our [testing server](https://test.osf.io/settings/tokens/)).\n\nWe will be adding narrative documentation for handling OAuth flows, but for now, if you're familiar with OAuth, you can check out the [CAS overlay documentation](https://github.com/CenterForOpenScience/cas-overlay#web-server-authorization) for options.\nWe've also created a [test application](https://github.com/abought/osf_oauth2_demo) for verifying that our OAuth workflow works correctly. If you set up an OAuth application on https://test.osf.io/, you should be able to add the client secret and client id to the settings file and it should work properly. If it does not, please let us know.",
-        "operationId": "authentication",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Authentication",
-        "tags": [
-          "Introduction"
-        ]
       }
     },
     "/citations/styles/": {
@@ -820,111 +847,6 @@
         "summary": "Update a comment",
         "tags": [
           "Comments"
-        ]
-      }
-    },
-    "/create_update_requests/": {
-      "get": {
-        "description": "#### Formatting POST/PUT/PATCH Request Bodies\nThe OSF API follows the JSON-API spec for [create and update requests](http://jsonapi.org/format/1.0/#crud). This means all request bodies must be wrapped with some metadata.\n\nEach request body must be an object with a `data` key containing at least a `type` member. The value of the `type` member must agree with the `type` of the entities represented by the endpoint. If not, a **409 Conflict** will be returned.\n\nThe request should also contain an `attributes` member with an object containing the key-value pairs to be created/updated.\n\n**PUT/PATCH** requests must also have an `id` key that matches the ID part of the endpoint you are making a request to. If the `id` key does not match the ID part of the URL path, a **409 Conflict** error will be returned.\n\n#### Creating a Node via POST Example\n\n    POST /v2/nodes/\n    {\n      \"data\": {\n        \"type\": \"nodes\",\n        \"attributes\": {\n          \"title\" : \"A Phylogenetic Tree of Famous Internet Cats\",\n          \"category\" : \"project\",\n          \"description\" : \"How closely related are Grumpy Cat and C.H. Cheezburger? Is memefulness inheritable?\"\n        }\n      }\n    }\n\n\n#### Updating a User via PUT Example\n\n    PUT /v2/users/me/\n    {\n      \"data\": {\n        \"id\": \"3rqxc\",\n        \"type\": \"users\",\n        \"attributes\": {\n          \"full_name\" : \"Henrietta Swan Leavitt\",\n          \"given_name\" : \"Henrietta\",\n          \"middle_names\" : \"Swan\",\n          \"family_name\" : \"Leavitt\"\n        }\n      }\n    }\n\n**Note:** If you PUT/PATCH to the `/users/me/` endpoint, you must still provide your full user id in the `id` field of the request.  We do not support using the `me` alias in request bodies at this time.\n\n#### PUT vs. PATCH\nFor most endpoints that support updates via **PUT** requests, we also allow **PATCH** updates.\n\n**PUT** requests require all mandatory attributes to be set, even if their value is unchanged. **PATCH** requests may omit mandatory attributes, whose value will be unchanged.",
-        "operationId": "create_update_requests",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Create/Update Requests",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/embedding/": {
-      "get": {
-        "description": "All related resources that appear in the `relationships` attribute are embeddable, meaning it is possible to fetch a node and its contributors in a single request by adding a query parameter like:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?embed=contributors`\n\nThe embedded results will have the following structure:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`{relationship_name}: {full_embedded_response}`\n\nWhere `full_embedded_response` means the full API response resulting from a **GET** request to the `href` link of the corresponding related resource.\n\nThis means if there are no errors in processing the embedded request the response will have the format:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`data: {response}`\n\nAnd if there are errors processing the embedded request the response will have the format:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`errors: {errors}`\n\nMultiple embeds can be achieved with multiple query parameters separated by \"&\".\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?embed=contributors&embed=comments`\n\nSome endpoints are automatically embedded, such as the [node contributors](#Nodes_nodes_contributors_list) endpoint, which automatically embeds user information.",
-        "operationId": "embedding",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Embedding",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/entities/": {
-      "get": {
-        "description": "An entity is a single resource that has been retrieved from the API, usually from an endpoint with the entity's ID as the final path part. A successful response from an entity request will be a JSON object with a top level `data` key pointing to a sub-object with the following members:\n#### ID\nThe identifier for the entity.  This **MUST** be included with all PUT and PATCH requests.\n#### Type\nThe type identifier of this entity.  This **MUST** be included with all create and update requests.\n#### Attributes\nThe properties of the entity.  Names, descriptions, etc.\n#### Relationships\nRelationships are URLs to other entities or entity collections that have a relationship to the entity.\n\nFor example, the node entity provides a `contributors` relationship that points to the endpoint to retrieve all contributors to that node. It is recommended to use these links rather than to filter general entity collection endpoints by IDs. They'll be faster, easier, and less error-prone.\n\nGenerally a relationship will have the following structure:\n\n\n    {relationship_name}: {\n      \"links\": {\n        \"related\": {\n          \"href\": {url_to_related_entity_or_entity_collection},\n          \"meta\": {}\n        }\n      }\n    }\n\n\nIf there are no related entities, `href` will be null.\n#### Embeds\nPlease see the [embedding](#Introduction_embedding) documentation.\n#### Links\nLinks are urls to alternative representations of the entity or actions that may be performed on the entity.\n\nMost entities will provide a `self` link that is the canonical endpoint for the entity where update and delete requests should be sent. Most entities will also provide an `html` link that directs to the entity's page on the Open Science Framework.",
-        "operationId": "entities",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Entities",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/entity_collections/": {
-      "get": {
-        "description": "Entity collection endpoints return a list of entities and an additional data structure with pagination links, such as `next`, `prev`, `first`, and `last`.\n\nThe OSF API limits all entity collection responses to a maximum of 10 entities.\n\nThe response object has two keys:\n#### Data\nThe `data` key is an array of entities that match the query.\n\nEach entity in the array is the same representation that is returned from that entity's `self` link, meaning that refetching the entity is unnecessary.\n#### Links\nThe `links` key contains pagination information, including links to the previous, next, first, and last pages of results.\n\nThe `meta` key contains the total number of entities available, as well as the current number of results displayed per page.\n\nIf there are only enough results to fill one page, the `first`, `last`, `prev`, and `next` values will be null.",
-        "operationId": "entity_collections",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Entity Collections",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/enum_fields/": {
-      "get": {
-        "description": "Some entities in the OSF API have fields that only take a restricted set of values. Those fields are listed here for reference.\n\nFuller descriptions are available on the relevant entity pages.\n#### OSF Node Categories\n\n    value                 description\n    ==========================================\n    project               Project\n    hypothesis            Hypothesis\n    methods and measures  Methods and Measures\n    procedure             Procedure\n    instrumentation       Instrumentation\n    data                  Data\n    analysis              Analysis\n    communication         Communication\n    other                 Other\n\n\n#### OSF Node Permissions\n\n    value        description\n    =============================\n    read         Read-only access\n    write        Write access\n    admin        Admin access\n\n\n#### OSF Storage Providers\n\n    value        description\n    ==========================\n    box          Box.com\n    dataverse    Dataverse\n    dropbox      Dropbox\n    figshare     figshare\n    github       GitHub\n    googledrive  Google Drive\n    osfstorage   OSF Storage\n    s3           Amazon S3",
-        "operationId": "enum_fields",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Enum Fields",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/error_codes/": {
-      "get": {
-        "description": "The OSF API uses conventional HTTP response codes to indicate the success or failure of an API request.\n\nIn general, codes in the `2xx` range indicate success, codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, invalid authentication credentials were provided, etc.), and codes in the `5xx` range indicate an error with our API servers (these are rare, and if they occur consistently, should be [reported](mailto:support@osf.io)).\n\n`200` **OK**\n\nThe request was successful and everything worked as expected.\n\n`201` **Created**\n\nThe request was successful and a new resource was created. The newly created resource can be referenced by the ID returned in the response.\n\n`204` **No Content**\n\nThe request was sucessful but does not need to return an entity-body.\n\n`400` **Bad Request**\n\nThe request was unacceptable, often due to a missing required parameter or malformed data.\n\n`401` **Unauthorized**\n\nThe request requires user authentication, which was not provided.\n\n`403` **Forbidden**\n\nThe request was understood but not fulfilled, most likely due to invalid permissions.\n\n`404` **Not Found**\n\nThe requested resource does not exist.\n\n`405` **Method Not Allowed**\n\nThe method specified in the request is not allowed for the resource.\n\n`409` **Conflict**\n\nThe request could not be completed due to a conflict with the current state of the resource or within the request data.\n\n`410` **Gone**\n\nThe requested resource is no longer available, most likely because it was deleted.\n\n`429` **Too Many Requests**\n\nThe user has sent too many requests in a given amount of time.\n\nWait at least the amount of time specified in the `Retry-After` header of the response before sending another request.\n\n[Authenticated](#Introduction_authentication) requests have a rate limit of 10,000/day.\n\nUnauthenticated requests have a rate limit of 100/hour.\n\n`5xx` **Server Errors**\n\nThe API server encountered an unexpected error.",
-        "operationId": "error_codes",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Error Codes",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/errors/": {
-      "get": {
-        "description": "When a request fails for any reason, the OSF API will return an appropriate [HTTP response code](#Introduction_error_codes) and include a descriptive error in the body of the response.\n\nThe response body will be a JSON object with a key, `errors`, pointing to an array of error objects.\n\nIn general, these error objects will consist of a `detail` key with a detailed error message and a `source` object that may contain a field `pointer` that is a [JSON Pointer](https://tools.ietf.org/html/rfc6901) to the error-causing attribute.\n\nThe `error` objects may include additional information in accordance with the [JSON-API error spec](http://jsonapi.org/format/1.0/#error-objects).\n\n#### Example\nAn error response from an incorrect create node request:\n\n    {\n      \"errors\": [\n        {\n          \"source\": {\n            \"pointer\": \"/data/attributes/category\"\n          },\n          \"detail\": \"This field is required.\"\n        },\n        {\n          \"source\": {\n            \"pointer\": \"/data/type\"\n          },\n          \"detail\": \"This field may not be null.\"\n        },\n        {\n          \"source\": {\n            \"pointer\": \"/data/attributes/title\"\n          },\n          \"detail\": \"This field is required.\"\n        }\n      ]\n    }",
-        "operationId": "errors",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Errors",
-        "tags": [
-          "Introduction"
         ]
       }
     },
@@ -1471,36 +1393,6 @@
           "Files"
         ],
         "x-response-schema": "File Version"
-      }
-    },
-    "/filtering/": {
-      "get": {
-        "description": "Entity collections can be filtered by adding a query parameter in the form:\n\n&nbsp;&nbsp;&nbsp;&nbsp;`filter[<fieldname>]=<matching information>`\n\nString queries are filtered using substring matching. For example, if you were trying to find [Lise Meitner](http://en.wikipedia.org/wiki/Lise_Meitner):\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/users/?filter[full_name]=meitn`\n\nYou can filter on multiple fields, or the same field in different ways, by &-ing the query parameters together.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/users/?filter[full_name]=lise&filter[family_name]=mei`\n\nBoolean fields should be queried with `true` or `false`.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[registered]=true`\n\nYou can request multiple resources by filtering on id and placing comma-separated values in your query parameter.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[id]=aegu6,me23a`\n\nYou can filter with case-sensitivity or case-insensitivity by using `contains` and `icontains`, respectively.\n\n&nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[tags][icontains]=help`",
-        "operationId": "filtering",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Filtering",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
-    "/general_api_usage/": {
-      "get": {
-        "description": "The OSF API generally conforms to the [JSON-API v1.0 spec](http://jsonapi.org/format/1.0/). Where exceptions exist, they will be noted. Each endpoint will have its own documentation, but there are some general principles.\n\nNote: Assume undocumented routes/features/fields are unstable.\n\n#### Canonical URLs\nAll canonical URLs have trailing slashes.  A request to an endpoint without a trailing slash will result in a **301 Redirect** to the canonical URL.  There are some exceptions when working with the Files API, so if a URL in a response does not have a slash, do not append one.\n#### Plurals\nEndpoints are always pluralized.  `/users/`, not `/user/`, `/nodes/`, not `/node/`.\n\nThe only exception are the node and preprint citation endpoints, which are `/citation/`, not `/citations/`.\n#### Common Actions\nEvery endpoint in the OSF API responds to `GET`, `HEAD`, and `OPTION` requests.\n\nYou must have adequate permissions to interact with any endpoint. Unauthorized use will result in **401 Unauthorized** or **403 Forbidden** responses.\n\nUse `HEAD` to probe an endpoint and make sure your headers are well-formed.\n\nA `GET` request will return a representation of the entity or entity collection referenced by the endpoint.\n\nAn `OPTIONS` request will return a JSON object that describes the endpoint, including the name, a description, the acceptable request formats, the allowed response formats, and any actions available via the endpoint.",
-        "operationId": "general",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "General Usage",
-        "tags": [
-          "Introduction"
-        ]
       }
     },
     "/institutions/": {
@@ -2731,21 +2623,6 @@
           "Institutions"
         ],
         "x-response-schema": "User"
-      }
-    },
-    "/introduction/": {
-      "get": {
-        "description": "Welcome to the Open Science Framework API. With this API you can access users, projects, components, logs, and files from the [Open Science Framework](https://osf.io/). The Open Science Framework (OSF) is a free, open-source service maintained by the [Center for Open Science](http://cos.io/).\n\nThe OSF serves as a repository and archive for study designs, materials, data, manuscripts, or anything else associated with your research during the research process. Every project and file on the OSF has a permanent unique identifier, and every registration (a permanent, time-stamped version of your projects and files) can be assigned a DOI/ARK. You can use the OSF to measure your impact by monitoring the traffic to projects and files you make public. With the OSF you have full control of what parts of your research are public and what remains private.",
-        "operationId": "introduction",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Introduction",
-        "tags": [
-          "Introduction"
-        ]
       }
     },
     "/license/{license_id}/": {
@@ -13174,21 +13051,6 @@
         "x-response-schema": "Wiki"
       }
     },
-    "/pagination/": {
-      "get": {
-        "description": "All entity collection endpoints respond to the `page` query parameter as described in the [JSON-API spec](http://jsonapi.org/format/#fetching-pagination).\n\nHowever, links to the first, last, previous, and next pages of results are provided in the `links` key of the response, and you are encouraged to use those rather than adding query parameters by hand.\n\nIf there are only enough results to fill one page, the `first`, `last`, `prev`, and `next` links will be null.\n#### Versioning\nAs of version `2.3`, pagination links conform to the JSON API specification. Meta information was pulled out of the `links` object and placed in a top-level `meta` object.\n\nThe `meta` key contains the total number of entities available, as well as the current number of results displayed per page.",
-        "operationId": "pagination",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Pagination",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
     "/preprint_providers/": {
       "get": {
         "description": "\nA paginated list of all preprint providers. The returned preprint providers are sorted by their creation date, with the most recent preprints appearing first.\n#### Returns\nReturns a JSON object containing `data` and `links` keys.\n\nThe `data` key contains an array of 10 preprint providers. Each resource in the array is a separate preprint provider object.\n\nThe `links` key contains a dictionary of links that can be used for [pagination](#Introduction_pagination).\n\nThis request should never return an error.\n#### Filtering\nYou can optionally request that the response only include preprint providers that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/preprint_providers/?filter[id]=osf.\n\nPreprint Providers may be filtered by their `id`, `name`,  and `description`",
@@ -21846,21 +21708,6 @@
         "x-response-schema": "Wiki"
       }
     },
-    "/sparse_fieldsets/": {
-      "get": {
-        "description": "All endpoints respond to the `fields` query parameter as described in the [JSON-API spec](http://jsonapi.org/format/#fetching-sparse-fieldsets).\n\n\nFrom the specification:\n\n<blockquote>\n  <p>A client MAY request that an endpoint return only specific fields in the response on a per-type basis by including a fields[TYPE] parameter.</p>\n  <p>The value of the fields parameter MUST be a comma-separated (U+002C COMMA, “,”) list that refers to the name(s) of the fields to be returned.</p>\n  <p>If a client requests a restricted set of fields for a given resource type, an endpoint MUST NOT include additional fields in resource objects of that type in its response.</p>\n</blockquote>\n\n#### Basic Usage\n\nWhen making a request to an endpoint that returns a serialized object of some `type`, you can specify `fields[<type>]=<comma,separated,list,of,fields>` to receive a subset of the object's fields in the response.\n\n\nFor example, the request below will serialize only the `title` attribute and `children` relationship for each node in the response.\n\n\nhttps://api.osf.io/v2/nodes/?fields[nodes]=title,children\n\n\nSparse fieldsets can be used to restrict both attribute and relationship fields.\nNote that top-level objects (such as `type`, `id`, `attributes`, `relationships`, and `links`) will always be serialized and cannot be excluded.\n\n#### Advanced Usage\n\nSparse fieldsets can be used to restrict any entity returned in the response.\n\n\nFor example, the request below will serialize only the `full_name` attribute for each user (auto-embedded by the `embed=contributors` query parameter), and the `title` attribute for each node.\n\n\nhttps://api.osf.io/v2/nodes/?fields[nodes]=title,contributors&embed=contributors&fields[users]=full_name\n\n\nAny field specified in another query parameters used by the serializer (e.g. `embed`) must also be included in the sparse fieldset.\nFor example, fields that are being embedded on the sparse type (e.g. `nodes`) must also be included in `fields[<type>]` when using embeds, or the embed will be invalid.\n\n\nA request to embed contributors and restrict nodes to only return the `title` attribute should have the form:\n\n\nhttps://api.osf.io/v2/nodes/?embed=contributors&fields[nodes]=title,contributors\n\n\n**NOT**\n\n\nhttps://api.osf.io/v2/nodes/?embed=contributors&fields[nodes]=title\n",
-        "operationId": "sparse_fieldsets",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Sparse Fieldsets",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
     "/taxonomies/": {
       "get": {
         "description": "\nA paginated list of all [bepress disciplines taxonomies](https://www.bepress.com/wp-content/uploads/2016/12/Digital-Commons-Disciplines-taxonomy-2017-01.pdf).\nNote: this API endpoint is under active development, and is subject to change in the future.\n#### Returns\nReturns a JSON object containing `data` and `links` keys.\n\nThe `data` key contains an array of up to 10 taxonomies. Each resource in the array is a separate taxonomy object.\n\nThe `links` key contains a dictionary of links that can be used for [pagination](#Introduction_pagination).\n\nThis request should never return an error.\n#### Filtering\nYou can optionally request that the response only include taxonomies that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/taxonomies/?filter['id']='{taxonomy_id}'.\n\nTaxonomies may be filtered by their `id`, `parents`, and `text`.",
@@ -22165,21 +22012,6 @@
           "Taxonomies"
         ],
         "x-response-schema": "Taxonomy"
-      }
-    },
-    "/testing/": {
-      "get": {
-        "description": "\n#### Testing Server\nThe test-* subdomains of the osf are intended to match, at any given time, the current production environment of the Open Science Framework.\n\nWe have staging servers that will have newer features, including newer API features, that aren't ready for production. However, because those servers are subject to the whims of QA and whichever group needs to do specific testing, they aren't particular stable for API developers.\n\nThe test servers linked below are primarily for developing your API application on a stable system.\n\nhttps://test.osf.io/\n\nhttps://test-api.osf.io/v2/\n#### Ephemerality Notice\nExpect the server to be down from time to time while we update software, and don't expect that anything you create on here to exist long-term.\n\nWhile this is more stable than a staging server, we won't necessarily run data migrations if anything major happens to our database schema, so we may clear out the data on the test servers periodically.",
-        "operationId": "testing",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Testing",
-        "tags": [
-          "Introduction"
-        ]
       }
     },
     "/users/": {
@@ -24477,21 +24309,6 @@
         "x-response-schema": "Registration"
       }
     },
-    "/versioning/": {
-      "get": {
-        "description": "Versioning can be specified in three different ways:\n\n#### URL Path Versioning\n+ `/v2/` or `/v3/`\n+ A version specified via the URL path is a **required** part of the URL.\n+ Only a major version can be specified via the URL path, i.e. `/v2.0.6/` is invalid, additionally, paths such as `/v2.0/` are invalid.\n+ If the default version of the API is within the major version specified in the URL path, the default version will be applied (i.e. if the default version is `2.3` and the URL path is `/v2/`, then version returned will be `2.3`).\n+ If the default version of the API is not within the major version specified in the URL path, the URL path version will be applied (i.e. if the default version is `3.0` and the URL path is `/v2/`, then the version returned will be `2.0`)\n\n#### Query Parameter Versioning\n+ `/v2/nodes/?version=2.1.6`\n+ Pinning to a specific version via a query parameter is **optional**.\n+ A specific version (major, minor, or patch) for a single request can be specified via the `version` query parameter, as long as it is an allowed version.\n+ If the version specified in the query parameter does not fall within the same major version specified in the URL path, i.e `/v2/nodes/?version=3.1.4` a 409 Conflict response will be returned.\n\n#### Header Versioning\n+ `Accept-Header=application/vnd.api+json;version=3.0.1`\n+ Pinning to a specific version via request header is **optional**.\n+ A specific version (major, minor, or patch) for a single request can be specified via the `Accept Header` of the request, as long as it is an allowed version.\n+ If the version specified in the header does not fall within the same major version specified in the URL path a 409 Conflict response will be returned.\n+ If both a header version and query parameter version are specified, the versions must match exactly or a 409 Conflict response will be returned (i.e. one does not take precedence over the other).\n\n#### CHANGELOG\n`v2.1`\n+ Pagination links conform to JSON API specification, i.e. `meta` information was pulled out of the `links` object and placed in a top-level `meta` object.\n+ Deprecate the `node_links` field in the **Node** and **Registration** serializers in favor of `linked_nodes` and `linked_registrations`.\n\n`v2.2`\n+ Modify institution nodes list so that affiliated components are also returned from `/v2/institutions/<id>/nodes/`.\n+ Ensure all existing date fields are standardized on UTC.\n\n`v2.3`\n+ Handle merged users more correctly on `/v2/users/`.\n\n`v2.4`\n+ Deprecate the `parents` field in the **Taxonomies** serializer.\n+ Deprecate the following fields in the **Preprint Provider** serializer:\n    + `social_facebook`, `social_instagram`, and `social_twitter`\n    + `banner_path`, `logo_path`, and `header_text`\n    + `email_contact`",
-        "operationId": "versioning",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "summary": "Versioning",
-        "tags": [
-          "Introduction"
-        ]
-      }
-    },
     "/view_only_links/{link_id}/": {
       "get": {
         "description": "Retrieves details about a specific view only link.\n####Permissions\nOnly project administrators may retrieve the details of a view only link. Attempting to retrieve a view only link without appropriate permissions will result in a 403 Forbidden response.\n#### Returns\nReturns a JSON object with a `data` key containing the representation of the requested view only link, if the request is successful.\nIf the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#Introduction_error_codes) to understand why this request may have failed.",
@@ -25730,5 +25547,44 @@
         "x-response-schema": "Wiki"
       }
     }
-  }
+  },
+  "x-tagGroups": [
+    {
+      "name": "Introduction",
+      "tags": [
+        "Introduction",
+        "General Usage",
+        "Authentication",
+        "Pagination",
+        "Versioning",
+        "Filtering",
+        "Sparse Fieldsets",
+        "Embedding",
+        "Request Formatting",
+        "Errors & Error Codes",
+        "Entities & Entity Collections"
+      ]
+    },
+    {
+      "name": "API Reference",
+      "tags": [
+        "Addons",
+        "Base",
+        "Citations",
+        "Comments",
+        "Files",
+        "Licenses",
+        "Logs",
+        "Institutions",
+        "Metaschemas",
+        "Nodes",
+        "Preprints",
+        "Preprint Providers",
+        "Registrations",
+        "Taxonomies",
+        "Users",
+        "View Only Links"
+      ]
+    }
+  ]
 }

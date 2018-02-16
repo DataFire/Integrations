@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Lets you access a cloud hosted machine learning service that makes it easy to build smart apps",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Prediction",
     "version": "v1.6",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -56,6 +61,20 @@
         "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage",
         "https://www.googleapis.com/auth/prediction": "Manage your data in the Google Prediction API"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
+        "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
+        "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage",
+        "https://www.googleapis.com/auth/prediction": "Manage your data in the Google Prediction API"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -160,11 +179,11 @@
         "operationId": "hostedmodels.predict",
         "parameters": [
           {
-            "description": "The project associated with the model.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Input"
+            }
           },
           {
             "description": "The name of a hosted model.",
@@ -174,11 +193,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Input"
-            }
+            "description": "The project associated with the model.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -193,10 +212,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -235,18 +260,18 @@
         "operationId": "trainedmodels.insert",
         "parameters": [
           {
-            "description": "The project associated with the model.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Insert"
             }
+          },
+          {
+            "description": "The project associated with the model.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -261,25 +286,40 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/devstorage.full_control"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/devstorage.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -295,13 +335,6 @@
         "operationId": "trainedmodels.list",
         "parameters": [
           {
-            "description": "The project associated with the model.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Maximum number of results to return.",
             "in": "query",
             "minimum": 0,
@@ -312,6 +345,13 @@
             "description": "Pagination token.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The project associated with the model.",
+            "in": "path",
+            "name": "project",
+            "required": true,
             "type": "string"
           }
         ],
@@ -327,10 +367,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -369,16 +415,16 @@
         "operationId": "trainedmodels.delete",
         "parameters": [
           {
-            "description": "The project associated with the model.",
+            "description": "The unique name for the predictive model.",
             "in": "path",
-            "name": "project",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The unique name for the predictive model.",
+            "description": "The project associated with the model.",
             "in": "path",
-            "name": "id",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -392,10 +438,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -409,16 +461,16 @@
         "operationId": "trainedmodels.get",
         "parameters": [
           {
-            "description": "The project associated with the model.",
+            "description": "The unique name for the predictive model.",
             "in": "path",
-            "name": "project",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The unique name for the predictive model.",
+            "description": "The project associated with the model.",
             "in": "path",
-            "name": "id",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -435,10 +487,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -475,11 +533,11 @@
         "operationId": "trainedmodels.update",
         "parameters": [
           {
-            "description": "The project associated with the model.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Update"
+            }
           },
           {
             "description": "The unique name for the predictive model.",
@@ -489,11 +547,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Update"
-            }
+            "description": "The project associated with the model.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -508,10 +566,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -527,16 +591,16 @@
         "operationId": "trainedmodels.analyze",
         "parameters": [
           {
-            "description": "The project associated with the model.",
+            "description": "The unique name for the predictive model.",
             "in": "path",
-            "name": "project",
+            "name": "id",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The unique name for the predictive model.",
+            "description": "The project associated with the model.",
             "in": "path",
-            "name": "id",
+            "name": "project",
             "required": true,
             "type": "string"
           }
@@ -553,10 +617,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }
@@ -618,11 +688,11 @@
         "operationId": "trainedmodels.predict",
         "parameters": [
           {
-            "description": "The project associated with the model.",
-            "in": "path",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Input"
+            }
           },
           {
             "description": "The unique name for the predictive model.",
@@ -632,11 +702,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Input"
-            }
+            "description": "The project associated with the model.",
+            "in": "path",
+            "name": "project",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -651,10 +721,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/prediction"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/prediction"
             ]
           }

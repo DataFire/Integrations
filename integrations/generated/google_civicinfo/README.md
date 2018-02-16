@@ -30,8 +30,8 @@ google_civicinfo.divisions.search({}, context)
 
 #### Input
 * input `object`
-  * query `string`: The search query. Queries can cover any parts of a OCD ID or a human readable division name. All words given in the query are treated as required patterns. In addition to that, most query operators of the Apache Lucene library are supported. See http://lucene.apache.org/core/2_9_4/queryparsersyntax.html
   * body [DivisionSearchRequest](#divisionsearchrequest)
+  * query `string`: The search query. Queries can cover any parts of a OCD ID or a human readable division name. All words given in the query are treated as required patterns. In addition to that, most query operators of the Apache Lucene library are supported. See http://lucene.apache.org/core/2_9_4/queryparsersyntax.html
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -76,10 +76,10 @@ google_civicinfo.representatives.representativeInfoByAddress({}, context)
 #### Input
 * input `object`
   * address `string`: The address to look up. May only be specified if the field ocdId is not given in the URL.
+  * body [RepresentativeInfoRequest](#representativeinforequest)
   * includeOffices `boolean`: Whether to return information about offices and officials. If false, only the top-level district information will be returned.
   * levels `array`: A list of office levels to filter by. Only offices that serve at least one of these levels will be returned. Divisions that don't contain a matching office will not be returned.
   * roles `array`: A list of office roles to filter by. Only offices fulfilling one of these roles will be returned. Divisions that don't contain a matching office will not be returned.
-  * body [RepresentativeInfoRequest](#representativeinforequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -103,11 +103,11 @@ google_civicinfo.representatives.representativeInfoByDivision({
 
 #### Input
 * input `object`
-  * ocdId **required** `string`: The Open Civic Data division identifier of the division to look up.
+  * body [DivisionRepresentativeInfoRequest](#divisionrepresentativeinforequest)
   * levels `array`: A list of office levels to filter by. Only offices that serve at least one of these levels will be returned. Divisions that don't contain a matching office will not be returned.
+  * ocdId **required** `string`: The Open Civic Data division identifier of the division to look up.
   * recursive `boolean`: If true, information about all divisions contained in the division requested will be included as well. For example, if querying ocd-division/country:us/district:dc, this would also return all DC's wards and ANCs.
   * roles `array`: A list of office roles to filter by. Only offices fulfilling one of these roles will be returned. Divisions that don't contain a matching office will not be returned.
-  * body [DivisionRepresentativeInfoRequest](#divisionrepresentativeinforequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -132,10 +132,10 @@ google_civicinfo.elections.voterInfoQuery({
 #### Input
 * input `object`
   * address **required** `string`: The registered address of the voter to look up.
+  * body [VoterInfoRequest](#voterinforequest)
   * electionId `string`: The unique ID of the election to look up. A list of election IDs can be obtained at https://www.googleapis.com/civicinfo/{version}/elections
   * officialOnly `boolean`: If set to true, only data from official state sources will be returned.
   * returnAllAvailableData `boolean`: If set to true, the query will return the success codeand include any partial information when it is unable to determine a matching address or unable to determine the election for electionId=0 queries.
-  * body [VoterInfoRequest](#voterinforequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

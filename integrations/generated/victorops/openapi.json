@@ -6,9 +6,12 @@
   "host": "api.victorops.com",
   "basePath": "/",
   "info": {
+    "contact": {
+      "x-twitter": "VictorOps"
+    },
     "description": "This API allows you to interact with the VictorOps platform in various ways. Your account may be limited\nto a total number of API calls per month. Also, some of these API calls have rate limits.\n\nNOTE: In this documentation when creating a sample curl request (clicking the TRY IT OUT! button), in some API\nviewing interfaces, the '@' in an email address may be encoded. Please note that the REST endpoints will not\nprocess the encoded version. Make sure that the encoded character '%40' is changed to its unencoded form before\nsubmitting the curl request.\n",
     "title": "VictorOps",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "x-apisguru-categories": [
       "developer_tools"
     ],
@@ -49,6 +52,22 @@
       "required": true,
       "schema": {
         "$ref": "#/definitions/AckOrResolveRequest"
+      }
+    },
+    "addGroupPayload": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/AddGroupPayload"
+      }
+    },
+    "addStepPayload": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/AddStepPayload"
       }
     },
     "addTeamMemberPayload": {
@@ -201,6 +220,27 @@
       "required": false,
       "type": "number"
     },
+    "orgSlug": {
+      "description": "Your organization slug",
+      "in": "path",
+      "name": "org",
+      "required": true,
+      "type": "string"
+    },
+    "pagingPolicyRule": {
+      "description": "Rule for a paging policy step",
+      "in": "path",
+      "name": "rule",
+      "required": true,
+      "type": "number"
+    },
+    "pagingPolicyStep": {
+      "description": "Paging policy step",
+      "in": "path",
+      "name": "step",
+      "required": true,
+      "type": "number"
+    },
     "removeTeamMemberPayload": {
       "description": "The user information",
       "in": "body",
@@ -208,6 +248,15 @@
       "required": true,
       "schema": {
         "$ref": "#/definitions/RemoveTeamMemberPayload"
+      }
+    },
+    "rerouteBody": {
+      "description": "The reroute rules",
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/RerouteCollection"
       }
     },
     "step": {
@@ -228,6 +277,13 @@
       "schema": {
         "$ref": "#/definitions/TakeRequest"
       }
+    },
+    "username": {
+      "description": "Your username",
+      "in": "path",
+      "name": "username",
+      "required": true,
+      "type": "string"
     }
   },
   "responses": {
@@ -268,6 +324,27 @@
     },
     {
       "name": "Users"
+    },
+    {
+      "name": "User Contact Methods"
+    },
+    {
+      "name": "User Paging Policies"
+    },
+    {
+      "name": "Personal Paging Policy Values"
+    },
+    {
+      "name": "Personal Paging Policies"
+    },
+    {
+      "name": "Teams"
+    },
+    {
+      "name": "Escalation Policies"
+    },
+    {
+      "name": "Routing Keys"
     }
   ],
   "paths": {
@@ -534,6 +611,35 @@
         "operationId": "api_public.v1.incidents.byUser.resolve.patch"
       }
     },
+    "/api-public/v1/incidents/reroute": {
+      "post": {
+        "description": "Reroute one or more incidents to one or more users and/or escalation policies\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/rerouteBody"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created reroute object",
+            "schema": {
+              "$ref": "#/definitions/RerouteStatusResponse"
+            }
+          }
+        },
+        "summary": "Reroute one or more incidents to one or more new routable destinations.",
+        "tags": [
+          "Incidents"
+        ],
+        "operationId": "api_public.v1.incidents.reroute.post"
+      }
+    },
     "/api-public/v1/incidents/resolve": {
       "patch": {
         "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
@@ -578,6 +684,52 @@
         "operationId": "api_public.v1.incidents.resolve.patch"
       }
     },
+    "/api-public/v1/oncall/current": {
+      "get": {
+        "description": "Get all on-call uesrs/teams for your organization.\n\nThis API may be called a maximum of 1 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All users and escalation policies currently on call",
+            "schema": {
+              "properties": {
+                "teamsOnCall": {
+                  "items": {
+                    "$ref": "#/definitions/OnCallTeamsResource"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get an organization's on-call users",
+        "tags": [
+          "On-call"
+        ],
+        "operationId": "api_public.v1.oncall.current.get"
+      }
+    },
     "/api-public/v1/org/routing-keys": {
       "get": {
         "description": "Retrieves a list of routing keys and associated teams.\nThis API may be called a maximum of once a minute.",
@@ -612,11 +764,671 @@
             "$ref": "#/responses/500"
           }
         },
-        "summary": "List routing keys with assoicated teams",
+        "summary": "List routing keys with associated teams",
         "tags": [
-          "Routing keys"
+          "Routing Keys"
         ],
         "operationId": "api_public.v1.org.routing_keys.get"
+      }
+    },
+    "/api-public/v1/policies": {
+      "get": {
+        "description": "Retrieves a list of escalation policy information.\nThis API may be called a maximum of once a minute",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of escalation policies",
+            "schema": {
+              "$ref": "#/definitions/EscalationPolicyInfoList"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get escalation policy info",
+        "tags": [
+          "Escalation Policies"
+        ],
+        "operationId": "api_public.v1.policies.get"
+      }
+    },
+    "/api-public/v1/policies/types/contacts": {
+      "get": {
+        "description": "Get the available contact types\n\ndescription: \"Email Address\", type: \"email\"\ndescription: \"Phone Number\", type: \"phone\"\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All the available contact types",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "contactTypes": {
+                  "items": {
+                    "$ref": "#/definitions/ContactObject"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the available contact types",
+        "tags": [
+          "Personal Paging Policy Values"
+        ],
+        "operationId": "api_public.v1.policies.types.contacts.get"
+      }
+    },
+    "/api-public/v1/policies/types/notifications": {
+      "get": {
+        "description": "Get the available notification types\n\ndescription: \"Send a push notification to all my devices\", type: \"push\"\ndescription: \"Send an email to an email address\", type: \"email\"\ndescription: \"Send an SMS to a phone number\", type: \"sms\"\ndescription: \"Make a phone call to a phone number\", type: \"phone\"\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All the available contact types",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "notificationTypes": {
+                  "items": {
+                    "$ref": "#/definitions/NotificationObject"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the available notification types",
+        "tags": [
+          "Personal Paging Policy Values"
+        ],
+        "operationId": "api_public.v1.policies.types.notifications.get"
+      }
+    },
+    "/api-public/v1/policies/types/timeouts": {
+      "get": {
+        "description": "Get the available timeout values\n\ndescription: \"If still unacked after 1 minute\", type: 1\ndescription: \"If still unacked after 5 minutes\", type: 5\ndescription: \"If still unacked after 10 minutes\", type: 10\ndescription: \"If still unacked after 15 minutes\", type: 15\ndescription: \"If still unacked after 20 minutes\", type: 20\ndescription: \"If still unacked after 25 minutes\", type: 25\ndescription: \"If still unacked after 30 minutes\", type: 30\ndescription: \"If still unacked after 45 minutes\", type: 45\ndescription: \"If still unacked after 60 minutes\", type: 60\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All the available timeout types.",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "timeoutTypes": {
+                  "items": {
+                    "$ref": "#/definitions/TimeoutObject"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the available timeout values",
+        "tags": [
+          "Personal Paging Policy Values"
+        ],
+        "operationId": "api_public.v1.policies.types.timeouts.get"
+      }
+    },
+    "/api-public/v1/policies/{policy}/oncall/user": {
+      "patch": {
+        "description": "Replaces a currently on-call user in the escalation policy with another.  In many cases, the policy slug\nwill match the slug of the team that contains it.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/takeRequestPayload"
+          },
+          {
+            "description": "The VictorOps policy 'slug'",
+            "in": "path",
+            "name": "policy",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the take request",
+            "schema": {
+              "$ref": "#/definitions/TakeResult"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "description": "Team or user(s) not found"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Create an on-call override (take on-call)",
+        "tags": [
+          "On-call"
+        ],
+        "operationId": "api_public.v1.policies.policy.oncall.user.patch"
+      }
+    },
+    "/api-public/v1/profile/{username}/policies": {
+      "get": {
+        "description": "Get all the paging policy steps for the user on the org associated with the API key\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All steps of the user's paging policy",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "steps": {
+                  "$ref": "#/definitions/UserPagingPolicy"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get the user's paging policy",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.get"
+      },
+      "post": {
+        "description": "Create a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/addGroupPayload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "step": {
+                  "$ref": "#/definitions/PagingPolicyStep"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Create a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.post"
+      }
+    },
+    "/api-public/v1/profile/{username}/policies/{step}": {
+      "get": {
+        "description": "Get a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyStep"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "step": {
+                  "$ref": "#/definitions/PagingPolicyStep"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.step.get"
+      },
+      "post": {
+        "description": "Create a rule for a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyStep"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/addStepPayload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The created rule for the paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "stepRule": {
+                  "$ref": "#/definitions/PagingPolicyStepRule"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Create a rule for a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.step.post"
+      },
+      "put": {
+        "description": "Update a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyStep"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/addGroupPayload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "step": {
+                  "$ref": "#/definitions/PagingPolicyStep"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Update a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.step.put"
+      }
+    },
+    "/api-public/v1/profile/{username}/policies/{step}/{rule}": {
+      "delete": {
+        "description": "Delete a rule from a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyStep"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyRule"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The deleted rule from the paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "stepRule": {
+                  "$ref": "#/definitions/PagingPolicyStepRule"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Delete a rule from a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.step.rule.delete"
+      },
+      "get": {
+        "description": "Get a rule from a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyStep"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyRule"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The rule from the paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "stepRule": {
+                  "$ref": "#/definitions/PagingPolicyStepRule"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get a rule from a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.step.rule.get"
+      },
+      "put": {
+        "description": "Update a rule for a paging policy step\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/username"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyStep"
+          },
+          {
+            "$ref": "#/parameters/pagingPolicyRule"
+          },
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "$ref": "#/parameters/addStepPayload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated rule for the paging policy step",
+            "schema": {
+              "properties": {
+                "_selfUrl": {
+                  "type": "string"
+                },
+                "stepRule": {
+                  "$ref": "#/definitions/PagingPolicyStepRule"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Update a rule for a paging policy step",
+        "tags": [
+          "Personal Paging Policies"
+        ],
+        "operationId": "api_public.v1.profile.username.policies.step.rule.put"
       }
     },
     "/api-public/v1/team": {
@@ -1020,7 +1832,8 @@
     },
     "/api-public/v1/team/{team}/oncall/schedule": {
       "get": {
-        "description": "Get the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "deprecated": true,
+        "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/team/{team}/oncall/schedule`.__\n\nGet the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1077,7 +1890,8 @@
     },
     "/api-public/v1/team/{team}/oncall/user": {
       "patch": {
-        "description": "Replaces a currently on-call user on the team with another.\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "deprecated": true,
+        "description": "__NOTE: This API call is deprecated. Please use `PATCH /api-public/v2/policies/{policy}/oncall/user`__\n\nReplaces a currently on-call user on the team with another.\n\nThis API may be called a maximum of 6 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1126,9 +1940,61 @@
         "operationId": "api_public.v1.team.team.oncall.user.patch"
       }
     },
+    "/api-public/v1/team/{team}/policies": {
+      "get": {
+        "description": "Get the escalation policies for the specified team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The VictorOps team to fetch",
+            "in": "path",
+            "name": "team",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The escalation policy list. This does not include details about the actual notification steps of the policy.",
+            "schema": {
+              "$ref": "#/definitions/EscalationPolicyList"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/team-not-found"
+          },
+          "422": {
+            "description": "Team name or email is unavailable, or you have reached your team limit.\n"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Retrieve a list of escalation policies for a team",
+        "tags": [
+          "Escalation Policies",
+          "Teams"
+        ],
+        "operationId": "api_public.v1.team.team.policies.get"
+      }
+    },
     "/api-public/v1/user": {
       "get": {
-        "description": "Get a list of users for your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get a list of users for your organization\n\nThis API may be called a maximum of 15 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1170,7 +2036,7 @@
         "operationId": "api_public.v1.user.get"
       },
       "post": {
-        "description": "Add a user to your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Add a user to your organization\n\nThis API may be called a maximum of 15 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1217,7 +2083,7 @@
     },
     "/api-public/v1/user/{user}": {
       "delete": {
-        "description": "Remove a user from your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Remove a user from your organization\n\nThis API may be called a maximum of 15 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1266,7 +2132,7 @@
         "operationId": "api_public.v1.user.user.delete"
       },
       "get": {
-        "description": "Get the information for the specified user.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "description": "Get the information for the specified user\n\nThis API may be called a maximum of 15 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -1850,62 +2716,6 @@
           "User Contact Methods"
         ],
         "operationId": "api_public.v1.user.user.contact_methods.emails.contactId.get"
-      },
-      "put": {
-        "description": "Update the indicated contact email for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
-        "parameters": [
-          {
-            "$ref": "#/parameters/apiId"
-          },
-          {
-            "$ref": "#/parameters/apiKey"
-          },
-          {
-            "description": "The VictorOps user ID",
-            "in": "path",
-            "name": "user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The unique contact identifier",
-            "in": "path",
-            "name": "contactId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/contactEmailAdd"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The updated contact email for the user",
-            "schema": {
-              "$ref": "#/definitions/UserContact"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400"
-          },
-          "401": {
-            "$ref": "#/responses/401"
-          },
-          "403": {
-            "$ref": "#/responses/403"
-          },
-          "404": {
-            "$ref": "#/responses/user-not-found"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Update a contact email for a user",
-        "tags": [
-          "User Contact Methods"
-        ],
-        "operationId": "api_public.v1.user.user.contact_methods.emails.contactId.put"
       }
     },
     "/api-public/v1/user/{user}/contact-methods/phones": {
@@ -2111,67 +2921,12 @@
           "User Contact Methods"
         ],
         "operationId": "api_public.v1.user.user.contact_methods.phones.contactId.get"
-      },
-      "put": {
-        "description": "Update the indicated contact phone for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
-        "parameters": [
-          {
-            "$ref": "#/parameters/apiId"
-          },
-          {
-            "$ref": "#/parameters/apiKey"
-          },
-          {
-            "description": "The VictorOps user ID",
-            "in": "path",
-            "name": "user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The unique contact identifier",
-            "in": "path",
-            "name": "contactId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/contactPhoneAdd"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The updated contact phone for the user",
-            "schema": {
-              "$ref": "#/definitions/UserContact"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400"
-          },
-          "401": {
-            "$ref": "#/responses/401"
-          },
-          "403": {
-            "$ref": "#/responses/403"
-          },
-          "404": {
-            "$ref": "#/responses/user-not-found"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Update a contact phone for a user",
-        "tags": [
-          "User Contact Methods"
-        ],
-        "operationId": "api_public.v1.user.user.contact_methods.phones.contactId.put"
       }
     },
     "/api-public/v1/user/{user}/oncall/schedule": {
       "get": {
-        "description": "Get the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "deprecated": true,
+        "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/user/{user}/oncall/schedule`.__\n\nGet the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2277,9 +3032,124 @@
         "operationId": "api_public.v1.user.user.policies.get"
       }
     },
+    "/api-public/v2/team/{team}/oncall/schedule": {
+      "get": {
+        "description": "Get the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The VictorOps team 'slug'",
+            "in": "path",
+            "name": "team",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/daysFwd"
+          },
+          {
+            "$ref": "#/parameters/daysSkip"
+          },
+          {
+            "$ref": "#/parameters/step"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The on-call schedule for the team",
+            "schema": {
+              "$ref": "#/definitions/TeamSchedule"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/team-not-found"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get a team's on-call schedule",
+        "tags": [
+          "On-call"
+        ],
+        "operationId": "api_public.v2.team.team.oncall.schedule.get"
+      }
+    },
+    "/api-public/v2/user/{user}/oncall/schedule": {
+      "get": {
+        "description": "Get the on-call schedule for a user for all teams the user is on, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The VictorOps user ID",
+            "in": "path",
+            "name": "user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/daysFwd"
+          },
+          {
+            "$ref": "#/parameters/daysSkip"
+          },
+          {
+            "$ref": "#/parameters/step"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The on-call schedule for the user",
+            "schema": {
+              "$ref": "#/definitions/UserSchedule"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/user-not-found"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get a user's on-call schedule",
+        "tags": [
+          "On-call"
+        ],
+        "operationId": "api_public.v2.user.user.oncall.schedule.get"
+      }
+    },
     "/api-reporting/v1/incidents": {
       "get": {
-        "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.  This is historical\ndata, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
+        "deprecated": true,
+        "description": "\n__NOTE: This call is deprecated. Please use `GET /api-reporting/v2/incidents`.__\n\nRetrieve incident history for your company, searching over date ranges and with filtering options.  This is historical\ndata, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2663,6 +3533,13 @@
           "description": "The time of the last alert received for the incident",
           "type": "string"
         },
+        "pagedPolicies": {
+          "description": "The escalation policies that were triggered for the incident",
+          "items": {
+            "$ref": "#/definitions/EscalationPolicyInfo"
+          },
+          "type": "array"
+        },
         "pagedTeams": {
           "description": "The teams that were paged for the incident",
           "items": {
@@ -2708,6 +3585,31 @@
       },
       "type": "object"
     },
+    "AddGroupPayload": {
+      "properties": {
+        "rules": {
+          "items": {
+            "$ref": "#/definitions/PagingPolicyStepRuleAdd"
+          },
+          "type": "array"
+        },
+        "timeout": {
+          "$ref": "#/definitions/TimeoutType"
+        }
+      },
+      "type": "object"
+    },
+    "AddStepPayload": {
+      "properties": {
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "type": {
+          "$ref": "#/definitions/NotificationType"
+        }
+      },
+      "type": "object"
+    },
     "AddTeamMemberPayload": {
       "description": "The user information",
       "properties": {
@@ -2733,31 +3635,7 @@
       "type": "object"
     },
     "AddTeamResponse": {
-      "description": "Some info about the team",
-      "properties": {
-        "_membersUrl": {
-          "type": "string"
-        },
-        "_selfUrl": {
-          "type": "string"
-        },
-        "isDefaultTeam": {
-          "type": "boolean"
-        },
-        "memberCount": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        },
-        "slug": {
-          "type": "string"
-        },
-        "version": {
-          "type": "number"
-        }
-      },
-      "type": "object"
+      "$ref": "#/definitions/TeamDetail"
     },
     "AddUserPayload": {
       "description": "The user information",
@@ -2830,38 +3708,23 @@
       ],
       "type": "object"
     },
-    "AllOnCall": {
+    "Contact": {
       "properties": {
-        "teams": {
-          "items": {
-            "$ref": "#/definitions/AllOnCallTeamsResource"
-          },
-          "type": "array"
+        "id": {
+          "type": "number"
         },
-        "username": {
-          "type": "string"
+        "type": {
+          "$ref": "#/definitions/ContactType"
         }
       },
       "type": "object"
     },
-    "AllOnCallTeamsResource": {
-      "properties": {
-        "escalation_policy": {
-          "items": {
-            "$ref": "#/definitions/OnCallEscalationPolicyResource"
-          },
-          "type": "array"
-        },
-        "name": {
-          "description": "Team name",
-          "type": "string"
-        },
-        "slug": {
-          "description": "Team slug",
-          "type": "string"
-        }
-      },
-      "type": "object"
+    "ContactDescription": {
+      "enum": [
+        "Email Address",
+        "Phone Number"
+      ],
+      "type": "string"
     },
     "ContactDevice": {
       "properties": {
@@ -2918,6 +3781,17 @@
       ],
       "type": "object"
     },
+    "ContactObject": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/ContactDescription"
+        },
+        "type": {
+          "$ref": "#/definitions/ContactType"
+        }
+      },
+      "type": "object"
+    },
     "ContactPhoneAdd": {
       "description": "The contact phone",
       "properties": {
@@ -2936,6 +3810,13 @@
         "phone"
       ],
       "type": "object"
+    },
+    "ContactType": {
+      "enum": [
+        "email",
+        "phone"
+      ],
+      "type": "string"
     },
     "CreateBatchAlertRequestPayload": {
       "description": "A collection of IDs (uuid) for the alerts to be returned",
@@ -2999,6 +3880,56 @@
       "required": [
         "replacement"
       ],
+      "type": "object"
+    },
+    "EscalationPolicy": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EscalationPolicyInfo": {
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/EscalationPolicy"
+        },
+        "team": {
+          "$ref": "#/definitions/Team"
+        }
+      },
+      "required": [
+        "policy"
+      ],
+      "type": "object"
+    },
+    "EscalationPolicyInfoList": {
+      "properties": {
+        "policies": {
+          "items": {
+            "$ref": "#/definitions/EscalationPolicyInfo"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "policies"
+      ],
+      "type": "object"
+    },
+    "EscalationPolicyList": {
+      "properties": {
+        "policies": {
+          "items": {
+            "$ref": "#/definitions/EscalationPolicy"
+          },
+          "type": "array"
+        }
+      },
       "type": "object"
     },
     "GetAlertResponse": {
@@ -3230,32 +4161,8 @@
       "type": "object"
     },
     "ListTeamResponse": {
-      "description": "Some info about teams in the org",
       "items": {
-        "properties": {
-          "_membersUrl": {
-            "type": "string"
-          },
-          "_selfUrl": {
-            "type": "string"
-          },
-          "isDefaultTeam": {
-            "type": "boolean"
-          },
-          "memberCount": {
-            "type": "number"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "version": {
-            "type": "number"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/TeamDetail"
       },
       "type": "array"
     },
@@ -3273,6 +4180,36 @@
         }
       },
       "type": "object"
+    },
+    "NotificationDescription": {
+      "enum": [
+        "Send a push notification to all my devices",
+        "Send an email to an email address",
+        "Send an SMS to a phone number",
+        "Make a phone call to a phone number"
+      ],
+      "type": "string"
+    },
+    "NotificationObject": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/NotificationDescription"
+        },
+        "type": {
+          "$ref": "#/definitions/NotificationType"
+        }
+      },
+      "type": "object"
+    },
+    "NotificationType": {
+      "enum": [
+        "push",
+        "email",
+        "sms",
+        "phone"
+      ],
+      "example": "email",
+      "type": "string"
     },
     "OnCallAndOverrides": {
       "properties": {
@@ -3294,18 +4231,46 @@
       },
       "type": "object"
     },
+    "OnCallEntry": {
+      "properties": {
+        "onCallType": {
+          "$ref": "#/definitions/OnCallType"
+        },
+        "onCallUser": {
+          "$ref": "#/definitions/User"
+        },
+        "overrideOnCallUser": {
+          "$ref": "#/definitions/User"
+        },
+        "rolls": {
+          "items": {
+            "$ref": "#/definitions/OnCallRoll"
+          },
+          "type": "array"
+        },
+        "rotationName": {
+          "type": "string"
+        },
+        "shiftName": {
+          "type": "string"
+        },
+        "shiftRoll": {
+          "description": "The shift roll time (ISO 8601)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "onCallType",
+        "rolls"
+      ],
+      "type": "object"
+    },
     "OnCallEscalationPolicyResource": {
       "properties": {
-        "id": {
-          "description": "Team ID",
-          "type": "integer"
-        },
         "name": {
-          "description": "Team name",
           "type": "string"
         },
         "slug": {
-          "description": "Team slug",
           "type": "string"
         }
       },
@@ -3323,6 +4288,9 @@
             }
           },
           "type": "object"
+        },
+        "escalationPolicy": {
+          "$ref": "#/definitions/EscalationPolicy"
         },
         "off": {
           "type": "string"
@@ -3355,6 +4323,115 @@
       },
       "type": "object"
     },
+    "OnCallNowResource": {
+      "properties": {
+        "escalationPolicy": {
+          "$ref": "#/definitions/OnCallEscalationPolicyResource"
+        },
+        "users": {
+          "items": {
+            "$ref": "#/definitions/OnCallUsersResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "OnCallOverride": {
+      "properties": {
+        "end": {
+          "description": "The override end time (ISO 8601)",
+          "type": "string"
+        },
+        "origOnCallUser": {
+          "$ref": "#/definitions/User"
+        },
+        "overrideOnCallUser": {
+          "$ref": "#/definitions/User"
+        },
+        "start": {
+          "description": "The override start time (ISO 8601)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OnCallRoll": {
+      "properties": {
+        "end": {
+          "description": "The on-call period end time (ISO 8601)",
+          "type": "string"
+        },
+        "isRoll": {
+          "type": "boolean"
+        },
+        "onCallUser": {
+          "$ref": "#/definitions/User"
+        },
+        "start": {
+          "description": "The on-call period start time (ISO 8601)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "isRoll"
+      ],
+      "type": "object"
+    },
+    "OnCallTeamResource": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OnCallTeamsResource": {
+      "properties": {
+        "onCallNow": {
+          "items": {
+            "$ref": "#/definitions/OnCallNowResource"
+          },
+          "type": "array"
+        },
+        "team": {
+          "$ref": "#/definitions/OnCallTeamResource"
+        }
+      },
+      "type": "object"
+    },
+    "OnCallType": {
+      "enum": [
+        "user",
+        "rotation_group",
+        "rotation_group_next",
+        "rotation_group_previous",
+        "team",
+        "team_routing",
+        "webhook",
+        "email",
+        "policy_routing"
+      ],
+      "type": "string"
+    },
+    "OnCallUsersResource": {
+      "properties": {
+        "onCallUser": {
+          "properties": {
+            "username": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "PagingPolicy": {
       "description": "Paging policy fields",
       "properties": {
@@ -3373,6 +4450,48 @@
       },
       "type": "object"
     },
+    "PagingPolicyStep": {
+      "properties": {
+        "index": {
+          "type": "number"
+        },
+        "rules": {
+          "items": {
+            "$ref": "#/definitions/PagingPolicyStepRule"
+          },
+          "type": "array"
+        },
+        "timeout": {
+          "$ref": "#/definitions/TimeoutType"
+        }
+      },
+      "type": "object"
+    },
+    "PagingPolicyStepRule": {
+      "properties": {
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "index": {
+          "type": "number"
+        },
+        "type": {
+          "$ref": "#/definitions/NotificationType"
+        }
+      },
+      "type": "object"
+    },
+    "PagingPolicyStepRuleAdd": {
+      "properties": {
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "type": {
+          "$ref": "#/definitions/NotificationType"
+        }
+      },
+      "type": "object"
+    },
     "Policies": {
       "description": "Paging policies accociated which this user",
       "properties": {
@@ -3387,6 +4506,26 @@
         },
         "username": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PolicySchedule": {
+      "properties": {
+        "overrides": {
+          "items": {
+            "$ref": "#/definitions/OnCallOverride"
+          },
+          "type": "array"
+        },
+        "policy": {
+          "$ref": "#/definitions/EscalationPolicy"
+        },
+        "schedule": {
+          "items": {
+            "$ref": "#/definitions/OnCallEntry"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -3411,6 +4550,97 @@
       },
       "required": [
         "replacement"
+      ],
+      "type": "object"
+    },
+    "Reroute": {
+      "properties": {
+        "incidentNumber": {
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/IncidentTarget"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "incidentNumber",
+        "targets"
+      ],
+      "type": "object"
+    },
+    "RerouteCollection": {
+      "properties": {
+        "reroutes": {
+          "items": {
+            "$ref": "#/definitions/Reroute"
+          },
+          "type": "array"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "userName",
+        "reroutes"
+      ],
+      "type": "object"
+    },
+    "RerouteStatus": {
+      "properties": {
+        "incidentNumber": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "targetStatus": {
+          "items": {
+            "$ref": "#/definitions/RerouteTargetStatus"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "incidentNumber",
+        "success",
+        "targetStatus"
+      ],
+      "type": "object"
+    },
+    "RerouteStatusResponse": {
+      "properties": {
+        "statuses": {
+          "items": {
+            "$ref": "#/definitions/RerouteStatus"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RerouteTargetStatus": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "slug": {
+          "description": "User name or escalation policy slug",
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "slug",
+        "success"
       ],
       "type": "object"
     },
@@ -3470,6 +4700,61 @@
       },
       "type": "object"
     },
+    "Team": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TeamAndPolicies": {
+      "properties": {
+        "policies": {
+          "items": {
+            "$ref": "#/definitions/EscalationPolicy"
+          },
+          "type": "array"
+        },
+        "team": {
+          "$ref": "#/definitions/Team"
+        }
+      },
+      "type": "object"
+    },
+    "TeamDetail": {
+      "description": "Some info about the team",
+      "properties": {
+        "_membersUrl": {
+          "type": "string"
+        },
+        "_policiesUrl": {
+          "type": "string"
+        },
+        "_selfUrl": {
+          "type": "string"
+        },
+        "isDefaultTeam": {
+          "type": "boolean"
+        },
+        "memberCount": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "TeamMember": {
       "description": "Some info about the user",
       "properties": {
@@ -3488,6 +4773,20 @@
         },
         "version": {
           "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "TeamSchedule": {
+      "properties": {
+        "schedules": {
+          "items": {
+            "$ref": "#/definitions/PolicySchedule"
+          },
+          "type": "array"
+        },
+        "team": {
+          "$ref": "#/definitions/Team"
         }
       },
       "type": "object"
@@ -3573,6 +4872,53 @@
       ],
       "type": "object"
     },
+    "TimeoutDescription": {
+      "enum": [
+        "If still unacked after 1 minute",
+        "If still unacked after 5 minute",
+        "If still unacked after 10 minute",
+        "If still unacked after 15 minute",
+        "If still unacked after 20 minute",
+        "If still unacked after 25 minute",
+        "If still unacked after 30 minute",
+        "If still unacked after 45 minute",
+        "If still unacked after 60 minute"
+      ],
+      "type": "string"
+    },
+    "TimeoutObject": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/TimeoutDescription"
+        },
+        "type": {
+          "$ref": "#/definitions/TimeoutType"
+        }
+      },
+      "type": "object"
+    },
+    "TimeoutType": {
+      "enum": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        45,
+        60
+      ],
+      "type": "integer"
+    },
+    "User": {
+      "properties": {
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "UserContact": {
       "properties": {
         "_selfUrl": {
@@ -3622,6 +4968,23 @@
         },
         "userId": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserPagingPolicy": {
+      "items": {
+        "$ref": "#/definitions/PagingPolicyStep"
+      },
+      "type": "array"
+    },
+    "UserSchedule": {
+      "properties": {
+        "teamSchedules": {
+          "items": {
+            "$ref": "#/definitions/TeamSchedule"
+          },
+          "type": "array"
         }
       },
       "type": "object"

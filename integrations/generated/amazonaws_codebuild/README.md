@@ -101,6 +101,8 @@ amazonaws_codebuild.CreateProject({
 #### Input
 * input `object`
   * artifacts **required** [ProjectArtifacts](#projectartifacts)
+  * badgeEnabled [WrapperBoolean](#wrapperboolean)
+  * cache [ProjectCache](#projectcache)
   * description [ProjectDescription](#projectdescription)
   * encryptionKey [NonEmptyString](#nonemptystring)
   * environment **required** [ProjectEnvironment](#projectenvironment)
@@ -109,6 +111,7 @@ amazonaws_codebuild.CreateProject({
   * source **required** [ProjectSource](#projectsource)
   * tags [TagList](#taglist)
   * timeoutInMinutes [TimeOut](#timeout)
+  * vpcConfig [VpcConfig](#vpcconfig)
 
 #### Output
 * output [CreateProjectOutput](#createprojectoutput)
@@ -163,6 +166,23 @@ amazonaws_codebuild.DeleteWebhook({
 
 #### Output
 * output [DeleteWebhookOutput](#deletewebhookoutput)
+
+### InvalidateProjectCache
+
+
+
+```js
+amazonaws_codebuild.InvalidateProjectCache({
+  "projectName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectName **required** [NonEmptyString](#nonemptystring)
+
+#### Output
+* output [InvalidateProjectCacheOutput](#invalidateprojectcacheoutput)
 
 ### ListBuilds
 
@@ -245,6 +265,7 @@ amazonaws_codebuild.StartBuild({
   * artifactsOverride [ProjectArtifacts](#projectartifacts)
   * buildspecOverride [String](#string)
   * environmentVariablesOverride [EnvironmentVariables](#environmentvariables)
+  * gitCloneDepthOverride [GitCloneDepth](#gitclonedepth)
   * projectName **required** [NonEmptyString](#nonemptystring)
   * sourceVersion [String](#string)
   * timeoutInMinutesOverride [TimeOut](#timeout)
@@ -282,6 +303,8 @@ amazonaws_codebuild.UpdateProject({
 #### Input
 * input `object`
   * artifacts [ProjectArtifacts](#projectartifacts)
+  * badgeEnabled [WrapperBoolean](#wrapperboolean)
+  * cache [ProjectCache](#projectcache)
   * description [ProjectDescription](#projectdescription)
   * encryptionKey [NonEmptyString](#nonemptystring)
   * environment [ProjectEnvironment](#projectenvironment)
@@ -290,6 +313,7 @@ amazonaws_codebuild.UpdateProject({
   * source [ProjectSource](#projectsource)
   * tags [TagList](#taglist)
   * timeoutInMinutes [TimeOut](#timeout)
+  * vpcConfig [VpcConfig](#vpcconfig)
 
 #### Output
 * output [UpdateProjectOutput](#updateprojectoutput)
@@ -346,18 +370,21 @@ amazonaws_codebuild.UpdateProject({
   * artifacts [BuildArtifacts](#buildartifacts)
   * buildComplete [Boolean](#boolean)
   * buildStatus [StatusType](#statustype)
+  * cache [ProjectCache](#projectcache)
   * currentPhase [String](#string)
   * endTime [Timestamp](#timestamp)
   * environment [ProjectEnvironment](#projectenvironment)
   * id [NonEmptyString](#nonemptystring)
   * initiator [String](#string)
   * logs [LogsLocation](#logslocation)
+  * networkInterface [NetworkInterface](#networkinterface)
   * phases [BuildPhases](#buildphases)
   * projectName [NonEmptyString](#nonemptystring)
   * source [ProjectSource](#projectsource)
   * sourceVersion [NonEmptyString](#nonemptystring)
   * startTime [Timestamp](#timestamp)
   * timeoutInMinutes [WrapperInt](#wrapperint)
+  * vpcConfig [VpcConfig](#vpcconfig)
 
 ### BuildArtifacts
 * BuildArtifacts `object`: Information about build output artifacts.
@@ -398,12 +425,17 @@ amazonaws_codebuild.UpdateProject({
 * BuildsNotDeleted `array`
   * items [BuildNotDeleted](#buildnotdeleted)
 
+### CacheType
+* CacheType `string` (values: NO_CACHE, S3)
+
 ### ComputeType
 * ComputeType `string` (values: BUILD_GENERAL1_SMALL, BUILD_GENERAL1_MEDIUM, BUILD_GENERAL1_LARGE)
 
 ### CreateProjectInput
 * CreateProjectInput `object`
   * artifacts **required** [ProjectArtifacts](#projectartifacts)
+  * badgeEnabled [WrapperBoolean](#wrapperboolean)
+  * cache [ProjectCache](#projectcache)
   * description [ProjectDescription](#projectdescription)
   * encryptionKey [NonEmptyString](#nonemptystring)
   * environment **required** [ProjectEnvironment](#projectenvironment)
@@ -412,6 +444,7 @@ amazonaws_codebuild.UpdateProject({
   * source **required** [ProjectSource](#projectsource)
   * tags [TagList](#taglist)
   * timeoutInMinutes [TimeOut](#timeout)
+  * vpcConfig [VpcConfig](#vpcconfig)
 
 ### CreateProjectOutput
 * CreateProjectOutput `object`
@@ -443,6 +476,7 @@ amazonaws_codebuild.UpdateProject({
 * EnvironmentImage `object`: Information about a Docker image that is managed by AWS CodeBuild.
   * description [String](#string)
   * name [String](#string)
+  * versions [ImageVersions](#imageversions)
 
 ### EnvironmentImages
 * EnvironmentImages `array`
@@ -482,8 +516,22 @@ amazonaws_codebuild.UpdateProject({
 * EnvironmentVariables `array`
   * items [EnvironmentVariable](#environmentvariable)
 
+### GitCloneDepth
+* GitCloneDepth `integer`
+
+### ImageVersions
+* ImageVersions `array`
+  * items [String](#string)
+
 ### InvalidInputException
 * InvalidInputException `object`: The input value that was provided is not valid.
+
+### InvalidateProjectCacheInput
+* InvalidateProjectCacheInput `object`
+  * projectName **required** [NonEmptyString](#nonemptystring)
+
+### InvalidateProjectCacheOutput
+* InvalidateProjectCacheOutput `object`
 
 ### KeyInput
 * KeyInput `string`
@@ -536,6 +584,11 @@ amazonaws_codebuild.UpdateProject({
   * groupName [String](#string)
   * streamName [String](#string)
 
+### NetworkInterface
+* NetworkInterface `object`: Describes a network interface.
+  * networkInterfaceId [NonEmptyString](#nonemptystring)
+  * subnetId [NonEmptyString](#nonemptystring)
+
 ### NonEmptyString
 * NonEmptyString `string`
 
@@ -558,6 +611,8 @@ amazonaws_codebuild.UpdateProject({
 * Project `object`: Information about a build project.
   * arn [String](#string)
   * artifacts [ProjectArtifacts](#projectartifacts)
+  * badge [ProjectBadge](#projectbadge)
+  * cache [ProjectCache](#projectcache)
   * created [Timestamp](#timestamp)
   * description [ProjectDescription](#projectdescription)
   * encryptionKey [NonEmptyString](#nonemptystring)
@@ -568,6 +623,7 @@ amazonaws_codebuild.UpdateProject({
   * source [ProjectSource](#projectsource)
   * tags [TagList](#taglist)
   * timeoutInMinutes [TimeOut](#timeout)
+  * vpcConfig [VpcConfig](#vpcconfig)
   * webhook [Webhook](#webhook)
 
 ### ProjectArtifacts
@@ -579,11 +635,22 @@ amazonaws_codebuild.UpdateProject({
   * path [String](#string)
   * type **required** [ArtifactsType](#artifactstype)
 
+### ProjectBadge
+* ProjectBadge `object`: Information about the build badge for the build project.
+  * badgeEnabled [Boolean](#boolean)
+  * badgeRequestUrl [String](#string)
+
+### ProjectCache
+* ProjectCache `object`: Information about the cache for the build project.
+  * location [String](#string)
+  * type **required** [CacheType](#cachetype)
+
 ### ProjectDescription
 * ProjectDescription `string`
 
 ### ProjectEnvironment
 * ProjectEnvironment `object`: Information about the build environment of the build project.
+  * certificate [String](#string)
   * computeType **required** [ComputeType](#computetype)
   * environmentVariables [EnvironmentVariables](#environmentvariables)
   * image **required** [NonEmptyString](#nonemptystring)
@@ -604,6 +671,8 @@ amazonaws_codebuild.UpdateProject({
 * ProjectSource `object`: Information about the build input source code for the build project.
   * auth [SourceAuth](#sourceauth)
   * buildspec [String](#string)
+  * gitCloneDepth [GitCloneDepth](#gitclonedepth)
+  * insecureSsl [WrapperBoolean](#wrapperboolean)
   * location [String](#string)
   * type **required** [SourceType](#sourcetype)
 
@@ -617,6 +686,10 @@ amazonaws_codebuild.UpdateProject({
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: The specified AWS resource cannot be found.
 
+### SecurityGroupIds
+* SecurityGroupIds `array`
+  * items [NonEmptyString](#nonemptystring)
+
 ### SortOrderType
 * SortOrderType `string` (values: ASCENDING, DESCENDING)
 
@@ -629,13 +702,14 @@ amazonaws_codebuild.UpdateProject({
 * SourceAuthType `string` (values: OAUTH)
 
 ### SourceType
-* SourceType `string` (values: CODECOMMIT, CODEPIPELINE, GITHUB, S3, BITBUCKET)
+* SourceType `string` (values: CODECOMMIT, CODEPIPELINE, GITHUB, S3, BITBUCKET, GITHUB_ENTERPRISE)
 
 ### StartBuildInput
 * StartBuildInput `object`
   * artifactsOverride [ProjectArtifacts](#projectartifacts)
   * buildspecOverride [String](#string)
   * environmentVariablesOverride [EnvironmentVariables](#environmentvariables)
+  * gitCloneDepthOverride [GitCloneDepth](#gitclonedepth)
   * projectName **required** [NonEmptyString](#nonemptystring)
   * sourceVersion [String](#string)
   * timeoutInMinutesOverride [TimeOut](#timeout)
@@ -658,6 +732,10 @@ amazonaws_codebuild.UpdateProject({
 ### String
 * String `string`
 
+### Subnets
+* Subnets `array`
+  * items [NonEmptyString](#nonemptystring)
+
 ### Tag
 * Tag `object`: <p>A tag, consisting of a key and a value.</p> <p>This tag is available for use by AWS services that support tags in AWS CodeBuild.</p>
   * key [KeyInput](#keyinput)
@@ -676,6 +754,8 @@ amazonaws_codebuild.UpdateProject({
 ### UpdateProjectInput
 * UpdateProjectInput `object`
   * artifacts [ProjectArtifacts](#projectartifacts)
+  * badgeEnabled [WrapperBoolean](#wrapperboolean)
+  * cache [ProjectCache](#projectcache)
   * description [ProjectDescription](#projectdescription)
   * encryptionKey [NonEmptyString](#nonemptystring)
   * environment [ProjectEnvironment](#projectenvironment)
@@ -684,6 +764,7 @@ amazonaws_codebuild.UpdateProject({
   * source [ProjectSource](#projectsource)
   * tags [TagList](#taglist)
   * timeoutInMinutes [TimeOut](#timeout)
+  * vpcConfig [VpcConfig](#vpcconfig)
 
 ### UpdateProjectOutput
 * UpdateProjectOutput `object`
@@ -692,8 +773,16 @@ amazonaws_codebuild.UpdateProject({
 ### ValueInput
 * ValueInput `string`
 
+### VpcConfig
+* VpcConfig `object`: Information about the VPC configuration that AWS CodeBuild will access.
+  * securityGroupIds [SecurityGroupIds](#securitygroupids)
+  * subnets [Subnets](#subnets)
+  * vpcId [NonEmptyString](#nonemptystring)
+
 ### Webhook
 * Webhook `object`: Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+  * payloadUrl [NonEmptyString](#nonemptystring)
+  * secret [NonEmptyString](#nonemptystring)
   * url [NonEmptyString](#nonemptystring)
 
 ### WrapperBoolean

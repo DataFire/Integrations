@@ -70,12 +70,14 @@ amazonaws_codedeploy.BatchGetApplicationRevisions({
 
 
 ```js
-amazonaws_codedeploy.BatchGetApplications({}, context)
+amazonaws_codedeploy.BatchGetApplications({
+  "applicationNames": []
+}, context)
 ```
 
 #### Input
 * input `object`
-  * applicationNames [ApplicationsList](#applicationslist)
+  * applicationNames **required** [ApplicationsList](#applicationslist)
 
 #### Output
 * output [BatchGetApplicationsOutput](#batchgetapplicationsoutput)
@@ -123,12 +125,14 @@ amazonaws_codedeploy.BatchGetDeploymentInstances({
 
 
 ```js
-amazonaws_codedeploy.BatchGetDeployments({}, context)
+amazonaws_codedeploy.BatchGetDeployments({
+  "deploymentIds": []
+}, context)
 ```
 
 #### Input
 * input `object`
-  * deploymentIds [DeploymentsList](#deploymentslist)
+  * deploymentIds **required** [DeploymentsList](#deploymentslist)
 
 #### Output
 * output [BatchGetDeploymentsOutput](#batchgetdeploymentsoutput)
@@ -138,12 +142,14 @@ amazonaws_codedeploy.BatchGetDeployments({}, context)
 
 
 ```js
-amazonaws_codedeploy.BatchGetOnPremisesInstances({}, context)
+amazonaws_codedeploy.BatchGetOnPremisesInstances({
+  "instanceNames": []
+}, context)
 ```
 
 #### Input
 * input `object`
-  * instanceNames [InstanceNameList](#instancenamelist)
+  * instanceNames **required** [InstanceNameList](#instancenamelist)
 
 #### Output
 * output [BatchGetOnPremisesInstancesOutput](#batchgetonpremisesinstancesoutput)
@@ -176,6 +182,7 @@ amazonaws_codedeploy.CreateApplication({
 #### Input
 * input `object`
   * applicationName **required** [ApplicationName](#applicationname)
+  * computePlatform [ComputePlatform](#computeplatform)
 
 #### Output
 * output [CreateApplicationOutput](#createapplicationoutput)
@@ -212,15 +219,16 @@ amazonaws_codedeploy.CreateDeployment({
 
 ```js
 amazonaws_codedeploy.CreateDeploymentConfig({
-  "deploymentConfigName": "",
-  "minimumHealthyHosts": {}
+  "deploymentConfigName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * computePlatform [ComputePlatform](#computeplatform)
   * deploymentConfigName **required** [DeploymentConfigName](#deploymentconfigname)
-  * minimumHealthyHosts **required** [MinimumHealthyHosts](#minimumhealthyhosts)
+  * minimumHealthyHosts [MinimumHealthyHosts](#minimumhealthyhosts)
+  * trafficRoutingConfig [TrafficRoutingConfig](#trafficroutingconfig)
 
 #### Output
 * output [CreateDeploymentConfigOutput](#createdeploymentconfigoutput)
@@ -310,6 +318,21 @@ amazonaws_codedeploy.DeleteDeploymentGroup({
 
 #### Output
 * output [DeleteDeploymentGroupOutput](#deletedeploymentgroupoutput)
+
+### DeleteGitHubAccountToken
+
+
+
+```js
+amazonaws_codedeploy.DeleteGitHubAccountToken({}, context)
+```
+
+#### Input
+* input `object`
+  * tokenName [GitHubAccountTokenName](#githubaccounttokenname)
+
+#### Output
+* output [DeleteGitHubAccountTokenOutput](#deletegithubaccounttokenoutput)
 
 ### DeregisterOnPremisesInstance
 
@@ -601,6 +624,23 @@ amazonaws_codedeploy.ListOnPremisesInstances({}, context)
 #### Output
 * output [ListOnPremisesInstancesOutput](#listonpremisesinstancesoutput)
 
+### PutLifecycleEventHookExecutionStatus
+
+
+
+```js
+amazonaws_codedeploy.PutLifecycleEventHookExecutionStatus({}, context)
+```
+
+#### Input
+* input `object`
+  * deploymentId [DeploymentId](#deploymentid)
+  * lifecycleEventHookExecutionId [LifecycleEventHookExecutionId](#lifecycleeventhookexecutionid)
+  * status [LifecycleEventStatus](#lifecycleeventstatus)
+
+#### Output
+* output [PutLifecycleEventHookExecutionStatusOutput](#putlifecycleeventhookexecutionstatusoutput)
+
 ### RegisterApplicationRevision
 
 
@@ -786,6 +826,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 * ApplicationInfo `object`: Information about an application.
   * applicationId [ApplicationId](#applicationid)
   * applicationName [ApplicationName](#applicationname)
+  * computePlatform [ComputePlatform](#computeplatform)
   * createTime [Timestamp](#timestamp)
   * gitHubAccountName [GitHubAccountTokenName](#githubaccounttokenname)
   * linkedToGitHub [Boolean](#boolean)
@@ -854,7 +895,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### BatchGetApplicationsInput
 * BatchGetApplicationsInput `object`: Represents the input of a BatchGetApplications operation.
-  * applicationNames [ApplicationsList](#applicationslist)
+  * applicationNames **required** [ApplicationsList](#applicationslist)
 
 ### BatchGetApplicationsOutput
 * BatchGetApplicationsOutput `object`: Represents the output of a BatchGetApplications operation.
@@ -882,7 +923,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### BatchGetDeploymentsInput
 * BatchGetDeploymentsInput `object`: Represents the input of a BatchGetDeployments operation.
-  * deploymentIds [DeploymentsList](#deploymentslist)
+  * deploymentIds **required** [DeploymentsList](#deploymentslist)
 
 ### BatchGetDeploymentsOutput
 * BatchGetDeploymentsOutput `object`: Represents the output of a BatchGetDeployments operation.
@@ -890,7 +931,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### BatchGetOnPremisesInstancesInput
 * BatchGetOnPremisesInstancesInput `object`: Represents the input of a BatchGetOnPremisesInstances operation.
-  * instanceNames [InstanceNameList](#instancenamelist)
+  * instanceNames **required** [InstanceNameList](#instancenamelist)
 
 ### BatchGetOnPremisesInstancesOutput
 * BatchGetOnPremisesInstancesOutput `object`: Represents the output of a BatchGetOnPremisesInstances operation.
@@ -917,10 +958,13 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 * BucketNameFilterRequiredException `object`: A bucket name is required, but was not provided.
 
 ### BundleType
-* BundleType `string` (values: tar, tgz, zip)
+* BundleType `string` (values: tar, tgz, zip, YAML, JSON)
 
 ### CommitId
 * CommitId `string`
+
+### ComputePlatform
+* ComputePlatform `string` (values: Server, Lambda)
 
 ### ContinueDeploymentInput
 * ContinueDeploymentInput `object`
@@ -929,6 +973,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### CreateApplicationInput
 * CreateApplicationInput `object`: Represents the input of a CreateApplication operation.
   * applicationName **required** [ApplicationName](#applicationname)
+  * computePlatform [ComputePlatform](#computeplatform)
 
 ### CreateApplicationOutput
 * CreateApplicationOutput `object`: Represents the output of a CreateApplication operation.
@@ -936,8 +981,10 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### CreateDeploymentConfigInput
 * CreateDeploymentConfigInput `object`: Represents the input of a CreateDeploymentConfig operation.
+  * computePlatform [ComputePlatform](#computeplatform)
   * deploymentConfigName **required** [DeploymentConfigName](#deploymentconfigname)
-  * minimumHealthyHosts **required** [MinimumHealthyHosts](#minimumhealthyhosts)
+  * minimumHealthyHosts [MinimumHealthyHosts](#minimumhealthyhosts)
+  * trafficRoutingConfig [TrafficRoutingConfig](#trafficroutingconfig)
 
 ### CreateDeploymentConfigOutput
 * CreateDeploymentConfigOutput `object`: Represents the output of a CreateDeploymentConfig operation.
@@ -999,6 +1046,14 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 * DeleteDeploymentGroupOutput `object`: Represents the output of a DeleteDeploymentGroup operation.
   * hooksNotCleanedUp [AutoScalingGroupList](#autoscalinggrouplist)
 
+### DeleteGitHubAccountTokenInput
+* DeleteGitHubAccountTokenInput `object`: Represents the input of a DeleteGitHubAccount operation.
+  * tokenName [GitHubAccountTokenName](#githubaccounttokenname)
+
+### DeleteGitHubAccountTokenOutput
+* DeleteGitHubAccountTokenOutput `object`: Represents the output of a DeleteGitHubAccountToken operation.
+  * tokenName [GitHubAccountTokenName](#githubaccounttokenname)
+
 ### DeploymentAlreadyCompletedException
 * DeploymentAlreadyCompletedException `object`: The deployment is already complete.
 
@@ -1016,10 +1071,12 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### DeploymentConfigInfo
 * DeploymentConfigInfo `object`: Information about a deployment configuration.
+  * computePlatform [ComputePlatform](#computeplatform)
   * createTime [Timestamp](#timestamp)
   * deploymentConfigId [DeploymentConfigId](#deploymentconfigid)
   * deploymentConfigName [DeploymentConfigName](#deploymentconfigname)
   * minimumHealthyHosts [MinimumHealthyHosts](#minimumhealthyhosts)
+  * trafficRoutingConfig [TrafficRoutingConfig](#trafficroutingconfig)
 
 ### DeploymentConfigLimitExceededException
 * DeploymentConfigLimitExceededException `object`: The deployment configurations limit was exceeded.
@@ -1056,6 +1113,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
   * autoRollbackConfiguration [AutoRollbackConfiguration](#autorollbackconfiguration)
   * autoScalingGroups [AutoScalingGroupList](#autoscalinggrouplist)
   * blueGreenDeploymentConfiguration [BlueGreenDeploymentConfiguration](#bluegreendeploymentconfiguration)
+  * computePlatform [ComputePlatform](#computeplatform)
   * deploymentConfigName [DeploymentConfigName](#deploymentconfigname)
   * deploymentGroupId [DeploymentGroupId](#deploymentgroupid)
   * deploymentGroupName [DeploymentGroupName](#deploymentgroupname)
@@ -1101,12 +1159,14 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
   * autoRollbackConfiguration [AutoRollbackConfiguration](#autorollbackconfiguration)
   * blueGreenDeploymentConfiguration [BlueGreenDeploymentConfiguration](#bluegreendeploymentconfiguration)
   * completeTime [Timestamp](#timestamp)
+  * computePlatform [ComputePlatform](#computeplatform)
   * createTime [Timestamp](#timestamp)
   * creator [DeploymentCreator](#deploymentcreator)
   * deploymentConfigName [DeploymentConfigName](#deploymentconfigname)
   * deploymentGroupName [DeploymentGroupName](#deploymentgroupname)
   * deploymentId [DeploymentId](#deploymentid)
   * deploymentOverview [DeploymentOverview](#deploymentoverview)
+  * deploymentStatusMessages [DeploymentStatusMessageList](#deploymentstatusmessagelist)
   * deploymentStyle [DeploymentStyle](#deploymentstyle)
   * description [Description](#description)
   * errorInformation [ErrorInformation](#errorinformation)
@@ -1157,6 +1217,10 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### DeploymentStatusList
 * DeploymentStatusList `array`
   * items [DeploymentStatus](#deploymentstatus)
+
+### DeploymentStatusMessageList
+* DeploymentStatusMessageList `array`
+  * items [ErrorMessage](#errormessage)
 
 ### DeploymentStyle
 * DeploymentStyle `object`: Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
@@ -1230,7 +1294,7 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 * ETag `string`
 
 ### ErrorCode
-* ErrorCode `string` (values: DEPLOYMENT_GROUP_MISSING, APPLICATION_MISSING, REVISION_MISSING, IAM_ROLE_MISSING, IAM_ROLE_PERMISSIONS, NO_EC2_SUBSCRIPTION, OVER_MAX_INSTANCES, NO_INSTANCES, TIMEOUT, HEALTH_CONSTRAINTS_INVALID, HEALTH_CONSTRAINTS, INTERNAL_ERROR, THROTTLED, ALARM_ACTIVE, AGENT_ISSUE, AUTO_SCALING_IAM_ROLE_PERMISSIONS, AUTO_SCALING_CONFIGURATION, MANUAL_STOP)
+* ErrorCode `string` (values: DEPLOYMENT_GROUP_MISSING, APPLICATION_MISSING, REVISION_MISSING, IAM_ROLE_MISSING, IAM_ROLE_PERMISSIONS, NO_EC2_SUBSCRIPTION, OVER_MAX_INSTANCES, NO_INSTANCES, TIMEOUT, HEALTH_CONSTRAINTS_INVALID, HEALTH_CONSTRAINTS, INTERNAL_ERROR, THROTTLED, ALARM_ACTIVE, AGENT_ISSUE, AUTO_SCALING_IAM_ROLE_PERMISSIONS, AUTO_SCALING_CONFIGURATION, MANUAL_STOP, MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION, MISSING_ELB_INFORMATION, MISSING_GITHUB_TOKEN, ELASTIC_LOAD_BALANCING_INVALID, ELB_INVALID_INSTANCE, INVALID_LAMBDA_CONFIGURATION, INVALID_LAMBDA_FUNCTION, HOOK_EXECUTION_FAILURE)
 
 ### ErrorInformation
 * ErrorInformation `object`: Information about a deployment error.
@@ -1321,6 +1385,9 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### GitHubAccountTokenNameList
 * GitHubAccountTokenNameList `array`
   * items [GitHubAccountTokenName](#githubaccounttokenname)
+
+### GitHubAccountTokenNameRequiredException
+* GitHubAccountTokenNameRequiredException `object`: The call is missing a required GitHub account connection name.
 
 ### GitHubLocation
 * GitHubLocation `object`: Information about the location of application artifacts stored in GitHub.
@@ -1452,6 +1519,9 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### InvalidBucketNameFilterException
 * InvalidBucketNameFilterException `object`: The bucket name either doesn't exist or was specified in an invalid format.
 
+### InvalidComputePlatformException
+* InvalidComputePlatformException `object`: The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or <code>Server</code>.
+
 ### InvalidDeployedStateFilterException
 * InvalidDeployedStateFilterException `object`: The deployed state filter was specified in an invalid format.
 
@@ -1482,11 +1552,23 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### InvalidFileExistsBehaviorException
 * InvalidFileExistsBehaviorException `object`: An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or directories that already exist in a deployment target location but weren't part of the previous successful deployment. Valid values include "DISALLOW", "OVERWRITE", and "RETAIN".
 
+### InvalidGitHubAccountTokenNameException
+* InvalidGitHubAccountTokenNameException `object`: The format of the specified GitHub account connection name is invalid.
+
 ### InvalidIamSessionArnException
 * InvalidIamSessionArnException `object`: The IAM session ARN was specified in an invalid format.
 
 ### InvalidIamUserArnException
 * InvalidIamUserArnException `object`: The IAM user ARN was specified in an invalid format.
+
+### InvalidIgnoreApplicationStopFailuresValueException
+* InvalidIgnoreApplicationStopFailuresValueException `object`: The IgnoreApplicationStopFailures value is invalid. For AWS Lambda deployments, <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code> is expected.
+
+### InvalidInputException
+* InvalidInputException `object`: The specified input was specified in an invalid format.
+
+### InvalidInstanceIdException
+* InvalidInstanceIdException `object`:  
 
 ### InvalidInstanceNameException
 * InvalidInstanceNameException `object`: The specified on-premises instance name was specified in an invalid format.
@@ -1499,6 +1581,12 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### InvalidKeyPrefixFilterException
 * InvalidKeyPrefixFilterException `object`: The specified key prefix filter was specified in an invalid format.
+
+### InvalidLifecycleEventHookExecutionIdException
+* InvalidLifecycleEventHookExecutionIdException `object`: A lifecycle event hook is invalid. Review the <code>hooks</code> section in your AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are valid.
+
+### InvalidLifecycleEventHookExecutionStatusException
+* InvalidLifecycleEventHookExecutionStatusException `object`: The result of a Lambda validation function that verifies a lifecycle event is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.
 
 ### InvalidLoadBalancerInfoException
 * InvalidLoadBalancerInfoException `object`: An invalid load balancer name, or no load balancer name, was specified.
@@ -1542,8 +1630,14 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 ### InvalidTimeRangeException
 * InvalidTimeRangeException `object`: The specified time range was specified in an invalid format.
 
+### InvalidTrafficRoutingConfigurationException
+* InvalidTrafficRoutingConfigurationException `object`:  The configuration that specifies how traffic is routed during a deployment is invalid.
+
 ### InvalidTriggerConfigException
 * InvalidTriggerConfigException `object`: The trigger was specified in an invalid format.
+
+### InvalidUpdateOutdatedInstancesOnlyValueException
+* InvalidUpdateOutdatedInstancesOnlyValueException `object`: The UpdateOutdatedInstancesOnly value is invalid. For AWS Lambda deployments, <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code> is expected.
 
 ### Key
 * Key `string`
@@ -1565,6 +1659,12 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
   * lifecycleEventName [LifecycleEventName](#lifecycleeventname)
   * startTime [Timestamp](#timestamp)
   * status [LifecycleEventStatus](#lifecycleeventstatus)
+
+### LifecycleEventAlreadyCompletedException
+* LifecycleEventAlreadyCompletedException `object`: An attempt to return the status of an already completed lifecycle event occurred.
+
+### LifecycleEventHookExecutionId
+* LifecycleEventHookExecutionId `string`
 
 ### LifecycleEventList
 * LifecycleEventList `array`
@@ -1713,6 +1813,33 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 * OnPremisesTagSetList `array`
   * items [TagFilterList](#tagfilterlist)
 
+### OperationNotSupportedException
+* OperationNotSupportedException `object`: The API used does not support the deployment.
+
+### Percentage
+* Percentage `integer`
+
+### PutLifecycleEventHookExecutionStatusInput
+* PutLifecycleEventHookExecutionStatusInput `object`
+  * deploymentId [DeploymentId](#deploymentid)
+  * lifecycleEventHookExecutionId [LifecycleEventHookExecutionId](#lifecycleeventhookexecutionid)
+  * status [LifecycleEventStatus](#lifecycleeventstatus)
+
+### PutLifecycleEventHookExecutionStatusOutput
+* PutLifecycleEventHookExecutionStatusOutput `object`
+  * lifecycleEventHookExecutionId [LifecycleEventHookExecutionId](#lifecycleeventhookexecutionid)
+
+### RawString
+* RawString `object`: A revision for an AWS Lambda deployment that is a YAML-formatted or JSON-formatted string. For AWS Lambda deployments, the revision is the same as the AppSpec file.
+  * content [RawStringContent](#rawstringcontent)
+  * sha256 [RawStringSha256](#rawstringsha256)
+
+### RawStringContent
+* RawStringContent `string`
+
+### RawStringSha256
+* RawStringSha256 `string`
+
 ### RegisterApplicationRevisionInput
 * RegisterApplicationRevisionInput `object`: Represents the input of a RegisterApplicationRevision operation.
   * applicationName **required** [ApplicationName](#applicationname)
@@ -1756,13 +1883,14 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
   * gitHubLocation [GitHubLocation](#githublocation)
   * revisionType [RevisionLocationType](#revisionlocationtype)
   * s3Location [S3Location](#s3location)
+  * string [RawString](#rawstring)
 
 ### RevisionLocationList
 * RevisionLocationList `array`
   * items [RevisionLocation](#revisionlocation)
 
 ### RevisionLocationType
-* RevisionLocationType `string` (values: S3, GitHub)
+* RevisionLocationType `string` (values: S3, GitHub, String)
 
 ### RevisionRequiredException
 * RevisionRequiredException `object`: The revision ID was not specified.
@@ -1864,6 +1992,19 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
   * ec2TagSet [EC2TagSet](#ec2tagset)
   * tagFilters [EC2TagFilterList](#ec2tagfilterlist)
 
+### ThrottlingException
+* ThrottlingException `object`: An API function was called too frequently.
+
+### TimeBasedCanary
+* TimeBasedCanary `object`: A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+  * canaryInterval [WaitTimeInMins](#waittimeinmins)
+  * canaryPercentage [Percentage](#percentage)
+
+### TimeBasedLinear
+* TimeBasedLinear `object`: A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+  * linearInterval [WaitTimeInMins](#waittimeinmins)
+  * linearPercentage [Percentage](#percentage)
+
 ### TimeRange
 * TimeRange `object`: Information about a time range.
   * end [Timestamp](#timestamp)
@@ -1871,6 +2012,15 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### Timestamp
 * Timestamp `string`
+
+### TrafficRoutingConfig
+* TrafficRoutingConfig `object`: The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an AWS Lambda deployment.
+  * timeBasedCanary [TimeBasedCanary](#timebasedcanary)
+  * timeBasedLinear [TimeBasedLinear](#timebasedlinear)
+  * type [TrafficRoutingType](#trafficroutingtype)
+
+### TrafficRoutingType
+* TrafficRoutingType `string` (values: TimeBasedCanary, TimeBasedLinear, AllAtOnce)
 
 ### TriggerConfig
 * TriggerConfig `object`: Information about notification triggers for the deployment group.
@@ -1934,5 +2084,8 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 
 ### VersionId
 * VersionId `string`
+
+### WaitTimeInMins
+* WaitTimeInMins `integer`
 
 

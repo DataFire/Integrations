@@ -1,6 +1,6 @@
 {
   "name": "@datafire/hacker_news",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Hacker News",
   "repository": {

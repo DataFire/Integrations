@@ -298,6 +298,131 @@ payrun.PutEmployeeIntoEmployer({
 #### Output
 * output [Employee](#employee)
 
+### DeleteAEAssessment
+Deletes an existing auto enrolment assessment for the employee. Used to remove historical assessments
+
+
+```js
+payrun.DeleteAEAssessment({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "AEAssessmentId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * AEAssessmentId **required** `string`: The auto enrolment assessment unique identifier. E.g. AE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetAEAssessmentFromEmployee
+Gets the auto enrolment assessment from the specified employee
+
+
+```js
+payrun.GetAEAssessmentFromEmployee({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "AEAssessmentId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * AEAssessmentId **required** `string`: The auto enrolment assessment unique identifier. E.g. AE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [AEAssessment](#aeassessment)
+
+### PutNewAEAssessment
+Creates a new auto enrolment assessment for the employee. Used to insert historical assessments
+
+
+```js
+payrun.PutNewAEAssessment({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "AEAssessmentId": "",
+  "AEAssessment": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * AEAssessmentId **required** `string`: The auto enrolment assessment unique identifier. E.g. AE001
+  * AEAssessment **required** [AEAssessment](#aeassessment)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [AEAssessment](#aeassessment)
+
+### GetAEAssessmentsFromEmployee
+Gets all auto enrolment assessments from the specified employee
+
+
+```js
+payrun.GetAEAssessmentsFromEmployee({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostNewAEAssessment
+Creates a new auto enrolment assessment for the employee. Used to insert historical assessments
+
+
+```js
+payrun.PostNewAEAssessment({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "AEAssessment": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * AEAssessment **required** [AEAssessment](#aeassessment)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
 ### GetCommentariesFromEmployee
 Get links to all commentaries for the specified employee.
 
@@ -1494,6 +1619,31 @@ payrun.GetPayRunFromPaySchedule({
 #### Output
 * output [PayRun](#payrun)
 
+### GetAEAssessmentsFromPayRun
+Gets all auto enrolment assessments from the specified pay run
+
+
+```js
+payrun.GetAEAssessmentsFromPayRun({
+  "EmployerId": "",
+  "PayScheduleId": "",
+  "PayRunId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
 ### DeletePayRunEmployee
 Delete pay run results for a single employee
 
@@ -2645,6 +2795,25 @@ payrun.GetHealthCheck(null, context)
 #### Output
 * output [HealthCheck](#healthcheck)
 
+### GetDpsJobs
+Gets all the DPS jobs
+
+
+```js
+payrun.GetDpsJobs({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
 ### PostNewDpsJob
 Creates the new DPS job to the queue and returns the job info
 
@@ -2750,6 +2919,25 @@ payrun.GetDpsJobStatus({
 #### Output
 *Output schema unknown*
 
+### GetPayRunJobs
+Gets all the pay run jobs
+
+
+```js
+payrun.GetPayRunJobs({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
 ### PostNewPayRunJob
 Creates the new pay run job to the queue and returns the job info
 
@@ -2854,6 +3042,25 @@ payrun.GetPayRunJobStatus({
 
 #### Output
 *Output schema unknown*
+
+### GetRtiJobs
+Gets all the RTI jobs
+
+
+```js
+payrun.GetRtiJobs({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### PostNewRtiJob
 Creates the new RTI job to the queue and returns the job info
@@ -3051,7 +3258,7 @@ payrun.GetGrossToNetReportOutput({
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * TaxPeriod `string`: The tax period number.
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -3077,7 +3284,7 @@ payrun.GetNetPayReportOutput({
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * TaxPeriod `string`: The tax period number.
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -3103,7 +3310,7 @@ payrun.GetP11SummaryReportOutput({
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * TaxPeriod `string`: The tax period number.
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -3127,7 +3334,7 @@ payrun.GetP32NetReportOutput({
 #### Input
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -3150,7 +3357,7 @@ payrun.GetP32SummaryNetReportOutput({
 #### Input
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -3174,6 +3381,7 @@ payrun.GetP45ReportOutput({
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * EmployeeKey **required** `string`: The employee unique key. E.g. EE001
+  * TransformDefinitionKey `string`: The transform definition unique key. E.g. P45-Pdf
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -3196,8 +3404,9 @@ payrun.GetP60ReportOutput({
 #### Input
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * EmployeeCodes `string`: A comma separated list of the employee codes. E.g. EMP001,EMP002
+  * TransformDefinitionKey `string`: The transform definition unique key. E.g. P45-Pdf
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -3220,9 +3429,34 @@ payrun.GetPayslipReportOutput({
 #### Input
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
-  * TaxYear **required** `string`: The tax year. E.g. 2016 = 2016/17 year.
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
   * TaxPeriod `string`: The tax period number.
   * EmployeeCodes `string`: A comma separated list of the employee codes. E.g. EMP001,EMP002
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
+
+### GetPensionLiabilityReportOutput
+Returns the result of the executed pension liability report for the given query parameters
+
+
+```js
+payrun.GetPensionLiabilityReportOutput({
+  "EmployerKey": "",
+  "TaxYear": "",
+  "PensionKey": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
+  * PensionKey **required** `string`: The pension scheme unique key. E.g. PENSCH001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -5312,9 +5546,127 @@ payrun.GetTaxYtdPayInstructionTemplate({
 #### Output
 * output `file`
 
+### DeleteTransformDefinition
+Delete the specified transform definition
+
+
+```js
+payrun.DeleteTransformDefinition({
+  "TransformDefinitionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformDefinitionId **required** `string`: The transform definition unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTransformDefinitionFromApplication
+Returns the specified transform definition from the authroised application
+
+
+```js
+payrun.GetTransformDefinitionFromApplication({
+  "TransformDefinitionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformDefinitionId **required** `string`: The transform definition unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [TransformDefinition](#transformdefinition)
+
+### PutTransformDefinition
+Updates the existing specified transform definition object
+
+
+```js
+payrun.PutTransformDefinition({
+  "TransformDefinitionId": "",
+  "TransformDefinition": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformDefinitionId **required** `string`: The transform definition unique identifier.
+  * TransformDefinition **required** [TransformDefinition](#transformdefinition)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [TransformDefinition](#transformdefinition)
+
+### GetTransformDefinitionsFromApplication
+Get links to all saved transform definitions under authorised application
+
+
+```js
+payrun.GetTransformDefinitionsFromApplication({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostTransformDefinition
+Creates a new transform defintion object
+
+
+```js
+payrun.PostTransformDefinition({
+  "TransformDefinition": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformDefinition **required** [TransformDefinition](#transformdefinition)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
 
 
 ## Definitions
+
+### AEAssessment
+* AEAssessment `object`
+  * AEAssessment `object`
+    * Age `integer`: The a e assessment's age
+    * AssessmentCode `string` (values: Excluded, EligibleJobHolder, NonEligibleJobHolder, EntitledWorker): The a e assessment's assessment code
+    * AssessmentDate `string`: The a e assessment's assessment date
+    * AssessmentEvent `string` (values: NonEnrolmentEvent, AutomaticEnrolment, OptIn, VoluntaryJoiner, ContractualEnrolment): The a e assessment's assessment event
+    * AssessmentOverride `string` (values: None, OptOut, OptIn, VoluntaryJoiner, ContractualPension, CeasedMembership, Leaver, Excluded): The a e assessment's assessment override
+    * AssessmentResult `string` (values: Inconclusive, NoChange, Enrol, Exit): The a e assessment's assessment result
+    * QualifyingEarnings `number`: The a e assessment's qualifying earnings
+    * StatePensionAge `integer`: The a e assessment's state pension age
+    * StatePensionDate `string`: The a e assessment's state pension date
 
 ### Commentary
 * Commentary `object`
@@ -5359,6 +5711,9 @@ payrun.GetTaxYtdPayInstructionTemplate({
 ### Employee
 * Employee `object`
   * Employee `object`
+    * AEAssessmentOverride `string` (values: None, OptOut, OptIn, VoluntaryJoiner, ContractualPension, CeasedMembership, Leaver, Excluded): The employee's a e assessment override
+    * AEAssessmentOverrideDate `string`: The employee's a e assessment override date
+    * AEPostponementDate `string`: The employee's a e postponement date
     * Address `object`: The employee's address
       * Address1 `string`: The address's line 1
       * Address2 `string`: The address's line 2
@@ -5406,7 +5761,7 @@ payrun.GetTaxYtdPayInstructionTemplate({
     * PaymentToANonIndividual `boolean`: The employee's payment to a non individual
     * Region `string` (values: NotSet, England, Scotland): The employee's region
     * Revision `integer`: The employee's revision
-    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule): The employee's rule exclusions
+    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule, AutoEnrolmentStatusChangeRule): The employee's rule exclusions
     * Seconded `string` (values: NotSet, Stay183DaysOrMore, StayLessThan183Days, InOutUk): The employee's seconded
     * StartDate `string`: The employee's start date
     * StarterDeclaration `string` (values: A, B, C, NA): The employee's starter declaration
@@ -5425,6 +5780,25 @@ payrun.GetTaxYtdPayInstructionTemplate({
       * Country `string`: The address's country
       * Postcode `string`: The address's postcode
     * ApprenticeshipLevyAllowance `number`: The employer's apprenticeship levy allowance
+    * AutoEnrolment `object`: The employer's auto enrolment
+      * Pension `object`: The employer auto enrolment's pension
+        * @href `string`: The link's href
+        * @rel `string`: The link's target type
+        * @title `string`: The link's title
+      * PostponementDate `string`: The employer auto enrolment's postponement date
+      * PrimaryEmail `string`: The employer auto enrolment's primary email
+      * PrimaryFirstName `string`: The employer auto enrolment's primary first name
+      * PrimaryJobTitle `string`: The employer auto enrolment's primary job title
+      * PrimaryLastName `string`: The employer auto enrolment's primary last name
+      * PrimaryTelephone `string`: The employer auto enrolment's primary telephone
+      * ReEnrolmentDayOffset `integer`: The employer auto enrolment's re enrolment day offset
+      * ReEnrolmentMonthOffset `integer`: The employer auto enrolment's re enrolment month offset
+      * SecondaryEmail `string`: The employer auto enrolment's secondary email
+      * SecondaryFirstName `string`: The employer auto enrolment's secondary first name
+      * SecondaryJobTitle `string`: The employer auto enrolment's secondary job title
+      * SecondaryLastName `string`: The employer auto enrolment's secondary last name
+      * SecondaryTelephone `string`: The employer auto enrolment's secondary telephone
+      * StagingDate `string`: The employer auto enrolment's staging date
     * BacsServiceUserNumber `string`: The employer's bacs service user number
     * BankAccount `object`: The employer's bank account
       * AccountName `string`: The bank account's account name
@@ -5450,7 +5824,7 @@ payrun.GetTaxYtdPayInstructionTemplate({
     * Name `string`: The employer's name
     * Region `string` (values: NotSet, England, Scotland): The employer's region
     * Revision `integer`: The employer's revision
-    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule): The employer's rule exclusions
+    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule, AutoEnrolmentStatusChangeRule): The employer's rule exclusions
     * Territory `string` (values: UnitedKingdom): The employer's territory
 
 ### ErrorModel
@@ -5478,6 +5852,7 @@ payrun.GetTaxYtdPayInstructionTemplate({
     * HoldingDate `string`: The job info's holding date
     * JobId `string`: The job info's job id
     * JobStatus `string` (values: New, Pending, InProgress, Success, Failed, OnHold): The job info's job status
+    * JobType `string`: The job info's job type
     * LastUpdated `string`: The job info's last updated
     * Progress `number`: The job info's progress
 
@@ -5591,6 +5966,7 @@ payrun.GetTaxYtdPayInstructionTemplate({
 ### Pension
 * Pension `object`
   * Pension `object`
+    * AECompatible `boolean`: The pension's a e compatible
     * Code `string`: The pension's code
     * ContributionDeductionDay `integer`: The pension's contribution deduction day
     * EffectiveDate `string`: The pension's effective date
@@ -5600,13 +5976,16 @@ payrun.GetTaxYtdPayInstructionTemplate({
     * EmployerContributionPercent `number`: The pension's employer contribution percent
     * Group `string`: The pension's group
     * LowerThreshold `number`: The pension's lower threshold
+    * ProRataMethod `string` (values: NotSet, Annual260Days, Annual365Days, AnnualQualifyingDays, DaysPerCalenderMonth, DaysPerTaxPeriod): The pension's pro rata method
     * ProviderEmployerRef `string`: The pension's provider employer ref
     * ProviderName `string`: The pension's provider name
     * Revision `integer`: The pension's revision
+    * SalarySacrifice `boolean`: The pension's salary sacrifice
     * SchemeName `string`: The pension's scheme name
     * SubGroup `string`: The pension's sub group
     * TaxationMethod `string` (values: NotSet, NetBased, ReliefAtSourceIncluded, ReliefAtSourceExcluded): The pension's taxation method
     * UpperThreshold `number`: The pension's upper threshold
+    * UseAEThresholds `boolean`: The pension's use a e thresholds
 
 ### Query
 * Query `object`
@@ -5621,6 +6000,8 @@ payrun.GetTaxYtdPayInstructionTemplate({
           * @UniqueKeyVariable `string`: The entity group's unique key variable
           * Condition `array`: The entity group's conditions
             * items `object`
+              * @ValueA `string`: The compare condition base's value a
+              * @ValueB `string`: The compare condition base's value b
           * Filter `array`: The entity group's filters
             * items `object`
               * @Property `string`: The filter base's property
@@ -5630,7 +6011,7 @@ payrun.GetTaxYtdPayInstructionTemplate({
               * @Property `string`: The order by base's property
           * Output `array`: The entity group's outputs
             * items `object`
-              * @Output `string` (values: Element, Attribute, Variable, VariableSum, VariableAppend): The output base's output
+              * @Output `string` (values: Element, Attribute, Variable, VariableSum, VariableAppend, VariablePrepend, ElementDatePart): The output base's output
     * RootNodeName `string`: The query's root node name
     * Variables `object`: The query's variables
       * Variable `array`
@@ -5653,6 +6034,8 @@ payrun.GetTaxYtdPayInstructionTemplate({
             * @UniqueKeyVariable `string`: The entity group's unique key variable
             * Condition `array`: The entity group's conditions
               * items `object`
+                * @ValueA `string`: The compare condition base's value a
+                * @ValueB `string`: The compare condition base's value b
             * Filter `array`: The entity group's filters
               * items `object`
                 * @Property `string`: The filter base's property
@@ -5662,7 +6045,7 @@ payrun.GetTaxYtdPayInstructionTemplate({
                 * @Property `string`: The order by base's property
             * Output `array`: The entity group's outputs
               * items `object`
-                * @Output `string` (values: Element, Attribute, Variable, VariableSum, VariableAppend): The output base's output
+                * @Output `string` (values: Element, Attribute, Variable, VariableSum, VariableAppend, VariablePrepend, ElementDatePart): The output base's output
       * RootNodeName `string`: The query's root node name
       * Variables `object`: The query's variables
         * Variable `array`
@@ -5741,5 +6124,16 @@ payrun.GetTaxYtdPayInstructionTemplate({
       * @rel `string`: The link's target type
       * @title `string`: The link's title
     * Text `string`: The tag's text
+
+### TransformDefinition
+* TransformDefinition `object`
+  * TransformDefinition `object`
+    * ContentType `string`: The transform definition's content type
+    * Definition `string`: The transform definition's definition
+    * DefinitionType `string`: The transform definition's definition type
+    * Readonly `boolean`: The transform definition's readonly
+    * SupportedReports `string`: The transform definition's supported reports
+    * TaxYear `integer`: The transform definition's tax year
+    * Title `string`: The transform definition's title
 
 

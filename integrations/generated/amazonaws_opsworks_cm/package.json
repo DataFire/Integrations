@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_opsworks_cm",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for AWS OpsWorks for Chef Automate",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/opsworks-cm/2016-11-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/opsworkscm/2016-11-01/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

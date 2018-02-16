@@ -103,8 +103,8 @@ google_androidenterprise.enterprises.insert({
 
 #### Input
 * input `object`
-  * token **required** `string`: The token provided by the enterprise to register the EMM.
   * body [Enterprise](#enterprise)
+  * token **required** `string`: The token provided by the enterprise to register the EMM.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -173,8 +173,8 @@ google_androidenterprise.enterprises.enroll({
 
 #### Input
 * input `object`
-  * token **required** `string`: The token provided by the enterprise to register the EMM.
   * body [Enterprise](#enterprise)
+  * token **required** `string`: The token provided by the enterprise to register the EMM.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -294,8 +294,8 @@ google_androidenterprise.enterprises.setAccount({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * body [EnterpriseAccount](#enterpriseaccount)
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -368,8 +368,8 @@ google_androidenterprise.enterprises.createWebToken({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * body [AdministratorWebTokenSpec](#administratorwebtokenspec)
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -469,8 +469,8 @@ google_androidenterprise.products.list({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * approved `boolean`: Specifies whether to search among all products (false) or among only products that have been approved (true). Only "true" is supported, and should be specified.
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * language `string`: The BCP47 tag for the user's preferred language (e.g. "en-US", "de"). Results are returned in the language best matching the preferred language.
   * maxResults `integer`: Specifies the maximum number of products that can be returned per request. If not specified, uses a default value of 100, which is also the maximum retrievable within a single response.
   * query `string`: The search query as typed in the Google Play store search box. If omitted, all approved apps will be returned (using the pagination parameters), including apps that are not available in the store (e.g. unpublished apps).
@@ -500,8 +500,8 @@ google_androidenterprise.products.get({
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * productId **required** `string`: The ID of the product, e.g. "app:com.google.android.gm".
   * language `string`: The BCP47 tag for the user's preferred language (e.g. "en-US", "de").
+  * productId **required** `string`: The ID of the product, e.g. "app:com.google.android.gm".
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -527,8 +527,8 @@ google_androidenterprise.products.getAppRestrictionsSchema({
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * productId **required** `string`: The ID of the product.
   * language `string`: The BCP47 tag for the user's preferred language (e.g. "en-US", "de").
+  * productId **required** `string`: The ID of the product.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -555,9 +555,9 @@ google_androidenterprise.products.approve({
 
 #### Input
 * input `object`
+  * body [ProductsApproveRequest](#productsapproverequest)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * productId **required** `string`: The ID of the product.
-  * body [ProductsApproveRequest](#productsapproverequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -585,8 +585,8 @@ google_androidenterprise.products.generateApprovalUrl({
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * productId **required** `string`: The ID of the product.
   * languageCode `string`: The BCP 47 language code used for permission names and descriptions in the returned iframe, for instance "en-US".
+  * productId **required** `string`: The ID of the product.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -597,6 +597,32 @@ google_androidenterprise.products.generateApprovalUrl({
 
 #### Output
 * output [ProductsGenerateApprovalUrlResponse](#productsgenerateapprovalurlresponse)
+
+### managedconfigurationssettings.list
+Lists all the managed configurations settings for the specified app. Only the ID and the name is set.
+
+
+```js
+google_androidenterprise.managedconfigurationssettings.list({
+  "enterpriseId": "",
+  "productId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * productId **required** `string`: The ID of the product for which the managed configurations settings applies to.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [ManagedConfigurationsSettingsListResponse](#managedconfigurationssettingslistresponse)
 
 ### products.getPermissions
 Retrieves the Android app permissions required by this app.
@@ -743,8 +769,8 @@ google_androidenterprise.serviceaccountkeys.insert({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * body [ServiceAccountKey](#serviceaccountkey)
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -818,8 +844,8 @@ google_androidenterprise.enterprises.setStoreLayout({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * body [StoreLayout](#storelayout)
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -867,8 +893,8 @@ google_androidenterprise.storelayoutpages.insert({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * body [StorePage](#storepage)
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -945,9 +971,9 @@ google_androidenterprise.storelayoutpages.patch({
 
 #### Input
 * input `object`
+  * body [StorePage](#storepage)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * body [StorePage](#storepage)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -972,9 +998,9 @@ google_androidenterprise.storelayoutpages.update({
 
 #### Input
 * input `object`
+  * body [StorePage](#storepage)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * body [StorePage](#storepage)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1025,9 +1051,9 @@ google_androidenterprise.storelayoutclusters.insert({
 
 #### Input
 * input `object`
+  * body [StoreCluster](#storecluster)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * body [StoreCluster](#storecluster)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1045,17 +1071,17 @@ Deletes a cluster.
 
 ```js
 google_androidenterprise.storelayoutclusters.delete({
+  "clusterId": "",
   "enterpriseId": "",
-  "pageId": "",
-  "clusterId": ""
+  "pageId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * clusterId **required** `string`: The ID of the cluster.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * clusterId **required** `string`: The ID of the cluster.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1073,17 +1099,17 @@ Retrieves details of a cluster.
 
 ```js
 google_androidenterprise.storelayoutclusters.get({
+  "clusterId": "",
   "enterpriseId": "",
-  "pageId": "",
-  "clusterId": ""
+  "pageId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * clusterId **required** `string`: The ID of the cluster.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * clusterId **required** `string`: The ID of the cluster.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1101,18 +1127,18 @@ Updates a cluster. This method supports patch semantics.
 
 ```js
 google_androidenterprise.storelayoutclusters.patch({
+  "clusterId": "",
   "enterpriseId": "",
-  "pageId": "",
-  "clusterId": ""
+  "pageId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [StoreCluster](#storecluster)
+  * clusterId **required** `string`: The ID of the cluster.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * clusterId **required** `string`: The ID of the cluster.
-  * body [StoreCluster](#storecluster)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1130,18 +1156,18 @@ Updates a cluster.
 
 ```js
 google_androidenterprise.storelayoutclusters.update({
+  "clusterId": "",
   "enterpriseId": "",
-  "pageId": "",
-  "clusterId": ""
+  "pageId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [StoreCluster](#storecluster)
+  * clusterId **required** `string`: The ID of the cluster.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * pageId **required** `string`: The ID of the page.
-  * clusterId **required** `string`: The ID of the cluster.
-  * body [StoreCluster](#storecluster)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1183,15 +1209,15 @@ Looks up a user by primary email address. This is only supported for Google-mana
 
 ```js
 google_androidenterprise.users.list({
-  "enterpriseId": "",
-  "email": ""
+  "email": "",
+  "enterpriseId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * email **required** `string`: The exact primary email address of the user to look up.
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1218,8 +1244,8 @@ google_androidenterprise.users.insert({
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
   * body [User](#user)
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1298,9 +1324,9 @@ google_androidenterprise.users.patch({
 
 #### Input
 * input `object`
+  * body [User](#user)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * body [User](#user)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1327,9 +1353,9 @@ google_androidenterprise.users.update({
 
 #### Input
 * input `object`
+  * body [User](#user)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * body [User](#user)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1408,9 +1434,9 @@ google_androidenterprise.users.setAvailableProductSet({
 
 #### Input
 * input `object`
+  * body [ProductSet](#productset)
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * body [ProductSet](#productset)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1421,6 +1447,34 @@ google_androidenterprise.users.setAvailableProductSet({
 
 #### Output
 * output [ProductSet](#productset)
+
+### users.revokeDeviceAccess
+Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed devices.
+
+This call only works with EMM-managed accounts.
+
+
+```js
+google_androidenterprise.users.revokeDeviceAccess({
+  "enterpriseId": "",
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * userId **required** `string`: The ID of the user.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+*Output schema unknown*
 
 ### devices.list
 Retrieves the IDs of all of a user's devices.
@@ -1454,17 +1508,77 @@ Retrieves the details of a device.
 
 ```js
 google_androidenterprise.devices.get({
+  "deviceId": "",
   "enterpriseId": "",
-  "userId": "",
-  "deviceId": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * deviceId **required** `string`: The ID of the device.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [Device](#device)
+
+### devices.patch
+Updates the device policy. This method supports patch semantics.
+
+
+```js
+google_androidenterprise.devices.patch({
+  "deviceId": "",
+  "enterpriseId": "",
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Device](#device)
   * deviceId **required** `string`: The ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * updateMask `string`: Mask that identifies which fields to update. If not set, all modifiable fields will be modified.
+  * userId **required** `string`: The ID of the user.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [Device](#device)
+
+### devices.update
+Updates the device policy
+
+
+```js
+google_androidenterprise.devices.update({
+  "deviceId": "",
+  "enterpriseId": "",
+  "userId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body [Device](#device)
+  * deviceId **required** `string`: The ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * updateMask `string`: Mask that identifies which fields to update. If not set, all modifiable fields will be modified.
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1482,17 +1596,17 @@ Retrieves the details of all apps installed on the specified device.
 
 ```js
 google_androidenterprise.installs.list({
+  "deviceId": "",
   "enterpriseId": "",
-  "userId": "",
-  "deviceId": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * deviceId **required** `string`: The Android ID of the device.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The Android ID of the device.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1510,19 +1624,19 @@ Requests to remove an app from a device. A call to get or list will still show t
 
 ```js
 google_androidenterprise.installs.delete({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "installId": ""
+  "enterpriseId": "",
+  "installId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * installId **required** `string`: The ID of the product represented by the install, e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1540,19 +1654,19 @@ Retrieves details of an installation of an app on a device.
 
 ```js
 google_androidenterprise.installs.get({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "installId": ""
+  "enterpriseId": "",
+  "installId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * installId **required** `string`: The ID of the product represented by the install, e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1570,20 +1684,20 @@ Requests to install the latest version of an app to a device. If the app is alre
 
 ```js
 google_androidenterprise.installs.patch({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "installId": ""
+  "enterpriseId": "",
+  "installId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The Android ID of the device.
-  * installId **required** `string`: The ID of the product represented by the install, e.g. "app:com.google.android.gm".
   * body [Install](#install)
+  * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * installId **required** `string`: The ID of the product represented by the install, e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1601,20 +1715,20 @@ Requests to install the latest version of an app to a device. If the app is alre
 
 ```js
 google_androidenterprise.installs.update({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "installId": ""
+  "enterpriseId": "",
+  "installId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The Android ID of the device.
-  * installId **required** `string`: The ID of the product represented by the install, e.g. "app:com.google.android.gm".
   * body [Install](#install)
+  * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * installId **required** `string`: The ID of the product represented by the install, e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1632,17 +1746,17 @@ Lists all the per-device managed configurations for the specified device. Only t
 
 ```js
 google_androidenterprise.managedconfigurationsfordevice.list({
+  "deviceId": "",
   "enterpriseId": "",
-  "userId": "",
-  "deviceId": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * deviceId **required** `string`: The Android ID of the device.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The Android ID of the device.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1660,19 +1774,19 @@ Removes a per-device managed configuration for an app for the specified device.
 
 ```js
 google_androidenterprise.managedconfigurationsfordevice.delete({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "managedConfigurationForDeviceId": ""
+  "enterpriseId": "",
+  "managedConfigurationForDeviceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * managedConfigurationForDeviceId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1690,19 +1804,19 @@ Retrieves details of a per-device managed configuration.
 
 ```js
 google_androidenterprise.managedconfigurationsfordevice.get({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "managedConfigurationForDeviceId": ""
+  "enterpriseId": "",
+  "managedConfigurationForDeviceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
   * managedConfigurationForDeviceId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1720,20 +1834,20 @@ Adds or updates a per-device managed configuration for an app for the specified 
 
 ```js
 google_androidenterprise.managedconfigurationsfordevice.patch({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "managedConfigurationForDeviceId": ""
+  "enterpriseId": "",
+  "managedConfigurationForDeviceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The Android ID of the device.
-  * managedConfigurationForDeviceId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
   * body [ManagedConfiguration](#managedconfiguration)
+  * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * managedConfigurationForDeviceId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1751,20 +1865,20 @@ Adds or updates a per-device managed configuration for an app for the specified 
 
 ```js
 google_androidenterprise.managedconfigurationsfordevice.update({
-  "enterpriseId": "",
-  "userId": "",
   "deviceId": "",
-  "managedConfigurationForDeviceId": ""
+  "enterpriseId": "",
+  "managedConfigurationForDeviceId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The Android ID of the device.
-  * managedConfigurationForDeviceId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
   * body [ManagedConfiguration](#managedconfiguration)
+  * deviceId **required** `string`: The Android ID of the device.
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * managedConfigurationForDeviceId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1782,17 +1896,17 @@ Retrieves whether a device's access to Google services is enabled or disabled. T
 
 ```js
 google_androidenterprise.devices.getState({
+  "deviceId": "",
   "enterpriseId": "",
-  "userId": "",
-  "deviceId": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * deviceId **required** `string`: The ID of the device.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The ID of the device.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1810,18 +1924,18 @@ Sets whether a device's access to Google services is enabled or disabled. The de
 
 ```js
 google_androidenterprise.devices.setState({
+  "deviceId": "",
   "enterpriseId": "",
-  "userId": "",
-  "deviceId": ""
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [DeviceState](#devicestate)
+  * deviceId **required** `string`: The ID of the device.
   * enterpriseId **required** `string`: The ID of the enterprise.
   * userId **required** `string`: The ID of the user.
-  * deviceId **required** `string`: The ID of the device.
-  * body [DeviceState](#devicestate)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1866,16 +1980,16 @@ Removes an entitlement to an app for a user.
 ```js
 google_androidenterprise.entitlements.delete({
   "enterpriseId": "",
-  "userId": "",
-  "entitlementId": ""
+  "entitlementId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * entitlementId **required** `string`: The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1894,16 +2008,16 @@ Retrieves details of an entitlement.
 ```js
 google_androidenterprise.entitlements.get({
   "enterpriseId": "",
-  "userId": "",
-  "entitlementId": ""
+  "entitlementId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * entitlementId **required** `string`: The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1922,18 +2036,18 @@ Adds or updates an entitlement to an app for a user. This method supports patch 
 ```js
 google_androidenterprise.entitlements.patch({
   "enterpriseId": "",
-  "userId": "",
-  "entitlementId": ""
+  "entitlementId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [Entitlement](#entitlement)
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * entitlementId **required** `string`: The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
   * install `boolean`: Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this operation from returning successfully, as long as the entitlement was successfully assigned to the user.
-  * body [Entitlement](#entitlement)
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1952,18 +2066,18 @@ Adds or updates an entitlement to an app for a user.
 ```js
 google_androidenterprise.entitlements.update({
   "enterpriseId": "",
-  "userId": "",
-  "entitlementId": ""
+  "entitlementId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * body [Entitlement](#entitlement)
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * entitlementId **required** `string`: The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
   * install `boolean`: Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this operation from returning successfully, as long as the entitlement was successfully assigned to the user.
-  * body [Entitlement](#entitlement)
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2008,16 +2122,16 @@ Removes a per-user managed configuration for an app for the specified user.
 ```js
 google_androidenterprise.managedconfigurationsforuser.delete({
   "enterpriseId": "",
-  "userId": "",
-  "managedConfigurationForUserId": ""
+  "managedConfigurationForUserId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * managedConfigurationForUserId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2036,16 +2150,16 @@ Retrieves details of a per-user managed configuration for an app for the specifi
 ```js
 google_androidenterprise.managedconfigurationsforuser.get({
   "enterpriseId": "",
-  "userId": "",
-  "managedConfigurationForUserId": ""
+  "managedConfigurationForUserId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
   * managedConfigurationForUserId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2058,23 +2172,23 @@ google_androidenterprise.managedconfigurationsforuser.get({
 * output [ManagedConfiguration](#managedconfiguration)
 
 ### managedconfigurationsforuser.patch
-Adds or updates a per-user managed configuration for an app for the specified user. This method supports patch semantics.
+Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed properties. This method supports patch semantics.
 
 
 ```js
 google_androidenterprise.managedconfigurationsforuser.patch({
   "enterpriseId": "",
-  "userId": "",
-  "managedConfigurationForUserId": ""
+  "managedConfigurationForUserId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
-  * managedConfigurationForUserId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
   * body [ManagedConfiguration](#managedconfiguration)
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * managedConfigurationForUserId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2087,23 +2201,23 @@ google_androidenterprise.managedconfigurationsforuser.patch({
 * output [ManagedConfiguration](#managedconfiguration)
 
 ### managedconfigurationsforuser.update
-Adds or updates a per-user managed configuration for an app for the specified user.
+Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed properties.
 
 
 ```js
 google_androidenterprise.managedconfigurationsforuser.update({
   "enterpriseId": "",
-  "userId": "",
-  "managedConfigurationForUserId": ""
+  "managedConfigurationForUserId": "",
+  "userId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * enterpriseId **required** `string`: The ID of the enterprise.
-  * userId **required** `string`: The ID of the user.
-  * managedConfigurationForUserId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
   * body [ManagedConfiguration](#managedconfiguration)
+  * enterpriseId **required** `string`: The ID of the enterprise.
+  * managedConfigurationForUserId **required** `string`: The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm".
+  * userId **required** `string`: The ID of the user.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2181,8 +2295,8 @@ google_androidenterprise.permissions.get({
 
 #### Input
 * input `object`
-  * permissionId **required** `string`: The ID of the permission.
   * language `string`: The BCP47 tag for the user's preferred language (e.g. "en-US", "de")
+  * permissionId **required** `string`: The ID of the permission.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2272,11 +2386,19 @@ google_androidenterprise.permissions.get({
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#authenticationToken".
   * token `string`: The authentication token to be passed to the device policy client on the device where it can be used to provision the account for which this token was generated.
 
+### ConfigurationVariables
+* ConfigurationVariables `object`: A configuration variables resource contains the managed configuration settings ID to be applied to a single user, as well as the variable set that is attributed to the user. The variable set will be used to replace placeholders in the managed configuration settings.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#configurationVariables".
+  * mcmId `string`: The ID of the managed configurations settings.
+  * variableSet `array`: The variable set that is attributed to the user.
+    * items [VariableSet](#variableset)
+
 ### Device
 * Device `object`: A Devices resource represents a mobile device managed by the EMM and belonging to a specific enterprise user.
   * androidId `string`: The Google Play Services Android ID for the device encoded as a lowercase hex string. For example, "123456789abcdef0".
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#device".
   * managementType `string`: Identifies the extent to which the device is controlled by a managed Google Play EMM in various deployment configurations.
+  * policy [Policy](#policy)
 
 ### DeviceState
 * DeviceState `object`: The state of a user's device, as accessed by the getState and setState methods on device resources.
@@ -2375,7 +2497,8 @@ google_androidenterprise.permissions.get({
   * text `string`: The text localized in the associated locale.
 
 ### ManagedConfiguration
-* ManagedConfiguration `object`: A managed configuration resource contains the set of managed properties that have been configured for an Android app. The app's developer would have defined configurable properties in the managed configurations schema.
+* ManagedConfiguration `object`: A managed configuration resource contains the set of managed properties defined by the app developer in the app's managed configurations schema, as well as any configuration variables defined for the user.
+  * configurationVariables [ConfigurationVariables](#configurationvariables)
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#managedConfiguration".
   * managedProperty `array`: The set of managed properties for this configuration.
     * items [ManagedProperty](#managedproperty)
@@ -2392,6 +2515,20 @@ google_androidenterprise.permissions.get({
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#managedConfigurationsForUserListResponse".
   * managedConfigurationForUser `array`: A managed configuration for an app for a specific user.
     * items [ManagedConfiguration](#managedconfiguration)
+
+### ManagedConfigurationsSettings
+* ManagedConfigurationsSettings `object`: A managed configurations settings resource contains the set of managed properties that have been configured for an Android app to be applied to a set of users. The app's developer would have defined configurable properties in the managed configurations schema.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#managedConfigurationsSettings".
+  * managedProperty `array`: The set of managed properties for this configuration.
+    * items [ManagedProperty](#managedproperty)
+  * mcmId `string`: The ID of the managed configurations settings.
+  * name `string`: The name of the managed configurations settings.
+
+### ManagedConfigurationsSettingsListResponse
+* ManagedConfigurationsSettingsListResponse `object`: The managed configurations settings for a product.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#managedConfigurationsSettingsListResponse".
+  * managedConfigurationsSettings `array`: A managed configurations settings for an app that may be assigned to a group of users in an enterprise.
+    * items [ManagedConfigurationsSettings](#managedconfigurationssettings)
 
 ### ManagedProperty
 * ManagedProperty `object`: A managed property of a managed configuration. The property must match one of the properties in the app restrictions schema of the product. Exactly one of the value fields must be populated, and it must match the property's type in the app restrictions schema.
@@ -2413,6 +2550,7 @@ google_androidenterprise.permissions.get({
 ### NewDeviceEvent
 * NewDeviceEvent `object`: An event generated when a new device is ready to be managed.
   * deviceId `string`: The Android ID of the device. This field will always be present.
+  * dpcPackageName `string`: Policy app on the device.
   * managementType `string`: Identifies the extent to which the device is controlled by an Android EMM in various deployment configurations.
   * userId `string`: The ID of the user. This field will always be present.
 
@@ -2457,20 +2595,38 @@ google_androidenterprise.permissions.get({
   * name `string`: The name of the permission.
   * permissionId `string`: An opaque string uniquely identifying the permission.
 
+### Policy
+* Policy `object`: The device policy for a given managed device.
+  * productAvailabilityPolicy `string`: The availability granted to the device for the specified products. "all" gives the device access to all products, regardless of approval status. "allApproved" entitles the device to access all products that are approved for the enterprise. "allApproved" and "all" do not enable automatic visibility of "alpha" or "beta" tracks. "whitelist" grants the device access the products specified in productPolicy[]. Only products that are approved or products that were previously approved (products with revoked approval) by the enterprise can be whitelisted. If no value is provided, the availability set at the user level is applied by default.
+  * productPolicy `array`: The list of product policies.
+    * items [ProductPolicy](#productpolicy)
+
 ### Product
 * Product `object`: A Products resource represents an app in the Google Play store that is available to at least some users in the enterprise. (Some apps are restricted to a single enterprise, and no information about them is made available outside that enterprise.)
   * appVersion `array`: App versions currently available for this product.
     * items [AppVersion](#appversion)
   * authorName `string`: The name of the author of the product (for example, the app developer).
+  * availableCountries `array`: The countries which this app is available in.
+    * items `string`
   * availableTracks `array`: The tracks that are visible to the enterprise.
     * items `string`
+  * category `string`: The app category (e.g. RACING, SOCIAL, etc.)
+  * contentRating `string`: The content rating for this app.
+  * description `string`: The localized promotional description, if available.
   * detailsUrl `string`: A link to the (consumer) Google Play details page for the product.
   * distributionChannel `string`: How and to whom the package is made available. The value publicGoogleHosted means that the package is available through the Play store and not restricted to a specific enterprise. The value privateGoogleHosted means that the package is a private app (restricted to an enterprise) but hosted by Google. The value privateSelfHosted means that the package is a private app (restricted to an enterprise) and is privately hosted.
   * iconUrl `string`: A link to an image that can be used as an icon for the product. This image is suitable for use at up to 512px x 512px.
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#product".
+  * lastUpdatedTimestampMillis `string`: The approximate time (within 7 days) the app was last published, expressed in milliseconds since epoch.
+  * minAndroidSdkVersion `integer`: The minimum Android SDK necessary to run the app.
+  * permissions `array`: A list of permissions required by the app.
+    * items [ProductPermission](#productpermission)
   * productId `string`: A string of the form app:<package name>. For example, app:com.google.android.gm represents the Gmail app.
   * productPricing `string`: Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore (even though it might still be available to people who own it).
+  * recentChanges `string`: A description of the recent changes made to the app.
   * requiresContainerApp `boolean`: Deprecated.
+  * screenshotUrls `array`: A list of screenshot links representing the app.
+    * items `string`
   * signingCertificate [ProductSigningCertificate](#productsigningcertificate)
   * smallIconUrl `string`: A link to a smaller image that can be used as an icon for the product. This image is suitable for use at up to 128px x 128px.
   * title `string`: The name of the product.
@@ -2497,6 +2653,12 @@ google_androidenterprise.permissions.get({
   * permission `array`: The permissions required by the app.
     * items [ProductPermission](#productpermission)
   * productId `string`: The ID of the app that the permissions relate to, e.g. "app:com.google.android.gm".
+
+### ProductPolicy
+* ProductPolicy `object`: The policy for a product.
+  * productId `string`: The ID of the product. For example, "app:com.google.android.gm".
+  * tracks `array`: Grants visibility to the specified track(s) of the product to the device. The track available to the device is based on the following order of preference: alpha, beta, production. For example, if an app has a prod version, a beta version and an alpha version and the enterprise has been granted visibility to both the alpha and beta tracks, if tracks is {"beta", "production"} then the beta version of the app is made available to the device. If there are no app versions in the specified track adding the "alpha" and "beta" values to the list of tracks will have no effect. Note that the enterprise requires access to alpha and/or beta tracks before users can be granted visibility to apps in those tracks.
+    * items `string`
 
 ### ProductSet
 * ProductSet `object`: A set of products.
@@ -2623,5 +2785,11 @@ google_androidenterprise.permissions.get({
   * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#usersListResponse".
   * user `array`: A user of an enterprise.
     * items [User](#user)
+
+### VariableSet
+* VariableSet `object`: A variable set is a key-value pair of EMM-provided placeholders and its corresponding value, which is attributed to a user. For example, $FIRSTNAME could be a placeholder, and its value could be Alice. Placeholders should start with a '$' sign and should be alphanumeric only.
+  * kind `string`: Identifies what kind of resource this is. Value: the fixed string "androidenterprise#variableSet".
+  * placeholder `string`: The placeholder string; defined by EMM.
+  * userValue `string`: The value of the placeholder, specific to the user.
 
 

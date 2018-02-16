@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Stores and accesses user data in the fitness store from apps on any platform.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Fitness",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -44,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
@@ -66,6 +71,33 @@
         "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
         "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
+        "https://www.googleapis.com/auth/fitness.activity.write": "View and store your activity information in Google Fit",
+        "https://www.googleapis.com/auth/fitness.blood_glucose.read": "View blood glucose data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.blood_glucose.write": "View and store blood glucose data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.blood_pressure.read": "View blood pressure data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.blood_pressure.write": "View and store blood pressure data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.body.read": "View body sensor information in Google Fit",
+        "https://www.googleapis.com/auth/fitness.body.write": "View and store body sensor data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.body_temperature.read": "View body temperature data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.body_temperature.write": "View and store body temperature data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.location.read": "View your stored location data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.location.write": "View and store your location data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.nutrition.read": "View nutrition information in Google Fit",
+        "https://www.googleapis.com/auth/fitness.nutrition.write": "View and store nutrition information in Google Fit",
+        "https://www.googleapis.com/auth/fitness.oxygen_saturation.read": "View oxygen saturation data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "View and store oxygen saturation data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
+        "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -157,13 +189,6 @@
         "operationId": "users.dataSources.list",
         "parameters": [
           {
-            "description": "List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "The names of data types to include in the list. If not specified, all data sources will be returned.",
             "in": "query",
@@ -172,6 +197,13 @@
             },
             "name": "dataTypeName",
             "type": "array"
+          },
+          {
+            "description": "List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -186,90 +218,144 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -306,18 +392,18 @@
         "operationId": "users.dataSources.create",
         "parameters": [
           {
-            "description": "Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/DataSource"
             }
+          },
+          {
+            "description": "Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -332,45 +418,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -386,16 +499,16 @@
         "operationId": "users.dataSources.delete",
         "parameters": [
           {
-            "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "description": "The data stream ID of the data source to delete.",
             "in": "path",
-            "name": "userId",
+            "name": "dataSourceId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The data stream ID of the data source to delete.",
+            "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
             "in": "path",
-            "name": "dataSourceId",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -412,45 +525,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -464,16 +604,16 @@
         "operationId": "users.dataSources.get",
         "parameters": [
           {
-            "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "description": "The data stream ID of the data source to retrieve.",
             "in": "path",
-            "name": "userId",
+            "name": "dataSourceId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The data stream ID of the data source to retrieve.",
+            "description": "Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
             "in": "path",
-            "name": "dataSourceId",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -490,90 +630,144 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -610,11 +804,11 @@
         "operationId": "users.dataSources.patch",
         "parameters": [
           {
-            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DataSource"
+            }
           },
           {
             "description": "The data stream ID of the data source to update.",
@@ -624,11 +818,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DataSource"
-            }
+            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -643,45 +837,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -695,11 +916,11 @@
         "operationId": "users.dataSources.update",
         "parameters": [
           {
-            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DataSource"
+            }
           },
           {
             "description": "The data stream ID of the data source to update.",
@@ -709,11 +930,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DataSource"
-            }
+            "description": "Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -728,45 +949,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -820,90 +1068,144 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -942,10 +1244,9 @@
         "operationId": "users.dataSources.datasets.delete",
         "parameters": [
           {
-            "description": "Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "description": "The client's current time in milliseconds since epoch.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
           },
           {
@@ -963,15 +1264,16 @@
             "type": "string"
           },
           {
-            "description": "The client's current time in milliseconds since epoch.",
-            "in": "query",
-            "name": "currentTimeMillis",
-            "type": "string"
-          },
-          {
             "description": "When the operation was performed on the client.",
             "in": "query",
             "name": "modifiedTimeMillis",
+            "type": "string"
+          },
+          {
+            "description": "Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -984,45 +1286,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -1035,13 +1364,6 @@
         "description": "Returns a dataset containing all data points whose start and end times overlap with the specified range of the dataset minimum start time and maximum end time. Specifically, any data point whose start time is less than or equal to the dataset end time and whose end time is greater than or equal to the dataset start time.",
         "operationId": "users.dataSources.datasets.get",
         "parameters": [
-          {
-            "description": "Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The data stream ID of the data source that created the dataset.",
             "in": "path",
@@ -1067,6 +1389,13 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1081,90 +1410,144 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -1201,10 +1584,16 @@
         "operationId": "users.dataSources.datasets.patch",
         "parameters": [
           {
-            "description": "Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          },
+          {
+            "description": "The client's current time in milliseconds since epoch. Note that the minStartTimeNs and maxEndTimeNs properties in the request body are in nanoseconds instead of milliseconds.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
           },
           {
@@ -1222,17 +1611,11 @@
             "type": "string"
           },
           {
-            "description": "The client's current time in milliseconds since epoch. Note that the minStartTimeNs and maxEndTimeNs properties in the request body are in nanoseconds instead of milliseconds.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Dataset"
-            }
           }
         ],
         "responses": {
@@ -1247,45 +1630,72 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -1324,18 +1734,18 @@
         "operationId": "users.dataset.aggregate",
         "parameters": [
           {
-            "description": "Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AggregateRequest"
             }
+          },
+          {
+            "description": "Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1350,90 +1760,144 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -1448,13 +1912,6 @@
         "description": "Lists sessions previously created.",
         "operationId": "users.sessions.list",
         "parameters": [
-          {
-            "description": "List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response.",
             "in": "query",
@@ -1478,6 +1935,13 @@
             "in": "query",
             "name": "startTime",
             "type": "string"
+          },
+          {
+            "description": "List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1492,90 +1956,144 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.activity.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.activity.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_glucose.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.blood_pressure.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.body_temperature.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.body_temperature.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.body_temperature.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.location.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.location.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.location.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.location.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.nutrition.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.nutrition.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.nutrition.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.nutrition.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.reproductive_health.write"
             ]
           }
@@ -1614,10 +2132,9 @@
         "operationId": "users.sessions.delete",
         "parameters": [
           {
-            "description": "Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "description": "The client's current time in milliseconds since epoch.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
           },
           {
@@ -1628,9 +2145,10 @@
             "type": "string"
           },
           {
-            "description": "The client's current time in milliseconds since epoch.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
           }
         ],
@@ -1642,6 +2160,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           }
@@ -1678,10 +2199,16 @@
         "operationId": "users.sessions.update",
         "parameters": [
           {
-            "description": "Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Session"
+            }
+          },
+          {
+            "description": "The client's current time in milliseconds since epoch.",
+            "in": "query",
+            "name": "currentTimeMillis",
             "type": "string"
           },
           {
@@ -1692,17 +2219,11 @@
             "type": "string"
           },
           {
-            "description": "The client's current time in milliseconds since epoch.",
-            "in": "query",
-            "name": "currentTimeMillis",
+            "description": "Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Session"
-            }
           }
         ],
         "responses": {
@@ -1716,6 +2237,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/fitness.activity.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/fitness.activity.write"
             ]
           }

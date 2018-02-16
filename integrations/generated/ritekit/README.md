@@ -148,8 +148,27 @@ ritekit.v1.emoji.suggestions.get({
 #### Output
 *Output schema unknown*
 
+### v1.images.animate.get
+Returns URL of an animated GIF.
+
+
+```js
+ritekit.v1.images.animate.get({
+  "url": "",
+  "type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * url **required** `string`: URL of the company
+  * type **required** `string`: URL of the company
+
+#### Output
+*Output schema unknown*
+
 ### v1.images.logo.get
-Returns a company logo based on website domain.
+Returns a company logo based on website domain. If the logo is not in our database yet, it will be extracted from the site on the fly. White logo background is automatically removed to make the logo look better on color backgrounds.
 
 
 ```js

@@ -474,6 +474,26 @@ slack.chat_delete({}, context)
 * output `object`: Verbose schema not yet ready for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
+### chat_getPermalink
+Retrieve a permalink URL for a specific extant message
+
+
+```js
+slack.chat_getPermalink({}, context)
+```
+
+#### Input
+* input `object`
+  * token `string`: Authentication token. Requires scope: `tokens.basic`
+  * message_ts `number`: A message's `ts` value, uniquely identifying it within a channel
+  * channel `string`: The ID of the conversation or channel containing the message
+
+#### Output
+* output `object`: Schema for successful response chat.getPermalink
+  * channel **required** [defs_channel](#defs_channel)
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * permalink **required** `string`
+
 ### chat_meMessage
 Share a me message into a channel.
 
@@ -661,6 +681,7 @@ slack.conversations_history({}, context)
 
 #### Input
 * input `object`
+  * inclusive `boolean`: Include messages with latest or oldest timestamp in results only when either timestamp is specified.
   * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
   * token `string`: Authentication token. Requires scope: `conversations:history`
   * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
@@ -784,8 +805,8 @@ slack.conversations_list({}, context)
 * input `object`
   * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
   * token `string`: Authentication token. Requires scope: `conversations:read`
-  * exclude_archived `boolean`: Set to `true` to exclude archived channels from the list
   * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer no larger than 1000.
+  * exclude_archived `boolean`: Set to `true` to exclude archived channels from the list
   * types `string`: Mix and match channel types by providing a comma-separated list of any combination of `public_channel`, `private_channel`, `mpim`, `im`
 
 #### Output
@@ -870,11 +891,14 @@ slack.conversations_replies({}, context)
 
 #### Input
 * input `object`
-  * ts `number`: Unique identifier of a thread's parent message
+  * inclusive `boolean`: Include messages with latest or oldest timestamp in results only when either timestamp is specified.
+  * ts `number`: Unique identifier of a thread's parent message.
   * cursor `string`: Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail.
   * token `string`: Authentication token. Requires scope: `conversations:history`
   * limit `integer`: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
-  * channel `string`: Conversation ID to fetch thread from
+  * oldest `number`: Start of time range of messages to include in results.
+  * channel `string`: Conversation ID to fetch thread from.
+  * latest `number`: End of time range of messages to include in results.
 
 #### Output
 * output `object`: Schema for successful response from conversations.replies method
@@ -1129,7 +1153,7 @@ slack.files_delete({}, context)
   * file `string`: ID of file to delete.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response files.delete method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### files_info
@@ -1231,7 +1255,8 @@ slack.files_upload({}, context)
   * file `string`: File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response files.upload method
+  * file **required** [objs_file](#objs_file)
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### groups_archive
@@ -1395,7 +1420,7 @@ slack.groups_list({}, context)
 
 #### Input
 * input `object`
-  * exclude_members `boolean`: Exlude the `members` from each `group`
+  * exclude_members `boolean`: Exclude the `members` from each `group`
   * token `string`: Authentication token. Requires scope: `groups:read`
   * exclude_archived `boolean`: Don't return archived private channels.
 
@@ -1659,6 +1684,29 @@ slack.im_replies({}, context)
 * output `object`: Verbose schema not yet ready for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
+### migration_exchange
+For Enterprise Grid workspaces, map local user IDs to global user IDs
+
+
+```js
+slack.migration_exchange({}, context)
+```
+
+#### Input
+* input `object`
+  * token `string`: Authentication token. Requires scope: `tokens.basic`
+  * to_old `boolean`: Specify `true` to convert `W` global user IDs to workspace-specific `U` IDs. Defaults to `false`.
+  * users `string`: A comma-separated list of user ids, up to 400 per request
+
+#### Output
+* output `object`: Bulk exchange local workspace user IDs for global IDs
+  * enterprise_id **required** `string`
+  * invalid_user_ids `array`
+    * items `string`
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * team_id **required** `string`
+  * user_id_map `object`
+
 ### mpim_close
 Closes a multiparty direct message channel.
 
@@ -1824,7 +1872,7 @@ slack.pins_add({}, context)
   * channel `string`: Channel to pin the item in.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from pins.add method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### pins_list
@@ -1861,7 +1909,7 @@ slack.pins_remove({}, context)
   * channel `string`: Channel where the item is pinned to.
 
 #### Output
-* output `object`: Verbose schema not yet ready for this method.
+* output `object`: Schema for successful response from pins.remove method
   * ok **required** [defs_ok_true](#defs_ok_true)
 
 ### reactions_add
@@ -2129,7 +2177,7 @@ slack.search_messages({}, context)
   * sort_dir `string`: Change sort direction to ascending (`asc`) or descending (`desc`).
   * query `string`: Search query. May contains booleans, etc.
   * sort `string`: Return matches sorted by either `score` or `timestamp`.
-  * count `string`
+  * count `string`: Pass the number of results you want per "page". Maximum of `100`.
   * token `string`: Authentication token. Requires scope: `search:read`
   * highlight `boolean`: Pass a value of `true` to enable query highlight markers (see below).
   * page `string`
@@ -2539,6 +2587,24 @@ slack.users_list({}, context)
 * output `object`: Verbose schema not yet ready for this method.
   * ok **required** [defs_ok_true](#defs_ok_true)
 
+### users_lookupByEmail
+Find a user with an email address.
+
+
+```js
+slack.users_lookupByEmail({}, context)
+```
+
+#### Input
+* input `object`
+  * token `string`: Authentication token. Requires scope: `users:read.email`
+  * email `string`: An email address belonging to a user in the workspace
+
+#### Output
+* output `object`: Schema for successful response from users.lookupByEmail method
+  * ok **required** [defs_ok_true](#defs_ok_true)
+  * user **required** [defs_user](#defs_user)
+
 ### users_profile_get
 Retrieves a user's profile information.
 
@@ -2677,6 +2743,9 @@ slack.users_setPresence({}, context)
 * Timestamp in format 0123456789.012345 `string`
 
 ### defs_user
+* User ID `string`
+
+### defs_user_id
 * User ID `string`
 
 ### objs_channel

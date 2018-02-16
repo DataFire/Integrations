@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apis_guru",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for APIs.guru",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/apis.guru/2.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/apis.guru/2.0.1/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

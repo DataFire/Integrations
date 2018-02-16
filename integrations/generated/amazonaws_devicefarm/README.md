@@ -113,9 +113,12 @@ amazonaws_devicefarm.CreateRemoteAccessSession({
   * clientId [ClientId](#clientid)
   * configuration [CreateRemoteAccessSessionConfiguration](#createremoteaccesssessionconfiguration)
   * deviceArn **required** [AmazonResourceName](#amazonresourcename)
+  * interactionMode [InteractionMode](#interactionmode)
   * name [Name](#name)
   * projectArn **required** [AmazonResourceName](#amazonresourcename)
   * remoteDebugEnabled [Boolean](#boolean)
+  * remoteRecordAppArn [AmazonResourceName](#amazonresourcename)
+  * remoteRecordEnabled [Boolean](#boolean)
   * sshPublicKey [SshPublicKey](#sshpublickey)
 
 #### Output
@@ -1069,9 +1072,12 @@ amazonaws_devicefarm.UpdateProject({
   * clientId [ClientId](#clientid)
   * configuration [CreateRemoteAccessSessionConfiguration](#createremoteaccesssessionconfiguration)
   * deviceArn **required** [AmazonResourceName](#amazonresourcename)
+  * interactionMode [InteractionMode](#interactionmode)
   * name [Name](#name)
   * projectArn **required** [AmazonResourceName](#amazonresourcename)
   * remoteDebugEnabled [Boolean](#boolean)
+  * remoteRecordAppArn [AmazonResourceName](#amazonresourcename)
+  * remoteRecordEnabled [Boolean](#boolean)
   * sshPublicKey [SshPublicKey](#sshpublickey)
 
 ### CreateRemoteAccessSessionResult
@@ -1156,6 +1162,7 @@ amazonaws_devicefarm.UpdateProject({
   * manufacturer [String](#string)
   * memory [Long](#long)
   * model [String](#string)
+  * modelId [String](#string)
   * name [Name](#name)
   * os [String](#string)
   * platform [DevicePlatform](#deviceplatform)
@@ -1369,6 +1376,9 @@ amazonaws_devicefarm.UpdateProject({
 
 ### Integer
 * Integer `integer`
+
+### InteractionMode
+* InteractionMode `string` (values: INTERACTIVE, NO_VIDEO, VIDEO_ONLY)
 
 ### IosPaths
 * IosPaths `array`
@@ -1758,9 +1768,12 @@ amazonaws_devicefarm.UpdateProject({
   * deviceUdid [String](#string)
   * endpoint [String](#string)
   * hostAddress [HostAddress](#hostaddress)
+  * interactionMode [InteractionMode](#interactionmode)
   * message [Message](#message)
   * name [Name](#name)
   * remoteDebugEnabled [Boolean](#boolean)
+  * remoteRecordAppArn [AmazonResourceName](#amazonresourcename)
+  * remoteRecordEnabled [Boolean](#boolean)
   * result [ExecutionResult](#executionresult)
   * started [DateTime](#datetime)
   * status [ExecutionStatus](#executionstatus)
@@ -1799,6 +1812,7 @@ amazonaws_devicefarm.UpdateProject({
 
 ### Run
 * Run `object`: Represents a test run on a set of devices with a given app package, test parameters, etc.
+  * appUpload [AmazonResourceName](#amazonresourcename)
   * arn [AmazonResourceName](#amazonresourcename)
   * billingMethod [BillingMethod](#billingmethod)
   * completedJobs [Integer](#integer)
@@ -1806,18 +1820,26 @@ amazonaws_devicefarm.UpdateProject({
   * created [DateTime](#datetime)
   * customerArtifactPaths [CustomerArtifactPaths](#customerartifactpaths)
   * deviceMinutes [DeviceMinutes](#deviceminutes)
+  * devicePoolArn [AmazonResourceName](#amazonresourcename)
+  * eventCount [Integer](#integer)
+  * jobTimeoutMinutes [JobTimeoutMinutes](#jobtimeoutminutes)
+  * locale [String](#string)
+  * location [Location](#location)
   * message [Message](#message)
   * name [Name](#name)
   * networkProfile [NetworkProfile](#networkprofile)
   * parsingResultUrl [String](#string)
   * platform [DevicePlatform](#deviceplatform)
+  * radios [Radios](#radios)
   * result [ExecutionResult](#executionresult)
   * resultCode [ExecutionResultCode](#executionresultcode)
+  * seed [Integer](#integer)
   * started [DateTime](#datetime)
   * status [ExecutionStatus](#executionstatus)
   * stopped [DateTime](#datetime)
   * totalJobs [Integer](#integer)
   * type [TestType](#testtype)
+  * webUrl [String](#string)
 
 ### Runs
 * Runs `array`
@@ -1933,7 +1955,7 @@ amazonaws_devicefarm.UpdateProject({
     * value [String](#string)
 
 ### TestType
-* TestType `string` (values: BUILTIN_FUZZ, BUILTIN_EXPLORER, APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_PYTHON, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, APPIUM_WEB_PYTHON, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST, XCTEST_UI)
+* TestType `string` (values: BUILTIN_FUZZ, BUILTIN_EXPLORER, WEB_PERFORMANCE_PROFILE, APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_PYTHON, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, APPIUM_WEB_PYTHON, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST, XCTEST_UI, REMOTE_ACCESS_RECORD, REMOTE_ACCESS_REPLAY)
 
 ### Tests
 * Tests `array`

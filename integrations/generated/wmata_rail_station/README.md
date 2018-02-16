@@ -652,7 +652,7 @@ Elements</a>
 <tr>
 <td>RiderCost</td>
 
-<td>All-day cost per day for Metro riders. NULL when no all-day
+<td>All-day cost per day (weekday) for Metro riders. NULL when no all-day
 spots are available. For most stations, this value is identical to
 the NonRiderCost.<br>
 <br>
@@ -668,7 +668,7 @@ exiting Metrorail.</td>
 <tr>
 <td>NonRiderCost</td>
 
-<td>All-day cost per day for non-Metro riders. NULL when no all-day
+<td>All-day cost per day (weekday) for non-Metro riders. NULL when no all-day
 spots are available.</td>
 </tr>
 
@@ -679,6 +679,18 @@ spots are available.</td>
 "ShortTermParking">ShortTermParking Elements</a>
 </div>
 </td>
+</tr>
+
+<tr>
+<td>SaturdayRiderCost</td>
+
+<td>Similar to RiderCost, except denoting Saturday prices.</td>
+</tr>
+
+<tr>
+<td>SaturdayNonRiderCost</td>
+
+<td>Similar to NonRiderCost, except denoting Saturday prices.</td>
 </tr>
 
 <tr>
@@ -1651,7 +1663,7 @@ Elements</a>
 <tr>
 <td>RiderCost</td>
 
-<td>All-day cost per day for Metro riders. NULL when no all-day
+<td>All-day cost per day (weekday) for Metro riders. NULL when no all-day
 spots are available. For most stations, this value is identical to
 the NonRiderCost.<br>
 <br>
@@ -1667,7 +1679,7 @@ exiting Metrorail.</td>
 <tr>
 <td>NonRiderCost</td>
 
-<td>All-day cost per day for non-Metro riders. NULL when no all-day
+<td>All-day cost per day (weekday) for non-Metro riders. NULL when no all-day
 spots are available.</td>
 </tr>
 
@@ -1678,6 +1690,18 @@ spots are available.</td>
 "ShortTermParking">ShortTermParking Elements</a>
 </div>
 </td>
+</tr>
+
+<tr>
+<td>SaturdayRiderCost</td>
+
+<td>Similar to RiderCost, except denoting Saturday prices.</td>
+</tr>
+
+<tr>
+<td>SaturdayNonRiderCost</td>
+
+<td>Similar to NonRiderCost, except denoting Saturday prices.</td>
 </tr>
 
 <tr>

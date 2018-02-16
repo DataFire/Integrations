@@ -73,10 +73,10 @@ Retrieves a list of conversions from a DoubleClick Search engine account.
 
 ```js
 google_doubleclicksearch.conversion.get({
-  "agencyId": "",
   "advertiserId": "",
-  "engineAccountId": "",
+  "agencyId": "",
   "endDate": 0,
+  "engineAccountId": "",
   "rowCount": 0,
   "startDate": 0,
   "startRow": 0
@@ -85,17 +85,17 @@ google_doubleclicksearch.conversion.get({
 
 #### Input
 * input `object`
-  * agencyId **required** `string`: Numeric ID of the agency.
+  * adGroupId `string`: Numeric ID of the ad group.
+  * adId `string`: Numeric ID of the ad.
   * advertiserId **required** `string`: Numeric ID of the advertiser.
-  * engineAccountId **required** `string`: Numeric ID of the engine account.
+  * agencyId **required** `string`: Numeric ID of the agency.
+  * campaignId `string`: Numeric ID of the campaign.
+  * criterionId `string`: Numeric ID of the criterion.
   * endDate **required** `integer`: Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
+  * engineAccountId **required** `string`: Numeric ID of the engine account.
   * rowCount **required** `integer`: The number of conversions to return per call.
   * startDate **required** `integer`: First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
   * startRow **required** `integer`: The 0-based starting index for retrieving conversions results.
-  * adGroupId `string`: Numeric ID of the ad group.
-  * adId `string`: Numeric ID of the ad.
-  * campaignId `string`: Numeric ID of the campaign.
-  * criterionId `string`: Numeric ID of the criterion.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -113,15 +113,15 @@ Retrieve the list of saved columns for a specified advertiser.
 
 ```js
 google_doubleclicksearch.savedColumns.list({
-  "agencyId": "",
-  "advertiserId": ""
+  "advertiserId": "",
+  "agencyId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * agencyId **required** `string`: DS ID of the agency.
   * advertiserId **required** `string`: DS ID of the advertiser.
+  * agencyId **required** `string`: DS ID of the agency.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -153,12 +153,12 @@ google_doubleclicksearch.conversion.patch({
 * input `object`
   * advertiserId **required** `string`: Numeric ID of the advertiser.
   * agencyId **required** `string`: Numeric ID of the agency.
+  * body [ConversionList](#conversionlist)
   * endDate **required** `integer`: Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
   * engineAccountId **required** `string`: Numeric ID of the engine account.
   * rowCount **required** `integer`: The number of conversions to return per call.
   * startDate **required** `integer`: First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
   * startRow **required** `integer`: The 0-based starting index for retrieving conversions results.
-  * body [ConversionList](#conversionlist)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -310,15 +310,15 @@ Downloads a report file encoded in UTF-8.
 
 ```js
 google_doubleclicksearch.reports.getFile({
-  "reportId": "",
-  "reportFragment": 0
+  "reportFragment": 0,
+  "reportId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * reportId **required** `string`: ID of the report.
   * reportFragment **required** `integer`: The index of the report fragment to download.
+  * reportId **required** `string`: ID of the report.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

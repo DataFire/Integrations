@@ -545,43 +545,43 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -823,43 +823,43 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -935,7 +935,7 @@
             "type": "string"
           },
           {
-            "description": "Whether the response should include a sync token, which can be used to get\nall changes since the last request.",
+            "description": "Whether the response should include a sync token, which can be used to get\nall changes since the last request. For subsequent sync requests use the\n`sync_token` param instead. Initial sync requests that specify\n`request_sync_token` have an additional rate limit.",
             "in": "query",
             "name": "requestSyncToken",
             "type": "boolean"
@@ -960,7 +960,7 @@
             "type": "string"
           },
           {
-            "description": "A sync token, returned by a previous call to `people.connections.list`.\nOnly resources changed since the sync token was created will be returned.",
+            "description": "A sync token returned by a previous call to `people.connections.list`.\nOnly resources changed since the sync token was created will be returned.\nSync requests that specify `sync_token` have an additional rate limit.",
             "in": "query",
             "name": "syncToken",
             "type": "string"
@@ -998,43 +998,43 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },

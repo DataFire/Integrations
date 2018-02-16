@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<fullname>AWS CodeDeploy</fullname> <p>AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances running in your own facility, or serverless AWS Lambda functions.</p> <p>You can deploy a nearly unlimited variety of application content, such as an updated Lambda function, code, web and configuration files, executables, packages, scripts, multimedia files, and so on. AWS CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to make changes to your existing code before you can use AWS CodeDeploy.</p> <p>AWS CodeDeploy makes it easier for you to rapidly release new features, helps you avoid downtime during application deployment, and handles the complexity of updating your applications, without many of the risks associated with error-prone manual deployments.</p> <p> <b>AWS CodeDeploy Components</b> </p> <p>Use the information in this guide to help you work with the following AWS CodeDeploy components:</p> <ul> <li> <p> <b>Application</b>: A name that uniquely identifies the application you want to deploy. AWS CodeDeploy uses this name, which functions as a container, to ensure the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment.</p> </li> <li> <p> <b>Deployment group</b>: A set of individual instances or CodeDeploy Lambda applications. A Lambda deployment group contains a group of applications. An EC2/On-premises deployment group contains individually tagged instances, Amazon EC2 instances in Auto Scaling groups, or both. </p> </li> <li> <p> <b>Deployment configuration</b>: A set of deployment rules and deployment success and failure conditions used by AWS CodeDeploy during a deployment.</p> </li> <li> <p> <b>Deployment</b>: The process and the components used in the process of updating a Lambda function or of installing content on one or more instances. </p> </li> <li> <p> <b>Application revisions</b>: For an AWS Lambda deployment, this is an AppSpec file that specifies the Lambda function to update and one or more functions to validate deployment lifecycle events. For an EC2/On-premises deployment, this is an archive file containing source content—source code, web pages, executable files, and deployment scripts—along with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For GitHub, a revision is uniquely identified by its commit ID.</p> </li> </ul> <p>This guide also contains information to help you get details about the instances in your deployments, to make on-premises instances available for AWS CodeDeploy deployments, and to get details about a Lambda function deployment.</p> <p> <b>AWS CodeDeploy Information Resources</b> </p> <ul> <li> <p> <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide\">AWS CodeDeploy User Guide</a> </p> </li> <li> <p> <a href=\"http://docs.aws.amazon.com/codedeploy/latest/APIReference/\">AWS CodeDeploy API Reference Guide</a> </p> </li> <li> <p> <a href=\"http://docs.aws.amazon.com/cli/latest/reference/deploy/index.html\">AWS CLI Reference for AWS CodeDeploy</a> </p> </li> <li> <p> <a href=\"https://forums.aws.amazon.com/forum.jspa?forumID=179\">AWS CodeDeploy Developer Forum</a> </p> </li> </ul>",
     "license": {
@@ -186,30 +187,36 @@
             }
           },
           "481": {
+            "description": "InvalidInstanceNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInstanceNameException"
+            }
+          },
+          "482": {
             "description": "TagRequiredException",
             "schema": {
               "$ref": "#/definitions/TagRequiredException"
             }
           },
-          "482": {
+          "483": {
             "description": "InvalidTagException",
             "schema": {
               "$ref": "#/definitions/InvalidTagException"
             }
           },
-          "483": {
+          "484": {
             "description": "TagLimitExceededException",
             "schema": {
               "$ref": "#/definitions/TagLimitExceededException"
             }
           },
-          "484": {
+          "485": {
             "description": "InstanceLimitExceededException",
             "schema": {
               "$ref": "#/definitions/InstanceLimitExceededException"
             }
           },
-          "485": {
+          "486": {
             "description": "InstanceNotRegisteredException",
             "schema": {
               "$ref": "#/definitions/InstanceNotRegisteredException"
@@ -863,6 +870,12 @@
             "schema": {
               "$ref": "#/definitions/ApplicationLimitExceededException"
             }
+          },
+          "484": {
+            "description": "InvalidComputePlatformException",
+            "schema": {
+              "$ref": "#/definitions/InvalidComputePlatformException"
+            }
           }
         }
       }
@@ -1018,6 +1031,36 @@
             "schema": {
               "$ref": "#/definitions/InvalidFileExistsBehaviorException"
             }
+          },
+          "497": {
+            "description": "InvalidRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRoleException"
+            }
+          },
+          "498": {
+            "description": "InvalidAutoScalingGroupException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAutoScalingGroupException"
+            }
+          },
+          "499": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "500": {
+            "description": "InvalidUpdateOutdatedInstancesOnlyValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidUpdateOutdatedInstancesOnlyValueException"
+            }
+          },
+          "501": {
+            "description": "InvalidIgnoreApplicationStopFailuresValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidIgnoreApplicationStopFailuresValueException"
+            }
           }
         }
       }
@@ -1100,6 +1143,18 @@
             "description": "DeploymentConfigLimitExceededException",
             "schema": {
               "$ref": "#/definitions/DeploymentConfigLimitExceededException"
+            }
+          },
+          "485": {
+            "description": "InvalidComputePlatformException",
+            "schema": {
+              "$ref": "#/definitions/InvalidComputePlatformException"
+            }
+          },
+          "486": {
+            "description": "InvalidTrafficRoutingConfigurationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidTrafficRoutingConfigurationException"
             }
           }
         }
@@ -1309,6 +1364,12 @@
             "description": "TagSetListLimitExceededException",
             "schema": {
               "$ref": "#/definitions/TagSetListLimitExceededException"
+            }
+          },
+          "506": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
             }
           }
         }
@@ -1528,6 +1589,89 @@
             "description": "InvalidRoleException",
             "schema": {
               "$ref": "#/definitions/InvalidRoleException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteGitHubAccountToken": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a GitHub account connection.",
+        "operationId": "DeleteGitHubAccountToken",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteGitHubAccountTokenInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteGitHubAccountTokenOutput"
+            }
+          },
+          "480": {
+            "description": "GitHubAccountTokenNameRequiredException",
+            "schema": {
+              "$ref": "#/definitions/GitHubAccountTokenNameRequiredException"
+            }
+          },
+          "481": {
+            "description": "GitHubAccountTokenDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/GitHubAccountTokenDoesNotExistException"
+            }
+          },
+          "482": {
+            "description": "InvalidGitHubAccountTokenNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidGitHubAccountTokenNameException"
+            }
+          },
+          "483": {
+            "description": "ResourceValidationException",
+            "schema": {
+              "$ref": "#/definitions/ResourceValidationException"
+            }
+          },
+          "484": {
+            "description": "OperationNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotSupportedException"
             }
           }
         }
@@ -2792,6 +2936,12 @@
             "schema": {
               "$ref": "#/definitions/ResourceValidationException"
             }
+          },
+          "482": {
+            "description": "OperationNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotSupportedException"
+            }
           }
         }
       }
@@ -2862,6 +3012,101 @@
             "description": "InvalidNextTokenException",
             "schema": {
               "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          }
+        }
+      }
+    },
+    "/#PutLifecycleEventHookExecutionStatus": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Sets the result of a Lambda validation function. The function validates one or both lifecycle events (<code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>) and returns <code>Succeeded</code> or <code>Failed</code>.",
+        "operationId": "PutLifecycleEventHookExecutionStatus",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutLifecycleEventHookExecutionStatusInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutLifecycleEventHookExecutionStatusOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidLifecycleEventHookExecutionStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidLifecycleEventHookExecutionStatusException"
+            }
+          },
+          "481": {
+            "description": "InvalidLifecycleEventHookExecutionIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidLifecycleEventHookExecutionIdException"
+            }
+          },
+          "482": {
+            "description": "LifecycleEventAlreadyCompletedException",
+            "schema": {
+              "$ref": "#/definitions/LifecycleEventAlreadyCompletedException"
+            }
+          },
+          "483": {
+            "description": "DeploymentIdRequiredException",
+            "schema": {
+              "$ref": "#/definitions/DeploymentIdRequiredException"
+            }
+          },
+          "484": {
+            "description": "DeploymentDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/DeploymentDoesNotExistException"
+            }
+          },
+          "485": {
+            "description": "InvalidDeploymentIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidDeploymentIdException"
+            }
+          },
+          "486": {
+            "description": "UnsupportedActionForDeploymentTypeException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedActionForDeploymentTypeException"
             }
           }
         }
@@ -3117,30 +3362,36 @@
             }
           },
           "481": {
+            "description": "InvalidInstanceNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInstanceNameException"
+            }
+          },
+          "482": {
             "description": "TagRequiredException",
             "schema": {
               "$ref": "#/definitions/TagRequiredException"
             }
           },
-          "482": {
+          "483": {
             "description": "InvalidTagException",
             "schema": {
               "$ref": "#/definitions/InvalidTagException"
             }
           },
-          "483": {
+          "484": {
             "description": "TagLimitExceededException",
             "schema": {
               "$ref": "#/definitions/TagLimitExceededException"
             }
           },
-          "484": {
+          "485": {
             "description": "InstanceLimitExceededException",
             "schema": {
               "$ref": "#/definitions/InstanceLimitExceededException"
             }
           },
-          "485": {
+          "486": {
             "description": "InstanceNotRegisteredException",
             "schema": {
               "$ref": "#/definitions/InstanceNotRegisteredException"
@@ -3585,6 +3836,12 @@
             "schema": {
               "$ref": "#/definitions/TagSetListLimitExceededException"
             }
+          },
+          "505": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
           }
         }
       }
@@ -3677,6 +3934,10 @@
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
           "description": "The application name."
+        },
+        "computePlatform": {
+          "$ref": "#/definitions/ComputePlatform",
+          "description": "The destination platform type for deployment of the application (<code>Lambda</code> or <code>Server</code>)."
         },
         "createTime": {
           "$ref": "#/definitions/Timestamp",
@@ -3832,6 +4093,9 @@
           "description": "A list of application names separated by spaces."
         }
       },
+      "required": [
+        "applicationNames"
+      ],
       "type": "object"
     },
     "BatchGetApplicationsOutput": {
@@ -3916,6 +4180,9 @@
           "description": "A list of deployment IDs, separated by spaces."
         }
       },
+      "required": [
+        "deploymentIds"
+      ],
       "type": "object"
     },
     "BatchGetDeploymentsOutput": {
@@ -3936,6 +4203,9 @@
           "description": "The names of the on-premises instances about which to get information."
         }
       },
+      "required": [
+        "instanceNames"
+      ],
       "type": "object"
     },
     "BatchGetOnPremisesInstancesOutput": {
@@ -3997,11 +4267,20 @@
       "enum": [
         "tar",
         "tgz",
-        "zip"
+        "zip",
+        "YAML",
+        "JSON"
       ],
       "type": "string"
     },
     "CommitId": {
+      "type": "string"
+    },
+    "ComputePlatform": {
+      "enum": [
+        "Server",
+        "Lambda"
+      ],
       "type": "string"
     },
     "ContinueDeploymentInput": {
@@ -4019,6 +4298,10 @@
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
           "description": "The name of the application. This name must be unique with the applicable IAM user or AWS account."
+        },
+        "computePlatform": {
+          "$ref": "#/definitions/ComputePlatform",
+          "description": " The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>)."
         }
       },
       "required": [
@@ -4039,6 +4322,10 @@
     "CreateDeploymentConfigInput": {
       "description": "Represents the input of a CreateDeploymentConfig operation.",
       "properties": {
+        "computePlatform": {
+          "$ref": "#/definitions/ComputePlatform",
+          "description": "The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>&gt;)."
+        },
         "deploymentConfigName": {
           "$ref": "#/definitions/DeploymentConfigName",
           "description": "The name of the deployment configuration to create."
@@ -4046,11 +4333,14 @@
         "minimumHealthyHosts": {
           "$ref": "#/definitions/MinimumHealthyHosts",
           "description": "<p>The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.</p> <p>The type parameter takes either of the following values:</p> <ul> <li> <p>HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.</p> </li> <li> <p>FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.</p> </li> </ul> <p>The value parameter takes an integer.</p> <p>For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.</p>"
+        },
+        "trafficRoutingConfig": {
+          "$ref": "#/definitions/TrafficRoutingConfig",
+          "description": "The configuration that specifies how the deployment traffic will be routed."
         }
       },
       "required": [
-        "deploymentConfigName",
-        "minimumHealthyHosts"
+        "deploymentConfigName"
       ],
       "type": "object"
     },
@@ -4258,6 +4548,26 @@
       },
       "type": "object"
     },
+    "DeleteGitHubAccountTokenInput": {
+      "description": "Represents the input of a DeleteGitHubAccount operation.",
+      "properties": {
+        "tokenName": {
+          "$ref": "#/definitions/GitHubAccountTokenName",
+          "description": "The name of the GitHub account connection to delete."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteGitHubAccountTokenOutput": {
+      "description": "Represents the output of a DeleteGitHubAccountToken operation.",
+      "properties": {
+        "tokenName": {
+          "$ref": "#/definitions/GitHubAccountTokenName",
+          "description": "The name of the GitHub account connection that was deleted."
+        }
+      },
+      "type": "object"
+    },
     "DeploymentAlreadyCompletedException": {
       "description": "The deployment is already complete.",
       "properties": {},
@@ -4284,6 +4594,10 @@
     "DeploymentConfigInfo": {
       "description": "Information about a deployment configuration.",
       "properties": {
+        "computePlatform": {
+          "$ref": "#/definitions/ComputePlatform",
+          "description": "The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>)."
+        },
         "createTime": {
           "$ref": "#/definitions/Timestamp",
           "description": "The time at which the deployment configuration was created."
@@ -4299,6 +4613,10 @@
         "minimumHealthyHosts": {
           "$ref": "#/definitions/MinimumHealthyHosts",
           "description": "Information about the number or percentage of minimum healthy instance."
+        },
+        "trafficRoutingConfig": {
+          "$ref": "#/definitions/TrafficRoutingConfig",
+          "description": "The configuration specifying how the deployment traffic will be routed. Only deployments with a Lambda compute platform can specify this."
         }
       },
       "type": "object"
@@ -4372,6 +4690,10 @@
         "blueGreenDeploymentConfiguration": {
           "$ref": "#/definitions/BlueGreenDeploymentConfiguration",
           "description": "Information about blue/green deployment options for a deployment group."
+        },
+        "computePlatform": {
+          "$ref": "#/definitions/ComputePlatform",
+          "description": "The destination platform type for the deployment group (<code>Lambda</code> or <code>Server</code>)."
         },
         "deploymentConfigName": {
           "$ref": "#/definitions/DeploymentConfigName",
@@ -4490,6 +4812,10 @@
           "$ref": "#/definitions/Timestamp",
           "description": "A timestamp indicating when the deployment was complete."
         },
+        "computePlatform": {
+          "$ref": "#/definitions/ComputePlatform",
+          "description": "The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>)."
+        },
         "createTime": {
           "$ref": "#/definitions/Timestamp",
           "description": "A timestamp indicating when the deployment was created."
@@ -4513,6 +4839,10 @@
         "deploymentOverview": {
           "$ref": "#/definitions/DeploymentOverview",
           "description": "A summary of the deployment status of the instances in the deployment."
+        },
+        "deploymentStatusMessages": {
+          "$ref": "#/definitions/DeploymentStatusMessageList",
+          "description": "Messages that contain information about the status of a deployment."
         },
         "deploymentStyle": {
           "$ref": "#/definitions/DeploymentStyle",
@@ -4664,6 +4994,12 @@
       },
       "type": "array"
     },
+    "DeploymentStatusMessageList": {
+      "items": {
+        "$ref": "#/definitions/ErrorMessage"
+      },
+      "type": "array"
+    },
     "DeploymentStyle": {
       "description": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.",
       "properties": {
@@ -4796,7 +5132,7 @@
       "properties": {
         "name": {
           "$ref": "#/definitions/ELBName",
-          "description": "For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes."
+          "description": "For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes."
         }
       },
       "type": "object"
@@ -4832,7 +5168,15 @@
         "AGENT_ISSUE",
         "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
         "AUTO_SCALING_CONFIGURATION",
-        "MANUAL_STOP"
+        "MANUAL_STOP",
+        "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
+        "MISSING_ELB_INFORMATION",
+        "MISSING_GITHUB_TOKEN",
+        "ELASTIC_LOAD_BALANCING_INVALID",
+        "ELB_INVALID_INSTANCE",
+        "INVALID_LAMBDA_CONFIGURATION",
+        "INVALID_LAMBDA_FUNCTION",
+        "HOOK_EXECUTION_FAILURE"
       ],
       "type": "string"
     },
@@ -5084,6 +5428,11 @@
         "$ref": "#/definitions/GitHubAccountTokenName"
       },
       "type": "array"
+    },
+    "GitHubAccountTokenNameRequiredException": {
+      "description": "The call is missing a required GitHub account connection name.",
+      "properties": {},
+      "type": "object"
     },
     "GitHubLocation": {
       "description": "Information about the location of application artifacts stored in GitHub.",
@@ -5340,6 +5689,11 @@
       "properties": {},
       "type": "object"
     },
+    "InvalidComputePlatformException": {
+      "description": "The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or <code>Server</code>.",
+      "properties": {},
+      "type": "object"
+    },
     "InvalidDeployedStateFilterException": {
       "description": "The deployed state filter was specified in an invalid format.",
       "properties": {},
@@ -5390,6 +5744,11 @@
       "properties": {},
       "type": "object"
     },
+    "InvalidGitHubAccountTokenNameException": {
+      "description": "The format of the specified GitHub account connection name is invalid.",
+      "properties": {},
+      "type": "object"
+    },
     "InvalidIamSessionArnException": {
       "description": "The IAM session ARN was specified in an invalid format.",
       "properties": {},
@@ -5397,6 +5756,21 @@
     },
     "InvalidIamUserArnException": {
       "description": "The IAM user ARN was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidIgnoreApplicationStopFailuresValueException": {
+      "description": "The IgnoreApplicationStopFailures value is invalid. For AWS Lambda deployments, <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code> is expected.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidInputException": {
+      "description": "The specified input was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidInstanceIdException": {
+      "description": " ",
       "properties": {},
       "type": "object"
     },
@@ -5417,6 +5791,16 @@
     },
     "InvalidKeyPrefixFilterException": {
       "description": "The specified key prefix filter was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidLifecycleEventHookExecutionIdException": {
+      "description": "A lifecycle event hook is invalid. Review the <code>hooks</code> section in your AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidLifecycleEventHookExecutionStatusException": {
+      "description": "The result of a Lambda validation function that verifies a lifecycle event is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.",
       "properties": {},
       "type": "object"
     },
@@ -5490,8 +5874,18 @@
       "properties": {},
       "type": "object"
     },
+    "InvalidTrafficRoutingConfigurationException": {
+      "description": " The configuration that specifies how traffic is routed during a deployment is invalid.",
+      "properties": {},
+      "type": "object"
+    },
     "InvalidTriggerConfigException": {
       "description": "The trigger was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidUpdateOutdatedInstancesOnlyValueException": {
+      "description": "The UpdateOutdatedInstancesOnly value is invalid. For AWS Lambda deployments, <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code> is expected.",
       "properties": {},
       "type": "object"
     },
@@ -5556,6 +5950,14 @@
         }
       },
       "type": "object"
+    },
+    "LifecycleEventAlreadyCompletedException": {
+      "description": "An attempt to return the status of an already completed lifecycle event occurred.",
+      "properties": {},
+      "type": "object"
+    },
+    "LifecycleEventHookExecutionId": {
+      "type": "string"
     },
     "LifecycleEventList": {
       "items": {
@@ -5933,6 +6335,60 @@
       },
       "type": "array"
     },
+    "OperationNotSupportedException": {
+      "description": "The API used does not support the deployment.",
+      "properties": {},
+      "type": "object"
+    },
+    "Percentage": {
+      "type": "integer"
+    },
+    "PutLifecycleEventHookExecutionStatusInput": {
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event."
+        },
+        "lifecycleEventHookExecutionId": {
+          "$ref": "#/definitions/LifecycleEventHookExecutionId",
+          "description": "The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the <code>hooks</code> section of the AppSpec file."
+        },
+        "status": {
+          "$ref": "#/definitions/LifecycleEventStatus",
+          "description": "The result of a Lambda function that validates a deployment lifecycle event (<code>Succeeded</code> or <code>Failed</code>)."
+        }
+      },
+      "type": "object"
+    },
+    "PutLifecycleEventHookExecutionStatusOutput": {
+      "properties": {
+        "lifecycleEventHookExecutionId": {
+          "$ref": "#/definitions/LifecycleEventHookExecutionId",
+          "description": "The execution ID of the lifecycle event hook. A hook is specified in the <code>hooks</code> section of the deployment's AppSpec file."
+        }
+      },
+      "type": "object"
+    },
+    "RawString": {
+      "description": "A revision for an AWS Lambda deployment that is a YAML-formatted or JSON-formatted string. For AWS Lambda deployments, the revision is the same as the AppSpec file.",
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/RawStringContent",
+          "description": "The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events."
+        },
+        "sha256": {
+          "$ref": "#/definitions/RawStringSha256",
+          "description": "The SHA256 hash value of the revision that is specified as a RawString."
+        }
+      },
+      "type": "object"
+    },
+    "RawStringContent": {
+      "type": "string"
+    },
+    "RawStringSha256": {
+      "type": "string"
+    },
     "RegisterApplicationRevisionInput": {
       "description": "Represents the input of a RegisterApplicationRevision operation.",
       "properties": {
@@ -6043,11 +6499,15 @@
         },
         "revisionType": {
           "$ref": "#/definitions/RevisionLocationType",
-          "description": "<p>The type of application revision:</p> <ul> <li> <p>S3: An application revision stored in Amazon S3.</p> </li> <li> <p>GitHub: An application revision stored in GitHub.</p> </li> </ul>"
+          "description": "<p>The type of application revision:</p> <ul> <li> <p>S3: An application revision stored in Amazon S3.</p> </li> <li> <p>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)</p> </li> <li> <p>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)</p> </li> </ul>"
         },
         "s3Location": {
           "$ref": "#/definitions/S3Location",
-          "description": "Information about the location of application artifacts stored in Amazon S3. "
+          "description": "Information about the location of a revision stored in Amazon S3. "
+        },
+        "string": {
+          "$ref": "#/definitions/RawString",
+          "description": "Information about the location of an AWS Lambda deployment revision stored as a RawString."
         }
       },
       "type": "object"
@@ -6061,7 +6521,8 @@
     "RevisionLocationType": {
       "enum": [
         "S3",
-        "GitHub"
+        "GitHub",
+        "String"
       ],
       "type": "string"
     },
@@ -6289,6 +6750,39 @@
       },
       "type": "object"
     },
+    "ThrottlingException": {
+      "description": "An API function was called too frequently.",
+      "properties": {},
+      "type": "object"
+    },
+    "TimeBasedCanary": {
+      "description": "A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.",
+      "properties": {
+        "canaryInterval": {
+          "$ref": "#/definitions/WaitTimeInMins",
+          "description": "The number of minutes between the first and second traffic shifts of a <code>TimeBasedCanary</code> deployment."
+        },
+        "canaryPercentage": {
+          "$ref": "#/definitions/Percentage",
+          "description": "The percentage of traffic to shift in the first increment of a <code>TimeBasedCanary</code> deployment."
+        }
+      },
+      "type": "object"
+    },
+    "TimeBasedLinear": {
+      "description": "A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.",
+      "properties": {
+        "linearInterval": {
+          "$ref": "#/definitions/WaitTimeInMins",
+          "description": "The number of minutes between each incremental traffic shift of a <code>TimeBasedLinear</code> deployment."
+        },
+        "linearPercentage": {
+          "$ref": "#/definitions/Percentage",
+          "description": "The percentage of traffic that is shifted at the start of each increment of a <code>TimeBasedLinear</code> deployment."
+        }
+      },
+      "type": "object"
+    },
     "TimeRange": {
       "description": "Information about a time range.",
       "properties": {
@@ -6305,6 +6799,32 @@
     },
     "Timestamp": {
       "format": "date-time",
+      "type": "string"
+    },
+    "TrafficRoutingConfig": {
+      "description": "The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an AWS Lambda deployment.",
+      "properties": {
+        "timeBasedCanary": {
+          "$ref": "#/definitions/TimeBasedCanary",
+          "description": "A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file."
+        },
+        "timeBasedLinear": {
+          "$ref": "#/definitions/TimeBasedLinear",
+          "description": "A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file."
+        },
+        "type": {
+          "$ref": "#/definitions/TrafficRoutingType",
+          "description": "The type of traffic shifting (<code>TimeBasedCanary</code> or <code>TimeBasedLinear</code>) used by a deployment configuration ."
+        }
+      },
+      "type": "object"
+    },
+    "TrafficRoutingType": {
+      "enum": [
+        "TimeBasedCanary",
+        "TimeBasedLinear",
+        "AllAtOnce"
+      ],
       "type": "string"
     },
     "TriggerConfig": {
@@ -6471,6 +6991,9 @@
     },
     "VersionId": {
       "type": "string"
+    },
+    "WaitTimeInMins": {
+      "type": "integer"
     }
   }
 }

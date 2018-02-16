@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<fullname>Amazon Simple Email Service</fullname> <p> This is the API Reference for <a href=\"https://aws.amazon.com/ses/\">Amazon Simple Email Service</a> (Amazon SES). This documentation is intended to be used in conjunction with the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html\">Amazon SES Developer Guide</a>. </p> <note> <p> For a list of Amazon SES endpoints to use in service requests, see <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html\">Regions and Amazon SES</a> in the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html\">Amazon SES Developer Guide</a>. </p> </note>",
     "license": {
@@ -425,6 +426,80 @@
             "description": "InvalidTrackingOptionsException",
             "schema": {
               "$ref": "#/definitions/InvalidTrackingOptionsException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateCustomVerificationEmailTemplate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a new custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "CreateCustomVerificationEmailTemplate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCustomVerificationEmailTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "CustomVerificationEmailTemplateAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/CustomVerificationEmailTemplateAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "FromEmailAddressNotVerifiedException",
+            "schema": {
+              "$ref": "#/definitions/FromEmailAddressNotVerifiedException"
+            }
+          },
+          "482": {
+            "description": "CustomVerificationEmailInvalidContentException",
+            "schema": {
+              "$ref": "#/definitions/CustomVerificationEmailInvalidContentException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
             }
           }
         }
@@ -911,6 +986,56 @@
             "schema": {
               "$ref": "#/definitions/TrackingOptionsDoesNotExistException"
             }
+          }
+        }
+      }
+    },
+    "/#DeleteCustomVerificationEmailTemplate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes an existing custom verification email template. </p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "DeleteCustomVerificationEmailTemplate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCustomVerificationEmailTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -1531,6 +1656,108 @@
         }
       }
     },
+    "/#GetAccountSendingEnabled": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns the email sending status of the Amazon SES account.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "GetAccountSendingEnabled",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAccountSendingEnabledResponse"
+            }
+          }
+        }
+      }
+    },
+    "/#GetCustomVerificationEmailTemplate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns the custom email verification template for the template name you specify.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "GetCustomVerificationEmailTemplate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCustomVerificationEmailTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCustomVerificationEmailTemplateResponse"
+            }
+          },
+          "480": {
+            "description": "CustomVerificationEmailTemplateDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/CustomVerificationEmailTemplateDoesNotExistException"
+            }
+          }
+        }
+      }
+    },
     "/#GetIdentityDkimAttributes": {
       "parameters": [
         {
@@ -2004,6 +2231,73 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ListConfigurationSetsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/#ListCustomVerificationEmailTemplates": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Lists the existing custom verification email templates for your account.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "ListCustomVerificationEmailTemplates",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListCustomVerificationEmailTemplatesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListCustomVerificationEmailTemplatesResponse"
             }
           }
         }
@@ -2587,6 +2881,101 @@
             "schema": {
               "$ref": "#/definitions/TemplateDoesNotExistException"
             }
+          },
+          "484": {
+            "description": "ConfigurationSetSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetSendingPausedException"
+            }
+          },
+          "485": {
+            "description": "AccountSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/AccountSendingPausedException"
+            }
+          }
+        }
+      }
+    },
+    "/#SendCustomVerificationEmail": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Adds an email address to the list of identities for your Amazon SES account and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.</p> <p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "SendCustomVerificationEmail",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendCustomVerificationEmailRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendCustomVerificationEmailResponse"
+            }
+          },
+          "480": {
+            "description": "MessageRejected",
+            "schema": {
+              "$ref": "#/definitions/MessageRejected"
+            }
+          },
+          "481": {
+            "description": "ConfigurationSetDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetDoesNotExistException"
+            }
+          },
+          "482": {
+            "description": "CustomVerificationEmailTemplateDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/CustomVerificationEmailTemplateDoesNotExistException"
+            }
+          },
+          "483": {
+            "description": "FromEmailAddressNotVerifiedException",
+            "schema": {
+              "$ref": "#/definitions/FromEmailAddressNotVerifiedException"
+            }
+          },
+          "484": {
+            "description": "ProductionAccessNotGrantedException",
+            "schema": {
+              "$ref": "#/definitions/ProductionAccessNotGrantedException"
+            }
           }
         }
       }
@@ -2658,6 +3047,18 @@
             "schema": {
               "$ref": "#/definitions/ConfigurationSetDoesNotExistException"
             }
+          },
+          "483": {
+            "description": "ConfigurationSetSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetSendingPausedException"
+            }
+          },
+          "484": {
+            "description": "AccountSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/AccountSendingPausedException"
+            }
           }
         }
       }
@@ -2728,6 +3129,18 @@
             "description": "ConfigurationSetDoesNotExistException",
             "schema": {
               "$ref": "#/definitions/ConfigurationSetDoesNotExistException"
+            }
+          },
+          "483": {
+            "description": "ConfigurationSetSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetSendingPausedException"
+            }
+          },
+          "484": {
+            "description": "AccountSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/AccountSendingPausedException"
             }
           }
         }
@@ -2805,6 +3218,18 @@
             "description": "TemplateDoesNotExistException",
             "schema": {
               "$ref": "#/definitions/TemplateDoesNotExistException"
+            }
+          },
+          "484": {
+            "description": "ConfigurationSetSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetSendingPausedException"
+            }
+          },
+          "485": {
+            "description": "AccountSendingPausedException",
+            "schema": {
+              "$ref": "#/definitions/AccountSendingPausedException"
             }
           }
         }
@@ -3270,6 +3695,56 @@
         }
       }
     },
+    "/#UpdateAccountSendingEnabled": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Enables or disables email sending across your entire Amazon SES account. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending across your Amazon SES account when reputation metrics (such as your bounce on complaint rate) reach certain thresholds.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "UpdateAccountSendingEnabled",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountSendingEnabledRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/#UpdateConfigurationSetEventDestination": {
       "parameters": [
         {
@@ -3353,6 +3828,118 @@
         }
       }
     },
+    "/#UpdateConfigurationSetReputationMetricsEnabled": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Enables or disables the publishing of reputation metrics for emails sent using a specific configuration set. Reputation metrics include bounce and complaint rates. These metrics are published to Amazon CloudWatch. By using Amazon CloudWatch, you can create alarms when bounce or complaint rates exceed a certain threshold.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "UpdateConfigurationSetReputationMetricsEnabled",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateConfigurationSetReputationMetricsEnabledRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ConfigurationSetDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetDoesNotExistException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateConfigurationSetSendingEnabled": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Enables or disables email sending for messages sent using a specific configuration set. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending for a configuration set when the reputation metrics for that configuration set (such as your bounce on complaint rate) reach certain thresholds.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "UpdateConfigurationSetSendingEnabled",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateConfigurationSetSendingEnabledRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ConfigurationSetDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/ConfigurationSetDoesNotExistException"
+            }
+          }
+        }
+      }
+    },
     "/#UpdateConfigurationSetTrackingOptions": {
       "parameters": [
         {
@@ -3419,6 +4006,74 @@
             "description": "InvalidTrackingOptionsException",
             "schema": {
               "$ref": "#/definitions/InvalidTrackingOptionsException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateCustomVerificationEmailTemplate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Updates an existing custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>",
+        "operationId": "UpdateCustomVerificationEmailTemplate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateCustomVerificationEmailTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "CustomVerificationEmailTemplateDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/CustomVerificationEmailTemplateDoesNotExistException"
+            }
+          },
+          "481": {
+            "description": "FromEmailAddressNotVerifiedException",
+            "schema": {
+              "$ref": "#/definitions/FromEmailAddressNotVerifiedException"
+            }
+          },
+          "482": {
+            "description": "CustomVerificationEmailInvalidContentException",
+            "schema": {
+              "$ref": "#/definitions/CustomVerificationEmailInvalidContentException"
             }
           }
         }
@@ -3765,7 +4420,7 @@
         }
       ],
       "post": {
-        "description": "<p>Adds an email address to the list of identities for your Amazon SES account and attempts to verify it. This operation causes a confirmation email message to be sent to the specified address.</p> <p>You can execute this operation no more than once per second.</p>",
+        "description": "<p>Adds an email address to the list of identities for your Amazon SES account and attempts to verify it. As a result of executing this operation, a verification email is sent to the specified address.</p> <p>You can execute this operation no more than once per second.</p>",
         "operationId": "VerifyEmailIdentity",
         "parameters": [
           {
@@ -3789,6 +4444,11 @@
     }
   },
   "definitions": {
+    "AccountSendingPausedException": {
+      "description": "<p>Indicates that email sending is disabled for your entire Amazon SES account.</p> <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>",
+      "properties": {},
+      "type": "object"
+    },
     "AddHeaderAction": {
       "description": "<p>When included in a receipt rule, this action adds a header to the received email.</p> <p>For information about adding a header using a receipt rule, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html\">Amazon SES Developer Guide</a>.</p>",
       "properties": {
@@ -3975,7 +4635,7 @@
         },
         "Status": {
           "$ref": "#/definitions/BulkEmailStatus",
-          "description": "<p>The status of a message sent using the <code>SendBulkTemplatedEmail</code> operation.</p> <p>Possible values for this parameter include:</p> <ul> <li> <p> <code>Success</code>: Amazon SES accepted the message, and will attempt to deliver it to the recipients.</p> </li> <li> <p> <code>MessageRejected</code>: The message was rejected because it contained a virus.</p> </li> <li> <p> <code>MailFromDomainNotVerified</code>: The sender's email address or domain was not verified.</p> </li> <li> <p> <code>ConfigurationSetDoesNotExist</code>: The configuration set you specified does not exist.</p> </li> <li> <p> <code>TemplateDoesNotExist</code>: The template you specified does not exist.</p> </li> <li> <p> <code>AccountSuspended</code>: Your account has been shut down because of issues related to your email sending practices.</p> </li> <li> <p> <code>AccountThrottled</code>: The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.</p> </li> <li> <p> <code>AccountDailyQuotaExceeded</code>: You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.</p> </li> <li> <p> <code>InvalidSendingPoolName</code>: The configuration set you specified refers to an IP pool that does not exist.</p> </li> <li> <p> <code>InvalidParameterValue</code>: One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.</p> </li> <li> <p> <code>TransientFailure</code>: Amazon SES was unable to process your request because of a temporary issue.</p> </li> <li> <p> <code>Failed</code>: Amazon SES was unable to process your request. See the error message for additional information.</p> </li> </ul>"
+          "description": "<p>The status of a message sent using the <code>SendBulkTemplatedEmail</code> operation.</p> <p>Possible values for this parameter include:</p> <ul> <li> <p> <code>Success</code>: Amazon SES accepted the message, and will attempt to deliver it to the recipients.</p> </li> <li> <p> <code>MessageRejected</code>: The message was rejected because it contained a virus.</p> </li> <li> <p> <code>MailFromDomainNotVerified</code>: The sender's email address or domain was not verified.</p> </li> <li> <p> <code>ConfigurationSetDoesNotExist</code>: The configuration set you specified does not exist.</p> </li> <li> <p> <code>TemplateDoesNotExist</code>: The template you specified does not exist.</p> </li> <li> <p> <code>AccountSuspended</code>: Your account has been shut down because of issues related to your email sending practices.</p> </li> <li> <p> <code>AccountThrottled</code>: The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.</p> </li> <li> <p> <code>AccountDailyQuotaExceeded</code>: You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.</p> </li> <li> <p> <code>InvalidSendingPoolName</code>: The configuration set you specified refers to an IP pool that does not exist.</p> </li> <li> <p> <code>AccountSendingPaused</code>: Email sending for the Amazon SES account was disabled using the <a>UpdateAccountSendingEnabled</a> operation.</p> </li> <li> <p> <code>ConfigurationSetSendingPaused</code>: Email sending for this configuration set was disabled using the <a>UpdateConfigurationSetSendingEnabled</a> operation.</p> </li> <li> <p> <code>InvalidParameterValue</code>: One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.</p> </li> <li> <p> <code>TransientFailure</code>: Amazon SES was unable to process your request because of a temporary issue.</p> </li> <li> <p> <code>Failed</code>: Amazon SES was unable to process your request. See the error message for additional information.</p> </li> </ul>"
         }
       },
       "type": "object"
@@ -3997,6 +4657,8 @@
         "AccountThrottled",
         "AccountDailyQuotaExceeded",
         "InvalidSendingPoolName",
+        "AccountSendingPaused",
+        "ConfigurationSetSendingPaused",
         "InvalidParameterValue",
         "TransientFailure",
         "Failed"
@@ -4032,7 +4694,7 @@
         },
         "RuleSetName": {
           "$ref": "#/definitions/ReceiptRuleSetName",
-          "description": "<p>The name of the rule set to create. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the rule set to create. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         }
       },
       "required": [
@@ -4064,11 +4726,11 @@
       "properties": {
         "DefaultDimensionValue": {
           "$ref": "#/definitions/DefaultDimensionValue",
-          "description": "<p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
+          "description": "<p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
         },
         "DimensionName": {
           "$ref": "#/definitions/DimensionName",
-          "description": "<p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
+          "description": "<p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
         },
         "DimensionValueSource": {
           "$ref": "#/definitions/DimensionValueSource",
@@ -4114,7 +4776,8 @@
     "ConfigurationSetAttribute": {
       "enum": [
         "eventDestinations",
-        "trackingOptions"
+        "trackingOptions",
+        "reputationOptions"
       ],
       "type": "string"
     },
@@ -4136,6 +4799,16 @@
     },
     "ConfigurationSetName": {
       "type": "string"
+    },
+    "ConfigurationSetSendingPausedException": {
+      "description": "<p>Indicates that email sending is disabled for the configuration set.</p> <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set for which email sending is disabled."
+        }
+      },
+      "type": "object"
     },
     "ConfigurationSets": {
       "items": {
@@ -4226,6 +4899,44 @@
       "properties": {},
       "type": "object"
     },
+    "CreateCustomVerificationEmailTemplateRequest": {
+      "description": "Represents a request to create a custom verification email template.",
+      "properties": {
+        "FailureRedirectionURL": {
+          "$ref": "#/definitions/FailureRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is not successfully verified."
+        },
+        "FromEmailAddress": {
+          "$ref": "#/definitions/FromAddress",
+          "description": "The email address that the custom verification email is sent from."
+        },
+        "SuccessRedirectionURL": {
+          "$ref": "#/definitions/SuccessRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is successfully verified."
+        },
+        "TemplateContent": {
+          "$ref": "#/definitions/TemplateContent",
+          "description": "The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template."
+        },
+        "TemplateSubject": {
+          "$ref": "#/definitions/Subject",
+          "description": "The subject line of the custom verification email."
+        }
+      },
+      "required": [
+        "TemplateName",
+        "FromEmailAddress",
+        "TemplateSubject",
+        "TemplateContent",
+        "SuccessRedirectionURL",
+        "FailureRedirectionURL"
+      ],
+      "type": "object"
+    },
     "CreateReceiptFilterRequest": {
       "description": "Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
       "example": {
@@ -4306,7 +5017,7 @@
       "properties": {
         "RuleSetName": {
           "$ref": "#/definitions/ReceiptRuleSetName",
-          "description": "<p>The name of the rule set to create. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the rule set to create. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         }
       },
       "required": [
@@ -4347,6 +5058,63 @@
     },
     "CustomRedirectDomain": {
       "type": "string"
+    },
+    "CustomVerificationEmailInvalidContentException": {
+      "description": "Indicates that custom verification email template provided content is invalid.",
+      "properties": {},
+      "type": "object"
+    },
+    "CustomVerificationEmailTemplate": {
+      "description": "Contains information about a custom verification email template.",
+      "properties": {
+        "FailureRedirectionURL": {
+          "$ref": "#/definitions/FailureRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is not successfully verified."
+        },
+        "FromEmailAddress": {
+          "$ref": "#/definitions/FromAddress",
+          "description": "The email address that the custom verification email is sent from."
+        },
+        "SuccessRedirectionURL": {
+          "$ref": "#/definitions/SuccessRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is successfully verified."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template."
+        },
+        "TemplateSubject": {
+          "$ref": "#/definitions/Subject",
+          "description": "The subject line of the custom verification email."
+        }
+      },
+      "type": "object"
+    },
+    "CustomVerificationEmailTemplateAlreadyExistsException": {
+      "description": "Indicates that a custom verification email template with the name you specified already exists.",
+      "properties": {
+        "CustomVerificationEmailTemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "Indicates that the provided custom verification email template with the specified template name already exists."
+        }
+      },
+      "type": "object"
+    },
+    "CustomVerificationEmailTemplateDoesNotExistException": {
+      "description": "Indicates that a custom verification email template with the name you specified does not exist.",
+      "properties": {
+        "CustomVerificationEmailTemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "Indicates that the provided custom verification email template does not exist."
+        }
+      },
+      "type": "object"
+    },
+    "CustomVerificationEmailTemplates": {
+      "items": {
+        "$ref": "#/definitions/CustomVerificationEmailTemplate"
+      },
+      "type": "array"
     },
     "DefaultDimensionValue": {
       "type": "string"
@@ -4408,6 +5176,19 @@
     "DeleteConfigurationSetTrackingOptionsResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
+      "type": "object"
+    },
+    "DeleteCustomVerificationEmailTemplateRequest": {
+      "description": "Represents a request to delete an existing custom verification email template.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template that you want to delete."
+        }
+      },
+      "required": [
+        "TemplateName"
+      ],
       "type": "object"
     },
     "DeleteIdentityPolicyRequest": {
@@ -4630,6 +5411,10 @@
           "$ref": "#/definitions/EventDestinations",
           "description": "A list of event destinations associated with the configuration set. "
         },
+        "ReputationOptions": {
+          "$ref": "#/definitions/ReputationOptions",
+          "description": "An object that represents the reputation settings for the configuration set. "
+        },
         "TrackingOptions": {
           "$ref": "#/definitions/TrackingOptions",
           "description": "The name of the custom open and click tracking domain associated with the configuration set."
@@ -4738,7 +5523,7 @@
       "type": "object"
     },
     "Destination": {
-      "description": "<p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>",
+      "description": "<p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the <i>local part</i> of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>.</p> </note>",
       "properties": {
         "BccAddresses": {
           "$ref": "#/definitions/AddressList",
@@ -4826,7 +5611,7 @@
         },
         "Name": {
           "$ref": "#/definitions/EventDestinationName",
-          "description": "<p>The name of the event destination. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the event destination. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         },
         "SNSDestination": {
           "$ref": "#/definitions/SNSDestination",
@@ -4927,6 +5712,78 @@
     },
     "ExtensionFieldValue": {
       "type": "string"
+    },
+    "FailureRedirectionURL": {
+      "type": "string"
+    },
+    "FromAddress": {
+      "type": "string"
+    },
+    "FromEmailAddressNotVerifiedException": {
+      "description": "Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email. ",
+      "properties": {
+        "FromEmailAddress": {
+          "$ref": "#/definitions/FromAddress",
+          "description": "Indicates that the from email address associated with the custom verification email template is not verified."
+        }
+      },
+      "type": "object"
+    },
+    "GetAccountSendingEnabledResponse": {
+      "description": "Represents a request to return the email sending status for your Amazon SES account.",
+      "example": {
+        "Enabled": true
+      },
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Describes whether email sending is enabled or disabled for your Amazon SES account."
+        }
+      },
+      "type": "object"
+    },
+    "GetCustomVerificationEmailTemplateRequest": {
+      "description": "Represents a request to retrieve an existing custom verification email template.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template that you want to retrieve."
+        }
+      },
+      "required": [
+        "TemplateName"
+      ],
+      "type": "object"
+    },
+    "GetCustomVerificationEmailTemplateResponse": {
+      "description": "The content of the custom verification email template.",
+      "properties": {
+        "FailureRedirectionURL": {
+          "$ref": "#/definitions/FailureRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is not successfully verified."
+        },
+        "FromEmailAddress": {
+          "$ref": "#/definitions/FromAddress",
+          "description": "The email address that the custom verification email is sent from."
+        },
+        "SuccessRedirectionURL": {
+          "$ref": "#/definitions/SuccessRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is successfully verified."
+        },
+        "TemplateContent": {
+          "$ref": "#/definitions/TemplateContent",
+          "description": "The content of the custom verification email."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template."
+        },
+        "TemplateSubject": {
+          "$ref": "#/definitions/Subject",
+          "description": "The subject line of the custom verification email."
+        }
+      },
+      "type": "object"
     },
     "GetIdentityDkimAttributesRequest": {
       "description": "Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Amazon SES Developer Guide</a>.",
@@ -5502,6 +6359,10 @@
       "format": "date-time",
       "type": "string"
     },
+    "LastFreshStart": {
+      "format": "date-time",
+      "type": "string"
+    },
     "LimitExceededException": {
       "description": "Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.",
       "properties": {},
@@ -5531,6 +6392,34 @@
         "NextToken": {
           "$ref": "#/definitions/NextToken",
           "description": "A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of <code>ListConfigurationSets</code>. "
+        }
+      },
+      "type": "object"
+    },
+    "ListCustomVerificationEmailTemplatesRequest": {
+      "description": "<p>Represents a request to list the existing custom verification email templates for your account.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html\">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An array the contains the name and creation time stamp for each template in your Amazon SES account."
+        }
+      },
+      "type": "object"
+    },
+    "ListCustomVerificationEmailTemplatesResponse": {
+      "description": "A paginated list of custom verification email templates.",
+      "properties": {
+        "CustomVerificationEmailTemplates": {
+          "$ref": "#/definitions/CustomVerificationEmailTemplates",
+          "description": "A list of the custom verification email templates that exist in your account."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next 50 custom verification email templates."
         }
       },
       "type": "object"
@@ -5685,7 +6574,7 @@
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
-          "description": "The token to use for pagination."
+          "description": "A token returned from a previous call to <code>ListTemplates</code> to indicate the position in the list of email templates."
         }
       },
       "type": "object"
@@ -5694,11 +6583,11 @@
       "properties": {
         "NextToken": {
           "$ref": "#/definitions/NextToken",
-          "description": "The token to use for pagination."
+          "description": "A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next 50 email templates."
         },
         "TemplatesMetadata": {
           "$ref": "#/definitions/TemplateMetadataList",
-          "description": "An array the contains the name of creation time stamp for each template in your Amazon SES account."
+          "description": "An array the contains the name and creation time stamp for each template in your Amazon SES account."
         }
       },
       "type": "object"
@@ -5746,6 +6635,11 @@
       "type": "number"
     },
     "MaxItems": {
+      "type": "integer"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
       "type": "integer"
     },
     "MaxSendRate": {
@@ -5807,11 +6701,11 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/MessageTagName",
-          "description": "<p>The name of the tag. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
+          "description": "<p>The name of the tag. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
         },
         "Value": {
           "$ref": "#/definitions/MessageTagValue",
-          "description": "<p>The value of the tag. The value must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
+          "description": "<p>The value of the tag. The value must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>"
         }
       },
       "required": [
@@ -5897,6 +6791,11 @@
         "$ref": "#/definitions/PolicyName"
       },
       "type": "array"
+    },
+    "ProductionAccessNotGrantedException": {
+      "description": "Indicates that the account has not been granted production access.",
+      "properties": {},
+      "type": "object"
     },
     "PutIdentityPolicyRequest": {
       "description": "Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.",
@@ -5996,7 +6895,7 @@
         },
         "Name": {
           "$ref": "#/definitions/ReceiptFilterName",
-          "description": "<p>The name of the IP address filter. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the IP address filter. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         }
       },
       "required": [
@@ -6052,7 +6951,7 @@
         },
         "Name": {
           "$ref": "#/definitions/ReceiptRuleName",
-          "description": "<p>The name of the receipt rule. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the receipt rule. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         },
         "Recipients": {
           "$ref": "#/definitions/RecipientsList",
@@ -6090,7 +6989,7 @@
         },
         "Name": {
           "$ref": "#/definitions/ReceiptRuleSetName",
-          "description": "<p>The name of the receipt rule set. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the receipt rule set. The name must:</p> <ul> <li> <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         }
       },
       "type": "object"
@@ -6195,6 +7094,24 @@
     },
     "ReportingMta": {
       "type": "string"
+    },
+    "ReputationOptions": {
+      "description": "Contains information about the reputation settings for a configuration set.",
+      "properties": {
+        "LastFreshStart": {
+          "$ref": "#/definitions/LastFreshStart",
+          "description": "<p>The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a <i>fresh start</i>.</p> <p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the reputation metrics for the configuration set (but not for the entire Amazon SES account) are reset.</p> <p>If email sending for the configuration set has never been disabled and later re-enabled, the value of this attribute is <code>null</code>.</p>"
+        },
+        "ReputationMetricsEnabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "<p>Describes whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.</p> <p>If the value is <code>true</code>, reputation metrics are published. If the value is <code>false</code>, reputation metrics are not published. The default value is <code>false</code>.</p>"
+        },
+        "SendingEnabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Describes whether email sending is enabled or disabled for the configuration set. If the value is <code>true</code>, then Amazon SES will send emails that use the configuration set. If the value is <code>false</code>, Amazon SES will not send emails that use the configuration set. The default value is <code>true</code>. You can change this setting using <a>UpdateConfigurationSetSendingEnabled</a>."
+        }
+      },
+      "type": "object"
     },
     "RuleDoesNotExistException": {
       "description": "Indicates that the provided receipt rule does not exist.",
@@ -6365,7 +7282,7 @@
         },
         "Source": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
+          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p> </note>"
         },
         "SourceArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -6397,6 +7314,38 @@
       "required": [
         "Status"
       ],
+      "type": "object"
+    },
+    "SendCustomVerificationEmailRequest": {
+      "description": "Represents a request to send a custom verification email to a specified recipient.",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Name of a configuration set to use when sending the verification email."
+        },
+        "EmailAddress": {
+          "$ref": "#/definitions/Address",
+          "description": "The email address to verify."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template to use when sending the verification email."
+        }
+      },
+      "required": [
+        "EmailAddress",
+        "TemplateName"
+      ],
+      "type": "object"
+    },
+    "SendCustomVerificationEmailResponse": {
+      "description": "The response received when attempting to send the custom verification email.",
+      "properties": {
+        "MessageId": {
+          "$ref": "#/definitions/MessageId",
+          "description": "The unique message identifier returned from the <code>SendCustomVerificationEmail</code> operation."
+        }
+      },
       "type": "object"
     },
     "SendDataPoint": {
@@ -6493,7 +7442,7 @@
         },
         "Source": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
+          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p> </note>"
         },
         "SourceArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -6562,7 +7511,7 @@
         },
         "Source": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The identity's email address. If you do not provide a value for this parameter, you must specify a \"From\" address in the raw text of the message. (You can also specify both.)</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p> <note> <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.</p> </note>"
+          "description": "<p>The identity's email address. If you do not provide a value for this parameter, you must specify a \"From\" address in the raw text of the message. (You can also specify both.)</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p> </note> <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.</p>"
         },
         "SourceArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -6619,7 +7568,7 @@
         },
         "Source": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
+          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href=\"https://en.wikipedia.org/wiki/Email_address#Local-part\">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href=\"https://tools.ietf.org/html/rfc3492.html\">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in<a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p> </note>"
         },
         "SourceArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -6889,7 +7838,13 @@
       ],
       "type": "string"
     },
+    "Subject": {
+      "type": "string"
+    },
     "SubjectPart": {
+      "type": "string"
+    },
+    "SuccessRedirectionURL": {
       "type": "string"
     },
     "Template": {
@@ -6917,6 +7872,9 @@
       ],
       "type": "object"
     },
+    "TemplateContent": {
+      "type": "string"
+    },
     "TemplateData": {
       "maxLength": 262144,
       "type": "string"
@@ -6931,7 +7889,7 @@
       "type": "object"
     },
     "TemplateMetadata": {
-      "description": "Information about an email template.",
+      "description": "Contains information about an email template.",
       "properties": {
         "CreatedTimestamp": {
           "$ref": "#/definitions/Timestamp",
@@ -7023,6 +7981,19 @@
       },
       "type": "object"
     },
+    "UpdateAccountSendingEnabledRequest": {
+      "description": "Represents a request to enable or disable the email sending capabilities for your entire Amazon SES account.",
+      "example": {
+        "Enabled": true
+      },
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Describes whether email sending is enabled or disabled for your Amazon SES account."
+        }
+      },
+      "type": "object"
+    },
     "UpdateConfigurationSetEventDestinationRequest": {
       "description": "Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
       "properties": {
@@ -7046,6 +8017,50 @@
       "properties": {},
       "type": "object"
     },
+    "UpdateConfigurationSetReputationMetricsEnabledRequest": {
+      "description": "Represents a request to modify the reputation metric publishing settings for a configuration set.",
+      "example": {
+        "ConfigurationSetName": "foo",
+        "Enabled": true
+      },
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set that you want to update."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch."
+        }
+      },
+      "required": [
+        "ConfigurationSetName",
+        "Enabled"
+      ],
+      "type": "object"
+    },
+    "UpdateConfigurationSetSendingEnabledRequest": {
+      "description": "Represents a request to enable or disable the email sending capabilities for a specific configuration set.",
+      "example": {
+        "ConfigurationSetName": "foo",
+        "Enabled": true
+      },
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set that you want to update."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Describes whether email sending is enabled or disabled for the configuration set. "
+        }
+      },
+      "required": [
+        "ConfigurationSetName",
+        "Enabled"
+      ],
+      "type": "object"
+    },
     "UpdateConfigurationSetTrackingOptionsRequest": {
       "description": "Represents a request to update the tracking options for a configuration set. ",
       "properties": {
@@ -7066,6 +8081,39 @@
     "UpdateConfigurationSetTrackingOptionsResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
+      "type": "object"
+    },
+    "UpdateCustomVerificationEmailTemplateRequest": {
+      "description": "Represents a request to update an existing custom verification email template.",
+      "properties": {
+        "FailureRedirectionURL": {
+          "$ref": "#/definitions/FailureRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is not successfully verified."
+        },
+        "FromEmailAddress": {
+          "$ref": "#/definitions/FromAddress",
+          "description": "The email address that the custom verification email is sent from."
+        },
+        "SuccessRedirectionURL": {
+          "$ref": "#/definitions/SuccessRedirectionURL",
+          "description": "The URL that the recipient of the verification email is sent to if his or her address is successfully verified."
+        },
+        "TemplateContent": {
+          "$ref": "#/definitions/TemplateContent",
+          "description": "The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the custom verification email template that you want to update."
+        },
+        "TemplateSubject": {
+          "$ref": "#/definitions/Subject",
+          "description": "The subject line of the custom verification email."
+        }
+      },
+      "required": [
+        "TemplateName"
+      ],
       "type": "object"
     },
     "UpdateReceiptRuleRequest": {

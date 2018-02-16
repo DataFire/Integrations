@@ -99,6 +99,139 @@ storecove.preflight_invoice_recipient({
 #### Output
 * output [PreflightInvoiceRecipientResult](#preflightinvoicerecipientresult)
 
+### create_legal_entity
+Create a new LegalEntity.
+
+
+```js
+storecove.create_legal_entity({
+  "legal_entity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * legal_entity **required** [LegalEntityCreate](#legalentitycreate)
+
+#### Output
+* output [LegalEntity](#legalentity)
+
+### delete_legal_entity
+Delete a specific LegalEntity.
+
+
+```js
+storecove.delete_legal_entity({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: legal_entity id
+
+#### Output
+*Output schema unknown*
+
+### get_legal_entity
+Get a specific LegalEntity.
+
+
+```js
+storecove.get_legal_entity({
+  "id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: legal_entity id
+
+#### Output
+* output [LegalEntity](#legalentity)
+
+### update_legal_entity
+Update a specific LegalEntity.
+
+
+```js
+storecove.update_legal_entity({
+  "id": 0,
+  "legal_entity": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: legal_entity id
+  * legal_entity **required** [LegalEntityUpdate](#legalentityupdate)
+
+#### Output
+* output [LegalEntity](#legalentity)
+
+### create_peppol_identifier
+Create a new PeppolIdentifier.
+
+
+```js
+storecove.create_peppol_identifier({
+  "peppol_identifier": null,
+  "legal_entity_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * peppol_identifier **required** [PeppolIdentifierCreate](#peppolidentifiercreate)
+  * legal_entity_id **required** `string`
+
+#### Output
+* output [PeppolIdentifier](#peppolidentifier)
+
+### delete_peppol_identifier
+Delete a specific PeppolIdentifier.
+
+
+```js
+storecove.delete_peppol_identifier({
+  "legal_entity_id": 0,
+  "scheme": "",
+  "identifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * legal_entity_id **required** `integer`: The id of the LegalEntity this PeppolIdentifier belongs to
+  * scheme **required** `string`: PEPPOL identifier scheme id, e.g. "DE:VAT". For a full list see <<_company>>.
+  * identifier **required** `string`: PEPPOL identifier
+
+#### Output
+*Output schema unknown*
+
+### update_peppol_identifier
+Update a specific PeppolIdentifier.
+
+
+```js
+storecove.update_peppol_identifier({
+  "legal_entity_id": 0,
+  "scheme": "",
+  "identifier": "",
+  "peppol_identifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * legal_entity_id **required** `integer`: The id of the LegalEntity this PeppolIdentifier belongs to
+  * scheme **required** `string`: PEPPOL identifier scheme id, e.g. "DE:VAT". For a full list see <<_company>>.
+  * identifier **required** `string`: PEPPOL identifier
+  * peppol_identifier **required** [PeppolIdentifierUpdate](#peppolidentifierupdate)
+
+#### Output
+* output [PeppolIdentifier](#peppolidentifier)
+
 ### shop_account_requests_index
 Retrieve all active ShopAccountRequests for one of your entities.
 include::examples/shop_account_requests/shop_account_requests_index/tabs.adoc[]
@@ -416,7 +549,35 @@ storecove.shops_index(null, context)
   * guid `string`: A (V4) GUID for the invoice submission
 
 ### LegalEntity
-* LegalEntity `object`
+* LegalEntity
+  * city `string`: The city.
+  * country [Country](#country)
+  * county `string`: County, if applicable
+  * line1 `string`: The first address line.
+  * line2 `string`: The second address line, if applicable
+  * party_name `string`: The name of the company.
+  * zip `string`: The zipcode.
+  * peppol_identifiers `array`
+    * items [PeppolIdentifier](#peppolidentifier)
+
+### LegalEntityCreate
+* LegalEntityCreate `object`
+  * city **required** `string`: The city.
+  * country **required** [Country](#country)
+  * county `string`: County, if applicable
+  * line1 **required** `string`: The first address line.
+  * line2 `string`: The second address line, if applicable
+  * party_name **required** `string`: The name of the company.
+  * zip **required** `string`: The zipcode.
+
+### LegalEntityIdentifier
+* LegalEntityIdentifier `object`
+  * identifier `string`
+  * scheme `string`
+  * scheme_agency `string`
+
+### LegalEntityShop
+* LegalEntityShop `object`
   * city `string`
   * country `string`
   * county `string`
@@ -427,11 +588,15 @@ storecove.shops_index(null, context)
   * name `string`
   * zip `string`
 
-### LegalEntityIdentifier
-* LegalEntityIdentifier `object`
-  * identifier `string`
-  * scheme `string`
-  * scheme_agency `string`
+### LegalEntityUpdate
+* LegalEntityUpdate `object`
+  * city `string`: The city.
+  * country [Country](#country)
+  * county `string`: County, if applicable
+  * line1 `string`: The first address line.
+  * line2 `string`: The second address line, if applicable
+  * party_name `string`: The name of the company.
+  * zip `string`: The zipcode.
 
 ### Logos
 * Logos `object`
@@ -457,6 +622,21 @@ storecove.shops_index(null, context)
     * firstName `string`
     * lastName `string`
 
+### PeppolIdentifier
+* PeppolIdentifier
+  * identifier `string`: The identifier.
+  * scheme `string`: The scheme of the identifier. See <<_company>> for a list.
+
+### PeppolIdentifierCreate
+* PeppolIdentifierCreate `object`
+  * identifier **required** `string`: The identifier.
+  * scheme **required** `string`: The scheme of the identifier. See <<_company>> for a list.
+
+### PeppolIdentifierUpdate
+* PeppolIdentifierUpdate `object`
+  * identifier `string`: The identifier.
+  * scheme `string`: The scheme of the identifier. See <<_company>> for a list.
+
 ### PreflightInvoiceRecipientResult
 * Preflight invoice recipient result `object`: The result of preflighting an invoice recipient
   * code `string` (values: ok, nok): The result code of the preflight request
@@ -464,7 +644,7 @@ storecove.shops_index(null, context)
 ### PublicIdentifier
 * Public identifier `object`: A public identifier for this customer.
   * id **required** `string`: The actual identifier.
-  * scheme **required** `string`: The scheme of the public identifier, e.g. chambre of commerce number (for The Netherlands: NL:KVK), VAT, IBAN, or NL:OIN (OIN is a Dutch government organizaton id). The full list can be found on https://joinup.ec.europa.eu/svn/peppol/TransportInfrastructure/PEPPOL_Policy%20for%20use%20of%20identifiers-300.pdf.
+  * scheme **required** `string`: The scheme of the identifier. See <<_company>> for a list.
 
 ### PublicIdentifiers
 * Public identifiers `array`: A list of public identifiers that uniquely identifiy this customer.
@@ -475,7 +655,7 @@ storecove.shops_index(null, context)
   * description `string`
   * id `integer`
   * legal_entities `array`
-    * items [LegalEntity](#legalentity)
+    * items [LegalEntityShop](#legalentityshop)
   * logo [Logos](#logos)
   * name `string`
 

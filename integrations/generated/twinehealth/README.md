@@ -76,7 +76,7 @@ twinehealth.fetchAction({
 * output [FetchActionResponse](#fetchactionresponse)
 
 ### updateAction
-Updte a health action from a patient's plan.
+Update a health action from a patient's plan.
 
 
 ```js
@@ -161,6 +161,110 @@ twinehealth.updateBundle({
 
 #### Output
 * output [UpdateBundleResponse](#updatebundleresponse)
+
+### fetchCalendarEvents
+Get a list of calendar events
+
+
+```js
+twinehealth.fetchCalendarEvents({}, context)
+```
+
+#### Input
+* input `object`
+  * filter[patient] `string`: Patient id to fetch calendar event. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
+  * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
+  * filter[attendees] `string`: Comma-separated list of coach or patient ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.
+  * filter[type] `string` (values: plan-check-in, reminder, telephone-call, office-visit, video-call): Calendar event type
+  * filter[completed] `boolean`: If not specified, return all calendar events. If set to `true` return only events marked as completed, if set to `false`, return only events not marked as completed yet.
+  * filter[start_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events starting in November 2017 (America/New_York): `filter[start_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * filter[end_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events ending in November 2017 (America/New_York): `filter[end_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * filter[completed_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events completed in November 2017 (America/New_York): `filter[completed_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * filter[created_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events created in November 2017 (America/New_York): `filter[created_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * filter[updated_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * page[number] `integer`: Page number
+  * page[size] `integer`: Page size
+  * include `string` (values: owner): List of related resources to include in the response
+
+#### Output
+* output [FetchCalendarEventsResponse](#fetchcalendareventsresponse)
+
+### createCalendarEvent
+Create a calendar event for a patient. Attribute `all_day` must be set to `true` and `end_at` cannot be set for `plan-check-in` event type.
+
+
+```js
+twinehealth.createCalendarEvent({
+  "body": {
+    "data": {
+      "type": "",
+      "attributes": null,
+      "relationships": {}
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** [CreateCalendarEventRequest](#createcalendareventrequest)
+
+#### Output
+* output [CreateCalendarEventResponse](#createcalendareventresponse)
+
+### deleteCalendarEvent
+Delete a calendar event by id
+
+
+```js
+twinehealth.deleteCalendarEvent({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Calendar event identifier
+
+#### Output
+*Output schema unknown*
+
+### fetchCalendarEvent
+Get a calendar event by id
+
+
+```js
+twinehealth.fetchCalendarEvent({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Calendar event identifier
+
+#### Output
+* output [FetchCalendarEventResponse](#fetchcalendareventresponse)
+
+### updateCalendarEvent
+Update a calendar event for a patient. Attribute `all_day` must be true and `end_at` cannot be specified for `plan-check-in` event type. To mark a calendar event as 'completed', set `completed_at` and `completed_by` to desired values.  To mark a completed calendar event as 'not completed', set `completed_at` and `completed_by` to `null`.
+
+
+```js
+twinehealth.updateCalendarEvent({
+  "id": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Calendar event identifier
+  * body **required** [UpdateCalendarEventRequest](#updatecalendareventrequest)
+
+#### Output
+* output [UpdateCalendarEventResponse](#updatecalendareventresponse)
 
 ### fetchCoach
 Get a coach record by id.
@@ -284,9 +388,9 @@ twinehealth.fetchHealthProfiles({}, context)
 
 #### Input
 * input `object`
-  * filter[patient] `string`: Patient id to fetch healt profile (either a patient, group or organization filter is required)
-  * filter[groups] `string`: Comma-separated list of Twine group ids (either a patient, group or organization filter is required)
-  * filter[organization] `string`: Twine organization id (either a patient, group or organization filter is required)
+  * filter[patient] `string`: Patient id to fetch health profile. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
   * include `string` (values: patient, questions): List of related resources to include in the response
@@ -322,9 +426,9 @@ twinehealth.fetchHealthProfileAnswers({}, context)
 
 #### Input
 * input `object`
-  * filter[patient] `string`: Patient id to fetch healt profile answers (either a patient, group or organization filter is required)
-  * filter[groups] `string`: Comma-separated list of Twine group ids (either a patient, group or organization filter is required)
-  * filter[organization] `string`: Twine organization id (either a patient, group or organization filter is required)
+  * filter[patient] `string`: Patient id to fetch healt profile answers. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[groups] `string`: Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
+  * filter[organization] `string`: Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
   * include `string` (values: patient): List of related resources to include in the response
@@ -498,11 +602,13 @@ twinehealth.fetchPatients({}, context)
 
 #### Input
 * input `object`
-  * filter[groups] `string`: Comma-separated list of Twine group ids (either a group or organization filter is required)
-  * filter[organization] `string`: Twine organization id (either a group or organization filter is required)
+  * filter[groups] `string`: Comma-separated list of group ids. Note that either `filter[group]` or `filter[organization]` must be specified.
+  * filter[organization] `string`: Twine organization id. Note that either `filter[group]` or `filter[organization]` must be specified.
   * filter[identifier][system] `string`: Identifier system (example: "MyEHR") - requires a "filter[identifier][value]" parameter
   * filter[identifier][value] `string`: Identifier value (example: "12345") - requires a "filter[identifier][system]" parameter
   * filter[archived] `boolean`: If not specified, return all patients. If set to 'true' return only archived patients, if set to 'false', return only patients who are not archived.
+  * filter[created_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for patients created in November 2017 (America/New_York): `filter[created_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
+  * filter[updated_at] `string`: The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for patients updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`
   * page[number] `integer`: Page number
   * page[size] `integer`: Page size
 
@@ -1191,6 +1297,35 @@ twinehealth.fetchRewardProgramActivation({
       * links `object`
   * type **required** `string`
 
+### CalendarEventResource
+* CalendarEventResource `object`
+  * attributes `object`
+    * all_day `boolean`: True if the calendar event is an all day event, false otherwise. Must be set to true for `plan-check-in` event type. If it is true, then `start_at` and `end_at` must also be set to beginning of day, except `plan-check-in` event type does not need an `end_at` date. If it is false, then `start_at` and `end_at` must be on the same day.
+    * attendees `array`: List of attendees for the calendar event
+      * items `object`
+        * response_status `string` (values: needsAction, declined, tentative, accepted): Status of responses from attendees
+        * user `string`
+    * completed_at `string`: The date and time when the calendar event is marked as completed. Only valid for `plan-check-in` event type.
+    * completed_by `object`: The coach who marked the calendar event as completed. Only valid for `plan-check-in` event type.
+    * description `string`
+    * end_at `string`: The date and time when the calendar event ends. Not valid for `plan-check-in` event type.
+    * location `string`
+    * start_at `string`: The date and time when the calendar event starts
+    * time_zone `string`: The time zone in which the dates for the calendar event are specified
+    * title `string`: The title of the calendar event. Must not be empty or null
+    * type `string` (values: plan-check-in, reminder, telephone-call, office-visit, video-call): The type of calendar event. Immutable after event creation.
+  * id `string`
+  * links `object`
+    * self `string`
+  * relationships `object`
+    * owner `object`: The owner is the patient for whom the calendar event is created specificially for
+      * data **required** `object`
+        * id `string`
+        * type `string`
+      * links `object`
+        * related `string`
+  * type `string` (values: calendar_event)
+
 ### CoachResource
 * CoachResource `object`
   * attributes **required** `object`
@@ -1226,6 +1361,34 @@ twinehealth.fetchRewardProgramActivation({
   * data **required** [BundleResource](#bundleresource)
   * meta [CreateOrUpdateMetaResponse](#createorupdatemetaresponse)
 
+### CreateCalendarEventRequest
+* CreateCalendarEventRequest `object`
+  * data **required** `object`
+    * attributes **required**
+      * all_day `boolean`: True if the calendar event is an all day event, false otherwise. Must be set to true for `plan-check-in` event type. If it is true, then `start_at` and `end_at` must also be set to beginning of day, except `plan-check-in` event type does not need an `end_at` date. If it is false, then `start_at` and `end_at` must be on the same day.
+      * attendees `array`: List of attendees for the calendar event
+        * items `object`
+          * response_status `string` (values: needsAction, declined, tentative, accepted): Status of responses from attendees
+          * user `string`
+      * completed_at `string`: The date and time when the calendar event is marked as completed. Only valid for `plan-check-in` event type.
+      * completed_by `object`: The coach who marked the calendar event as completed. Only valid for `plan-check-in` event type.
+      * description `string`
+      * end_at `string`: The date and time when the calendar event ends. Not valid for `plan-check-in` event type.
+      * location `string`
+      * start_at `string`: The date and time when the calendar event starts
+      * time_zone `string`: The time zone in which the dates for the calendar event are specified
+      * title `string`: The title of the calendar event. Must not be empty or null
+      * type `string` (values: plan-check-in, reminder, telephone-call, office-visit, video-call): The type of calendar event. Immutable after event creation.
+    * relationships **required** `object`
+      * owner `object`
+        * data **required** [CalendarEventResource/properties/relationships/properties/owner/properties/data](#calendareventresource/properties/relationships/properties/owner/properties/data)
+    * type **required** [CalendarEventResource/properties/type](#calendareventresource/properties/type)
+
+### CreateCalendarEventResponse
+* CreateCalendarEventResponse `object`
+  * data [CalendarEventResource](#calendareventresource)
+  * meta [CreateOrUpdateMetaResponse](#createorupdatemetaresponse)
+
 ### CreateGroupRequest
 * CreateGroupRequest `object`
   * data **required** [GroupResource](#groupresource)
@@ -1248,7 +1411,7 @@ twinehealth.fetchRewardProgramActivation({
 
 ### CreatePatientHealthMetricRequest
 * CreatePatientHealthMetricRequest `object`
-  * data **required** [PatientHealthMetricResource](#patienthealthmetricresource)
+  * data **required** [PatientHealthMetricCreateResource](#patienthealthmetriccreateresource)
   * meta `object`
     * ignore_duplicates `boolean`: If `true`, the patient health metric will be ignored if there is an existing patient health metric for
 
@@ -1260,6 +1423,8 @@ twinehealth.fetchRewardProgramActivation({
 ### CreatePatientRequest
 * CreatePatientRequest `object`
   * data **required** [PatientCreateResource](#patientcreateresource)
+  * meta `object`
+    * ignore_duplicates `boolean`: If `true`, patients with any conflicting identifiers (same `system` and `value`) will be ignored.
 
 ### CreatePatientResponse
 * CreatePatientResponse `object`
@@ -1375,6 +1540,22 @@ twinehealth.fetchRewardProgramActivation({
 ### FetchBundleResponse
 * FetchBundleResponse `object`
   * data **required** [BundleResource](#bundleresource)
+  * meta [FetchMetaResponse](#fetchmetaresponse)
+
+### FetchCalendarEventResponse
+* FetchCalendarEventResponse `object`
+  * data [CalendarEventResource](#calendareventresource)
+  * included `array`: Related resources which are included in the response based on the `include` param.
+    * items [Resource](#resource)
+  * meta [FetchMetaResponse](#fetchmetaresponse)
+
+### FetchCalendarEventsResponse
+* FetchCalendarEventsResponse `object`
+  * data `array`
+    * items [CalendarEventResource](#calendareventresource)
+  * included `array`: Related resources which are included in the response based on the `include` param.
+    * items [Resource](#resource)
+  * links [CollectionResponseLinks](#collectionresponselinks)
   * meta [FetchMetaResponse](#fetchmetaresponse)
 
 ### FetchCoachResponse
@@ -1632,7 +1813,7 @@ twinehealth.fetchRewardProgramActivation({
         * answered `number`
         * category `string` (values: lifestyle_behaviors, mental_wellbeing, preventative_care, overall)
         * total `number`
-  * id **required** `string`
+  * id `string`
   * links `object`
     * self **required** `string`
   * relationships `object`
@@ -1696,6 +1877,9 @@ twinehealth.fetchRewardProgramActivation({
   * attributes **required** `object`
     * addresses `array`
       * items [Address](#address)
+    * archive_history `array`
+      * items [ArchiveHistory](#archivehistory)
+    * archived `boolean`
     * birth_date `string`
     * email_address `string`
     * enrolled_at `string`
@@ -1707,6 +1891,7 @@ twinehealth.fetchRewardProgramActivation({
     * invited_at `string`
     * last_access_at `string`
     * last_name `string`
+    * note `string`: Coach's note about the patient. Not visible to the patient.
     * phone_numbers `array`
       * items [PhoneNumber](#phonenumber)
     * updated_at `string`
@@ -1727,16 +1912,60 @@ twinehealth.fetchRewardProgramActivation({
     * groups **required** `object`
       * data **required** `array`
         * items `object`
+          * id `string`
+          * type **required** `string` (values: group)
+  * type **required** `string` (values: patient)
+  * relationships `object`
+    * coaches `object`
+      * data **required** `array`
+        * items `object`
+          * id **required** `string`
+          * meta `object`
+            * primary `boolean`
+          * type **required** `string` (values: coach)
+      * links `object`
+        * related `string`
+    * groups **required** `object`
+      * data **required** `array`
+        * items `object`
           * id `string`: Required if the `meta.query` is not defined.
           * meta `object`: Allows the specification of a query for a group rather than providing a group id directly
             * query **required** `object`: 1. If the query does not return any groups, a group with the specified name will be created and related to the patient.
               * name **required** `string`
               * organization **required** `string`
           * type **required** `string` (values: group)
-  * type **required** `string` (values: patient)
+
+### PatientHealthMetricCreateResource
+* PatientHealthMetricCreateResource `object`
+  * attributes `object`
+    * code `object`
+      * system **required** `string`
+      * value **required** `string`
+    * diastolic `number`
+    * occurred_at `string`
+    * systolic `number`
+    * type `string` (values: blood_pressure_systolic, blood_pressure_diastolic, hemoglobin_a1c, hdl_cholesterol, ldl_cholesterol, total_cholesterol, triglycerides, blood_urea_nitrogen, creatinine, hemoglobin, hematocrit, total_serum_iron, thyroid_stimulating_hormone, free_thyroxine, free_triiodothyronine, total_triiodothyronine, cd4_cell_count, hiv_viral_load, inr, free_testosterone, total_testosterone, c_reactive_protein, prostate_specific_antigen, cotinine, c_peptide, blood_pressure, blood_glucose, weight, heart_rate, body_fat_percentage, body_mass_index, body_temperature, forced_expiratory_volume1, forced_vital_capacity, lean_body_mass, nausea_level, oxygen_saturation, pain_level, peak_expiratory_flow_rate, peripheral_perfusion_index, respiratory_rate, sleep_analysis_asleep, sleep_analysis_in_bed, inhaler_usage)
+    * unit `string`
+    * value `number`
+  * id **required** `string`
+  * relationships `object`
+    * patient `object`
+      * data `object`
+        * id `string`: Required if the `meta.query` is not defined.
+        * meta `object`: Allows the specification of a query for a patient rather than providing a patient id directly
+          * query **required** `object`: The query must return one and only one patient.
+            * groups `array`
+              * items `string`
+            * identifier **required** `object`
+              * system **required** `string`
+              * value **required** `string`
+            * organization `string`
+        * type `string`
+      * links `object`
+  * type **required** `string`
 
 ### PatientHealthMetricResource
-* PatientHealthMetricResource `object`: Note that `data` can either be a single object or an array of objects matching the schema specified here
+* PatientHealthMetricResource `object`
   * attributes `object`
     * code `object`
       * system **required** `string`
@@ -1768,6 +1997,7 @@ twinehealth.fetchRewardProgramActivation({
 * PatientIdentifier `object`
   * label `string`
   * system **required** `string`
+  * unique `boolean`: If `true`, the combination of system and value must be global unique among all patients and coaches in Twine.
   * value **required** `string`
 
 ### PatientPlanSummaryResource
@@ -1836,6 +2066,7 @@ twinehealth.fetchRewardProgramActivation({
     * invited_at `string`
     * last_access_at `string`
     * last_name `string`
+    * note `string`: Coach's note about the patient. Not visible to the patient.
     * phone_numbers `array`
       * items [PhoneNumber](#phonenumber)
     * updated_at `string`
@@ -1869,8 +2100,8 @@ twinehealth.fetchRewardProgramActivation({
 ### Resource
 * Resource `object`
   * attributes `object`
-  * id **required** `string`
-  * type **required** `string`
+  * id `string`
+  * type `string`
 
 ### RewardEarningFulfillmentResource
 * RewardEarningFulfillmentResource `object`
@@ -2030,6 +2261,35 @@ twinehealth.fetchRewardProgramActivation({
 ### UpdateBundleResponse
 * UpdateBundleResponse `object`
   * data **required** [BundleResource](#bundleresource)
+  * meta [CreateOrUpdateMetaResponse](#createorupdatemetaresponse)
+
+### UpdateCalendarEventRequest
+* UpdateCalendarEventRequest `object`
+  * data `object`
+    * attributes
+      * all_day `boolean`: True if the calendar event is an all day event, false otherwise. Must be set to true for `plan-check-in` event type. If it is true, then `start_at` and `end_at` must also be set to beginning of day, except `plan-check-in` event type does not need an `end_at` date. If it is false, then `start_at` and `end_at` must be on the same day.
+      * attendees `array`: List of attendees for the calendar event
+        * items `object`
+          * response_status `string` (values: needsAction, declined, tentative, accepted): Status of responses from attendees
+          * user `string`
+      * completed_at `string`: The date and time when the calendar event is marked as completed. Only valid for `plan-check-in` event type.
+      * completed_by `object`: The coach who marked the calendar event as completed. Only valid for `plan-check-in` event type.
+      * description `string`
+      * end_at `string`: The date and time when the calendar event ends. Not valid for `plan-check-in` event type.
+      * location `string`
+      * start_at `string`: The date and time when the calendar event starts
+      * time_zone `string`: The time zone in which the dates for the calendar event are specified
+      * title `string`: The title of the calendar event. Must not be empty or null
+      * type `string` (values: plan-check-in, reminder, telephone-call, office-visit, video-call): The type of calendar event. Immutable after event creation.
+    * id **required** [CalendarEventResource/properties/id](#calendareventresource/properties/id)
+    * relationships `object`
+      * owner `object`
+        * data [CalendarEventResource/properties/relationships/properties/owner/properties/data](#calendareventresource/properties/relationships/properties/owner/properties/data)
+    * type **required** [CalendarEventResource/properties/type](#calendareventresource/properties/type)
+
+### UpdateCalendarEventResponse
+* UpdateCalendarEventResponse `object`
+  * data [CalendarEventResource](#calendareventresource)
   * meta [CreateOrUpdateMetaResponse](#createorupdatemetaresponse)
 
 ### UpdatePatientPlanSummaryRequest

@@ -77,7 +77,6 @@ google_games.achievementDefinitions.list({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
@@ -102,7 +101,6 @@ google_games.achievements.updateMultiple({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * body [AchievementUpdateMultipleRequest](#achievementupdatemultiplerequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -129,9 +127,8 @@ google_games.achievements.increment({
 #### Input
 * input `object`
   * achievementId **required** `string`: The ID of the achievement used by this method.
-  * stepsToIncrement **required** `integer`: The number of steps to increment.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * requestId `string`: A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries.
+  * stepsToIncrement **required** `integer`: The number of steps to increment.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -156,7 +153,6 @@ google_games.achievements.reveal({
 #### Input
 * input `object`
   * achievementId **required** `string`: The ID of the achievement used by this method.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -183,7 +179,6 @@ google_games.achievements.setStepsAtLeast({
 * input `object`
   * achievementId **required** `string`: The ID of the achievement used by this method.
   * steps **required** `integer`: The minimum value to set the steps to.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -208,7 +203,6 @@ google_games.achievements.unlock({
 #### Input
 * input `object`
   * achievementId **required** `string`: The ID of the achievement used by this method.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -230,7 +224,6 @@ google_games.applications.played({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -255,7 +248,6 @@ google_games.applications.get({
 #### Input
 * input `object`
   * applicationId **required** `string`: The application ID from the Google Play developer console.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * platformType `string` (values: ANDROID, IOS, WEB_APP): Restrict application details returned to the specific platform.
   * alt `string` (values: json): Data format for the response.
@@ -282,7 +274,6 @@ google_games.applications.verify({
 #### Input
 * input `object`
   * applicationId **required** `string`: The application ID from the Google Play developer console.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -304,7 +295,6 @@ google_games.events.listDefinitions({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
@@ -329,7 +319,6 @@ google_games.events.listByPlayer({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
@@ -354,9 +343,8 @@ google_games.events.record({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [EventRecordRequest](#eventrecordrequest)
+  * language `string`: The preferred language to use for strings returned by this method.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -378,7 +366,6 @@ google_games.leaderboards.list({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
@@ -403,9 +390,8 @@ google_games.scores.submitMultiple({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [PlayerScoreSubmissionList](#playerscoresubmissionlist)
+  * language `string`: The preferred language to use for strings returned by this method.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -429,9 +415,8 @@ google_games.leaderboards.get({
 
 #### Input
 * input `object`
-  * leaderboardId **required** `string`: The ID of the leaderboard.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * leaderboardId **required** `string`: The ID of the leaderboard.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -456,10 +441,9 @@ google_games.scores.submit({
 
 #### Input
 * input `object`
+  * language `string`: The preferred language to use for strings returned by this method.
   * leaderboardId **required** `string`: The ID of the leaderboard.
   * score **required** `string`: The score you're submitting. The submitted score is ignored if it is worse than a previously submitted score, where worse depends on the leaderboard sort order. The meaning of the score value depends on the leaderboard format type. For fixed-point, the score represents the raw value. For time, the score represents elapsed time in milliseconds. For currency, the score represents a value in micro units.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * scoreTag `string`: Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -478,21 +462,20 @@ Lists the scores in a leaderboard, starting from the top.
 
 ```js
 google_games.scores.list({
-  "leaderboardId": "",
   "collection": "",
+  "leaderboardId": "",
   "timeSpan": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * leaderboardId **required** `string`: The ID of the leaderboard.
   * collection **required** `string` (values: PUBLIC, SOCIAL, SOCIAL_1P): The collection of scores you're requesting.
-  * timeSpan **required** `string` (values: ALL_TIME, DAILY, WEEKLY): The time span for the scores and ranks you're requesting.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * leaderboardId **required** `string`: The ID of the leaderboard.
   * maxResults `integer`: The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
+  * timeSpan **required** `string` (values: ALL_TIME, DAILY, WEEKLY): The time span for the scores and ranks you're requesting.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -510,23 +493,22 @@ Lists the scores in a leaderboard around (and including) a player's score.
 
 ```js
 google_games.scores.listWindow({
-  "leaderboardId": "",
   "collection": "",
+  "leaderboardId": "",
   "timeSpan": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * leaderboardId **required** `string`: The ID of the leaderboard.
   * collection **required** `string` (values: PUBLIC, SOCIAL, SOCIAL_1P): The collection of scores you're requesting.
-  * timeSpan **required** `string` (values: ALL_TIME, DAILY, WEEKLY): The time span for the scores and ranks you're requesting.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * leaderboardId **required** `string`: The ID of the leaderboard.
   * maxResults `integer`: The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
   * resultsAbove `integer`: The preferred number of scores to return above the player's score. More scores may be returned if the player is at the bottom of the leaderboard; fewer may be returned if the player is at the top. Must be less than or equal to maxResults.
   * returnTopIfAbsent `boolean`: True if the top scores should be returned when the player is not in the leaderboard. Defaults to true.
+  * timeSpan **required** `string` (values: ALL_TIME, DAILY, WEEKLY): The time span for the scores and ranks you're requesting.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -548,7 +530,6 @@ google_games.metagame.getMetagameConfig({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -573,7 +554,6 @@ google_games.players.list({
 #### Input
 * input `object`
   * collection **required** `string` (values: connected, playedWith, played_with, visible): Collection of players being retrieved
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
@@ -600,9 +580,8 @@ google_games.players.get({
 
 #### Input
 * input `object`
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -626,11 +605,10 @@ google_games.achievements.list({
 
 #### Input
 * input `object`
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
+  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
   * state `string` (values: ALL, HIDDEN, REVEALED, UNLOCKED): Tells the server to return only achievements with the specified state. If this parameter isn't specified, all achievements are returned.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -649,19 +627,18 @@ List play data aggregated per category for the player corresponding to playerId.
 
 ```js
 google_games.metagame.listCategoriesByPlayer({
-  "playerId": "",
-  "collection": ""
+  "collection": "",
+  "playerId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
   * collection **required** `string` (values: all): The collection of categories for which data will be returned.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of category resources to return in the response, used for paging. For any response, the actual number of category resources returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
+  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -680,22 +657,21 @@ NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same requ
 
 ```js
 google_games.scores.get({
-  "playerId": "",
   "leaderboardId": "",
+  "playerId": "",
   "timeSpan": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * leaderboardId **required** `string`: The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application.
-  * timeSpan **required** `string` (values: ALL, ALL_TIME, DAILY, WEEKLY): The time span for the scores and ranks you're requesting.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * includeRankType `string` (values: ALL, PUBLIC, SOCIAL): The types of ranks to return. If the parameter is omitted, no ranks will be returned.
   * language `string`: The preferred language to use for strings returned by this method.
+  * leaderboardId **required** `string`: The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application.
   * maxResults `integer`: The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
+  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
+  * timeSpan **required** `string` (values: ALL, ALL_TIME, DAILY, WEEKLY): The time span for the scores and ranks you're requesting.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -719,11 +695,10 @@ google_games.quests.list({
 
 #### Input
 * input `object`
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of quest resources to return in the response, used for paging. For any response, the actual number of quest resources returned may be less than the specified maxResults. Acceptable values are 1 to 50, inclusive. (Default: 50).
   * pageToken `string`: The token returned by the previous request.
+  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -747,11 +722,10 @@ google_games.snapshots.list({
 
 #### Input
 * input `object`
-  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
+  * playerId **required** `string`: A player ID. A value of me may be used in place of the authenticated player's ID.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -773,7 +747,6 @@ google_games.pushtokens.update({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * body [PushToken](#pushtoken)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -796,7 +769,6 @@ google_games.pushtokens.remove({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * body [PushTokenId](#pushtokenid)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -821,9 +793,8 @@ google_games.quests.accept({
 
 #### Input
 * input `object`
-  * questId **required** `string`: The ID of the quest.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * questId **required** `string`: The ID of the quest.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -841,18 +812,17 @@ Report that a reward for the milestone corresponding to milestoneId for the ques
 
 ```js
 google_games.questMilestones.claim({
-  "questId": "",
   "milestoneId": "",
+  "questId": "",
   "requestId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * questId **required** `string`: The ID of the quest.
   * milestoneId **required** `string`: The ID of the milestone.
+  * questId **required** `string`: The ID of the quest.
   * requestId **required** `string`: A numeric ID to ensure that the request is handled correctly across retries. Your client application must generate this ID randomly.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -877,7 +847,6 @@ google_games.revisions.check({
 #### Input
 * input `object`
   * clientRevision **required** `string`: The revision of the client SDK used by your application. Format:
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -899,7 +868,6 @@ google_games.rooms.list({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxResults `integer`: The maximum number of rooms to return in the response, used for paging. For any response, the actual number of rooms to return may be less than the specified maxResults.
   * pageToken `string`: The token returned by the previous request.
@@ -924,9 +892,8 @@ google_games.rooms.create({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [RoomCreateRequest](#roomcreaterequest)
+  * language `string`: The preferred language to use for strings returned by this method.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -950,9 +917,8 @@ google_games.rooms.get({
 
 #### Input
 * input `object`
-  * roomId **required** `string`: The ID of the room.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * roomId **required** `string`: The ID of the room.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -976,9 +942,8 @@ google_games.rooms.decline({
 
 #### Input
 * input `object`
-  * roomId **required** `string`: The ID of the room.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * roomId **required** `string`: The ID of the room.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1003,7 +968,6 @@ google_games.rooms.dismiss({
 #### Input
 * input `object`
   * roomId **required** `string`: The ID of the room.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1027,10 +991,9 @@ google_games.rooms.join({
 
 #### Input
 * input `object`
-  * roomId **required** `string`: The ID of the room.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [RoomJoinRequest](#roomjoinrequest)
+  * language `string`: The preferred language to use for strings returned by this method.
+  * roomId **required** `string`: The ID of the room.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1054,10 +1017,9 @@ google_games.rooms.leave({
 
 #### Input
 * input `object`
-  * roomId **required** `string`: The ID of the room.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [RoomLeaveRequest](#roomleaverequest)
+  * language `string`: The preferred language to use for strings returned by this method.
+  * roomId **required** `string`: The ID of the room.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1081,10 +1043,9 @@ google_games.rooms.reportStatus({
 
 #### Input
 * input `object`
-  * roomId **required** `string`: The ID of the room.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [RoomP2PStatuses](#roomp2pstatuses)
+  * language `string`: The preferred language to use for strings returned by this method.
+  * roomId **required** `string`: The ID of the room.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1108,9 +1069,8 @@ google_games.snapshots.get({
 
 #### Input
 * input `object`
-  * snapshotId **required** `string`: The ID of the snapshot.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * snapshotId **required** `string`: The ID of the snapshot.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1132,7 +1092,6 @@ google_games.turnBasedMatches.list({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * includeMatchData `boolean`: True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxCompletedMatches `integer`: The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.
@@ -1159,9 +1118,8 @@ google_games.turnBasedMatches.create({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [TurnBasedMatchCreateRequest](#turnbasedmatchcreaterequest)
+  * language `string`: The preferred language to use for strings returned by this method.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1183,7 +1141,6 @@ google_games.turnBasedMatches.sync({}, context)
 
 #### Input
 * input `object`
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * includeMatchData `boolean`: True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.
   * language `string`: The preferred language to use for strings returned by this method.
   * maxCompletedMatches `integer`: The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.
@@ -1212,10 +1169,9 @@ google_games.turnBasedMatches.get({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * includeMatchData `boolean`: Get match data along with metadata.
   * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1240,7 +1196,6 @@ google_games.turnBasedMatches.cancel({
 #### Input
 * input `object`
   * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1264,9 +1219,8 @@ google_games.turnBasedMatches.decline({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1291,7 +1245,6 @@ google_games.turnBasedMatches.dismiss({
 #### Input
 * input `object`
   * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1315,10 +1268,9 @@ google_games.turnBasedMatches.finish({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [TurnBasedMatchResults](#turnbasedmatchresults)
+  * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1342,9 +1294,8 @@ google_games.turnBasedMatches.join({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1368,9 +1319,8 @@ google_games.turnBasedMatches.leave({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1395,10 +1345,9 @@ google_games.turnBasedMatches.leaveTurn({
 
 #### Input
 * input `object`
+  * language `string`: The preferred language to use for strings returned by this method.
   * matchId **required** `string`: The ID of the match.
   * matchVersion **required** `integer`: The version of the match being updated.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * pendingParticipantId `string`: The ID of another participant who should take their turn next. If not set, the match will wait for other player(s) to join via automatching; this is only valid if automatch criteria is set on the match with remaining slots for automatched players.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1423,9 +1372,8 @@ google_games.turnBasedMatches.rematch({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
   * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * requestId `string`: A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1450,10 +1398,9 @@ google_games.turnBasedMatches.takeTurn({
 
 #### Input
 * input `object`
-  * matchId **required** `string`: The ID of the match.
-  * consistencyToken `string`: The last-seen mutation timestamp.
-  * language `string`: The preferred language to use for strings returned by this method.
   * body [TurnBasedMatchTurn](#turnbasedmatchturn)
+  * language `string`: The preferred language to use for strings returned by this method.
+  * matchId **required** `string`: The ID of the match.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

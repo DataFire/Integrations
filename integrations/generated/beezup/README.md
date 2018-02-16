@@ -104,7 +104,7 @@ beezup.GetChannels({
 #### Input
 * input `object`
   * countryIsoCode **required** `string`: The country iso code alpha 3 based on this: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3#Decoding_table \
-  * Accept-Encoding **required** `array`: Allows the client to indicate wether it accepts a compressed encoding to reduce traffic size.
+  * Accept-Encoding **required** `array`: Allows the client to indicate whether it accepts a compressed encoding to reduce traffic size.
   * If-None-Match `string`: ETag value to identify the last known version of requested resource.\
 
 #### Output
@@ -216,8 +216,8 @@ beezup.AnalyticsIndex(null, context)
 * output [analyticsIndex](#analyticsindex)
 
 ### GetTrackingStatus
-Your clicks and orders are eventually consistent. \
-This operation indicates you at which date the projections are.
+Clicks and orders are eventually consistent. \
+This operation gets the current global state of projections.
 
 
 
@@ -247,6 +247,30 @@ beezup.AnalyticsStoreIndex({
 
 #### Output
 * output [analyticsStoreIndex](#analyticsstoreindex)
+
+### OptimiseAll
+/!\ WARNING /!\ \
+Apply the operation on every product related to this request. \
+This operation is used at the bottom of the analytics page result.
+
+
+
+```js
+beezup.OptimiseAll({
+  "storeId": "",
+  "actionName": "",
+  "request": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * storeId **required** `string`: Your store identifier
+  * actionName **required** `string` (values: reenable, disable)
+  * request **required** [optimiseAllRequest](#optimiseallrequest)
+
+#### Output
+*Output schema unknown*
 
 ### OptimiseByCategory
 /!\ WARNING /!\ \
@@ -322,7 +346,7 @@ beezup.OptimiseByProduct({
 *Output schema unknown*
 
 ### CopyOptimisation
-Copy products optimisation between 2 channels
+Copy product optimisations between 2 channels
 
 
 ```js
@@ -761,7 +785,7 @@ beezup.RunRule({
 *Output schema unknown*
 
 ### GetStoreTrackedClicks
-Get the latest clicks tracked
+Get the latest tracked clicks
 
 
 ```js
@@ -773,13 +797,13 @@ beezup.GetStoreTrackedClicks({
 #### Input
 * input `object`
   * storeId **required** `string`: Your store identifier
-  * count `integer`: The click's count you want to get
+  * count `integer`: The amount of clicks to retrieve
 
 #### Output
 * output [trackedClicks](#trackedclicks)
 
 ### GetStoreTrackedExternalOrders
-Get the latest external orders tracked
+Get the latest tracked external orders
 
 
 ```js
@@ -791,13 +815,13 @@ beezup.GetStoreTrackedExternalOrders({
 #### Input
 * input `object`
   * storeId **required** `string`: Your store identifier
-  * count `integer`: The external order's count you want to get
+  * count `integer`: The amount of external orders to retrieve
 
 #### Output
 * output [trackedExternalOrders](#trackedexternalorders)
 
 ### GetStoreTrackedOrders
-Get the latest orders tracked
+Get the latest tracked orders
 
 
 ```js
@@ -809,14 +833,14 @@ beezup.GetStoreTrackedOrders({
 #### Input
 * input `object`
   * storeId **required** `string`: Your store identifier
-  * count `integer`: The order's count you want to get
+  * count `integer`: The amount of orders to retrieve
 
 #### Output
 * output [trackedOrders](#trackedorders)
 
 ### GetStoreTrackingStatus
-Your clicks and orders are eventually consistent. \
-This operation indicates you at which date the projections are for this store.
+Clicks and orders are eventually consistent. \
+This operation gets the current state of projections for a store.
 
 
 
@@ -1920,7 +1944,29 @@ beezup.GetChannelCatalogCategories({
   * channelCatalogId **required** `string`: The channel catalog identifier
 
 #### Output
-* output [channelCatalogCategoryMappingList](#channelcatalogcategorymappinglist)
+* output [channelCatalogCategoryConfigurationList](#channelcatalogcategoryconfigurationlist)
+
+### ConfigureChannelCatalogCategory
+Configure channel catalog category
+
+
+```js
+beezup.ConfigureChannelCatalogCategory({
+  "channelCatalogId": "",
+  "request": {
+    "overrideSubCategoryMappings": true,
+    "channelCatalogCategories": []
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * channelCatalogId **required** `string`: The channel catalog identifier
+  * request **required** [configureCategoryRequest](#configurecategoryrequest)
+
+#### Output
+*Output schema unknown*
 
 ### DisableChannelCatalogCategoryMapping
 Disable a channel catalog category mapping
@@ -1939,32 +1985,6 @@ beezup.DisableChannelCatalogCategoryMapping({
 #### Output
 *Output schema unknown*
 
-### MapChannelCatalogCategory
-Map channel catalog category
-
-
-```js
-beezup.MapChannelCatalogCategory({
-  "channelCatalogId": "",
-  "request": {
-    "overrideSubCategoryMappings": true,
-    "autoMapNewSubCategories": true,
-    "channelCatalogCategoryMapping": {
-      "catalogCategoryPath": [],
-      "channelCategoryPath": []
-    }
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * channelCatalogId **required** `string`: The channel catalog identifier
-  * request **required** [mapCategoryRequest](#mapcategoryrequest)
-
-#### Output
-*Output schema unknown*
-
 ### ReenableChannelCatalogCategoryMapping
 Reenable a channel catalog category mapping
 
@@ -1978,27 +1998,6 @@ beezup.ReenableChannelCatalogCategoryMapping({
 #### Input
 * input `object`
   * channelCatalogId **required** `string`: The channel catalog identifier
-
-#### Output
-*Output schema unknown*
-
-### UnmapChannelCatalogCategory
-Unmap channel catalog category
-
-
-```js
-beezup.UnmapChannelCatalogCategory({
-  "channelCatalogId": "",
-  "request": {
-    "catalogCategoryPath": []
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * channelCatalogId **required** `string`: The channel catalog identifier
-  * request **required** [unmapCategoryRequest](#unmapcategoryrequest)
 
 #### Output
 *Output schema unknown*
@@ -2278,6 +2277,44 @@ beezup.OverrideChannelCatalogProductValues({
 #### Output
 *Output schema unknown*
 
+### GetChannelCatalogProductValueOverrideCopy
+Get channel catalog product value override compatibilities status
+
+
+```js
+beezup.GetChannelCatalogProductValueOverrideCopy({
+  "channelCatalogId": "",
+  "productId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * channelCatalogId **required** `string`: The channel catalog identifier
+  * productId **required** `string`: The product identifier
+
+#### Output
+*Output schema unknown*
+
+### ConfigureChannelCatalogProductValueOverrideCopy
+Copy channel catalog product value override
+
+
+```js
+beezup.ConfigureChannelCatalogProductValueOverrideCopy({
+  "channelCatalogId": "",
+  "productId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * channelCatalogId **required** `string`: The channel catalog identifier
+  * productId **required** `string`: The product identifier
+
+#### Output
+*Output schema unknown*
+
 ### DeleteChannelCatalogProductValueOverride
 Delete a specific channel catalog product value override
 
@@ -2351,7 +2388,6 @@ beezup.ConfigureChannelCatalogGeneralSettings({
   "channelCatalogId": "",
   "request": {
     "acceptToPublishInfo": true,
-    "useBid": true,
     "doNotExportOutOfStockProducts": true,
     "activeBeezUPTracking": true
   }
@@ -3058,16 +3094,17 @@ beezup.GetUserListOfValues({
 #### Output
 * output [userListOfValuesResponse](#userlistofvaluesresponse)
 
-### GetMarketplaceAccountStores
-Get  you marketplace channel catalog list
+### GetMarketplaceChannelCatalogs
+Get your marketplace channel catalog list
 
 
 ```js
-beezup.GetMarketplaceAccountStores(null, context)
+beezup.GetMarketplaceChannelCatalogs({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * storeId `string`: The StoreId to filter by
 
 #### Output
 * output [marketplaceChannelCatalogList](#marketplacechannelcataloglist)
@@ -3109,6 +3146,7 @@ beezup.GetChannelCatalogMarketplaceProperties({
 * input `object`
   * channelCatalogId **required** `string`
   * redirectionPageUrl **required** `string`
+  * Accept-Language `array`: Indicates that the client accepts the following languages.
 
 #### Output
 * output [channelCatalogMarketplaceProperties](#channelcatalogmarketplaceproperties)
@@ -3178,6 +3216,7 @@ beezup.GetAutomaticTransitions({}, context)
 
 #### Input
 * input `object`
+  * storeId `string`: The StoreId to filter by
   * If-None-Match `string`: ETag value to identify the last known version of requested resource.\
 
 #### Output
@@ -3317,11 +3356,12 @@ Send harvest request to all your marketplaces
 
 
 ```js
-beezup.HarvestAll(null, context)
+beezup.HarvestAll({}, context)
 ```
 
 #### Input
-*This action has no parameters*
+* input `object`
+  * storeId `string`: The StoreId to filter by
 
 #### Output
 *Output schema unknown*
@@ -3375,6 +3415,7 @@ beezup.GetMarketplaceAccountsSynchronization({}, context)
 
 #### Input
 * input `object`
+  * storeId `string`: The StoreId to filter by
   * If-None-Match `string`: ETag value to identify the last known version of requested resource.\
 
 #### Output
@@ -3404,7 +3445,7 @@ beezup.GetOrder({
 
 ### HeadOrder
 The purpose of this operation is to reduce the bandwith usage by getting just the meta information about the order (ETag, Last-Modified) with the body.
-This could be useful 
+This could be useful
 
 
 
@@ -3555,8 +3596,8 @@ beezup.ChangeOrder({
 
 ### BeezUP.Common.AdditionalProductFiltersValue
 * BeezUP.Common.AdditionalProductFiltersValue `object`
-  * operatorName [BeezUP.Common.ProductFilterOperatorName](#beezup.common.productfilteroperatorname)
-  * values `array`: Must be null if the operator is "IsNull" or "IsNotNull". 
+  * operatorName [BeezUP.Common.ProductColumnFilterOperatorName](#beezup.common.productcolumnfilteroperatorname)
+  * values `array`: Must be null if the operator is "IsNull" or "IsNotNull".
     * items `string`
 
 ### BeezUP.Common.ApiSettingsStatus
@@ -3812,12 +3853,12 @@ beezup.ChangeOrder({
 * BeezUP.Common.ProductBasicInfo `object`: The basic information related to a product
   * productExists **required** `boolean`: Indicates if the product still exists in your catalog
   * productId **required** `string`: The product identifier
-  * productImageUrl **required** `string`: The product image Url
+  * productImageUrl `string`: The product image Url
   * productSku **required** `string`: The product SKU
   * productTitle **required** `string`: The product tile
 
-### BeezUP.Common.ProductFilterOperatorName
-* BeezUP.Common.ProductFilterOperatorName `string` (values: Equals, Contains, GreaterTo, LowerTo, InList, IsNull, IsNotNull): Indicate the operator you want to make on the columnId
+### BeezUP.Common.ProductColumnFilterOperatorName
+* BeezUP.Common.ProductColumnFilterOperatorName `string`: Indicate the operator you want to make on the columnId
 
 ### BeezUP.Common.ProductFilters
 * BeezUP.Common.ProductFilters `object`
@@ -3921,6 +3962,9 @@ beezup.ChangeOrder({
   * channelId **required** [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * storeId **required** [BeezUP.Common.StoreId](#beezup.common.storeid)
 
+### additionalProductColumnFilters
+* additionalProductColumnFilters `object`: Describes a filter on a product's column.
+
 ### address
 * address `string`: Your address
 
@@ -3940,7 +3984,7 @@ beezup.ChangeOrder({
 * alertPropertyValue `string`: The property value
 
 ### analyticsIndex
-* analyticsIndex `object`: The analytics API operation index.
+* analyticsIndex `object`: The Analytics API operation index.
   * links **required** [analyticsIndexLinks](#analyticsindexlinks)
   * lovLinks [analyticsIndexLovLinks](#analyticsindexlovlinks)
   * stores **required** `array`
@@ -3953,9 +3997,17 @@ beezup.ChangeOrder({
 
 ### analyticsIndexLovLinks
 * analyticsIndexLovLinks `object`
+  * numericProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * performanceIndicatorFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * performanceIndicatorFormulaOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * performanceIndicatorFormulaParameterTypeLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
-  * performanceIndicatorLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * performanceIndicatorTypeForReportsByCategoryLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * performanceIndicatorTypeForReportsByChannelLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * performanceIndicatorTypeForReportsByProductLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * performanceIndicatorTypeLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * productColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * storeOptimisationRuleExecutionStatusLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * stringProductColumnFilterOperatorNameLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
 
 ### analyticsStoreIndex
 * analyticsStoreIndex `object`
@@ -3964,6 +4016,7 @@ beezup.ChangeOrder({
 ### analyticsStoreIndexLinks
 * analyticsStoreIndexLinks `object`
   * optimise [links.OptimiseLink](#links.optimiselink)
+  * optimiseAll [links.OptimiseAllLink](#links.optimisealllink)
   * optimiseByCategory [links.OptimiseByCategoryLink](#links.optimisebycategorylink)
   * optimiseByChannel [links.OptimiseByChannelLink](#links.optimisebychannellink)
   * optimiseByProduct [links.OptimiseByProductLink](#links.optimisebyproductlink)
@@ -3989,9 +4042,6 @@ beezup.ChangeOrder({
 * apiCredentials `object`
   * credentials `array`: Your API credential list
     * items [apiCredential](#apicredential)
-
-### apiSettingStatus
-* apiSettingStatus `string` (values: warning, success, failed)
 
 ### autoImportConfiguration
 * autoImportConfiguration `object`
@@ -4182,9 +4232,9 @@ beezup.ChangeOrder({
 
 ### category
 * category `object`: The catalog category
-  * categoryId **required** [BeezUP.Common.CatalogCategoryId](#beezup.common.catalogcategoryid)
   * categoryPath **required** [BeezUP.Common.CatalogCategoryPath](#beezup.common.catalogcategorypath)
-  * productCount **required** `integer`: The product count related to this category
+  * selfProductCount **required** `integer`: The product count related to this category
+  * totalProductCount **required** `integer`: The total product count related to this category and his sub categories
 
 ### categoryList
 * categoryList `object`: The object which contains the category list
@@ -4271,32 +4321,34 @@ beezup.ChangeOrder({
   * types **required** `array`: The channel type list related to the channel
     * items `string`
 
-### channelCatalogCategoryCostValue
-* channelCatalogCategoryCostValue `number`: In case of CPC_ByCategory or CPA_ByCategory cost type, you have to indicate the cost value.
-
-### channelCatalogCategoryMapping
-* channelCatalogCategoryMapping `object`: Represent a mapping between a catalog category path and a channel category path. 
+### channelCatalogCategoryConfiguration
+* channelCatalogCategoryConfiguration `object`: Represent a mapping between a catalog category path and a channel category path.
+  * autoMapNewSubCategories **required** `boolean`: Great feature! In case of mapping to parent catalog category, you can ask to automatically map new sub catalog category in the next importation to this channel category path.
   * catalogCategoryPath **required** [BeezUP.Common.CatalogCategoryPath](#beezup.common.catalogcategorypath)
-  * channelCategoryPath **required** [BeezUP.Common.ChannelCategoryPath](#beezup.common.channelcategorypath)
+  * channelCategoryPath [BeezUP.Common.ChannelCategoryPath](#beezup.common.channelcategorypath)
   * costValue [channelCatalogCategoryCostValue](#channelcatalogcategorycostvalue)
 
-### channelCatalogCategoryMappingInfo
-* channelCatalogCategoryMappingInfo `object`: For all catalog categories the current mapping applied
+### channelCatalogCategoryConfigurationInfo
+* channelCatalogCategoryConfigurationInfo `object`: For all catalog categories the current mapping applied
   * catalogCategoryPath **required** [BeezUP.Common.CatalogCategoryPath](#beezup.common.catalogcategorypath)
   * channelCategoryPath [BeezUP.Common.ChannelCategoryPath](#beezup.common.channelcategorypath)
   * costValue [channelCatalogCategoryCostValue](#channelcatalogcategorycostvalue)
   * links **required** [channelCatalogCategoryMappingInfoLinks](#channelcatalogcategorymappinginfolinks)
 
+### channelCatalogCategoryConfigurationList
+* channelCatalogCategoryConfigurationList `object`
+  * channelCatalogCategoryConfigurations **required** `array`
+    * items [channelCatalogCategoryConfigurationInfo](#channelcatalogcategoryconfigurationinfo)
+  * costStatus **required** [costStatus](#coststatus)
+  * links **required** [channelCatalogCategoryMappingsLinks](#channelcatalogcategorymappingslinks)
+  * mappingStatus **required** [mappingStatus](#mappingstatus)
+
+### channelCatalogCategoryCostValue
+* channelCatalogCategoryCostValue `number`: In case of CPC_ByCategory or CPA_ByCategory cost type, you have to indicate the cost value.
+
 ### channelCatalogCategoryMappingInfoLinks
 * channelCatalogCategoryMappingInfoLinks `object`
-  * mapCategory [links.MapChannelCatalogCategoryLink](#links.mapchannelcatalogcategorylink)
-  * unmapCategory [links.UnmapChannelCatalogCategoryLink](#links.unmapchannelcatalogcategorylink)
-
-### channelCatalogCategoryMappingList
-* channelCatalogCategoryMappingList `object`
-  * channelCatalogCategoryMappings **required** `array`
-    * items [channelCatalogCategoryMappingInfo](#channelcatalogcategorymappinginfo)
-  * links **required** [channelCatalogCategoryMappingsLinks](#channelcatalogcategorymappingslinks)
+  * configureCategories [links.ConfigureChannelCatalogCategoryLink](#links.configurechannelcatalogcategorylink)
 
 ### channelCatalogCategoryMappingSettings
 * channelCatalogCategoryMappingSettings `object`
@@ -4373,6 +4425,7 @@ beezup.ChangeOrder({
 ### channelCatalogLinks
 * channelCatalogLinks `object`: Indicates the actions you can do on a channel catalog
   * categoryMappings [links.GetChannelCatalogCategoriesLink](#links.getchannelcatalogcategorieslink)
+  * channelInfo [externalLinks.GetChannelInfoLink](#externallinks.getchannelinfolink)
   * configureColumnMappings [links.ConfigureChannelCatalogColumnMappingsLink](#links.configurechannelcatalogcolumnmappingslink)
   * configureCostSettings [links.ConfigureChannelCatalogCostSettingsLink](#links.configurechannelcatalogcostsettingslink)
   * configureGeneralSettings [links.ConfigureChannelCatalogGeneralSettingsLink](#links.configurechannelcataloggeneralsettingslink)
@@ -4528,8 +4581,8 @@ beezup.ChangeOrder({
 
 ### channelCatalogMarketplacePropertyGroup
 * channelCatalogMarketplacePropertyGroup `object`
-  * displayGroupCode **required** `string`: Indicate the code identifier of the group
-  * displayGroupPosition **required** `integer`: Indicate the position of the group
+  * name **required** `string`: Indicate the code identifier of the group
+  * position **required** `integer`: Indicate the position of the group
   * properties **required** `array`
     * items [channelCatalogMarketplaceProperty](#channelcatalogmarketplaceproperty)
 
@@ -4603,7 +4656,7 @@ beezup.ChangeOrder({
 * channelCatalogProductInfo
   * productExists **required** `boolean`: Indicates if the product still exists in your catalog
   * productId **required** `string`: The product identifier
-  * productImageUrl **required** `string`: The product image Url
+  * productImageUrl `string`: The product image Url
   * productSku **required** `string`: The product SKU
   * productTitle **required** `string`: The product tile
   * disabled **required** `boolean`: Indicates if the product has been disabled or not
@@ -4644,7 +4697,7 @@ beezup.ChangeOrder({
 
 ### channelCatalogState
 * channelCatalogState `object`: Channel Catalog State
-  * apiSettingStatus **required** [apiSettingStatus](#apisettingstatus)
+  * apiSettingsStatus [BeezUP.Common.ApiSettingsStatus](#beezup.common.apisettingsstatus)
   * categoryMappingState **required** [categoryMappingState](#categorymappingstate)
   * columnMappingStatus **required** [columnMappingStatus](#columnmappingstatus)
   * exportedProductCount **required** `integer`
@@ -4730,13 +4783,13 @@ beezup.ChangeOrder({
   * channelId **required** [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * channelLogoUrl **required** [BeezUP.Common.HttpUrl](#beezup.common.httpurl)
   * channelName **required** [BeezUP.Common.ChannelName](#beezup.common.channelname)
-  * descriptionAvailable **required** `boolean`: Indicates if we have more detailed information about this channel
-  * isMarketplace **required** `boolean`: Indicates if the channel is a marketplace
   * links **required** [channelHeaderLinks](#channelheaderlinks)
+  * types **required** `array`: The type list related to a channel
+    * items `string`
 
 ### channelHeaderLinks
 * channelHeaderLinks `object`: The links related to an available channel
-  * self **required** [BeezUP.Common.Link3](#beezup.common.link3)
+  * self [links.GetChannelInfoLink](#links.getchannelinfolink)
 
 ### channelInfo
 * channelInfo `object`
@@ -4836,6 +4889,12 @@ beezup.ChangeOrder({
 ### configureCatalogColumnCatalogRequest
 * configureCatalogColumnCatalogRequest `object`: The request to configure a catalog column
   * catalogColumn **required** [catalogColumn](#catalogcolumn)
+
+### configureCategoryRequest
+* configureCategoryRequest `object`: The request message to make a mapping between catalog category path and a channel category path
+  * channelCatalogCategories **required** `array`
+    * items [channelCatalogCategoryConfiguration](#channelcatalogcategoryconfiguration)
+  * overrideSubCategoryMappings **required** `boolean`: Great feature! In case of mapping to parent channel category, you can ask to override the mapping of all sub channel category to this catalog category path
 
 ### contractBillingPeriodInfo
 * contractBillingPeriodInfo `object`: Describe the billing period information related to the offer.
@@ -4971,6 +5030,9 @@ beezup.ChangeOrder({
 * costSettings `object`: If this property is not indicated please force the user to configure the cost settings.
   * costType **required** [costType](#costtype)
   * globalCostValue `number`: In case of global cost type, you have to indicate the cost value.
+
+### costStatus
+* costStatus `string` (values: required, optional, notConfigurable)
 
 ### costType
 * costType `string` (values: CPC_Global, CPA_Global, CPC_ByCategory, CPA_ByCategory, Fixed_Global): CPC means cost per click.
@@ -5296,6 +5358,20 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
+### externalLinks.GetChannelInfoLink
+* externalLinks.GetChannelInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
 ### externalLinks.GetExternalConfigurationPageLink
 * externalLinks.GetExternalConfigurationPageLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
@@ -5349,7 +5425,6 @@ beezup.ChangeOrder({
   * acceptToPublishInfo **required** `boolean`: If true then you authorize disclosure of my statistics generated from clicks and sales
   * activeBeezUPTracking **required** `boolean`: Activate BeezUP tracking for my statistics (checked by default)
   * doNotExportOutOfStockProducts **required** `boolean`: Do not export "out of stock" products. Note: this option is not taken into account by the counter.
-  * useBid **required** `boolean`: Activate bidding for this channel
 
 ### getChannelCatalogProductInfoListRequest
 * getChannelCatalogProductInfoListRequest `object`
@@ -5367,12 +5442,14 @@ beezup.ChangeOrder({
   * columnIdList **required** `array`
     * items [BeezUP.Common.CatalogColumnId](#beezup.common.catalogcolumnid)
   * exists `boolean`: Search for existing products or not. If null you will received both.
+  * orderbyCatalogColumnId [BeezUP.Common.CatalogColumnId](#beezup.common.catalogcolumnid)
   * pageNumber **required** [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
   * pageSize **required** [BeezUP.Common.PageSize](#beezup.common.pagesize)
   * productIdList `array`: Filter with a list of product identifier
     * items [BeezUP.Common.ProductId](#beezup.common.productid)
   * sku `string`: Search for products containing this SKU (merchant product dentifier).
   * title `string`: Search for products containing this title
+  * withoutSubCategories `boolean`: Do not retrieve sub categories. By default, this value is set to false
 
 ### globalPerformanceIndicatorByChannel
 * globalPerformanceIndicatorByChannel `object`
@@ -5964,6 +6041,20 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
+### links.ConfigureChannelCatalogCategoryLink
+* links.ConfigureChannelCatalogCategoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
 ### links.ConfigureChannelCatalogColumnMappingsLink
 * links.ConfigureChannelCatalogColumnMappingsLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
@@ -5992,6 +6083,20 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
+### links.ConfigureChannelCatalogExclusionFiltersCopyLink
+* links.ConfigureChannelCatalogExclusionFiltersCopyLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
 ### links.ConfigureChannelCatalogExclusionFiltersLink
 * links.ConfigureChannelCatalogExclusionFiltersLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
@@ -6008,6 +6113,20 @@ beezup.ChangeOrder({
 
 ### links.ConfigureChannelCatalogGeneralSettingsLink
 * links.ConfigureChannelCatalogGeneralSettingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
+### links.ConfigureChannelCatalogProductValueOverrideCopyLink
+* links.ConfigureChannelCatalogProductValueOverrideCopyLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
   * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
   * description `string`: The description of the link
@@ -6230,6 +6349,20 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
+### links.GetChannelCatalogExclusionFiltersCopyLink
+* links.GetChannelCatalogExclusionFiltersCopyLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
 ### links.GetChannelCatalogExclusionFiltersLink
 * links.GetChannelCatalogExclusionFiltersLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
@@ -6342,8 +6475,36 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
+### links.GetChannelCatalogProductValueOverrideCopyLink
+* links.GetChannelCatalogProductValueOverrideCopyLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
 ### links.GetChannelCatalogsLink
 * links.GetChannelCatalogsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
+### links.GetChannelInfoLink
+* links.GetChannelInfoLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
   * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
   * description `string`: The description of the link
@@ -6398,8 +6559,8 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
-### links.GetMarketplaceAccountStoresLink
-* links.GetMarketplaceAccountStoresLink
+### links.GetMarketplaceAccountsSynchronizationLink
+* links.GetMarketplaceAccountsSynchronizationLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
   * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
   * description `string`: The description of the link
@@ -6412,8 +6573,8 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
-### links.GetMarketplaceAccountsSynchronizationLink
-* links.GetMarketplaceAccountsSynchronizationLink
+### links.GetMarketplaceChannelCatalogsLink
+* links.GetMarketplaceChannelCatalogsLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
   * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
   * description `string`: The description of the link
@@ -7140,20 +7301,6 @@ beezup.ChangeOrder({
   * parameters `object`
   * urlTemplated `boolean`: indicates whether the href is templated or not
 
-### links.MapChannelCatalogCategoryLink
-* links.MapChannelCatalogCategoryLink
-  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
-  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
-  * description `string`: The description of the link
-  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
-  * href **required** [BeezUP.Common.Href](#beezup.common.href)
-  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
-  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
-  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
-  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
-  * parameters `object`
-  * urlTemplated `boolean`: indicates whether the href is templated or not
-
 ### links.MoveDownRuleLink
 * links.MoveDownRuleLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
@@ -7170,6 +7317,20 @@ beezup.ChangeOrder({
 
 ### links.MoveUpRuleLink
 * links.MoveUpRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+
+### links.OptimiseAllLink
+* links.OptimiseAllLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
   * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
   * description `string`: The description of the link
@@ -7352,20 +7513,6 @@ beezup.ChangeOrder({
 
 ### links.SetMerchantOrderInfoListLink
 * links.SetMerchantOrderInfoListLink
-  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
-  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
-  * description `string`: The description of the link
-  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
-  * href **required** [BeezUP.Common.Href](#beezup.common.href)
-  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
-  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
-  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
-  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
-  * parameters `object`
-  * urlTemplated `boolean`: indicates whether the href is templated or not
-
-### links.UnmapChannelCatalogCategoryLink
-* links.UnmapChannelCatalogCategoryLink
   * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
   * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
   * description `string`: The description of the link
@@ -7807,11 +7954,8 @@ beezup.ChangeOrder({
 * mapBeezUPColumnRequest `object`
   * beezUPColumnName **required** [BeezUP.Common.BeezUPColumnName](#beezup.common.beezupcolumnname)
 
-### mapCategoryRequest
-* mapCategoryRequest `object`: The request message to make a mapping between catalog category path and a channel category path
-  * autoMapNewSubCategories **required** `boolean`: Great feature! In case of mapping to parent catalog category, you can ask to automatically map new sub catalog category in the next importation to this channel category path.
-  * channelCatalogCategoryMapping **required** [channelCatalogCategoryMapping](#channelcatalogcategorymapping)
-  * overrideSubCategoryMappings **required** `boolean`: Great feature! In case of mapping to parent channel category, you can ask to override the mapping of all sub channel category to this catalog category path
+### mappingStatus
+* mappingStatus `string` (values: required, optional, notConfigurable)
 
 ### marginType
 * marginType `string` (values: Tracker, Global)
@@ -7847,12 +7991,13 @@ beezup.ChangeOrder({
 
 ### marketplaceChannelCatalogListLinks
 * marketplaceChannelCatalogListLinks `object`
-  * self **required** [links.GetMarketplaceAccountStoresLink](#links.getmarketplaceaccountstoreslink)
+  * self **required** [links.GetMarketplaceChannelCatalogsLink](#links.getmarketplacechannelcatalogslink)
 
 ### marketplaceChannelCatalogLovLinks
 * marketplaceChannelCatalogLovLinks `object`: Indicates the List Of Values related to the marketplace
   * cancelationReasonCodeLOV [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * carrierCodeLOV [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * marketplaceStorePropertyGroupLOV [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * marketplaceStorePropertyLOV [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * refundReasonCodeLOV [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
   * shippingMethodLOV [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
@@ -7939,6 +8084,23 @@ beezup.ChangeOrder({
 ### optimisationActionName
 * optimisationActionName `string` (values: reenable, disable): The optimisation action
 
+### optimiseAllRequest
+* optimiseAllRequest
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * orderBy [performanceIndicatorType](#performanceindicatortype)
+  * orderByDirection [orderByDirection](#orderbydirection)
+  * productColumnFilters [productColumnFilters](#productcolumnfilters)
+  * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
+  * productState [productStateFilter](#productstatefilter)
+  * reportType **required** [reportType](#reporttype)
+
 ### optimiseRequest
 * optimiseRequest
   * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
@@ -7946,14 +8108,17 @@ beezup.ChangeOrder({
   * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
   * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
-  * indicatorFilters `array`
-    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
-  * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
-  * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
-  * productFilters [BeezUP.Common.ProductFilters](#beezup.common.productfilters)
+  * orderBy [performanceIndicatorType](#performanceindicatortype)
+  * orderByDirection [orderByDirection](#orderbydirection)
+  * productColumnFilters [productColumnFilters](#productcolumnfilters)
+  * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
   * productState [productStateFilter](#productstatefilter)
   * reportType **required** [reportType](#reporttype)
+  * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
+  * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
 
 ### order
 * order
@@ -8022,6 +8187,9 @@ beezup.ChangeOrder({
   * order_TotalCommission `number`: The total commission of this order
   * order_TotalTax `number`: The total tax of this order
   * transitionLinks **required** [orderTransitionLinks](#ordertransitionlinks)
+
+### orderByDirection
+* orderByDirection `string` (values: Ascending, Descending): Indicate which direction to order results by
 
 ### orderExportationReporting
 * orderExportationReporting `object`: Represent the reporting of the Order report exportations
@@ -8204,7 +8372,7 @@ beezup.ChangeOrder({
 
 ### orderListRequest
 * orderListRequest
-  * accountIds `array`: Account id list
+  * accountIds `array`: Account Id list
     * items [accountId](#accountid)
   * beezUPOrderStatuses `array`
     * items [beezUPOrderStatus](#beezuporderstatus)
@@ -8220,12 +8388,14 @@ beezup.ChangeOrder({
   * order_Buyer_Name [order_Buyer_Name](#order_buyer_name)
   * order_MerchantOrderIds `array`: Merchant order id list
     * items [order_MerchantOrderId](#order_merchantorderid)
+  * storeIds `array`: Store Id list
+    * items [BeezUP.Common.StoreId](#beezup.common.storeid)
   * pageNumber **required** [pageNumber](#pagenumber)
   * pageSize **required** [pageSize](#pagesize)
 
 ### orderListRequestWithoutPagination
 * orderListRequestWithoutPagination `object`
-  * accountIds `array`: Account id list
+  * accountIds `array`: Account Id list
     * items [accountId](#accountid)
   * beezUPOrderStatuses `array`
     * items [beezUPOrderStatus](#beezuporderstatus)
@@ -8241,6 +8411,8 @@ beezup.ChangeOrder({
   * order_Buyer_Name [order_Buyer_Name](#order_buyer_name)
   * order_MerchantOrderIds `array`: Merchant order id list
     * items [order_MerchantOrderId](#order_merchantorderid)
+  * storeIds `array`: Store Id list
+    * items [BeezUP.Common.StoreId](#beezup.common.storeid)
 
 ### orderOperationResponse
 * orderOperationResponse `object`: The response given by the batch operation for an order
@@ -8266,6 +8438,19 @@ beezup.ChangeOrder({
 ### order_MerchantOrderId
 * order_MerchantOrderId `string`: The order merchant identifier
 
+### orderedReportFilterCommonParameters
+* orderedReportFilterCommonParameters: Contains common filter parameters with Order By functionnality
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * orderBy [performanceIndicatorType](#performanceindicatortype)
+  * orderByDirection [orderByDirection](#orderbydirection)
+
 ### pageNumber
 * pageNumber `integer`: Indicates the page number
 
@@ -8280,6 +8465,15 @@ beezup.ChangeOrder({
 ### paymentMethod
 * paymentMethod `string` (values: Transfer, Debit, Paypal, Check, CreditNote, Loss, OnlinePayment): Payment method
 
+### performanceIndicatorFilter
+* performanceIndicatorFilter `object`
+  * operatorName **required** [performanceIndicatorFilterOperatorName](#performanceindicatorfilteroperatorname)
+  * performanceIndicator **required** [performanceIndicatorType](#performanceindicatortype)
+  * value **required** `number`: Indicates the filter value to apply on this indicator
+
+### performanceIndicatorFilterOperatorName
+* performanceIndicatorFilterOperatorName `string` (values: Equals, GreaterTo, LowerTo): Indicates the operator you want to apply on this indicator
+
 ### performanceIndicatorFormula
 * performanceIndicatorFormula `object`: The KPI formula
   * firstParameter [performanceIndicatorFormulaParameterType](#performanceindicatorformulaparametertype)
@@ -8291,10 +8485,10 @@ beezup.ChangeOrder({
 * performanceIndicatorFormulaOperatorName `string` (values: Multiply, Divide)
 
 ### performanceIndicatorFormulaParameterType
-* performanceIndicatorFormulaParameterType `string` (values: Cost, Turnover, Margin, TunoverMinusCost, MarginMinusCost, OrderCount, ClickCount, SoldProductCount, One): Indicate on which indicator or value you want to make your formula
+* performanceIndicatorFormulaParameterType `string` (values: Cost, TotalSales, Margin, TotalSalesMinusCost, MarginMinusCost, OrderCount, ClickCount, SoldProductCount, One): Indicate on which indicator or value you want to make your formula
 
 ### performanceIndicatorType
-* performanceIndicatorType `string` (values: Cost, Turnover, Margin, OrderCount, ClickCount, TotalSales, SoldProductCount, DisabledProductCount, EnabledProductCount): Indicate on which indicator or value you want to make your formula
+* performanceIndicatorType `string` (values: ClickCount, Cost, OrderCount, ProductCount, SoldProductCount, DisabledProductCount, EnabledProductCount, TotalSales, Margin, ROI, PerformanceIndicator): Indicate on which indicator or value you want to make your formula
 
 ### personalInfo
 * personalInfo `object`
@@ -8330,6 +8524,21 @@ beezup.ChangeOrder({
   * productId **required** [BeezUP.Common.ProductId](#beezup.common.productid)
   * values **required** [productValues](#productvalues)
 
+### productColumnFilter
+* productColumnFilter `object`
+  * operatorName **required** [productColumnFilterOperatorName](#productcolumnfilteroperatorname)
+  * values `array`: Must be null if the operator is "IsNull" or "IsNotNull".
+    * items `string`
+
+### productColumnFilterOperatorName
+* productColumnFilterOperatorName `string` (values: Equals, Contains, InList, IsNull, IsNotNull, NumericEquals, NumericGreaterTo, NumericLowerTo): Indicate the operator you want to apply on the columnId
+
+### productColumnFilters
+* productColumnFilters `object`
+  * additionalProductColumnFilters [additionalProductColumnFilters](#additionalproductcolumnfilters)
+  * sku `string`: The product sku filter
+  * title `string`: The product title filter
+
 ### productColumnsToDisplay
 * productColumnsToDisplay `array`
   * items [BeezUP.Common.CatalogColumnId](#beezup.common.catalogcolumnid)
@@ -8347,6 +8556,9 @@ beezup.ChangeOrder({
 
 ### productOverrides
 * productOverrides `object`: The key is the channel column identifier
+
+### productOverridesCopyResponse
+* productOverridesCopyResponse `object`: Product overrides compatibilites list
 
 ### productOverridesWithCatalogValues
 * productOverridesWithCatalogValues `object`: The key is the channel column identifier
@@ -8483,19 +8695,20 @@ beezup.ChangeOrder({
 
 ### reportByCategory
 * reportByCategory `object`
+  * allProductCount **required** `integer`: The product count for this category. This includes all the products that have been imported and can still have associated clicks and orders.
   * catalogCategoryId **required** [BeezUP.Common.CatalogCategoryId](#beezup.common.catalogcategoryid)
   * catalogCategoryPath [BeezUP.Common.CatalogCategoryPath](#beezup.common.catalogcategorypath)
-  * catalogProductCount **required** `integer`: The catalog product count related to this category
+  * catalogProductCount **required** `integer`: The catalog product count for this category. This includes all products that are still present in your imported catalog.
   * clickCount **required** `integer`: The click count for this category
   * cost **required** `number`: The cost for this category
-  * enabledProductCount **required** `integer`: The enabled product count for this category
+  * enabledProductCount **required** `integer`: The enabled product count for this category. This includes all products that are still present in your imported catalog and have not been disabled via the optimisation feature.
   * links **required** [reportByCategoryLinks](#reportbycategorylinks)
-  * margin **required** `number`: The margin for this category
+  * margin `number`: The margin for this category
   * orderCount **required** `integer`: The order count for this category
   * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this category
+  * roi `number`: The Return On Investment for this category
   * soldProductCount **required** `integer`: The product sold count count for this category
-  * totalSales **required** `number`: The total sales related to this category
-  * turnOver **required** `number`: The Turnover for this category
+  * totalSales **required** `number`: The total sales for this category
 
 ### reportByCategoryLinks
 * reportByCategoryLinks `object`
@@ -8509,9 +8722,11 @@ beezup.ChangeOrder({
   * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
   * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
-  * indicatorFilters `array`
-    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * orderBy [performanceIndicatorType](#performanceindicatortype)
+  * orderByDirection [orderByDirection](#orderbydirection)
   * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
   * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
 
@@ -8525,8 +8740,10 @@ beezup.ChangeOrder({
 
 ### reportByCategoryResponseLinks
 * reportByCategoryResponseLinks
-  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
-  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * disableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * disableProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * enableProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportByChannel
 * reportByChannel `object`
@@ -8536,12 +8753,12 @@ beezup.ChangeOrder({
   * cost **required** `number`: The cost for this channel
   * enabledProductCount **required** `integer`: The enabled product count for this channel
   * links **required** [reportByChannelLinks](#reportbychannellinks)
-  * margin **required** `number`: The margin for this channel
+  * margin `number`: The margin for this channel
   * orderCount **required** `integer`: The order count for this channel
   * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this channel
+  * roi `number`: The Return On Investment for this channel
   * soldProductCount **required** `integer`: The product sold count count for this channel
-  * totalSales **required** `number`: The total sales related to this channel
-  * turnOver **required** `number`: The Turnover for this channel
+  * totalSales **required** `number`: The total sales for this channel
 
 ### reportByChannelLinks
 * reportByChannelLinks `object`
@@ -8555,9 +8772,11 @@ beezup.ChangeOrder({
   * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
   * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
-  * indicatorFilters `array`
-    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * orderBy [performanceIndicatorType](#performanceindicatortype)
+  * orderByDirection [orderByDirection](#orderbydirection)
   * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
   * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
 
@@ -8571,13 +8790,17 @@ beezup.ChangeOrder({
 
 ### reportByChannelResponseLinks
 * reportByChannelResponseLinks
-  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
-  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * disableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * disableProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * enableProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportByCommonResponseLinks
 * reportByCommonResponseLinks `object`
-  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
-  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * disableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * disableProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * enableProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportByDay
 * reportByDay `object`
@@ -8589,13 +8812,13 @@ beezup.ChangeOrder({
 ### reportByDayAllChannels
 * reportByDayAllChannels `object`
   * clickCount **required** `integer`: The click count for this day and all channels
-  * cost **required** `number`: The cost  for this day and all channels
+  * cost **required** `number`: The cost for this day and all channels
   * margin **required** `number`: The margin for this day and all channels
   * orderCount **required** `integer`: The order count for this day and all channels
   * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this day and all channels
+  * roi **required** `number`: The Return On Investment for this day and all channels
   * soldProductCount **required** `integer`: The product sold count count for this day and all channels
-  * totalSales **required** `number`: The total sales related to this day and all channels
-  * turnOver **required** `number`: The Turnover for this day and all channels
+  * totalSales **required** `number`: The total sales for this day and all channels
 
 ### reportByDayByChannel
 * reportByDayByChannel `object`
@@ -8605,18 +8828,18 @@ beezup.ChangeOrder({
   * margin **required** `number`: The margin for this day and this channel
   * orderCount **required** `integer`: The order count for this day and this channel
   * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this day and this channel
+  * roi **required** `number`: The Return On Investment for this day and this channel
   * soldProductCount **required** `integer`: The product sold count count for this day and this channel
-  * totalSales **required** `number`: The total sales related to this day and this channel
-  * turnOver **required** `number`: The Turnover for this day and this channel
+  * totalSales **required** `number`: The total sales for this day and this channel
 
 ### reportByDayRequest
 * reportByDayRequest `object`
   * advancedFilters [reportAdvancedFilters](#reportadvancedfilters)
-  * beginPeriodUtcDate **required** `string`: The begin date period you want to get the report
+  * beginPeriodUtcDate **required** `string`: The begin date of the period for the report
   * catalogCategoryId [BeezUP.Common.CatalogCategoryId](#beezup.common.catalogcategoryid)
   * channelIds `array`: Indicate the channel identifier list
     * items [BeezUP.Common.ChannelId](#beezup.common.channelid)
-  * endPeriodUtcDate **required** `string`: The end date period you want to get the report.
+  * endPeriodUtcDate **required** `string`: The end date of the period for the report
   * productId [BeezUP.Common.ProductId](#beezup.common.productid)
 
 ### reportByDayResponse
@@ -8634,13 +8857,13 @@ beezup.ChangeOrder({
   * cost **required** `number`: The cost for this product
   * enabledOnChannelCount **required** `integer`: The count of channel where this product is enabled
   * links **required** [reportByProductLinks](#reportbyproductlinks)
-  * margin **required** `number`: The margin for this product
+  * margin `number`: The margin for this product
   * orderCount **required** `integer`: The order count for this product
   * performanceIndicator **required** `number`: The performance indicator based on the performance indicator formula indicated in the request for this product
   * product **required** [BeezUP.Common.ProductBasicInfo](#beezup.common.productbasicinfo)
+  * roi `number`: The Return On Investment for this product
   * soldProductCount **required** `integer`: The product sold count count for this product
-  * totalSales **required** `number`: The total sales related to this product
-  * turnOver **required** `number`: The Turnover for this product
+  * totalSales **required** `number`: The total sales for this product
 
 ### reportByProductAllChannelsLinks
 * reportByProductAllChannelsLinks `object`
@@ -8654,6 +8877,8 @@ beezup.ChangeOrder({
 
 ### reportByProductOneChannelLinks
 * reportByProductOneChannelLinks `object`: If the report concerned one product for one channel the channel catalog product info will give you all you need to enable or disable the product.
+  * disableProductForOneChannel **required** [links.OptimiseByProductLink](#links.optimisebyproductlink)
+  * enableProductForOneChannel **required** [links.OptimiseByProductLink](#links.optimisebyproductlink)
   * productInfo **required** [links.GetChannelCatalogProductInfoLink](#links.getchannelcatalogproductinfolink)
 
 ### reportByProductRequest
@@ -8663,13 +8888,15 @@ beezup.ChangeOrder({
   * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
   * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
-  * indicatorFilters `array`
-    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * orderBy [performanceIndicatorType](#performanceindicatortype)
+  * orderByDirection [orderByDirection](#orderbydirection)
   * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
   * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
+  * productColumnFilters [productColumnFilters](#productcolumnfilters)
   * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
-  * productFilters [BeezUP.Common.ProductFilters](#beezup.common.productfilters)
   * productState **required** [productStateFilter](#productstatefilter)
 
 ### reportByProductResponse
@@ -8682,8 +8909,10 @@ beezup.ChangeOrder({
 
 ### reportByProductResponseLinks
 * reportByProductResponseLinks
-  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
-  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * disableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * disableProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseAllLink](#links.optimisealllink)
+  * enableProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportFilter
 * reportFilter `object`
@@ -8699,8 +8928,8 @@ beezup.ChangeOrder({
   * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
   * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
-  * indicatorFilters `array`
-    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
 
 ### reportFilterHeader
@@ -8733,11 +8962,11 @@ beezup.ChangeOrder({
   * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
   * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
   * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
-  * indicatorFilters `array`
-    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * performanceIndicatorFilters `array`
+    * items [performanceIndicatorFilter](#performanceindicatorfilter)
   * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * productColumnFilters [productColumnFilters](#productcolumnfilters)
   * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
-  * productFilters [BeezUP.Common.ProductFilters](#beezup.common.productfilters)
   * productState [productStateFilter](#productstatefilter)
   * reportType **required** [reportType](#reporttype)
 
@@ -8749,17 +8978,8 @@ beezup.ChangeOrder({
   * save **required** [links.SaveReportFilterLink](#links.savereportfilterlink)
   * self **required** [links.GetReportFiltersLink](#links.getreportfilterslink)
 
-### reportIndicatorFilter
-* reportIndicatorFilter `object`
-  * indicator **required** [performanceIndicatorType](#performanceindicatortype)
-  * operatorName **required** [reportIndicatorFilterOperatorName](#reportindicatorfilteroperatorname)
-  * value **required** `number`: Indicates the filter value to apply on this indicator
-
-### reportIndicatorFilterOperatorName
-* reportIndicatorFilterOperatorName `string` (values: Equals, GreaterTo, LowerTo): Indicates the operator you want to apply on this indicator
-
 ### reportType
-* reportType `string` (values: ByChannel, ByCategory, ByProduct, ByDate): The report type
+* reportType `string` (values: ByChannel, ByCategory, ByProduct, ByDay): The report type
 
 ### rule
 * rule `object`
@@ -8921,7 +9141,7 @@ beezup.ChangeOrder({
   * self **required** [links.getStandardOffersLink](#links.getstandardofferslink)
 
 ### startManualImportRequest
-* startManualImportRequest `object`: The message request start a manual importation process.  Indicate the way to handle duplicate product. Can be null if you want to reuse the configuration of the previous importation succeed.
+* startManualImportRequest `object`: The message request start a manual importation process. Indicate the way to handle duplicate product. Can be null if you want to reuse the configuration of the previous importation succeed.
   * duplicateProductSkuConfiguration [duplicateProductValueConfiguration](#duplicateproductvalueconfiguration)
   * input **required** [inputConfiguration](#inputconfiguration)
 
@@ -8929,6 +9149,7 @@ beezup.ChangeOrder({
 * store `object`
   * countryIsoCodeAlpha3 **required** [storeCountryIsoCodeAlpha3](#storecountryisocodealpha3)
   * creationUtcDate **required** `string`: The creation date of the store
+  * currencyCode **required** [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
   * links **required** [storeLinks](#storelinks)
   * name **required** [storeName](#storename)
   * ownerUserId **required** `string`: The user id of the owner of the store
@@ -9030,9 +9251,9 @@ beezup.ChangeOrder({
 
 ### storeTrackingStatus
 * storeTrackingStatus `object`
-  * clickSynchronizationUtcDate `string`: The utc date of the latest click synchronized
-  * marketplaceOrderSynchonizationUtcDate `string`: The utc date of the latest marketplace order synchronized
-  * orderSynchonizationUtcDate `string`: The utc date of the latest order synchronized
+  * clickSynchronizationUtcDate `string`: The utc date of the latest synchronized click
+  * marketplaceOrderSynchonizationUtcDate `string`: The utc date of the latest synchronized marketplace order
+  * orderSynchonizationUtcDate `string`: The utc date of the latest synchronized order
 
 ### storeUrl
 * storeUrl `string`: The url of your store
@@ -9048,7 +9269,7 @@ beezup.ChangeOrder({
 ### trackedClick
 * trackedClick `object`
   * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
-  * ipAddress **required** `string`: The user's IP address related to this click
+  * ipAddress **required** `string`: The user IP address for the click
   * product **required** [BeezUP.Common.ProductBasicInfo](#beezup.common.productbasicinfo)
   * utcDate **required** `string`: The utc date of the click
 
@@ -9061,23 +9282,23 @@ beezup.ChangeOrder({
 * trackedExternalOrder `object`
   * currencyCode **required** [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
   * merchantOrderId **required** `string`: The merchant order identifier
-  * paymentValidated **required** `boolean`: Indicate if the payment of this external order has been validated or not.
-  * products `array`: Can be null. the product list related to this external order.
+  * paymentValidated **required** `boolean`: Indicate if the payment of this external order has been validated or not
+  * products `array`: Can be null. The product list included in the external order
     * items [trackedExternalOrderProduct](#trackedexternalorderproduct)
-  * totalAmount **required** `number`: The total amount related to the external order.
-  * utcDate **required** `string`: The utc date of the external order.
-  * visitorId `string`: Can be null. The visitor identifier related to this external order
+  * totalAmount **required** `number`: The total amount of the external order
+  * utcDate **required** `string`: The utc date of the external order
+  * visitorId `string`: Can be null. The visitor identifier of the external order
 
 ### trackedExternalOrderProduct
 * trackedExternalOrderProduct `object`
-  * margin `string`: Indicate the product's margin related to this order. This property is voluntarily a string because the value could be an invalid one
+  * margin `string`: The product's margin for the external order. This property is voluntarily a string because the value could be an invalid one
   * productActive `boolean`: We tried to get the catalog product if it's still active based on the product SKU. This property can be null, if we cannot found the product. This is possible if the product is not referenced in the imported catalog.
   * productId `string`: We tried to get the catalog product identifier based on the product SKU. This property can be null, if we cannot found the product. This is possible if the product is not referenced in the imported catalog.
   * productImageUrl `string`: We tried to get the catalog product image Url based on the product SKU. This property can be null, if we cannot found the product. This is possible if the product is not referenced in the imported catalog.
-  * productSku **required** `string`: The product sku received related to the external order.
+  * productSku **required** `string`: The product sku received for the external order
   * productTitle `string`: We tried to get the catalog product title based on the product SKU. This property can be null, if we cannot found the product. This is possible if the product is not referenced in the imported catalog.
-  * quantity `string`: Indicate the product's quantity ordered. This property is voluntarily a string because the value could be an invalid one
-  * unitPrice `string`: The product's unit price related to this external order. This property is voluntarily a string because the value could be an invalid one.
+  * quantity `string`: The quantity of this product for the external order. This property is voluntarily a string because the value could be an invalid one
+  * unitPrice `string`: The product's unit price for the external order. This property is voluntarily a string because the value could be an invalid one.
 
 ### trackedExternalOrders
 * trackedExternalOrders `object`
@@ -9089,22 +9310,22 @@ beezup.ChangeOrder({
   * channel **required** [BeezUP.Common.ChannelBasicInfo](#beezup.common.channelbasicinfo)
   * currencyCode **required** [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
   * merchantOrderId **required** `string`: The merchant order identifier
-  * paymentValidated **required** `boolean`: Indicate if the payment of this order has been validated or not.
-  * products **required** `array`: the product list related to this order.
+  * paymentValidated **required** `boolean`: Indicate if the payment of this order has been validated or not
+  * products **required** `array`: The product list of this order
     * items [trackedOrderProduct](#trackedorderproduct)
-  * totalAmount **required** `number`: The total amount related to the order.
-  * utcDate **required** `string`: The utc date of the order.
+  * totalAmount **required** `number`: The total amount of the order
+  * utcDate **required** `string`: The utc date of the order
 
 ### trackedOrderProduct
 * trackedOrderProduct
   * productExists **required** `boolean`: Indicates if the product still exists in your catalog
   * productId **required** `string`: The product identifier
-  * productImageUrl **required** `string`: The product image Url
+  * productImageUrl `string`: The product image Url
   * productSku **required** `string`: The product SKU
   * productTitle **required** `string`: The product tile
-  * margin **required** `number`: Indicate the product's margin related to this order.
-  * quantity **required** `number`: Indicate the product's quantity ordered.
-  * unitPrice **required** `number`: The product's unit price related to this order
+  * margin **required** `number`: The product's margin for the order
+  * quantity **required** `number`: The quantity of this product for the order
+  * unitPrice **required** `number`: The product's unit price for the order
 
 ### trackedOrders
 * trackedOrders `object`
@@ -9113,9 +9334,9 @@ beezup.ChangeOrder({
 
 ### trackingStatus
 * trackingStatus `object`
-  * clickSynchronizationUtcDate **required** `string`: The utc date of the latest click synchronized
-  * marketplaceOrderSynchonizationUtcDate **required** `string`: The utc date of the latest marketplace order synchronized
-  * orderSynchonizationUtcDate **required** `string`: The utc date of the latest order synchronized
+  * clickSynchronizationUtcDate **required** `string`: The utc date of the latest synchronized click
+  * marketplaceOrderSynchonizationUtcDate **required** `string`: The utc date of the latest synchronized marketplace order
+  * orderSynchonizationUtcDate **required** `string`: The utc date of the latest synchronized order
 
 ### type
 * type `string` (values: string, integer, boolean, number): The Data Type

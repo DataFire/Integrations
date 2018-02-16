@@ -83,11 +83,11 @@ google_resourceviews.zoneOperations.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: Name of the project scoping this request.
-  * zone **required** `string`: Name of the zone scoping this request.
   * filter `string`: Optional. Filter expression for filtering listed resources.
   * maxResults `integer`: Optional. Maximum count of results to be returned. Maximum value is 500 and default value is 500.
   * pageToken `string`: Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a previous list request.
+  * project **required** `string`: Name of the project scoping this request.
+  * zone **required** `string`: Name of the zone scoping this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -105,17 +105,17 @@ Retrieves the specified zone-specific operation resource.
 
 ```js
 google_resourceviews.zoneOperations.get({
+  "operation": "",
   "project": "",
-  "zone": "",
-  "operation": ""
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * operation **required** `string`: Name of the operation resource to return.
   * project **required** `string`: Name of the project scoping this request.
   * zone **required** `string`: Name of the zone scoping this request.
-  * operation **required** `string`: Name of the operation resource to return.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -140,10 +140,10 @@ google_resourceviews.zoneViews.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
   * maxResults `integer`: Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default: 5000)
   * pageToken `string`: Specifies a nextPageToken returned by a previous list request. This token can be used to request the next page of results from a previous list request.
+  * project **required** `string`: The project name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -168,9 +168,9 @@ google_resourceviews.zoneViews.insert({
 
 #### Input
 * input `object`
+  * body [ResourceView](#resourceview)
   * project **required** `string`: The project name of the resource view.
   * zone **required** `string`: The zone name of the resource view.
-  * body [ResourceView](#resourceview)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -189,16 +189,16 @@ Delete a resource view.
 ```js
 google_resourceviews.zoneViews.delete({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
   * resourceView **required** `string`: The name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -217,16 +217,16 @@ Get the information of a zonal resource view.
 ```js
 google_resourceviews.zoneViews.get({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
   * resourceView **required** `string`: The name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -245,17 +245,17 @@ Add resources to the view.
 ```js
 google_resourceviews.zoneViews.addResources({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
-  * resourceView **required** `string`: The name of the resource view.
   * body [ZoneViewsAddResourcesRequest](#zoneviewsaddresourcesrequest)
+  * project **required** `string`: The project name of the resource view.
+  * resourceView **required** `string`: The name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -274,17 +274,17 @@ Get the service information of a resource view or a resource.
 ```js
 google_resourceviews.zoneViews.getService({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
-  * resourceView **required** `string`: The name of the resource view.
   * resourceName `string`: The name of the resource if user wants to get the service information of the resource.
+  * resourceView **required** `string`: The name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -303,17 +303,17 @@ Remove resources from the view.
 ```js
 google_resourceviews.zoneViews.removeResources({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
-  * resourceView **required** `string`: The name of the resource view.
   * body [ZoneViewsRemoveResourcesRequest](#zoneviewsremoveresourcesrequest)
+  * project **required** `string`: The project name of the resource view.
+  * resourceView **required** `string`: The name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -332,21 +332,21 @@ List the resources of the resource view.
 ```js
 google_resourceviews.zoneViews.listResources({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
-  * resourceView **required** `string`: The name of the resource view.
   * format `string` (values: NONE, URL, URL_PORT): The requested format of the return value. It can be URL or URL_PORT. A JSON object will be included in the response based on the format. The default format is NONE, which results in no JSON in the response.
   * listState `string` (values: ALL, RUNNING): The state of the instance to list. By default, it lists all instances.
   * maxResults `integer`: Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default: 5000)
   * pageToken `string`: Specifies a nextPageToken returned by a previous list request. This token can be used to request the next page of results from a previous list request.
+  * project **required** `string`: The project name of the resource view.
+  * resourceView **required** `string`: The name of the resource view.
   * serviceName `string`: The service name to return in the response. It is optional and if it is not set, all the service end points will be returned.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -365,17 +365,17 @@ Update the service information of a resource view or a resource.
 ```js
 google_resourceviews.zoneViews.setService({
   "project": "",
-  "zone": "",
-  "resourceView": ""
+  "resourceView": "",
+  "zone": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: The project name of the resource view.
-  * zone **required** `string`: The zone name of the resource view.
-  * resourceView **required** `string`: The name of the resource view.
   * body [ZoneViewsSetServiceRequest](#zoneviewssetservicerequest)
+  * project **required** `string`: The project name of the resource view.
+  * resourceView **required** `string`: The name of the resource view.
+  * zone **required** `string`: The zone name of the resource view.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps on physical phones, tablets, and other devices in the cloud.",
     "license": {
@@ -2353,7 +2354,7 @@
         }
       ],
       "post": {
-        "description": "Gets information about jobs.",
+        "description": "Gets information about jobs for a given test run.",
         "operationId": "ListJobs",
         "parameters": [
           {
@@ -3106,7 +3107,7 @@
         }
       ],
       "post": {
-        "description": "Gets information about suites.",
+        "description": "Gets information about test suites for a given job.",
         "operationId": "ListSuites",
         "parameters": [
           {
@@ -3190,7 +3191,7 @@
         }
       ],
       "post": {
-        "description": "Gets information about tests.",
+        "description": "Gets information about tests in a given test suite.",
         "operationId": "ListTests",
         "parameters": [
           {
@@ -4434,7 +4435,7 @@
       "properties": {
         "clientId": {
           "$ref": "#/definitions/ClientId",
-          "description": "Unique identifier for the client. If you want access to multiple devices on the same client, you should pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>. This is required only if <code>remoteDebugEnabled</code> is set to true <code>true</code>."
+          "description": "Unique identifier for the client. If you want access to multiple devices on the same client, you should pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>. This is required only if <code>remoteDebugEnabled</code> is set to <code>true</code>."
         },
         "configuration": {
           "$ref": "#/definitions/CreateRemoteAccessSessionConfiguration",
@@ -4443,6 +4444,10 @@
         "deviceArn": {
           "$ref": "#/definitions/AmazonResourceName",
           "description": "The Amazon Resource Name (ARN) of the device for which you want to create a remote access session."
+        },
+        "interactionMode": {
+          "$ref": "#/definitions/InteractionMode",
+          "description": "<p>The interaction mode of the remote access session. Valid values are:</p> <ul> <li> <p>INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You <b>cannot</b> run XCUITest framework-based tests in this mode.</p> </li> <li> <p>NO_VIDEO: You are connected to the device but cannot interact with it or view the screen. This mode has the fastest test execution speed. You <b>can</b> run XCUITest framework-based tests in this mode.</p> </li> <li> <p>VIDEO_ONLY: You can view the screen but cannot touch or rotate it. You <b>can</b> run XCUITest framework-based tests and watch the screen in this mode.</p> </li> </ul>"
         },
         "name": {
           "$ref": "#/definitions/Name",
@@ -4455,6 +4460,14 @@
         "remoteDebugEnabled": {
           "$ref": "#/definitions/Boolean",
           "description": "Set to <code>true</code> if you want to access devices remotely for debugging in your remote access session."
+        },
+        "remoteRecordAppArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "The Amazon Resource Name (ARN) for the app to be recorded in the remote access session."
+        },
+        "remoteRecordEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Set to <code>true</code> to enable remote recording for the remote access session."
         },
         "sshPublicKey": {
           "$ref": "#/definitions/SshPublicKey",
@@ -4732,6 +4745,10 @@
         "model": {
           "$ref": "#/definitions/String",
           "description": "The device's model name."
+        },
+        "modelId": {
+          "$ref": "#/definitions/String",
+          "description": "The device's model ID."
         },
         "name": {
           "$ref": "#/definitions/Name",
@@ -5474,6 +5491,16 @@
     "Integer": {
       "type": "integer"
     },
+    "InteractionMode": {
+      "enum": [
+        "INTERACTIVE",
+        "NO_VIDEO",
+        "VIDEO_ONLY"
+      ],
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
     "IosPaths": {
       "items": {
         "$ref": "#/definitions/String"
@@ -5700,7 +5727,7 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "The jobs' ARNs."
+          "description": "The run's Amazon Resource Name (ARN)."
         },
         "nextToken": {
           "$ref": "#/definitions/PaginationToken",
@@ -6175,7 +6202,7 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "The suites' ARNs."
+          "description": "The job's Amazon Resource Name (ARN)."
         },
         "nextToken": {
           "$ref": "#/definitions/PaginationToken",
@@ -6213,7 +6240,7 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "The tests' ARNs."
+          "description": "The test suite's Amazon Resource Name (ARN)."
         },
         "nextToken": {
           "$ref": "#/definitions/PaginationToken",
@@ -6857,6 +6884,10 @@
           "$ref": "#/definitions/HostAddress",
           "description": "IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session."
         },
+        "interactionMode": {
+          "$ref": "#/definitions/InteractionMode",
+          "description": "<p>The interaction mode of the remote access session. Valid values are:</p> <ul> <li> <p>INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You <b>cannot</b> run XCUITest framework-based tests in this mode.</p> </li> <li> <p>NO_VIDEO: You are connected to the device but cannot interact with it or view the screen. This mode has the fastest test execution speed. You <b>can</b> run XCUITest framework-based tests in this mode.</p> </li> <li> <p>VIDEO_ONLY: You can view the screen but cannot touch or rotate it. You <b>can</b> run XCUITest framework-based tests and watch the screen in this mode.</p> </li> </ul>"
+        },
         "message": {
           "$ref": "#/definitions/Message",
           "description": "A message about the remote access session."
@@ -6868,6 +6899,14 @@
         "remoteDebugEnabled": {
           "$ref": "#/definitions/Boolean",
           "description": "This flag is set to <code>true</code> if remote debugging is enabled for the remote access session."
+        },
+        "remoteRecordAppArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "The Amazon Resource Name (ARN) for the app to be recorded in the remote access session."
+        },
+        "remoteRecordEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "This flag is set to <code>true</code> if remote recording is enabled for the remote access session."
         },
         "result": {
           "$ref": "#/definitions/ExecutionResult",
@@ -6995,6 +7034,10 @@
     "Run": {
       "description": "Represents a test run on a set of devices with a given app package, test parameters, etc.",
       "properties": {
+        "appUpload": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "An app to upload or that has been uploaded."
+        },
         "arn": {
           "$ref": "#/definitions/AmazonResourceName",
           "description": "The run's ARN."
@@ -7023,6 +7066,26 @@
           "$ref": "#/definitions/DeviceMinutes",
           "description": "Represents the total (metered or unmetered) minutes used by the test run."
         },
+        "devicePoolArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "The ARN of the device pool for the run."
+        },
+        "eventCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform."
+        },
+        "jobTimeoutMinutes": {
+          "$ref": "#/definitions/JobTimeoutMinutes",
+          "description": "The number of minutes the job will execute before it times out."
+        },
+        "locale": {
+          "$ref": "#/definitions/String",
+          "description": "Information about the locale that is used for the run."
+        },
+        "location": {
+          "$ref": "#/definitions/Location",
+          "description": "Information about the location that is used for the run."
+        },
         "message": {
           "$ref": "#/definitions/Message",
           "description": "A message about the run's result."
@@ -7043,6 +7106,10 @@
           "$ref": "#/definitions/DevicePlatform",
           "description": "<p>The run's platform.</p> <p>Allowed values include:</p> <ul> <li> <p>ANDROID: The Android platform.</p> </li> <li> <p>IOS: The iOS platform.</p> </li> </ul>"
         },
+        "radios": {
+          "$ref": "#/definitions/Radios",
+          "description": "Information about the radio states for the run."
+        },
         "result": {
           "$ref": "#/definitions/ExecutionResult",
           "description": "<p>The run's result.</p> <p>Allowed values include:</p> <ul> <li> <p>PENDING: A pending condition.</p> </li> <li> <p>PASSED: A passing condition.</p> </li> <li> <p>WARNED: A warning condition.</p> </li> <li> <p>FAILED: A failed condition.</p> </li> <li> <p>SKIPPED: A skipped condition.</p> </li> <li> <p>ERRORED: An error condition.</p> </li> <li> <p>STOPPED: A stopped condition.</p> </li> </ul>"
@@ -7050,6 +7117,10 @@
         "resultCode": {
           "$ref": "#/definitions/ExecutionResultCode",
           "description": "Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>. <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure."
+        },
+        "seed": {
+          "$ref": "#/definitions/Integer",
+          "description": "For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences."
         },
         "started": {
           "$ref": "#/definitions/DateTime",
@@ -7070,6 +7141,10 @@
         "type": {
           "$ref": "#/definitions/TestType",
           "description": "<p>The run's type.</p> <p>Must be one of the following values:</p> <ul> <li> <p>BUILTIN_FUZZ: The built-in fuzz type.</p> </li> <li> <p>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.</p> </li> <li> <p>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</p> </li> <li> <p>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</p> </li> <li> <p>APPIUM_PYTHON: The Appium Python type.</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.</p> </li> <li> <p>APPIUM_WEB_PYTHON: The Appium Python type for Web apps.</p> </li> <li> <p>CALABASH: The Calabash type.</p> </li> <li> <p>INSTRUMENTATION: The Instrumentation type.</p> </li> <li> <p>UIAUTOMATION: The uiautomation type.</p> </li> <li> <p>UIAUTOMATOR: The uiautomator type.</p> </li> <li> <p>XCTEST: The XCode test type.</p> </li> <li> <p>XCTEST_UI: The XCode UI test type.</p> </li> </ul>"
+        },
+        "webUrl": {
+          "$ref": "#/definitions/String",
+          "description": "A pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the symbol file for the run."
         }
       },
       "type": "object"
@@ -7444,6 +7519,7 @@
       "enum": [
         "BUILTIN_FUZZ",
         "BUILTIN_EXPLORER",
+        "WEB_PERFORMANCE_PROFILE",
         "APPIUM_JAVA_JUNIT",
         "APPIUM_JAVA_TESTNG",
         "APPIUM_PYTHON",
@@ -7455,7 +7531,9 @@
         "UIAUTOMATION",
         "UIAUTOMATOR",
         "XCTEST",
-        "XCTEST_UI"
+        "XCTEST_UI",
+        "REMOTE_ACCESS_RECORD",
+        "REMOTE_ACCESS_REPLAY"
       ],
       "type": "string"
     },
@@ -7576,7 +7654,7 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "The Amazon Resource Name (ARN) of the project that you wish to update network profile settings."
+          "description": "The Amazon Resource Name (ARN) of the project for which you want to update network profile settings."
         },
         "description": {
           "$ref": "#/definitions/Message",

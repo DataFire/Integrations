@@ -24,7 +24,7 @@ amazonaws_gamelift.AcceptMatch({
 
 ## Description
 
-<fullname>Amazon GameLift Service</fullname> <p> Amazon GameLift is a managed service for developers who need a scalable, dedicated server solution for their multiplayer games. Amazon GameLift provides tools for the following tasks: (1) acquire computing resources and deploy game servers, (2) scale game server capacity to meet player demand, (3) host game sessions and manage player access, and (4) track in-depth metrics on player usage and server performance.</p> <p>The Amazon GameLift service API includes two important function sets:</p> <ul> <li> <p> <b>Manage game sessions and player access</b> -- Retrieve information on available game sessions; create new game sessions; send player requests to join a game session.</p> </li> <li> <p> <b>Configure and manage game server resources</b> -- Manage builds, fleets, queues, and aliases; set autoscaling policies; retrieve logs and metrics.</p> </li> </ul> <p>This reference guide describes the low-level service API for Amazon GameLift. You can use the API functionality with these tools: </p> <ul> <li> <p>The Amazon Web Services software development kit (<a href="http://aws.amazon.com/tools/#sdk">AWS SDK</a>) is available in <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-supported.html#gamelift-supported-clients">multiple languages</a> including C++ and C#. Use the SDK to access the API programmatically from an application, such as a game client.</p> </li> <li> <p>The <a href="http://aws.amazon.com/cli/">AWS command-line interface</a> (CLI) tool is primarily useful for handling administrative actions, such as setting up and managing Amazon GameLift settings and resources. You can use the AWS CLI to manage all of your AWS services.</p> </li> <li> <p>The <a href="https://console.aws.amazon.com/gamelift/home">AWS Management Console</a> for Amazon GameLift provides a web interface to manage your Amazon GameLift settings and resources. The console includes a dashboard for tracking key resources, including builds and fleets, and displays usage and performance metrics for your games as customizable graphs.</p> </li> <li> <p>Amazon GameLift Local is a tool for testing your game's integration with Amazon GameLift before deploying it on the service. This tools supports a subset of key API actions, which can be called from either the AWS CLI or programmatically. See <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing-local.html">Testing an Integration</a>.</p> </li> </ul> <p> <b>MORE RESOURCES</b> </p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/">Amazon GameLift Developer Guide</a> -- Learn more about Amazon GameLift features and how to use them. </p> </li> <li> <p> <a href="https://gamedev.amazon.com/forums/tutorials">Lumberyard and Amazon GameLift Tutorials</a> -- Get started fast with walkthroughs and sample projects.</p> </li> <li> <p> <a href="http://aws.amazon.com/blogs/gamedev/">GameDev Blog</a> -- Stay up to date with new features and techniques.</p> </li> <li> <p> <a href="https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html">GameDev Forums</a> -- Connect with the GameDev community.</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html">Amazon GameLift Document History</a> -- See changes to the Amazon GameLift service, SDKs, and documentation, as well as links to release notes. </p> </li> </ul> <p> <b>API SUMMARY</b> </p> <p>This list offers a functional overview of the Amazon GameLift service API.</p> <p> <b>Managing Games and Players</b> </p> <p>Use these actions to start new game sessions, find existing game sessions, track game session status and other information, and enable player access to game sessions.</p> <ul> <li> <p> <b>Discover existing game sessions</b> </p> <ul> <li> <p> <a>SearchGameSessions</a> -- Retrieve all available game sessions or search for game sessions that match a set of criteria. </p> </li> </ul> </li> <li> <p> <b>Start new game sessions</b> </p> <ul> <li> <p>Start new games with Queues to find the best available hosting resources across multiple regions, minimize player latency, and balance game session activity for efficiency and cost effectiveness. </p> <ul> <li> <p> <a>StartGameSessionPlacement</a> -- Request a new game session placement and add one or more players to it.</p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> -- Get details on a placement request, including status.</p> </li> <li> <p> <a>StopGameSessionPlacement</a> -- Cancel a placement request. </p> </li> </ul> </li> <li> <p> <a>CreateGameSession</a> -- Start a new game session on a specific fleet. <i>Available in Amazon GameLift Local.</i> </p> </li> </ul> </li> <li> <p> <b>Start new game sessions with FlexMatch matchmaking</b> </p> <ul> <li> <p> <a>StartMatchmaking</a> -- Request matchmaking for one players or a group who want to play together. </p> </li> <li> <p> <a>DescribeMatchmaking</a> -- Get details on a matchmaking request, including status.</p> </li> <li> <p> <a>AcceptMatch</a> -- Register that a player accepts a proposed match, for matches that require player acceptance. </p> </li> <li> <p> <a>StopMatchmaking</a> -- Cancel a matchmaking request. </p> </li> </ul> </li> <li> <p> <b>Manage game session data</b> </p> <ul> <li> <p> <a>DescribeGameSessions</a> -- Retrieve metadata for one or more game sessions, including length of time active and current player count. <i>Available in Amazon GameLift Local.</i> </p> </li> <li> <p> <a>DescribeGameSessionDetails</a> -- Retrieve metadata and the game session protection setting for one or more game sessions.</p> </li> <li> <p> <a>UpdateGameSession</a> -- Change game session settings, such as maximum player count and join policy.</p> </li> <li> <p> <a>GetGameSessionLogUrl</a> -- Get the location of saved logs for a game session.</p> </li> </ul> </li> <li> <p> <b>Manage player sessions</b> </p> <ul> <li> <p> <a>CreatePlayerSession</a> -- Send a request for a player to join a game session. <i>Available in Amazon GameLift Local.</i> </p> </li> <li> <p> <a>CreatePlayerSessions</a> -- Send a request for multiple players to join a game session. <i>Available in Amazon GameLift Local.</i> </p> </li> <li> <p> <a>DescribePlayerSessions</a> -- Get details on player activity, including status, playing time, and player data. <i>Available in Amazon GameLift Local.</i> </p> </li> </ul> </li> </ul> <p> <b>Setting Up and Managing Game Servers</b> </p> <p>When setting up Amazon GameLift resources for your game, you first <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">create a game build</a> and upload it to Amazon GameLift. You can then use these actions to configure and manage a fleet of resources to run your game servers, scale capacity to meet player demand, access performance and utilization metrics, and more.</p> <ul> <li> <p> <b>Manage game builds</b> </p> <ul> <li> <p> <a>CreateBuild</a> -- Create a new build using files stored in an Amazon S3 bucket. (Update uploading permissions with <a>RequestUploadCredentials</a>.) To create a build and upload files from a local path, use the AWS CLI command <code>upload-build</code>.</p> </li> <li> <p> <a>ListBuilds</a> -- Get a list of all builds uploaded to a Amazon GameLift region.</p> </li> <li> <p> <a>DescribeBuild</a> -- Retrieve information associated with a build.</p> </li> <li> <p> <a>UpdateBuild</a> -- Change build metadata, including build name and version.</p> </li> <li> <p> <a>DeleteBuild</a> -- Remove a build from Amazon GameLift.</p> </li> </ul> </li> <li> <p> <b>Manage fleets</b> </p> <ul> <li> <p> <a>CreateFleet</a> -- Configure and activate a new fleet to run a build's game servers.</p> </li> <li> <p> <a>ListFleets</a> -- Get a list of all fleet IDs in a Amazon GameLift region (all statuses).</p> </li> <li> <p> <a>DeleteFleet</a> -- Terminate a fleet that is no longer running game servers or hosting players.</p> </li> <li> <p>View / update fleet configurations.</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> / <a>UpdateFleetAttributes</a> -- View or change a fleet's metadata and settings for game session protection and resource creation limits.</p> </li> <li> <p> <a>DescribeFleetPortSettings</a> / <a>UpdateFleetPortSettings</a> -- View or change the inbound permissions (IP address and port setting ranges) allowed for a fleet.</p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> / <a>UpdateRuntimeConfiguration</a> -- View or change what server processes (and how many) to run on each instance in a fleet.</p> </li> </ul> </li> </ul> </li> <li> <p> <b>Control fleet capacity</b> </p> <ul> <li> <p> <a>DescribeEC2InstanceLimits</a> -- Retrieve maximum number of instances allowed for the current AWS account and the current usage level.</p> </li> <li> <p> <a>DescribeFleetCapacity</a> / <a>UpdateFleetCapacity</a> -- Retrieve the capacity settings and the current number of instances in a fleet; adjust fleet capacity settings to scale up or down.</p> </li> <li> <p>Autoscale -- Manage autoscaling rules and apply them to a fleet.</p> <ul> <li> <p> <a>PutScalingPolicy</a> -- Create a new autoscaling policy, or update an existing one.</p> </li> <li> <p> <a>DescribeScalingPolicies</a> -- Retrieve an existing autoscaling policy.</p> </li> <li> <p> <a>DeleteScalingPolicy</a> -- Delete an autoscaling policy and stop it from affecting a fleet's capacity.</p> </li> </ul> </li> </ul> </li> <li> <p> <b>Manage VPC peering connections for fleets</b> </p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> -- Authorize a peering connection to one of your VPCs.</p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> -- Retrieve valid peering connection authorizations. </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> -- Delete a peering connection authorization.</p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> -- Establish a peering connection between the VPC for a Amazon GameLift fleet and one of your VPCs.</p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> -- Retrieve information on active or pending VPC peering connections with a Amazon GameLift fleet.</p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> -- Delete a VPC peering connection with a Amazon GameLift fleet.</p> </li> </ul> </li> <li> <p> <b>Access fleet activity statistics</b> </p> <ul> <li> <p> <a>DescribeFleetUtilization</a> -- Get current data on the number of server processes, game sessions, and players currently active on a fleet.</p> </li> <li> <p> <a>DescribeFleetEvents</a> -- Get a fleet's logged events for a specified time span.</p> </li> <li> <p> <a>DescribeGameSessions</a> -- Retrieve metadata associated with one or more game sessions, including length of time active and current player count.</p> </li> </ul> </li> <li> <p> <b>Remotely access an instance</b> </p> <ul> <li> <p> <a>DescribeInstances</a> -- Get information on each instance in a fleet, including instance ID, IP address, and status.</p> </li> <li> <p> <a>GetInstanceAccess</a> -- Request access credentials needed to remotely connect to a specified instance in a fleet.</p> </li> </ul> </li> <li> <p> <b>Manage fleet aliases</b> </p> <ul> <li> <p> <a>CreateAlias</a> -- Define a new alias and optionally assign it to a fleet.</p> </li> <li> <p> <a>ListAliases</a> -- Get all fleet aliases defined in a Amazon GameLift region.</p> </li> <li> <p> <a>DescribeAlias</a> -- Retrieve information on an existing alias.</p> </li> <li> <p> <a>UpdateAlias</a> -- Change settings for a alias, such as redirecting it from one fleet to another.</p> </li> <li> <p> <a>DeleteAlias</a> -- Remove an alias from the region.</p> </li> <li> <p> <a>ResolveAlias</a> -- Get the fleet ID that a specified alias points to.</p> </li> </ul> </li> <li> <p> <b>Manage game session queues</b> </p> <ul> <li> <p> <a>CreateGameSessionQueue</a> -- Create a queue for processing requests for new game sessions. </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> -- Retrieve game session queues defined in a Amazon GameLift region.</p> </li> <li> <p> <a>UpdateGameSessionQueue</a> -- Change the configuration of a game session queue.</p> </li> <li> <p> <a>DeleteGameSessionQueue</a> -- Remove a game session queue from the region.</p> </li> </ul> </li> <li> <p> <b>Manage FlexMatch resources</b> </p> <ul> <li> <p> <a>CreateMatchmakingConfiguration</a> -- Create a matchmaking configuration with instructions for building a player group and placing in a new game session. </p> </li> <li> <p> <a>DescribeMatchmakingConfigurations</a> -- Retrieve matchmaking configurations defined a Amazon GameLift region.</p> </li> <li> <p> <a>UpdateMatchmakingConfiguration</a> -- Change settings for matchmaking configuration. queue.</p> </li> <li> <p> <a>DeleteMatchmakingConfiguration</a> -- Remove a matchmaking configuration from the region.</p> </li> <li> <p> <a>CreateMatchmakingRuleSet</a> -- Create a set of rules to use when searching for player matches. </p> </li> <li> <p> <a>DescribeMatchmakingRuleSets</a> -- Retrieve matchmaking rule sets defined in a Amazon GameLift region.</p> </li> <li> <p> <a>ValidateMatchmakingRuleSet</a> -- Verify syntax for a set of matchmaking rules. </p> </li> </ul> </li> </ul>
+<fullname>Amazon GameLift Service</fullname> <p> Amazon GameLift is a managed service for developers who need a scalable, dedicated server solution for their multiplayer games. Use Amazon GameLift for these tasks: (1) set up computing resources and deploy your game servers, (2) run game sessions and get players into games, (3) automatically scale your resources to meet player demand and manage costs, and (4) track in-depth metrics on game server performance and player usage.</p> <p>The Amazon GameLift service API includes two important function sets:</p> <ul> <li> <p> <b>Manage game sessions and player access</b> -- Retrieve information on available game sessions; create new game sessions; send player requests to join a game session.</p> </li> <li> <p> <b>Configure and manage game server resources</b> -- Manage builds, fleets, queues, and aliases; set autoscaling policies; retrieve logs and metrics.</p> </li> </ul> <p>This reference guide describes the low-level service API for Amazon GameLift. You can use the API functionality with these tools: </p> <ul> <li> <p>The Amazon Web Services software development kit (<a href="http://aws.amazon.com/tools/#sdk">AWS SDK</a>) is available in <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-supported.html#gamelift-supported-clients">multiple languages</a> including C++ and C#. Use the SDK to access the API programmatically from an application, such as a game client.</p> </li> <li> <p>The <a href="http://aws.amazon.com/cli/">AWS command-line interface</a> (CLI) tool is primarily useful for handling administrative actions, such as setting up and managing Amazon GameLift settings and resources. You can use the AWS CLI to manage all of your AWS services.</p> </li> <li> <p>The <a href="https://console.aws.amazon.com/gamelift/home">AWS Management Console</a> for Amazon GameLift provides a web interface to manage your Amazon GameLift settings and resources. The console includes a dashboard for tracking key resources, including builds and fleets, and displays usage and performance metrics for your games as customizable graphs.</p> </li> <li> <p>Amazon GameLift Local is a tool for testing your game's integration with Amazon GameLift before deploying it on the service. This tools supports a subset of key API actions, which can be called from either the AWS CLI or programmatically. See <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing-local.html">Testing an Integration</a>.</p> </li> </ul> <p> <b>Learn more</b> </p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/"> Developer Guide</a> -- Read about Amazon GameLift features and how to use them. </p> </li> <li> <p> <a href="https://gamedev.amazon.com/forums/tutorials">Tutorials</a> -- Get started fast with walkthroughs and sample projects.</p> </li> <li> <p> <a href="http://aws.amazon.com/blogs/gamedev/">GameDev Blog</a> -- Stay up to date with new features and techniques.</p> </li> <li> <p> <a href="https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html">GameDev Forums</a> -- Connect with the GameDev community.</p> </li> <li> <p> <a href="http://aws.amazon.com/releasenotes/Amazon-GameLift/">Release notes</a> and <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html">document history</a> -- Stay current with updates to the Amazon GameLift service, SDKs, and documentation. </p> </li> </ul> <p> <b>API SUMMARY</b> </p> <p>This list offers a functional overview of the Amazon GameLift service API.</p> <p> <b>Managing Games and Players</b> </p> <p>Use these actions to start new game sessions, find existing game sessions, track game session status and other information, and enable player access to game sessions.</p> <ul> <li> <p> <b>Discover existing game sessions</b> </p> <ul> <li> <p> <a>SearchGameSessions</a> -- Retrieve all available game sessions or search for game sessions that match a set of criteria. </p> </li> </ul> </li> <li> <p> <b>Start new game sessions</b> </p> <ul> <li> <p>Start new games with Queues to find the best available hosting resources across multiple regions, minimize player latency, and balance game session activity for efficiency and cost effectiveness. </p> <ul> <li> <p> <a>StartGameSessionPlacement</a> -- Request a new game session placement and add one or more players to it.</p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> -- Get details on a placement request, including status.</p> </li> <li> <p> <a>StopGameSessionPlacement</a> -- Cancel a placement request. </p> </li> </ul> </li> <li> <p> <a>CreateGameSession</a> -- Start a new game session on a specific fleet. <i>Available in Amazon GameLift Local.</i> </p> </li> </ul> </li> <li> <p> <b>Match players to game sessions with FlexMatch matchmaking</b> </p> <ul> <li> <p> <a>StartMatchmaking</a> -- Request matchmaking for one players or a group who want to play together. </p> </li> <li> <p> <a>StartMatchBackfill</a> - Request additional player matches to fill empty slots in an existing game session. </p> </li> <li> <p> <a>DescribeMatchmaking</a> -- Get details on a matchmaking request, including status.</p> </li> <li> <p> <a>AcceptMatch</a> -- Register that a player accepts a proposed match, for matches that require player acceptance. </p> </li> <li> <p> <a>StopMatchmaking</a> -- Cancel a matchmaking request. </p> </li> </ul> </li> <li> <p> <b>Manage game session data</b> </p> <ul> <li> <p> <a>DescribeGameSessions</a> -- Retrieve metadata for one or more game sessions, including length of time active and current player count. <i>Available in Amazon GameLift Local.</i> </p> </li> <li> <p> <a>DescribeGameSessionDetails</a> -- Retrieve metadata and the game session protection setting for one or more game sessions.</p> </li> <li> <p> <a>UpdateGameSession</a> -- Change game session settings, such as maximum player count and join policy.</p> </li> <li> <p> <a>GetGameSessionLogUrl</a> -- Get the location of saved logs for a game session.</p> </li> </ul> </li> <li> <p> <b>Manage player sessions</b> </p> <ul> <li> <p> <a>CreatePlayerSession</a> -- Send a request for a player to join a game session. <i>Available in Amazon GameLift Local.</i> </p> </li> <li> <p> <a>CreatePlayerSessions</a> -- Send a request for multiple players to join a game session. <i>Available in Amazon GameLift Local.</i> </p> </li> <li> <p> <a>DescribePlayerSessions</a> -- Get details on player activity, including status, playing time, and player data. <i>Available in Amazon GameLift Local.</i> </p> </li> </ul> </li> </ul> <p> <b>Setting Up and Managing Game Servers</b> </p> <p>When setting up Amazon GameLift resources for your game, you first <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">create a game build</a> and upload it to Amazon GameLift. You can then use these actions to configure and manage a fleet of resources to run your game servers, scale capacity to meet player demand, access performance and utilization metrics, and more.</p> <ul> <li> <p> <b>Manage game builds</b> </p> <ul> <li> <p> <a>CreateBuild</a> -- Create a new build using files stored in an Amazon S3 bucket. To create a build and upload files from a local path, use the AWS CLI command <code>upload-build</code>.</p> </li> <li> <p> <a>ListBuilds</a> -- Get a list of all builds uploaded to a Amazon GameLift region.</p> </li> <li> <p> <a>DescribeBuild</a> -- Retrieve information associated with a build.</p> </li> <li> <p> <a>UpdateBuild</a> -- Change build metadata, including build name and version.</p> </li> <li> <p> <a>DeleteBuild</a> -- Remove a build from Amazon GameLift.</p> </li> </ul> </li> <li> <p> <b>Manage fleets</b> </p> <ul> <li> <p> <a>CreateFleet</a> -- Configure and activate a new fleet to run a build's game servers.</p> </li> <li> <p> <a>ListFleets</a> -- Get a list of all fleet IDs in a Amazon GameLift region (all statuses).</p> </li> <li> <p> <a>DeleteFleet</a> -- Terminate a fleet that is no longer running game servers or hosting players.</p> </li> <li> <p>View / update fleet configurations.</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> / <a>UpdateFleetAttributes</a> -- View or change a fleet's metadata and settings for game session protection and resource creation limits.</p> </li> <li> <p> <a>DescribeFleetPortSettings</a> / <a>UpdateFleetPortSettings</a> -- View or change the inbound permissions (IP address and port setting ranges) allowed for a fleet.</p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> / <a>UpdateRuntimeConfiguration</a> -- View or change what server processes (and how many) to run on each instance in a fleet.</p> </li> </ul> </li> </ul> </li> <li> <p> <b>Control fleet capacity</b> </p> <ul> <li> <p> <a>DescribeEC2InstanceLimits</a> -- Retrieve maximum number of instances allowed for the current AWS account and the current usage level.</p> </li> <li> <p> <a>DescribeFleetCapacity</a> / <a>UpdateFleetCapacity</a> -- Retrieve the capacity settings and the current number of instances in a fleet; adjust fleet capacity settings to scale up or down.</p> </li> <li> <p>Autoscale -- Manage autoscaling rules and apply them to a fleet.</p> <ul> <li> <p> <a>PutScalingPolicy</a> -- Create a new autoscaling policy, or update an existing one.</p> </li> <li> <p> <a>DescribeScalingPolicies</a> -- Retrieve an existing autoscaling policy.</p> </li> <li> <p> <a>DeleteScalingPolicy</a> -- Delete an autoscaling policy and stop it from affecting a fleet's capacity.</p> </li> </ul> </li> </ul> </li> <li> <p> <b>Manage VPC peering connections for fleets</b> </p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> -- Authorize a peering connection to one of your VPCs.</p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> -- Retrieve valid peering connection authorizations. </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> -- Delete a peering connection authorization.</p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> -- Establish a peering connection between the VPC for a Amazon GameLift fleet and one of your VPCs.</p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> -- Retrieve information on active or pending VPC peering connections with a Amazon GameLift fleet.</p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> -- Delete a VPC peering connection with a Amazon GameLift fleet.</p> </li> </ul> </li> <li> <p> <b>Access fleet activity statistics</b> </p> <ul> <li> <p> <a>DescribeFleetUtilization</a> -- Get current data on the number of server processes, game sessions, and players currently active on a fleet.</p> </li> <li> <p> <a>DescribeFleetEvents</a> -- Get a fleet's logged events for a specified time span.</p> </li> <li> <p> <a>DescribeGameSessions</a> -- Retrieve metadata associated with one or more game sessions, including length of time active and current player count.</p> </li> </ul> </li> <li> <p> <b>Remotely access an instance</b> </p> <ul> <li> <p> <a>DescribeInstances</a> -- Get information on each instance in a fleet, including instance ID, IP address, and status.</p> </li> <li> <p> <a>GetInstanceAccess</a> -- Request access credentials needed to remotely connect to a specified instance in a fleet.</p> </li> </ul> </li> <li> <p> <b>Manage fleet aliases</b> </p> <ul> <li> <p> <a>CreateAlias</a> -- Define a new alias and optionally assign it to a fleet.</p> </li> <li> <p> <a>ListAliases</a> -- Get all fleet aliases defined in a Amazon GameLift region.</p> </li> <li> <p> <a>DescribeAlias</a> -- Retrieve information on an existing alias.</p> </li> <li> <p> <a>UpdateAlias</a> -- Change settings for a alias, such as redirecting it from one fleet to another.</p> </li> <li> <p> <a>DeleteAlias</a> -- Remove an alias from the region.</p> </li> <li> <p> <a>ResolveAlias</a> -- Get the fleet ID that a specified alias points to.</p> </li> </ul> </li> <li> <p> <b>Manage game session queues</b> </p> <ul> <li> <p> <a>CreateGameSessionQueue</a> -- Create a queue for processing requests for new game sessions. </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> -- Retrieve game session queues defined in a Amazon GameLift region.</p> </li> <li> <p> <a>UpdateGameSessionQueue</a> -- Change the configuration of a game session queue.</p> </li> <li> <p> <a>DeleteGameSessionQueue</a> -- Remove a game session queue from the region.</p> </li> </ul> </li> <li> <p> <b>Manage FlexMatch resources</b> </p> <ul> <li> <p> <a>CreateMatchmakingConfiguration</a> -- Create a matchmaking configuration with instructions for building a player group and placing in a new game session. </p> </li> <li> <p> <a>DescribeMatchmakingConfigurations</a> -- Retrieve matchmaking configurations defined a Amazon GameLift region.</p> </li> <li> <p> <a>UpdateMatchmakingConfiguration</a> -- Change settings for matchmaking configuration. queue.</p> </li> <li> <p> <a>DeleteMatchmakingConfiguration</a> -- Remove a matchmaking configuration from the region.</p> </li> <li> <p> <a>CreateMatchmakingRuleSet</a> -- Create a set of rules to use when searching for player matches. </p> </li> <li> <p> <a>DescribeMatchmakingRuleSets</a> -- Retrieve matchmaking rule sets defined in a Amazon GameLift region.</p> </li> <li> <p> <a>ValidateMatchmakingRuleSet</a> -- Verify syntax for a set of matchmaking rules. </p> </li> </ul> </li> </ul>
 
 ## Actions
 
@@ -43,7 +43,7 @@ amazonaws_gamelift.AcceptMatch({
 #### Input
 * input `object`
   * AcceptanceType **required** [AcceptanceType](#acceptancetype)
-  * PlayerIds **required** [MatchmakingPlayerIdList](#matchmakingplayeridlist)
+  * PlayerIds **required** [StringList](#stringlist)
   * TicketId **required** [MatchmakingIdStringModel](#matchmakingidstringmodel)
 
 #### Output
@@ -105,6 +105,7 @@ amazonaws_gamelift.CreateFleet({
   * Description [NonZeroAndMaxString](#nonzeroandmaxstring)
   * EC2InboundPermissions [IpPermissionsList](#ippermissionslist)
   * EC2InstanceType **required** [EC2InstanceType](#ec2instancetype)
+  * FleetType [FleetType](#fleettype)
   * LogPaths [StringList](#stringlist)
   * MetricGroups [MetricGroupList](#metricgrouplist)
   * Name **required** [NonZeroAndMaxString](#nonzeroandmaxstring)
@@ -180,7 +181,7 @@ amazonaws_gamelift.CreateMatchmakingConfiguration({
 
 #### Input
 * input `object`
-  * AcceptanceRequired **required** [Boolean](#boolean)
+  * AcceptanceRequired **required** [BooleanModel](#booleanmodel)
   * AcceptanceTimeoutSeconds [MatchmakingAcceptanceTimeoutInteger](#matchmakingacceptancetimeoutinteger)
   * AdditionalPlayerCount [WholeNumber](#wholenumber)
   * CustomEventData [CustomEventData](#customeventdata)
@@ -1006,6 +1007,28 @@ amazonaws_gamelift.StartGameSessionPlacement({
 #### Output
 * output [StartGameSessionPlacementOutput](#startgamesessionplacementoutput)
 
+### StartMatchBackfill
+
+
+
+```js
+amazonaws_gamelift.StartMatchBackfill({
+  "ConfigurationName": "",
+  "GameSessionArn": "",
+  "Players": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConfigurationName **required** [MatchmakingIdStringModel](#matchmakingidstringmodel)
+  * GameSessionArn **required** [ArnStringModel](#arnstringmodel)
+  * Players **required** [PlayerList](#playerlist)
+  * TicketId [MatchmakingIdStringModel](#matchmakingidstringmodel)
+
+#### Output
+* output [StartMatchBackfillOutput](#startmatchbackfilloutput)
+
 ### StartMatchmaking
 
 
@@ -1213,7 +1236,7 @@ amazonaws_gamelift.UpdateMatchmakingConfiguration({
 
 #### Input
 * input `object`
-  * AcceptanceRequired [Boolean](#boolean)
+  * AcceptanceRequired [BooleanModel](#booleanmodel)
   * AcceptanceTimeoutSeconds [MatchmakingAcceptanceTimeoutInteger](#matchmakingacceptancetimeoutinteger)
   * AdditionalPlayerCount [WholeNumber](#wholenumber)
   * CustomEventData [CustomEventData](#customeventdata)
@@ -1272,7 +1295,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 ### AcceptMatchInput
 * AcceptMatchInput `object`: Represents the input for a request action.
   * AcceptanceType **required** [AcceptanceType](#acceptancetype)
-  * PlayerIds **required** [MatchmakingPlayerIdList](#matchmakingplayeridlist)
+  * PlayerIds **required** [StringList](#stringlist)
   * TicketId **required** [MatchmakingIdStringModel](#matchmakingidstringmodel)
 
 ### AcceptMatchOutput
@@ -1302,7 +1325,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 * ArnStringModel `string`
 
 ### AttributeValue
-* AttributeValue `object`: Values for use in <a>Player</a> attribute type:value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array or data map. Each <code>AttributeValue</code> object can use only one of the available properties.
+* AttributeValue `object`: Values for use in <a>Player</a> attribute key:value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array or data map. Each <code>AttributeValue</code> object can use only one of the available properties.
   * N [DoubleObject](#doubleobject)
   * S [NonZeroAndMaxString](#nonzeroandmaxstring)
   * SDM [StringDoubleMap](#stringdoublemap)
@@ -1314,8 +1337,8 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * SecretAccessKey [NonEmptyString](#nonemptystring)
   * SessionToken [NonEmptyString](#nonemptystring)
 
-### Boolean
-* Boolean `boolean`
+### BooleanModel
+* BooleanModel `boolean`
 
 ### Build
 * Build `object`: <p>Properties describing a game build.</p> <p>Build-related operations include:</p> <ul> <li> <p> <a>CreateBuild</a> </p> </li> <li> <p> <a>ListBuilds</a> </p> </li> <li> <p> <a>DescribeBuild</a> </p> </li> <li> <p> <a>UpdateBuild</a> </p> </li> <li> <p> <a>DeleteBuild</a> </p> </li> </ul>
@@ -1373,6 +1396,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * Description [NonZeroAndMaxString](#nonzeroandmaxstring)
   * EC2InboundPermissions [IpPermissionsList](#ippermissionslist)
   * EC2InstanceType **required** [EC2InstanceType](#ec2instancetype)
+  * FleetType [FleetType](#fleettype)
   * LogPaths [StringList](#stringlist)
   * MetricGroups [MetricGroupList](#metricgrouplist)
   * Name **required** [NonZeroAndMaxString](#nonzeroandmaxstring)
@@ -1417,7 +1441,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 
 ### CreateMatchmakingConfigurationInput
 * CreateMatchmakingConfigurationInput `object`: Represents the input for a request action.
-  * AcceptanceRequired **required** [Boolean](#boolean)
+  * AcceptanceRequired **required** [BooleanModel](#booleanmodel)
   * AcceptanceTimeoutSeconds [MatchmakingAcceptanceTimeoutInteger](#matchmakingacceptancetimeoutinteger)
   * AdditionalPlayerCount [WholeNumber](#wholenumber)
   * CustomEventData [CustomEventData](#customeventdata)
@@ -1796,7 +1820,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * ResourceId [NonZeroAndMaxString](#nonzeroandmaxstring)
 
 ### EventCode
-* EventCode `string` (values: GENERIC_EVENT, FLEET_CREATED, FLEET_DELETED, FLEET_SCALING_EVENT, FLEET_STATE_DOWNLOADING, FLEET_STATE_VALIDATING, FLEET_STATE_BUILDING, FLEET_STATE_ACTIVATING, FLEET_STATE_ACTIVE, FLEET_STATE_ERROR, FLEET_INITIALIZATION_FAILED, FLEET_BINARY_DOWNLOAD_FAILED, FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND, FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE, FLEET_VALIDATION_TIMED_OUT, FLEET_ACTIVATION_FAILED, FLEET_ACTIVATION_FAILED_NO_INSTANCES, FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED, SERVER_PROCESS_INVALID_PATH, SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT, SERVER_PROCESS_PROCESS_READY_TIMEOUT, SERVER_PROCESS_CRASHED, SERVER_PROCESS_TERMINATED_UNHEALTHY, SERVER_PROCESS_FORCE_TERMINATED, SERVER_PROCESS_PROCESS_EXIT_TIMEOUT, GAME_SESSION_ACTIVATION_TIMEOUT, FLEET_CREATION_EXTRACTING_BUILD, FLEET_CREATION_RUNNING_INSTALLER, FLEET_CREATION_VALIDATING_RUNTIME_CONFIG, FLEET_VPC_PEERING_SUCCEEDED, FLEET_VPC_PEERING_FAILED, FLEET_VPC_PEERING_DELETED)
+* EventCode `string` (values: GENERIC_EVENT, FLEET_CREATED, FLEET_DELETED, FLEET_SCALING_EVENT, FLEET_STATE_DOWNLOADING, FLEET_STATE_VALIDATING, FLEET_STATE_BUILDING, FLEET_STATE_ACTIVATING, FLEET_STATE_ACTIVE, FLEET_STATE_ERROR, FLEET_INITIALIZATION_FAILED, FLEET_BINARY_DOWNLOAD_FAILED, FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND, FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE, FLEET_VALIDATION_TIMED_OUT, FLEET_ACTIVATION_FAILED, FLEET_ACTIVATION_FAILED_NO_INSTANCES, FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED, SERVER_PROCESS_INVALID_PATH, SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT, SERVER_PROCESS_PROCESS_READY_TIMEOUT, SERVER_PROCESS_CRASHED, SERVER_PROCESS_TERMINATED_UNHEALTHY, SERVER_PROCESS_FORCE_TERMINATED, SERVER_PROCESS_PROCESS_EXIT_TIMEOUT, GAME_SESSION_ACTIVATION_TIMEOUT, FLEET_CREATION_EXTRACTING_BUILD, FLEET_CREATION_RUNNING_INSTALLER, FLEET_CREATION_VALIDATING_RUNTIME_CONFIG, FLEET_VPC_PEERING_SUCCEEDED, FLEET_VPC_PEERING_FAILED, FLEET_VPC_PEERING_DELETED, INSTANCE_INTERRUPTED)
 
 ### EventList
 * EventList `array`
@@ -1809,6 +1833,8 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * Description [NonZeroAndMaxString](#nonzeroandmaxstring)
   * FleetArn [ArnStringModel](#arnstringmodel)
   * FleetId [FleetId](#fleetid)
+  * FleetType [FleetType](#fleettype)
+  * InstanceType [EC2InstanceType](#ec2instancetype)
   * LogPaths [StringList](#stringlist)
   * MetricGroups [MetricGroupList](#metricgrouplist)
   * Name [NonZeroAndMaxString](#nonzeroandmaxstring)
@@ -1847,6 +1873,9 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 
 ### FleetStatus
 * FleetStatus `string` (values: NEW, DOWNLOADING, VALIDATING, BUILDING, ACTIVATING, ACTIVE, DELETING, ERROR, TERMINATED)
+
+### FleetType
+* FleetType `string` (values: ON_DEMAND, SPOT)
 
 ### FleetUtilization
 * FleetUtilization `object`: <p>Current status of fleet utilization, including the number of game and player sessions being hosted.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -1891,11 +1920,13 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * GameSessionData [GameSessionData](#gamesessiondata)
   * GameSessionId [NonZeroAndMaxString](#nonzeroandmaxstring)
   * IpAddress [IpAddress](#ipaddress)
+  * MatchmakerData [MatchmakerData](#matchmakerdata)
   * MaximumPlayerSessionCount [WholeNumber](#wholenumber)
   * Name [NonZeroAndMaxString](#nonzeroandmaxstring)
   * PlayerSessionCreationPolicy [PlayerSessionCreationPolicy](#playersessioncreationpolicy)
   * Port [PortNumber](#portnumber)
   * Status [GameSessionStatus](#gamesessionstatus)
+  * StatusReason [GameSessionStatusReason](#gamesessionstatusreason)
   * TerminationTime [Timestamp](#timestamp)
 
 ### GameSessionActivationTimeoutSeconds
@@ -1939,6 +1970,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * GameSessionQueueName [GameSessionQueueName](#gamesessionqueuename)
   * GameSessionRegion [NonZeroAndMaxString](#nonzeroandmaxstring)
   * IpAddress [IpAddress](#ipaddress)
+  * MatchmakerData [MatchmakerData](#matchmakerdata)
   * MaximumPlayerSessionCount [WholeNumber](#wholenumber)
   * PlacedPlayerSessions [PlacedPlayerSessionList](#placedplayersessionlist)
   * PlacementId [IdStringModel](#idstringmodel)
@@ -1979,6 +2011,9 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 
 ### GameSessionStatus
 * GameSessionStatus `string` (values: ACTIVE, ACTIVATING, TERMINATED, TERMINATING, ERROR)
+
+### GameSessionStatusReason
+* GameSessionStatusReason `string` (values: INTERRUPTED)
 
 ### GetGameSessionLogUrlInput
 * GetGameSessionLogUrlInput `object`: Represents the input for a request action.
@@ -2126,12 +2161,15 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 * MatchedPlayerSessionList `array`
   * items [MatchedPlayerSession](#matchedplayersession)
 
+### MatchmakerData
+* MatchmakerData `string`
+
 ### MatchmakingAcceptanceTimeoutInteger
 * MatchmakingAcceptanceTimeoutInteger `integer`
 
 ### MatchmakingConfiguration
 * MatchmakingConfiguration `object`: Guidelines for use with FlexMatch to match players into games. All matchmaking requests must specify a matchmaking configuration.
-  * AcceptanceRequired [Boolean](#boolean)
+  * AcceptanceRequired [BooleanModel](#booleanmodel)
   * AcceptanceTimeoutSeconds [MatchmakingAcceptanceTimeoutInteger](#matchmakingacceptancetimeoutinteger)
   * AdditionalPlayerCount [WholeNumber](#wholenumber)
   * CreationTime [Timestamp](#timestamp)
@@ -2159,15 +2197,11 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 ### MatchmakingIdStringModel
 * MatchmakingIdStringModel `string`
 
-### MatchmakingPlayerIdList
-* MatchmakingPlayerIdList `array`
-  * items [PlayerIdStringModel](#playeridstringmodel)
-
 ### MatchmakingRequestTimeoutInteger
 * MatchmakingRequestTimeoutInteger `integer`
 
 ### MatchmakingRuleSet
-* MatchmakingRuleSet `object`: <p>Set of rule statements, used with FlexMatch, that determine how to build a certain kind of player match. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in <a>MatchmakingConfiguration</a> objects.</p> <p>A rule set may define the following elements for a match. For detailed information and examples showing how to construct a rule set, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-rules.html">Create Matchmaking Rules for Your Game</a>. </p> <ul> <li> <p>Teams -- Required. A rule set must define one or multiple teams for the match and set minimum and maximum team sizes. For example, a rule set might describe a 4x4 match that requires all eight slots to be filled. </p> </li> <li> <p>Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player's skill or level.</p> </li> <li> <p>Rules -- Optional. Rules define how to evaluate potential players for a match based on player attributes. A rule might specify minimum requirements for individual players--such as each player must meet a certain skill level, or may describe an entire group--such as all teams must be evenly matched or have at least one player in a certain role. </p> </li> <li> <p>Expansions -- Optional. Expansions allow you to relax the rules after a period of time if no acceptable matches are found. This feature lets you balance getting players into games in a reasonable amount of time instead of making them wait indefinitely for the best possible match. For example, you might use an expansion to increase the maximum skill variance between players after 30 seconds.</p> </li> </ul>
+* MatchmakingRuleSet `object`: <p>Set of rule statements, used with FlexMatch, that determine how to build a certain kind of player match. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in <a>MatchmakingConfiguration</a> objects.</p> <p>A rule set may define the following elements for a match. For detailed information and examples showing how to construct a rule set, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a FlexMatch Rule Set</a>. </p> <ul> <li> <p>Teams -- Required. A rule set must define one or multiple teams for the match and set minimum and maximum team sizes. For example, a rule set might describe a 4x4 match that requires all eight slots to be filled. </p> </li> <li> <p>Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player's skill or level.</p> </li> <li> <p>Rules -- Optional. Rules define how to evaluate potential players for a match based on player attributes. A rule might specify minimum requirements for individual players, teams, or entire matches. For example, a rule might require each player to meet a certain skill level, each team to have at least one player in a certain role, or the match to have a minimum average skill level. or may describe an entire group--such as all teams must be evenly matched or have at least one player in a certain role. </p> </li> <li> <p>Expansions -- Optional. Expansions allow you to relax the rules after a period of time when no acceptable matches are found. This feature lets you balance getting players into games in a reasonable amount of time instead of making them wait indefinitely for the best possible match. For example, you might use an expansion to increase the maximum skill variance between players after 30 seconds.</p> </li> </ul>
   * CreationTime [Timestamp](#timestamp)
   * RuleSetBody **required** [RuleSetBody](#rulesetbody)
   * RuleSetName [MatchmakingIdStringModel](#matchmakingidstringmodel)
@@ -2242,7 +2276,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 * Player `object`: Represents a player in matchmaking. When starting a matchmaking request, a player has a player ID, attributes, and may have latency data. Team information is added after a match has been successfully completed.
   * LatencyInMs [LatencyMap](#latencymap)
   * PlayerAttributes [PlayerAttributeMap](#playerattributemap)
-  * PlayerId [PlayerIdStringModel](#playeridstringmodel)
+  * PlayerId [NonZeroAndMaxString](#nonzeroandmaxstring)
   * Team [NonZeroAndMaxString](#nonzeroandmaxstring)
 
 ### PlayerAttributeMap
@@ -2263,9 +2297,6 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 ### PlayerIdList
 * PlayerIdList `array`
   * items [NonZeroAndMaxString](#nonzeroandmaxstring)
-
-### PlayerIdStringModel
-* PlayerIdStringModel `string`
 
 ### PlayerLatency
 * PlayerLatency `object`: Regional latency information for a player, used when requesting a new game session with <a>StartGameSessionPlacement</a>. This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
@@ -2460,6 +2491,17 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 * StartGameSessionPlacementOutput `object`: Represents the returned data in response to a request action.
   * GameSessionPlacement [GameSessionPlacement](#gamesessionplacement)
 
+### StartMatchBackfillInput
+* StartMatchBackfillInput `object`: Represents the input for a request action.
+  * ConfigurationName **required** [MatchmakingIdStringModel](#matchmakingidstringmodel)
+  * GameSessionArn **required** [ArnStringModel](#arnstringmodel)
+  * Players **required** [PlayerList](#playerlist)
+  * TicketId [MatchmakingIdStringModel](#matchmakingidstringmodel)
+
+### StartMatchBackfillOutput
+* StartMatchBackfillOutput `object`: Represents the returned data in response to a request action.
+  * MatchmakingTicket [MatchmakingTicket](#matchmakingticket)
+
 ### StartMatchmakingInput
 * StartMatchmakingInput `object`: Represents the input for a request action.
   * ConfigurationName **required** [MatchmakingIdStringModel](#matchmakingidstringmodel)
@@ -2593,7 +2635,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 
 ### UpdateMatchmakingConfigurationInput
 * UpdateMatchmakingConfigurationInput `object`: Represents the input for a request action.
-  * AcceptanceRequired [Boolean](#boolean)
+  * AcceptanceRequired [BooleanModel](#booleanmodel)
   * AcceptanceTimeoutSeconds [MatchmakingAcceptanceTimeoutInteger](#matchmakingacceptancetimeoutinteger)
   * AdditionalPlayerCount [WholeNumber](#wholenumber)
   * CustomEventData [CustomEventData](#customeventdata)
@@ -2625,7 +2667,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
 
 ### ValidateMatchmakingRuleSetOutput
 * ValidateMatchmakingRuleSetOutput `object`: Represents the returned data in response to a request action.
-  * Valid [Boolean](#boolean)
+  * Valid [BooleanModel](#booleanmodel)
 
 ### VpcPeeringAuthorization
 * VpcPeeringAuthorization `object`: <p>Represents an authorization for a VPC peering connection between the VPC for an Amazon GameLift fleet and another VPC on an account you have access to. This authorization must exist and be valid for the peering connection to be established. Authorizations are valid for 24 hours after they are issued.</p> <p>VPC peering connection operations include:</p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> </p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> </p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> </p> </li> </ul>
@@ -2653,7 +2695,7 @@ amazonaws_gamelift.ValidateMatchmakingRuleSet({
   * items [VpcPeeringConnection](#vpcpeeringconnection)
 
 ### VpcPeeringConnectionStatus
-* VpcPeeringConnectionStatus `object`: Represents status information for a VPC peering connection. Status is associated with a <a>VpcPeeringConnection</a> object. Status codes and messages are provided from EC2 (<a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html">).</a> Connection status information is also communicated as a fleet <a>Event</a>.
+* VpcPeeringConnectionStatus `object`: Represents status information for a VPC peering connection. Status is associated with a <a>VpcPeeringConnection</a> object. Status codes and messages are provided from EC2 (see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html">VpcPeeringConnectionStateReason</a>). Connection status information is also communicated as a fleet <a>Event</a>.
   * Code [NonZeroAndMaxString](#nonzeroandmaxstring)
   * Message [NonZeroAndMaxString](#nonzeroandmaxstring)
 

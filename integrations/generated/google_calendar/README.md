@@ -149,8 +149,8 @@ google_calendar.calendars.patch({
 
 #### Input
 * input `object`
-  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * body [Calendar](#calendar)
+  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -174,8 +174,8 @@ google_calendar.calendars.update({
 
 #### Input
 * input `object`
-  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * body [Calendar](#calendar)
+  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -256,9 +256,9 @@ google_calendar.acl.watch({
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * maxResults `integer`: Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.
   * pageToken `string`: Token specifying which result page to return. Optional.
+  * resource [Channel](#channel)
   * showDeleted `boolean`: Whether to include deleted ACLs in the result. Deleted ACLs are represented by role equal to "none". Deleted ACLs will always be included if syncToken is provided. Optional. The default is False.
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All entries deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.
-  * resource [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -455,11 +455,12 @@ google_calendar.events.insert({
 
 #### Input
 * input `object`
+  * body [Event](#event)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * sendNotifications `boolean`: Whether to send notifications about the creation of the new event. Optional. The default is False.
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
-  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -483,9 +484,10 @@ google_calendar.events.import({
 
 #### Input
 * input `object`
-  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
   * body [Event](#event)
+  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
+  * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -511,8 +513,8 @@ google_calendar.events.quickAdd({
 #### Input
 * input `object`
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * text **required** `string`: The text describing the event to be created.
   * sendNotifications `boolean`: Whether to send notifications about the creation of the event. Optional. The default is False.
+  * text **required** `string`: The text describing the event to be created.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -606,9 +608,9 @@ google_calendar.events.get({
 
 #### Input
 * input `object`
+  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * eventId **required** `string`: Event identifier.
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * timeZone `string`: Time zone used in the response. Optional. The default is the time zone of the calendar.
   * alt `string` (values: json): Data format for the response.
@@ -635,13 +637,14 @@ google_calendar.events.patch({
 
 #### Input
 * input `object`
-  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * eventId **required** `string`: Event identifier.
   * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
+  * body [Event](#event)
+  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
+  * eventId **required** `string`: Event identifier.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * sendNotifications `boolean`: Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
-  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -666,13 +669,14 @@ google_calendar.events.update({
 
 #### Input
 * input `object`
-  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
-  * eventId **required** `string`: Event identifier.
   * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
+  * body [Event](#event)
+  * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
+  * conferenceDataVersion `integer`: Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.
+  * eventId **required** `string`: Event identifier.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * sendNotifications `boolean`: Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.
   * supportsAttachments `boolean`: Whether API client performing operation supports event attachments. Optional. The default is False.
-  * body [Event](#event)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -697,9 +701,9 @@ google_calendar.events.instances({
 
 #### Input
 * input `object`
+  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * eventId **required** `string`: Recurring event identifier.
-  * alwaysIncludeEmail `boolean`: Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.
   * maxAttendees `integer`: The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
   * maxResults `integer`: Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.
   * originalStart `string`: The original start time of the instance in the result. Optional.
@@ -726,16 +730,16 @@ Moves an event to another calendar, i.e. changes an event's organizer.
 ```js
 google_calendar.events.move({
   "calendarId": "",
-  "eventId": "",
-  "destination": ""
+  "destination": "",
+  "eventId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * calendarId **required** `string`: Calendar identifier of the source calendar where the event currently is on.
-  * eventId **required** `string`: Event identifier.
   * destination **required** `string`: Calendar identifier of the target calendar where the event is to be moved to.
+  * eventId **required** `string`: Event identifier.
   * sendNotifications `boolean`: Whether to send notifications about the change of the event's organizer. Optional. The default is False.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -850,8 +854,8 @@ google_calendar.calendarList.insert({}, context)
 
 #### Input
 * input `object`
-  * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
   * body [CalendarListEntry](#calendarlistentry)
+  * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -876,10 +880,10 @@ google_calendar.calendarList.watch({}, context)
   * maxResults `integer`: Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.
   * minAccessRole `string` (values: freeBusyReader, owner, reader, writer): The minimum access role for the user in the returned entries. Optional. The default is no restriction.
   * pageToken `string`: Token specifying which result page to return. Optional.
+  * resource [Channel](#channel)
   * showDeleted `boolean`: Whether to include deleted calendar list entries in the result. Optional. The default is False.
   * showHidden `boolean`: Whether to show hidden entries. Optional. The default is False.
   * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. If only read-only fields such as calendar properties or ACLs have changed, the entry won't be returned. All entries deleted and hidden since the previous list request will always be in the result set and it is not allowed to set showDeleted neither showHidden to False.
-  * resource [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -951,9 +955,9 @@ google_calendar.calendarList.patch({
 
 #### Input
 * input `object`
+  * body [CalendarListEntry](#calendarlistentry)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
-  * body [CalendarListEntry](#calendarlistentry)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -977,9 +981,9 @@ google_calendar.calendarList.update({
 
 #### Input
 * input `object`
+  * body [CalendarListEntry](#calendarlistentry)
   * calendarId **required** `string`: Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword.
   * colorRgbFormat `boolean`: Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.
-  * body [CalendarListEntry](#calendarlistentry)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1027,8 +1031,8 @@ google_calendar.settings.watch({}, context)
 * input `object`
   * maxResults `integer`: Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.
   * pageToken `string`: Token specifying which result page to return. Optional.
-  * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.
   * resource [Channel](#channel)
+  * syncToken `string`: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1089,6 +1093,7 @@ google_calendar.settings.get({
 
 ### Calendar
 * Calendar `object`
+  * conferenceProperties [ConferenceProperties](#conferenceproperties)
   * description `string`: Description of the calendar. Optional.
   * etag `string`: ETag of the resource.
   * id `string`: Identifier of the calendar. To retrieve IDs call the calendarList.list() method.
@@ -1111,6 +1116,7 @@ google_calendar.settings.get({
   * accessRole `string`: The effective access role that the authenticated user has on the calendar. Read-only. Possible values are:  
   * backgroundColor `string`: The main color of the calendar in the hexadecimal format "#0088aa". This property supersedes the index-based colorId property. To set or change this property, you need to specify colorRgbFormat=true in the parameters of the insert, update and patch methods. Optional.
   * colorId `string`: The color of the calendar. This is an ID referring to an entry in the calendar section of the colors definition (see the colors endpoint). This property is superseded by the backgroundColor and foregroundColor properties and can be ignored when using these properties. Optional.
+  * conferenceProperties [ConferenceProperties](#conferenceproperties)
   * defaultReminders `array`: The default reminders that the authenticated user has for this calendar.
     * items [EventReminder](#eventreminder)
   * deleted `boolean`: Whether this calendar list entry has been deleted from the calendar list. Read-only. Optional. The default is False.
@@ -1160,6 +1166,61 @@ google_calendar.settings.get({
   * kind `string`: Type of the resource ("calendar#colors").
   * updated `string`: Last modification time of the color palette (as a RFC3339 timestamp). Read-only.
 
+### ConferenceData
+* ConferenceData `object`
+  * conferenceId `string`: The ID of the conference.
+  * conferenceSolution [ConferenceSolution](#conferencesolution)
+  * createRequest [CreateConferenceRequest](#createconferencerequest)
+  * entryPoints `array`: Information about individual conference entry points, such as URLs or phone numbers.
+    * items [EntryPoint](#entrypoint)
+  * notes `string`: Additional notes (such as instructions from the domain administrator, legal notices) to display to the user. Can contain HTML. The maximum length is 2048 characters. Optional.
+  * parameters [ConferenceParameters](#conferenceparameters)
+  * signature `string`: The signature of the conference data.
+
+### ConferenceParameters
+* ConferenceParameters `object`
+  * addOnParameters [ConferenceParametersAddOnParameters](#conferenceparametersaddonparameters)
+
+### ConferenceParametersAddOnParameters
+* ConferenceParametersAddOnParameters `object`
+  * parameters `object`
+
+### ConferenceProperties
+* ConferenceProperties `object`
+  * allowedConferenceSolutionTypes `array`: The types of conference solutions that are supported for this calendar.
+    * items `string`
+
+### ConferenceRequestStatus
+* ConferenceRequestStatus `object`
+  * statusCode `string`: The current status of the conference create request. Read-only.
+
+### ConferenceSolution
+* ConferenceSolution `object`
+  * iconUri `string`: The user-visible icon for this solution.
+  * key [ConferenceSolutionKey](#conferencesolutionkey)
+  * name `string`: The user-visible name of this solution. Not localized.
+
+### ConferenceSolutionKey
+* ConferenceSolutionKey `object`
+  * type `string`: The conference solution type.
+
+### CreateConferenceRequest
+* CreateConferenceRequest `object`
+  * conferenceSolutionKey [ConferenceSolutionKey](#conferencesolutionkey)
+  * requestId `string`: The client-generated unique ID for this request.
+  * status [ConferenceRequestStatus](#conferencerequeststatus)
+
+### EntryPoint
+* EntryPoint `object`
+  * accessCode `string`: The access code to access the conference. The maximum length is 128 characters.
+  * entryPointType `string`: The type of the conference entry point.
+  * label `string`: The label for the URI. Visible to end users. Not localized. The maximum length is 512 characters.
+  * meetingCode `string`: The meeting code to access the conference. The maximum length is 128 characters.
+  * passcode `string`: The passcode to access the conference. The maximum length is 128 characters.
+  * password `string`: The password to access the conference. The maximum length is 128 characters.
+  * pin `string`: The PIN to access the conference. The maximum length is 128 characters.
+  * uri `string`: The URI of the entry point. The maximum length is 1300 characters.
+
 ### Error
 * Error `object`
   * domain `string`: Domain, or broad category, of the error.
@@ -1174,6 +1235,7 @@ google_calendar.settings.get({
     * items [EventAttendee](#eventattendee)
   * attendeesOmitted `boolean`: Whether attendees may have been omitted from the event's representation. When retrieving an event, this may be due to a restriction specified by the maxAttendee query parameter. When updating an event, this can be used to only update the participant's response. Optional. The default is False.
   * colorId `string`: The color of the event. This is an ID referring to an entry in the event section of the colors definition (see the  colors endpoint). Optional.
+  * conferenceData [ConferenceData](#conferencedata)
   * created `string`: Creation time of the event (as a RFC3339 timestamp). Read-only.
   * creator `object`: The creator of the event. Read-only.
     * displayName `string`: The creator's name, if available.

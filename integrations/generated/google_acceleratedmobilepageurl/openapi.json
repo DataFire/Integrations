@@ -147,43 +147,43 @@
     "/v1/ampUrls:batchGet": {
       "parameters": [
         {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
         },
         {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
           "$ref": "#/parameters/uploadType"
         },
         {
-          "$ref": "#/parameters/fields"
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {

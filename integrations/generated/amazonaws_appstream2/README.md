@@ -117,6 +117,7 @@ amazonaws_appstream2.CreateImageBuilder({
 
 #### Input
 * input `object`
+  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
   * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
@@ -162,6 +163,7 @@ amazonaws_appstream2.CreateStack({
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
   * Name **required** [String](#string)
+  * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
 
 #### Output
@@ -452,6 +454,23 @@ amazonaws_appstream2.ListAssociatedStacks({
 #### Output
 * output [ListAssociatedStacksResult](#listassociatedstacksresult)
 
+### ListTagsForResource
+
+
+
+```js
+amazonaws_appstream2.ListTagsForResource({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** [Arn](#arn)
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
 ### StartFleet
 
 
@@ -481,6 +500,7 @@ amazonaws_appstream2.StartImageBuilder({
 
 #### Input
 * input `object`
+  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
   * Name **required** [String](#string)
 
 #### Output
@@ -519,6 +539,44 @@ amazonaws_appstream2.StopImageBuilder({
 
 #### Output
 * output [StopImageBuilderResult](#stopimagebuilderresult)
+
+### TagResource
+
+
+
+```js
+amazonaws_appstream2.TagResource({
+  "ResourceArn": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** [Arn](#arn)
+  * Tags **required** [Tags](#tags)
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_appstream2.UntagResource({
+  "ResourceArn": "",
+  "TagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** [Arn](#arn)
+  * TagKeys **required** [TagKeyList](#tagkeylist)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 ### UpdateDirectoryConfig
 
@@ -580,10 +638,12 @@ amazonaws_appstream2.UpdateStack({
 
 #### Input
 * input `object`
+  * AttributesToDelete [StackAttributes](#stackattributes)
   * DeleteStorageConnectors [Boolean](#boolean)
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
   * Name **required** [String](#string)
+  * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
 
 #### Output
@@ -612,6 +672,9 @@ amazonaws_appstream2.UpdateStack({
 ### Applications
 * Applications `array`
   * items [Application](#application)
+
+### AppstreamAgentVersion
+* AppstreamAgentVersion `string`
 
 ### Arn
 * Arn `string`
@@ -679,6 +742,7 @@ amazonaws_appstream2.UpdateStack({
 
 ### CreateImageBuilderRequest
 * CreateImageBuilderRequest `object`
+  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
   * DomainJoinInfo [DomainJoinInfo](#domainjoininfo)
@@ -707,6 +771,7 @@ amazonaws_appstream2.UpdateStack({
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
   * Name **required** [String](#string)
+  * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
 
 ### CreateStackResult
@@ -861,7 +926,7 @@ amazonaws_appstream2.UpdateStack({
 * DisplayName `string`
 
 ### DomainJoinInfo
-* DomainJoinInfo `object`: Contains the information needed for streaming instances to join a domain.
+* DomainJoinInfo `object`: Contains the information needed to join a Microsoft Active Directory domain.
   * DirectoryName [DirectoryName](#directoryname)
   * OrganizationalUnitDistinguishedName [OrganizationalUnitDistinguishedName](#organizationalunitdistinguishedname)
 
@@ -926,6 +991,7 @@ amazonaws_appstream2.UpdateStack({
 ### Image
 * Image `object`: Describes an image.
   * Applications [Applications](#applications)
+  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
   * Arn [Arn](#arn)
   * BaseImageArn [Arn](#arn)
   * CreatedTime [Timestamp](#timestamp)
@@ -940,7 +1006,8 @@ amazonaws_appstream2.UpdateStack({
   * Visibility [VisibilityType](#visibilitytype)
 
 ### ImageBuilder
-* ImageBuilder `object`
+* ImageBuilder `object`: Describes a streaming instance used for editing an image. New images are created from a snapshot through an image builder.
+  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
   * Arn [Arn](#arn)
   * CreatedTime [Timestamp](#timestamp)
   * Description [String](#string)
@@ -961,10 +1028,10 @@ amazonaws_appstream2.UpdateStack({
   * items [ImageBuilder](#imagebuilder)
 
 ### ImageBuilderState
-* ImageBuilderState `string` (values: PENDING, RUNNING, STOPPING, STOPPED, REBOOTING, SNAPSHOTTING, DELETING, FAILED)
+* ImageBuilderState `string` (values: PENDING, UPDATING_AGENT, RUNNING, STOPPING, STOPPED, REBOOTING, SNAPSHOTTING, DELETING, FAILED)
 
 ### ImageBuilderStateChangeReason
-* ImageBuilderStateChangeReason `object`
+* ImageBuilderStateChangeReason `object`: Describes the reason why the last image builder state change occurred.
   * Code [ImageBuilderStateChangeReasonCode](#imagebuilderstatechangereasoncode)
   * Message [String](#string)
 
@@ -979,7 +1046,7 @@ amazonaws_appstream2.UpdateStack({
 * ImageState `string` (values: PENDING, AVAILABLE, FAILED, DELETING)
 
 ### ImageStateChangeReason
-* ImageStateChangeReason `object`: Describes the reason why the last state change occurred.
+* ImageStateChangeReason `object`: Describes the reason why the last image state change occurred.
   * Code [ImageStateChangeReasonCode](#imagestatechangereasoncode)
   * Message [String](#string)
 
@@ -1025,6 +1092,14 @@ amazonaws_appstream2.UpdateStack({
   * Names [StringList](#stringlist)
   * NextToken [String](#string)
 
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * ResourceArn **required** [Arn](#arn)
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags [Tags](#tags)
+
 ### Long
 * Long `integer`
 
@@ -1051,12 +1126,15 @@ amazonaws_appstream2.UpdateStack({
 ### PlatformType
 * PlatformType `string` (values: WINDOWS)
 
+### RedirectURL
+* RedirectURL `string`
+
 ### ResourceAlreadyExistsException
 * ResourceAlreadyExistsException `object`: The specified resource already exists.
   * Message [ErrorMessage](#errormessage)
 
 ### ResourceError
-* ResourceError `object`
+* ResourceError `object`: Describes a resource error.
   * ErrorCode [FleetErrorCode](#fleeterrorcode)
   * ErrorMessage [String](#string)
   * ErrorTimestamp [Timestamp](#timestamp)
@@ -1112,8 +1190,16 @@ amazonaws_appstream2.UpdateStack({
   * Description [String](#string)
   * DisplayName [String](#string)
   * Name **required** [String](#string)
+  * RedirectURL [RedirectURL](#redirecturl)
   * StackErrors [StackErrors](#stackerrors)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
+
+### StackAttribute
+* StackAttribute `string` (values: STORAGE_CONNECTORS, REDIRECT_URL)
+
+### StackAttributes
+* StackAttributes `array`
+  * items [StackAttribute](#stackattribute)
 
 ### StackError
 * StackError `object`: Describes a stack error.
@@ -1140,6 +1226,7 @@ amazonaws_appstream2.UpdateStack({
 
 ### StartImageBuilderRequest
 * StartImageBuilderRequest `object`
+  * AppstreamAgentVersion [AppstreamAgentVersion](#appstreamagentversion)
   * Name **required** [String](#string)
 
 ### StartImageBuilderResult
@@ -1187,8 +1274,40 @@ amazonaws_appstream2.UpdateStack({
 * SubnetIdList `array`: The subnet IDs.
   * items [String](#string)
 
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceArn **required** [Arn](#arn)
+  * Tags **required** [Tags](#tags)
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
+
+### Tags
+* Tags `array`
+  * items `object`
+    * key [TagKey](#tagkey)
+    * value [TagValue](#tagvalue)
+
 ### Timestamp
 * Timestamp `string`
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceArn **required** [Arn](#arn)
+  * TagKeys **required** [TagKeyList](#tagkeylist)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### UpdateDirectoryConfigRequest
 * UpdateDirectoryConfigRequest `object`
@@ -1222,10 +1341,12 @@ amazonaws_appstream2.UpdateStack({
 
 ### UpdateStackRequest
 * UpdateStackRequest `object`
+  * AttributesToDelete [StackAttributes](#stackattributes)
   * DeleteStorageConnectors [Boolean](#boolean)
   * Description [Description](#description)
   * DisplayName [DisplayName](#displayname)
   * Name **required** [String](#string)
+  * RedirectURL [RedirectURL](#redirecturl)
   * StorageConnectors [StorageConnectorList](#storageconnectorlist)
 
 ### UpdateStackResult

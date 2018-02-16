@@ -371,22 +371,22 @@ Generate an AdSense report based on the report request sent in the query paramet
 ```js
 google_adsensehost.accounts.reports.generate({
   "accountId": "",
-  "startDate": "",
-  "endDate": ""
+  "endDate": "",
+  "startDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * accountId **required** `string`: Hosted account upon which to report.
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * dimension `array`: Dimensions to base the report on.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -486,8 +486,8 @@ google_adsensehost.customchannels.patch({
 #### Input
 * input `object`
   * adClientId **required** `string`: Ad client in which the custom channel will be updated.
-  * customChannelId **required** `string`: Custom channel to get.
   * body [CustomChannel](#customchannel)
+  * customChannelId **required** `string`: Custom channel to get.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -692,9 +692,9 @@ google_adsensehost.associationsessions.start({
 #### Input
 * input `object`
   * productCode **required** `array`: Products to associate with the user.
-  * websiteUrl **required** `string`: The URL of the user's hosted website.
   * userLocale `string`: The preferred locale of the user.
   * websiteLocale `string`: The locale of the user's hosted website.
+  * websiteUrl **required** `string`: The URL of the user's hosted website.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -736,21 +736,21 @@ Generate an AdSense report based on the report request sent in the query paramet
 
 ```js
 google_adsensehost.reports.generate({
-  "startDate": "",
-  "endDate": ""
+  "endDate": "",
+  "startDate": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * dimension `array`: Dimensions to base the report on.
+  * endDate **required** `string`: End of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * filter `array`: Filters to be run on the report.
   * locale `string`: Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
   * maxResults `integer`: The maximum number of rows of report data to return.
   * metric `array`: Numeric columns to include in the report.
   * sort `array`: The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+  * startDate **required** `string`: Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
   * startIndex `integer`: Index of the first row of report data to return.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.

@@ -56,6 +56,7 @@
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.file": "View and manage Google Drive files and folders that you have opened or created with this app",
         "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
         "https://www.googleapis.com/auth/presentations": "View and manage your Google Slides presentations",
         "https://www.googleapis.com/auth/presentations.readonly": "View your Google Slides presentations",
@@ -70,6 +71,7 @@
       "flow": "accessCode",
       "scopes": {
         "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.file": "View and manage Google Drive files and folders that you have opened or created with this app",
         "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
         "https://www.googleapis.com/auth/presentations": "View and manage your Google Slides presentations",
         "https://www.googleapis.com/auth/presentations.readonly": "View your Google Slides presentations",
@@ -84,6 +86,7 @@
       "flow": "accessCode",
       "scopes": {
         "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.file": "View and manage Google Drive files and folders that you have opened or created with this app",
         "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
         "https://www.googleapis.com/auth/presentations": "View and manage your Google Slides presentations",
         "https://www.googleapis.com/auth/presentations.readonly": "View your Google Slides presentations",
@@ -196,43 +199,43 @@
     "/v1/presentations": {
       "parameters": [
         {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -262,6 +265,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/drive"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/drive.file"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
@@ -311,6 +322,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/drive.file"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.file"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/drive.readonly"
             ],
             "Oauth2c": [
@@ -340,43 +359,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -386,16 +405,16 @@
         "operationId": "presentations.pages.get",
         "parameters": [
           {
-            "description": "The ID of the presentation to retrieve.",
+            "description": "The object ID of the page to retrieve.",
             "in": "path",
-            "name": "presentationId",
+            "name": "pageObjectId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The object ID of the page to retrieve.",
+            "description": "The ID of the presentation to retrieve.",
             "in": "path",
-            "name": "pageObjectId",
+            "name": "presentationId",
             "required": true,
             "type": "string"
           }
@@ -419,6 +438,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/drive.file"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.file"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/drive.readonly"
             ],
             "Oauth2c": [
@@ -448,49 +475,49 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1/presentations/{presentationId}/pages/{pageObjectId}/thumbnail": {
       "get": {
-        "description": "Generates a thumbnail of the latest version of the specified page in the\npresentation and returns a URL to the thumbnail image.",
+        "description": "Generates a thumbnail of the latest version of the specified page in the\npresentation and returns a URL to the thumbnail image.\n\nThis request counts as an expensive read request for quota purposes.",
         "operationId": "presentations.pages.getThumbnail",
         "parameters": [
           {
@@ -542,6 +569,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/drive"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/drive.file"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
@@ -618,43 +653,43 @@
     "/v1/presentations/{presentationId}:batchUpdate": {
       "parameters": [
         {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
         },
         {
           "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -662,18 +697,18 @@
         "operationId": "presentations.batchUpdate",
         "parameters": [
           {
-            "description": "The presentation to apply the updates to.",
-            "in": "path",
-            "name": "presentationId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/BatchUpdatePresentationRequest"
             }
+          },
+          {
+            "description": "The presentation to apply the updates to.",
+            "in": "path",
+            "name": "presentationId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -691,6 +726,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/drive"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/drive.file"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.file"
             ]
           },
           {
@@ -895,7 +938,7 @@
       "properties": {
         "elementProperties": {
           "$ref": "#/definitions/PageElementProperties",
-          "description": "The element properties for the image.\n\nWhen the aspect ratio of the provided size does not match the image aspect\nratio, the image is scaled and centered with respect to the size in order\nto maintain aspect ratio. The provided transform is applied after this\noperation."
+          "description": "The element properties for the image.\n\nWhen the aspect ratio of the provided size does not match the image aspect\nratio, the image is scaled and centered with respect to the size in order\nto maintain aspect ratio. The provided transform is applied after this\noperation.\n\nThe PageElementProperties.size property is\noptional. If you don't specify the size, the default size of the image is\nused.\n\nThe PageElementProperties.transform property is\noptional. If you don't specify a transform, the image will be placed at the\ntop left corner of the page."
         },
         "objectId": {
           "description": "A user-supplied object ID.\n\nIf you specify an ID, it must be unique among all pages and page elements\nin the presentation. The ID must start with an alphanumeric character or an\nunderscore (matches regex `[a-zA-Z0-9_]`); remaining characters\nmay include those as well as a hyphen or colon (matches regex\n`[a-zA-Z0-9_-:]`).\nThe length of the ID must not be less than 5 or greater than 50.\n\nIf you don't specify an ID, a unique one is generated.",
@@ -1279,7 +1322,7 @@
       "properties": {
         "elementProperties": {
           "$ref": "#/definitions/PageElementProperties",
-          "description": "The element properties for the video."
+          "description": "The element properties for the video.\n\nThe PageElementProperties.size property is\noptional. If you don't specify a size, a default size is chosen by the\nserver.\n\nThe PageElementProperties.transform property is\noptional. The transform must not have shear components.\nIf you don't specify a transform, the video will be placed at the top left\ncorner of the page."
         },
         "id": {
           "description": "The video source's unique identifier for this video.\n\ne.g. For YouTube video https://www.youtube.com/watch?v=7U3axjORYZ0,\nthe ID is 7U3axjORYZ0.",
@@ -2386,6 +2429,15 @@
           "$ref": "#/definitions/SubstringMatchCriteria",
           "description": "If set, this request will replace all of the shapes that contain the\ngiven text."
         },
+        "imageReplaceMethod": {
+          "description": "The image replace method.\n\nIf you specify both a `replace_method` and an `image_replace_method`, the\n`image_replace_method` takes precedence.\n\nIf you do not specify a value for `image_replace_method`, but specify a\nvalue for `replace_method`, then the specified `replace_method` value is\nused.\n\nIf you do not specify either, then CENTER_INSIDE is used.",
+          "enum": [
+            "IMAGE_REPLACE_METHOD_UNSPECIFIED",
+            "CENTER_INSIDE",
+            "CENTER_CROP"
+          ],
+          "type": "string"
+        },
         "imageUrl": {
           "description": "The image URL.\n\nThe image is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Images must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.\n\nThe provided URL can be at most 2 kB in length.",
           "type": "string"
@@ -2398,7 +2450,7 @@
           "type": "array"
         },
         "replaceMethod": {
-          "description": "The replace method.",
+          "description": "The replace method.\nDeprecated: use `image_replace_method` instead.\n\nIf you specify both a `replace_method` and an `image_replace_method`, the\n`image_replace_method` takes precedence.",
           "enum": [
             "CENTER_INSIDE",
             "CENTER_CROP"
@@ -2606,6 +2658,10 @@
         "updateLineProperties": {
           "$ref": "#/definitions/UpdateLinePropertiesRequest",
           "description": "Updates the properties of a Line."
+        },
+        "updatePageElementAltText": {
+          "$ref": "#/definitions/UpdatePageElementAltTextRequest",
+          "description": "Updates the alt text title and/or description of a\npage element."
         },
         "updatePageElementTransform": {
           "$ref": "#/definitions/UpdatePageElementTransformRequest",
@@ -2978,6 +3034,17 @@
     "ShapeProperties": {
       "description": "The properties of a Shape.\n\nIf the shape is a placeholder shape as determined by the\nplaceholder field, then these\nproperties may be inherited from a parent placeholder shape.\nDetermining the rendered value of the property depends on the corresponding\nproperty_state field value.",
       "properties": {
+        "contentAlignment": {
+          "description": "The alignment of the content in the shape. If unspecified,\nthe alignment is inherited from a parent placeholder if it exists. If the\nshape has no parent, the default alignment matches the alignment for new\nshapes created in the Slides editor.",
+          "enum": [
+            "CONTENT_ALIGNMENT_UNSPECIFIED",
+            "CONTENT_ALIGNMENT_UNSUPPORTED",
+            "TOP",
+            "MIDDLE",
+            "BOTTOM"
+          ],
+          "type": "string"
+        },
         "link": {
           "$ref": "#/definitions/Link",
           "description": "The hyperlink destination of the shape. If unset, there is no link. Links\nare not inherited from parent placeholders."
@@ -3279,6 +3346,17 @@
     "TableCellProperties": {
       "description": "The properties of the TableCell.",
       "properties": {
+        "contentAlignment": {
+          "description": "The alignment of the content in the table cell. The default alignment\nmatches the alignment for newly created table cells in the Slides editor.",
+          "enum": [
+            "CONTENT_ALIGNMENT_UNSPECIFIED",
+            "CONTENT_ALIGNMENT_UNSUPPORTED",
+            "TOP",
+            "MIDDLE",
+            "BOTTOM"
+          ],
+          "type": "string"
+        },
         "tableCellBackgroundFill": {
           "$ref": "#/definitions/TableCellBackgroundFill",
           "description": "The background fill of the table cell. The default fill matches the fill\nfor newly created table cells in the Slides editor."
@@ -3582,6 +3660,24 @@
         },
         "objectId": {
           "description": "The object ID of the line the update is applied to.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UpdatePageElementAltTextRequest": {
+      "description": "Updates the alt text title and/or description of a\npage element.",
+      "properties": {
+        "description": {
+          "description": "The updated alt text description of the page element. If unset the existing\nvalue will be maintained. The description is exposed to screen readers\nand other accessibility interfaces. Only use human readable values related\nto the content of the page element.",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID of the page element the updates are applied to.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The updated alt text title of the page element. If unset the\nexisting value will be maintained. The title is exposed to screen readers\nand other accessibility interfaces. Only use human readable values related\nto the content of the page element.",
           "type": "string"
         }
       },

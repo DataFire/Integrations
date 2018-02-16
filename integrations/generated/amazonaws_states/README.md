@@ -149,6 +149,23 @@ amazonaws_states.DescribeStateMachine({
 #### Output
 * output [DescribeStateMachineOutput](#describestatemachineoutput)
 
+### DescribeStateMachineForExecution
+
+
+
+```js
+amazonaws_states.DescribeStateMachineForExecution({
+  "executionArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * executionArn **required** [Arn](#arn)
+
+#### Output
+* output [DescribeStateMachineForExecutionOutput](#describestatemachineforexecutionoutput)
+
 ### GetActivityTask
 
 
@@ -340,6 +357,25 @@ amazonaws_states.StopExecution({
 #### Output
 * output [StopExecutionOutput](#stopexecutionoutput)
 
+### UpdateStateMachine
+
+
+
+```js
+amazonaws_states.UpdateStateMachine({
+  "stateMachineArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * definition [Definition](#definition)
+  * roleArn [Arn](#arn)
+  * stateMachineArn **required** [Arn](#arn)
+
+#### Output
+* output [UpdateStateMachineOutput](#updatestatemachineoutput)
+
 
 
 ## Definitions
@@ -466,6 +502,18 @@ amazonaws_states.StopExecution({
   * stateMachineArn **required** [Arn](#arn)
   * status **required** [ExecutionStatus](#executionstatus)
   * stopDate [Timestamp](#timestamp)
+
+### DescribeStateMachineForExecutionInput
+* DescribeStateMachineForExecutionInput `object`
+  * executionArn **required** [Arn](#arn)
+
+### DescribeStateMachineForExecutionOutput
+* DescribeStateMachineForExecutionOutput `object`
+  * definition **required** [Definition](#definition)
+  * name **required** [Name](#name)
+  * roleArn **required** [Arn](#arn)
+  * stateMachineArn **required** [Arn](#arn)
+  * updateDate **required** [Timestamp](#timestamp)
 
 ### DescribeStateMachineInput
 * DescribeStateMachineInput `object`
@@ -685,6 +733,10 @@ amazonaws_states.StopExecution({
   * nextToken [PageToken](#pagetoken)
   * stateMachines **required** [StateMachineList](#statemachinelist)
 
+### MissingRequiredParameter
+* MissingRequiredParameter `object`: Request is missing a required parameter. This error occurs if both <code>definition</code> and <code>roleArn</code> are not specified.
+  * message [ErrorMessage](#errormessage)
+
 ### Name
 * Name `string`
 
@@ -797,5 +849,15 @@ amazonaws_states.StopExecution({
 
 ### Timestamp
 * Timestamp `string`
+
+### UpdateStateMachineInput
+* UpdateStateMachineInput `object`
+  * definition [Definition](#definition)
+  * roleArn [Arn](#arn)
+  * stateMachineArn **required** [Arn](#arn)
+
+### UpdateStateMachineOutput
+* UpdateStateMachineOutput `object`
+  * updateDate **required** [Timestamp](#timestamp)
 
 

@@ -737,8 +737,8 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
 
 ### rcr1_Facilities
 * rcr1_Facilities `object`: Facilities Object
+  * AIRIDs **required** `string`: Air Facility System (AFS) ID.
   * ActiveLower48 **required** `string`
-  * AirIDs **required** `string`
   * CWAIDs **required** `string`
   * CalculatedAccuracyMeters **required** `string`
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
@@ -767,7 +767,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
   * FacPopulationDensity **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacTRILandReleases **required** `string`
   * FacTRIOffSiteTransfers **required** `string`
   * FacTRIOnSiteReleases **required** `string`
@@ -820,7 +820,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * RCRALastInspectionDate **required** `string`
   * RCRALastPenaltyDate **required** `string`
   * RCRAMapIcon **required** `string`
-  * RCRANaics **required** `string`
+  * RCRANAICS **required** `string`
   * RCRAName **required** `string`
   * RCRAOldestOpenVioDate **required** `string`
   * RCRAPenalties **required** `string`
@@ -844,6 +844,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * TRIbalFlag **required** `string`
   * Tsdf `string`
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### rcr1_MapData
 * rcr1_MapData `object`: Map Data Object
@@ -911,8 +912,8 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
 
 ### rcr2_Facilities
 * rcr2_Facilities `object`: Facilities Object
+  * AIRIDs **required** `string`: Air Facility System (AFS) ID.
   * ActiveLower48 **required** `string`
-  * AirIDs **required** `string`
   * CWAIDs **required** `string`
   * CalculatedAccuracyMeters **required** `string`
   * CensusBlockGroup **required** `string`: A geographic unit used by the United States Census Bureau, generally defined to contain between 600 and 3,000 people.
@@ -941,7 +942,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
   * FacPopulationDensity **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacTRILandReleases **required** `string`
   * FacTRIOffSiteTransfers **required** `string`
   * FacTRIOnSiteReleases **required** `string`
@@ -995,7 +996,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * RCRALastInspectionDate **required** `string`
   * RCRALastPenaltyDate **required** `string`
   * RCRAMapIcon **required** `string`
-  * RCRANaics **required** `string`
+  * RCRANAICS **required** `string`
   * RCRAName **required** `string`
   * RCRAOldestOpenVioDate **required** `string`
   * RCRAPenalties **required** `string`
@@ -1019,6 +1020,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * TRIbalFlag **required** `string`
   * Tsdf `string`
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### rcr2_Results
 * rcr2_Results `object`: Results Object
@@ -1109,7 +1111,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * FacMapIcon **required** `string`: The default map icon image file calculated for the facility by the ECHO program.
   * FacPercentMinority **required** `number`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
   * FacPopulationDensity **required** `number`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacTRILandReleases **required** `string`
   * FacTRIOffSiteTransfers **required** `string`
   * FacTRIOnSiteReleases **required** `string`
@@ -1162,7 +1164,7 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * RCRALastInspectionDate **required** `string`
   * RCRALastPenaltyDate **required** `string`
   * RCRAMapIcon **required** `string`
-  * RCRANaics **required** `string`
+  * RCRANAICS **required** `string`
   * RCRAName **required** `string`
   * RCRAOldestOpenVioDate **required** `string`
   * RCRAPenalties **required** `number`
@@ -1186,5 +1188,6 @@ epa_gov_rcra.rcra_rest_services.metadata.post({}, context)
   * TRIbalFlag **required** `number`
   * Tsdf `string`
   * ViolFlag **required** `number`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 

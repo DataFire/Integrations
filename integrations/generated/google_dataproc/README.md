@@ -88,19 +88,19 @@ google_dataproc.projects.regions.clusters.list({
   * pageToken `string`: Optional. The standard List page token.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListClustersResponse](#listclustersresponse)
@@ -121,19 +121,19 @@ google_dataproc.projects.regions.clusters.create({
   * body [Cluster](#cluster)
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -155,19 +155,19 @@ google_dataproc.projects.regions.clusters.delete({
   * clusterName **required** `string`: Required. The cluster name.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -189,19 +189,19 @@ google_dataproc.projects.regions.clusters.get({
   * clusterName **required** `string`: Required. The cluster name.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Cluster](#cluster)
@@ -222,22 +222,23 @@ google_dataproc.projects.regions.clusters.patch({
 * input `object`
   * body [Cluster](#cluster)
   * clusterName **required** `string`: Required. The cluster name.
+  * gracefulDecommissionTimeout `string`: Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in progress. Timeout specifies how long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs). Default timeout is 0 (for forceful decommission), and the maximum allowed timeout is 1 day.Only supported on Dataproc image versions 1.2 and higher.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
   * updateMask `string`: Required. Specifies the path, relative to Cluster, of the field to update. For example, to change the number of workers in a cluster to 5, the update_mask parameter would be specified as config.worker_config.num_instances, and the PATCH request body would specify the new value, as follows:
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -260,19 +261,19 @@ google_dataproc.projects.regions.clusters.diagnose({
   * clusterName **required** `string`: Required. The cluster name.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the cluster belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -291,25 +292,25 @@ google_dataproc.projects.regions.jobs.list({
 #### Input
 * input `object`
   * clusterName `string`: Optional. If set, the returned jobs list includes only jobs that were submitted to the named cluster.
-  * filter `string`: Optional. A filter constraining the jobs to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where field is status.state or labels.[KEY], and [KEY] is a label key. value can be * to match all values. status.state can be either ACTIVE or INACTIVE. Only the logical AND operator is supported; space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE AND labels.env = staging AND labels.starred = *
-  * jobStateMatcher `string` (values: ALL, ACTIVE, NON_ACTIVE): Optional. Specifies enumerated categories of jobs to list (default = match ALL jobs).
+  * filter `string`: Optional. A filter constraining the jobs to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where field is status.state or labels.[KEY], and [KEY] is a label key. value can be * to match all values. status.state can be either ACTIVE or NON_ACTIVE. Only the logical AND operator is supported; space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE AND labels.env = staging AND labels.starred = *
+  * jobStateMatcher `string` (values: ALL, ACTIVE, NON_ACTIVE): Optional. Specifies enumerated categories of jobs to list. (default = match ALL jobs).If filter is provided, jobStateMatcher will be ignored.
   * pageSize `integer`: Optional. The number of results to return in each response.
   * pageToken `string`: Optional. The page token, returned by a previous call, to request the next page of results.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [ListJobsResponse](#listjobsresponse)
@@ -331,19 +332,19 @@ google_dataproc.projects.regions.jobs.delete({
   * jobId **required** `string`: Required. The job ID.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -365,19 +366,19 @@ google_dataproc.projects.regions.jobs.get({
   * jobId **required** `string`: Required. The job ID.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Job](#job)
@@ -401,19 +402,19 @@ google_dataproc.projects.regions.jobs.patch({
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
   * updateMask `string`: Required. Specifies the path, relative to <code>Job</code>, of the field to update. For example, to update the labels of a Job the <code>update_mask</code> parameter would be specified as <code>labels</code>, and the PATCH request body would specify the new value. <strong>Note:</strong> Currently, <code>labels</code> is the only field that can be updated.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Job](#job)
@@ -436,19 +437,19 @@ google_dataproc.projects.regions.jobs.cancel({
   * jobId **required** `string`: Required. The job ID.
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Job](#job)
@@ -469,19 +470,19 @@ google_dataproc.projects.regions.jobs.submit({
   * body [SubmitJobRequest](#submitjobrequest)
   * projectId **required** `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
   * region **required** `string`: Required. The Cloud Dataproc region in which to handle the request.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Job](#job)
@@ -499,19 +500,19 @@ google_dataproc.projects.regions.operations.delete({
 #### Input
 * input `object`
   * name **required** `string`: The name of the operation resource to be deleted.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -529,19 +530,19 @@ google_dataproc.projects.regions.operations.get({
 #### Input
 * input `object`
   * name **required** `string`: The name of the operation resource.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -559,19 +560,19 @@ google_dataproc.projects.regions.operations.cancel({
 #### Input
 * input `object`
   * name **required** `string`: The name of the operation resource to be cancelled.
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * access_token `string`: OAuth access token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Empty](#empty)
@@ -591,13 +592,13 @@ google_dataproc.projects.regions.operations.cancel({
 ### Cluster
 * Cluster `object`: Describes the identifying information, config, and status of a cluster of Google Compute Engine instances.
   * clusterName `string`: Required. The cluster name. Cluster names within a project must be unique. Names of deleted clusters can be reused.
-  * clusterUuid `string`: Output-only. A cluster UUID (Unique Universal Identifier). Cloud Dataproc generates this value when it creates the cluster.
+  * clusterUuid `string`: Output only. A cluster UUID (Unique Universal Identifier). Cloud Dataproc generates this value when it creates the cluster.
   * config [ClusterConfig](#clusterconfig)
   * labels `object`: Optional. The labels to associate with this cluster. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a cluster.
   * metrics [ClusterMetrics](#clustermetrics)
   * projectId `string`: Required. The Google Cloud Platform project ID that the cluster belongs to.
   * status [ClusterStatus](#clusterstatus)
-  * statusHistory `array`: Output-only. The previous cluster status.
+  * statusHistory `array`: Output only. The previous cluster status.
     * items [ClusterStatus](#clusterstatus)
 
 ### ClusterConfig
@@ -618,37 +619,37 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### ClusterOperationMetadata
 * ClusterOperationMetadata `object`: Metadata describing the operation.
-  * clusterName `string`: Output-only. Name of the cluster for the operation.
-  * clusterUuid `string`: Output-only. Cluster UUID for the operation.
-  * description `string`: Output-only. Short description of operation.
-  * labels `object`: Output-only. Labels associated with the operation
-  * operationType `string`: Output-only. The operation type.
+  * clusterName `string`: Output only. Name of the cluster for the operation.
+  * clusterUuid `string`: Output only. Cluster UUID for the operation.
+  * description `string`: Output only. Short description of operation.
+  * labels `object`: Output only. Labels associated with the operation
+  * operationType `string`: Output only. The operation type.
   * status [ClusterOperationStatus](#clusteroperationstatus)
-  * statusHistory `array`: Output-only. The previous operation status.
+  * statusHistory `array`: Output only. The previous operation status.
     * items [ClusterOperationStatus](#clusteroperationstatus)
-  * warnings `array`: Output-only. Errors encountered during operation execution.
+  * warnings `array`: Output only. Errors encountered during operation execution.
     * items `string`
 
 ### ClusterOperationStatus
 * ClusterOperationStatus `object`: The status of the operation.
-  * details `string`: Output-only.A message containing any operation metadata details.
-  * innerState `string`: Output-only. A message containing the detailed operation state.
-  * state `string` (values: UNKNOWN, PENDING, RUNNING, DONE): Output-only. A message containing the operation state.
-  * stateStartTime `string`: Output-only. The time this state was entered.
+  * details `string`: Output only. A message containing any operation metadata details.
+  * innerState `string`: Output only. A message containing the detailed operation state.
+  * state `string` (values: UNKNOWN, PENDING, RUNNING, DONE): Output only. A message containing the operation state.
+  * stateStartTime `string`: Output only. The time this state was entered.
 
 ### ClusterStatus
 * ClusterStatus `object`: The status of a cluster and its instances.
-  * detail `string`: Output-only. Optional details of cluster's state.
-  * state `string` (values: UNKNOWN, CREATING, RUNNING, ERROR, DELETING, UPDATING): Output-only. The cluster's state.
-  * stateStartTime `string`: Output-only. Time when this state was entered.
-  * substate `string` (values: UNSPECIFIED, UNHEALTHY, STALE_STATUS): Output-only. Additional state information that includes status reported by the agent.
+  * detail `string`: Output only. Optional details of cluster's state.
+  * state `string` (values: UNKNOWN, CREATING, RUNNING, ERROR, DELETING, UPDATING): Output only. The cluster's state.
+  * stateStartTime `string`: Output only. Time when this state was entered.
+  * substate `string` (values: UNSPECIFIED, UNHEALTHY, STALE_STATUS): Output only. Additional state information that includes status reported by the agent.
 
 ### DiagnoseClusterRequest
 * DiagnoseClusterRequest `object`: A request to collect cluster diagnostic information.
 
 ### DiagnoseClusterResults
 * DiagnoseClusterResults `object`: The location of diagnostic output.
-  * outputUri `string`: Output-only. The Google Cloud Storage URI of the diagnostic output. The output report is a plain text file with a summary of collected diagnostics.
+  * outputUri `string`: Output only. The Google Cloud Storage URI of the diagnostic output. The output report is a plain text file with a summary of collected diagnostics.
 
 ### DiskConfig
 * DiskConfig `object`: Specifies the config of disk options for a group of VM instances.
@@ -701,7 +702,7 @@ google_dataproc.projects.regions.operations.cancel({
   * accelerators `array`: Optional. The Google Compute Engine accelerator configuration for these instances.Beta Feature: This feature is still under development. It may be changed before final release.
     * items [AcceleratorConfig](#acceleratorconfig)
   * diskConfig [DiskConfig](#diskconfig)
-  * imageUri `string`: Output-only. The Google Compute Engine image resource used for cluster instances. Inferred from SoftwareConfig.image_version.
+  * imageUri `string`: Output only. The Google Compute Engine image resource used for cluster instances. Inferred from SoftwareConfig.image_version.
   * instanceNames `array`: Optional. The list of instance names. Cloud Dataproc derives the names from cluster_name, num_instances, and the instance group if not set by user (recommended practice is to let Cloud Dataproc derive the name).
     * items `string`
   * isPreemptible `boolean`: Optional. Specifies that this instance group contains preemptible instances.
@@ -711,8 +712,8 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### Job
 * Job `object`: A Cloud Dataproc job resource.
-  * driverControlFilesUri `string`: Output-only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files may be placed in the same location as driver_output_uri.
-  * driverOutputResourceUri `string`: Output-only. A URI pointing to the location of the stdout of the job's driver program.
+  * driverControlFilesUri `string`: Output only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files may be placed in the same location as driver_output_uri.
+  * driverOutputResourceUri `string`: Output only. A URI pointing to the location of the stdout of the job's driver program.
   * hadoopJob [HadoopJob](#hadoopjob)
   * hiveJob [HiveJob](#hivejob)
   * labels `object`: Optional. The labels to associate with this job. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a job.
@@ -724,15 +725,15 @@ google_dataproc.projects.regions.operations.cancel({
   * sparkJob [SparkJob](#sparkjob)
   * sparkSqlJob [SparkSqlJob](#sparksqljob)
   * status [JobStatus](#jobstatus)
-  * statusHistory `array`: Output-only. The previous job status.
+  * statusHistory `array`: Output only. The previous job status.
     * items [JobStatus](#jobstatus)
-  * yarnApplications `array`: Output-only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It may be changed before final release.
+  * yarnApplications `array`: Output only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It may be changed before final release.
     * items [YarnApplication](#yarnapplication)
 
 ### JobPlacement
 * JobPlacement `object`: Cloud Dataproc job config.
   * clusterName `string`: Required. The name of the cluster where the job will be submitted.
-  * clusterUuid `string`: Output-only. A cluster UUID generated by the Cloud Dataproc service when the job is submitted.
+  * clusterUuid `string`: Output only. A cluster UUID generated by the Cloud Dataproc service when the job is submitted.
 
 ### JobReference
 * JobReference `object`: Encapsulates the full scoping used to reference a job.
@@ -740,25 +741,25 @@ google_dataproc.projects.regions.operations.cancel({
   * projectId `string`: Required. The ID of the Google Cloud Platform project that the job belongs to.
 
 ### JobScheduling
-* JobScheduling `object`: Job scheduling options.Beta Feature: These options are available for testing purposes only. They may be changed before final release.
+* JobScheduling `object`: Job scheduling options.
   * maxFailuresPerHour `integer`: Optional. Maximum number of times per hour a driver may be restarted as a result of driver terminating with non-zero code before job is reported failed.A job may be reported as thrashing if driver exits with non-zero code 4 times within 10 minute window.Maximum value is 10.
 
 ### JobStatus
 * JobStatus `object`: Cloud Dataproc job status.
-  * details `string`: Output-only. Optional job state details, such as an error description if the state is <code>ERROR</code>.
-  * state `string` (values: STATE_UNSPECIFIED, PENDING, SETUP_DONE, RUNNING, CANCEL_PENDING, CANCEL_STARTED, CANCELLED, DONE, ERROR, ATTEMPT_FAILURE): Output-only. A state message specifying the overall job state.
-  * stateStartTime `string`: Output-only. The time when this state was entered.
-  * substate `string` (values: UNSPECIFIED, SUBMITTED, QUEUED, STALE_STATUS): Output-only. Additional state information, which includes status reported by the agent.
+  * details `string`: Output only. Optional job state details, such as an error description if the state is <code>ERROR</code>.
+  * state `string` (values: STATE_UNSPECIFIED, PENDING, SETUP_DONE, RUNNING, CANCEL_PENDING, CANCEL_STARTED, CANCELLED, DONE, ERROR, ATTEMPT_FAILURE): Output only. A state message specifying the overall job state.
+  * stateStartTime `string`: Output only. The time when this state was entered.
+  * substate `string` (values: UNSPECIFIED, SUBMITTED, QUEUED, STALE_STATUS): Output only. Additional state information, which includes status reported by the agent.
 
 ### ListClustersResponse
 * ListClustersResponse `object`: The list of all clusters in a project.
-  * clusters `array`: Output-only. The clusters in the project.
+  * clusters `array`: Output only. The clusters in the project.
     * items [Cluster](#cluster)
-  * nextPageToken `string`: Output-only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent ListClustersRequest.
+  * nextPageToken `string`: Output only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent ListClustersRequest.
 
 ### ListJobsResponse
 * ListJobsResponse `object`: A list of jobs in a project.
-  * jobs `array`: Output-only. Jobs list.
+  * jobs `array`: Output only. Jobs list.
     * items [Job](#job)
   * nextPageToken `string`: Optional. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent <code>ListJobsRequest</code>.
 
@@ -774,8 +775,8 @@ google_dataproc.projects.regions.operations.cancel({
 
 ### ManagedGroupConfig
 * ManagedGroupConfig `object`: Specifies the resources used to actively manage an instance group.
-  * instanceGroupManagerName `string`: Output-only. The name of the Instance Group Manager for this group.
-  * instanceTemplateName `string`: Output-only. The name of the Instance Template used for the Managed Instance Group.
+  * instanceGroupManagerName `string`: Output only. The name of the Instance Group Manager for this group.
+  * instanceTemplateName `string`: Output only. The name of the Instance Template used for the Managed Instance Group.
 
 ### NodeInitializationAction
 * NodeInitializationAction `object`: Specifies an executable to run on a fully configured node and a timeout period for executable completion.

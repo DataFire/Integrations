@@ -59,6 +59,43 @@ appveyor.encryptValue({
 #### Output
 * output `string`
 
+### getBuildArtifacts
+Get build artifacts
+
+
+```js
+appveyor.getBuildArtifacts({
+  "jobId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobId **required** `string`: Build ID (`jobId` property of `BuildJob`)
+
+#### Output
+* output `array`
+  * items [ArtifactModel](#artifactmodel)
+
+### getBuildArtifact
+Download build artifact
+
+
+```js
+appveyor.getBuildArtifact({
+  "jobId": "",
+  "artifactFileName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * jobId **required** `string`: Build ID (`jobId` property of `BuildJob`)
+  * artifactFileName **required** `string`: File name (or path) of a build artifact file.
+
+#### Output
+* output `file`
+
 ### getBuildLog
 Download build log
 
@@ -534,6 +571,32 @@ appveyor.getProjectLastBuild({
 #### Output
 * output [ProjectBuildResults](#projectbuildresults)
 
+### getProjectArtifact
+The `job` parameter is mandatory if the build contains multiple jobs.
+
+
+```js
+appveyor.getProjectArtifact({
+  "accountName": "",
+  "projectSlug": "",
+  "artifactFileName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
+  * projectSlug **required** `string`: Project Slug
+  * artifactFileName **required** `string`: File name (or path) of a build artifact file.
+  * branch `string`: Repository Branch
+  * tag `string`: A git (or other VCS) tag
+  * job `string`: Name of the build job.
+  * all `boolean`: Include not only `successful`, but also jobs with `failed`, and
+  * pr `boolean`: Include PR builds in the search results?
+
+#### Output
+* output `file`
+
 ### getProjectLastBuildBranch
 Get project last branch build
 
@@ -673,6 +736,48 @@ appveyor.updateProjectBuildNumber({
 #### Input
 * input `object`
   * body **required** [ProjectBuildNumberUpdate](#projectbuildnumberupdate)
+  * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
+  * projectSlug **required** `string`: Project Slug
+
+#### Output
+*Output schema unknown*
+
+### getProjectEnvironmentVariables
+Get project environment variables
+
+
+```js
+appveyor.getProjectEnvironmentVariables({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
+  * projectSlug **required** `string`: Project Slug
+
+#### Output
+* output `array`
+  * items [StoredNameValue](#storednamevalue)
+
+### updateProjectEnvironmentVariables
+Update project environment variables
+
+
+```js
+appveyor.updateProjectEnvironmentVariables({
+  "body": [],
+  "accountName": "",
+  "projectSlug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** `array`
+    * items [StoredNameValue](#storednamevalue)
   * accountName **required** `string`: AppVeyor account name (`accountName` property of `UserAccount`)
   * projectSlug **required** `string`: Project Slug
 
@@ -910,12 +1015,20 @@ appveyor.getUser({
 
 ### Artifact
 * Artifact `object`
-  * name **required** `string`
-  * path **required** `string`
+  * name `string`
+  * path **required** `string`: Path glob of artifact files.
   * type [ArtifactType](#artifacttype)
 
+### ArtifactModel
+* ArtifactModel `object`
+  * fileName `string`
+  * name `string`
+  * size `integer`
+  * type [ArtifactType](#artifacttype)
+  * url `string`: This property has not been observed in JSON responses, but is
+
 ### ArtifactType
-* ArtifactType `string` (values: WebDeployPackage)
+* ArtifactType `string` (values: Auto, AzureCloudService, AzureCloudServiceConfig, File, NuGetPackage, SsdtPackage, WebDeployPackage, Zip): Possible values from `Push-AppveyorArtifact` cmdlet `-Type` parameter.
 
 ### Build
 * Build
@@ -1049,6 +1162,7 @@ appveyor.getUser({
   * accountId `integer`
   * projectsMode `integer` (values: 0, 1, 2): 0 is "Any project can be deployed to the environment"
   * securityDescriptor [SecurityDescriptor](#securitydescriptor)
+  * tags `string`: Comma-separated list of environment tags for dynamic grouping.
 
 ### DeploymentEnvironmentAddition
 * DeploymentEnvironmentAddition `object`
@@ -1097,6 +1211,7 @@ appveyor.getUser({
   * accountId `integer`
   * projectsMode `integer` (values: 0, 1, 2): 0 is "Any project can be deployed to the environment"
   * securityDescriptor [SecurityDescriptor](#securitydescriptor)
+  * tags `string`: Comma-separated list of environment tags for dynamic grouping.
   * environmentAccessKey `string`
   * projects `array`: Projects available for selection in UI.
     * items [DeploymentEnvironmentProject](#deploymentenvironmentproject)
@@ -1244,6 +1359,7 @@ appveyor.getUser({
   * updated `string`
   * accountId `integer`
   * id `string`
+  * isPrivateProject `boolean`
   * name `string`
   * projectId `integer`
   * publishingEnabled `boolean`
@@ -1292,7 +1408,7 @@ appveyor.getUser({
   * saveBuildCacheInPullRequests `boolean`
   * securityDescriptor [SecurityDescriptor](#securitydescriptor)
   * skipBranchesWithoutAppveyorYml `boolean`
-  * tags `string`
+  * tags `string`: Comma-separated list of project tags for dynamic grouping.
 
 ### ProjectAddition
 * ProjectAddition `object`: `repositoryAuthentication` is only used for git, mercurial, subversion `repositoryProvider`.
@@ -1508,7 +1624,7 @@ appveyor.getUser({
   * saveBuildCacheInPullRequests `boolean`
   * securityDescriptor [SecurityDescriptor](#securitydescriptor)
   * skipBranchesWithoutAppveyorYml `boolean`
-  * tags `string`
+  * tags `string`: Comma-separated list of project tags for dynamic grouping.
   * buildPriority `integer`
   * configuration **required** [ProjectConfiguration](#projectconfiguration)
   * customYmlName `string`

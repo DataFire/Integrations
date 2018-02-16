@@ -1,6 +1,6 @@
 {
   "name": "@datafire/ptv_vic_gov_au",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for PTV Timetable API - Version 3",
   "repository": {

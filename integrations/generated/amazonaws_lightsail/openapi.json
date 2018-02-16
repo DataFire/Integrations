@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lightsail includes everything you need to launch your project quickly - a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP - for a low, predictable price. You manage those Lightsail servers through the Lightsail console or by using the API or command-line interface (CLI).</p> <p>For more information about Lightsail concepts and tasks, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/all\">Lightsail Dev Guide</a>.</p> <p>To use the Lightsail API or the CLI, you will need to use AWS Identity and Access Management (IAM) to generate access keys. For details about how to set this up, see the <a href=\"http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli\">Lightsail Dev Guide</a>.</p>",
     "license": {
@@ -227,6 +228,291 @@
         }
       }
     },
+    "/#AttachDisk": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Attaches a block storage disk to a running or stopped Lightsail instance and exposes it to the instance with the specified disk name.",
+        "operationId": "AttachDisk",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AttachDiskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AttachDiskResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#AttachInstancesToLoadBalancer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Attaches one or more Lightsail instances to a load balancer.",
+        "operationId": "AttachInstancesToLoadBalancer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AttachInstancesToLoadBalancerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AttachInstancesToLoadBalancerResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#AttachLoadBalancerTlsCertificate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Attaches a Transport Layer Security (TLS) certificate to your load balancer.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>",
+        "operationId": "AttachLoadBalancerTlsCertificate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AttachLoadBalancerTlsCertificateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AttachLoadBalancerTlsCertificateResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
     "/#AttachStaticIp": {
       "parameters": [
         {
@@ -370,6 +656,291 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/CloseInstancePublicPortsResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateDisk": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a block storage disk that can be attached to a Lightsail instance in the same Availability Zone (e.g., <code>us-east-2a</code>). The disk is created in the regional endpoint that you send the HTTP request to. For more information, see <a href=\"https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail\">Regions and Availability Zones in Lightsail</a>.",
+        "operationId": "CreateDisk",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDiskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDiskResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateDiskFromSnapshot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a block storage disk from a disk snapshot that can be attached to a Lightsail instance in the same Availability Zone (e.g., <code>us-east-2a</code>). The disk is created in the regional endpoint that you send the HTTP request to. For more information, see <a href=\"https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail\">Regions and Availability Zones in Lightsail</a>.",
+        "operationId": "CreateDiskFromSnapshot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDiskFromSnapshotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDiskFromSnapshotResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateDiskSnapshot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make copies of disks, and to save data before shutting down a Lightsail instance.</p> <p>You can take a snapshot of an attached disk that is in use; however, snapshots only capture data that has been written to your disk at the time the snapshot command is issued. This may exclude any data that has been cached by any applications or the operating system. If you can pause any file systems on the disk long enough to take a snapshot, your snapshot should be complete. Nevertheless, if you cannot pause all file writes to the disk, you should unmount the disk from within the Lightsail instance, issue the create disk snapshot command, and then remount the disk to ensure a consistent and complete snapshot. You may remount and use your disk while the snapshot status is pending.</p>",
+        "operationId": "CreateDiskSnapshot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDiskSnapshotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDiskSnapshotResult"
             }
           },
           "480": {
@@ -987,6 +1558,386 @@
         }
       }
     },
+    "/#CreateLoadBalancer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a Lightsail load balancer.</p> <p>When you create a load balancer, you can specify certificates and port settings. You can create up to 5 load balancers per AWS Region in your account.</p>",
+        "operationId": "CreateLoadBalancer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLoadBalancerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLoadBalancerResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateLoadBalancerTlsCertificate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a Lightsail load balancer TLS certificate.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>",
+        "operationId": "CreateLoadBalancerTlsCertificate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLoadBalancerTlsCertificateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLoadBalancerTlsCertificateResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteDisk": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified block storage disk. The disk must be in the <code>available</code> state (not attached to a Lightsail instance).</p> <note> <p>The disk may remain in the <code>deleting</code> state for several minutes.</p> </note>",
+        "operationId": "DeleteDisk",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDiskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDiskResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteDiskSnapshot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified disk snapshot.</p> <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the disk.</p>",
+        "operationId": "DeleteDiskSnapshot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDiskSnapshotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDiskSnapshotResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
     "/#DeleteDomain": {
       "parameters": [
         {
@@ -1462,6 +2413,386 @@
         }
       }
     },
+    "/#DeleteLoadBalancer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a Lightsail load balancer.",
+        "operationId": "DeleteLoadBalancer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLoadBalancerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLoadBalancerResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteLoadBalancerTlsCertificate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a TLS/SSL certificate associated with a Lightsail load balancer.",
+        "operationId": "DeleteLoadBalancerTlsCertificate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLoadBalancerTlsCertificateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLoadBalancerTlsCertificateResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#DetachDisk": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount any file systems on the device within your operating system before stopping the instance and detaching the disk.",
+        "operationId": "DetachDisk",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DetachDiskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetachDiskResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#DetachInstancesFromLoadBalancer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Detaches the specified instances from a Lightsail load balancer.",
+        "operationId": "DetachInstancesFromLoadBalancer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DetachInstancesFromLoadBalancerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetachInstancesFromLoadBalancerResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
     "/#DetachStaticIp": {
       "parameters": [
         {
@@ -1890,6 +3221,386 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetBundlesResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetDisk": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about a specific block storage disk.",
+        "operationId": "GetDisk",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDiskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDiskResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetDiskSnapshot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about a specific block storage disk snapshot.",
+        "operationId": "GetDiskSnapshot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDiskSnapshotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDiskSnapshotResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetDiskSnapshots": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns information about all block storage disk snapshots in your AWS account and region.</p> <p>If you are describing a long list of disk snapshots, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.</p>",
+        "operationId": "GetDiskSnapshots",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDiskSnapshotsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDiskSnapshotsResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetDisks": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns information about all block storage disks in your AWS account and region.</p> <p>If you are describing a long list of disks, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.</p>",
+        "operationId": "GetDisks",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDisksRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDisksResult"
             }
           },
           "480": {
@@ -3030,6 +4741,386 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetKeyPairsResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetLoadBalancer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about the specified Lightsail load balancer.",
+        "operationId": "GetLoadBalancer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancerResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetLoadBalancerMetricData": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns information about health metrics for your Lightsail load balancer.",
+        "operationId": "GetLoadBalancerMetricData",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancerMetricDataRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancerMetricDataResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetLoadBalancerTlsCertificates": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns information about the TLS certificates that are associated with the specified Lightsail load balancer.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>",
+        "operationId": "GetLoadBalancerTlsCertificates",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancerTlsCertificatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancerTlsCertificatesResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetLoadBalancers": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns information about all load balancers in an account.</p> <p>If you are describing a long list of load balancers, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.</p>",
+        "operationId": "GetLoadBalancers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLoadBalancersResult"
             }
           },
           "480": {
@@ -4691,6 +6782,101 @@
           }
         }
       }
+    },
+    "/#UpdateLoadBalancerAttribute": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates the specified attribute for a load balancer.",
+        "operationId": "UpdateLoadBalancerAttribute",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateLoadBalancerAttributeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateLoadBalancerAttributeResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -4758,6 +6944,89 @@
       },
       "type": "object"
     },
+    "AttachDiskRequest": {
+      "properties": {
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique Lightsail disk name (e.g., <code>my-disk</code>)."
+        },
+        "diskPath": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>)."
+        },
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the Lightsail instance where you want to utilize the storage disk."
+        }
+      },
+      "required": [
+        "diskName",
+        "instanceName",
+        "diskPath"
+      ],
+      "type": "object"
+    },
+    "AttachDiskResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "AttachInstancesToLoadBalancerRequest": {
+      "properties": {
+        "instanceNames": {
+          "$ref": "#/definitions/ResourceNameList",
+          "description": "An array of strings representing the instance name(s) you want to attach to your load balancer."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "instanceNames"
+      ],
+      "type": "object"
+    },
+    "AttachInstancesToLoadBalancerResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object representing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "AttachLoadBalancerTlsCertificateRequest": {
+      "properties": {
+        "certificateName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of your TLS/SSL certificate."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer to which you want to associate the TLS/SSL certificate."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "certificateName"
+      ],
+      "type": "object"
+    },
+    "AttachLoadBalancerTlsCertificateResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object representing the API operations."
+        }
+      },
+      "type": "object"
+    },
     "AttachStaticIpRequest": {
       "properties": {
         "instanceName": {
@@ -4784,6 +7053,20 @@
       },
       "type": "object"
     },
+    "AttachedDiskMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ResourceName"
+          },
+          "value": {
+            "$ref": "#/definitions/DiskMapList"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "AvailabilityZone": {
       "description": "Describes an Availability Zone.",
       "properties": {
@@ -4793,7 +7076,7 @@
         },
         "zoneName": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The name of the Availability Zone. The format is <code>us-east-1a</code> (case-sensitive)."
+          "description": "The name of the Availability Zone. The format is <code>us-east-2a</code> (case-sensitive)."
         }
       },
       "type": "object"
@@ -4956,6 +7239,99 @@
       },
       "type": "object"
     },
+    "CreateDiskFromSnapshotRequest": {
+      "properties": {
+        "availabilityZone": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "<p>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>). Choose the same Availability Zone as the Lightsail instance where you want to create the disk.</p> <p>Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.</p>"
+        },
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique Lightsail disk name (e.g., <code>my-disk</code>)."
+        },
+        "diskSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the disk snapshot (e.g., <code>my-snapshot</code>) from which to create the new storage disk."
+        },
+        "sizeInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The size of the disk in GB (e.g., <code>32</code>)."
+        }
+      },
+      "required": [
+        "diskName",
+        "diskSnapshotName",
+        "availabilityZone",
+        "sizeInGb"
+      ],
+      "type": "object"
+    },
+    "CreateDiskFromSnapshotResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDiskRequest": {
+      "properties": {
+        "availabilityZone": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "<p>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>). Choose the same Availability Zone as the Lightsail instance where you want to create the disk.</p> <p>Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.</p>"
+        },
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique Lightsail disk name (e.g., <code>my-disk</code>)."
+        },
+        "sizeInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The size of the disk in GB (e.g., <code>32</code>)."
+        }
+      },
+      "required": [
+        "diskName",
+        "availabilityZone",
+        "sizeInGb"
+      ],
+      "type": "object"
+    },
+    "CreateDiskResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDiskSnapshotRequest": {
+      "properties": {
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique name of the source disk (e.g., <code>my-source-disk</code>)."
+        },
+        "diskSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the destination disk snapshot (e.g., <code>my-disk-snapshot</code>) based on the source disk."
+        }
+      },
+      "required": [
+        "diskName",
+        "diskSnapshotName"
+      ],
+      "type": "object"
+    },
+    "CreateDiskSnapshotResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
     "CreateDomainEntryRequest": {
       "properties": {
         "domainEntry": {
@@ -5031,9 +7407,13 @@
     },
     "CreateInstancesFromSnapshotRequest": {
       "properties": {
+        "attachedDiskMapping": {
+          "$ref": "#/definitions/AttachedDiskMap",
+          "description": "An object containing information about one or more disk mappings."
+        },
         "availabilityZone": {
           "$ref": "#/definitions/string",
-          "description": "The Availability Zone where you want to create your instances. Use the following formatting: <code>us-east-1a</code> (case sensitive). You can get a list of availability zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include availability zones</code> parameter to your request."
+          "description": "The Availability Zone where you want to create your instances. Use the following formatting: <code>us-east-2a</code> (case sensitive). You can get a list of availability zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include availability zones</code> parameter to your request."
         },
         "bundleId": {
           "$ref": "#/definitions/NonEmptyString",
@@ -5053,7 +7433,7 @@
         },
         "userData": {
           "$ref": "#/definitions/string",
-          "description": "<p>You can create a launch script that configures a server with additional user data. For example, <code>apt-get –y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps\">Dev Guide</a>.</p> </note>"
+          "description": "<p>You can create a launch script that configures a server with additional user data. For example, <code>apt-get -y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps\">Dev Guide</a>.</p> </note>"
         }
       },
       "required": [
@@ -5077,7 +7457,7 @@
       "properties": {
         "availabilityZone": {
           "$ref": "#/definitions/string",
-          "description": "The Availability Zone in which to create your instance. Use the following format: <code>us-east-1a</code> (case sensitive). You can get a list of availability zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include availability zones</code> parameter to your request."
+          "description": "The Availability Zone in which to create your instance. Use the following format: <code>us-east-2a</code> (case sensitive). You can get a list of availability zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include availability zones</code> parameter to your request."
         },
         "blueprintId": {
           "$ref": "#/definitions/NonEmptyString",
@@ -5101,7 +7481,7 @@
         },
         "userData": {
           "$ref": "#/definitions/string",
-          "description": "<p>A launch script you can create that configures a server with additional user data. For example, you might want to run <code>apt-get –y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image\">Dev Guide</a>.</p> </note>"
+          "description": "<p>A launch script you can create that configures a server with additional user data. For example, you might want to run <code>apt-get -y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image\">Dev Guide</a>.</p> </note>"
         }
       },
       "required": [
@@ -5150,6 +7530,125 @@
         "publicKeyBase64": {
           "$ref": "#/definitions/Base64",
           "description": "A base64-encoded public key of the <code>ssh-rsa</code> type."
+        }
+      },
+      "type": "object"
+    },
+    "CreateLoadBalancerRequest": {
+      "properties": {
+        "certificateAlternativeNames": {
+          "$ref": "#/definitions/DomainNameList",
+          "description": "The alternative domain names to use with your TLS/SSL certificate (e.g., <code>www.example.com</code>, <code>www.ejemplo.com</code>, <code>ejemplo.com</code>)."
+        },
+        "certificateDomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "<p>The domain name with which your certificate is associated (e.g., <code>example.com</code>).</p> <p>If you specify <code>certificateDomainName</code>, then <code>certificateName</code> is required (and vice-versa).</p>"
+        },
+        "certificateName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "<p>The name of the TLS/SSL certificate.</p> <p>If you specify <code>certificateName</code>, then <code>certificateDomainName</code> is required (and vice-versa).</p>"
+        },
+        "healthCheckPath": {
+          "$ref": "#/definitions/string",
+          "description": "The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., <code>\"/\"</code>)."
+        },
+        "instancePort": {
+          "$ref": "#/definitions/Port",
+          "description": "The instance port where you're creating your load balancer."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of your load balancer."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "instancePort"
+      ],
+      "type": "object"
+    },
+    "CreateLoadBalancerResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object containing information about the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "CreateLoadBalancerTlsCertificateRequest": {
+      "properties": {
+        "certificateAlternativeNames": {
+          "$ref": "#/definitions/DomainNameList",
+          "description": "An array of strings listing alternative domain names for your TLS/SSL certificate."
+        },
+        "certificateDomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The domain name (e.g., <code>example.com</code>) for your TLS/SSL certificate."
+        },
+        "certificateName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The TLS/SSL certificate name."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The load balancer name where you want to create the TLS/SSL certificate."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "certificateName",
+        "certificateDomainName"
+      ],
+      "type": "object"
+    },
+    "CreateLoadBalancerTlsCertificateResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object containing information about the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDiskRequest": {
+      "properties": {
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique name of the disk you want to delete (e.g., <code>my-disk</code>)."
+        }
+      },
+      "required": [
+        "diskName"
+      ],
+      "type": "object"
+    },
+    "DeleteDiskResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDiskSnapshotRequest": {
+      "properties": {
+        "diskSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the disk snapshot you want to delete (e.g., <code>my-disk-snapshot</code>)."
+        }
+      },
+      "required": [
+        "diskSnapshotName"
+      ],
+      "type": "object"
+    },
+    "DeleteDiskSnapshotResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
         }
       },
       "type": "object"
@@ -5264,6 +7763,104 @@
       },
       "type": "object"
     },
+    "DeleteLoadBalancerRequest": {
+      "properties": {
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer you want to delete."
+        }
+      },
+      "required": [
+        "loadBalancerName"
+      ],
+      "type": "object"
+    },
+    "DeleteLoadBalancerResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteLoadBalancerTlsCertificateRequest": {
+      "properties": {
+        "certificateName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The TLS/SSL certificate name."
+        },
+        "force": {
+          "$ref": "#/definitions/boolean",
+          "description": "When <code>true</code>, forces the deletion of a TLS/SSL certificate."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The load balancer name."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "certificateName"
+      ],
+      "type": "object"
+    },
+    "DeleteLoadBalancerTlsCertificateResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "DetachDiskRequest": {
+      "properties": {
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique name of the disk you want to detach from your instance (e.g., <code>my-disk</code>)."
+        }
+      },
+      "required": [
+        "diskName"
+      ],
+      "type": "object"
+    },
+    "DetachDiskResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
+    "DetachInstancesFromLoadBalancerRequest": {
+      "properties": {
+        "instanceNames": {
+          "$ref": "#/definitions/ResourceNameList",
+          "description": "An array of strings containing the names of the instances you want to detach from the load balancer."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the Lightsail load balancer."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "instanceNames"
+      ],
+      "type": "object"
+    },
+    "DetachInstancesFromLoadBalancerResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
+        }
+      },
+      "type": "object"
+    },
     "DetachStaticIpRequest": {
       "properties": {
         "staticIpName": {
@@ -5286,19 +7883,19 @@
       "type": "object"
     },
     "Disk": {
-      "description": "Describes the hard disk (an SSD).",
+      "description": "Describes a system disk or an block storage disk.",
       "properties": {
         "arn": {
           "$ref": "#/definitions/NonEmptyString",
           "description": "The Amazon Resource Name (ARN) of the disk."
         },
         "attachedTo": {
-          "$ref": "#/definitions/string",
+          "$ref": "#/definitions/ResourceName",
           "description": "The resources to which the disk is attached."
         },
         "attachmentState": {
           "$ref": "#/definitions/string",
-          "description": "The attachment state of the disk."
+          "description": "<p>(Deprecated) The attachment state of the disk.</p> <note> <p>In releases prior to November 14, 2017, this parameter returned <code>attached</code> for system disks in the API response. It is now deprecated, but still included in the response. Use <code>isAttached</code> instead.</p> </note>"
         },
         "createdAt": {
           "$ref": "#/definitions/IsoDate",
@@ -5306,7 +7903,7 @@
         },
         "gbInUse": {
           "$ref": "#/definitions/integer",
-          "description": "The number of GB in use by the disk."
+          "description": "<p>(Deprecated) The number of GB in use by the disk.</p> <note> <p>In releases prior to November 14, 2017, this parameter was not included in the API response. It is now deprecated.</p> </note>"
         },
         "iops": {
           "$ref": "#/definitions/integer",
@@ -5322,11 +7919,11 @@
         },
         "location": {
           "$ref": "#/definitions/ResourceLocation",
-          "description": "The region and Availability Zone where the disk is located."
+          "description": "The AWS Region and Availability Zone where the disk is located."
         },
         "name": {
           "$ref": "#/definitions/ResourceName",
-          "description": "The name of the disk."
+          "description": "The unique name of the disk."
         },
         "path": {
           "$ref": "#/definitions/string",
@@ -5334,11 +7931,15 @@
         },
         "resourceType": {
           "$ref": "#/definitions/ResourceType",
-          "description": "The resource type of the disk. "
+          "description": "The Lightsail resource type (e.g., <code>Disk</code>)."
         },
         "sizeInGb": {
           "$ref": "#/definitions/integer",
           "description": "The size of the disk in GB."
+        },
+        "state": {
+          "$ref": "#/definitions/DiskState",
+          "description": "Describes the status of the disk."
         },
         "supportCode": {
           "$ref": "#/definitions/string",
@@ -5352,6 +7953,101 @@
         "$ref": "#/definitions/Disk"
       },
       "type": "array"
+    },
+    "DiskMap": {
+      "description": "Describes a block storage disk mapping.",
+      "properties": {
+        "newDiskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The new disk name (e.g., <code>my-new-disk</code>)."
+        },
+        "originalDiskPath": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The original disk path exposed to the instance (for example, <code>/dev/sdh</code>)."
+        }
+      },
+      "type": "object"
+    },
+    "DiskMapList": {
+      "items": {
+        "$ref": "#/definitions/DiskMap"
+      },
+      "type": "array"
+    },
+    "DiskSnapshot": {
+      "description": "Describes a block storage disk snapshot.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the disk snapshot."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The date when the disk snapshot was created."
+        },
+        "fromDiskArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot."
+        },
+        "fromDiskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The unique name of the source disk from which you are creating the disk snapshot."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The AWS Region and Availability Zone where the disk snapshot was created."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>)."
+        },
+        "progress": {
+          "$ref": "#/definitions/string",
+          "description": "The progress of the disk snapshot operation."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The Lightsail resource type (e.g., <code>DiskSnapshot</code>)."
+        },
+        "sizeInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The size of the disk in GB."
+        },
+        "state": {
+          "$ref": "#/definitions/DiskSnapshotState",
+          "description": "The status of the disk snapshot operation."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object"
+    },
+    "DiskSnapshotList": {
+      "items": {
+        "$ref": "#/definitions/DiskSnapshot"
+      },
+      "type": "array"
+    },
+    "DiskSnapshotState": {
+      "enum": [
+        "pending",
+        "completed",
+        "error",
+        "unknown"
+      ],
+      "type": "string"
+    },
+    "DiskState": {
+      "enum": [
+        "pending",
+        "error",
+        "available",
+        "in-use",
+        "unknown"
+      ],
+      "type": "string"
     },
     "Domain": {
       "description": "Describes a domain where you are storing recordsets in Lightsail.",
@@ -5394,13 +8090,17 @@
           "$ref": "#/definitions/NonEmptyString",
           "description": "The ID of the domain recordset entry."
         },
+        "isAlias": {
+          "$ref": "#/definitions/boolean",
+          "description": "When <code>true</code>, specifies whether the domain entry is an alias used by the Lightsail load balancer."
+        },
         "name": {
           "$ref": "#/definitions/DomainName",
           "description": "The name of the domain."
         },
         "options": {
           "$ref": "#/definitions/DomainEntryOptions",
-          "description": "The options for the domain entry."
+          "description": "<p>(Deprecated) The options for the domain entry.</p> <note> <p>In releases prior to November 29, 2017, this parameter was not included in the API response. It is now deprecated.</p> </note>"
         },
         "target": {
           "$ref": "#/definitions/string",
@@ -5447,6 +8147,12 @@
     },
     "DomainName": {
       "type": "string"
+    },
+    "DomainNameList": {
+      "items": {
+        "$ref": "#/definitions/DomainName"
+      },
+      "type": "array"
     },
     "DownloadDefaultKeyPairRequest": {
       "properties": {},
@@ -5535,6 +8241,92 @@
         "nextPageToken": {
           "$ref": "#/definitions/string",
           "description": "A token used for advancing to the next page of results from your get active names request."
+        }
+      },
+      "type": "object"
+    },
+    "GetDiskRequest": {
+      "properties": {
+        "diskName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the disk (e.g., <code>my-disk</code>)."
+        }
+      },
+      "required": [
+        "diskName"
+      ],
+      "type": "object"
+    },
+    "GetDiskResult": {
+      "properties": {
+        "disk": {
+          "$ref": "#/definitions/Disk",
+          "description": "An object containing information about the disk."
+        }
+      },
+      "type": "object"
+    },
+    "GetDiskSnapshotRequest": {
+      "properties": {
+        "diskSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>)."
+        }
+      },
+      "required": [
+        "diskSnapshotName"
+      ],
+      "type": "object"
+    },
+    "GetDiskSnapshotResult": {
+      "properties": {
+        "diskSnapshot": {
+          "$ref": "#/definitions/DiskSnapshot",
+          "description": "An object containing information about the disk snapshot."
+        }
+      },
+      "type": "object"
+    },
+    "GetDiskSnapshotsRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your GetDiskSnapshots request."
+        }
+      },
+      "type": "object"
+    },
+    "GetDiskSnapshotsResult": {
+      "properties": {
+        "diskSnapshots": {
+          "$ref": "#/definitions/DiskSnapshotList",
+          "description": "An array of objects containing information about all block storage disk snapshots."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your GetDiskSnapshots request."
+        }
+      },
+      "type": "object"
+    },
+    "GetDisksRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your GetDisks request."
+        }
+      },
+      "type": "object"
+    },
+    "GetDisksResult": {
+      "properties": {
+        "disks": {
+          "$ref": "#/definitions/DiskList",
+          "description": "An array of objects containing information about all block storage disks."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your GetDisks request."
         }
       },
       "type": "object"
@@ -5657,7 +8449,7 @@
         },
         "metricName": {
           "$ref": "#/definitions/InstanceMetricName",
-          "description": "The metric name to return data for. "
+          "description": "The metric name to return data for."
         }
       },
       "type": "object"
@@ -5833,6 +8625,125 @@
       },
       "type": "object"
     },
+    "GetLoadBalancerMetricDataRequest": {
+      "properties": {
+        "endTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The end time of the period."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer."
+        },
+        "metricName": {
+          "$ref": "#/definitions/LoadBalancerMetricName",
+          "description": "<p>The metric about which you want to return information. Valid values are listed below, along with the most useful <code>statistics</code> to include in your request.</p> <ul> <li> <p> <b> <code>ClientTLSNegotiationErrorCount</code> </b> - The number of TLS connections initiated by the client that did not establish a session with the load balancer. Possible causes include a mismatch of ciphers or protocols.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> </li> <li> <p> <b> <code>HealthyHostCount</code> </b> - The number of target instances that are considered healthy.</p> <p> <code>Statistics</code>: The most useful statistic are <code>Average</code>, <code>Minimum</code>, and <code>Maximum</code>.</p> </li> <li> <p> <b> <code>UnhealthyHostCount</code> </b> - The number of target instances that are considered unhealthy.</p> <p> <code>Statistics</code>: The most useful statistic are <code>Average</code>, <code>Minimum</code>, and <code>Maximum</code>.</p> </li> <li> <p> <b> <code>HTTPCode_LB_4XX_Count</code> </b> - The number of HTTP 4XX client error codes that originate from the load balancer. Client errors are generated when requests are malformed or incomplete. These requests have not been received by the target instance. This count does not include any response codes generated by the target instances.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> <li> <p> <b> <code>HTTPCode_LB_5XX_Count</code> </b> - The number of HTTP 5XX server error codes that originate from the load balancer. This count does not include any response codes generated by the target instances.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> <li> <p> <b> <code>HTTPCode_Instance_2XX_Count</code> </b> - The number of HTTP response codes generated by the target instances. This does not include any response codes generated by the load balancer.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> <li> <p> <b> <code>HTTPCode_Instance_3XX_Count</code> </b> - The number of HTTP response codes generated by the target instances. This does not include any response codes generated by the load balancer. </p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> <li> <p> <b> <code>HTTPCode_Instance_4XX_Count</code> </b> - The number of HTTP response codes generated by the target instances. This does not include any response codes generated by the load balancer.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> <li> <p> <b> <code>HTTPCode_Instance_5XX_Count</code> </b> - The number of HTTP response codes generated by the target instances. This does not include any response codes generated by the load balancer.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> <li> <p> <b> <code>InstanceResponseTime</code> </b> - The time elapsed, in seconds, after the request leaves the load balancer until a response from the target instance is received.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> </li> <li> <p> <b> <code>RejectedConnectionCount</code> </b> - The number of connections that were rejected because the load balancer had reached its maximum number of connections.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> </li> <li> <p> <b> <code>RequestCount</code> </b> - The number of requests processed over IPv4. This count includes only the requests with a response generated by a target instance of the load balancer.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return <code>1</code>.</p> </li> </ul>"
+        },
+        "period": {
+          "$ref": "#/definitions/MetricPeriod",
+          "description": "The time period duration for your health data request."
+        },
+        "startTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The start time of the period."
+        },
+        "statistics": {
+          "$ref": "#/definitions/MetricStatisticList",
+          "description": "An array of statistics that you want to request metrics for. Valid values are listed below."
+        },
+        "unit": {
+          "$ref": "#/definitions/MetricUnit",
+          "description": "The unit for the time period request. Valid values are listed below."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "metricName",
+        "period",
+        "startTime",
+        "endTime",
+        "unit",
+        "statistics"
+      ],
+      "type": "object"
+    },
+    "GetLoadBalancerMetricDataResult": {
+      "properties": {
+        "metricData": {
+          "$ref": "#/definitions/MetricDatapointList",
+          "description": "An array of metric datapoint objects."
+        },
+        "metricName": {
+          "$ref": "#/definitions/LoadBalancerMetricName",
+          "description": "The metric about which you are receiving information. Valid values are listed below."
+        }
+      },
+      "type": "object"
+    },
+    "GetLoadBalancerRequest": {
+      "properties": {
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer."
+        }
+      },
+      "required": [
+        "loadBalancerName"
+      ],
+      "type": "object"
+    },
+    "GetLoadBalancerResult": {
+      "properties": {
+        "loadBalancer": {
+          "$ref": "#/definitions/LoadBalancer",
+          "description": "An object containing information about your load balancer."
+        }
+      },
+      "type": "object"
+    },
+    "GetLoadBalancerTlsCertificatesRequest": {
+      "properties": {
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer where you stored your TLS/SSL certificate."
+        }
+      },
+      "required": [
+        "loadBalancerName"
+      ],
+      "type": "object"
+    },
+    "GetLoadBalancerTlsCertificatesResult": {
+      "properties": {
+        "tlsCertificates": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateList",
+          "description": "An array of LoadBalancerTlsCertificate objects describing your TLS/SSL certificates."
+        }
+      },
+      "type": "object"
+    },
+    "GetLoadBalancersRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for paginating the results from your GetLoadBalancers request."
+        }
+      },
+      "type": "object"
+    },
+    "GetLoadBalancersResult": {
+      "properties": {
+        "loadBalancers": {
+          "$ref": "#/definitions/LoadBalancerList",
+          "description": "An array of LoadBalancer objects describing your load balancers."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your GetLoadBalancers request."
+        }
+      },
+      "type": "object"
+    },
     "GetOperationRequest": {
       "properties": {
         "operationId": {
@@ -5913,7 +8824,7 @@
       "properties": {
         "includeAvailabilityZones": {
           "$ref": "#/definitions/boolean",
-          "description": "A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-1a</code>."
+          "description": "A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-2a</code>."
         }
       },
       "type": "object"
@@ -6001,7 +8912,7 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The Amazon Resource Name (ARN) of the instance (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>)."
+          "description": "The Amazon Resource Name (ARN) of the instance (e.g., <code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>)."
         },
         "blueprintId": {
           "$ref": "#/definitions/NonEmptyString",
@@ -6037,7 +8948,7 @@
         },
         "name": {
           "$ref": "#/definitions/ResourceName",
-          "description": "The name the user gave the instance (e.g., <code>Amazon_Linux-1GB-Virginia-1</code>)."
+          "description": "The name the user gave the instance (e.g., <code>Amazon_Linux-1GB-Ohio-1</code>)."
         },
         "networking": {
           "$ref": "#/definitions/InstanceNetworking",
@@ -6140,6 +9051,57 @@
         }
       },
       "type": "object"
+    },
+    "InstanceHealthReason": {
+      "enum": [
+        "Lb.RegistrationInProgress",
+        "Lb.InitialHealthChecking",
+        "Lb.InternalError",
+        "Instance.ResponseCodeMismatch",
+        "Instance.Timeout",
+        "Instance.FailedHealthChecks",
+        "Instance.NotRegistered",
+        "Instance.NotInUse",
+        "Instance.DeregistrationInProgress",
+        "Instance.InvalidState",
+        "Instance.IpUnusable"
+      ],
+      "type": "string"
+    },
+    "InstanceHealthState": {
+      "enum": [
+        "initial",
+        "healthy",
+        "unhealthy",
+        "unused",
+        "draining",
+        "unavailable"
+      ],
+      "type": "string"
+    },
+    "InstanceHealthSummary": {
+      "description": "Describes information about the health of the instance.",
+      "properties": {
+        "instanceHealth": {
+          "$ref": "#/definitions/InstanceHealthState",
+          "description": "Describes the overall instance health. Valid values are below."
+        },
+        "instanceHealthReason": {
+          "$ref": "#/definitions/InstanceHealthReason",
+          "description": "More information about the instance health. Valid values are below."
+        },
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the Lightsail instance for which you are requesting health check data."
+        }
+      },
+      "type": "object"
+    },
+    "InstanceHealthSummaryList": {
+      "items": {
+        "$ref": "#/definitions/InstanceHealthSummary"
+      },
+      "type": "array"
     },
     "InstanceList": {
       "items": {
@@ -6258,11 +9220,15 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The Amazon Resource Name (ARN) of the snapshot (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>)."
+          "description": "The Amazon Resource Name (ARN) of the snapshot (e.g., <code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>)."
         },
         "createdAt": {
           "$ref": "#/definitions/IsoDate",
           "description": "The timestamp when the snapshot was created (e.g., <code>1479907467.024</code>)."
+        },
+        "fromAttachedDisks": {
+          "$ref": "#/definitions/DiskList",
+          "description": "An array of disk objects containing information about all block storage disks."
         },
         "fromBlueprintId": {
           "$ref": "#/definitions/string",
@@ -6274,7 +9240,7 @@
         },
         "fromInstanceArn": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>)."
+          "description": "The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g., <code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>)."
         },
         "fromInstanceName": {
           "$ref": "#/definitions/ResourceName",
@@ -6387,7 +9353,7 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The Amazon Resource Name (ARN) of the key pair (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>)."
+          "description": "The Amazon Resource Name (ARN) of the key pair (e.g., <code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>)."
         },
         "createdAt": {
           "$ref": "#/definitions/IsoDate",
@@ -6419,6 +9385,383 @@
     "KeyPairList": {
       "items": {
         "$ref": "#/definitions/KeyPair"
+      },
+      "type": "array"
+    },
+    "LoadBalancer": {
+      "description": "Describes the Lightsail load balancer.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "configurationOptions": {
+          "$ref": "#/definitions/LoadBalancerConfigurationOptions",
+          "description": "A string to string map of the configuration options for your load balancer. Valid values are listed below."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The date when your load balancer was created."
+        },
+        "dnsName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The DNS name of your Lightsail load balancer."
+        },
+        "healthCheckPath": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The path you specified to perform your health checks. If no path is specified, the load balancer tries to make a request to the default (root) page."
+        },
+        "instanceHealthSummary": {
+          "$ref": "#/definitions/InstanceHealthSummaryList",
+          "description": "An array of InstanceHealthSummary objects describing the health of the load balancer."
+        },
+        "instancePort": {
+          "$ref": "#/definitions/integer",
+          "description": "The instance port where the load balancer is listening."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The AWS Region and Availability Zone where your load balancer was created (e.g., <code>us-east-2a</code>)."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer (e.g., <code>my-load-balancer</code>)."
+        },
+        "protocol": {
+          "$ref": "#/definitions/LoadBalancerProtocol",
+          "description": "The protocol you have enabled for your load balancer. Valid values are below."
+        },
+        "publicPorts": {
+          "$ref": "#/definitions/PortList",
+          "description": "An array of public port settings for your load balancer."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type (e.g., <code>LoadBalancer</code>."
+        },
+        "state": {
+          "$ref": "#/definitions/LoadBalancerState",
+          "description": "The status of your load balancer. Valid values are below."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about your Lightsail load balancer. This code enables our support team to look up your Lightsail information more easily."
+        },
+        "tlsCertificateSummaries": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateSummaryList",
+          "description": "An array of LoadBalancerTlsCertificateSummary objects that provide additional information about the TLS/SSL certificates."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerAttributeName": {
+      "enum": [
+        "HealthCheckPath",
+        "SessionStickinessEnabled",
+        "SessionStickiness_LB_CookieDurationSeconds"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerConfigurationOptions": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/LoadBalancerAttributeName"
+          },
+          "value": {
+            "$ref": "#/definitions/string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "LoadBalancerList": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancer"
+      },
+      "type": "array"
+    },
+    "LoadBalancerMetricName": {
+      "enum": [
+        "ClientTLSNegotiationErrorCount",
+        "HealthyHostCount",
+        "UnhealthyHostCount",
+        "HTTPCode_LB_4XX_Count",
+        "HTTPCode_LB_5XX_Count",
+        "HTTPCode_Instance_2XX_Count",
+        "HTTPCode_Instance_3XX_Count",
+        "HTTPCode_Instance_4XX_Count",
+        "HTTPCode_Instance_5XX_Count",
+        "InstanceResponseTime",
+        "RejectedConnectionCount",
+        "RequestCount"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerProtocol": {
+      "enum": [
+        "HTTP_HTTPS",
+        "HTTP"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerState": {
+      "enum": [
+        "active",
+        "provisioning",
+        "active_impaired",
+        "failed",
+        "unknown"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerTlsCertificate": {
+      "description": "<p>Describes a load balancer TLS/SSL certificate.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the TLS/SSL certificate."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The time when you created your TLS/SSL certificate."
+        },
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The domain name for your TLS/SSL certificate."
+        },
+        "domainValidationRecords": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateDomainValidationRecordList",
+          "description": "An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the records."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateFailureReason",
+          "description": "The reason for the TLS/SSL certificate validation failure."
+        },
+        "isAttached": {
+          "$ref": "#/definitions/boolean",
+          "description": "When <code>true</code>, the TLS/SSL certificate is attached to the Lightsail load balancer."
+        },
+        "issuedAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The time when the TLS/SSL certificate was issued."
+        },
+        "issuer": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The issuer of the certificate."
+        },
+        "keyAlgorithm": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The algorithm that was used to generate the key pair (the public and private key)."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The load balancer name where your TLS/SSL certificate is attached."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The AWS Region and Availability Zone where you created your certificate."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the TLS/SSL certificate (e.g., <code>my-certificate</code>)."
+        },
+        "notAfter": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the TLS/SSL certificate expires."
+        },
+        "notBefore": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the TLS/SSL certificate is first valid."
+        },
+        "renewalSummary": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateRenewalSummary",
+          "description": "An object containing information about the status of Lightsail's managed renewal for the certificate."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type (e.g., <code>LoadBalancerTlsCertificate</code>."
+        },
+        "revocationReason": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateRevocationReason",
+          "description": "The reason the certificate was revoked. Valid values are below."
+        },
+        "revokedAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the TLS/SSL certificate was revoked."
+        },
+        "serial": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The serial number of the certificate."
+        },
+        "signatureAlgorithm": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The algorithm that was used to sign the certificate."
+        },
+        "status": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateStatus",
+          "description": "The status of the TLS/SSL certificate. Valid values are below."
+        },
+        "subject": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the entity that is associated with the public key contained in the certificate."
+        },
+        "subjectAlternativeNames": {
+          "$ref": "#/definitions/StringList",
+          "description": "One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about your Lightsail load balancer or TLS/SSL certificate. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerTlsCertificateDomainStatus": {
+      "enum": [
+        "PENDING_VALIDATION",
+        "FAILED",
+        "SUCCESS"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerTlsCertificateDomainValidationOption": {
+      "description": "Contains information about the domain names on a TLS/SSL certificate that you will use to validate domain ownership.",
+      "properties": {
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "A fully qualified domain name in the certificate request."
+        },
+        "validationStatus": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateDomainStatus",
+          "description": "The status of the domain validation. Valid values are listed below."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerTlsCertificateDomainValidationOptionList": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerTlsCertificateDomainValidationOption"
+      },
+      "type": "array"
+    },
+    "LoadBalancerTlsCertificateDomainValidationRecord": {
+      "description": "Describes the validation record of each domain name in the TLS/SSL certificate.",
+      "properties": {
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The domain name against which your TLS/SSL certificate was validated."
+        },
+        "name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A fully qualified domain name in the certificate. For example, <code>example.com</code>."
+        },
+        "type": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The type of validation record. For example, <code>CNAME</code> for domain validation."
+        },
+        "validationStatus": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateDomainStatus",
+          "description": "The validation status. Valid values are listed below."
+        },
+        "value": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The value for that type."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerTlsCertificateDomainValidationRecordList": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerTlsCertificateDomainValidationRecord"
+      },
+      "type": "array"
+    },
+    "LoadBalancerTlsCertificateFailureReason": {
+      "enum": [
+        "NO_AVAILABLE_CONTACTS",
+        "ADDITIONAL_VERIFICATION_REQUIRED",
+        "DOMAIN_NOT_ALLOWED",
+        "INVALID_PUBLIC_DOMAIN",
+        "OTHER"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerTlsCertificateList": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerTlsCertificate"
+      },
+      "type": "array"
+    },
+    "LoadBalancerTlsCertificateRenewalStatus": {
+      "enum": [
+        "PENDING_AUTO_RENEWAL",
+        "PENDING_VALIDATION",
+        "SUCCESS",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerTlsCertificateRenewalSummary": {
+      "description": "Contains information about the status of Lightsail's managed renewal for the certificate.",
+      "properties": {
+        "domainValidationOptions": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateDomainValidationOptionList",
+          "description": "Contains information about the validation of each domain name in the certificate, as it pertains to Lightsail's managed renewal. This is different from the initial validation that occurs as a result of the RequestCertificate request."
+        },
+        "renewalStatus": {
+          "$ref": "#/definitions/LoadBalancerTlsCertificateRenewalStatus",
+          "description": "The status of Lightsail's managed renewal of the certificate. Valid values are listed below."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerTlsCertificateRevocationReason": {
+      "enum": [
+        "UNSPECIFIED",
+        "KEY_COMPROMISE",
+        "CA_COMPROMISE",
+        "AFFILIATION_CHANGED",
+        "SUPERCEDED",
+        "CESSATION_OF_OPERATION",
+        "CERTIFICATE_HOLD",
+        "REMOVE_FROM_CRL",
+        "PRIVILEGE_WITHDRAWN",
+        "A_A_COMPROMISE"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerTlsCertificateStatus": {
+      "enum": [
+        "PENDING_VALIDATION",
+        "ISSUED",
+        "INACTIVE",
+        "EXPIRED",
+        "VALIDATION_TIMED_OUT",
+        "REVOKED",
+        "FAILED",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerTlsCertificateSummary": {
+      "description": "Provides a summary of TLS/SSL certificate metadata.",
+      "properties": {
+        "isAttached": {
+          "$ref": "#/definitions/boolean",
+          "description": "When <code>true</code>, the TLS/SSL certificate is attached to the Lightsail load balancer."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the TLS/SSL certificate."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerTlsCertificateSummaryList": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerTlsCertificateSummary"
       },
       "type": "array"
     },
@@ -6610,7 +9953,7 @@
         },
         "operationDetails": {
           "$ref": "#/definitions/string",
-          "description": "Details about the operation (e.g., <code>Debian-1GB-Virginia-1</code>)."
+          "description": "Details about the operation (e.g., <code>Debian-1GB-Ohio-1</code>)."
         },
         "operationType": {
           "$ref": "#/definitions/OperationType",
@@ -6688,7 +10031,22 @@
         "DeleteDomain",
         "CreateInstanceSnapshot",
         "DeleteInstanceSnapshot",
-        "CreateInstancesFromSnapshot"
+        "CreateInstancesFromSnapshot",
+        "CreateLoadBalancer",
+        "DeleteLoadBalancer",
+        "AttachInstancesToLoadBalancer",
+        "DetachInstancesFromLoadBalancer",
+        "UpdateLoadBalancerAttribute",
+        "CreateLoadBalancerTlsCertificate",
+        "DeleteLoadBalancerTlsCertificate",
+        "AttachLoadBalancerTlsCertificate",
+        "CreateDisk",
+        "DeleteDisk",
+        "AttachDisk",
+        "DetachDisk",
+        "CreateDiskSnapshot",
+        "DeleteDiskSnapshot",
+        "CreateDiskFromSnapshot"
       ],
       "type": "string"
     },
@@ -6755,6 +10113,12 @@
       },
       "type": "array"
     },
+    "PortList": {
+      "items": {
+        "$ref": "#/definitions/Port"
+      },
+      "type": "array"
+    },
     "PortState": {
       "enum": [
         "open",
@@ -6814,7 +10178,7 @@
       "properties": {
         "availabilityZones": {
           "$ref": "#/definitions/AvailabilityZoneList",
-          "description": "The Availability Zones. Follows the format <code>us-east-1a</code> (case-sensitive)."
+          "description": "The Availability Zones. Follows the format <code>us-east-2a</code> (case-sensitive)."
         },
         "continentCode": {
           "$ref": "#/definitions/string",
@@ -6826,11 +10190,11 @@
         },
         "displayName": {
           "$ref": "#/definitions/string",
-          "description": "The display name (e.g., <code>Virginia</code>)."
+          "description": "The display name (e.g., <code>Ohio</code>)."
         },
         "name": {
           "$ref": "#/definitions/RegionName",
-          "description": "The region name (e.g., <code>us-east-1</code>)."
+          "description": "The region name (e.g., <code>us-east-2</code>)."
         }
       },
       "type": "object"
@@ -6883,7 +10247,7 @@
       "properties": {
         "availabilityZone": {
           "$ref": "#/definitions/string",
-          "description": "The Availability Zone. Follows the format <code>us-east-1a</code> (case-sensitive)."
+          "description": "The Availability Zone. Follows the format <code>us-east-2a</code> (case-sensitive)."
         },
         "regionName": {
           "$ref": "#/definitions/RegionName",
@@ -6896,6 +10260,12 @@
       "pattern": "\\w[\\w\\-]*\\w",
       "type": "string"
     },
+    "ResourceNameList": {
+      "items": {
+        "$ref": "#/definitions/ResourceName"
+      },
+      "type": "array"
+    },
     "ResourceType": {
       "enum": [
         "Instance",
@@ -6903,7 +10273,11 @@
         "KeyPair",
         "InstanceSnapshot",
         "Domain",
-        "PeeredVpc"
+        "PeeredVpc",
+        "LoadBalancer",
+        "LoadBalancerTlsCertificate",
+        "Disk",
+        "DiskSnapshot"
       ],
       "type": "string"
     },
@@ -6951,11 +10325,11 @@
       "properties": {
         "arn": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The Amazon Resource Name (ARN) of the static IP (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>)."
+          "description": "The Amazon Resource Name (ARN) of the static IP (e.g., <code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>)."
         },
         "attachedTo": {
           "$ref": "#/definitions/ResourceName",
-          "description": "The instance where the static IP is attached (e.g., <code>Amazon_Linux-1GB-Virginia-1</code>)."
+          "description": "The instance where the static IP is attached (e.g., <code>Amazon_Linux-1GB-Ohio-1</code>)."
         },
         "createdAt": {
           "$ref": "#/definitions/IsoDate",
@@ -6975,7 +10349,7 @@
         },
         "name": {
           "$ref": "#/definitions/ResourceName",
-          "description": "The name of the static IP (e.g., <code>StaticIP-Virginia-EXAMPLE</code>)."
+          "description": "The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>)."
         },
         "resourceType": {
           "$ref": "#/definitions/ResourceType",
@@ -6996,6 +10370,10 @@
     },
     "StopInstanceRequest": {
       "properties": {
+        "force": {
+          "$ref": "#/definitions/boolean",
+          "description": "<p>When set to <code>True</code>, forces a Lightsail instance that is stuck in a <code>stopping</code> state to stop.</p> <important> <p>Only use the <code>force</code> parameter if your instance is stuck in the <code>stopping</code> state. In any other state, your instance should stop normally without adding this parameter to your API request.</p> </important>"
+        },
         "instanceName": {
           "$ref": "#/definitions/ResourceName",
           "description": "The name of the instance (a virtual private server) to stop."
@@ -7020,6 +10398,11 @@
         "$ref": "#/definitions/string"
       },
       "type": "array"
+    },
+    "StringMax256": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
     },
     "UnauthenticatedException": {
       "description": "Lightsail throws this exception when the user has not been authenticated.",
@@ -7074,6 +10457,37 @@
         "operations": {
           "$ref": "#/definitions/OperationList",
           "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateLoadBalancerAttributeRequest": {
+      "properties": {
+        "attributeName": {
+          "$ref": "#/definitions/LoadBalancerAttributeName",
+          "description": "The name of the attribute you want to update. Valid values are below."
+        },
+        "attributeValue": {
+          "$ref": "#/definitions/StringMax256",
+          "description": "The value that you want to specify for the attribute name."
+        },
+        "loadBalancerName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the load balancer that you want to modify."
+        }
+      },
+      "required": [
+        "loadBalancerName",
+        "attributeName",
+        "attributeValue"
+      ],
+      "type": "object"
+    },
+    "UpdateLoadBalancerAttributeResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An object describing the API operations."
         }
       },
       "type": "object"

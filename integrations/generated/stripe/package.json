@@ -1,6 +1,6 @@
 {
   "name": "@datafire/stripe",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Stripe",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/stripe.com/2017-08-15/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/stripe.com/2018-01-23/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

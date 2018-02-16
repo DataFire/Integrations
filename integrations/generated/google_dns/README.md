@@ -105,10 +105,10 @@ google_dns.managedZones.list({
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
   * dnsName `string`: Restricts the list to return only zones with this domain name.
   * maxResults `integer`: Optional. Maximum number of results to be returned. If unspecified, the server will decide how many results to return.
   * pageToken `string`: Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request.
+  * project **required** `string`: Identifies the project addressed by this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -132,8 +132,8 @@ google_dns.managedZones.create({
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
   * body [ManagedZone](#managedzone)
+  * project **required** `string`: Identifies the project addressed by this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -151,15 +151,15 @@ Delete a previously created ManagedZone.
 
 ```js
 google_dns.managedZones.delete({
-  "project": "",
-  "managedZone": ""
+  "managedZone": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
   * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
+  * project **required** `string`: Identifies the project addressed by this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -177,15 +177,15 @@ Fetch the representation of an existing ManagedZone.
 
 ```js
 google_dns.managedZones.get({
-  "project": "",
-  "managedZone": ""
+  "managedZone": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
   * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
+  * project **required** `string`: Identifies the project addressed by this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -203,17 +203,17 @@ Enumerate Changes to a ResourceRecordSet collection.
 
 ```js
 google_dns.changes.list({
-  "project": "",
-  "managedZone": ""
+  "managedZone": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
   * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
   * maxResults `integer`: Optional. Maximum number of results to be returned. If unspecified, the server will decide how many results to return.
   * pageToken `string`: Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request.
+  * project **required** `string`: Identifies the project addressed by this request.
   * sortBy `string` (values: changeSequence): Sorting criterion. The only supported value is change sequence.
   * sortOrder `string`: Sorting order direction: 'ascending' or 'descending'.
   * alt `string` (values: json): Data format for the response.
@@ -233,16 +233,16 @@ Atomically update the ResourceRecordSet collection.
 
 ```js
 google_dns.changes.create({
-  "project": "",
-  "managedZone": ""
+  "managedZone": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
-  * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
   * body [Change](#change)
+  * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
+  * project **required** `string`: Identifies the project addressed by this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -260,17 +260,17 @@ Fetch the representation of an existing Change.
 
 ```js
 google_dns.changes.get({
-  "project": "",
+  "changeId": "",
   "managedZone": "",
-  "changeId": ""
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
-  * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
   * changeId **required** `string`: The identifier of the requested change, from a previous ResourceRecordSetsChangeResponse.
+  * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
+  * project **required** `string`: Identifies the project addressed by this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -288,18 +288,18 @@ Enumerate ResourceRecordSets that have been created but not yet deleted.
 
 ```js
 google_dns.resourceRecordSets.list({
-  "project": "",
-  "managedZone": ""
+  "managedZone": "",
+  "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * project **required** `string`: Identifies the project addressed by this request.
   * managedZone **required** `string`: Identifies the managed zone addressed by this request. Can be the managed zone name or id.
   * maxResults `integer`: Optional. Maximum number of results to be returned. If unspecified, the server will decide how many results to return.
   * name `string`: Restricts the list to return only records with this fully qualified domain name.
   * pageToken `string`: Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request.
+  * project **required** `string`: Identifies the project addressed by this request.
   * type `string`: Restricts the list to return only records of this type. If present, the "name" parameter must also be present.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.

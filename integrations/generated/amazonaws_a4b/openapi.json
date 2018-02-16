@@ -46,7 +46,7 @@
     "x-preferred": true,
     "x-providerName": "amazonaws.com",
     "x-release": "v4",
-    "x-serviceName": "a4b",
+    "x-serviceName": "alexaforbusiness",
     "x-datafire": {
       "name": "amazonaws_a4b",
       "type": "openapi"
@@ -2669,7 +2669,11 @@
         },
         "DeviceStatus": {
           "$ref": "#/definitions/DeviceStatus",
-          "description": "The status of a device."
+          "description": "The status of a device. If the status is not READY, check the DeviceStatusInfo for details."
+        },
+        "DeviceStatusInfo": {
+          "$ref": "#/definitions/DeviceStatusInfo",
+          "description": "Detailed information about a device's status."
         },
         "DeviceType": {
           "$ref": "#/definitions/DeviceType",
@@ -2708,6 +2712,10 @@
         "DeviceStatus": {
           "$ref": "#/definitions/DeviceStatus",
           "description": "The status of a device."
+        },
+        "DeviceStatusInfo": {
+          "$ref": "#/definitions/DeviceStatusInfo",
+          "description": "Detailed information about a device's status."
         },
         "DeviceType": {
           "$ref": "#/definitions/DeviceType",
@@ -2755,6 +2763,39 @@
         "WAS_OFFLINE"
       ],
       "type": "string"
+    },
+    "DeviceStatusDetail": {
+      "description": "Details of a device’s status.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/DeviceStatusDetailCode",
+          "description": "The device status detail code."
+        }
+      },
+      "type": "object"
+    },
+    "DeviceStatusDetailCode": {
+      "enum": [
+        "DEVICE_SOFTWARE_UPDATE_NEEDED",
+        "DEVICE_WAS_OFFLINE"
+      ],
+      "type": "string"
+    },
+    "DeviceStatusDetails": {
+      "items": {
+        "$ref": "#/definitions/DeviceStatusDetail"
+      },
+      "type": "array"
+    },
+    "DeviceStatusInfo": {
+      "description": "Detailed information about a device's status.",
+      "properties": {
+        "DeviceStatusDetails": {
+          "$ref": "#/definitions/DeviceStatusDetails",
+          "description": "One or more device status detail descriptions."
+        }
+      },
+      "type": "object"
     },
     "DeviceType": {
       "pattern": "[a-zA-Z0-9]{1,200}",
@@ -3393,7 +3434,7 @@
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
-          "description": "The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and UnassociatedOnly."
+          "description": "The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, and UnassociatedOnly."
         },
         "MaxResults": {
           "$ref": "#/definitions/MaxResults",

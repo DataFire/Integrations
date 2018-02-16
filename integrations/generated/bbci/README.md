@@ -905,6 +905,9 @@ bbci.user.watching.get({
     * count_all **required** `number`
     * elements **required** `array`
       * items [added](#added)
+  * adds `object`
+    * added **required** `string`
+    * id **required** `string`
   * atoz_programmes `object`
     * character **required** `string`
     * count **required** `number`

@@ -30,11 +30,11 @@ An OpenAPI for EVE Online
 List all active player alliances
 
 ---
-Alternate route: `/v1/alliances/`
+Alternate route: `/dev/alliances/`
 
 Alternate route: `/legacy/alliances/`
 
-Alternate route: `/dev/alliances/`
+Alternate route: `/v1/alliances/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -58,9 +58,9 @@ ccp_is.get_alliances({}, context)
 Resolve a set of alliance IDs to alliance names
 
 ---
-Alternate route: `/v1/alliances/names/`
+Alternate route: `/dev/alliances/names/`
 
-Alternate route: `/legacy/alliances/names/`
+Alternate route: `/v2/alliances/names/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -89,7 +89,9 @@ ccp_is.get_alliances_names({
 Public information about an alliance
 
 ---
-Alternate route: `/v2/alliances/{alliance_id}/`
+Alternate route: `/dev/alliances/{alliance_id}/`
+
+Alternate route: `/v3/alliances/{alliance_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -110,20 +112,60 @@ ccp_is.get_alliances_alliance_id({
 
 #### Output
 * output `object`: 200 ok object
-  * alliance_name **required** `string`: the full name of the alliance
+  * creator_corporation_id **required** `integer`: ID of the corporation that created the alliance
+  * creator_id **required** `integer`: ID of the character that created the alliance
   * date_founded **required** `string`: date_founded string
-  * executor_corp `integer`: the executor corporation ID, if this alliance is not closed
+  * executor_corporation_id `integer`: the executor corporation ID, if this alliance is not closed
+  * faction_id `integer`: Faction ID this alliance is fighting for, if this alliance is enlisted in factional warfare
+  * name **required** `string`: the full name of the alliance
   * ticker **required** `string`: the short name of the alliance
+
+### get_alliances_alliance_id_contacts
+Return contacts of an alliance
+
+---
+Alternate route: `/dev/alliances/{alliance_id}/contacts/`
+
+Alternate route: `/legacy/alliances/{alliance_id}/contacts/`
+
+Alternate route: `/v1/alliances/{alliance_id}/contacts/`
+
+---
+This route is cached for up to 300 seconds
+
+
+```js
+ccp_is.get_alliances_alliance_id_contacts({
+  "alliance_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * alliance_id **required** `integer`: An EVE alliance ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * contact_id **required** `integer`: contact_id integer
+    * contact_type **required** `string` (values: character, corporation, alliance, faction): contact_type string
+    * label_id `integer`: Custom label of the contact
+    * standing **required** `number`: Standing of the contact
 
 ### get_alliances_alliance_id_corporations
 List all current member corporations of an alliance
 
 ---
-Alternate route: `/v1/alliances/{alliance_id}/corporations/`
+Alternate route: `/dev/alliances/{alliance_id}/corporations/`
 
 Alternate route: `/legacy/alliances/{alliance_id}/corporations/`
 
-Alternate route: `/dev/alliances/{alliance_id}/corporations/`
+Alternate route: `/v1/alliances/{alliance_id}/corporations/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -150,11 +192,11 @@ ccp_is.get_alliances_alliance_id_corporations({
 Get the icon urls for a alliance
 
 ---
-Alternate route: `/v1/alliances/{alliance_id}/icons/`
+Alternate route: `/dev/alliances/{alliance_id}/icons/`
 
 Alternate route: `/legacy/alliances/{alliance_id}/icons/`
 
-Alternate route: `/dev/alliances/{alliance_id}/icons/`
+Alternate route: `/v1/alliances/{alliance_id}/icons/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -182,11 +224,11 @@ ccp_is.get_alliances_alliance_id_icons({
 Bulk lookup of character IDs to corporation, alliance and faction
 
 ---
-Alternate route: `/v1/characters/affiliation/`
+Alternate route: `/dev/characters/affiliation/`
 
 Alternate route: `/legacy/characters/affiliation/`
 
-Alternate route: `/dev/characters/affiliation/`
+Alternate route: `/v1/characters/affiliation/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -218,11 +260,11 @@ ccp_is.post_characters_affiliation({
 Resolve a set of character IDs to character names
 
 ---
-Alternate route: `/v1/characters/names/`
+Alternate route: `/dev/characters/names/`
 
 Alternate route: `/legacy/characters/names/`
 
-Alternate route: `/dev/characters/names/`
+Alternate route: `/v1/characters/names/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -251,9 +293,9 @@ ccp_is.get_characters_names({
 Public information about a character
 
 ---
-Alternate route: `/v4/characters/{character_id}/`
-
 Alternate route: `/dev/characters/{character_id}/`
+
+Alternate route: `/v4/characters/{character_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -280,6 +322,7 @@ ccp_is.get_characters_character_id({
   * bloodline_id **required** `integer`: bloodline_id integer
   * corporation_id **required** `integer`: The character's corporation ID
   * description `string`: description string
+  * faction_id `integer`: ID of the faction the character is fighting for, if the character is enlisted in Factional Warfare
   * gender **required** `string` (values: female, male): gender string
   * name **required** `string`: name string
   * race_id **required** `integer`: race_id integer
@@ -289,11 +332,11 @@ ccp_is.get_characters_character_id({
 Return a list of agents research information for a character. The formula for finding the current research points with an agent is: currentPoints = remainderPoints + pointsPerDay * days(currentTime - researchStartDate)
 
 ---
-Alternate route: `/v1/characters/{character_id}/agents_research/`
+Alternate route: `/dev/characters/{character_id}/agents_research/`
 
 Alternate route: `/legacy/characters/{character_id}/agents_research/`
 
-Alternate route: `/dev/characters/{character_id}/agents_research/`
+Alternate route: `/v1/characters/{character_id}/agents_research/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -326,11 +369,9 @@ ccp_is.get_characters_character_id_agents_research({
 Return a list of the characters assets
 
 ---
-Alternate route: `/v1/characters/{character_id}/assets/`
-
-Alternate route: `/legacy/characters/{character_id}/assets/`
-
 Alternate route: `/dev/characters/{character_id}/assets/`
+
+Alternate route: `/v3/characters/{character_id}/assets/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -356,21 +397,19 @@ ccp_is.get_characters_character_id_assets({
   * items `object`: 200 ok object
     * is_singleton **required** `boolean`: is_singleton boolean
     * item_id **required** `integer`: item_id integer
-    * location_flag **required** `string` (values: AssetSafety, AutoFit, Cargo, CorpseBay, Deliveries, DroneBay, FighterBay, FighterTube0, FighterTube1, FighterTube2, FighterTube3, FighterTube4, FleetHangar, Hangar, HangarAll, HiSlot0, HiSlot1, HiSlot2, HiSlot3, HiSlot4, HiSlot5, HiSlot6, HiSlot7, HiddenModifiers, Implant, LoSlot0, LoSlot1, LoSlot2, LoSlot3, LoSlot4, LoSlot5, LoSlot6, LoSlot7, Locked, MedSlot0, MedSlot1, MedSlot2, MedSlot3, MedSlot4, MedSlot5, MedSlot6, MedSlot7, Module, QuafeBay, RigSlot0, RigSlot1, RigSlot2, RigSlot3, RigSlot4, RigSlot5, RigSlot6, RigSlot7, ShipHangar, SpecializedAmmoHold, SpecializedCommandCenterHold, SpecializedFuelBay, SpecializedGasHold, SpecializedIndustrialShipHold, SpecializedLargeShipHold, SpecializedMaterialBay, SpecializedMediumShipHold, SpecializedMineralHold, SpecializedOreHold, SpecializedPlanetaryCommoditiesHold, SpecializedSalvageHold, SpecializedShipHold, SpecializedSmallShipHold, SubSystemBay, SubSystemSlot0, SubSystemSlot1, SubSystemSlot2, SubSystemSlot3, SubSystemSlot4, SubSystemSlot5, SubSystemSlot6, SubSystemSlot7, Unlocked, Wardrobe): location_flag string
+    * location_flag **required** `string` (values: AssetSafety, AutoFit, Cargo, CorpseBay, Deliveries, DroneBay, FighterBay, FighterTube0, FighterTube1, FighterTube2, FighterTube3, FighterTube4, FleetHangar, Hangar, HangarAll, HiSlot0, HiSlot1, HiSlot2, HiSlot3, HiSlot4, HiSlot5, HiSlot6, HiSlot7, HiddenModifiers, Implant, LoSlot0, LoSlot1, LoSlot2, LoSlot3, LoSlot4, LoSlot5, LoSlot6, LoSlot7, Locked, MedSlot0, MedSlot1, MedSlot2, MedSlot3, MedSlot4, MedSlot5, MedSlot6, MedSlot7, QuafeBay, RigSlot0, RigSlot1, RigSlot2, RigSlot3, RigSlot4, RigSlot5, RigSlot6, RigSlot7, ShipHangar, Skill, SpecializedAmmoHold, SpecializedCommandCenterHold, SpecializedFuelBay, SpecializedGasHold, SpecializedIndustrialShipHold, SpecializedLargeShipHold, SpecializedMaterialBay, SpecializedMediumShipHold, SpecializedMineralHold, SpecializedOreHold, SpecializedPlanetaryCommoditiesHold, SpecializedSalvageHold, SpecializedShipHold, SpecializedSmallShipHold, SubSystemBay, SubSystemSlot0, SubSystemSlot1, SubSystemSlot2, SubSystemSlot3, SubSystemSlot4, SubSystemSlot5, SubSystemSlot6, SubSystemSlot7, Unlocked, Wardrobe): location_flag string
     * location_id **required** `integer`: location_id integer
     * location_type **required** `string` (values: station, solar_system, other): location_type string
-    * quantity `integer`: quantity integer
+    * quantity **required** `integer`: quantity integer
     * type_id **required** `integer`: type_id integer
 
 ### post_characters_character_id_assets_locations
 Return locations for a set of item ids, which you can get from character assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)
 
 ---
-Alternate route: `/v1/characters/{character_id}/assets/locations/`
-
-Alternate route: `/legacy/characters/{character_id}/assets/locations/`
-
 Alternate route: `/dev/characters/{character_id}/assets/locations/`
+
+Alternate route: `/v2/characters/{character_id}/assets/locations/`
 
 
 
@@ -395,19 +434,20 @@ ccp_is.post_characters_character_id_assets_locations({
 * output `array`: 200 ok array
   * items `object`: 200 ok object
     * item_id **required** `integer`: item_id integer
-    * x **required** `number`: x number
-    * y **required** `number`: y number
-    * z **required** `number`: z number
+    * position **required** `object`: position object
+      * x **required** `number`: x number
+      * y **required** `number`: y number
+      * z **required** `number`: z number
 
 ### post_characters_character_id_assets_names
 Return names for a set of item ids, which you can get from character assets endpoint. Typically used for items that can customize names, like containers or ships.
 
 ---
-Alternate route: `/v1/characters/{character_id}/assets/names/`
+Alternate route: `/dev/characters/{character_id}/assets/names/`
 
 Alternate route: `/legacy/characters/{character_id}/assets/names/`
 
-Alternate route: `/dev/characters/{character_id}/assets/names/`
+Alternate route: `/v1/characters/{character_id}/assets/names/`
 
 
 
@@ -438,11 +478,11 @@ ccp_is.post_characters_character_id_assets_names({
 Return attributes of a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/attributes/`
+Alternate route: `/dev/characters/{character_id}/attributes/`
 
 Alternate route: `/legacy/characters/{character_id}/attributes/`
 
-Alternate route: `/dev/characters/{character_id}/attributes/`
+Alternate route: `/v1/characters/{character_id}/attributes/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -477,9 +517,9 @@ ccp_is.get_characters_character_id_attributes({
 Return a list of blueprints the character owns
 
 ---
-Alternate route: `/v2/characters/{character_id}/blueprints/`
-
 Alternate route: `/dev/characters/{character_id}/blueprints/`
+
+Alternate route: `/v2/characters/{character_id}/blueprints/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -513,12 +553,12 @@ ccp_is.get_characters_character_id_blueprints({
     * type_id **required** `integer`: type_id integer
 
 ### get_characters_character_id_bookmarks
-List your character's personal bookmarks
+A list of your character's personal bookmarks
 
 ---
-Alternate route: `/v1/characters/{character_id}/bookmarks/`
+Alternate route: `/dev/characters/{character_id}/bookmarks/`
 
-Alternate route: `/legacy/characters/{character_id}/bookmarks/`
+Alternate route: `/v2/characters/{character_id}/bookmarks/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -534,6 +574,7 @@ ccp_is.get_characters_character_id_bookmarks({
 * input `object`
   * character_id **required** `integer`: An EVE character ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
@@ -542,29 +583,27 @@ ccp_is.get_characters_character_id_bookmarks({
 * output `array`: 200 ok array
   * items `object`: 200 ok object
     * bookmark_id **required** `integer`: bookmark_id integer
-    * create_date **required** `string`: create_date string
+    * coordinates `object`: Optional object that is returned if a bookmark was made on a planet or a random location in space.
+      * x **required** `number`: x number
+      * y **required** `number`: y number
+      * z **required** `number`: z number
+    * created **required** `string`: created string
     * creator_id **required** `integer`: creator_id integer
     * folder_id `integer`: folder_id integer
-    * memo **required** `string`: memo string
-    * note **required** `string`: note string
-    * owner_id **required** `integer`: owner_id integer
-    * target **required** `object`: target object
-      * coordinates `object`: coordinates object
-        * x **required** `number`: x number
-        * y **required** `number`: y number
-        * z **required** `number`: z number
-      * item `object`: item object
-        * item_id **required** `integer`: item_id integer
-        * type_id **required** `integer`: type_id integer
-      * location_id **required** `integer`: location_id integer
+    * item `object`: Optional object that is returned if a bookmark was made on a particular item.
+      * item_id **required** `integer`: item_id integer
+      * type_id **required** `integer`: type_id integer
+    * label **required** `string`: label string
+    * location_id **required** `integer`: location_id integer
+    * notes **required** `string`: notes string
 
 ### get_characters_character_id_bookmarks_folders
-List your character's personal bookmark folders
+A list of your character's personal bookmark folders
 
 ---
-Alternate route: `/v1/characters/{character_id}/bookmarks/folders/`
+Alternate route: `/dev/characters/{character_id}/bookmarks/folders/`
 
-Alternate route: `/legacy/characters/{character_id}/bookmarks/folders/`
+Alternate route: `/v2/characters/{character_id}/bookmarks/folders/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -580,6 +619,7 @@ ccp_is.get_characters_character_id_bookmarks_folders({
 * input `object`
   * character_id **required** `integer`: An EVE character ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
@@ -587,19 +627,18 @@ ccp_is.get_characters_character_id_bookmarks_folders({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * folder_id `integer`: folder_id integer
-    * name `string`: name string
-    * owner_id `integer`: owner_id integer
+    * folder_id **required** `integer`: folder_id integer
+    * name **required** `string`: name string
 
 ### get_characters_character_id_calendar
 Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.
 
 ---
-Alternate route: `/v1/characters/{character_id}/calendar/`
+Alternate route: `/dev/characters/{character_id}/calendar/`
 
 Alternate route: `/legacy/characters/{character_id}/calendar/`
 
-Alternate route: `/dev/characters/{character_id}/calendar/`
+Alternate route: `/v1/characters/{character_id}/calendar/`
 
 ---
 This route is cached for up to 5 seconds
@@ -633,9 +672,9 @@ ccp_is.get_characters_character_id_calendar({
 Get all the information for a specific event
 
 ---
-Alternate route: `/v3/characters/{character_id}/calendar/{event_id}/`
-
 Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/`
+
+Alternate route: `/v3/characters/{character_id}/calendar/{event_id}/`
 
 ---
 This route is cached for up to 5 seconds
@@ -674,9 +713,9 @@ ccp_is.get_characters_character_id_calendar_event_id({
 Set your response status to an event
 
 ---
-Alternate route: `/v3/characters/{character_id}/calendar/{event_id}/`
-
 Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/`
+
+Alternate route: `/v3/characters/{character_id}/calendar/{event_id}/`
 
 
 
@@ -684,7 +723,9 @@ Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/`
 ccp_is.put_characters_character_id_calendar_event_id({
   "character_id": 0,
   "event_id": 0,
-  "response": null
+  "response": {
+    "response": ""
+  }
 }, context)
 ```
 
@@ -693,7 +734,7 @@ ccp_is.put_characters_character_id_calendar_event_id({
   * character_id **required** `integer`: An EVE character ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * event_id **required** `integer`: The ID of the event requested
-  * response **required** `object`: response schema
+  * response **required** `object`: response object
     * response **required** `string` (values: accepted, declined, tentative): response string
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
@@ -706,11 +747,11 @@ ccp_is.put_characters_character_id_calendar_event_id({
 Get all invited attendees for a given event
 
 ---
-Alternate route: `/v1/characters/{character_id}/calendar/{event_id}/attendees/`
-
 Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/attendees/`
 
 Alternate route: `/legacy/characters/{character_id}/calendar/{event_id}/attendees/`
+
+Alternate route: `/v1/characters/{character_id}/calendar/{event_id}/attendees/`
 
 ---
 This route is cached for up to 600 seconds
@@ -742,11 +783,11 @@ ccp_is.get_characters_character_id_calendar_event_id_attendees({
 Return chat channels that a character is the owner or operator of
 
 ---
-Alternate route: `/v1/characters/{character_id}/chat_channels/`
+Alternate route: `/dev/characters/{character_id}/chat_channels/`
 
 Alternate route: `/legacy/characters/{character_id}/chat_channels/`
 
-Alternate route: `/dev/characters/{character_id}/chat_channels/`
+Alternate route: `/v1/characters/{character_id}/chat_channels/`
 
 ---
 This route is cached for up to 300 seconds
@@ -800,9 +841,9 @@ ccp_is.get_characters_character_id_chat_channels({
 A list of the character's clones
 
 ---
-Alternate route: `/v2/characters/{character_id}/clones/`
+Alternate route: `/dev/characters/{character_id}/clones/`
 
-Alternate route: `/legacy/characters/{character_id}/clones/`
+Alternate route: `/v3/characters/{character_id}/clones/`
 
 ---
 This route is cached for up to 120 seconds
@@ -829,19 +870,22 @@ ccp_is.get_characters_character_id_clones({
     * location_type `string` (values: station, structure): location_type string
   * jump_clones **required** `array`: jump_clones array
     * items `object`: jump_clone object
-      * implants `array`: implants array
+      * implants **required** `array`: implants array
         * items `integer`: implant integer
-      * location_id `integer`: location_id integer
-      * location_type `string` (values: station, structure): location_type string
-  * last_jump_date `string`: last_jump_date string
+      * jump_clone_id **required** `integer`: jump_clone_id integer
+      * location_id **required** `integer`: location_id integer
+      * location_type **required** `string` (values: station, structure): location_type string
+      * name `string`: name string
+  * last_clone_jump_date `string`: last_clone_jump_date string
+  * last_station_change_date `string`: last_station_change_date string
 
 ### delete_characters_character_id_contacts
 Bulk delete contacts
 
 ---
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
-Alternate route: `/legacy/characters/{character_id}/contacts/`
+Alternate route: `/v2/characters/{character_id}/contacts/`
 
 
 
@@ -855,8 +899,7 @@ ccp_is.delete_characters_character_id_contacts({
 #### Input
 * input `object`
   * character_id **required** `integer`: An EVE character ID
-  * contact_ids **required** `array`: contact_ids array
-    * items `integer`: ID of the contact to delete
+  * contact_ids **required** `array`: A list of contacts to delete
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
@@ -869,11 +912,11 @@ ccp_is.delete_characters_character_id_contacts({
 Return contacts of a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
 Alternate route: `/legacy/characters/{character_id}/contacts/`
 
-Alternate route: `/dev/characters/{character_id}/contacts/`
+Alternate route: `/v1/characters/{character_id}/contacts/`
 
 ---
 This route is cached for up to 300 seconds
@@ -908,11 +951,11 @@ ccp_is.get_characters_character_id_contacts({
 Bulk add contacts with same settings
 
 ---
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
 Alternate route: `/legacy/characters/{character_id}/contacts/`
 
-Alternate route: `/dev/characters/{character_id}/contacts/`
+Alternate route: `/v1/characters/{character_id}/contacts/`
 
 
 
@@ -945,11 +988,11 @@ ccp_is.post_characters_character_id_contacts({
 Bulk edit contacts with same settings
 
 ---
-Alternate route: `/v1/characters/{character_id}/contacts/`
+Alternate route: `/dev/characters/{character_id}/contacts/`
 
 Alternate route: `/legacy/characters/{character_id}/contacts/`
 
-Alternate route: `/dev/characters/{character_id}/contacts/`
+Alternate route: `/v1/characters/{character_id}/contacts/`
 
 
 
@@ -981,11 +1024,11 @@ ccp_is.put_characters_character_id_contacts({
 Return custom labels for contacts the character defined
 
 ---
-Alternate route: `/v1/characters/{character_id}/contacts/labels/`
+Alternate route: `/dev/characters/{character_id}/contacts/labels/`
 
 Alternate route: `/legacy/characters/{character_id}/contacts/labels/`
 
-Alternate route: `/dev/characters/{character_id}/contacts/labels/`
+Alternate route: `/v1/characters/{character_id}/contacts/labels/`
 
 ---
 This route is cached for up to 300 seconds
@@ -1015,11 +1058,11 @@ ccp_is.get_characters_character_id_contacts_labels({
 Returns contracts available to a character, only if the character is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is "in_progress".
 
 ---
-Alternate route: `/v1/characters/{character_id}/contracts/`
+Alternate route: `/dev/characters/{character_id}/contracts/`
 
 Alternate route: `/legacy/characters/{character_id}/contracts/`
 
-Alternate route: `/dev/characters/{character_id}/contracts/`
+Alternate route: `/v1/characters/{character_id}/contracts/`
 
 ---
 This route is cached for up to 300 seconds
@@ -1035,6 +1078,7 @@ ccp_is.get_characters_character_id_contracts({
 * input `object`
   * character_id **required** `integer`: An EVE character ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
@@ -1069,11 +1113,11 @@ ccp_is.get_characters_character_id_contracts({
 Lists bids on a particular auction contract
 
 ---
-Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/bids/`
+Alternate route: `/dev/characters/{character_id}/contracts/{contract_id}/bids/`
 
 Alternate route: `/legacy/characters/{character_id}/contracts/{contract_id}/bids/`
 
-Alternate route: `/dev/characters/{character_id}/contracts/{contract_id}/bids/`
+Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/bids/`
 
 ---
 This route is cached for up to 300 seconds
@@ -1107,11 +1151,11 @@ ccp_is.get_characters_character_id_contracts_contract_id_bids({
 Lists items of a particular contract
 
 ---
-Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/items/`
+Alternate route: `/dev/characters/{character_id}/contracts/{contract_id}/items/`
 
 Alternate route: `/legacy/characters/{character_id}/contracts/{contract_id}/items/`
 
-Alternate route: `/dev/characters/{character_id}/contracts/{contract_id}/items/`
+Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/items/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -1147,11 +1191,11 @@ ccp_is.get_characters_character_id_contracts_contract_id_items({
 Get a list of all the corporations a character has been a member of
 
 ---
-Alternate route: `/v1/characters/{character_id}/corporationhistory/`
+Alternate route: `/dev/characters/{character_id}/corporationhistory/`
 
 Alternate route: `/legacy/characters/{character_id}/corporationhistory/`
 
-Alternate route: `/dev/characters/{character_id}/corporationhistory/`
+Alternate route: `/v1/characters/{character_id}/corporationhistory/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -1182,45 +1226,41 @@ ccp_is.get_characters_character_id_corporationhistory({
 Takes a source character ID in the url and a set of target character ID's in the body, returns a CSPA charge cost
 
 ---
-Alternate route: `/v3/characters/{character_id}/cspa/`
+Alternate route: `/dev/characters/{character_id}/cspa/`
 
-Alternate route: `/legacy/characters/{character_id}/cspa/`
+Alternate route: `/v4/characters/{character_id}/cspa/`
 
 
 
 ```js
 ccp_is.post_characters_character_id_cspa({
   "character_id": 0,
-  "characters": {
-    "characters": []
-  }
+  "characters": []
 }, context)
 ```
 
 #### Input
 * input `object`
   * character_id **required** `integer`: An EVE character ID
-  * characters **required** `object`: characters object
-    * characters **required** `array`: characters array
-      * items `integer`: character integer
+  * characters **required** `array`: characters array
+    * items `integer`: character integer
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
 
 #### Output
-* output `object`: 201 created object
-  * cost `integer`: cost integer
+* output `number`: 201 created number
 
 ### get_characters_character_id_fatigue
 Return a character's jump activation and fatigue information
 
 ---
-Alternate route: `/v1/characters/{character_id}/fatigue/`
+Alternate route: `/dev/characters/{character_id}/fatigue/`
 
 Alternate route: `/legacy/characters/{character_id}/fatigue/`
 
-Alternate route: `/dev/characters/{character_id}/fatigue/`
+Alternate route: `/v1/characters/{character_id}/fatigue/`
 
 ---
 This route is cached for up to 300 seconds
@@ -1250,11 +1290,11 @@ ccp_is.get_characters_character_id_fatigue({
 Return fittings of a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/fittings/`
+Alternate route: `/dev/characters/{character_id}/fittings/`
 
 Alternate route: `/legacy/characters/{character_id}/fittings/`
 
-Alternate route: `/dev/characters/{character_id}/fittings/`
+Alternate route: `/v1/characters/{character_id}/fittings/`
 
 ---
 This route is cached for up to 300 seconds
@@ -1291,11 +1331,11 @@ ccp_is.get_characters_character_id_fittings({
 Save a new fitting for a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/fittings/`
+Alternate route: `/dev/characters/{character_id}/fittings/`
 
 Alternate route: `/legacy/characters/{character_id}/fittings/`
 
-Alternate route: `/dev/characters/{character_id}/fittings/`
+Alternate route: `/v1/characters/{character_id}/fittings/`
 
 
 
@@ -1330,11 +1370,11 @@ ccp_is.post_characters_character_id_fittings({
 Delete a fitting from a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/fittings/{fitting_id}/`
+Alternate route: `/dev/characters/{character_id}/fittings/{fitting_id}/`
 
 Alternate route: `/legacy/characters/{character_id}/fittings/{fitting_id}/`
 
-Alternate route: `/dev/characters/{character_id}/fittings/{fitting_id}/`
+Alternate route: `/v1/characters/{character_id}/fittings/{fitting_id}/`
 
 
 
@@ -1361,11 +1401,11 @@ ccp_is.delete_characters_character_id_fittings_fitting_id({
 Return the fleet ID the character is in, if any.
 
 ---
-Alternate route: `/v1/characters/{character_id}/fleet/`
+Alternate route: `/dev/characters/{character_id}/fleet/`
 
 Alternate route: `/legacy/characters/{character_id}/fleet/`
 
-Alternate route: `/dev/characters/{character_id}/fleet/`
+Alternate route: `/v1/characters/{character_id}/fleet/`
 
 ---
 This route is cached for up to 60 seconds
@@ -1392,18 +1432,61 @@ ccp_is.get_characters_character_id_fleet({
   * squad_id **required** `integer`: ID of the squad the member is in. If not applicable, will be set to -1
   * wing_id **required** `integer`: ID of the wing the member is in. If not applicable, will be set to -1
 
+### get_characters_character_id_fw_stats
+Statistical overview of a character involved in faction warfare
+
+---
+Alternate route: `/dev/characters/{character_id}/fw/stats/`
+
+Alternate route: `/legacy/characters/{character_id}/fw/stats/`
+
+Alternate route: `/v1/characters/{character_id}/fw/stats/`
+
+---
+This route expires daily at 11:05
+
+
+```js
+ccp_is.get_characters_character_id_fw_stats({
+  "character_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * character_id **required** `integer`: An EVE character ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `object`: 200 ok object
+  * current_rank `integer`: The given character's current faction rank
+  * enlisted_on `string`: The enlistment date of the given character into faction warfare. Will not be included if character is not enlisted in faction warfare
+  * faction_id `integer`: The faction the given character is enlisted to fight for. Will not be included if character is not enlisted in faction warfare
+  * highest_rank `integer`: The given character's highest faction rank achieved
+  * kills **required** `object`: Summary of kills done by the given character against enemy factions
+    * last_week **required** `integer`: Last week's total number of kills by a given character against enemy factions
+    * total **required** `integer`: Total number of kills by a given character against enemy factions since the character enlisted
+    * yesterday **required** `integer`: Yesterday's total number of kills by a given character against enemy factions
+  * victory_points **required** `object`: Summary of victory points gained by the given character for the enlisted faction
+    * last_week **required** `integer`: Last week's victory points gained by the given character
+    * total **required** `integer`: Total victory points gained since the given character enlisted
+    * yesterday **required** `integer`: Yesterday's victory points gained by the given character
+
 ### get_characters_character_id_implants
 Return implants on the active clone of a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/implants/`
+Alternate route: `/dev/characters/{character_id}/implants/`
 
 Alternate route: `/legacy/characters/{character_id}/implants/`
 
-Alternate route: `/dev/characters/{character_id}/implants/`
+Alternate route: `/v1/characters/{character_id}/implants/`
 
 ---
-This route is cached for up to 3600 seconds
+This route is cached for up to 300 seconds
 
 
 ```js
@@ -1428,11 +1511,11 @@ ccp_is.get_characters_character_id_implants({
 List industry jobs placed by a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/industry/jobs/`
+Alternate route: `/dev/characters/{character_id}/industry/jobs/`
 
 Alternate route: `/legacy/characters/{character_id}/industry/jobs/`
 
-Alternate route: `/dev/characters/{character_id}/industry/jobs/`
+Alternate route: `/v1/characters/{character_id}/industry/jobs/`
 
 ---
 This route is cached for up to 300 seconds
@@ -1476,18 +1559,18 @@ ccp_is.get_characters_character_id_industry_jobs({
     * runs **required** `integer`: Number of runs for a manufacturing job, or number of copies to make for a blueprint copy
     * start_date **required** `string`: Date and time when this job started
     * station_id **required** `integer`: ID of the station where industry facility is located
-    * status **required** `string` (values: active, paused, ready, delivered, cancelled, reverted): status string
+    * status **required** `string` (values: active, cancelled, delivered, paused, ready, reverted): status string
     * successful_runs `integer`: Number of successful runs for this job. Equal to runs unless this is an invention job
 
 ### get_characters_character_id_killmails_recent
 Return a list of character's recent kills and losses
 
 ---
-Alternate route: `/v1/characters/{character_id}/killmails/recent/`
+Alternate route: `/dev/characters/{character_id}/killmails/recent/`
 
 Alternate route: `/legacy/characters/{character_id}/killmails/recent/`
 
-Alternate route: `/dev/characters/{character_id}/killmails/recent/`
+Alternate route: `/v1/characters/{character_id}/killmails/recent/`
 
 ---
 This route is cached for up to 120 seconds
@@ -1519,11 +1602,11 @@ ccp_is.get_characters_character_id_killmails_recent({
 Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable.
 
 ---
-Alternate route: `/v1/characters/{character_id}/location/`
+Alternate route: `/dev/characters/{character_id}/location/`
 
 Alternate route: `/legacy/characters/{character_id}/location/`
 
-Alternate route: `/dev/characters/{character_id}/location/`
+Alternate route: `/v1/characters/{character_id}/location/`
 
 ---
 This route is cached for up to 5 seconds
@@ -1553,11 +1636,11 @@ ccp_is.get_characters_character_id_location({
 Return a list of loyalty points for all corporations the character has worked for
 
 ---
-Alternate route: `/v1/characters/{character_id}/loyalty/points/`
+Alternate route: `/dev/characters/{character_id}/loyalty/points/`
 
 Alternate route: `/legacy/characters/{character_id}/loyalty/points/`
 
-Alternate route: `/dev/characters/{character_id}/loyalty/points/`
+Alternate route: `/v1/characters/{character_id}/loyalty/points/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -1587,11 +1670,11 @@ ccp_is.get_characters_character_id_loyalty_points({
 Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/`
+Alternate route: `/dev/characters/{character_id}/mail/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/`
 
-Alternate route: `/dev/characters/{character_id}/mail/`
+Alternate route: `/v1/characters/{character_id}/mail/`
 
 ---
 This route is cached for up to 30 seconds
@@ -1632,18 +1715,22 @@ ccp_is.get_characters_character_id_mail({
 Create and send a new mail
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/`
+Alternate route: `/dev/characters/{character_id}/mail/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/`
 
-Alternate route: `/dev/characters/{character_id}/mail/`
+Alternate route: `/v1/characters/{character_id}/mail/`
 
 
 
 ```js
 ccp_is.post_characters_character_id_mail({
   "character_id": 0,
-  "mail": null
+  "mail": {
+    "recipients": [],
+    "subject": "",
+    "body": ""
+  }
 }, context)
 ```
 
@@ -1651,7 +1738,7 @@ ccp_is.post_characters_character_id_mail({
 * input `object`
   * character_id **required** `integer`: An EVE character ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
-  * mail **required** `object`: mail schema
+  * mail **required** `object`: mail object
     * approved_cost `integer`: approved_cost integer
     * body **required** `string`: body string
     * recipients **required** `array`: recipients array
@@ -1670,9 +1757,9 @@ ccp_is.post_characters_character_id_mail({
 Return a list of the users mail labels, unread counts for each label and a total unread count.
 
 ---
-Alternate route: `/v3/characters/{character_id}/mail/labels/`
-
 Alternate route: `/dev/characters/{character_id}/mail/labels/`
+
+Alternate route: `/v3/characters/{character_id}/mail/labels/`
 
 ---
 This route is cached for up to 30 seconds
@@ -1706,11 +1793,11 @@ ccp_is.get_characters_character_id_mail_labels({
 Create a mail label
 
 ---
-Alternate route: `/v2/characters/{character_id}/mail/labels/`
+Alternate route: `/dev/characters/{character_id}/mail/labels/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/labels/`
 
-Alternate route: `/dev/characters/{character_id}/mail/labels/`
+Alternate route: `/v2/characters/{character_id}/mail/labels/`
 
 
 
@@ -1738,11 +1825,11 @@ ccp_is.post_characters_character_id_mail_labels({
 Delete a mail label
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/labels/{label_id}/`
+Alternate route: `/dev/characters/{character_id}/mail/labels/{label_id}/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/labels/{label_id}/`
 
-Alternate route: `/dev/characters/{character_id}/mail/labels/{label_id}/`
+Alternate route: `/v1/characters/{character_id}/mail/labels/{label_id}/`
 
 
 
@@ -1769,11 +1856,11 @@ ccp_is.delete_characters_character_id_mail_labels_label_id({
 Return all mailing lists that the character is subscribed to
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/lists/`
+Alternate route: `/dev/characters/{character_id}/mail/lists/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/lists/`
 
-Alternate route: `/dev/characters/{character_id}/mail/lists/`
+Alternate route: `/v1/characters/{character_id}/mail/lists/`
 
 ---
 This route is cached for up to 120 seconds
@@ -1803,11 +1890,11 @@ ccp_is.get_characters_character_id_mail_lists({
 Delete a mail
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`
+Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`
 
-Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`
+Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`
 
 
 
@@ -1834,11 +1921,11 @@ ccp_is.delete_characters_character_id_mail_mail_id({
 Return the contents of an EVE mail
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`
+Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`
 
-Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`
+Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`
 
 ---
 This route is cached for up to 30 seconds
@@ -1878,11 +1965,11 @@ ccp_is.get_characters_character_id_mail_mail_id({
 Update metadata about a mail
 
 ---
-Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`
+Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`
 
 Alternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`
 
-Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`
+Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`
 
 
 
@@ -1914,11 +2001,11 @@ ccp_is.put_characters_character_id_mail_mail_id({
 Return a list of medals the character has
 
 ---
-Alternate route: `/v1/characters/{character_id}/medals/`
+Alternate route: `/dev/characters/{character_id}/medals/`
 
 Alternate route: `/legacy/characters/{character_id}/medals/`
 
-Alternate route: `/dev/characters/{character_id}/medals/`
+Alternate route: `/v1/characters/{character_id}/medals/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -1961,11 +2048,11 @@ Paginated record of all mining done by a character for the past 30 days
 
 
 ---
-Alternate route: `/v1/characters/{character_id}/mining/`
+Alternate route: `/dev/characters/{character_id}/mining/`
 
 Alternate route: `/legacy/characters/{character_id}/mining/`
 
-Alternate route: `/dev/characters/{character_id}/mining/`
+Alternate route: `/v1/characters/{character_id}/mining/`
 
 ---
 This route is cached for up to 600 seconds
@@ -1998,11 +2085,11 @@ ccp_is.get_characters_character_id_mining({
 Return character notifications
 
 ---
-Alternate route: `/v1/characters/{character_id}/notifications/`
+Alternate route: `/dev/characters/{character_id}/notifications/`
 
 Alternate route: `/legacy/characters/{character_id}/notifications/`
 
-Alternate route: `/dev/characters/{character_id}/notifications/`
+Alternate route: `/v1/characters/{character_id}/notifications/`
 
 ---
 This route is cached for up to 600 seconds
@@ -2037,11 +2124,11 @@ ccp_is.get_characters_character_id_notifications({
 Return notifications about having been added to someone's contact list
 
 ---
-Alternate route: `/v1/characters/{character_id}/notifications/contacts/`
+Alternate route: `/dev/characters/{character_id}/notifications/contacts/`
 
 Alternate route: `/legacy/characters/{character_id}/notifications/contacts/`
 
-Alternate route: `/dev/characters/{character_id}/notifications/contacts/`
+Alternate route: `/v1/characters/{character_id}/notifications/contacts/`
 
 ---
 This route is cached for up to 600 seconds
@@ -2074,9 +2161,9 @@ ccp_is.get_characters_character_id_notifications_contacts({
 Checks if the character is currently online
 
 ---
-Alternate route: `/v1/characters/{character_id}/online/`
+Alternate route: `/dev/characters/{character_id}/online/`
 
-Alternate route: `/legacy/characters/{character_id}/online/`
+Alternate route: `/v2/characters/{character_id}/online/`
 
 ---
 This route is cached for up to 60 seconds
@@ -2097,17 +2184,21 @@ ccp_is.get_characters_character_id_online({
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
 
 #### Output
-* output `boolean`: 200 ok boolean
+* output `object`: 200 ok object
+  * last_login `string`: Timestamp of the last login
+  * last_logout `string`: Timestamp of the last logout
+  * logins `integer`: Total number of times the character has logged in
+  * online **required** `boolean`: If the character is online
 
 ### get_characters_character_id_opportunities
 Return a list of tasks finished by a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/opportunities/`
+Alternate route: `/dev/characters/{character_id}/opportunities/`
 
 Alternate route: `/legacy/characters/{character_id}/opportunities/`
 
-Alternate route: `/dev/characters/{character_id}/opportunities/`
+Alternate route: `/v1/characters/{character_id}/opportunities/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2137,14 +2228,15 @@ ccp_is.get_characters_character_id_opportunities({
 List market orders placed by a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/orders/`
-
 Alternate route: `/legacy/characters/{character_id}/orders/`
 
-Alternate route: `/dev/characters/{character_id}/orders/`
+Alternate route: `/v1/characters/{character_id}/orders/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+[This route has an available update](https://esi.tech.ccp.is/diff/latest/dev/#GET-/characters/{character_id}/orders/)
 
 
 ```js
@@ -2165,7 +2257,7 @@ ccp_is.get_characters_character_id_orders({
 * output `array`: 200 ok array
   * items `object`: 200 ok object
     * account_id **required** `integer`: Wallet division for the buyer or seller of this order. Always 1000 for characters. Currently 1000 through 1006 for corporations
-    * duration **required** `integer`: Numer of days for which order is valid (starting from the issued date). An order expires at time issued + duration
+    * duration **required** `integer`: Number of days the order is valid for (starting from the issued date). An order expires at time issued + duration
     * escrow **required** `number`: For buy orders, the amount of ISK in escrow
     * is_buy_order **required** `boolean`: True for a bid (buy) order. False for an offer (sell) order
     * is_corp **required** `boolean`: is_corp boolean
@@ -2181,15 +2273,63 @@ ccp_is.get_characters_character_id_orders({
     * volume_remain **required** `integer`: Quantity of items still required or offered
     * volume_total **required** `integer`: Quantity of items required or offered at time order was placed
 
+### get_characters_character_id_orders_history
+List cancelled and expired market orders placed by a character up to 90 days in the past.
+
+---
+Alternate route: `/dev/characters/{character_id}/orders/history/`
+
+Alternate route: `/legacy/characters/{character_id}/orders/history/`
+
+Alternate route: `/v1/characters/{character_id}/orders/history/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_characters_character_id_orders_history({
+  "character_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * character_id **required** `integer`: An EVE character ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * duration **required** `integer`: Number of days the order was valid for (starting from the issued date). An order expires at time issued + duration
+    * escrow `number`: For buy orders, the amount of ISK in escrow
+    * is_buy_order `boolean`: True if the order is a bid (buy) order
+    * is_corporation **required** `boolean`: Signifies whether the buy/sell order was placed on behalf of a corporation.
+    * issued **required** `string`: Date and time when this order was issued
+    * location_id **required** `integer`: ID of the location where order was placed
+    * min_volume `integer`: For buy orders, the minimum quantity that will be accepted in a matching sell order
+    * order_id **required** `integer`: Unique order ID
+    * price **required** `number`: Cost per unit for this order
+    * range **required** `string` (values: 1, 10, 2, 20, 3, 30, 4, 40, 5, region, solarsystem, station): Valid order range, numbers are ranges in jumps
+    * region_id **required** `integer`: ID of the region where order was placed
+    * state **required** `string` (values: cancelled, expired): Current order state
+    * type_id **required** `integer`: The type ID of the item transacted in this order
+    * volume_remain **required** `integer`: Quantity of items still required or offered
+    * volume_total **required** `integer`: Quantity of items required or offered at time order was placed
+
 ### get_characters_character_id_planets
 Returns a list of all planetary colonies owned by a character.
 
 ---
-Alternate route: `/v1/characters/{character_id}/planets/`
+Alternate route: `/dev/characters/{character_id}/planets/`
 
 Alternate route: `/legacy/characters/{character_id}/planets/`
 
-Alternate route: `/dev/characters/{character_id}/planets/`
+Alternate route: `/v1/characters/{character_id}/planets/`
 
 ---
 This route is cached for up to 600 seconds
@@ -2224,9 +2364,9 @@ ccp_is.get_characters_character_id_planets({
 Returns full details on the layout of a single planetary colony, including links, pins and routes. Note: Planetary information is only recalculated when the colony is viewed through the client. Information will not update until this criteria is met.
 
 ---
-Alternate route: `/v3/characters/{character_id}/planets/{planet_id}/`
-
 Alternate route: `/dev/characters/{character_id}/planets/{planet_id}/`
+
+Alternate route: `/v3/characters/{character_id}/planets/{planet_id}/`
 
 ---
 This route is cached for up to 600 seconds
@@ -2295,9 +2435,9 @@ ccp_is.get_characters_character_id_planets_planet_id({
 Get portrait urls for a character
 
 ---
-Alternate route: `/v2/characters/{character_id}/portrait/`
-
 Alternate route: `/dev/characters/{character_id}/portrait/`
+
+Alternate route: `/v2/characters/{character_id}/portrait/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2327,9 +2467,9 @@ ccp_is.get_characters_character_id_portrait({
 Returns a character's corporation roles
 
 ---
-Alternate route: `/v1/characters/{character_id}/roles/`
+Alternate route: `/dev/characters/{character_id}/roles/`
 
-Alternate route: `/legacy/characters/{character_id}/roles/`
+Alternate route: `/v2/characters/{character_id}/roles/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2350,14 +2490,23 @@ ccp_is.get_characters_character_id_roles({
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
 
 #### Output
-* output `array`: 200 ok array
-  * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): 200 ok string
+* output `object`: 200 ok object
+  * roles `array`: roles array
+    * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): role string
+  * roles_at_base `array`: roles_at_base array
+    * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): roles_at_base string
+  * roles_at_hq `array`: roles_at_hq array
+    * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): roles_at_hq string
+  * roles_at_other `array`: roles_at_other array
+    * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): roles_at_other string
 
 ### get_characters_character_id_search
 Search for entities that match a given sub-string.
 
 ---
-Alternate route: `/v2/characters/{character_id}/search/`
+Alternate route: `/dev/characters/{character_id}/search/`
+
+Alternate route: `/v3/characters/{character_id}/search/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2397,28 +2546,26 @@ ccp_is.get_characters_character_id_search({
     * items `integer`: corporation integer
   * faction `array`: faction array
     * items `integer`: faction integer
-  * inventorytype `array`: inventorytype array
-    * items `integer`: inventorytype integer
+  * inventory_type `array`: inventory_type array
+    * items `integer`: inventory_type integer
   * region `array`: region array
     * items `integer`: region integer
-  * solarsystem `array`: solarsystem array
-    * items `integer`: solarsystem integer
+  * solar_system `array`: solar_system array
+    * items `integer`: solar_system integer
   * station `array`: station array
     * items `integer`: station integer
   * structure `array`: structure array
     * items `integer`: structure integer
-  * wormhole `array`: wormhole array
-    * items `integer`: wormhole integer
 
 ### get_characters_character_id_ship
 Get the current ship type, name and id
 
 ---
-Alternate route: `/v1/characters/{character_id}/ship/`
+Alternate route: `/dev/characters/{character_id}/ship/`
 
 Alternate route: `/legacy/characters/{character_id}/ship/`
 
-Alternate route: `/dev/characters/{character_id}/ship/`
+Alternate route: `/v1/characters/{character_id}/ship/`
 
 ---
 This route is cached for up to 5 seconds
@@ -2448,11 +2595,11 @@ ccp_is.get_characters_character_id_ship({
 List the configured skill queue for the given character
 
 ---
-Alternate route: `/v2/characters/{character_id}/skillqueue/`
+Alternate route: `/dev/characters/{character_id}/skillqueue/`
 
 Alternate route: `/legacy/characters/{character_id}/skillqueue/`
 
-Alternate route: `/dev/characters/{character_id}/skillqueue/`
+Alternate route: `/v2/characters/{character_id}/skillqueue/`
 
 ---
 This route is cached for up to 120 seconds
@@ -2488,7 +2635,9 @@ ccp_is.get_characters_character_id_skillqueue({
 List all trained skills for the given character
 
 ---
-Alternate route: `/v3/characters/{character_id}/skills/`
+Alternate route: `/dev/characters/{character_id}/skills/`
+
+Alternate route: `/v4/characters/{character_id}/skills/`
 
 ---
 This route is cached for up to 120 seconds
@@ -2510,22 +2659,24 @@ ccp_is.get_characters_character_id_skills({
 
 #### Output
 * output `object`: 200 ok object
-  * skills `array`: skills array
+  * skills **required** `array`: skills array
     * items `object`: skill object
-      * current_skill_level `integer`: current_skill_level integer
-      * skill_id `integer`: skill_id integer
-      * skillpoints_in_skill `integer`: skillpoints_in_skill integer
-  * total_sp `integer`: total_sp integer
+      * active_skill_level **required** `integer`: active_skill_level integer
+      * skill_id **required** `integer`: skill_id integer
+      * skillpoints_in_skill **required** `integer`: skillpoints_in_skill integer
+      * trained_skill_level **required** `integer`: trained_skill_level integer
+  * total_sp **required** `integer`: total_sp integer
+  * unallocated_sp `integer`: Skill points available to be assigned
 
 ### get_characters_character_id_standings
 Return character standings from agents, NPC corporations, and factions
 
 ---
-Alternate route: `/v1/characters/{character_id}/standings/`
+Alternate route: `/dev/characters/{character_id}/standings/`
 
 Alternate route: `/legacy/characters/{character_id}/standings/`
 
-Alternate route: `/dev/characters/{character_id}/standings/`
+Alternate route: `/v1/characters/{character_id}/standings/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2552,15 +2703,383 @@ ccp_is.get_characters_character_id_standings({
     * from_type **required** `string` (values: agent, npc_corp, faction): from_type string
     * standing **required** `number`: standing number
 
+### get_characters_character_id_stats
+Returns aggregate yearly stats for a character
+
+---
+Alternate route: `/dev/characters/{character_id}/stats/`
+
+Alternate route: `/v2/characters/{character_id}/stats/`
+
+---
+This route is cached for up to 86400 seconds
+
+
+```js
+ccp_is.get_characters_character_id_stats({
+  "character_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * character_id **required** `integer`: An EVE character ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: List of character aggregate stats
+  * items `object`: Aggregate stats for a year
+    * character `object`: character object
+      * days_of_activity `integer`: days_of_activity integer
+      * minutes `integer`: minutes integer
+      * sessions_started `integer`: sessions_started integer
+    * combat `object`: combat object
+      * cap_drainedby_npc `integer`: cap_drainedby_npc integer
+      * cap_drainedby_pc `integer`: cap_drainedby_pc integer
+      * cap_draining_pc `integer`: cap_draining_pc integer
+      * criminal_flag_set `integer`: criminal_flag_set integer
+      * damage_from_np_cs_amount `integer`: damage_from_np_cs_amount integer
+      * damage_from_np_cs_num_shots `integer`: damage_from_np_cs_num_shots integer
+      * damage_from_players_bomb_amount `integer`: damage_from_players_bomb_amount integer
+      * damage_from_players_bomb_num_shots `integer`: damage_from_players_bomb_num_shots integer
+      * damage_from_players_combat_drone_amount `integer`: damage_from_players_combat_drone_amount integer
+      * damage_from_players_combat_drone_num_shots `integer`: damage_from_players_combat_drone_num_shots integer
+      * damage_from_players_energy_amount `integer`: damage_from_players_energy_amount integer
+      * damage_from_players_energy_num_shots `integer`: damage_from_players_energy_num_shots integer
+      * damage_from_players_fighter_bomber_amount `integer`: damage_from_players_fighter_bomber_amount integer
+      * damage_from_players_fighter_bomber_num_shots `integer`: damage_from_players_fighter_bomber_num_shots integer
+      * damage_from_players_fighter_drone_amount `integer`: damage_from_players_fighter_drone_amount integer
+      * damage_from_players_fighter_drone_num_shots `integer`: damage_from_players_fighter_drone_num_shots integer
+      * damage_from_players_hybrid_amount `integer`: damage_from_players_hybrid_amount integer
+      * damage_from_players_hybrid_num_shots `integer`: damage_from_players_hybrid_num_shots integer
+      * damage_from_players_missile_amount `integer`: damage_from_players_missile_amount integer
+      * damage_from_players_missile_num_shots `integer`: damage_from_players_missile_num_shots integer
+      * damage_from_players_projectile_amount `integer`: damage_from_players_projectile_amount integer
+      * damage_from_players_projectile_num_shots `integer`: damage_from_players_projectile_num_shots integer
+      * damage_from_players_smart_bomb_amount `integer`: damage_from_players_smart_bomb_amount integer
+      * damage_from_players_smart_bomb_num_shots `integer`: damage_from_players_smart_bomb_num_shots integer
+      * damage_from_players_super_amount `integer`: damage_from_players_super_amount integer
+      * damage_from_players_super_num_shots `integer`: damage_from_players_super_num_shots integer
+      * damage_from_structures_total_amount `integer`: damage_from_structures_total_amount integer
+      * damage_from_structures_total_num_shots `integer`: damage_from_structures_total_num_shots integer
+      * damage_to_players_bomb_amount `integer`: damage_to_players_bomb_amount integer
+      * damage_to_players_bomb_num_shots `integer`: damage_to_players_bomb_num_shots integer
+      * damage_to_players_combat_drone_amount `integer`: damage_to_players_combat_drone_amount integer
+      * damage_to_players_combat_drone_num_shots `integer`: damage_to_players_combat_drone_num_shots integer
+      * damage_to_players_energy_amount `integer`: damage_to_players_energy_amount integer
+      * damage_to_players_energy_num_shots `integer`: damage_to_players_energy_num_shots integer
+      * damage_to_players_fighter_bomber_amount `integer`: damage_to_players_fighter_bomber_amount integer
+      * damage_to_players_fighter_bomber_num_shots `integer`: damage_to_players_fighter_bomber_num_shots integer
+      * damage_to_players_fighter_drone_amount `integer`: damage_to_players_fighter_drone_amount integer
+      * damage_to_players_fighter_drone_num_shots `integer`: damage_to_players_fighter_drone_num_shots integer
+      * damage_to_players_hybrid_amount `integer`: damage_to_players_hybrid_amount integer
+      * damage_to_players_hybrid_num_shots `integer`: damage_to_players_hybrid_num_shots integer
+      * damage_to_players_missile_amount `integer`: damage_to_players_missile_amount integer
+      * damage_to_players_missile_num_shots `integer`: damage_to_players_missile_num_shots integer
+      * damage_to_players_projectile_amount `integer`: damage_to_players_projectile_amount integer
+      * damage_to_players_projectile_num_shots `integer`: damage_to_players_projectile_num_shots integer
+      * damage_to_players_smart_bomb_amount `integer`: damage_to_players_smart_bomb_amount integer
+      * damage_to_players_smart_bomb_num_shots `integer`: damage_to_players_smart_bomb_num_shots integer
+      * damage_to_players_super_amount `integer`: damage_to_players_super_amount integer
+      * damage_to_players_super_num_shots `integer`: damage_to_players_super_num_shots integer
+      * damage_to_structures_total_amount `integer`: damage_to_structures_total_amount integer
+      * damage_to_structures_total_num_shots `integer`: damage_to_structures_total_num_shots integer
+      * deaths_high_sec `integer`: deaths_high_sec integer
+      * deaths_low_sec `integer`: deaths_low_sec integer
+      * deaths_null_sec `integer`: deaths_null_sec integer
+      * deaths_pod_high_sec `integer`: deaths_pod_high_sec integer
+      * deaths_pod_low_sec `integer`: deaths_pod_low_sec integer
+      * deaths_pod_null_sec `integer`: deaths_pod_null_sec integer
+      * deaths_pod_wormhole `integer`: deaths_pod_wormhole integer
+      * deaths_wormhole `integer`: deaths_wormhole integer
+      * drone_engage `integer`: drone_engage integer
+      * dscans `integer`: dscans integer
+      * duel_requested `integer`: duel_requested integer
+      * engagement_register `integer`: engagement_register integer
+      * kills_assists `integer`: kills_assists integer
+      * kills_high_sec `integer`: kills_high_sec integer
+      * kills_low_sec `integer`: kills_low_sec integer
+      * kills_null_sec `integer`: kills_null_sec integer
+      * kills_pod_high_sec `integer`: kills_pod_high_sec integer
+      * kills_pod_low_sec `integer`: kills_pod_low_sec integer
+      * kills_pod_null_sec `integer`: kills_pod_null_sec integer
+      * kills_pod_wormhole `integer`: kills_pod_wormhole integer
+      * kills_wormhole `integer`: kills_wormhole integer
+      * npc_flag_set `integer`: npc_flag_set integer
+      * probe_scans `integer`: probe_scans integer
+      * pvp_flag_set `integer`: pvp_flag_set integer
+      * repair_armor_by_remote_amount `integer`: repair_armor_by_remote_amount integer
+      * repair_armor_remote_amount `integer`: repair_armor_remote_amount integer
+      * repair_armor_self_amount `integer`: repair_armor_self_amount integer
+      * repair_capacitor_by_remote_amount `integer`: repair_capacitor_by_remote_amount integer
+      * repair_capacitor_remote_amount `integer`: repair_capacitor_remote_amount integer
+      * repair_capacitor_self_amount `integer`: repair_capacitor_self_amount integer
+      * repair_hull_by_remote_amount `integer`: repair_hull_by_remote_amount integer
+      * repair_hull_remote_amount `integer`: repair_hull_remote_amount integer
+      * repair_hull_self_amount `integer`: repair_hull_self_amount integer
+      * repair_shield_by_remote_amount `integer`: repair_shield_by_remote_amount integer
+      * repair_shield_remote_amount `integer`: repair_shield_remote_amount integer
+      * repair_shield_self_amount `integer`: repair_shield_self_amount integer
+      * self_destructs `integer`: self_destructs integer
+      * warp_scramble_pc `integer`: warp_scramble_pc integer
+      * warp_scrambledby_npc `integer`: warp_scrambledby_npc integer
+      * warp_scrambledby_pc `integer`: warp_scrambledby_pc integer
+      * weapon_flag_set `integer`: weapon_flag_set integer
+      * webifiedby_npc `integer`: webifiedby_npc integer
+      * webifiedby_pc `integer`: webifiedby_pc integer
+      * webifying_pc `integer`: webifying_pc integer
+    * industry `object`: industry object
+      * hacking_successes `integer`: hacking_successes integer
+      * jobs_cancelled `integer`: jobs_cancelled integer
+      * jobs_completed_copy_blueprint `integer`: jobs_completed_copy_blueprint integer
+      * jobs_completed_invention `integer`: jobs_completed_invention integer
+      * jobs_completed_manufacture `integer`: jobs_completed_manufacture integer
+      * jobs_completed_manufacture_asteroid `integer`: jobs_completed_manufacture_asteroid integer
+      * jobs_completed_manufacture_asteroid_quantity `integer`: jobs_completed_manufacture_asteroid_quantity integer
+      * jobs_completed_manufacture_charge `integer`: jobs_completed_manufacture_charge integer
+      * jobs_completed_manufacture_charge_quantity `integer`: jobs_completed_manufacture_charge_quantity integer
+      * jobs_completed_manufacture_commodity `integer`: jobs_completed_manufacture_commodity integer
+      * jobs_completed_manufacture_commodity_quantity `integer`: jobs_completed_manufacture_commodity_quantity integer
+      * jobs_completed_manufacture_deployable `integer`: jobs_completed_manufacture_deployable integer
+      * jobs_completed_manufacture_deployable_quantity `integer`: jobs_completed_manufacture_deployable_quantity integer
+      * jobs_completed_manufacture_drone `integer`: jobs_completed_manufacture_drone integer
+      * jobs_completed_manufacture_drone_quantity `integer`: jobs_completed_manufacture_drone_quantity integer
+      * jobs_completed_manufacture_implant `integer`: jobs_completed_manufacture_implant integer
+      * jobs_completed_manufacture_implant_quantity `integer`: jobs_completed_manufacture_implant_quantity integer
+      * jobs_completed_manufacture_module `integer`: jobs_completed_manufacture_module integer
+      * jobs_completed_manufacture_module_quantity `integer`: jobs_completed_manufacture_module_quantity integer
+      * jobs_completed_manufacture_other `integer`: jobs_completed_manufacture_other integer
+      * jobs_completed_manufacture_other_quantity `integer`: jobs_completed_manufacture_other_quantity integer
+      * jobs_completed_manufacture_ship `integer`: jobs_completed_manufacture_ship integer
+      * jobs_completed_manufacture_ship_quantity `integer`: jobs_completed_manufacture_ship_quantity integer
+      * jobs_completed_manufacture_structure `integer`: jobs_completed_manufacture_structure integer
+      * jobs_completed_manufacture_structure_quantity `integer`: jobs_completed_manufacture_structure_quantity integer
+      * jobs_completed_manufacture_subsystem `integer`: jobs_completed_manufacture_subsystem integer
+      * jobs_completed_manufacture_subsystem_quantity `integer`: jobs_completed_manufacture_subsystem_quantity integer
+      * jobs_completed_material_productivity `integer`: jobs_completed_material_productivity integer
+      * jobs_completed_time_productivity `integer`: jobs_completed_time_productivity integer
+      * jobs_started_copy_blueprint `integer`: jobs_started_copy_blueprint integer
+      * jobs_started_invention `integer`: jobs_started_invention integer
+      * jobs_started_manufacture `integer`: jobs_started_manufacture integer
+      * jobs_started_material_productivity `integer`: jobs_started_material_productivity integer
+      * jobs_started_time_productivity `integer`: jobs_started_time_productivity integer
+      * reprocess_item `integer`: reprocess_item integer
+      * reprocess_item_quantity `integer`: reprocess_item_quantity integer
+    * inventory `object`: inventory object
+      * abandon_loot_quantity `integer`: abandon_loot_quantity integer
+      * trash_item_quantity `integer`: trash_item_quantity integer
+    * isk `object`: isk object
+      * in `integer`: in integer
+      * out `integer`: out integer
+    * market `object`: market object
+      * accept_contracts_courier `integer`: accept_contracts_courier integer
+      * accept_contracts_item_exchange `integer`: accept_contracts_item_exchange integer
+      * buy_orders_placed `integer`: buy_orders_placed integer
+      * cancel_market_order `integer`: cancel_market_order integer
+      * create_contracts_auction `integer`: create_contracts_auction integer
+      * create_contracts_courier `integer`: create_contracts_courier integer
+      * create_contracts_item_exchange `integer`: create_contracts_item_exchange integer
+      * deliver_courier_contract `integer`: deliver_courier_contract integer
+      * isk_gained `integer`: isk_gained integer
+      * isk_spent `integer`: isk_spent integer
+      * modify_market_order `integer`: modify_market_order integer
+      * search_contracts `integer`: search_contracts integer
+      * sell_orders_placed `integer`: sell_orders_placed integer
+    * mining `object`: mining object
+      * drone_mine `integer`: drone_mine integer
+      * ore_arkonor `integer`: ore_arkonor integer
+      * ore_bistot `integer`: ore_bistot integer
+      * ore_crokite `integer`: ore_crokite integer
+      * ore_dark_ochre `integer`: ore_dark_ochre integer
+      * ore_gneiss `integer`: ore_gneiss integer
+      * ore_harvestable_cloud `integer`: ore_harvestable_cloud integer
+      * ore_hedbergite `integer`: ore_hedbergite integer
+      * ore_hemorphite `integer`: ore_hemorphite integer
+      * ore_ice `integer`: ore_ice integer
+      * ore_jaspet `integer`: ore_jaspet integer
+      * ore_kernite `integer`: ore_kernite integer
+      * ore_mercoxit `integer`: ore_mercoxit integer
+      * ore_omber `integer`: ore_omber integer
+      * ore_plagioclase `integer`: ore_plagioclase integer
+      * ore_pyroxeres `integer`: ore_pyroxeres integer
+      * ore_scordite `integer`: ore_scordite integer
+      * ore_spodumain `integer`: ore_spodumain integer
+      * ore_veldspar `integer`: ore_veldspar integer
+    * module `object`: module object
+      * activations_armor_hardener `integer`: activations_armor_hardener integer
+      * activations_armor_repair_unit `integer`: activations_armor_repair_unit integer
+      * activations_armor_resistance_shift_hardener `integer`: activations_armor_resistance_shift_hardener integer
+      * activations_automated_targeting_system `integer`: activations_automated_targeting_system integer
+      * activations_bastion `integer`: activations_bastion integer
+      * activations_bomb_launcher `integer`: activations_bomb_launcher integer
+      * activations_capacitor_booster `integer`: activations_capacitor_booster integer
+      * activations_cargo_scanner `integer`: activations_cargo_scanner integer
+      * activations_cloaking_device `integer`: activations_cloaking_device integer
+      * activations_clone_vat_bay `integer`: activations_clone_vat_bay integer
+      * activations_cynosural_field `integer`: activations_cynosural_field integer
+      * activations_damage_control `integer`: activations_damage_control integer
+      * activations_data_miners `integer`: activations_data_miners integer
+      * activations_drone_control_unit `integer`: activations_drone_control_unit integer
+      * activations_drone_tracking_modules `integer`: activations_drone_tracking_modules integer
+      * activations_eccm `integer`: activations_eccm integer
+      * activations_ecm `integer`: activations_ecm integer
+      * activations_ecm_burst `integer`: activations_ecm_burst integer
+      * activations_energy_destabilizer `integer`: activations_energy_destabilizer integer
+      * activations_energy_vampire `integer`: activations_energy_vampire integer
+      * activations_energy_weapon `integer`: activations_energy_weapon integer
+      * activations_festival_launcher `integer`: activations_festival_launcher integer
+      * activations_frequency_mining_laser `integer`: activations_frequency_mining_laser integer
+      * activations_fueled_armor_repairer `integer`: activations_fueled_armor_repairer integer
+      * activations_fueled_shield_booster `integer`: activations_fueled_shield_booster integer
+      * activations_gang_coordinator `integer`: activations_gang_coordinator integer
+      * activations_gas_cloud_harvester `integer`: activations_gas_cloud_harvester integer
+      * activations_hull_repair_unit `integer`: activations_hull_repair_unit integer
+      * activations_hybrid_weapon `integer`: activations_hybrid_weapon integer
+      * activations_industrial_core `integer`: activations_industrial_core integer
+      * activations_interdiction_sphere_launcher `integer`: activations_interdiction_sphere_launcher integer
+      * activations_micro_jump_drive `integer`: activations_micro_jump_drive integer
+      * activations_mining_laser `integer`: activations_mining_laser integer
+      * activations_missile_launcher `integer`: activations_missile_launcher integer
+      * activations_passive_targeting_system `integer`: activations_passive_targeting_system integer
+      * activations_probe_launcher `integer`: activations_probe_launcher integer
+      * activations_projected_eccm `integer`: activations_projected_eccm integer
+      * activations_projectile_weapon `integer`: activations_projectile_weapon integer
+      * activations_propulsion_module `integer`: activations_propulsion_module integer
+      * activations_remote_armor_repairer `integer`: activations_remote_armor_repairer integer
+      * activations_remote_capacitor_transmitter `integer`: activations_remote_capacitor_transmitter integer
+      * activations_remote_ecm_burst `integer`: activations_remote_ecm_burst integer
+      * activations_remote_hull_repairer `integer`: activations_remote_hull_repairer integer
+      * activations_remote_sensor_booster `integer`: activations_remote_sensor_booster integer
+      * activations_remote_sensor_damper `integer`: activations_remote_sensor_damper integer
+      * activations_remote_shield_booster `integer`: activations_remote_shield_booster integer
+      * activations_remote_tracking_computer `integer`: activations_remote_tracking_computer integer
+      * activations_salvager `integer`: activations_salvager integer
+      * activations_sensor_booster `integer`: activations_sensor_booster integer
+      * activations_shield_booster `integer`: activations_shield_booster integer
+      * activations_shield_hardener `integer`: activations_shield_hardener integer
+      * activations_ship_scanner `integer`: activations_ship_scanner integer
+      * activations_siege `integer`: activations_siege integer
+      * activations_smart_bomb `integer`: activations_smart_bomb integer
+      * activations_stasis_web `integer`: activations_stasis_web integer
+      * activations_strip_miner `integer`: activations_strip_miner integer
+      * activations_super_weapon `integer`: activations_super_weapon integer
+      * activations_survey_scanner `integer`: activations_survey_scanner integer
+      * activations_target_breaker `integer`: activations_target_breaker integer
+      * activations_target_painter `integer`: activations_target_painter integer
+      * activations_tracking_computer `integer`: activations_tracking_computer integer
+      * activations_tracking_disruptor `integer`: activations_tracking_disruptor integer
+      * activations_tractor_beam `integer`: activations_tractor_beam integer
+      * activations_triage `integer`: activations_triage integer
+      * activations_warp_disrupt_field_generator `integer`: activations_warp_disrupt_field_generator integer
+      * activations_warp_scrambler `integer`: activations_warp_scrambler integer
+      * link_weapons `integer`: link_weapons integer
+      * overload `integer`: overload integer
+      * repairs `integer`: repairs integer
+    * orbital `object`: orbital object
+      * strike_characters_killed `integer`: strike_characters_killed integer
+      * strike_damage_to_players_armor_amount `integer`: strike_damage_to_players_armor_amount integer
+      * strike_damage_to_players_shield_amount `integer`: strike_damage_to_players_shield_amount integer
+    * pve `object`: pve object
+      * dungeons_completed_agent `integer`: dungeons_completed_agent integer
+      * dungeons_completed_distribution `integer`: dungeons_completed_distribution integer
+      * missions_succeeded `integer`: missions_succeeded integer
+      * missions_succeeded_epic_arc `integer`: missions_succeeded_epic_arc integer
+    * social `object`: social object
+      * add_contact_bad `integer`: add_contact_bad integer
+      * add_contact_good `integer`: add_contact_good integer
+      * add_contact_high `integer`: add_contact_high integer
+      * add_contact_horrible `integer`: add_contact_horrible integer
+      * add_contact_neutral `integer`: add_contact_neutral integer
+      * add_note `integer`: add_note integer
+      * added_as_contact_bad `integer`: added_as_contact_bad integer
+      * added_as_contact_good `integer`: added_as_contact_good integer
+      * added_as_contact_high `integer`: added_as_contact_high integer
+      * added_as_contact_horrible `integer`: added_as_contact_horrible integer
+      * added_as_contact_neutral `integer`: added_as_contact_neutral integer
+      * calendar_event_created `integer`: calendar_event_created integer
+      * chat_messages_alliance `integer`: chat_messages_alliance integer
+      * chat_messages_constellation `integer`: chat_messages_constellation integer
+      * chat_messages_corporation `integer`: chat_messages_corporation integer
+      * chat_messages_fleet `integer`: chat_messages_fleet integer
+      * chat_messages_region `integer`: chat_messages_region integer
+      * chat_messages_solarsystem `integer`: chat_messages_solarsystem integer
+      * chat_messages_warfaction `integer`: chat_messages_warfaction integer
+      * chat_total_message_length `integer`: chat_total_message_length integer
+      * direct_trades `integer`: direct_trades integer
+      * fleet_broadcasts `integer`: fleet_broadcasts integer
+      * fleet_joins `integer`: fleet_joins integer
+      * mails_received `integer`: mails_received integer
+      * mails_sent `integer`: mails_sent integer
+    * travel `object`: travel object
+      * acceleration_gate_activations `integer`: acceleration_gate_activations integer
+      * align_to `integer`: align_to integer
+      * distance_warped_high_sec `integer`: distance_warped_high_sec integer
+      * distance_warped_low_sec `integer`: distance_warped_low_sec integer
+      * distance_warped_null_sec `integer`: distance_warped_null_sec integer
+      * distance_warped_wormhole `integer`: distance_warped_wormhole integer
+      * docks_high_sec `integer`: docks_high_sec integer
+      * docks_low_sec `integer`: docks_low_sec integer
+      * docks_null_sec `integer`: docks_null_sec integer
+      * jumps_stargate_high_sec `integer`: jumps_stargate_high_sec integer
+      * jumps_stargate_low_sec `integer`: jumps_stargate_low_sec integer
+      * jumps_stargate_null_sec `integer`: jumps_stargate_null_sec integer
+      * jumps_wormhole `integer`: jumps_wormhole integer
+      * warps_high_sec `integer`: warps_high_sec integer
+      * warps_low_sec `integer`: warps_low_sec integer
+      * warps_null_sec `integer`: warps_null_sec integer
+      * warps_to_bookmark `integer`: warps_to_bookmark integer
+      * warps_to_celestial `integer`: warps_to_celestial integer
+      * warps_to_fleet_member `integer`: warps_to_fleet_member integer
+      * warps_to_scan_result `integer`: warps_to_scan_result integer
+      * warps_wormhole `integer`: warps_wormhole integer
+    * year **required** `integer`: Gregorian year for this set of aggregates
+
+### get_characters_character_id_titles
+Returns a character's titles
+
+---
+Alternate route: `/dev/characters/{character_id}/titles/`
+
+Alternate route: `/legacy/characters/{character_id}/titles/`
+
+Alternate route: `/v1/characters/{character_id}/titles/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_characters_character_id_titles({
+  "character_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * character_id **required** `integer`: An EVE character ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * name `string`: name string
+    * title_id `integer`: title_id integer
+
 ### get_characters_character_id_wallet
 Returns a character's wallet balance
 
 ---
-Alternate route: `/v1/characters/{character_id}/wallet/`
+Alternate route: `/dev/characters/{character_id}/wallet/`
 
 Alternate route: `/legacy/characters/{character_id}/wallet/`
 
-Alternate route: `/dev/characters/{character_id}/wallet/`
+Alternate route: `/v1/characters/{character_id}/wallet/`
 
 ---
 This route is cached for up to 120 seconds
@@ -2587,9 +3106,9 @@ ccp_is.get_characters_character_id_wallet({
 Retrieve character wallet journal
 
 ---
-Alternate route: `/v2/characters/{character_id}/wallet/journal/`
-
 Alternate route: `/dev/characters/{character_id}/wallet/journal/`
+
+Alternate route: `/v3/characters/{character_id}/wallet/journal/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2630,24 +3149,24 @@ ccp_is.get_characters_character_id_wallet_journal({
       * system_id `integer`: system_id integer
       * transaction_id `integer`: transaction_id integer
     * first_party_id `integer`: first_party_id integer
-    * first_party_type `string` (values: character, corporation, alliance, faction): first_party_type string
+    * first_party_type `string` (values: character, corporation, alliance, faction, system): first_party_type string
     * reason `string`: reason string
     * ref_id **required** `integer`: Unique journal reference ID
-    * ref_type **required** `string` (values: player_trading, market_transaction, gm_cash_transfer, mission_reward, clone_activation, inheritance, player_donation, corporation_payment, docking_fee, office_rental_fee, factory_slot_rental_fee, repair_bill, bounty, bounty_prize, insurance, mission_expiration, mission_completion, shares, courier_mission_escrow, mission_cost, agent_miscellaneous, lp_store, agent_location_services, agent_donation, agent_security_services, agent_mission_collateral_paid, agent_mission_collateral_refunded, agents_preward, agent_mission_reward, agent_mission_time_bonus_reward, cspa, cspaofflinerefund, corporation_account_withdrawal, corporation_dividend_payment, corporation_registration_fee, corporation_logo_change_cost, release_of_impounded_property, market_escrow, agent_services_rendered, market_fine_paid, corporation_liquidation, brokers_fee, corporation_bulk_payment, alliance_registration_fee, war_fee, alliance_maintainance_fee, contraband_fine, clone_transfer, acceleration_gate_fee, transaction_tax, jump_clone_installation_fee, manufacturing, researching_technology, researching_time_productivity, researching_material_productivity, copying, reverse_engineering, contract_auction_bid, contract_auction_bid_refund, contract_collateral, contract_reward_refund, contract_auction_sold, contract_reward, contract_collateral_refund, contract_collateral_payout, contract_price, contract_brokers_fee, contract_sales_tax, contract_deposit, contract_deposit_sales_tax, contract_auction_bid_corp, contract_collateral_deposited_corp, contract_price_payment_corp, contract_brokers_fee_corp, contract_deposit_corp, contract_deposit_refund, contract_reward_deposited, contract_reward_deposited_corp, bounty_prizes, advertisement_listing_fee, medal_creation, medal_issued, dna_modification_fee, sovereignity_bill, bounty_prize_corporation_tax, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward_corporation_tax, upkeep_adjustment_fee, planetary_import_tax, planetary_export_tax, planetary_construction, corporate_reward_payout, bounty_surcharge, contract_reversal, corporate_reward_tax, store_purchase, store_purchase_refund, datacore_fee, war_fee_surrender, war_ally_contract, bounty_reimbursement, kill_right_fee, security_processing_fee, industry_job_tax, infrastructure_hub_maintenance, asset_safety_recovery_tax, opportunity_reward, project_discovery_reward, project_discovery_tax, reprocessing_tax, jump_clone_activation_fee, operation_bonus): Transaction type, different type of transaction will populate different fields in `extra_info`
+    * ref_type **required** `string` (values: acceleration_gate_fee, advertisement_listing_fee, agent_donation, agent_location_services, agent_miscellaneous, agent_mission_collateral_paid, agent_mission_collateral_refunded, agent_mission_reward, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward, agent_mission_time_bonus_reward_corporation_tax, agent_security_services, agent_services_rendered, agents_preward, alliance_maintainance_fee, alliance_registration_fee, asset_safety_recovery_tax, bounty, bounty_prize, bounty_prize_corporation_tax, bounty_prizes, bounty_reimbursement, bounty_surcharge, brokers_fee, clone_activation, clone_transfer, contraband_fine, contract_auction_bid, contract_auction_bid_corp, contract_auction_bid_refund, contract_auction_sold, contract_brokers_fee, contract_brokers_fee_corp, contract_collateral, contract_collateral_deposited_corp, contract_collateral_payout, contract_collateral_refund, contract_deposit, contract_deposit_corp, contract_deposit_refund, contract_deposit_sales_tax, contract_price, contract_price_payment_corp, contract_reversal, contract_reward, contract_reward_deposited, contract_reward_deposited_corp, contract_reward_refund, contract_sales_tax, copying, corporate_reward_payout, corporate_reward_tax, corporation_account_withdrawal, corporation_bulk_payment, corporation_dividend_payment, corporation_liquidation, corporation_logo_change_cost, corporation_payment, corporation_registration_fee, courier_mission_escrow, cspa, cspaofflinerefund, datacore_fee, dna_modification_fee, docking_fee, duel_wager_escrow, duel_wager_payment, duel_wager_refund, factory_slot_rental_fee, gm_cash_transfer, industry_job_tax, infrastructure_hub_maintenance, inheritance, insurance, jump_clone_activation_fee, jump_clone_installation_fee, kill_right_fee, lp_store, manufacturing, market_escrow, market_fine_paid, market_transaction, medal_creation, medal_issued, mission_completion, mission_cost, mission_expiration, mission_reward, office_rental_fee, operation_bonus, opportunity_reward, planetary_construction, planetary_export_tax, planetary_import_tax, player_donation, player_trading, project_discovery_reward, project_discovery_tax, reaction, release_of_impounded_property, repair_bill, reprocessing_tax, researching_material_productivity, researching_technology, researching_time_productivity, resource_wars_reward, reverse_engineering, security_processing_fee, shares, sovereignity_bill, store_purchase, store_purchase_refund, transaction_tax, upkeep_adjustment_fee, war_ally_contract, war_fee, war_fee_surrender): Transaction type, different type of transaction will populate different fields in `extra_info` Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can use the following gist to see string->int mappings: https://gist.github.com/ccp-zoetrope/c03db66d90c2148724c06171bc52e0ec
     * second_party_id `integer`: second_party_id integer
-    * second_party_type `string` (values: character, corporation, alliance, faction): second_party_type string
+    * second_party_type `string` (values: character, corporation, alliance, faction, system): second_party_type string
     * tax `number`: Tax amount received for tax related transactions
-    * tax_reciever_id `integer`: the corporation ID receiving any tax paid
+    * tax_receiver_id `integer`: the corporation ID receiving any tax paid
 
 ### get_characters_character_id_wallet_transactions
 Get wallet transactions of a character
 
 ---
-Alternate route: `/v1/characters/{character_id}/wallet/transactions/`
+Alternate route: `/dev/characters/{character_id}/wallet/transactions/`
 
 Alternate route: `/legacy/characters/{character_id}/wallet/transactions/`
 
-Alternate route: `/dev/characters/{character_id}/wallet/transactions/`
+Alternate route: `/v1/characters/{character_id}/wallet/transactions/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2687,14 +3206,18 @@ Extraction timers for all moon chunks being extracted by refineries belonging to
 
 
 ---
-Alternate route: `/v1/corporation/{corporation_id}/mining/extractions/`
+Alternate route: `/dev/corporation/{corporation_id}/mining/extractions/`
 
 Alternate route: `/legacy/corporation/{corporation_id}/mining/extractions/`
 
-Alternate route: `/dev/corporation/{corporation_id}/mining/extractions/`
+Alternate route: `/v1/corporation/{corporation_id}/mining/extractions/`
 
 ---
 This route is cached for up to 1800 seconds
+
+---
+Requires one of the following EVE corporation role(s): Structure_manager
+
 
 
 ```js
@@ -2725,14 +3248,18 @@ Paginated list of all entities capable of observing and recording mining for a c
 
 
 ---
-Alternate route: `/v1/corporation/{corporation_id}/mining/observers/`
+Alternate route: `/dev/corporation/{corporation_id}/mining/observers/`
 
 Alternate route: `/legacy/corporation/{corporation_id}/mining/observers/`
 
-Alternate route: `/dev/corporation/{corporation_id}/mining/observers/`
+Alternate route: `/v1/corporation/{corporation_id}/mining/observers/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant
+
 
 
 ```js
@@ -2762,14 +3289,18 @@ Paginated record of all mining seen by an observer
 
 
 ---
-Alternate route: `/v1/corporation/{corporation_id}/mining/observers/{observer_id}/`
+Alternate route: `/dev/corporation/{corporation_id}/mining/observers/{observer_id}/`
 
 Alternate route: `/legacy/corporation/{corporation_id}/mining/observers/{observer_id}/`
 
-Alternate route: `/dev/corporation/{corporation_id}/mining/observers/{observer_id}/`
+Alternate route: `/v1/corporation/{corporation_id}/mining/observers/{observer_id}/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant
+
 
 
 ```js
@@ -2802,9 +3333,9 @@ ccp_is.get_corporation_corporation_id_mining_observers_observer_id({
 Resolve a set of corporation IDs to corporation names
 
 ---
-Alternate route: `/v1/corporations/names/`
+Alternate route: `/dev/corporations/names/`
 
-Alternate route: `/legacy/corporations/names/`
+Alternate route: `/v2/corporations/names/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2833,11 +3364,11 @@ ccp_is.get_corporations_names({
 Get a list of npc corporations
 
 ---
-Alternate route: `/v1/corporations/npccorps/`
+Alternate route: `/dev/corporations/npccorps/`
 
 Alternate route: `/legacy/corporations/npccorps/`
 
-Alternate route: `/dev/corporations/npccorps/`
+Alternate route: `/v1/corporations/npccorps/`
 
 ---
 This route expires daily at 11:05
@@ -2861,7 +3392,9 @@ ccp_is.get_corporations_npccorps({}, context)
 Public information about a corporation
 
 ---
-Alternate route: `/v3/corporations/{corporation_id}/`
+Alternate route: `/dev/corporations/{corporation_id}/`
+
+Alternate route: `/v4/corporations/{corporation_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2882,25 +3415,27 @@ ccp_is.get_corporations_corporation_id({
 
 #### Output
 * output `object`: 200 ok object
-  * alliance_id `integer`: id of alliance that corporation is a member of, if any
+  * alliance_id `integer`: ID of the alliance that corporation is a member of, if any
   * ceo_id **required** `integer`: ceo_id integer
-  * corporation_description **required** `string`: corporation_description string
-  * corporation_name **required** `string`: the full name of the corporation
-  * creation_date `string`: creation_date string
   * creator_id **required** `integer`: creator_id integer
-  * faction `string` (values: Minmatar, Gallente, Caldari, Amarr): faction string
+  * date_founded `string`: date_founded string
+  * description `string`: description string
+  * faction_id `integer`: faction_id integer
+  * home_station_id `integer`: home_station_id integer
   * member_count **required** `integer`: member_count integer
+  * name **required** `string`: the full name of the corporation
+  * shares `integer`: shares integer
   * tax_rate **required** `number`: tax_rate number
   * ticker **required** `string`: the short name of the corporation
-  * url **required** `string`: url string
+  * url `string`: url string
 
 ### get_corporations_corporation_id_alliancehistory
 Get a list of all the alliances a corporation has been a member of
 
 ---
-Alternate route: `/v2/corporations/{corporation_id}/alliancehistory/`
-
 Alternate route: `/dev/corporations/{corporation_id}/alliancehistory/`
+
+Alternate route: `/v2/corporations/{corporation_id}/alliancehistory/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -2931,14 +3466,16 @@ ccp_is.get_corporations_corporation_id_alliancehistory({
 Return a list of the corporation assets
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/assets/`
-
-Alternate route: `/legacy/corporations/{corporation_id}/assets/`
-
 Alternate route: `/dev/corporations/{corporation_id}/assets/`
+
+Alternate route: `/v2/corporations/{corporation_id}/assets/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -2964,18 +3501,20 @@ ccp_is.get_corporations_corporation_id_assets({
     * location_flag **required** `string` (values: AssetSafety, AutoFit, Bonus, Booster, BoosterBay, Capsule, Cargo, CorpDeliveries, CorpSAG1, CorpSAG2, CorpSAG3, CorpSAG4, CorpSAG5, CorpSAG6, CorpSAG7, CrateLoot, Deliveries, DroneBay, DustBattle, DustDatabank, FighterBay, FighterTube0, FighterTube1, FighterTube2, FighterTube3, FighterTube4, FleetHangar, Hangar, HangarAll, HiSlot0, HiSlot1, HiSlot2, HiSlot3, HiSlot4, HiSlot5, HiSlot6, HiSlot7, HiddenModifers, Implant, Impounded, JunkyardReprocessed, JunkyardTrashed, LoSlot0, LoSlot1, LoSlot2, LoSlot3, LoSlot4, LoSlot5, LoSlot6, LoSlot7, Locked, MedSlot0, MedSlot1, MedSlot2, MedSlot3, MedSlot4, MedSlot5, MedSlot6, MedSlot7, OfficeFolder, Pilot, PlanetSurface, QuafeBay, Reward, RigSlot0, RigSlot1, RigSlot2, RigSlot3, RigSlot4, RigSlot5, RigSlot6, RigSlot7, SecondaryStorage, ServiceSlot0, ServiceSlot1, ServiceSlot2, ServiceSlot3, ServiceSlot4, ServiceSlot5, ServiceSlot6, ServiceSlot7, ShipHangar, ShipOffline, Skill, SkillInTraining, SpecializedAmmoHold, SpecializedCommandCenterHold, SpecializedFuelBay, SpecializedGasHold, SpecializedIndustrialShipHold, SpecializedLargeShipHold, SpecializedMaterialBay, SpecializedMediumShipHold, SpecializedMineralHold, SpecializedOreHold, SpecializedPlanetaryCommoditiesHold, SpecializedSalvageHold, SpecializedShipHold, SpecializedSmallShipHold, StructureActive, StructureFuel, StructureInactive, StructureOffline, SubSystemSlot0, SubSystemSlot1, SubSystemSlot2, SubSystemSlot3, SubSystemSlot4, SubSystemSlot5, SubSystemSlot6, SubSystemSlot7, SubsystemBay, Unlocked, Wallet, Wardrobe): location_flag string
     * location_id **required** `integer`: location_id integer
     * location_type **required** `string` (values: station, solar_system, other): location_type string
-    * quantity `integer`: quantity integer
+    * quantity **required** `integer`: quantity integer
     * type_id **required** `integer`: type_id integer
 
 ### post_corporations_corporation_id_assets_locations
 Return locations for a set of item ids, which you can get from corporation assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/assets/locations/`
-
-Alternate route: `/legacy/corporations/{corporation_id}/assets/locations/`
-
 Alternate route: `/dev/corporations/{corporation_id}/assets/locations/`
+
+Alternate route: `/v2/corporations/{corporation_id}/assets/locations/`
+
+
+---
+Requires one of the following EVE corporation role(s): Director
 
 
 
@@ -3000,19 +3539,24 @@ ccp_is.post_corporations_corporation_id_assets_locations({
 * output `array`: 200 ok array
   * items `object`: 200 ok object
     * item_id **required** `integer`: item_id integer
-    * x **required** `number`: x number
-    * y **required** `number`: y number
-    * z **required** `number`: z number
+    * position **required** `object`: position object
+      * x **required** `number`: x number
+      * y **required** `number`: y number
+      * z **required** `number`: z number
 
 ### post_corporations_corporation_id_assets_names
 Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/assets/names/`
+Alternate route: `/dev/corporations/{corporation_id}/assets/names/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/assets/names/`
 
-Alternate route: `/dev/corporations/{corporation_id}/assets/names/`
+Alternate route: `/v1/corporations/{corporation_id}/assets/names/`
+
+
+---
+Requires one of the following EVE corporation role(s): Director
 
 
 
@@ -3043,14 +3587,18 @@ ccp_is.post_corporations_corporation_id_assets_names({
 Returns a list of blueprints the corporation owns
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/blueprints/`
+Alternate route: `/dev/corporations/{corporation_id}/blueprints/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/blueprints/`
 
-Alternate route: `/dev/corporations/{corporation_id}/blueprints/`
+Alternate route: `/v1/corporations/{corporation_id}/blueprints/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3084,11 +3632,11 @@ ccp_is.get_corporations_corporation_id_blueprints({
 A list of your corporation's bookmarks
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/bookmarks/`
+Alternate route: `/dev/corporations/{corporation_id}/bookmarks/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/bookmarks/`
 
-Alternate route: `/dev/corporations/{corporation_id}/bookmarks/`
+Alternate route: `/v1/corporations/{corporation_id}/bookmarks/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3131,11 +3679,11 @@ ccp_is.get_corporations_corporation_id_bookmarks({
 A list of your corporation's bookmark folders
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/bookmarks/folders/`
+Alternate route: `/dev/corporations/{corporation_id}/bookmarks/folders/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/bookmarks/folders/`
 
-Alternate route: `/dev/corporations/{corporation_id}/bookmarks/folders/`
+Alternate route: `/v1/corporations/{corporation_id}/bookmarks/folders/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3167,11 +3715,11 @@ ccp_is.get_corporations_corporation_id_bookmarks_folders({
 Return contacts of a corporation
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/contacts/`
+Alternate route: `/dev/corporations/{corporation_id}/contacts/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/contacts/`
 
-Alternate route: `/dev/corporations/{corporation_id}/contacts/`
+Alternate route: `/v1/corporations/{corporation_id}/contacts/`
 
 ---
 This route is cached for up to 300 seconds
@@ -3205,14 +3753,18 @@ ccp_is.get_corporations_corporation_id_contacts({
 Returns logs recorded in the past seven days from all audit log secure containers (ALSC) owned by a given corporation
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/containers/logs/`
+Alternate route: `/dev/corporations/{corporation_id}/containers/logs/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/containers/logs/`
 
-Alternate route: `/dev/corporations/{corporation_id}/containers/logs/`
+Alternate route: `/v1/corporations/{corporation_id}/containers/logs/`
 
 ---
 This route is cached for up to 600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3250,14 +3802,14 @@ ccp_is.get_corporations_corporation_id_containers_logs({
 Returns contracts available to a coporation, only if the corporation is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is "in_progress".
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/contracts/`
+Alternate route: `/dev/corporations/{corporation_id}/contracts/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/contracts/`
 
-Alternate route: `/dev/corporations/{corporation_id}/contracts/`
+Alternate route: `/v1/corporations/{corporation_id}/contracts/`
 
 ---
-This route is cached for up to 3600 seconds
+This route is cached for up to 300 seconds
 
 
 ```js
@@ -3270,6 +3822,7 @@ ccp_is.get_corporations_corporation_id_contracts({
 * input `object`
   * corporation_id **required** `integer`: An EVE corporation ID
   * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
   * token `string`: Access token to use if unable to set a header
   * user_agent `string`: Client identifier, takes precedence over headers
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
@@ -3304,11 +3857,11 @@ ccp_is.get_corporations_corporation_id_contracts({
 Lists bids on a particular auction contract
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/bids/`
+Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/bids/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/contracts/{contract_id}/bids/`
 
-Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/bids/`
+Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/bids/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3343,11 +3896,11 @@ ccp_is.get_corporations_corporation_id_contracts_contract_id_bids({
 Lists items of a particular contract
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/items/`
+Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/items/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/contracts/{contract_id}/items/`
 
-Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/items/`
+Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/items/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3379,18 +3932,73 @@ ccp_is.get_corporations_corporation_id_contracts_contract_id_items({
     * record_id **required** `integer`: Unique ID for the item
     * type_id **required** `integer`: Type ID for item
 
+### get_corporations_corporation_id_customs_offices
+List customs offices owned by a corporation
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/customs_offices/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/customs_offices/`
+
+Alternate route: `/v1/corporations/{corporation_id}/customs_offices/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_customs_offices({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * alliance_tax_rate `number`: Only present if alliance access is allowed
+    * allow_access_with_standings **required** `boolean`: standing_level and any standing related tax rate only present when this is true
+    * allow_alliance_access **required** `boolean`: allow_alliance_access boolean
+    * bad_standing_tax_rate `number`: bad_standing_tax_rate number
+    * corporation_tax_rate `number`: corporation_tax_rate number
+    * excellent_standing_tax_rate `number`: Tax rate for entities with excellent level of standing, only present if this level is allowed, same for all other standing related tax rates
+    * good_standing_tax_rate `number`: good_standing_tax_rate number
+    * neutral_standing_tax_rate `number`: neutral_standing_tax_rate number
+    * office_id **required** `integer`: unique ID of this customs office
+    * reinforce_exit_end **required** `integer`: reinforce_exit_end integer
+    * reinforce_exit_start **required** `integer`: Together with reinforce_exit_end, marks a 2-hour period where this customs office could exit reinforcement mode during the day after initial attack
+    * standing_level `string` (values: bad, excellent, good, neutral, terrible): Access is allowed only for entities with this level of standing or better
+    * system_id **required** `integer`: ID of the solar system this customs office is located in
+    * terrible_standing_tax_rate `number`: terrible_standing_tax_rate number
+
 ### get_corporations_corporation_id_divisions
 Return corporation hangar and wallet division names, only show if a division is not using the default name
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/divisions/`
+Alternate route: `/dev/corporations/{corporation_id}/divisions/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/divisions/`
 
-Alternate route: `/dev/corporations/{corporation_id}/divisions/`
+Alternate route: `/v1/corporations/{corporation_id}/divisions/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3418,15 +4026,96 @@ ccp_is.get_corporations_corporation_id_divisions({
       * division `integer`: division integer
       * name `string`: name string
 
+### get_corporations_corporation_id_facilities
+Return a corporation's facilities
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/facilities/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/facilities/`
+
+Alternate route: `/v1/corporations/{corporation_id}/facilities/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Factory_Manager
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_facilities({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * facility_id **required** `integer`: facility_id integer
+    * system_id **required** `integer`: system_id integer
+    * type_id **required** `integer`: type_id integer
+
+### get_corporations_corporation_id_fw_stats
+Statistics about a corporation involved in faction warfare
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/fw/stats/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/fw/stats/`
+
+Alternate route: `/v1/corporations/{corporation_id}/fw/stats/`
+
+---
+This route expires daily at 11:05
+
+
+```js
+ccp_is.get_corporations_corporation_id_fw_stats({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `object`: 200 ok object
+  * enlisted_on `string`: The enlistment date of the given corporation into faction warfare. Will not be included if corporation is not enlisted in faction warfare
+  * faction_id `integer`: The faction the given corporation is enlisted to fight for. Will not be included if corporation is not enlisted in faction warfare
+  * kills **required** `object`: Summary of kills done by the given corporation against enemy factions
+    * last_week **required** `integer`: Last week's total number of kills by members of the given corporation against enemy factions
+    * total **required** `integer`: Total number of kills by members of the given corporation against enemy factions since the corporation enlisted
+    * yesterday **required** `integer`: Yesterday's total number of kills by members of the given corporation against enemy factions
+  * pilots `integer`: How many pilots the enlisted corporation has. Will not be included if corporation is not enlisted in faction warfare
+  * victory_points **required** `object`: Summary of victory points gained by the given corporation for the enlisted faction
+    * last_week **required** `integer`: Last week's victory points gained by members of the given corporation
+    * total **required** `integer`: Total victory points gained since the given corporation enlisted
+    * yesterday **required** `integer`: Yesterday's victory points gained by members of the given corporation
+
 ### get_corporations_corporation_id_icons
 Get the icon urls for a corporation
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/icons/`
+Alternate route: `/dev/corporations/{corporation_id}/icons/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/icons/`
 
-Alternate route: `/dev/corporations/{corporation_id}/icons/`
+Alternate route: `/v1/corporations/{corporation_id}/icons/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3455,14 +4144,18 @@ ccp_is.get_corporations_corporation_id_icons({
 List industry jobs run by a corporation
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/industry/jobs/`
+Alternate route: `/dev/corporations/{corporation_id}/industry/jobs/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/industry/jobs/`
 
-Alternate route: `/dev/corporations/{corporation_id}/industry/jobs/`
+Alternate route: `/v1/corporations/{corporation_id}/industry/jobs/`
 
 ---
 This route is cached for up to 300 seconds
+
+---
+Requires one of the following EVE corporation role(s): FactoryManager
+
 
 
 ```js
@@ -3504,21 +4197,25 @@ ccp_is.get_corporations_corporation_id_industry_jobs({
     * product_type_id `integer`: Type ID of product (manufactured, copied or invented)
     * runs **required** `integer`: Number of runs for a manufacturing job, or number of copies to make for a blueprint copy
     * start_date **required** `string`: Date and time when this job started
-    * status **required** `string` (values: active, paused, ready, delivered, cancelled, reverted): status string
+    * status **required** `string` (values: active, cancelled, delivered, paused, ready, reverted): status string
     * successful_runs `integer`: Number of successful runs for this job. Equal to runs unless this is an invention job
 
 ### get_corporations_corporation_id_killmails_recent
 Get a list of corporation's recent kills and losses
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/killmails/recent/`
+Alternate route: `/dev/corporations/{corporation_id}/killmails/recent/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/killmails/recent/`
 
-Alternate route: `/dev/corporations/{corporation_id}/killmails/recent/`
+Alternate route: `/v1/corporations/{corporation_id}/killmails/recent/`
 
 ---
-This route is cached for up to 3600 seconds
+This route is cached for up to 300 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3542,13 +4239,94 @@ ccp_is.get_corporations_corporation_id_killmails_recent({
     * killmail_hash **required** `string`: A hash of this killmail
     * killmail_id **required** `integer`: ID of this killmail
 
-### get_corporations_corporation_id_members
-Read the current list of members if the calling character is a member.
+### get_corporations_corporation_id_medals
+Returns a corporation's medals
 
 ---
-Alternate route: `/v2/corporations/{corporation_id}/members/`
+Alternate route: `/dev/corporations/{corporation_id}/medals/`
 
-Alternate route: `/legacy/corporations/{corporation_id}/members/`
+Alternate route: `/legacy/corporations/{corporation_id}/medals/`
+
+Alternate route: `/v1/corporations/{corporation_id}/medals/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_medals({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * created_at **required** `string`: created_at string
+    * creator_id **required** `integer`: ID of the character who created this medal
+    * description **required** `string`: description string
+    * medal_id **required** `integer`: medal_id integer
+    * title **required** `string`: title string
+
+### get_corporations_corporation_id_medals_issued
+Returns medals issued by a corporation
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/medals/issued/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/medals/issued/`
+
+Alternate route: `/v1/corporations/{corporation_id}/medals/issued/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_medals_issued({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * character_id **required** `integer`: ID of the character who was rewarded this medal
+    * issued_at **required** `string`: issued_at string
+    * issuer_id **required** `integer`: ID of the character who issued the medal
+    * medal_id **required** `integer`: medal_id integer
+    * reason **required** `string`: reason string
+    * status **required** `string` (values: private, public): status string
+
+### get_corporations_corporation_id_members
+Return the current member list of a corporation, the token's character need to be a member of the corporation.
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/members/`
+
+Alternate route: `/v3/corporations/{corporation_id}/members/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3569,22 +4347,25 @@ ccp_is.get_corporations_corporation_id_members({
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
 
 #### Output
-* output `array`: 200 ok array
-  * items `object`: 200 ok object
-    * character_id **required** `integer`: character_id integer
+* output `array`: A list of character IDs
+  * items `integer`: 200 ok integer
 
 ### get_corporations_corporation_id_members_limit
 Return a corporation's member limit, not including CEO himself
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/members/limit/`
+Alternate route: `/dev/corporations/{corporation_id}/members/limit/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/members/limit/`
 
-Alternate route: `/dev/corporations/{corporation_id}/members/limit/`
+Alternate route: `/v1/corporations/{corporation_id}/members/limit/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3604,18 +4385,61 @@ ccp_is.get_corporations_corporation_id_members_limit({
 #### Output
 * output `integer`: 200 ok integer
 
+### get_corporations_corporation_id_members_titles
+Returns a corporation's members' titles
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/members/titles/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/members/titles/`
+
+Alternate route: `/v1/corporations/{corporation_id}/members/titles/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_members_titles({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * character_id **required** `integer`: character_id integer
+    * titles **required** `array`: A list of title_id
+      * items `integer`: title integer
+
 ### get_corporations_corporation_id_membertracking
 Returns additional information about a corporation's members which helps tracking their activities
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/membertracking/`
+Alternate route: `/dev/corporations/{corporation_id}/membertracking/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/membertracking/`
 
-Alternate route: `/dev/corporations/{corporation_id}/membertracking/`
+Alternate route: `/v1/corporations/{corporation_id}/membertracking/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3644,17 +4468,22 @@ ccp_is.get_corporations_corporation_id_membertracking({
     * start_date `string`: start_date string
 
 ### get_corporations_corporation_id_orders
-List market orders placed on behalf of a corporation
+List open market orders placed on behalf of a corporation
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/orders/`
-
 Alternate route: `/legacy/corporations/{corporation_id}/orders/`
 
-Alternate route: `/dev/corporations/{corporation_id}/orders/`
+Alternate route: `/v1/corporations/{corporation_id}/orders/`
 
 ---
-This route is cached for up to 3600 seconds
+This route is cached for up to 1200 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant, Trader
+
+
+---
+[This route has an available update](https://esi.tech.ccp.is/diff/latest/dev/#GET-/corporations/{corporation_id}/orders/)
 
 
 ```js
@@ -3675,7 +4504,7 @@ ccp_is.get_corporations_corporation_id_orders({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * duration **required** `integer`: Numer of days for which order is valid (starting from the issued date). An order expires at time issued + duration
+    * duration **required** `integer`: Number of days the order is valid for (starting from the issued date). An order expires at time issued + duration
     * escrow **required** `number`: For buy orders, the amount of ISK in escrow
     * is_buy_order **required** `boolean`: True for a bid (buy) order. False for an offer (sell) order
     * issued **required** `string`: Date and time when this order was issued
@@ -3689,17 +4518,161 @@ ccp_is.get_corporations_corporation_id_orders({
     * type_id **required** `integer`: The type ID of the item transacted in this order
     * volume_remain **required** `integer`: Quantity of items still required or offered
     * volume_total **required** `integer`: Quantity of items required or offered at time order was placed
-    * wallet_division **required** `integer`: Wallet division of which this order used
+    * wallet_division **required** `integer`: The corporation wallet division used for this order.
+
+### get_corporations_corporation_id_orders_history
+List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/orders/history/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/orders/history/`
+
+Alternate route: `/v1/corporations/{corporation_id}/orders/history/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant, Trader
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_orders_history({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * duration **required** `integer`: Number of days the order was valid for (starting from the issued date). An order expires at time issued + duration
+    * escrow `number`: For buy orders, the amount of ISK in escrow
+    * is_buy_order `boolean`: True if the order is a bid (buy) order
+    * issued **required** `string`: Date and time when this order was issued
+    * location_id **required** `integer`: ID of the location where order was placed
+    * min_volume `integer`: For buy orders, the minimum quantity that will be accepted in a matching sell order
+    * order_id **required** `integer`: Unique order ID
+    * price **required** `number`: Cost per unit for this order
+    * range **required** `string` (values: 1, 10, 2, 20, 3, 30, 4, 40, 5, region, solarsystem, station): Valid order range, numbers are ranges in jumps
+    * region_id **required** `integer`: ID of the region where order was placed
+    * state **required** `string` (values: cancelled, expired): Current order state
+    * type_id **required** `integer`: The type ID of the item transacted in this order
+    * volume_remain **required** `integer`: Quantity of items still required or offered
+    * volume_total **required** `integer`: Quantity of items required or offered at time order was placed
+    * wallet_division **required** `integer`: The corporation wallet division used for this order.
+
+### get_corporations_corporation_id_outposts
+Get a list of corporation outpost IDs Note: This endpoint will be removed once outposts are migrated to Citadels as talked about in this blog: https://community.eveonline.com/news/dev-blogs/the-next-steps-in-structure-transition/
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/outposts/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/outposts/`
+
+Alternate route: `/v1/corporations/{corporation_id}/outposts/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_outposts({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `integer`: 200 ok integer
+
+### get_corporations_corporation_id_outposts_outpost_id
+Get details about a given outpost. Note: This endpoint will be removed once outposts are migrated to Citadels as talked about in this blog: https://community.eveonline.com/news/dev-blogs/the-next-steps-in-structure-transition/
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/outposts/{outpost_id}/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/outposts/{outpost_id}/`
+
+Alternate route: `/v1/corporations/{corporation_id}/outposts/{outpost_id}/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_outposts_outpost_id({
+  "corporation_id": 0,
+  "outpost_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * outpost_id **required** `integer`: A station (outpost) ID
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `object`: 200 ok object
+  * coordinates **required** `object`: coordinates object
+    * x **required** `number`: x number
+    * y **required** `number`: y number
+    * z **required** `number`: z number
+  * docking_cost_per_ship_volume **required** `number`: docking_cost_per_ship_volume number
+  * office_rental_cost **required** `integer`: office_rental_cost integer
+  * owner_id **required** `integer`: The entity that owns the station (e.g. the entity whose logo is on the station services bar)
+  * reprocessing_efficiency **required** `number`: reprocessing_efficiency number
+  * reprocessing_station_take **required** `number`: reprocessing_station_take number
+  * services **required** `array`: A list of services the given outpost provides
+    * items `object`: service object
+      * discount_per_good_standing **required** `number`: discount_per_good_standing number
+      * minimum_standing **required** `number`: minimum_standing number
+      * service_name **required** `string` (values: Bounty Missions, Assassination Missions, Courier Missions, Interbus, Reprocessing Plant, Refinery, Market, Black Market, Stock Exchange, Cloning, Surgery, DNA Therapy, Repair Facilities, Factory, Laboratory, Gambling, Fitting, Paintshop, News, Storage, Insurance, Docking, Office Rental, Jump Clone Facility, Loyalty Point Store, Navy Offices, Security Office): service_name string
+      * surcharge_per_bad_standing **required** `number`: surcharge_per_bad_standing number
+  * standing_owner_id **required** `integer`: The owner ID that sets the ability for someone to dock based on standings.
+  * system_id **required** `integer`: The ID of the solar system the outpost rests in
+  * type_id **required** `integer`: The type ID of the given outpost
 
 ### get_corporations_corporation_id_roles
 Return the roles of all members if the character has the personnel manager role or any grantable role.
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/roles/`
+Alternate route: `/dev/corporations/{corporation_id}/roles/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/roles/`
 
-Alternate route: `/dev/corporations/{corporation_id}/roles/`
+Alternate route: `/v1/corporations/{corporation_id}/roles/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3740,18 +4713,67 @@ ccp_is.get_corporations_corporation_id_roles({
     * roles_at_other `array`: roles_at_other array
       * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): roles_at_other string
 
-### get_corporations_corporation_id_shareholders
-Return the current member list of a corporation, the token's character need to be a member of the corporation.
+### get_corporations_corporation_id_roles_history
+Return how roles have changed for a coporation's members, up to a month
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/shareholders/`
+Alternate route: `/dev/corporations/{corporation_id}/roles/history/`
 
-Alternate route: `/legacy/corporations/{corporation_id}/shareholders/`
+Alternate route: `/legacy/corporations/{corporation_id}/roles/history/`
 
-Alternate route: `/dev/corporations/{corporation_id}/shareholders/`
+Alternate route: `/v1/corporations/{corporation_id}/roles/history/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_roles_history({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * changed_at **required** `string`: changed_at string
+    * character_id **required** `integer`: The character whose roles are changed
+    * issuer_id **required** `integer`: ID of the character who issued this change
+    * new_roles **required** `array`: new_roles array
+      * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): new_role string
+    * old_roles **required** `array`: old_roles array
+      * items `string` (values: Account_Take_1, Account_Take_2, Account_Take_3, Account_Take_4, Account_Take_5, Account_Take_6, Account_Take_7, Accountant, Auditor, Communications_Officer, Config_Equipment, Config_Starbase_Equipment, Container_Take_1, Container_Take_2, Container_Take_3, Container_Take_4, Container_Take_5, Container_Take_6, Container_Take_7, Contract_Manager, Diplomat, Director, Factory_Manager, Fitting_Manager, Hangar_Query_1, Hangar_Query_2, Hangar_Query_3, Hangar_Query_4, Hangar_Query_5, Hangar_Query_6, Hangar_Query_7, Hangar_Take_1, Hangar_Take_2, Hangar_Take_3, Hangar_Take_4, Hangar_Take_5, Hangar_Take_6, Hangar_Take_7, Junior_Accountant, Personnel_Manager, Rent_Factory_Facility, Rent_Office, Rent_Research_Facility, Security_Officer, Starbase_Defense_Operator, Starbase_Fuel_Technician, Station_Manager, Terrestrial_Combat_Officer, Terrestrial_Logistics_Officer, Trader): old_role string
+    * role_type **required** `string` (values: grantable_roles, grantable_roles_at_base, grantable_roles_at_hq, grantable_roles_at_other, roles, roles_at_base, roles_at_hq, roles_at_other): role_type string
+
+### get_corporations_corporation_id_shareholders
+Return the current shareholders of a corporation.
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/shareholders/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/shareholders/`
+
+Alternate route: `/v1/corporations/{corporation_id}/shareholders/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3770,7 +4792,7 @@ ccp_is.get_corporations_corporation_id_shareholders({
   * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
 
 #### Output
-* output `array`: A list of character IDs
+* output `array`: List of shareholders
   * items `object`: 200 ok object
     * share_count **required** `integer`: share_count integer
     * shareholder_id **required** `integer`: shareholder_id integer
@@ -3780,11 +4802,11 @@ ccp_is.get_corporations_corporation_id_shareholders({
 Return corporation standings from agents, NPC corporations, and factions
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/standings/`
+Alternate route: `/dev/corporations/{corporation_id}/standings/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/standings/`
 
-Alternate route: `/dev/corporations/{corporation_id}/standings/`
+Alternate route: `/v1/corporations/{corporation_id}/standings/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -3812,18 +4834,123 @@ ccp_is.get_corporations_corporation_id_standings({
     * from_type **required** `string` (values: agent, npc_corp, faction): from_type string
     * standing **required** `number`: standing number
 
+### get_corporations_corporation_id_starbases
+Returns list of corporation starbases (POSes)
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/starbases/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/starbases/`
+
+Alternate route: `/v1/corporations/{corporation_id}/starbases/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_starbases({
+  "corporation_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * page `integer`: Which page of results to return
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `array`: 200 ok array
+  * items `object`: 200 ok object
+    * moon_id `integer`: The moon this starbase (POS) is anchored on, unanchored POSes do not have this information
+    * onlined_since `string`: When the POS onlined, for starbases (POSes) in online state
+    * reinforced_until `string`: When the POS will be out of reinforcement, for starbases (POSes) in reinforced state
+    * starbase_id **required** `integer`: Unique ID for this starbase (POS)
+    * state `string` (values: offline, online, onlining, reinforced, unanchoring): state string
+    * system_id **required** `integer`: The solar system this starbase (POS) is in, unanchored POSes have this information
+    * type_id **required** `integer`: Starbase (POS) type
+    * unanchor_at `string`: When the POS started unanchoring, for starbases (POSes) in unanchoring state
+
+### get_corporations_corporation_id_starbases_starbase_id
+Returns various settings and fuels of a starbase (POS)
+
+---
+Alternate route: `/dev/corporations/{corporation_id}/starbases/{starbase_id}/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/starbases/{starbase_id}/`
+
+Alternate route: `/v1/corporations/{corporation_id}/starbases/{starbase_id}/`
+
+---
+This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
+
+
+```js
+ccp_is.get_corporations_corporation_id_starbases_starbase_id({
+  "corporation_id": 0,
+  "starbase_id": 0,
+  "system_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * corporation_id **required** `integer`: An EVE corporation ID
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * starbase_id **required** `integer`: An EVE starbase (POS) ID
+  * system_id **required** `integer`: The solar system this starbase (POS) is located in,
+  * token `string`: Access token to use if unable to set a header
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `object`: 200 ok object
+  * allow_alliance_members **required** `boolean`: allow_alliance_members boolean
+  * allow_corporation_members **required** `boolean`: allow_corporation_members boolean
+  * anchor **required** `string` (values: alliance_member, config_starbase_equipment_role, corporation_member, starbase_fuel_technician_role): Who can anchor starbase (POS) and its structures
+  * attack_if_at_war **required** `boolean`: attack_if_at_war boolean
+  * attack_if_other_security_status_dropping **required** `boolean`: attack_if_other_security_status_dropping boolean
+  * attack_security_status_threshold `number`: Starbase (POS) will attack if target's security standing is lower than this value
+  * attack_standing_threshold `number`: Starbase (POS) will attack if target's standing is lower than this value
+  * fuel_bay_take **required** `string` (values: alliance_member, config_starbase_equipment_role, corporation_member, starbase_fuel_technician_role): Who can take fuel blocks out of the starbase (POS)'s fuel bay
+  * fuel_bay_view **required** `string` (values: alliance_member, config_starbase_equipment_role, corporation_member, starbase_fuel_technician_role): Who can view the starbase (POS)'s fule bay. Characters either need to have required role or belong to the starbase (POS) owner's corporation or alliance, as described by the enum, all other access settings follows the same scheme
+  * fuels `array`: Fuel blocks and other things that will be consumed when operating a starbase (POS)
+    * items `object`: fuel object
+      * quantity **required** `integer`: quantity integer
+      * type_id **required** `integer`: type_id integer
+  * offline **required** `string` (values: alliance_member, config_starbase_equipment_role, corporation_member, starbase_fuel_technician_role): Who can offline starbase (POS) and its structures
+  * online **required** `string` (values: alliance_member, config_starbase_equipment_role, corporation_member, starbase_fuel_technician_role): Who can online starbase (POS) and its structures
+  * unanchor **required** `string` (values: alliance_member, config_starbase_equipment_role, corporation_member, starbase_fuel_technician_role): Who can unanchor starbase (POS) and its structures
+  * use_alliance_standings **required** `boolean`: True if the starbase (POS) is using alliance standings, otherwise using corporation's
+
 ### get_corporations_corporation_id_structures
 Get a list of corporation structures
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/structures/`
+Alternate route: `/dev/corporations/{corporation_id}/structures/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/structures/`
 
-Alternate route: `/dev/corporations/{corporation_id}/structures/`
+Alternate route: `/v1/corporations/{corporation_id}/structures/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): StationManager
+
 
 
 ```js
@@ -3871,11 +4998,11 @@ ccp_is.get_corporations_corporation_id_structures({
 Update the vulnerability window schedule of a corporation structure
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/structures/{structure_id}/`
+Alternate route: `/dev/corporations/{corporation_id}/structures/{structure_id}/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/structures/{structure_id}/`
 
-Alternate route: `/dev/corporations/{corporation_id}/structures/{structure_id}/`
+Alternate route: `/v1/corporations/{corporation_id}/structures/{structure_id}/`
 
 
 
@@ -3907,14 +5034,18 @@ ccp_is.put_corporations_corporation_id_structures_structure_id({
 Returns a corporation's titles
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/titles/`
+Alternate route: `/dev/corporations/{corporation_id}/titles/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/titles/`
 
-Alternate route: `/dev/corporations/{corporation_id}/titles/`
+Alternate route: `/v1/corporations/{corporation_id}/titles/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Director
+
 
 
 ```js
@@ -3957,14 +5088,18 @@ ccp_is.get_corporations_corporation_id_titles({
 Get a corporation's wallets
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/wallets/`
+Alternate route: `/dev/corporations/{corporation_id}/wallets/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/wallets/`
 
-Alternate route: `/dev/corporations/{corporation_id}/wallets/`
+Alternate route: `/v1/corporations/{corporation_id}/wallets/`
 
 ---
 This route is cached for up to 300 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
+
 
 
 ```js
@@ -3991,14 +5126,16 @@ ccp_is.get_corporations_corporation_id_wallets({
 Retrieve corporation wallet journal
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/wallets/{division}/journal/`
-
-Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/journal/`
-
 Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/journal/`
+
+Alternate route: `/v2/corporations/{corporation_id}/wallets/{division}/journal/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
+
 
 
 ```js
@@ -4038,27 +5175,31 @@ ccp_is.get_corporations_corporation_id_wallets_division_journal({
       * system_id `integer`: system_id integer
       * transaction_id `integer`: transaction_id integer
     * first_party_id `integer`: first_party_id integer
-    * first_party_type `string` (values: character, corporation, alliance, faction): first_party_type string
+    * first_party_type `string` (values: character, corporation, alliance, faction, system): first_party_type string
     * reason `string`: reason string
     * ref_id **required** `integer`: Unique journal reference ID
-    * ref_type **required** `string` (values: player_trading, market_transaction, gm_cash_transfer, mission_reward, clone_activation, inheritance, player_donation, corporation_payment, docking_fee, office_rental_fee, factory_slot_rental_fee, repair_bill, bounty, bounty_prize, insurance, mission_expiration, mission_completion, shares, courier_mission_escrow, mission_cost, agent_miscellaneous, lp_store, agent_location_services, agent_donation, agent_security_services, agent_mission_collateral_paid, agent_mission_collateral_refunded, agents_preward, agent_mission_reward, agent_mission_time_bonus_reward, cspa, cspaofflinerefund, corporation_account_withdrawal, corporation_dividend_payment, corporation_registration_fee, corporation_logo_change_cost, release_of_impounded_property, market_escrow, agent_services_rendered, market_fine_paid, corporation_liquidation, brokers_fee, corporation_bulk_payment, alliance_registration_fee, war_fee, alliance_maintainance_fee, contraband_fine, clone_transfer, acceleration_gate_fee, transaction_tax, jump_clone_installation_fee, manufacturing, researching_technology, researching_time_productivity, researching_material_productivity, copying, reverse_engineering, contract_auction_bid, contract_auction_bid_refund, contract_collateral, contract_reward_refund, contract_auction_sold, contract_reward, contract_collateral_refund, contract_collateral_payout, contract_price, contract_brokers_fee, contract_sales_tax, contract_deposit, contract_deposit_sales_tax, contract_auction_bid_corp, contract_collateral_deposited_corp, contract_price_payment_corp, contract_brokers_fee_corp, contract_deposit_corp, contract_deposit_refund, contract_reward_deposited, contract_reward_deposited_corp, bounty_prizes, advertisement_listing_fee, medal_creation, medal_issued, dna_modification_fee, sovereignity_bill, bounty_prize_corporation_tax, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward_corporation_tax, upkeep_adjustment_fee, planetary_import_tax, planetary_export_tax, planetary_construction, corporate_reward_payout, bounty_surcharge, contract_reversal, corporate_reward_tax, store_purchase, store_purchase_refund, datacore_fee, war_fee_surrender, war_ally_contract, bounty_reimbursement, kill_right_fee, security_processing_fee, industry_job_tax, infrastructure_hub_maintenance, asset_safety_recovery_tax, opportunity_reward, project_discovery_reward, project_discovery_tax, reprocessing_tax, jump_clone_activation_fee, operation_bonus): Transaction type, different type of transaction will populate different fields in `extra_info`
+    * ref_type **required** `string` (values: acceleration_gate_fee, advertisement_listing_fee, agent_donation, agent_location_services, agent_miscellaneous, agent_mission_collateral_paid, agent_mission_collateral_refunded, agent_mission_reward, agent_mission_reward_corporation_tax, agent_mission_time_bonus_reward, agent_mission_time_bonus_reward_corporation_tax, agent_security_services, agent_services_rendered, agents_preward, alliance_maintainance_fee, alliance_registration_fee, asset_safety_recovery_tax, bounty, bounty_prize, bounty_prize_corporation_tax, bounty_prizes, bounty_reimbursement, bounty_surcharge, brokers_fee, clone_activation, clone_transfer, contraband_fine, contract_auction_bid, contract_auction_bid_corp, contract_auction_bid_refund, contract_auction_sold, contract_brokers_fee, contract_brokers_fee_corp, contract_collateral, contract_collateral_deposited_corp, contract_collateral_payout, contract_collateral_refund, contract_deposit, contract_deposit_corp, contract_deposit_refund, contract_deposit_sales_tax, contract_price, contract_price_payment_corp, contract_reversal, contract_reward, contract_reward_deposited, contract_reward_deposited_corp, contract_reward_refund, contract_sales_tax, copying, corporate_reward_payout, corporate_reward_tax, corporation_account_withdrawal, corporation_bulk_payment, corporation_dividend_payment, corporation_liquidation, corporation_logo_change_cost, corporation_payment, corporation_registration_fee, courier_mission_escrow, cspa, cspaofflinerefund, datacore_fee, dna_modification_fee, docking_fee, duel_wager_escrow, duel_wager_payment, duel_wager_refund, factory_slot_rental_fee, gm_cash_transfer, industry_job_tax, infrastructure_hub_maintenance, inheritance, insurance, jump_clone_activation_fee, jump_clone_installation_fee, kill_right_fee, lp_store, manufacturing, market_escrow, market_fine_paid, market_transaction, medal_creation, medal_issued, mission_completion, mission_cost, mission_expiration, mission_reward, office_rental_fee, operation_bonus, opportunity_reward, planetary_construction, planetary_export_tax, planetary_import_tax, player_donation, player_trading, project_discovery_reward, project_discovery_tax, reaction, release_of_impounded_property, repair_bill, reprocessing_tax, researching_material_productivity, researching_technology, researching_time_productivity, resource_wars_reward, reverse_engineering, security_processing_fee, shares, sovereignity_bill, store_purchase, store_purchase_refund, transaction_tax, upkeep_adjustment_fee, war_ally_contract, war_fee, war_fee_surrender): Transaction type, different type of transaction will populate different fields in `extra_info` Note: If you have an existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can use the following gist to see string->int mappings: https://gist.github.com/ccp-zoetrope/c03db66d90c2148724c06171bc52e0ec
     * second_party_id `integer`: second_party_id integer
-    * second_party_type `string` (values: character, corporation, alliance, faction): second_party_type string
+    * second_party_type `string` (values: character, corporation, alliance, faction, system): second_party_type string
     * tax `number`: Tax amount received for tax related transactions
-    * tax_reciever_id `integer`: the corporation ID receiving any tax paid
+    * tax_receiver_id `integer`: the corporation ID receiving any tax paid
 
 ### get_corporations_corporation_id_wallets_division_transactions
 Get wallet transactions of a corporation
 
 ---
-Alternate route: `/v1/corporations/{corporation_id}/wallets/{division}/transactions/`
+Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/transactions/`
 
 Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/transactions/`
 
-Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/transactions/`
+Alternate route: `/v1/corporations/{corporation_id}/wallets/{division}/transactions/`
 
 ---
 This route is cached for up to 3600 seconds
+
+---
+Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
+
 
 
 ```js
@@ -4095,11 +5236,11 @@ ccp_is.get_corporations_corporation_id_wallets_division_transactions({
 Get a list of dogma attribute ids
 
 ---
-Alternate route: `/v1/dogma/attributes/`
+Alternate route: `/dev/dogma/attributes/`
 
 Alternate route: `/legacy/dogma/attributes/`
 
-Alternate route: `/dev/dogma/attributes/`
+Alternate route: `/v1/dogma/attributes/`
 
 ---
 This route expires daily at 11:05
@@ -4123,11 +5264,11 @@ ccp_is.get_dogma_attributes({}, context)
 Get information on a dogma attribute
 
 ---
-Alternate route: `/v1/dogma/attributes/{attribute_id}/`
+Alternate route: `/dev/dogma/attributes/{attribute_id}/`
 
 Alternate route: `/legacy/dogma/attributes/{attribute_id}/`
 
-Alternate route: `/dev/dogma/attributes/{attribute_id}/`
+Alternate route: `/v1/dogma/attributes/{attribute_id}/`
 
 ---
 This route expires daily at 11:05
@@ -4163,11 +5304,11 @@ ccp_is.get_dogma_attributes_attribute_id({
 Get a list of dogma effect ids
 
 ---
-Alternate route: `/v1/dogma/effects/`
+Alternate route: `/dev/dogma/effects/`
 
 Alternate route: `/legacy/dogma/effects/`
 
-Alternate route: `/dev/dogma/effects/`
+Alternate route: `/v1/dogma/effects/`
 
 ---
 This route expires daily at 11:05
@@ -4191,9 +5332,9 @@ ccp_is.get_dogma_effects({}, context)
 Get information on a dogma effect
 
 ---
-Alternate route: `/v2/dogma/effects/{effect_id}/`
-
 Alternate route: `/dev/dogma/effects/{effect_id}/`
+
+Alternate route: `/v2/dogma/effects/{effect_id}/`
 
 ---
 This route expires daily at 11:05
@@ -4247,11 +5388,11 @@ ccp_is.get_dogma_effects_effect_id({
 Return details about a fleet
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/`
 
 ---
 This route is cached for up to 5 seconds
@@ -4282,11 +5423,11 @@ ccp_is.get_fleets_fleet_id({
 Update settings about a fleet
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/`
 
 
 
@@ -4315,11 +5456,11 @@ ccp_is.put_fleets_fleet_id({
 Return information about fleet members
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/members/`
+Alternate route: `/dev/fleets/{fleet_id}/members/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/members/`
 
-Alternate route: `/dev/fleets/{fleet_id}/members/`
+Alternate route: `/v1/fleets/{fleet_id}/members/`
 
 ---
 This route is cached for up to 5 seconds
@@ -4358,11 +5499,11 @@ ccp_is.get_fleets_fleet_id_members({
 Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/members/`
+Alternate route: `/dev/fleets/{fleet_id}/members/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/members/`
 
-Alternate route: `/dev/fleets/{fleet_id}/members/`
+Alternate route: `/v1/fleets/{fleet_id}/members/`
 
 
 
@@ -4396,11 +5537,11 @@ ccp_is.post_fleets_fleet_id_members({
 Kick a fleet member
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/members/{member_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/members/{member_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/members/{member_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/members/{member_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/members/{member_id}/`
 
 
 
@@ -4427,11 +5568,11 @@ ccp_is.delete_fleets_fleet_id_members_member_id({
 Move a fleet member around
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/members/{member_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/members/{member_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/members/{member_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/members/{member_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/members/{member_id}/`
 
 
 
@@ -4465,11 +5606,11 @@ ccp_is.put_fleets_fleet_id_members_member_id({
 Delete a fleet squad, only empty squads can be deleted
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/squads/{squad_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/squads/{squad_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/squads/{squad_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/squads/{squad_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/squads/{squad_id}/`
 
 
 
@@ -4496,11 +5637,11 @@ ccp_is.delete_fleets_fleet_id_squads_squad_id({
 Rename a fleet squad
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/squads/{squad_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/squads/{squad_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/squads/{squad_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/squads/{squad_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/squads/{squad_id}/`
 
 
 
@@ -4532,11 +5673,11 @@ ccp_is.put_fleets_fleet_id_squads_squad_id({
 Return information about wings in a fleet
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/wings/`
+Alternate route: `/dev/fleets/{fleet_id}/wings/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/wings/`
 
-Alternate route: `/dev/fleets/{fleet_id}/wings/`
+Alternate route: `/v1/fleets/{fleet_id}/wings/`
 
 ---
 This route is cached for up to 5 seconds
@@ -4571,11 +5712,11 @@ ccp_is.get_fleets_fleet_id_wings({
 Create a new wing in a fleet
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/wings/`
+Alternate route: `/dev/fleets/{fleet_id}/wings/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/wings/`
 
-Alternate route: `/dev/fleets/{fleet_id}/wings/`
+Alternate route: `/v1/fleets/{fleet_id}/wings/`
 
 
 
@@ -4601,11 +5742,11 @@ ccp_is.post_fleets_fleet_id_wings({
 Delete a fleet wing, only empty wings can be deleted. The wing may contain squads, but the squads must be empty
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/wings/{wing_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/`
 
 
 
@@ -4632,11 +5773,11 @@ ccp_is.delete_fleets_fleet_id_wings_wing_id({
 Rename a fleet wing
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/`
+Alternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/wings/{wing_id}/`
 
-Alternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/`
+Alternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/`
 
 
 
@@ -4668,11 +5809,11 @@ ccp_is.put_fleets_fleet_id_wings_wing_id({
 Create a new squad in a fleet
 
 ---
-Alternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/squads/`
+Alternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/squads/`
 
 Alternate route: `/legacy/fleets/{fleet_id}/wings/{wing_id}/squads/`
 
-Alternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/squads/`
+Alternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/squads/`
 
 
 
@@ -4700,11 +5841,11 @@ ccp_is.post_fleets_fleet_id_wings_wing_id_squads({
 Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.
 
 ---
-Alternate route: `/v1/fw/leaderboards/`
+Alternate route: `/dev/fw/leaderboards/`
 
 Alternate route: `/legacy/fw/leaderboards/`
 
-Alternate route: `/dev/fw/leaderboards/`
+Alternate route: `/v1/fw/leaderboards/`
 
 ---
 This route expires daily at 11:05
@@ -4753,11 +5894,11 @@ ccp_is.get_fw_leaderboards({}, context)
 Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday.
 
 ---
-Alternate route: `/v1/fw/leaderboards/characters/`
+Alternate route: `/dev/fw/leaderboards/characters/`
 
 Alternate route: `/legacy/fw/leaderboards/characters/`
 
-Alternate route: `/dev/fw/leaderboards/characters/`
+Alternate route: `/v1/fw/leaderboards/characters/`
 
 ---
 This route expires daily at 11:05
@@ -4806,11 +5947,11 @@ ccp_is.get_fw_leaderboards_characters({}, context)
 Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday.
 
 ---
-Alternate route: `/v1/fw/leaderboards/corporations/`
+Alternate route: `/dev/fw/leaderboards/corporations/`
 
 Alternate route: `/legacy/fw/leaderboards/corporations/`
 
-Alternate route: `/dev/fw/leaderboards/corporations/`
+Alternate route: `/v1/fw/leaderboards/corporations/`
 
 ---
 This route expires daily at 11:05
@@ -4859,11 +6000,11 @@ ccp_is.get_fw_leaderboards_corporations({}, context)
 Statistical overviews of factions involved in faction warfare
 
 ---
-Alternate route: `/v1/fw/stats/`
+Alternate route: `/dev/fw/stats/`
 
 Alternate route: `/legacy/fw/stats/`
 
-Alternate route: `/dev/fw/stats/`
+Alternate route: `/v1/fw/stats/`
 
 ---
 This route expires daily at 11:05
@@ -4898,11 +6039,11 @@ ccp_is.get_fw_stats({}, context)
 An overview of the current ownership of faction warfare solar systems
 
 ---
-Alternate route: `/v1/fw/systems/`
+Alternate route: `/dev/fw/systems/`
 
 Alternate route: `/legacy/fw/systems/`
 
-Alternate route: `/dev/fw/systems/`
+Alternate route: `/v1/fw/systems/`
 
 ---
 This route is cached for up to 1800 seconds
@@ -4932,11 +6073,11 @@ ccp_is.get_fw_systems({}, context)
 Data about which NPC factions are at war
 
 ---
-Alternate route: `/v1/fw/wars/`
+Alternate route: `/dev/fw/wars/`
 
 Alternate route: `/legacy/fw/wars/`
 
-Alternate route: `/dev/fw/wars/`
+Alternate route: `/v1/fw/wars/`
 
 ---
 This route expires daily at 11:05
@@ -4962,11 +6103,11 @@ ccp_is.get_fw_wars({}, context)
 Return a list of current incursions
 
 ---
-Alternate route: `/v1/incursions/`
+Alternate route: `/dev/incursions/`
 
 Alternate route: `/legacy/incursions/`
 
-Alternate route: `/dev/incursions/`
+Alternate route: `/v1/incursions/`
 
 ---
 This route is cached for up to 300 seconds
@@ -4999,11 +6140,11 @@ ccp_is.get_incursions({}, context)
 Return a list of industry facilities
 
 ---
-Alternate route: `/v1/industry/facilities/`
+Alternate route: `/dev/industry/facilities/`
 
 Alternate route: `/legacy/industry/facilities/`
 
-Alternate route: `/dev/industry/facilities/`
+Alternate route: `/v1/industry/facilities/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5033,11 +6174,11 @@ ccp_is.get_industry_facilities({}, context)
 Return cost indices for solar systems
 
 ---
-Alternate route: `/v1/industry/systems/`
+Alternate route: `/dev/industry/systems/`
 
 Alternate route: `/legacy/industry/systems/`
 
-Alternate route: `/dev/industry/systems/`
+Alternate route: `/v1/industry/systems/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5066,11 +6207,11 @@ ccp_is.get_industry_systems({}, context)
 Return available insurance levels for all ship types
 
 ---
-Alternate route: `/v1/insurance/prices/`
+Alternate route: `/dev/insurance/prices/`
 
 Alternate route: `/legacy/insurance/prices/`
 
-Alternate route: `/dev/insurance/prices/`
+Alternate route: `/v1/insurance/prices/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5101,14 +6242,14 @@ ccp_is.get_insurance_prices({}, context)
 Return a single killmail from its ID and hash
 
 ---
-Alternate route: `/v1/killmails/{killmail_id}/{killmail_hash}/`
+Alternate route: `/dev/killmails/{killmail_id}/{killmail_hash}/`
 
 Alternate route: `/legacy/killmails/{killmail_id}/{killmail_hash}/`
 
-Alternate route: `/dev/killmails/{killmail_id}/{killmail_hash}/`
+Alternate route: `/v1/killmails/{killmail_id}/{killmail_hash}/`
 
 ---
-This route is cached for up to 3600 seconds
+This route is cached for up to 1209600 seconds
 
 
 ```js
@@ -5174,11 +6315,11 @@ ccp_is.get_killmails_killmail_id_killmail_hash({
 Return a list of offers from a specific corporation's loyalty store
 
 ---
-Alternate route: `/v1/loyalty/stores/{corporation_id}/offers/`
+Alternate route: `/dev/loyalty/stores/{corporation_id}/offers/`
 
 Alternate route: `/legacy/loyalty/stores/{corporation_id}/offers/`
 
-Alternate route: `/dev/loyalty/stores/{corporation_id}/offers/`
+Alternate route: `/v1/loyalty/stores/{corporation_id}/offers/`
 
 ---
 This route expires daily at 11:05
@@ -5200,7 +6341,8 @@ ccp_is.get_loyalty_stores_corporation_id_offers({
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * isk_cost **required** `number`: isk_cost number
+    * ak_cost `integer`: Analysis kredit cost
+    * isk_cost **required** `integer`: isk_cost integer
     * lp_cost **required** `integer`: lp_cost integer
     * offer_id **required** `integer`: offer_id integer
     * quantity **required** `integer`: quantity integer
@@ -5214,11 +6356,11 @@ ccp_is.get_loyalty_stores_corporation_id_offers({
 Get a list of item groups
 
 ---
-Alternate route: `/v1/markets/groups/`
+Alternate route: `/dev/markets/groups/`
 
 Alternate route: `/legacy/markets/groups/`
 
-Alternate route: `/dev/markets/groups/`
+Alternate route: `/v1/markets/groups/`
 
 ---
 This route expires daily at 11:05
@@ -5242,11 +6384,11 @@ ccp_is.get_markets_groups({}, context)
 Get information on an item group
 
 ---
-Alternate route: `/v1/markets/groups/{market_group_id}/`
+Alternate route: `/dev/markets/groups/{market_group_id}/`
 
 Alternate route: `/legacy/markets/groups/{market_group_id}/`
 
-Alternate route: `/dev/markets/groups/{market_group_id}/`
+Alternate route: `/v1/markets/groups/{market_group_id}/`
 
 ---
 This route expires daily at 11:05
@@ -5279,11 +6421,11 @@ ccp_is.get_markets_groups_market_group_id({
 Return a list of prices
 
 ---
-Alternate route: `/v1/markets/prices/`
+Alternate route: `/dev/markets/prices/`
 
 Alternate route: `/legacy/markets/prices/`
 
-Alternate route: `/dev/markets/prices/`
+Alternate route: `/v1/markets/prices/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5310,11 +6452,11 @@ ccp_is.get_markets_prices({}, context)
 Return all orders in a structure
 
 ---
-Alternate route: `/v1/markets/structures/{structure_id}/`
+Alternate route: `/dev/markets/structures/{structure_id}/`
 
 Alternate route: `/legacy/markets/structures/{structure_id}/`
 
-Alternate route: `/dev/markets/structures/{structure_id}/`
+Alternate route: `/v1/markets/structures/{structure_id}/`
 
 ---
 This route is cached for up to 300 seconds
@@ -5354,11 +6496,11 @@ ccp_is.get_markets_structures_structure_id({
 Return a list of historical market statistics for the specified type in a region
 
 ---
-Alternate route: `/v1/markets/{region_id}/history/`
+Alternate route: `/dev/markets/{region_id}/history/`
 
 Alternate route: `/legacy/markets/{region_id}/history/`
 
-Alternate route: `/dev/markets/{region_id}/history/`
+Alternate route: `/v1/markets/{region_id}/history/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5393,11 +6535,11 @@ ccp_is.get_markets_region_id_history({
 Return a list of orders in a region
 
 ---
-Alternate route: `/v1/markets/{region_id}/orders/`
+Alternate route: `/dev/markets/{region_id}/orders/`
 
 Alternate route: `/legacy/markets/{region_id}/orders/`
 
-Alternate route: `/dev/markets/{region_id}/orders/`
+Alternate route: `/v1/markets/{region_id}/orders/`
 
 ---
 This route is cached for up to 300 seconds
@@ -5439,11 +6581,11 @@ ccp_is.get_markets_region_id_orders({
 Return a list of type IDs that have active orders in the region, for efficient market indexing.
 
 ---
-Alternate route: `/v1/markets/{region_id}/types/`
+Alternate route: `/dev/markets/{region_id}/types/`
 
 Alternate route: `/legacy/markets/{region_id}/types/`
 
-Alternate route: `/dev/markets/{region_id}/types/`
+Alternate route: `/v1/markets/{region_id}/types/`
 
 ---
 This route is cached for up to 600 seconds
@@ -5471,11 +6613,11 @@ ccp_is.get_markets_region_id_types({
 Return a list of opportunities groups
 
 ---
-Alternate route: `/v1/opportunities/groups/`
+Alternate route: `/dev/opportunities/groups/`
 
 Alternate route: `/legacy/opportunities/groups/`
 
-Alternate route: `/dev/opportunities/groups/`
+Alternate route: `/v1/opportunities/groups/`
 
 ---
 This route expires daily at 11:05
@@ -5499,11 +6641,11 @@ ccp_is.get_opportunities_groups({}, context)
 Return information of an opportunities group
 
 ---
-Alternate route: `/v1/opportunities/groups/{group_id}/`
+Alternate route: `/dev/opportunities/groups/{group_id}/`
 
 Alternate route: `/legacy/opportunities/groups/{group_id}/`
 
-Alternate route: `/dev/opportunities/groups/{group_id}/`
+Alternate route: `/v1/opportunities/groups/{group_id}/`
 
 ---
 This route expires daily at 11:05
@@ -5538,11 +6680,11 @@ ccp_is.get_opportunities_groups_group_id({
 Return a list of opportunities tasks
 
 ---
-Alternate route: `/v1/opportunities/tasks/`
+Alternate route: `/dev/opportunities/tasks/`
 
 Alternate route: `/legacy/opportunities/tasks/`
 
-Alternate route: `/dev/opportunities/tasks/`
+Alternate route: `/v1/opportunities/tasks/`
 
 ---
 This route expires daily at 11:05
@@ -5566,11 +6708,11 @@ ccp_is.get_opportunities_tasks({}, context)
 Return information of an opportunities task
 
 ---
-Alternate route: `/v1/opportunities/tasks/{task_id}/`
+Alternate route: `/dev/opportunities/tasks/{task_id}/`
 
 Alternate route: `/legacy/opportunities/tasks/{task_id}/`
 
-Alternate route: `/dev/opportunities/tasks/{task_id}/`
+Alternate route: `/v1/opportunities/tasks/{task_id}/`
 
 ---
 This route expires daily at 11:05
@@ -5600,9 +6742,9 @@ ccp_is.get_opportunities_tasks_task_id({
 Get the systems between origin and destination
 
 ---
-Alternate route: `/legacy/route/{origin}/{destination}/`
-
 Alternate route: `/dev/route/{origin}/{destination}/`
+
+Alternate route: `/legacy/route/{origin}/{destination}/`
 
 Alternate route: `/v1/route/{origin}/{destination}/`
 
@@ -5636,9 +6778,9 @@ ccp_is.get_route_origin_destination({
 Search for entities that match a given sub-string.
 
 ---
-Alternate route: `/v1/search/`
+Alternate route: `/dev/search/`
 
-Alternate route: `/legacy/search/`
+Alternate route: `/v2/search/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5675,26 +6817,24 @@ ccp_is.get_search({
     * items `integer`: corporation integer
   * faction `array`: faction array
     * items `integer`: faction integer
-  * inventorytype `array`: inventorytype array
-    * items `integer`: inventorytype integer
+  * inventory_type `array`: inventory_type array
+    * items `integer`: inventory_type integer
   * region `array`: region array
     * items `integer`: region integer
-  * solarsystem `array`: solarsystem array
-    * items `integer`: solarsystem integer
+  * solar_system `array`: solar_system array
+    * items `integer`: solar_system integer
   * station `array`: station array
     * items `integer`: station integer
-  * wormhole `array`: wormhole array
-    * items `integer`: wormhole integer
 
 ### get_sovereignty_campaigns
 Shows sovereignty data for campaigns.
 
 ---
-Alternate route: `/v1/sovereignty/campaigns/`
+Alternate route: `/dev/sovereignty/campaigns/`
 
 Alternate route: `/legacy/sovereignty/campaigns/`
 
-Alternate route: `/dev/sovereignty/campaigns/`
+Alternate route: `/v1/sovereignty/campaigns/`
 
 ---
 This route is cached for up to 5 seconds
@@ -5731,11 +6871,11 @@ ccp_is.get_sovereignty_campaigns({}, context)
 Shows sovereignty information for solar systems
 
 ---
-Alternate route: `/v1/sovereignty/map/`
+Alternate route: `/dev/sovereignty/map/`
 
 Alternate route: `/legacy/sovereignty/map/`
 
-Alternate route: `/dev/sovereignty/map/`
+Alternate route: `/v1/sovereignty/map/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -5763,11 +6903,11 @@ ccp_is.get_sovereignty_map({}, context)
 Shows sovereignty data for structures.
 
 ---
-Alternate route: `/v1/sovereignty/structures/`
+Alternate route: `/dev/sovereignty/structures/`
 
 Alternate route: `/legacy/sovereignty/structures/`
 
-Alternate route: `/dev/sovereignty/structures/`
+Alternate route: `/v1/sovereignty/structures/`
 
 ---
 This route is cached for up to 120 seconds
@@ -5798,11 +6938,11 @@ ccp_is.get_sovereignty_structures({}, context)
 EVE Server status
 
 ---
-Alternate route: `/v1/status/`
+Alternate route: `/dev/status/`
 
 Alternate route: `/legacy/status/`
 
-Alternate route: `/dev/status/`
+Alternate route: `/v1/status/`
 
 ---
 This route is cached for up to 30 seconds
@@ -5829,9 +6969,9 @@ ccp_is.get_status({}, context)
 Set a solar system as autopilot waypoint
 
 ---
-Alternate route: `/v2/ui/autopilot/waypoint/`
-
 Alternate route: `/dev/ui/autopilot/waypoint/`
+
+Alternate route: `/v2/ui/autopilot/waypoint/`
 
 
 
@@ -5860,11 +7000,11 @@ ccp_is.post_ui_autopilot_waypoint({
 Open the contract window inside the client
 
 ---
-Alternate route: `/v1/ui/openwindow/contract/`
+Alternate route: `/dev/ui/openwindow/contract/`
 
 Alternate route: `/legacy/ui/openwindow/contract/`
 
-Alternate route: `/dev/ui/openwindow/contract/`
+Alternate route: `/v1/ui/openwindow/contract/`
 
 
 
@@ -5889,11 +7029,11 @@ ccp_is.post_ui_openwindow_contract({
 Open the information window for a character, corporation or alliance inside the client
 
 ---
-Alternate route: `/v1/ui/openwindow/information/`
+Alternate route: `/dev/ui/openwindow/information/`
 
 Alternate route: `/legacy/ui/openwindow/information/`
 
-Alternate route: `/dev/ui/openwindow/information/`
+Alternate route: `/v1/ui/openwindow/information/`
 
 
 
@@ -5918,11 +7058,11 @@ ccp_is.post_ui_openwindow_information({
 Open the market details window for a specific typeID inside the client
 
 ---
-Alternate route: `/v1/ui/openwindow/marketdetails/`
+Alternate route: `/dev/ui/openwindow/marketdetails/`
 
 Alternate route: `/legacy/ui/openwindow/marketdetails/`
 
-Alternate route: `/dev/ui/openwindow/marketdetails/`
+Alternate route: `/v1/ui/openwindow/marketdetails/`
 
 
 
@@ -5947,11 +7087,11 @@ ccp_is.post_ui_openwindow_marketdetails({
 Open the New Mail window, according to settings from the request if applicable
 
 ---
-Alternate route: `/v1/ui/openwindow/newmail/`
+Alternate route: `/dev/ui/openwindow/newmail/`
 
 Alternate route: `/legacy/ui/openwindow/newmail/`
 
-Alternate route: `/dev/ui/openwindow/newmail/`
+Alternate route: `/v1/ui/openwindow/newmail/`
 
 
 
@@ -5986,11 +7126,11 @@ ccp_is.post_ui_openwindow_newmail({
 Get a list of bloodlines
 
 ---
-Alternate route: `/v1/universe/bloodlines/`
+Alternate route: `/dev/universe/bloodlines/`
 
 Alternate route: `/legacy/universe/bloodlines/`
 
-Alternate route: `/dev/universe/bloodlines/`
+Alternate route: `/v1/universe/bloodlines/`
 
 ---
 This route expires daily at 11:05
@@ -6026,11 +7166,11 @@ ccp_is.get_universe_bloodlines({}, context)
 Get a list of item categories
 
 ---
-Alternate route: `/v1/universe/categories/`
+Alternate route: `/dev/universe/categories/`
 
 Alternate route: `/legacy/universe/categories/`
 
-Alternate route: `/dev/universe/categories/`
+Alternate route: `/v1/universe/categories/`
 
 ---
 This route expires daily at 11:05
@@ -6054,11 +7194,11 @@ ccp_is.get_universe_categories({}, context)
 Get information of an item category
 
 ---
-Alternate route: `/v1/universe/categories/{category_id}/`
+Alternate route: `/dev/universe/categories/{category_id}/`
 
 Alternate route: `/legacy/universe/categories/{category_id}/`
 
-Alternate route: `/dev/universe/categories/{category_id}/`
+Alternate route: `/v1/universe/categories/{category_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6090,11 +7230,11 @@ ccp_is.get_universe_categories_category_id({
 Get a list of constellations
 
 ---
-Alternate route: `/v1/universe/constellations/`
+Alternate route: `/dev/universe/constellations/`
 
 Alternate route: `/legacy/universe/constellations/`
 
-Alternate route: `/dev/universe/constellations/`
+Alternate route: `/v1/universe/constellations/`
 
 ---
 This route expires daily at 11:05
@@ -6118,11 +7258,11 @@ ccp_is.get_universe_constellations({}, context)
 Get information on a constellation
 
 ---
-Alternate route: `/v1/universe/constellations/{constellation_id}/`
+Alternate route: `/dev/universe/constellations/{constellation_id}/`
 
 Alternate route: `/legacy/universe/constellations/{constellation_id}/`
 
-Alternate route: `/dev/universe/constellations/{constellation_id}/`
+Alternate route: `/v1/universe/constellations/{constellation_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6158,11 +7298,9 @@ ccp_is.get_universe_constellations_constellation_id({
 Get a list of factions
 
 ---
-Alternate route: `/v1/universe/factions/`
-
-Alternate route: `/legacy/universe/factions/`
-
 Alternate route: `/dev/universe/factions/`
+
+Alternate route: `/v2/universe/factions/`
 
 ---
 This route expires daily at 11:05
@@ -6182,14 +7320,14 @@ ccp_is.get_universe_factions({}, context)
 #### Output
 * output `array`: 200 ok array
   * items `object`: 200 ok object
-    * corporation_id **required** `integer`: corporation_id integer
+    * corporation_id `integer`: corporation_id integer
     * description **required** `string`: description string
     * faction_id **required** `integer`: faction_id integer
     * is_unique **required** `boolean`: is_unique boolean
     * militia_corporation_id `integer`: militia_corporation_id integer
     * name **required** `string`: name string
     * size_factor **required** `number`: size_factor number
-    * solar_system_id **required** `integer`: solar_system_id integer
+    * solar_system_id `integer`: solar_system_id integer
     * station_count **required** `integer`: station_count integer
     * station_system_count **required** `integer`: station_system_count integer
 
@@ -6197,11 +7335,11 @@ ccp_is.get_universe_factions({}, context)
 Get a list of graphics
 
 ---
-Alternate route: `/v1/universe/graphics/`
+Alternate route: `/dev/universe/graphics/`
 
 Alternate route: `/legacy/universe/graphics/`
 
-Alternate route: `/dev/universe/graphics/`
+Alternate route: `/v1/universe/graphics/`
 
 ---
 This route expires daily at 11:05
@@ -6225,11 +7363,11 @@ ccp_is.get_universe_graphics({}, context)
 Get information on a graphic
 
 ---
-Alternate route: `/v1/universe/graphics/{graphic_id}/`
+Alternate route: `/dev/universe/graphics/{graphic_id}/`
 
 Alternate route: `/legacy/universe/graphics/{graphic_id}/`
 
-Alternate route: `/dev/universe/graphics/{graphic_id}/`
+Alternate route: `/v1/universe/graphics/{graphic_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6263,11 +7401,11 @@ ccp_is.get_universe_graphics_graphic_id({
 Get a list of item groups
 
 ---
-Alternate route: `/v1/universe/groups/`
+Alternate route: `/dev/universe/groups/`
 
 Alternate route: `/legacy/universe/groups/`
 
-Alternate route: `/dev/universe/groups/`
+Alternate route: `/v1/universe/groups/`
 
 ---
 This route expires daily at 11:05
@@ -6292,11 +7430,11 @@ ccp_is.get_universe_groups({}, context)
 Get information on an item group
 
 ---
-Alternate route: `/v1/universe/groups/{group_id}/`
+Alternate route: `/dev/universe/groups/{group_id}/`
 
 Alternate route: `/legacy/universe/groups/{group_id}/`
 
-Alternate route: `/dev/universe/groups/{group_id}/`
+Alternate route: `/v1/universe/groups/{group_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6325,15 +7463,85 @@ ccp_is.get_universe_groups_group_id({
   * types **required** `array`: types array
     * items `integer`: type integer
 
+### post_universe_ids
+Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours.
+
+---
+Alternate route: `/dev/universe/ids/`
+
+Alternate route: `/legacy/universe/ids/`
+
+Alternate route: `/v1/universe/ids/`
+
+
+
+```js
+ccp_is.post_universe_ids({
+  "names": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * datasource `string` (values: tranquility, singularity): The server name you would like data from
+  * language `string` (values: de, en-us, fr, ja, ru, zh): Language to use in the response
+  * names **required** `array`: names array
+    * items `string`: name string
+  * user_agent `string`: Client identifier, takes precedence over headers
+  * X-User-Agent `string`: Client identifier, takes precedence over User-Agent
+
+#### Output
+* output `object`: 200 ok object
+  * agents `array`: agents array
+    * items `object`: agent object
+      * id `integer`: id integer
+      * name `string`: name string
+  * alliances `array`: alliances array
+    * items `object`: alliance object
+      * id `integer`: id integer
+      * name `string`: name string
+  * characters `array`: characters array
+    * items `object`: character object
+      * id `integer`: id integer
+      * name `string`: name string
+  * constellations `array`: constellations array
+    * items `object`: constellation object
+      * id `integer`: id integer
+      * name `string`: name string
+  * corporations `array`: corporations array
+    * items `object`: corporation object
+      * id `integer`: id integer
+      * name `string`: name string
+  * factions `array`: factions array
+    * items `object`: faction object
+      * id `integer`: id integer
+      * name `string`: name string
+  * inventory_types `array`: inventory_types array
+    * items `object`: inventory_type object
+      * id `integer`: id integer
+      * name `string`: name string
+  * regions `array`: regions array
+    * items `object`: region object
+      * id `integer`: id integer
+      * name `string`: name string
+  * stations `array`: stations array
+    * items `object`: station object
+      * id `integer`: id integer
+      * name `string`: name string
+  * systems `array`: systems array
+    * items `object`: system object
+      * id `integer`: id integer
+      * name `string`: name string
+
 ### get_universe_moons_moon_id
 Get information on a moon
 
 ---
-Alternate route: `/v1/universe/moons/{moon_id}/`
+Alternate route: `/dev/universe/moons/{moon_id}/`
 
 Alternate route: `/legacy/universe/moons/{moon_id}/`
 
-Alternate route: `/dev/universe/moons/{moon_id}/`
+Alternate route: `/v1/universe/moons/{moon_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6366,9 +7574,9 @@ ccp_is.get_universe_moons_moon_id({
 Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types.
 
 ---
-Alternate route: `/v2/universe/names/`
-
 Alternate route: `/dev/universe/names/`
+
+Alternate route: `/v2/universe/names/`
 
 
 
@@ -6397,11 +7605,11 @@ ccp_is.post_universe_names({
 Get information on a planet
 
 ---
-Alternate route: `/v1/universe/planets/{planet_id}/`
+Alternate route: `/dev/universe/planets/{planet_id}/`
 
 Alternate route: `/legacy/universe/planets/{planet_id}/`
 
-Alternate route: `/dev/universe/planets/{planet_id}/`
+Alternate route: `/v1/universe/planets/{planet_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6435,11 +7643,11 @@ ccp_is.get_universe_planets_planet_id({
 Get a list of character races
 
 ---
-Alternate route: `/v1/universe/races/`
+Alternate route: `/dev/universe/races/`
 
 Alternate route: `/legacy/universe/races/`
 
-Alternate route: `/dev/universe/races/`
+Alternate route: `/v1/universe/races/`
 
 ---
 This route expires daily at 11:05
@@ -6468,11 +7676,11 @@ ccp_is.get_universe_races({}, context)
 Get a list of regions
 
 ---
-Alternate route: `/v1/universe/regions/`
+Alternate route: `/dev/universe/regions/`
 
 Alternate route: `/legacy/universe/regions/`
 
-Alternate route: `/dev/universe/regions/`
+Alternate route: `/v1/universe/regions/`
 
 ---
 This route expires daily at 11:05
@@ -6496,11 +7704,11 @@ ccp_is.get_universe_regions({}, context)
 Get information on a region
 
 ---
-Alternate route: `/v1/universe/regions/{region_id}/`
+Alternate route: `/dev/universe/regions/{region_id}/`
 
 Alternate route: `/legacy/universe/regions/{region_id}/`
 
-Alternate route: `/dev/universe/regions/{region_id}/`
+Alternate route: `/v1/universe/regions/{region_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6532,11 +7740,11 @@ ccp_is.get_universe_regions_region_id({
 Get information on a planetary factory schematic
 
 ---
-Alternate route: `/v1/universe/schematics/{schematic_id}/`
+Alternate route: `/dev/universe/schematics/{schematic_id}/`
 
 Alternate route: `/legacy/universe/schematics/{schematic_id}/`
 
-Alternate route: `/dev/universe/schematics/{schematic_id}/`
+Alternate route: `/v1/universe/schematics/{schematic_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -6564,11 +7772,11 @@ ccp_is.get_universe_schematics_schematic_id({
 Get information on a stargate
 
 ---
-Alternate route: `/v1/universe/stargates/{stargate_id}/`
+Alternate route: `/dev/universe/stargates/{stargate_id}/`
 
 Alternate route: `/legacy/universe/stargates/{stargate_id}/`
 
-Alternate route: `/dev/universe/stargates/{stargate_id}/`
+Alternate route: `/v1/universe/stargates/{stargate_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6605,11 +7813,11 @@ ccp_is.get_universe_stargates_stargate_id({
 Get information on a star
 
 ---
-Alternate route: `/v1/universe/stars/{star_id}/`
+Alternate route: `/dev/universe/stars/{star_id}/`
 
 Alternate route: `/legacy/universe/stars/{star_id}/`
 
-Alternate route: `/dev/universe/stars/{star_id}/`
+Alternate route: `/v1/universe/stars/{star_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6643,9 +7851,9 @@ ccp_is.get_universe_stars_star_id({
 Get information on a station
 
 ---
-Alternate route: `/v2/universe/stations/{station_id}/`
-
 Alternate route: `/dev/universe/stations/{station_id}/`
+
+Alternate route: `/v2/universe/stations/{station_id}/`
 
 ---
 This route is cached for up to 300 seconds
@@ -6687,11 +7895,11 @@ ccp_is.get_universe_stations_station_id({
 List all public structures
 
 ---
-Alternate route: `/v1/universe/structures/`
+Alternate route: `/dev/universe/structures/`
 
 Alternate route: `/legacy/universe/structures/`
 
-Alternate route: `/dev/universe/structures/`
+Alternate route: `/v1/universe/structures/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -6715,11 +7923,11 @@ ccp_is.get_universe_structures({}, context)
 Returns information on requested structure, if you are on the ACL. Otherwise, returns "Forbidden" for all inputs.
 
 ---
-Alternate route: `/v1/universe/structures/{structure_id}/`
+Alternate route: `/dev/universe/structures/{structure_id}/`
 
 Alternate route: `/legacy/universe/structures/{structure_id}/`
 
-Alternate route: `/dev/universe/structures/{structure_id}/`
+Alternate route: `/v1/universe/structures/{structure_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -6753,11 +7961,11 @@ ccp_is.get_universe_structures_structure_id({
 Get the number of jumps in solar systems within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with jumps will be listed
 
 ---
-Alternate route: `/v1/universe/system_jumps/`
+Alternate route: `/dev/universe/system_jumps/`
 
 Alternate route: `/legacy/universe/system_jumps/`
 
-Alternate route: `/dev/universe/system_jumps/`
+Alternate route: `/v1/universe/system_jumps/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -6783,9 +7991,9 @@ ccp_is.get_universe_system_jumps({}, context)
 Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed
 
 ---
-Alternate route: `/v2/universe/system_kills/`
-
 Alternate route: `/dev/universe/system_kills/`
+
+Alternate route: `/v2/universe/system_kills/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -6813,11 +8021,11 @@ ccp_is.get_universe_system_kills({}, context)
 Get a list of solar systems
 
 ---
-Alternate route: `/v1/universe/systems/`
+Alternate route: `/dev/universe/systems/`
 
 Alternate route: `/legacy/universe/systems/`
 
-Alternate route: `/dev/universe/systems/`
+Alternate route: `/v1/universe/systems/`
 
 ---
 This route expires daily at 11:05
@@ -6841,9 +8049,9 @@ ccp_is.get_universe_systems({}, context)
 Get information on a solar system
 
 ---
-Alternate route: `/v3/universe/systems/{system_id}/`
-
 Alternate route: `/dev/universe/systems/{system_id}/`
+
+Alternate route: `/v3/universe/systems/{system_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6889,11 +8097,11 @@ ccp_is.get_universe_systems_system_id({
 Get a list of type ids
 
 ---
-Alternate route: `/v1/universe/types/`
+Alternate route: `/dev/universe/types/`
 
 Alternate route: `/legacy/universe/types/`
 
-Alternate route: `/dev/universe/types/`
+Alternate route: `/v1/universe/types/`
 
 ---
 This route expires daily at 11:05
@@ -6918,9 +8126,9 @@ ccp_is.get_universe_types({}, context)
 Get information on a type
 
 ---
-Alternate route: `/v3/universe/types/{type_id}/`
-
 Alternate route: `/dev/universe/types/{type_id}/`
+
+Alternate route: `/v3/universe/types/{type_id}/`
 
 ---
 This route expires daily at 11:05
@@ -6969,11 +8177,11 @@ ccp_is.get_universe_types_type_id({
 Return a list of wars
 
 ---
-Alternate route: `/v1/wars/`
+Alternate route: `/dev/wars/`
 
 Alternate route: `/legacy/wars/`
 
-Alternate route: `/dev/wars/`
+Alternate route: `/v1/wars/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -6998,11 +8206,11 @@ ccp_is.get_wars({}, context)
 Return details about a war
 
 ---
-Alternate route: `/v1/wars/{war_id}/`
+Alternate route: `/dev/wars/{war_id}/`
 
 Alternate route: `/legacy/wars/{war_id}/`
 
-Alternate route: `/dev/wars/{war_id}/`
+Alternate route: `/v1/wars/{war_id}/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -7049,11 +8257,11 @@ ccp_is.get_wars_war_id({
 Return a list of kills related to a war
 
 ---
-Alternate route: `/v1/wars/{war_id}/killmails/`
+Alternate route: `/dev/wars/{war_id}/killmails/`
 
 Alternate route: `/legacy/wars/{war_id}/killmails/`
 
-Alternate route: `/dev/wars/{war_id}/killmails/`
+Alternate route: `/v1/wars/{war_id}/killmails/`
 
 ---
 This route is cached for up to 3600 seconds

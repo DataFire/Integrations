@@ -711,6 +711,47 @@ geodesystems.search_bookmarks({}, context)
 #### Output
 *Output schema unknown*
 
+### search_boulder_consulting
+API to search for entries of type Boulder Consulting
+
+
+```js
+geodesystems.search_boulder_consulting({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_boulder_consulting.fund `string`: Fund
+  * search.db_boulder_consulting.department `string`: Department
+  * search.db_boulder_consulting.organization `string`: Organization
+  * search.db_boulder_consulting.object `string`: Object
+  * search.db_boulder_consulting.project `string`: Project
+  * search.db_boulder_consulting.account_description `string`: Account Description
+  * search.db_boulder_consulting.date `string`: Date
+  * search.db_boulder_consulting.amount `number`: Amount
+  * search.db_boulder_consulting.vendor_name `string`: Vendor Name
+  * search.db_boulder_consulting.comment `string`: Comment
+
+#### Output
+*Output schema unknown*
+
 ### search_boulder_county_voter_details
 API to search for entries of type Boulder County Voter Details
 
@@ -888,37 +929,6 @@ geodesystems.search_community_case({}, context)
 #### Output
 *Output schema unknown*
 
-### search_community_datahub
-API to search for entries of type Data Hub
-
-
-```js
-geodesystems.search_community_datahub({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
 ### search_community_resource
 API to search for entries of type Facility
 
@@ -951,6 +961,67 @@ geodesystems.search_community_resource({}, context)
   * search.community_resource.city `string`: City
   * search.community_resource.state `string`: State or Province
   * search.community_resource.zipcode `string`: Zip Code
+
+#### Output
+*Output schema unknown*
+
+### search_construction_permits
+API to search for entries of type Construction Permits
+
+
+```js
+geodesystems.search_construction_permits({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_construction_permits.address `string`: Address
+  * search.db_construction_permits.case_status `string`: Case Status
+  * search.db_construction_permits.category `string`: Category
+  * search.db_construction_permits.building_uses_and_work_scopes `string`: Building Uses And Work Scopes
+  * search.db_construction_permits.permit_types `string`: Permit Types
+  * search.db_construction_permits.total_project_value `number`: Total Project Value
+  * search.db_construction_permits.total_subpermit_value `number`: Total Subpermit Value
+  * search.db_construction_permits.applied `string`: Applied
+  * search.db_construction_permits.approved `string`: Approved
+  * search.db_construction_permits.issued `string`: Issued
+  * search.db_construction_permits.co_date `string`: Co Date
+  * search.db_construction_permits.completion_date `string`: Completion Date
+  * search.db_construction_permits.new_res_unit `integer`: New Res Unit
+  * search.db_construction_permits.existing_res_unit `integer`: Existing Res Unit
+  * search.db_construction_permits.affordable_hsg_unit `integer`: Affordable Hsg Unit
+  * search.db_construction_permits.new_sf `integer`: New Sf
+  * search.db_construction_permits.remodel_sf `integer`: Remodel Sf
+  * search.db_construction_permits.narrative_description `string`: Narrative Description
+  * search.db_construction_permits.primary_first_name `string`: Primary First Name
+  * search.db_construction_permits.primary_last_name `string`: Primary Last Name
+  * search.db_construction_permits.primary_company `string`: Primary Company
+  * search.db_construction_permits.contractor_first_name `string`: Contractor First Name
+  * search.db_construction_permits.contractor_last_name `string`: Contractor Last Name
+  * search.db_construction_permits.contractor_company `string`: Contractor Company
+  * search.db_construction_permits.owner1_first_name `string`: Owner1 First Name
+  * search.db_construction_permits.owner1_last_name `string`: Owner1 Last Name
+  * search.db_construction_permits.owner1_company `string`: Owner1 Company
+  * search.db_construction_permits.owner2_first_name `string`: Owner2 First Name
+  * search.db_construction_permits.owner2_last_name `string`: Owner2 Last Name
+  * search.db_construction_permits.owner2_company `string`: Owner2 Company
 
 #### Output
 *Output schema unknown*
@@ -1027,43 +1098,6 @@ geodesystems.search_db_co_indicators({}, context)
 #### Output
 *Output schema unknown*
 
-### search_earth_merra
-API to search for entries of type MERRA Data
-
-
-```js
-geodesystems.search_earth_merra({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.earth_merra.frequency_type `string`: Frequency Type
-  * search.earth_merra.frequency `string`: Frequency
-  * search.earth_merra.dimensions `string`: Dimensions
-  * search.earth_merra.data_group `string`: Group
-  * search.earth_merra.horizontal_resolution `string`: Horizontal Resolution
-  * search.earth_merra.vertical_location `string`: Vertical Location
-
-#### Output
-*Output schema unknown*
-
 ### search_earth_satellite_landsat
 API to search for entries of type Landsat Satellite Data
 
@@ -1097,38 +1131,6 @@ geodesystems.search_earth_satellite_landsat({}, context)
   * search.earth_satellite_landsat.wrs_row_number `integer`: WRS Row
   * search.earth_satellite_landsat.ground_station `string`: Ground Station
   * search.earth_satellite_landsat.archive_version_number `integer`: Archive Version Number
-
-#### Output
-*Output schema unknown*
-
-### search_earth_satellite_modis_aqua
-API to search for entries of type Aqua Modis Satellite Data
-
-
-```js
-geodesystems.search_earth_satellite_modis_aqua({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.earth_satellite_modis.data_type `string`: Earth Science Data Type
 
 #### Output
 *Output schema unknown*
@@ -4009,6 +4011,57 @@ geodesystems.search_tasks({}, context)
   * search.db_tasks.assignedto `string`: Assigned To
   * search.db_tasks.startdate `string`: Start Date
   * search.db_tasks.enddate `string`: End Date
+
+#### Output
+*Output schema unknown*
+
+### search_tmdbmovies
+API to search for entries of type Tmdb Movies
+
+
+```js
+geodesystems.search_tmdbmovies({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_tmdbmovies.original_title `string`: Original Title
+  * search.db_tmdbmovies.overview `string`: Overview
+  * search.db_tmdbmovies.budget `number`: Budget
+  * search.db_tmdbmovies.genres `string`: Genres
+  * search.db_tmdbmovies.homepage `string`: Homepage
+  * search.db_tmdbmovies.movie_id `string`: Id
+  * search.db_tmdbmovies.keywords `string`: Keywords
+  * search.db_tmdbmovies.original_language `string`: Original Language
+  * search.db_tmdbmovies.popularity `number`: Popularity
+  * search.db_tmdbmovies.production_companies `string`: Production Companies
+  * search.db_tmdbmovies.production_countries `string`: Production Countries
+  * search.db_tmdbmovies.release_date `string`: Release Date
+  * search.db_tmdbmovies.revenue `number`: Revenue
+  * search.db_tmdbmovies.runtime `number`: Runtime
+  * search.db_tmdbmovies.spoken_languages `string`: Spoken Languages
+  * search.db_tmdbmovies.status `string`: Status
+  * search.db_tmdbmovies.tagline `string`: Tagline
+  * search.db_tmdbmovies.title `string`: Title
+  * search.db_tmdbmovies.vote_average `number`: Vote Average
+  * search.db_tmdbmovies.vote_count `number`: Vote Count
 
 #### Output
 *Output schema unknown*
@@ -7324,6 +7377,48 @@ geodesystems.search_type_wms_layer({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_ufo_sightings
+API to search for entries of type Ufo Sightings
+
+
+```js
+geodesystems.search_ufo_sightings({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_ufo_sightings.datetime `string`: Datetime
+  * search.db_ufo_sightings.city `string`: City
+  * search.db_ufo_sightings.state `string`: State
+  * search.db_ufo_sightings.country `string`: Country
+  * search.db_ufo_sightings.shape `string`: Shape
+  * search.db_ufo_sightings.duration_seconds `number`: Duration (seconds)
+  * search.db_ufo_sightings.duration_hours_min `string`: Duration (hours/min)
+  * search.db_ufo_sightings.comments `string`: Comments
+  * search.db_ufo_sightings.date_posted `string`: Date Posted
+  * search.db_ufo_sightings.latitude `number`: Latitude
+  * search.db_ufo_sightings.longitude `number`: Longitude
 
 #### Output
 *Output schema unknown*

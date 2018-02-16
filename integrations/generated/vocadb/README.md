@@ -55,7 +55,7 @@ vocadb.AlbumApi_GetList({}, context)
 #### Input
 * input `object`
   * query `string`: Album name query (optional).
-  * discTypes `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Other): Disc type. By default nothing. Possible values are Album, Single, EP, SplitAlbum, Compilation, Video, Other. Note: only one type supported for now.
+  * discTypes `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other): Disc type. By default nothing. Possible values are Album, Single, EP, SplitAlbum, Compilation, Video, Other. Note: only one type supported for now.
   * tagName `array`: Filter by tag name (optional). This filter can be specified multiple times.
   * tagId `array`: Filter by tag Id (optional). This filter can be specified multiple times.
   * childTags `boolean`: Include child tags, if the tags being filtered by have any.
@@ -934,15 +934,14 @@ vocadb.ReleaseEventApi_Delete({
 
 ```js
 vocadb.ReleaseEventApi_GetOne({
-  "id": 0,
-  "fields": ""
+  "id": 0
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`
-  * fields **required** `string` (values: None, AdditionalNames, Artists, Description, MainPicture, Names, Series, SongList, WebLinks)
+  * fields `string` (values: None, AdditionalNames, Artists, Description, MainPicture, Names, Series, SongList, WebLinks)
   * lang `string` (values: Default, Japanese, Romaji, English)
 
 #### Output
@@ -1172,6 +1171,7 @@ vocadb.SongApi_GetList({}, context)
   * since `integer`: Allow only entries that have been created at most this many hours ago. By default there is no filtering.
   * minScore `integer`: Minimum rating score. Optional.
   * userCollectionId `integer`: Filter by user's rated songs. By default there is no filtering.
+  * releaseEventId `integer`: Filter by release event. By default there is no filtering.
   * status `string` (values: Draft, Finished, Approved, Locked): Filter by entry status (optional).
   * advancedFilters `array`: List of advanced filters (optional).
   * start `integer`: First item to be retrieved (optional, defaults to 0).
@@ -2005,7 +2005,7 @@ vocadb.UserApi_GetAlbumCollection({
   * artistId `integer`: Filter by album artist (optional).
   * purchaseStatuses `string` (values: Nothing, Wishlisted, Ordered, Owned, All): Filter by a comma-separated list of purchase statuses (optional). Possible values are Nothing, Wishlisted, Ordered, Owned, and all combinations of these.
   * releaseEventId `integer`: Filter by release event. Optional.
-  * albumTypes `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Other): Filter by album type (optional).
+  * albumTypes `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other): Filter by album type (optional).
   * advancedFilters `array`: List of advanced filters (optional).
   * start `integer`: First item to be retrieved (optional, defaults to 0).
   * maxResults `integer`: Maximum number of results to be loaded (optional, defaults to 10, maximum of 50).
@@ -2287,7 +2287,7 @@ vocadb.UserApi_GetSongLists({
   * coverPictureMime `string`
   * createDate `string`
   * deleted `boolean`
-  * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Other)
+  * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other)
   * id `integer`
   * name `string`
   * ratingAverage `number`
@@ -2316,7 +2316,7 @@ vocadb.UserApi_GetSongLists({
   * defaultName `string`
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
   * description `string`
-  * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Other)
+  * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other)
   * discs `array`
     * items [AlbumDiscPropertiesContract](#albumdiscpropertiescontract)
   * id `integer`
@@ -2504,7 +2504,7 @@ vocadb.UserApi_GetSongLists({
   * defaultName `string`
   * defaultNameLanguage `string` (values: Unspecified, Japanese, Romaji, English)
   * description `string`
-  * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Other)
+  * discType `string` (values: Unknown, Album, Single, EP, SplitAlbum, Compilation, Video, Artbook, Game, Fanmade, Instrumental, Other)
   * entryType `string` (values: Undefined, Album, Artist, DiscussionTopic, PV, ReleaseEvent, ReleaseEventSeries, Song, SongList, Tag, User)
   * eventCategory `string` (values: Unspecified, AlbumRelease, Anniversary, Club, Concert, Contest, Convention, Other)
   * id `integer`
@@ -2516,7 +2516,7 @@ vocadb.UserApi_GetSongLists({
     * items [PVContract](#pvcontract)
   * releaseEventSeriesName `string`
   * songListFeaturedCategory `string` (values: Nothing, Concerts, VocaloidRanking, Pools, Other)
-  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Other)
+  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
   * tagCategoryName `string`
   * tags `array`
@@ -2811,7 +2811,7 @@ vocadb.UserApi_GetSongLists({
   * publishDate `string`
   * pvServices `string` (values: Nothing, NicoNicoDouga, Youtube, SoundCloud, Vimeo, Piapro, Bilibili, File, LocalFile, Creofuga)
   * ratingScore `integer`
-  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Other)
+  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
   * thumbUrl `string`
   * version `integer`
@@ -2844,7 +2844,7 @@ vocadb.UserApi_GetSongLists({
     * items [PVContract](#pvcontract)
   * ratingScore `integer`
   * releaseEvent [ReleaseEventForApiContract](#releaseeventforapicontract)
-  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Other)
+  * songType `string` (values: Unspecified, Original, Remaster, Remix, Cover, Instrumental, Mashup, MusicPV, DramaPV, Live, Illustration, Other)
   * status `string` (values: Draft, Finished, Approved, Locked)
   * tags `array`
     * items [TagUsageForApiContract](#tagusageforapicontract)
@@ -2913,6 +2913,7 @@ vocadb.UserApi_GetSongLists({
 ### TagBaseContract
 * TagBaseContract `object`
   * additionalNames `string`
+  * categoryName `string`
   * id `integer`
   * name `string`
   * urlSlug `string`

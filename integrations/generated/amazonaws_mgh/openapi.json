@@ -11,7 +11,8 @@
     "contact": {
       "email": "mike.ralphson@gmail.com",
       "name": "Mike Ralphson",
-      "url": "https://github.com/mermade/aws2openapi"
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
     },
     "description": "<p/>",
     "license": {
@@ -45,7 +46,7 @@
     "x-preferred": true,
     "x-providerName": "amazonaws.com",
     "x-release": "v4",
-    "x-serviceName": "mgh",
+    "x-serviceName": "AWSMigrationHub",
     "x-datafire": {
       "name": "amazonaws_mgh",
       "type": "openapi"

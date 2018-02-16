@@ -82,10 +82,12 @@ salesloft.v2.accounts.json.get({}, context)
 * input `object`
   * ids `array`: IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful
   * updated_at `array`: Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.
+  * domain `string`: Domain of the accounts to fetch. Domains are unique and lowercase
   * sort_by `string`: Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -220,6 +222,94 @@ salesloft.v2.accounts.id.json.put({
 #### Output
 * output [Account](#account)
 
+### v2.action_details.call_instructions.json.get
+Fetches multiple call instruction records. The records can be filtered, paged, and sorted according to
+the respective parameters.
+
+
+
+```js
+salesloft.v2.action_details.call_instructions.json.get({}, context)
+```
+
+#### Input
+* input `object`
+  * ids `array`: IDs of call instructions to fetch.
+  * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
+  * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
+  * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
+  * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
+
+#### Output
+* output `array`
+  * items [CallInstruction](#callinstruction)
+
+### v2.action_details.call_instructions.id.json.get
+Fetches a call instruction, by ID only.
+
+
+
+```js
+salesloft.v2.action_details.call_instructions.id.json.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Call instructions ID
+
+#### Output
+* output [CallInstruction](#callinstruction)
+
+### v2.actions.json.get
+Fetches multiple action records. The records can be filtered, paged, and sorted according to
+the respective parameters. Only actions that are currently "in_progess" will be returned by
+this endpoint.
+
+
+
+```js
+salesloft.v2.actions.json.get({}, context)
+```
+
+#### Input
+* input `object`
+  * ids `array`: IDs of actions to fetch.
+  * step_id `integer`: Fetch actions by step ID
+  * type `string`: Filter actions by type
+  * due_on `array`: Equality filters that are applied to the due_on field. A single filter can be used by itself or combined with other filters to create a range.
+  * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
+  * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
+  * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
+  * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
+
+#### Output
+* output `array`
+  * items [Action](#action)
+
+### v2.actions.id.json.get
+Fetches an action, by ID only.
+This endpoint will only return actions that are in_progress or pending_activity.
+Once an action is complete, the request for that action will return a 404 status code.
+
+
+
+```js
+salesloft.v2.actions.id.json.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Action ID
+
+#### Output
+* output [Action](#action)
+
 ### v2.activities.calls.json.get
 Fetches multiple call records. The records can be filtered, paged, and sorted according to
 the respective parameters.
@@ -233,10 +323,12 @@ salesloft.v2.activities.calls.json.get({}, context)
 #### Input
 * input `object`
   * ids `array`: IDs of calls to fetch. If a record can't be found, that record won't be returned and your request will be successful
+  * updated_at `array`: Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.
   * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -279,6 +371,7 @@ salesloft.v2.activities.emails.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -324,6 +417,7 @@ salesloft.v2.cadence_memberships.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -408,6 +502,7 @@ salesloft.v2.cadences.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -431,6 +526,94 @@ salesloft.v2.cadences.id.json.get({
 #### Output
 * output [Cadence](#cadence)
 
+### v2.call_data_records.json.get
+Fetches multiple call data records. The records can be filtered, paged, and sorted according to
+the respective parameters.
+
+Call data records are records of all inbound and outbound calls through SalesLoft. A call data record may
+be associated with a call, but does not have to be.
+
+
+
+```js
+salesloft.v2.call_data_records.json.get({}, context)
+```
+
+#### Input
+* input `object`
+  * ids `array`: IDs of call data records to fetch. If a record can't be found, that record won't be returned and your request will be successful
+  * has_call `boolean`: Return only call data records which have or do not have a call logged for them
+  * updated_at `array`: Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.
+  * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
+  * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
+  * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
+  * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
+
+#### Output
+* output `array`
+  * items [CallDataRecord](#calldatarecord)
+
+### v2.call_data_records.id.json.get
+Fetches a call data record, by ID only.
+
+
+
+```js
+salesloft.v2.call_data_records.id.json.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: CallDataRecord ID
+
+#### Output
+* output [CallDataRecord](#calldatarecord)
+
+### v2.crm_activities.json.get
+Fetches multiple crm activity records. The records can be filtered, paged, and sorted according to
+the respective parameters.
+
+
+
+```js
+salesloft.v2.crm_activities.json.get({}, context)
+```
+
+#### Input
+* input `object`
+  * ids `array`: IDs of crm activities to fetch.
+  * updated_at `array`: Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.
+  * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
+  * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
+  * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
+  * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
+
+#### Output
+* output `array`
+  * items [CrmActivity](#crmactivity)
+
+### v2.crm_activities.id.json.get
+Fetches a crm activity, by ID only.
+
+
+
+```js
+salesloft.v2.crm_activities.id.json.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Crm activity ID
+
+#### Output
+* output [CrmActivity](#crmactivity)
+
 ### v2.custom_fields.json.get
 Fetches multiple custom field records. The records can be filtered, paged, and sorted according to
 the respective parameters.
@@ -449,6 +632,7 @@ salesloft.v2.custom_fields.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -548,6 +732,7 @@ salesloft.v2.email_templates.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -588,6 +773,7 @@ salesloft.v2.imports.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -704,11 +890,13 @@ salesloft.v2.notes.json.get({}, context)
 * input `object`
   * associated_with_type `string`: Case insensitive type of item with which the note is associated.  Value must be one of: person, account
   * associated_with_id `integer`: ID of the item with which the note is associated.  The associated_with_type must also be present if this parameter is used
+  * updated_at `array`: Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.
   * ids `array`: IDs of notes to fetch. If a record can't be found, that record won't be returned and your request will be successful
   * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -796,6 +984,7 @@ salesloft.v2.people.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -950,6 +1139,7 @@ salesloft.v2.person_stages.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -1030,6 +1220,90 @@ salesloft.v2.person_stages.id.json.put({
 #### Output
 * output [PersonStage](#personstage)
 
+### v2.phone_numbers.caller_ids.json.get
+Each entry is a possible caller ID match for the number. Multiple
+entries may be returned if the phone number is present on more than one
+person in the system.  Phone number should be in E.164 format.
+
+
+
+```js
+salesloft.v2.phone_numbers.caller_ids.json.get({
+  "phone_number": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * phone_number **required** `string`: E.164 Phone Number
+
+#### Output
+* output `array`
+  * items [CallerId](#callerid)
+
+### v2.phone_numbers.recording_settings.id.json.get
+Fetches the recording status for a given phone number, based on Do Not Record and Recording Governance for your team.
+Phone number should be in E.164 format.
+
+
+
+```js
+salesloft.v2.phone_numbers.recording_settings.id.json.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: E.164 Phone Number
+
+#### Output
+* output [RecordingSetting](#recordingsetting)
+
+### v2.steps.json.get
+Fetches multiple step records. The records can be filtered, paged, and sorted according to
+the respective parameters.
+
+
+
+```js
+salesloft.v2.steps.json.get({}, context)
+```
+
+#### Input
+* input `object`
+  * ids `array`: IDs of steps to fetch.
+  * cadence_id `integer`: Filter by cadence ID
+  * type `string`: Filter by step type
+  * has_due_actions `boolean`: Filter by whether a step has due actions
+  * sort_by `string`: Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at
+  * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
+  * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
+  * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
+
+#### Output
+* output `array`
+  * items [Step](#step)
+
+### v2.steps.id.json.get
+Fetches a step, by ID only.
+
+
+
+```js
+salesloft.v2.steps.id.json.get({
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `string`: Step ID
+
+#### Output
+* output [Step](#step)
+
 ### v2.successes.json.get
 Fetches multiple success records. The records can be filtered, paged, and sorted according to
 the respective parameters.
@@ -1048,6 +1322,7 @@ salesloft.v2.successes.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -1090,6 +1365,7 @@ salesloft.v2.team_templates.json.get({}, context)
   * sort_direction `string`: Direction to sort in, must be one of: ASC, DESC. Defaults to DESC
   * per_page `integer`: How many records to show per page in the range [1, 100]. Defaults to 25
   * page `integer`: The current page to fetch results from. Defaults to 1
+  * include_paging_counts `boolean`: Whether to include total_pages and total_count in the metadata. Defaults to false
 
 #### Output
 * output `array`
@@ -1198,6 +1474,19 @@ salesloft.v2.users.id.json.get({
 * AccountCounts `object`
   * people `integer`: Number of people in SalesLoft associated with this Account
 
+### Action
+* Action `object`
+  * action_details [EmbeddedResource](#embeddedresource)
+  * created_at `string`: Datetime of when the Action was created
+  * due `boolean`: Whether this step is due
+  * due_on `string`: When action is due
+  * id `integer`: ID of Action
+  * person [EmbeddedResource](#embeddedresource)
+  * status `string`: The current state of the person on the cadence. Possible values are:
+  * type `string`: The type of this action. Valid types are: email, phone, other. New types may be added in the future.
+  * updated_at `string`: Datetime of when the Action was last updated
+  * user [EmbeddedResource](#embeddedresource)
+
 ### Cadence
 * Cadence `object`
   * added_stage [EmbeddedResource](#embeddedresource)
@@ -1263,6 +1552,47 @@ salesloft.v2.users.id.json.get({
   * sentiment `string`: Outcome of the conversation
   * to `string`: Phone number that received the call
   * updated_at `string`: Datetime of when the call was last updated
+  * user [EmbeddedResource](#embeddedresource)
+
+### CallDataRecord
+* CallDataRecord `object`
+  * call [EmbeddedResource](#embeddedresource)
+  * created_at `string`: Datetime of when the call was created
+  * direction `string`: Direction of the call. Can be one of: inbound, outbound
+  * duration `integer`: Length of the call in seconds
+  * from `string`: Phone number that placed the call
+  * id `integer`: ID of CallDataRecord
+  * recording [EmbeddedRecordingResource](#embeddedrecordingresource)
+  * to `string`: Phone number that received the call
+  * updated_at `string`: Datetime of when the call was last updated
+  * user [EmbeddedResource](#embeddedresource)
+
+### CallInstruction
+* CallInstruction `object`
+  * created_at `string`: Datetime of when the call instructions were created
+  * id `integer`: ID of call instructions
+  * instructions `string`: The instructions
+  * updated_at `string`: Datetime of when the call instructions were last updated
+
+### CallerId
+* CallerId `object`
+  * account_name `string`: The account of the person calling
+  * display_name `string`: The name of the person calling
+  * person [EmbeddedResource](#embeddedresource)
+  * title `string`: The title of the person calling
+
+### CrmActivity
+* CrmActivity `object`
+  * activity_type `string`: The type of activity that is being recorded, if available. The values can change over time, but could be one of: email, phone, email reminder, inmail
+  * created_at `string`: Datetime of when the crm activity was created
+  * crm_id `string`: The ID of the activity in Salesforce, if written to Salesforce
+  * custom_crm_fields `object`: Additional fields that are logged to Salesforce, if mapped by the team at the time of writing to Salesforce
+  * description `string`: The description field of the activity in Salesforce
+  * error `string`: Information about why this crm activity failed to sync, if it did fail to sync. Failed activities will be automatically retried and may become successful in the future
+  * id `integer`: CrmActivity ID
+  * person [EmbeddedResource](#embeddedresource)
+  * subject `string`: The subject field of the activity in Salesforce
+  * updated_at `string`: Datetime of when the crm activity was last updated
   * user [EmbeddedResource](#embeddedresource)
 
 ### CustomField
@@ -1420,6 +1750,23 @@ salesloft.v2.users.id.json.get({
   * id `integer`: ID of Person Stage
   * name `string`: Name of Person Stage
   * updated_at `string`: Datetime of when the Person Stage was last updated
+
+### RecordingSetting
+* RecordingSetting `object`
+  * recording_default `boolean`: Whether this phone number should record by default
+
+### Step
+* Step `object`
+  * cadence [EmbeddedResource](#embeddedresource)
+  * created_at `string`: Datetime of when the Step was created
+  * day `integer`: Day this step is associated with up
+  * details [EmbeddedResource](#embeddedresource)
+  * disabled `boolean`: Whether this step is currently active
+  * display_name `string`: Display name of the step
+  * id `integer`: ID of Step
+  * step_number `integer`: The number of the step for this day
+  * type `string`: The type of the action scheduled by this step. Valid types are: email, phone, other. New types may be added in the future.
+  * updated_at `string`: Datetime of when the Step was last updated
 
 ### Success
 * Success `object`

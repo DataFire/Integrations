@@ -1,6 +1,6 @@
 {
   "name": "@datafire/reddit",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Reddit",
   "repository": {

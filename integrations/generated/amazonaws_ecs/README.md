@@ -57,9 +57,13 @@ amazonaws_ecs.CreateService({
   * cluster [String](#string)
   * deploymentConfiguration [DeploymentConfiguration](#deploymentconfiguration)
   * desiredCount **required** [BoxedInteger](#boxedinteger)
+  * healthCheckGracePeriodSeconds [BoxedInteger](#boxedinteger)
+  * launchType [LaunchType](#launchtype)
   * loadBalancers [LoadBalancers](#loadbalancers)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * placementConstraints [PlacementConstraints](#placementconstraints)
   * placementStrategy [PlacementStrategies](#placementstrategies)
+  * platformVersion [String](#string)
   * role [String](#string)
   * serviceName **required** [String](#string)
   * taskDefinition **required** [String](#string)
@@ -167,6 +171,7 @@ amazonaws_ecs.DescribeClusters({}, context)
 #### Input
 * input `object`
   * clusters [StringList](#stringlist)
+  * include [ClusterFieldList](#clusterfieldlist)
 
 #### Output
 * output [DescribeClustersResponse](#describeclustersresponse)
@@ -332,6 +337,7 @@ amazonaws_ecs.ListServices({}, context)
   * maxResults `string`
   * nextToken `string`
   * cluster [String](#string)
+  * launchType [LaunchType](#launchtype)
   * maxResults [BoxedInteger](#boxedinteger)
   * nextToken [String](#string)
 
@@ -395,6 +401,7 @@ amazonaws_ecs.ListTasks({}, context)
   * containerInstance [String](#string)
   * desiredStatus [DesiredStatus](#desiredstatus)
   * family [String](#string)
+  * launchType [LaunchType](#launchtype)
   * maxResults [BoxedInteger](#boxedinteger)
   * nextToken [String](#string)
   * serviceName [String](#string)
@@ -456,9 +463,13 @@ amazonaws_ecs.RegisterTaskDefinition({
 #### Input
 * input `object`
   * containerDefinitions **required** [ContainerDefinitions](#containerdefinitions)
+  * cpu [String](#string)
+  * executionRoleArn [String](#string)
   * family **required** [String](#string)
+  * memory [String](#string)
   * networkMode [NetworkMode](#networkmode)
   * placementConstraints [TaskDefinitionPlacementConstraints](#taskdefinitionplacementconstraints)
+  * requiresCompatibilities [CompatibilityList](#compatibilitylist)
   * taskRoleArn [String](#string)
   * volumes [VolumeList](#volumelist)
 
@@ -480,9 +491,12 @@ amazonaws_ecs.RunTask({
   * cluster [String](#string)
   * count [BoxedInteger](#boxedinteger)
   * group [String](#string)
+  * launchType [LaunchType](#launchtype)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * overrides [TaskOverride](#taskoverride)
   * placementConstraints [PlacementConstraints](#placementconstraints)
   * placementStrategy [PlacementStrategies](#placementstrategies)
+  * platformVersion [String](#string)
   * startedBy [String](#string)
   * taskDefinition **required** [String](#string)
 
@@ -505,6 +519,7 @@ amazonaws_ecs.StartTask({
   * cluster [String](#string)
   * containerInstances **required** [StringList](#stringlist)
   * group [String](#string)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * overrides [TaskOverride](#taskoverride)
   * startedBy [String](#string)
   * taskDefinition **required** [String](#string)
@@ -562,7 +577,12 @@ amazonaws_ecs.SubmitTaskStateChange({}, context)
 
 #### Input
 * input `object`
+  * attachments [AttachmentStateChanges](#attachmentstatechanges)
   * cluster [String](#string)
+  * containers [ContainerStateChanges](#containerstatechanges)
+  * executionStoppedAt [Timestamp](#timestamp)
+  * pullStartedAt [Timestamp](#timestamp)
+  * pullStoppedAt [Timestamp](#timestamp)
   * reason [String](#string)
   * status [String](#string)
   * task [String](#string)
@@ -623,6 +643,10 @@ amazonaws_ecs.UpdateService({
   * cluster [String](#string)
   * deploymentConfiguration [DeploymentConfiguration](#deploymentconfiguration)
   * desiredCount [BoxedInteger](#boxedinteger)
+  * forceNewDeployment [Boolean](#boolean)
+  * healthCheckGracePeriodSeconds [BoxedInteger](#boxedinteger)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
+  * platformVersion [String](#string)
   * service **required** [String](#string)
   * taskDefinition [String](#string)
 
@@ -633,11 +657,41 @@ amazonaws_ecs.UpdateService({
 
 ## Definitions
 
+### AccessDeniedException
+* AccessDeniedException `object`: You do not have authorization to perform the requested action.
+
 ### AgentUpdateStatus
 * AgentUpdateStatus `string` (values: PENDING, STAGING, STAGED, UPDATING, UPDATED, FAILED)
 
+### AssignPublicIp
+* AssignPublicIp `string` (values: ENABLED, DISABLED)
+
+### Attachment
+* Attachment `object`: An object representing a container instance or task attachment.
+  * details [AttachmentDetails](#attachmentdetails)
+  * id [String](#string)
+  * status [String](#string)
+  * type [String](#string)
+
+### AttachmentDetails
+* AttachmentDetails `array`
+  * items [KeyValuePair](#keyvaluepair)
+
+### AttachmentStateChange
+* AttachmentStateChange `object`: An object representing a change in state for a task attachment.
+  * attachmentArn **required** [String](#string)
+  * status **required** [String](#string)
+
+### AttachmentStateChanges
+* AttachmentStateChanges `array`
+  * items [AttachmentStateChange](#attachmentstatechange)
+
+### Attachments
+* Attachments `array`
+  * items [Attachment](#attachment)
+
 ### Attribute
-* Attribute `object`: An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+* Attribute `object`: An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
   * name **required** [String](#string)
   * targetId [String](#string)
   * targetType [TargetType](#targettype)
@@ -650,6 +704,15 @@ amazonaws_ecs.UpdateService({
 * Attributes `array`
   * items [Attribute](#attribute)
 
+### AwsVpcConfiguration
+* AwsVpcConfiguration `object`: An object representing the networking details for a task or service.
+  * assignPublicIp [AssignPublicIp](#assignpublicip)
+  * securityGroups [StringList](#stringlist)
+  * subnets **required** [StringList](#stringlist)
+
+### BlockedException
+* BlockedException `object`: Your AWS account has been blocked. <a href="http://aws.amazon.com/contact-us/">Contact AWS Customer Support</a> for more information.
+
 ### Boolean
 * Boolean `boolean`
 
@@ -660,7 +723,7 @@ amazonaws_ecs.UpdateService({
 * BoxedInteger `integer`
 
 ### ClientException
-* ClientException `object`: These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid.
+* ClientException `object`: These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.
   * message [String](#string)
 
 ### Cluster
@@ -671,6 +734,7 @@ amazonaws_ecs.UpdateService({
   * pendingTasksCount [Integer](#integer)
   * registeredContainerInstancesCount [Integer](#integer)
   * runningTasksCount [Integer](#integer)
+  * statistics [Statistics](#statistics)
   * status [String](#string)
 
 ### ClusterContainsContainerInstancesException
@@ -679,12 +743,32 @@ amazonaws_ecs.UpdateService({
 ### ClusterContainsServicesException
 * ClusterContainsServicesException `object`: You cannot delete a cluster that contains services. You must first update the service to reduce its desired task count to 0 and then delete the service. For more information, see <a>UpdateService</a> and <a>DeleteService</a>.
 
+### ClusterContainsTasksException
+* ClusterContainsTasksException `object`: You cannot delete a cluster that has active tasks.
+
+### ClusterField
+* ClusterField `string` (values: STATISTICS)
+
+### ClusterFieldList
+* ClusterFieldList `array`
+  * items [ClusterField](#clusterfield)
+
 ### ClusterNotFoundException
 * ClusterNotFoundException `object`: The specified cluster could not be found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are region-specific.
 
 ### Clusters
 * Clusters `array`
   * items [Cluster](#cluster)
+
+### Compatibility
+* Compatibility `string` (values: EC2, FARGATE)
+
+### CompatibilityList
+* CompatibilityList `array`
+  * items [Compatibility](#compatibility)
+
+### Connectivity
+* Connectivity `string` (values: CONNECTED, DISCONNECTED)
 
 ### Container
 * Container `object`: A Docker container that is part of a task.
@@ -693,6 +777,7 @@ amazonaws_ecs.UpdateService({
   * lastStatus [String](#string)
   * name [String](#string)
   * networkBindings [NetworkBindings](#networkbindings)
+  * networkInterfaces [NetworkInterfaces](#networkinterfaces)
   * reason [String](#string)
   * taskArn [String](#string)
 
@@ -734,6 +819,7 @@ amazonaws_ecs.UpdateService({
 * ContainerInstance `object`: An EC2 instance that is running the Amazon ECS agent and has been registered with a cluster.
   * agentConnected [Boolean](#boolean)
   * agentUpdateStatus [AgentUpdateStatus](#agentupdatestatus)
+  * attachments [Attachments](#attachments)
   * attributes [Attributes](#attributes)
   * containerInstanceArn [String](#string)
   * ec2InstanceId [String](#string)
@@ -766,6 +852,18 @@ amazonaws_ecs.UpdateService({
 * ContainerOverrides `array`
   * items [ContainerOverride](#containeroverride)
 
+### ContainerStateChange
+* ContainerStateChange `object`: An object representing a change in state for a container.
+  * containerName [String](#string)
+  * exitCode [BoxedInteger](#boxedinteger)
+  * networkBindings [NetworkBindings](#networkbindings)
+  * reason [String](#string)
+  * status [String](#string)
+
+### ContainerStateChanges
+* ContainerStateChanges `array`
+  * items [ContainerStateChange](#containerstatechange)
+
 ### Containers
 * Containers `array`
   * items [Container](#container)
@@ -784,9 +882,13 @@ amazonaws_ecs.UpdateService({
   * cluster [String](#string)
   * deploymentConfiguration [DeploymentConfiguration](#deploymentconfiguration)
   * desiredCount **required** [BoxedInteger](#boxedinteger)
+  * healthCheckGracePeriodSeconds [BoxedInteger](#boxedinteger)
+  * launchType [LaunchType](#launchtype)
   * loadBalancers [LoadBalancers](#loadbalancers)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * placementConstraints [PlacementConstraints](#placementconstraints)
   * placementStrategy [PlacementStrategies](#placementstrategies)
+  * platformVersion [String](#string)
   * role [String](#string)
   * serviceName **required** [String](#string)
   * taskDefinition **required** [String](#string)
@@ -826,7 +928,10 @@ amazonaws_ecs.UpdateService({
   * createdAt [Timestamp](#timestamp)
   * desiredCount [Integer](#integer)
   * id [String](#string)
+  * launchType [LaunchType](#launchtype)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * pendingCount [Integer](#integer)
+  * platformVersion [String](#string)
   * runningCount [Integer](#integer)
   * status [String](#string)
   * taskDefinition [String](#string)
@@ -862,6 +967,7 @@ amazonaws_ecs.UpdateService({
 ### DescribeClustersRequest
 * DescribeClustersRequest `object`
   * clusters [StringList](#stringlist)
+  * include [ClusterFieldList](#clusterfieldlist)
 
 ### DescribeClustersResponse
 * DescribeClustersResponse `object`
@@ -987,6 +1093,9 @@ amazonaws_ecs.UpdateService({
   * name [String](#string)
   * value [String](#string)
 
+### LaunchType
+* LaunchType `string` (values: EC2, FARGATE)
+
 ### LinuxParameters
 * LinuxParameters `object`: Linux-specific options that are applied to the container, such as Linux <a>KernelCapabilities</a>.
   * capabilities [KernelCapabilities](#kernelcapabilities)
@@ -1033,6 +1142,7 @@ amazonaws_ecs.UpdateService({
 ### ListServicesRequest
 * ListServicesRequest `object`
   * cluster [String](#string)
+  * launchType [LaunchType](#launchtype)
   * maxResults [BoxedInteger](#boxedinteger)
   * nextToken [String](#string)
 
@@ -1072,6 +1182,7 @@ amazonaws_ecs.UpdateService({
   * containerInstance [String](#string)
   * desiredStatus [DesiredStatus](#desiredstatus)
   * family [String](#string)
+  * launchType [LaunchType](#launchtype)
   * maxResults [BoxedInteger](#boxedinteger)
   * nextToken [String](#string)
   * serviceName [String](#string)
@@ -1134,14 +1245,28 @@ amazonaws_ecs.UpdateService({
 * NetworkBindings `array`
   * items [NetworkBinding](#networkbinding)
 
+### NetworkConfiguration
+* NetworkConfiguration `object`: An object representing the network configuration for a task or service.
+  * awsvpcConfiguration [AwsVpcConfiguration](#awsvpcconfiguration)
+
+### NetworkInterface
+* NetworkInterface `object`: An object representing the Elastic Network Interface for tasks that use the <code>awsvpc</code> network mode.
+  * attachmentId [String](#string)
+  * ipv6Address [String](#string)
+  * privateIpv4Address [String](#string)
+
+### NetworkInterfaces
+* NetworkInterfaces `array`
+  * items [NetworkInterface](#networkinterface)
+
 ### NetworkMode
-* NetworkMode `string` (values: bridge, host, none)
+* NetworkMode `string` (values: bridge, host, awsvpc, none)
 
 ### NoUpdateAvailableException
 * NoUpdateAvailableException `object`: There is no update available for this Amazon ECS container agent. This could be because the agent is already running the latest version, or it is so old that there is no update path to the current version.
 
 ### PlacementConstraint
-* PlacementConstraint `object`: An object representing a constraint on task placement. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+* PlacementConstraint `object`: An object representing a constraint on task placement. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
   * expression [String](#string)
   * type [PlacementConstraintType](#placementconstrainttype)
 
@@ -1157,15 +1282,21 @@ amazonaws_ecs.UpdateService({
   * items [PlacementStrategy](#placementstrategy)
 
 ### PlacementStrategy
-* PlacementStrategy `object`: The task placement strategy for a task or service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+* PlacementStrategy `object`: The task placement strategy for a task or service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
   * field [String](#string)
   * type [PlacementStrategyType](#placementstrategytype)
 
 ### PlacementStrategyType
 * PlacementStrategyType `string` (values: random, spread, binpack)
 
+### PlatformTaskDefinitionIncompatibilityException
+* PlatformTaskDefinitionIncompatibilityException `object`: The specified platform version does not satisfy the task definition’s required capabilities.
+
+### PlatformUnknownException
+* PlatformUnknownException `object`: The specified platform version does not exist.
+
 ### PortMapping
-* PortMapping `object`: Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition. After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.
+* PortMapping `object`: <p>Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition.</p> <p>If using containers in a task with the <code>awsvpc</code> or <code>host</code> network mode, exposed ports should be specified using <code>containerPort</code>. The <code>hostPort</code> can be left blank or it must be the same value as the <code>containerPort</code>.</p> <p>After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.</p>
   * containerPort [BoxedInteger](#boxedinteger)
   * hostPort [BoxedInteger](#boxedinteger)
   * protocol [TransportProtocol](#transportprotocol)
@@ -1200,9 +1331,13 @@ amazonaws_ecs.UpdateService({
 ### RegisterTaskDefinitionRequest
 * RegisterTaskDefinitionRequest `object`
   * containerDefinitions **required** [ContainerDefinitions](#containerdefinitions)
+  * cpu [String](#string)
+  * executionRoleArn [String](#string)
   * family **required** [String](#string)
+  * memory [String](#string)
   * networkMode [NetworkMode](#networkmode)
   * placementConstraints [TaskDefinitionPlacementConstraints](#taskdefinitionplacementconstraints)
+  * requiresCompatibilities [CompatibilityList](#compatibilitylist)
   * taskRoleArn [String](#string)
   * volumes [VolumeList](#volumelist)
 
@@ -1232,9 +1367,12 @@ amazonaws_ecs.UpdateService({
   * cluster [String](#string)
   * count [BoxedInteger](#boxedinteger)
   * group [String](#string)
+  * launchType [LaunchType](#launchtype)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * overrides [TaskOverride](#taskoverride)
   * placementConstraints [PlacementConstraints](#placementconstraints)
   * placementStrategy [PlacementStrategies](#placementstrategies)
+  * platformVersion [String](#string)
   * startedBy [String](#string)
   * taskDefinition **required** [String](#string)
 
@@ -1255,10 +1393,14 @@ amazonaws_ecs.UpdateService({
   * deployments [Deployments](#deployments)
   * desiredCount [Integer](#integer)
   * events [ServiceEvents](#serviceevents)
+  * healthCheckGracePeriodSeconds [BoxedInteger](#boxedinteger)
+  * launchType [LaunchType](#launchtype)
   * loadBalancers [LoadBalancers](#loadbalancers)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * pendingCount [Integer](#integer)
   * placementConstraints [PlacementConstraints](#placementconstraints)
   * placementStrategy [PlacementStrategies](#placementstrategies)
+  * platformVersion [String](#string)
   * roleArn [String](#string)
   * runningCount [Integer](#integer)
   * serviceArn [String](#string)
@@ -1277,7 +1419,7 @@ amazonaws_ecs.UpdateService({
   * items [ServiceEvent](#serviceevent)
 
 ### ServiceNotActiveException
-* ServiceNotActiveException `object`: The specified service is not active. You cannot update a service that is not active. If you have previously deleted a service, you can re-create it with <a>CreateService</a>.
+* ServiceNotActiveException `object`: The specified service is not active. You can't update a service that is inactive. If you have previously deleted a service, you can re-create it with <a>CreateService</a>.
 
 ### ServiceNotFoundException
 * ServiceNotFoundException `object`: The specified service could not be found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster-specific and region-specific.
@@ -1294,6 +1436,7 @@ amazonaws_ecs.UpdateService({
   * cluster [String](#string)
   * containerInstances **required** [StringList](#stringlist)
   * group [String](#string)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
   * overrides [TaskOverride](#taskoverride)
   * startedBy [String](#string)
   * taskDefinition **required** [String](#string)
@@ -1302,6 +1445,10 @@ amazonaws_ecs.UpdateService({
 * StartTaskResponse `object`
   * failures [Failures](#failures)
   * tasks [Tasks](#tasks)
+
+### Statistics
+* Statistics `array`
+  * items [KeyValuePair](#keyvaluepair)
 
 ### StopTaskRequest
 * StopTaskRequest `object`
@@ -1336,7 +1483,12 @@ amazonaws_ecs.UpdateService({
 
 ### SubmitTaskStateChangeRequest
 * SubmitTaskStateChangeRequest `object`
+  * attachments [AttachmentStateChanges](#attachmentstatechanges)
   * cluster [String](#string)
+  * containers [ContainerStateChanges](#containerstatechanges)
+  * executionStoppedAt [Timestamp](#timestamp)
+  * pullStartedAt [Timestamp](#timestamp)
+  * pullStoppedAt [Timestamp](#timestamp)
   * reason [String](#string)
   * status [String](#string)
   * task [String](#string)
@@ -1353,29 +1505,45 @@ amazonaws_ecs.UpdateService({
 
 ### Task
 * Task `object`: Details on a task in a cluster.
+  * attachments [Attachments](#attachments)
   * clusterArn [String](#string)
+  * connectivity [Connectivity](#connectivity)
+  * connectivityAt [Timestamp](#timestamp)
   * containerInstanceArn [String](#string)
   * containers [Containers](#containers)
+  * cpu [String](#string)
   * createdAt [Timestamp](#timestamp)
   * desiredStatus [String](#string)
+  * executionStoppedAt [Timestamp](#timestamp)
   * group [String](#string)
   * lastStatus [String](#string)
+  * launchType [LaunchType](#launchtype)
+  * memory [String](#string)
   * overrides [TaskOverride](#taskoverride)
+  * platformVersion [String](#string)
+  * pullStartedAt [Timestamp](#timestamp)
+  * pullStoppedAt [Timestamp](#timestamp)
   * startedAt [Timestamp](#timestamp)
   * startedBy [String](#string)
   * stoppedAt [Timestamp](#timestamp)
   * stoppedReason [String](#string)
+  * stoppingAt [Timestamp](#timestamp)
   * taskArn [String](#string)
   * taskDefinitionArn [String](#string)
   * version [Long](#long)
 
 ### TaskDefinition
 * TaskDefinition `object`: Details of a task definition.
+  * compatibilities [CompatibilityList](#compatibilitylist)
   * containerDefinitions [ContainerDefinitions](#containerdefinitions)
+  * cpu [String](#string)
+  * executionRoleArn [String](#string)
   * family [String](#string)
+  * memory [String](#string)
   * networkMode [NetworkMode](#networkmode)
   * placementConstraints [TaskDefinitionPlacementConstraints](#taskdefinitionplacementconstraints)
   * requiresAttributes [RequiresAttributes](#requiresattributes)
+  * requiresCompatibilities [CompatibilityList](#compatibilitylist)
   * revision [Integer](#integer)
   * status [TaskDefinitionStatus](#taskdefinitionstatus)
   * taskDefinitionArn [String](#string)
@@ -1386,7 +1554,7 @@ amazonaws_ecs.UpdateService({
 * TaskDefinitionFamilyStatus `string` (values: ACTIVE, INACTIVE, ALL)
 
 ### TaskDefinitionPlacementConstraint
-* TaskDefinitionPlacementConstraint `object`: An object representing a constraint on task placement in the task definition. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+* TaskDefinitionPlacementConstraint `object`: <p>An object representing a constraint on task placement in the task definition.</p> <p>If you are using the Fargate launch type, task placement contraints are not supported.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
   * expression [String](#string)
   * type [TaskDefinitionPlacementConstraintType](#taskdefinitionplacementconstrainttype)
 
@@ -1403,6 +1571,7 @@ amazonaws_ecs.UpdateService({
 ### TaskOverride
 * TaskOverride `object`: The overrides associated with a task.
   * containerOverrides [ContainerOverrides](#containeroverrides)
+  * executionRoleArn [String](#string)
   * taskRoleArn [String](#string)
 
 ### Tasks
@@ -1427,6 +1596,9 @@ amazonaws_ecs.UpdateService({
 
 ### UlimitName
 * UlimitName `string` (values: core, cpu, data, fsize, locks, memlock, msgqueue, nice, nofile, nproc, rss, rtprio, rttime, sigpending, stack)
+
+### UnsupportedFeatureException
+* UnsupportedFeatureException `object`: The specified task is not supported in this region.
 
 ### UpdateContainerAgentRequest
 * UpdateContainerAgentRequest `object`
@@ -1456,6 +1628,10 @@ amazonaws_ecs.UpdateService({
   * cluster [String](#string)
   * deploymentConfiguration [DeploymentConfiguration](#deploymentconfiguration)
   * desiredCount [BoxedInteger](#boxedinteger)
+  * forceNewDeployment [Boolean](#boolean)
+  * healthCheckGracePeriodSeconds [BoxedInteger](#boxedinteger)
+  * networkConfiguration [NetworkConfiguration](#networkconfiguration)
+  * platformVersion [String](#string)
   * service **required** [String](#string)
   * taskDefinition [String](#string)
 

@@ -82,8 +82,8 @@ google_fusiontables.query.sqlGet({
 
 #### Input
 * input `object`
-  * sql **required** `string`: A SQL statement which can be any of 
   * hdrs `boolean`: Whether column names are included (in the first row). Default is true.
+  * sql **required** `string`: A SQL statement which can be any of 
   * typed `boolean`: Whether typed values are returned in the (JSON) response: numbers for numeric values and parsed geometries for KML values. Default is true.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -115,8 +115,8 @@ google_fusiontables.query.sql({
 
 #### Input
 * input `object`
-  * sql **required** `string`: A Fusion Tables SQL statement, which can be any of 
   * hdrs `boolean`: Whether column names are included in the first row. Default is true.
+  * sql **required** `string`: A Fusion Tables SQL statement, which can be any of 
   * typed `boolean`: Whether typed values are returned in the (JSON) response: numbers for numeric values and parsed geometries for KML values. Default is true.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -186,9 +186,9 @@ google_fusiontables.table.importTable({
 
 #### Input
 * input `object`
-  * name **required** `string`: The name to be assigned to the new table.
   * delimiter `string`: The delimiter used to separate cell values. This can only consist of a single character. Default is ,.
   * encoding `string`: The encoding of the content. Default is UTF-8. Use auto-detect if you are unsure of the encoding.
+  * name **required** `string`: The name to be assigned to the new table.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -260,9 +260,9 @@ google_fusiontables.table.patch({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: ID of the table that is being updated.
-  * replaceViewDefinition `boolean`: Whether the view definition is also updated. The specified view definition replaces the existing one. Only a view can be updated with a new definition.
   * body [Table](#table)
+  * replaceViewDefinition `boolean`: Whether the view definition is also updated. The specified view definition replaces the existing one. Only a view can be updated with a new definition.
+  * tableId **required** `string`: ID of the table that is being updated.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -286,9 +286,9 @@ google_fusiontables.table.update({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: ID of the table that is being updated.
-  * replaceViewDefinition `boolean`: Whether the view definition is also updated. The specified view definition replaces the existing one. Only a view can be updated with a new definition.
   * body [Table](#table)
+  * replaceViewDefinition `boolean`: Whether the view definition is also updated. The specified view definition replaces the existing one. Only a view can be updated with a new definition.
+  * tableId **required** `string`: ID of the table that is being updated.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -312,9 +312,9 @@ google_fusiontables.column.list({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table whose columns are being listed.
   * maxResults `integer`: Maximum number of columns to return. Default is 5.
   * pageToken `string`: Continuation token specifying which result page to return.
+  * tableId **required** `string`: Table whose columns are being listed.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -338,8 +338,8 @@ google_fusiontables.column.insert({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table for which a new column is being added.
   * body [Column](#column)
+  * tableId **required** `string`: Table for which a new column is being added.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -357,15 +357,15 @@ Deletes the specified column.
 
 ```js
 google_fusiontables.column.delete({
-  "tableId": "",
-  "columnId": ""
+  "columnId": "",
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table from which the column is being deleted.
   * columnId **required** `string`: Name or identifier for the column being deleted.
+  * tableId **required** `string`: Table from which the column is being deleted.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -383,15 +383,15 @@ Retrieves a specific column by its ID.
 
 ```js
 google_fusiontables.column.get({
-  "tableId": "",
-  "columnId": ""
+  "columnId": "",
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table to which the column belongs.
   * columnId **required** `string`: Name or identifier for the column that is being requested.
+  * tableId **required** `string`: Table to which the column belongs.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -409,16 +409,16 @@ Updates the name or type of an existing column. This method supports patch seman
 
 ```js
 google_fusiontables.column.patch({
-  "tableId": "",
-  "columnId": ""
+  "columnId": "",
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table for which the column is being updated.
-  * columnId **required** `string`: Name or identifier for the column that is being updated.
   * body [Column](#column)
+  * columnId **required** `string`: Name or identifier for the column that is being updated.
+  * tableId **required** `string`: Table for which the column is being updated.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -436,16 +436,16 @@ Updates the name or type of an existing column.
 
 ```js
 google_fusiontables.column.update({
-  "tableId": "",
-  "columnId": ""
+  "columnId": "",
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table for which the column is being updated.
-  * columnId **required** `string`: Name or identifier for the column that is being updated.
   * body [Column](#column)
+  * columnId **required** `string`: Name or identifier for the column that is being updated.
+  * tableId **required** `string`: Table for which the column is being updated.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -469,8 +469,8 @@ google_fusiontables.table.copy({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: ID of the table that is being copied.
   * copyPresentation `boolean`: Whether to also copy tabs, styles, and templates. Default is false.
+  * tableId **required** `string`: ID of the table that is being copied.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -494,12 +494,12 @@ google_fusiontables.table.importRows({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: The table into which new rows are being imported.
   * delimiter `string`: The delimiter used to separate cell values. This can only consist of a single character. Default is ,.
   * encoding `string`: The encoding of the content. Default is UTF-8. Use auto-detect if you are unsure of the encoding.
   * endLine `integer`: The index of the line up to which data will be imported. Default is to import the entire file. If endLine is negative, it is an offset from the end of the file; the imported content will exclude the last endLine lines.
   * isStrict `boolean`: Whether the imported CSV must have the same number of values for each row. If false, rows with fewer values will be padded with empty values. Default is true.
   * startLine `integer`: The index of the first line from which to start importing, inclusive. Default is 0.
+  * tableId **required** `string`: The table into which new rows are being imported.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -510,6 +510,30 @@ google_fusiontables.table.importRows({
 
 #### Output
 * output [Import](#import)
+
+### table.refetchSheet
+Replaces rows of the table with the rows of the spreadsheet that is first imported from. Current rows remain visible until all replacement rows are ready.
+
+
+```js
+google_fusiontables.table.refetchSheet({
+  "tableId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * tableId **required** `string`: Table whose rows will be replaced from the spreadsheet.
+  * alt `string` (values: csv, json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+  * userIp `string`: IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+#### Output
+* output [Task](#task)
 
 ### table.replaceRows
 Replaces rows of an existing table. Current rows remain visible until all replacement rows are ready.
@@ -523,12 +547,12 @@ google_fusiontables.table.replaceRows({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table whose rows will be replaced.
   * delimiter `string`: The delimiter used to separate cell values. This can only consist of a single character. Default is ,.
   * encoding `string`: The encoding of the content. Default is UTF-8. Use 'auto-detect' if you are unsure of the encoding.
   * endLine `integer`: The index of the line up to which data will be imported. Default is to import the entire file. If endLine is negative, it is an offset from the end of the file; the imported content will exclude the last endLine lines.
   * isStrict `boolean`: Whether the imported CSV must have the same number of column values for each row. If true, throws an exception if the CSV does not have the same number of columns. If false, rows with fewer column values will be padded with empty values. Default is true.
   * startLine `integer`: The index of the first line from which to start importing, inclusive. Default is 0.
+  * tableId **required** `string`: Table whose rows will be replaced.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -552,9 +576,9 @@ google_fusiontables.style.list({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table whose styles are being listed
   * maxResults `integer`: Maximum number of styles to return. Optional. Default is 5.
   * pageToken `string`: Continuation token specifying which result page to return. Optional.
+  * tableId **required** `string`: Table whose styles are being listed
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -578,8 +602,8 @@ google_fusiontables.style.insert({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table for which a new style is being added
   * body [StyleSetting](#stylesetting)
+  * tableId **required** `string`: Table for which a new style is being added
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -597,15 +621,15 @@ Deletes a style.
 
 ```js
 google_fusiontables.style.delete({
-  "tableId": "",
-  "styleId": 0
+  "styleId": 0,
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table from which the style is being deleted
   * styleId **required** `integer`: Identifier (within a table) for the style being deleted
+  * tableId **required** `string`: Table from which the style is being deleted
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -623,15 +647,15 @@ Gets a specific style.
 
 ```js
 google_fusiontables.style.get({
-  "tableId": "",
-  "styleId": 0
+  "styleId": 0,
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table to which the requested style belongs
   * styleId **required** `integer`: Identifier (integer) for a specific style in a table
+  * tableId **required** `string`: Table to which the requested style belongs
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -649,16 +673,16 @@ Updates an existing style. This method supports patch semantics.
 
 ```js
 google_fusiontables.style.patch({
-  "tableId": "",
-  "styleId": 0
+  "styleId": 0,
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table whose style is being updated.
-  * styleId **required** `integer`: Identifier (within a table) for the style being updated.
   * body [StyleSetting](#stylesetting)
+  * styleId **required** `integer`: Identifier (within a table) for the style being updated.
+  * tableId **required** `string`: Table whose style is being updated.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -676,16 +700,16 @@ Updates an existing style.
 
 ```js
 google_fusiontables.style.update({
-  "tableId": "",
-  "styleId": 0
+  "styleId": 0,
+  "tableId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table whose style is being updated.
-  * styleId **required** `integer`: Identifier (within a table) for the style being updated.
   * body [StyleSetting](#stylesetting)
+  * styleId **required** `integer`: Identifier (within a table) for the style being updated.
+  * tableId **required** `string`: Table whose style is being updated.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -709,10 +733,10 @@ google_fusiontables.task.list({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table whose tasks are being listed.
   * maxResults `integer`: Maximum number of tasks to return. Default is 5.
   * pageToken `string`: Continuation token specifying which result page to return.
   * startIndex `integer`: Index of the first result returned in the current page.
+  * tableId **required** `string`: Table whose tasks are being listed.
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -788,9 +812,9 @@ google_fusiontables.template.list({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Identifier for the table whose templates are being requested
   * maxResults `integer`: Maximum number of templates to return. Optional. Default is 5.
   * pageToken `string`: Continuation token specifying which results page to return. Optional.
+  * tableId **required** `string`: Identifier for the table whose templates are being requested
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -814,8 +838,8 @@ google_fusiontables.template.insert({
 
 #### Input
 * input `object`
-  * tableId **required** `string`: Table for which a new template is being created
   * body [Template](#template)
+  * tableId **required** `string`: Table for which a new template is being created
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -892,9 +916,9 @@ google_fusiontables.template.patch({
 
 #### Input
 * input `object`
+  * body [Template](#template)
   * tableId **required** `string`: Table to which the updated template belongs
   * templateId **required** `integer`: Identifier for the template that is being updated
-  * body [Template](#template)
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -919,9 +943,9 @@ google_fusiontables.template.update({
 
 #### Input
 * input `object`
+  * body [Template](#template)
   * tableId **required** `string`: Table to which the updated template belongs
   * templateId **required** `integer`: Identifier for the template that is being updated
-  * body [Template](#template)
   * alt `string` (values: csv, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

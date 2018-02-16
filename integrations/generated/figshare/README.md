@@ -1192,10 +1192,33 @@ figshare.private_institution_accounts_list({}, context)
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
   * is_active `integer`: Filter by active status
+  * institution_user_id `string`: Filter by institution_user_id
+  * email `string`: Filter by email
 
 #### Output
 * output `array`
   * items [ShortAccount](#shortaccount)
+
+### private_institution_accounts_create
+Create a new Account by sending account information
+
+
+```js
+figshare.private_institution_accounts_create({
+  "Account": {
+    "email": "",
+    "first_name": "",
+    "last_name": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * Account **required** [AccountCreate](#accountcreate)
+
+#### Output
+*Output schema unknown*
 
 ### private_institution_accounts_search
 Returns the accounts for which the account has administrative privileges (assigned and inherited).
@@ -1214,6 +1237,25 @@ figshare.private_institution_accounts_search({
 #### Output
 * output `array`
   * items [ShortAccount](#shortaccount)
+
+### private_institution_accounts_update
+Update Institution Account
+
+
+```js
+figshare.private_institution_accounts_update({
+  "account_id": 0,
+  "Account": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * account_id **required** `integer`: Account identifier the user is associated to
+  * Account **required** [AccountUpdate](#accountupdate)
+
+#### Output
+*Output schema unknown*
 
 ### private_institution_articles
 Get Articles from own institution. User must be administrator of the institution
@@ -1255,6 +1297,95 @@ figshare.private_institution_groups_list(null, context)
 #### Output
 * output `array`
   * items [Group](#group)
+
+### private_institution_roles_list
+Returns the roles available for groups and the institution group.
+
+
+```js
+figshare.private_institution_roles_list(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items [Role](#role)
+
+### private_institution_account_group_roles
+List Institution Account Group Roles
+
+
+```js
+figshare.private_institution_account_group_roles({
+  "account_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * account_id **required** `integer`: Account identifier the user is associated to
+
+#### Output
+* output [AccountGroupRoles](#accountgrouproles)
+
+### private_institution_account_group_roles_create
+Add Institution Account Group Roles
+
+
+```js
+figshare.private_institution_account_group_roles_create({
+  "Account": {},
+  "account_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * Account **required** [AccountGroupRolesCreate](#accountgrouprolescreate)
+  * account_id **required** `integer`: Account identifier the user is associated to
+
+#### Output
+*Output schema unknown*
+
+### private_institution_account_group_role_delete
+Delete Institution Account Group Role
+
+
+```js
+figshare.private_institution_account_group_role_delete({
+  "account_id": 0,
+  "group_id": 0,
+  "role_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * account_id **required** `integer`: Account identifier for which to remove the role
+  * group_id **required** `integer`: Group identifier for which to remove the role
+  * role_id **required** `integer`: Role identifier
+
+#### Output
+*Output schema unknown*
+
+### private_account_institution_user
+Retrieve institution user information using the account_id
+
+
+```js
+figshare.private_account_institution_user({
+  "account_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * account_id **required** `integer`: Account identifier the user is associated to
+
+#### Output
+* output [User](#user)
 
 ### private_licenses_list
 This is a private endpoint that requires OAuth. It will return a list with figshare public licenses AND licenses defined for account's institution.
@@ -2162,6 +2293,7 @@ figshare.project_articles({
   * created_date `string`: Date when account was created
   * email `string`: User email
   * first_name `string`: First Name
+  * group_id `integer`: Account group id
   * id `integer`: Account id
   * institution_id `integer`: Account institution
   * institution_user_id `string`: Account institution user id
@@ -2173,6 +2305,28 @@ figshare.project_articles({
   * used_quota `integer`: Account total used quota
   * used_quota_private `integer`: Account used private quota
   * used_quota_public `integer`: Account public used quota
+
+### AccountCreate
+* AccountCreate `object`
+  * email **required** `string`: Email of account
+  * first_name **required** `string`: First Name
+  * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
+  * institution_user_id `string`: Institution user id
+  * is_active `boolean`: Is account active
+  * last_name **required** `string`: Last Name
+  * quota `integer`: Account quota
+  * symplectic_user_id `string`: Symplectic user id
+
+### AccountGroupRoles
+* AccountGroupRoles `object`
+
+### AccountGroupRolesCreate
+* AccountGroupRolesCreate `object`
+
+### AccountUpdate
+* AccountUpdate `object`
+  * group_id `integer`: Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups
+  * is_active `boolean`: Is account active
 
 ### Article
 * Article `object`
@@ -2312,8 +2466,8 @@ figshare.project_articles({
   * license `integer`: License id for this article.
   * references `array`: List of links to be associated with the article (e.g ["http://link1", "http://link2", "http://link3"])
     * items `string`
-  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI.
-  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title.
+  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI. For linkback this needs to be used in combination with resource_title.
+  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title. For linkback this needs to be used in combination with resource_doi.
   * tags `array`: List of tags to be associated with the article. Keywords can be used instead
     * items `string`
   * title **required** `string`: Title of article
@@ -2482,10 +2636,10 @@ figshare.project_articles({
     * items `string`
   * references `array`: List of links to be associated with the article (e.g ["http://link1", "http://link2", "http://link3"])
     * items `string`
-  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI.
+  * resource_doi `string`: Not applicable to regular users. In a publisher case, this is the publisher article DOI. For linkback this needs to be used in combination with resource_title.
   * resource_id `string`: Not applicable to regular users. In a publisher case, this is the publisher article id
   * resource_link `string`: Not applicable to regular users. In a publisher case, this is the publisher article link
-  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title.
+  * resource_title `string`: Not applicable to regular users. In a publisher case, this is the publisher article title. For linkback this needs to be used in combination with resource_doi.
   * resource_version `integer`: Not applicable to regular users. In a publisher case, this is the publisher article version
   * tags `array`: List of tags to be associated with the article. Keywords can be used instead
     * items `string`
@@ -2588,6 +2742,8 @@ figshare.project_articles({
 
 ### InstitutionAccountsSearch
 * InstitutionAccountsSearch `object`
+  * email `string`: filter by email
+  * institution_user_id `string`: filter by institution_user_id
   * is_active `integer`: Filter by active status
   * limit `integer`: Number of results included on a page. Used for pagination with query
   * offset `integer`: Where to start the listing(the offset of the first result). Used for pagination with limit
@@ -2657,18 +2813,18 @@ figshare.project_articles({
 
 ### PrivateFile
 * PrivateFile `object`
-  * computed_md5 `string`: File computed md5
   * preview_state `string`: File preview state
   * status `string`: Status for file upload
-  * supplied_md5 `string`: File supplied md5
   * upload_token `string`: Token for file upload
   * upload_url `string`: Upload url for file
   * viewer_type `string`: File viewer type
+  * computed_md5 `string`: File computed md5
   * download_url `string`: Url for file download
   * id `integer`: File id
   * is_link_only `boolean`: True if file is hosted somewhere else
   * name `string`: File name
   * size `integer`: File size
+  * supplied_md5 `string`: File supplied md5
 
 ### PrivateLink
 * PrivateLink `object`
@@ -2822,15 +2978,24 @@ figshare.project_articles({
 
 ### PublicFile
 * PublicFile `object`
+  * computed_md5 `string`: File computed md5
   * download_url `string`: Url for file download
   * id `integer`: File id
   * is_link_only `boolean`: True if file is hosted somewhere else
   * name `string`: File name
   * size `integer`: File size
+  * supplied_md5 `string`: File supplied md5
 
 ### ResponseMessage
 * ResponseMessage `object`
   * message `string`: Response message text
+
+### Role
+* Role `object`
+  * category `string`: Role category
+  * description `string`: Role description
+  * id `integer`: Role id
+  * name `string`: Role name
 
 ### ShortAccount
 * ShortAccount `object`
@@ -2839,6 +3004,7 @@ figshare.project_articles({
   * first_name `string`: First Name
   * id `integer`: Account id
   * institution_id `integer`: Account institution
+  * institution_user_id `string`: Account institution user id
   * last_name `string`: Last Name
 
 ### UploadFilePart
@@ -2858,6 +3024,18 @@ figshare.project_articles({
   * size `integer`: size of file in bytes
   * status `string` (values: PENDING, COMPLETED, ABORTED): Upload status
   * token `string`: token received after initializing a file upload
+
+### User
+* User `object`
+  * first_name `string`: First Name
+  * id `integer`: User id
+  * is_active `boolean`: Account activity status
+  * is_public `boolean`: Account public status
+  * job_title `string`: User Job title
+  * last_name `string`: Last Name
+  * name `string`: Full Name
+  * orcid_id `string`: Orcid associated to this User
+  * url_name `string`: Name that appears in website url
 
 ### Version
 * Version `object`

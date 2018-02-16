@@ -110,7 +110,7 @@ epa_gov_cwa.cwa_rest_services.get_facilities.get({}, context)
   * p_sic4 `string`: Standard Industrial Classification (SIC) Code Filter Alternate 3.  Enter the first 2, 3 or 4 SIC code digits to filter results to facilities having those code prefixes.  As this alternative does not utilize an index, p_sic2 will generally be quicker.
   * p_fa `string`: Federal Agency. 1 character or 5-character values; may contain multiple comma-separated values. ALL will retrieve all facilities where the federal agency code is not null.  Use the Federal Agencies lookup service to obtain a list of values.
   * p_ff `string` (values: Y): Federal Facility Indicator Flag. Enter Y to restrict searches to federal facilities.
-  * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
+  * p_act `string`: Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.  A Y will select ICIS NPDES permits with a status of effective, continued, or expired.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
@@ -120,8 +120,10 @@ epa_gov_cwa.cwa_rest_services.get_facilities.get({}, context)
   * p_ieay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
   * p_ieaa `string` (values: E, S): Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
+  * p_iv `string`: Facility has a violation status of 'In Viol' during any of the selected quarters. 
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
   * p_imp_pol `string` (values: Y, N): Facility is discharging pollutants that are potentially contributing to the impairment of local waterbodies according to the ATTAINS database.
+  * p_imp_cau_grp `string` (values: ALGAL GROWTH, AMMONIA, BIOTOXINS, CAUSE UNKNOWN, CAUSE UNKNOWN - FISH KILLS, CAUSE UNKNOWN - IMPAIRED BIOTA, CHLORINE, DIOXINS, FISH CONSUMPTION ADVISORY, FLOW ALTERATION(S), HABITAT ALTERATIONS, MERCURY, METALS (OTHER THAN MERCURY), NOXIOUS AQUATIC PLANTS, NUISANCE EXOTIC SPECIES, NUISANCE NATIVE SPECIES, NUTRIENTS, OIL AND GREASE, ORGANIC ENRICHMENT/OXYGEN DEPLETION, OTHER CAUSE, PATHOGENS, PESTICIDES, PH/ACIDITY/CAUSTIC CONDITIONS, POLYCHLORINATED BIPHENYLS (PCBS), RADIATION, SALINITY/TOTAL DISSOLVED SOLIDS/CHLORIDES/SULFATES, SEDIMENT, TASTE, COLOR AND ODOR, TEMPERATURE, TOTAL TOXICS, TOXIC INORGANICS, TOXIC ORGANICS, TRASH, TURBIDITY): Facility is discharging a pollutant group causing a waterbody to be impaired.  Enter 1 through 34 (the internal number of the pollutant group); or enter a partial name such as Dioxin,Temp,tUrBidity.
   * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
@@ -267,7 +269,7 @@ epa_gov_cwa.cwa_rest_services.get_facilities.post({}, context)
   * p_sic4 `string`: Standard Industrial Classification (SIC) Code Filter Alternate 3.  Enter the first 2, 3 or 4 SIC code digits to filter results to facilities having those code prefixes.  As this alternative does not utilize an index, p_sic2 will generally be quicker.
   * p_fa `string`: Federal Agency. 1 character or 5-character values; may contain multiple comma-separated values. ALL will retrieve all facilities where the federal agency code is not null.  Use the Federal Agencies lookup service to obtain a list of values.
   * p_ff `string` (values: Y): Federal Facility Indicator Flag. Enter Y to restrict searches to federal facilities.
-  * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
+  * p_act `string`: Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.  A Y will select ICIS NPDES permits with a status of effective, continued, or expired.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
@@ -277,8 +279,10 @@ epa_gov_cwa.cwa_rest_services.get_facilities.post({}, context)
   * p_ieay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
   * p_ieaa `string` (values: E, S): Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
+  * p_iv `string`: Facility has a violation status of 'In Viol' during any of the selected quarters. 
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
   * p_imp_pol `string` (values: Y, N): Facility is discharging pollutants that are potentially contributing to the impairment of local waterbodies according to the ATTAINS database.
+  * p_imp_cau_grp `string` (values: ALGAL GROWTH, AMMONIA, BIOTOXINS, CAUSE UNKNOWN, CAUSE UNKNOWN - FISH KILLS, CAUSE UNKNOWN - IMPAIRED BIOTA, CHLORINE, DIOXINS, FISH CONSUMPTION ADVISORY, FLOW ALTERATION(S), HABITAT ALTERATIONS, MERCURY, METALS (OTHER THAN MERCURY), NOXIOUS AQUATIC PLANTS, NUISANCE EXOTIC SPECIES, NUISANCE NATIVE SPECIES, NUTRIENTS, OIL AND GREASE, ORGANIC ENRICHMENT/OXYGEN DEPLETION, OTHER CAUSE, PATHOGENS, PESTICIDES, PH/ACIDITY/CAUSTIC CONDITIONS, POLYCHLORINATED BIPHENYLS (PCBS), RADIATION, SALINITY/TOTAL DISSOLVED SOLIDS/CHLORIDES/SULFATES, SEDIMENT, TASTE, COLOR AND ODOR, TEMPERATURE, TOTAL TOXICS, TOXIC INORGANICS, TOXIC ORGANICS, TRASH, TURBIDITY): Facility is discharging a pollutant group causing a waterbody to be impaired.  Enter 1 through 34 (the internal number of the pollutant group); or enter a partial name such as Dioxin,Temp,tUrBidity.
   * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
@@ -424,7 +428,7 @@ epa_gov_cwa.cwa_rest_services.get_facility_info.get({}, context)
   * p_sic4 `string`: Standard Industrial Classification (SIC) Code Filter Alternate 3.  Enter the first 2, 3 or 4 SIC code digits to filter results to facilities having those code prefixes.  As this alternative does not utilize an index, p_sic2 will generally be quicker.
   * p_fa `string`: Federal Agency. 1 character or 5-character values; may contain multiple comma-separated values. ALL will retrieve all facilities where the federal agency code is not null.  Use the Federal Agencies lookup service to obtain a list of values.
   * p_ff `string` (values: Y): Federal Facility Indicator Flag. Enter Y to restrict searches to federal facilities.
-  * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
+  * p_act `string`: Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.  A Y will select ICIS NPDES permits with a status of effective, continued, or expired.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
@@ -434,8 +438,10 @@ epa_gov_cwa.cwa_rest_services.get_facility_info.get({}, context)
   * p_ieay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
   * p_ieaa `string` (values: E, S): Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
+  * p_iv `string`: Facility has a violation status of 'In Viol' during any of the selected quarters. 
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
   * p_imp_pol `string` (values: Y, N): Facility is discharging pollutants that are potentially contributing to the impairment of local waterbodies according to the ATTAINS database.
+  * p_imp_cau_grp `string` (values: ALGAL GROWTH, AMMONIA, BIOTOXINS, CAUSE UNKNOWN, CAUSE UNKNOWN - FISH KILLS, CAUSE UNKNOWN - IMPAIRED BIOTA, CHLORINE, DIOXINS, FISH CONSUMPTION ADVISORY, FLOW ALTERATION(S), HABITAT ALTERATIONS, MERCURY, METALS (OTHER THAN MERCURY), NOXIOUS AQUATIC PLANTS, NUISANCE EXOTIC SPECIES, NUISANCE NATIVE SPECIES, NUTRIENTS, OIL AND GREASE, ORGANIC ENRICHMENT/OXYGEN DEPLETION, OTHER CAUSE, PATHOGENS, PESTICIDES, PH/ACIDITY/CAUSTIC CONDITIONS, POLYCHLORINATED BIPHENYLS (PCBS), RADIATION, SALINITY/TOTAL DISSOLVED SOLIDS/CHLORIDES/SULFATES, SEDIMENT, TASTE, COLOR AND ODOR, TEMPERATURE, TOTAL TOXICS, TOXIC INORGANICS, TOXIC ORGANICS, TRASH, TURBIDITY): Facility is discharging a pollutant group causing a waterbody to be impaired.  Enter 1 through 34 (the internal number of the pollutant group); or enter a partial name such as Dioxin,Temp,tUrBidity.
   * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
@@ -578,7 +584,7 @@ epa_gov_cwa.cwa_rest_services.get_facility_info.post({}, context)
   * p_sic4 `string`: Standard Industrial Classification (SIC) Code Filter Alternate 3.  Enter the first 2, 3 or 4 SIC code digits to filter results to facilities having those code prefixes.  As this alternative does not utilize an index, p_sic2 will generally be quicker.
   * p_fa `string`: Federal Agency. 1 character or 5-character values; may contain multiple comma-separated values. ALL will retrieve all facilities where the federal agency code is not null.  Use the Federal Agencies lookup service to obtain a list of values.
   * p_ff `string` (values: Y): Federal Facility Indicator Flag. Enter Y to restrict searches to federal facilities.
-  * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
+  * p_act `string`: Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.  A Y will select ICIS NPDES permits with a status of effective, continued, or expired.
   * p_maj `string` (values: Y, N): Major Facility Flag.  Enter Y to restrict results to Major facilities only.
   * p_mact `string`: CAA Maximum Achievable Control Technology (MACT) Subpart codes (alpha ID between 1 and 7 characters) applicable to the facility.
   * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
@@ -588,8 +594,10 @@ epa_gov_cwa.cwa_rest_services.get_facility_info.post({}, context)
   * p_ieay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
   * p_ieaa `string` (values: E, S): Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
   * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
+  * p_iv `string`: Facility has a violation status of 'In Viol' during any of the selected quarters. 
   * p_impw `string` (values: Y, N): Discharging into Impaired Waters Flag. Enter Y to limit results to facilities with discharge to waterbodies listed as impaired in the ATTAINS database.
   * p_imp_pol `string` (values: Y, N): Facility is discharging pollutants that are potentially contributing to the impairment of local waterbodies according to the ATTAINS database.
+  * p_imp_cau_grp `string` (values: ALGAL GROWTH, AMMONIA, BIOTOXINS, CAUSE UNKNOWN, CAUSE UNKNOWN - FISH KILLS, CAUSE UNKNOWN - IMPAIRED BIOTA, CHLORINE, DIOXINS, FISH CONSUMPTION ADVISORY, FLOW ALTERATION(S), HABITAT ALTERATIONS, MERCURY, METALS (OTHER THAN MERCURY), NOXIOUS AQUATIC PLANTS, NUISANCE EXOTIC SPECIES, NUISANCE NATIVE SPECIES, NUTRIENTS, OIL AND GREASE, ORGANIC ENRICHMENT/OXYGEN DEPLETION, OTHER CAUSE, PATHOGENS, PESTICIDES, PH/ACIDITY/CAUSTIC CONDITIONS, POLYCHLORINATED BIPHENYLS (PCBS), RADIATION, SALINITY/TOTAL DISSOLVED SOLIDS/CHLORIDES/SULFATES, SEDIMENT, TASTE, COLOR AND ODOR, TEMPERATURE, TOTAL TOXICS, TOXIC INORGANICS, TOXIC ORGANICS, TRASH, TURBIDITY): Facility is discharging a pollutant group causing a waterbody to be impaired.  Enter 1 through 34 (the internal number of the pollutant group); or enter a partial name such as Dioxin,Temp,tUrBidity.
   * p_trep `string` (values: NONE, CURR, NOTCURR): Current Toxics Release Inventory (TRI) Reporter Limiter.  Enter one of the following codes to limit results.
   * p_pm `string` (values: NONE, GT5, GT10, GT25, GT50, GT75): Percent Minority Population Limiter.  Enter a value to restrict results to facilities with a given percentage of minority population within 3-mile radius.
   * p_pd `string` (values: NONE, GT100, GT500, GT1000, GT5000, GT10000, GT20000): Population Density Limiter (per sq mile). Enter a value to limit results to facilities located in area of a given population density.
@@ -1323,8 +1331,8 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
 
 ### cwa1_Facilities
 * cwa1_Facilities `object`: Facilities Object
+  * AIRIDs **required** `string`: Air Facility System (AFS) ID.
   * ActiveLower48 **required** `string`
-  * AirIDs **required** `string`
   * AlrExceedences **required** `string`
   * AssociatedPollutant **required** `string`: Description of pollutant(s) or pollutant constituent(s) associated with each industrial activity exposed to stormwater.
   * AttainsAquaticLifeUseFlg **required** `string`: Displays "Y" if the waterbody in which the facility resides is designated for aquatic life use. The data are from the ATTAINS database.
@@ -1424,7 +1432,7 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * CWPInspectionCount **required** `string`: The number of inspections/compliance evaluations, under the corresponding statute, occurring at the facility within the last five years.
   * CWPIssueDate **required** `string`
   * CWPMajorMinorStatusFlag **required** `string`: Facilities marked "M" for major refers to CWA major permittees.
-  * CWPNaicsCodes **required** `string`: Indicates the facility's or permit's primary North American Industry Classification System (NAICS) Code.
+  * CWPNAICSCodes **required** `string`: Indicates the facility's or permit's primary North American Industry Classification System (NAICS) Code.
   * CWPName **required** `string`: Facility or permit holder name, as maintained in ICIS-NPDES.
   * CWPPermitStatusCode **required** `string`: The code associated with the facility's NPDES permit status.
   * CWPPermitStatusDesc **required** `string`: The current stage/status in the NPDES permit life cycle.
@@ -1432,8 +1440,8 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * CWPPermitTypeDesc **required** `string`: NPDES facility permit classification:
   * CWPQtrsInNC **required** `string`: Count of the number of quarters, out of the last twelve quarters, in which the permit or site is considered either with violations, in non-compliance (NC) status, or in Significant Non-compliance (SNC), as described above under Current Compliance Status.
   * CWPQtrsInSNC **required** `string`: Count of the number of quarters, out of the last twelve quarters, in which the permit is considered in Significant Non-compliance (SNC).
+  * CWPSICCodes **required** `string`: Indicates the facility's or permit's primary Standard Industrial Classification (SIC) Code.
   * CWPSNCEventDesc **required** `string`: Describes the event that resulted in the facility's status of Significant Noncompliance.
-  * CWPSicCodes **required** `string`: Indicates the facility's or permit's primary Standard Industrial Classification (SIC) Code.
   * CWPState **required** `string`: Facility location - two-digit state abbreviation.
   * CWPStateDistrict **required** `string`: The State Congressional District the facility is located within.
   * CWPStateWaterBodyCode **required** `string`: Code from the Assessment TMDL Tracking & Implementation System (ATTAINS) database, assigned by the US Geological Survey, used to classify watersheds in the United States and the Caribbean. The code consists of twelve digits which correspond to six levels of classification:
@@ -1455,9 +1463,9 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * ControlMeasureSchedule **required** `string`: Description of schedule for control measures associated with good housekeeping and maintenance.
   * CurrSvFlag **required** `string`: Indicates if the facility has a current significant violation. 1 = Yes
   * CurrVioFlag **required** `string`: Indicates if the facility has a current violation. 1 = Yes
-  * DmrImpairedPoll **required** `string`: The pollutants with limits or monitoring requirements in a facility's NPDES permit with the potential to contribute to impairment of local waterbodies
-  * DmrPounds **required** `string`: Total pounds of pollutants discharged by the NPDES ID for the most recent complete calendar year.
-  * DmrTwpe **required** `string`: Total toxic-weighted pounds equivalent (TWPE) discharged by the NPDES ID for the most recent complete calendar year. TWPE is the mass of a pollutant or chemical discharged that accounts for its relative toxicity.
+  * DMRImpairedPoll **required** `string`: The pollutants with limits or monitoring requirements in a facility's NPDES permit with the potential to contribute to impairment of local waterbodies
+  * DMRPounds **required** `string`: Total pounds of pollutants discharged by the NPDES ID for the most recent complete calendar year.
+  * DMRTwpe **required** `string`: Total toxic-weighted pounds equivalent (TWPE) discharged by the NPDES ID for the most recent complete calendar year. TWPE is the mass of a pollutant or chemical discharged that accounts for its relative toxicity.
   * DschToMs4 **required** `string`
   * EPASystem **required** `string`: The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: 
   * Ea5yrFlag **required** `string`: Indicates if the facility has a formal enforcement action within the last 5 years. 1 = Yes
@@ -1498,14 +1506,14 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * Insp5yrFlag **required** `string`: Indicates if the facility has an inspection within the last 5 years. 1 = Yes
   * InspDef5yrCnt `string`
   * IssuingAgency **required** `string`: This is the name of the organization issuing or granting a permit.
-  * LastDmrValueRcvdDate **required** `string`
-  * LimPollutant `string`
+  * LastDMRValueRcvdDate **required** `string`
+  * LimPollutant **required** `string`
   * Lower48 **required** `string`: Flag showing Y/N whether location is within the contiguous (lower 48) United States.
   * Map **required** `string`
   * MasterExternalPermitNmbr **required** `string`: This is the unique identifier for the Master General Permit for a General Permit Covered Facility.
   * MaxPctileUs **required** `string`: The maximum percentile from all individual EJSCREEN indicators.
   * MaxScore `string`: [Col. 121]
-  * MissDmrQtrs **required** `string`
+  * MissDMRQtrs **required** `string`
   * MsgpCorrectiveActionSmmry **required** `string`
   * MsgpFacilityInspctnSmmry **required** `string`
   * MsgpLastReportYear **required** `string`
@@ -1572,6 +1580,7 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * TypeOfWater **required** `string`
   * VioLastYear **required** `string`: A flag (values of 1 for Yes, 0 for No) that a Water Program Violation occurred in the last 4 quarters.
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs **required** `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### cwa1_MapData
 * cwa1_MapData `object`: Map Data Object
@@ -1646,8 +1655,8 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
 
 ### cwa2_Facilities
 * cwa2_Facilities `object`: Facilities Object
+  * AIRIDs **required** `string`: Air Facility System (AFS) ID.
   * ActiveLower48 **required** `string`
-  * AirIDs **required** `string`
   * AlrExceedences **required** `string`
   * AssociatedPollutant **required** `string`: Description of pollutant(s) or pollutant constituent(s) associated with each industrial activity exposed to stormwater.
   * AttainsAquaticLifeUseFlg **required** `string`: Displays "Y" if the waterbody in which the facility resides is designated for aquatic life use. The data are from the ATTAINS database.
@@ -1747,7 +1756,7 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * CWPInspectionCount **required** `string`: The number of inspections/compliance evaluations, under the corresponding statute, occurring at the facility within the last five years.
   * CWPIssueDate **required** `string`
   * CWPMajorMinorStatusFlag **required** `string`: Facilities marked "M" for major refers to CWA major permittees.
-  * CWPNaicsCodes **required** `string`: Indicates the facility's or permit's primary North American Industry Classification System (NAICS) Code.
+  * CWPNAICSCodes **required** `string`: Indicates the facility's or permit's primary North American Industry Classification System (NAICS) Code.
   * CWPName **required** `string`: Facility or permit holder name, as maintained in ICIS-NPDES.
   * CWPPermitStatusCode **required** `string`: The code associated with the facility's NPDES permit status.
   * CWPPermitStatusDesc **required** `string`: The current stage/status in the NPDES permit life cycle.
@@ -1755,8 +1764,8 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * CWPPermitTypeDesc **required** `string`: NPDES facility permit classification:
   * CWPQtrsInNC **required** `string`: Count of the number of quarters, out of the last twelve quarters, in which the permit or site is considered either with violations, in non-compliance (NC) status, or in Significant Non-compliance (SNC), as described above under Current Compliance Status.
   * CWPQtrsInSNC **required** `string`: Count of the number of quarters, out of the last twelve quarters, in which the permit is considered in Significant Non-compliance (SNC).
+  * CWPSICCodes **required** `string`: Indicates the facility's or permit's primary Standard Industrial Classification (SIC) Code.
   * CWPSNCEventDesc **required** `string`: Describes the event that resulted in the facility's status of Significant Noncompliance.
-  * CWPSicCodes **required** `string`: Indicates the facility's or permit's primary Standard Industrial Classification (SIC) Code.
   * CWPState **required** `string`: Facility location - two-digit state abbreviation.
   * CWPStateDistrict **required** `string`: The State Congressional District the facility is located within.
   * CWPStateWaterBodyCode **required** `string`: Code from the Assessment TMDL Tracking & Implementation System (ATTAINS) database, assigned by the US Geological Survey, used to classify watersheds in the United States and the Caribbean. The code consists of twelve digits which correspond to six levels of classification:
@@ -1778,9 +1787,9 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * ControlMeasureSchedule **required** `string`: Description of schedule for control measures associated with good housekeeping and maintenance.
   * CurrSvFlag **required** `string`: Indicates if the facility has a current significant violation. 1 = Yes
   * CurrVioFlag **required** `string`: Indicates if the facility has a current violation. 1 = Yes
-  * DmrImpairedPoll **required** `string`: The pollutants with limits or monitoring requirements in a facility's NPDES permit with the potential to contribute to impairment of local waterbodies
-  * DmrPounds **required** `string`: Total pounds of pollutants discharged by the NPDES ID for the most recent complete calendar year.
-  * DmrTwpe **required** `string`: Total toxic-weighted pounds equivalent (TWPE) discharged by the NPDES ID for the most recent complete calendar year. TWPE is the mass of a pollutant or chemical discharged that accounts for its relative toxicity.
+  * DMRImpairedPoll **required** `string`: The pollutants with limits or monitoring requirements in a facility's NPDES permit with the potential to contribute to impairment of local waterbodies
+  * DMRPounds **required** `string`: Total pounds of pollutants discharged by the NPDES ID for the most recent complete calendar year.
+  * DMRTwpe **required** `string`: Total toxic-weighted pounds equivalent (TWPE) discharged by the NPDES ID for the most recent complete calendar year. TWPE is the mass of a pollutant or chemical discharged that accounts for its relative toxicity.
   * DschToMs4 **required** `string`
   * EPASystem **required** `string`: The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: 
   * Ea5yrFlag **required** `string`: Indicates if the facility has a formal enforcement action within the last 5 years. 1 = Yes
@@ -1821,14 +1830,14 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * Insp5yrFlag **required** `string`: Indicates if the facility has an inspection within the last 5 years. 1 = Yes
   * InspDef5yrCnt `string`
   * IssuingAgency **required** `string`: This is the name of the organization issuing or granting a permit.
-  * LastDmrValueRcvdDate **required** `string`
-  * LimPollutant `string`
+  * LastDMRValueRcvdDate **required** `string`
+  * LimPollutant **required** `string`
   * Lower48 **required** `string`: Flag showing Y/N whether location is within the contiguous (lower 48) United States.
   * Map **required** `string`
   * MasterExternalPermitNmbr **required** `string`: This is the unique identifier for the Master General Permit for a General Permit Covered Facility.
   * MaxPctileUs **required** `string`: The maximum percentile from all individual EJSCREEN indicators.
   * MaxScore `string`: [Col. 121]
-  * MissDmrQtrs **required** `string`
+  * MissDMRQtrs **required** `string`
   * MsgpCorrectiveActionSmmry **required** `string`
   * MsgpFacilityInspctnSmmry **required** `string`
   * MsgpLastReportYear **required** `string`
@@ -1896,6 +1905,7 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * TypeOfWater **required** `string`
   * VioLastYear **required** `string`: A flag (values of 1 for Yes, 0 for No) that a Water Program Violation occurred in the last 4 quarters.
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs **required** `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### cwa2_Results
 * cwa2_Results `object`: Results Object
@@ -2063,7 +2073,7 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * CWPInspectionCount **required** `number`: The number of inspections/compliance evaluations, under the corresponding statute, occurring at the facility within the last five years.
   * CWPIssueDate **required** `string`
   * CWPMajorMinorStatusFlag **required** `string`: Facilities marked "M" for major refers to CWA major permittees.
-  * CWPNaicsCodes **required** `string`: Indicates the facility's or permit's primary North American Industry Classification System (NAICS) Code.
+  * CWPNAICSCodes **required** `string`: Indicates the facility's or permit's primary North American Industry Classification System (NAICS) Code.
   * CWPName **required** `string`: Facility or permit holder name, as maintained in ICIS-NPDES.
   * CWPPermitStatusCode **required** `string`: The code associated with the facility's NPDES permit status.
   * CWPPermitStatusDesc **required** `string`: The current stage/status in the NPDES permit life cycle.
@@ -2071,8 +2081,8 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * CWPPermitTypeDesc **required** `string`: NPDES facility permit classification:
   * CWPQtrsInNC **required** `number`: Count of the number of quarters, out of the last twelve quarters, in which the permit or site is considered either with violations, in non-compliance (NC) status, or in Significant Non-compliance (SNC), as described above under Current Compliance Status.
   * CWPQtrsInSNC **required** `number`: Count of the number of quarters, out of the last twelve quarters, in which the permit is considered in Significant Non-compliance (SNC).
+  * CWPSICCodes **required** `string`: Indicates the facility's or permit's primary Standard Industrial Classification (SIC) Code.
   * CWPSNCEventDesc **required** `string`: Describes the event that resulted in the facility's status of Significant Noncompliance.
-  * CWPSicCodes **required** `string`: Indicates the facility's or permit's primary Standard Industrial Classification (SIC) Code.
   * CWPState **required** `string`: Facility location - two-digit state abbreviation.
   * CWPStateDistrict **required** `string`: The State Congressional District the facility is located within.
   * CWPStateWaterBodyCode **required** `string`: Code from the Assessment TMDL Tracking & Implementation System (ATTAINS) database, assigned by the US Geological Survey, used to classify watersheds in the United States and the Caribbean. The code consists of twelve digits which correspond to six levels of classification:
@@ -2094,9 +2104,9 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * ControlMeasureSchedule **required** `string`: Description of schedule for control measures associated with good housekeeping and maintenance.
   * CurrSvFlag **required** `number`: Indicates if the facility has a current significant violation. 1 = Yes
   * CurrVioFlag **required** `number`: Indicates if the facility has a current violation. 1 = Yes
-  * DmrImpairedPoll **required** `string`: The pollutants with limits or monitoring requirements in a facility's NPDES permit with the potential to contribute to impairment of local waterbodies
-  * DmrPounds **required** `number`: Total pounds of pollutants discharged by the NPDES ID for the most recent complete calendar year.
-  * DmrTwpe **required** `number`: Total toxic-weighted pounds equivalent (TWPE) discharged by the NPDES ID for the most recent complete calendar year. TWPE is the mass of a pollutant or chemical discharged that accounts for its relative toxicity.
+  * DMRImpairedPoll **required** `string`: The pollutants with limits or monitoring requirements in a facility's NPDES permit with the potential to contribute to impairment of local waterbodies
+  * DMRPounds **required** `number`: Total pounds of pollutants discharged by the NPDES ID for the most recent complete calendar year.
+  * DMRTwpe **required** `number`: Total toxic-weighted pounds equivalent (TWPE) discharged by the NPDES ID for the most recent complete calendar year. TWPE is the mass of a pollutant or chemical discharged that accounts for its relative toxicity.
   * DschToMs4 **required** `string`
   * EPASystem **required** `string`: The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: 
   * Ea5yrFlag **required** `number`: Indicates if the facility has a formal enforcement action within the last 5 years. 1 = Yes
@@ -2135,14 +2145,14 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * Insp5yrFlag **required** `number`: Indicates if the facility has an inspection within the last 5 years. 1 = Yes
   * InspDef5yrCnt `number`: The count of Biosolids Inspection Deficiencies that have been found in the last 5 years.
   * IssuingAgency **required** `string`: This is the name of the organization issuing or granting a permit.
-  * LastDmrValueRcvdDate **required** `string`
-  * LimPollutant `string`
+  * LastDMRValueRcvdDate **required** `string`
+  * LimPollutant **required** `string`
   * Lower48 **required** `string`: Flag showing Y/N whether location is within the contiguous (lower 48) United States.
   * Map **required** `string`
   * MasterExternalPermitNmbr **required** `string`: This is the unique identifier for the Master General Permit for a General Permit Covered Facility.
   * MaxPctileUs **required** `number`: The maximum percentile from all individual EJSCREEN indicators.
   * MaxScore `number`: [Col. 121]
-  * MissDmrQtrs **required** `number`
+  * MissDMRQtrs **required** `number`
   * MsgpCorrectiveActionSmmry **required** `string`
   * MsgpFacilityInspctnSmmry **required** `string`
   * MsgpLastReportYear **required** `string`
@@ -2209,6 +2219,7 @@ epa_gov_cwa.rest_lookups.wbd_name_lu.post({
   * TypeOfWater **required** `string`
   * VioLastYear **required** `number`: A flag (values of 1 for Yes, 0 for No) that a Water Program Violation occurred in the last 4 quarters.
   * ViolFlag **required** `number`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs **required** `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### met_Results
 * met_Results `object`: Results Object

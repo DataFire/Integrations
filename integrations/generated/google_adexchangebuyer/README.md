@@ -124,9 +124,9 @@ google_adexchangebuyer.accounts.patch({
 
 #### Input
 * input `object`
-  * id **required** `integer`: The account id
-  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
   * body [Account](#account)
+  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
+  * id **required** `integer`: The account id
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -150,9 +150,9 @@ google_adexchangebuyer.accounts.update({
 
 #### Input
 * input `object`
-  * id **required** `integer`: The account id
-  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
   * body [Account](#account)
+  * confirmUnsafeAccountChange `boolean`: Confirmation for erasing bidder and cookie matching urls.
+  * id **required** `integer`: The account id
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -462,9 +462,9 @@ google_adexchangebuyer.performanceReport.list({
 * input `object`
   * accountId **required** `string`: The account id to get the reports.
   * endDateTime **required** `string`: The end time of the report in ISO 8601 timestamp format using UTC.
-  * startDateTime **required** `string`: The start time of the report in ISO 8601 timestamp format using UTC.
   * maxResults `integer`: Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
   * pageToken `string`: A continuation token, used to page through performance reports. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. Optional.
+  * startDateTime **required** `string`: The start time of the report in ISO 8601 timestamp format using UTC.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -591,8 +591,8 @@ google_adexchangebuyer.pretargetingConfig.patch({
 #### Input
 * input `object`
   * accountId **required** `string`: The account id to update the pretargeting config for.
-  * configId **required** `string`: The specific id of the configuration to update.
   * body [PretargetingConfig](#pretargetingconfig)
+  * configId **required** `string`: The specific id of the configuration to update.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -618,8 +618,8 @@ google_adexchangebuyer.pretargetingConfig.update({
 #### Input
 * input `object`
   * accountId **required** `string`: The account id to update the pretargeting config for.
-  * configId **required** `string`: The specific id of the configuration to update.
   * body [PretargetingConfig](#pretargetingconfig)
+  * configId **required** `string`: The specific id of the configuration to update.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -643,8 +643,8 @@ google_adexchangebuyer.marketplaceprivateauction.updateproposal({
 
 #### Input
 * input `object`
-  * privateAuctionId **required** `string`
   * body [UpdatePrivateAuctionProposalRequest](#updateprivateauctionproposalrequest)
+  * privateAuctionId **required** `string`
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -782,8 +782,8 @@ google_adexchangebuyer.marketplacedeals.list({
 
 #### Input
 * input `object`
-  * proposalId **required** `string`: The proposalId to get deals for. To search across all proposals specify order_id = '-' as part of the URL.
   * pqlQuery `string`: Query string to retrieve specific deals.
+  * proposalId **required** `string`: The proposalId to get deals for. To search across all proposals specify order_id = '-' as part of the URL.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -807,8 +807,8 @@ google_adexchangebuyer.marketplacedeals.delete({
 
 #### Input
 * input `object`
-  * proposalId **required** `string`: The proposalId to delete deals from.
   * body [DeleteOrderDealsRequest](#deleteorderdealsrequest)
+  * proposalId **required** `string`: The proposalId to delete deals from.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -832,8 +832,8 @@ google_adexchangebuyer.marketplacedeals.insert({
 
 #### Input
 * input `object`
-  * proposalId **required** `string`: proposalId for which deals need to be added.
   * body [AddOrderDealsRequest](#addorderdealsrequest)
+  * proposalId **required** `string`: proposalId for which deals need to be added.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -857,8 +857,8 @@ google_adexchangebuyer.marketplacedeals.update({
 
 #### Input
 * input `object`
-  * proposalId **required** `string`: The proposalId to edit deals on.
   * body [EditAllOrderDealsRequest](#editallorderdealsrequest)
+  * proposalId **required** `string`: The proposalId to edit deals on.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -882,8 +882,8 @@ google_adexchangebuyer.marketplacenotes.list({
 
 #### Input
 * input `object`
-  * proposalId **required** `string`: The proposalId to get notes for. To search across all proposals specify order_id = '-' as part of the URL.
   * pqlQuery `string`: Query string to retrieve specific notes. To search the text contents of notes, please use syntax like "WHERE note.note = "foo" or "WHERE note.note LIKE "%bar%"
+  * proposalId **required** `string`: The proposalId to get notes for. To search across all proposals specify order_id = '-' as part of the URL.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -907,8 +907,8 @@ google_adexchangebuyer.marketplacenotes.insert({
 
 #### Input
 * input `object`
-  * proposalId **required** `string`: The proposalId to add notes for.
   * body [AddOrderNotesRequest](#addordernotesrequest)
+  * proposalId **required** `string`: The proposalId to add notes for.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -958,10 +958,10 @@ google_adexchangebuyer.proposals.patch({
 
 #### Input
 * input `object`
+  * body [Proposal](#proposal)
   * proposalId **required** `string`: The proposal id to update.
   * revisionNumber **required** `string`: The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest proposal at head revision and retry the update at that revision.
   * updateAction **required** `string` (values: accept, cancel, propose, proposeAndAccept, unknownAction, updateNonTerms): The proposed action to take on the proposal. This field is required and it must be set when updating a proposal.
-  * body [Proposal](#proposal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -987,10 +987,10 @@ google_adexchangebuyer.proposals.update({
 
 #### Input
 * input `object`
+  * body [Proposal](#proposal)
   * proposalId **required** `string`: The proposal id to update.
   * revisionNumber **required** `string`: The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest proposal at head revision and retry the update at that revision.
   * updateAction **required** `string` (values: accept, cancel, propose, proposeAndAccept, unknownAction, updateNonTerms): The proposed action to take on the proposal. This field is required and it must be set when updating a proposal.
-  * body [Proposal](#proposal)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

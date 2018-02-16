@@ -29,7 +29,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/open511/open511.json",
+        "url": "https://raw.githubusercontent.com/bcgov/api-specs/master/open511/open511_swagger2.json",
         "version": "2.0"
       }
     ],

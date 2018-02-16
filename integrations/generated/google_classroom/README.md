@@ -87,21 +87,21 @@ google_classroom.courses.list({}, context)
 * input `object`
   * courseStates `array`: Restricts returned courses to those in one of the specified states
   * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
-  * teacherId `string`: Restricts returned courses to those having a teacher with the specified
-  * studentId `string`: Restricts returned courses to those having a student with the specified
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * studentId `string`: Restricts returned courses to those having a student with the specified
+  * teacherId `string`: Restricts returned courses to those having a teacher with the specified
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -132,18 +132,18 @@ google_classroom.courses.create({}, context)
 #### Input
 * input `object`
   * body [Course](#course)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -170,18 +170,18 @@ google_classroom.courses.aliases.list({
   * courseId **required** `string`: The identifier of the course.
   * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -209,20 +209,20 @@ google_classroom.courses.aliases.create({
 
 #### Input
 * input `object`
-  * courseId **required** `string`: Identifier of the course to alias.
   * body [CourseAlias](#coursealias)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * courseId **required** `string`: Identifier of the course to alias.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -243,27 +243,27 @@ alias or for access errors.
 
 ```js
 google_classroom.courses.aliases.delete({
-  "courseId": "",
-  "alias": ""
+  "alias": "",
+  "courseId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * courseId **required** `string`: Identifier of the course whose alias should be deleted.
   * alias **required** `string`: Alias to delete.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * courseId **required** `string`: Identifier of the course whose alias should be deleted.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -548,21 +548,21 @@ google_classroom.courses.courseWork.list({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * courseWorkStates `array`: Restriction on the work status to return. Only courseWork that matches
-  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * orderBy `string`: Optional sort ordering for results. A comma-separated list of fields with
+  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -597,20 +597,20 @@ google_classroom.courses.courseWork.create({
 
 #### Input
 * input `object`
-  * courseId **required** `string`: Identifier of the course.
   * body [CourseWork](#coursework)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * courseId **required** `string`: Identifier of the course.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -649,18 +649,18 @@ google_classroom.courses.courseWork.studentSubmissions.list({
   * pageToken `string`: nextPageToken
   * states `array`: Requested submission states. If specified, returned student submissions
   * userId `string`: Optional argument to restrict returned student work to those owned by the
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -690,18 +690,18 @@ google_classroom.courses.courseWork.studentSubmissions.get({
   * courseId **required** `string`: Identifier of the course.
   * courseWorkId **required** `string`: Identifier of the course work.
   * id **required** `string`: Identifier of the student submission.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -743,18 +743,18 @@ google_classroom.courses.courseWork.studentSubmissions.patch({
   * courseWorkId **required** `string`: Identifier of the course work.
   * id **required** `string`: Identifier of the student submission.
   * updateMask `string`: Mask that identifies which fields on the student submission to update.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -791,22 +791,22 @@ google_classroom.courses.courseWork.studentSubmissions.modifyAttachments({
 
 #### Input
 * input `object`
+  * body [ModifyAttachmentsRequest](#modifyattachmentsrequest)
   * courseId **required** `string`: Identifier of the course.
   * courseWorkId **required** `string`: Identifier of the course work.
   * id **required** `string`: Identifier of the student submission.
-  * body [ModifyAttachmentsRequest](#modifyattachmentsrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -846,22 +846,22 @@ google_classroom.courses.courseWork.studentSubmissions.reclaim({
 
 #### Input
 * input `object`
+  * body [ReclaimStudentSubmissionRequest](#reclaimstudentsubmissionrequest)
   * courseId **required** `string`: Identifier of the course.
   * courseWorkId **required** `string`: Identifier of the course work.
   * id **required** `string`: Identifier of the student submission.
-  * body [ReclaimStudentSubmissionRequest](#reclaimstudentsubmissionrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -902,22 +902,22 @@ google_classroom.courses.courseWork.studentSubmissions.return({
 
 #### Input
 * input `object`
+  * body [ReturnStudentSubmissionRequest](#returnstudentsubmissionrequest)
   * courseId **required** `string`: Identifier of the course.
   * courseWorkId **required** `string`: Identifier of the course work.
   * id **required** `string`: Identifier of the student submission.
-  * body [ReturnStudentSubmissionRequest](#returnstudentsubmissionrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -956,22 +956,22 @@ google_classroom.courses.courseWork.studentSubmissions.turnIn({
 
 #### Input
 * input `object`
+  * body [TurnInStudentSubmissionRequest](#turninstudentsubmissionrequest)
   * courseId **required** `string`: Identifier of the course.
   * courseWorkId **required** `string`: Identifier of the course work.
   * id **required** `string`: Identifier of the student submission.
-  * body [TurnInStudentSubmissionRequest](#turninstudentsubmissionrequest)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1005,18 +1005,18 @@ google_classroom.courses.courseWork.delete({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * id **required** `string`: Identifier of the course work to delete.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1044,18 +1044,18 @@ google_classroom.courses.courseWork.get({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * id **required** `string`: Identifier of the course work.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1097,18 +1097,18 @@ google_classroom.courses.courseWork.patch({
   * courseId **required** `string`: Identifier of the course.
   * id **required** `string`: Identifier of the course work.
   * updateMask `string`: Mask that identifies which fields on the course work to update.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1178,18 +1178,18 @@ google_classroom.courses.students.list({
   * courseId **required** `string`: Identifier of the course.
   * pageSize `integer`: Maximum number of items to return. Zero means no maximum.
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1220,21 +1220,21 @@ google_classroom.courses.students.create({
 
 #### Input
 * input `object`
+  * body [Student](#student)
   * courseId **required** `string`: Identifier of the course to create the student in.
   * enrollmentCode `string`: Enrollment code of the course to create the student in.
-  * body [Student](#student)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1262,18 +1262,18 @@ google_classroom.courses.students.delete({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * userId **required** `string`: Identifier of the student to delete. The identifier can be one of the
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1301,18 +1301,18 @@ google_classroom.courses.students.get({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * userId **required** `string`: Identifier of the student to return. The identifier can be one of the
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1339,18 +1339,18 @@ google_classroom.courses.teachers.list({
   * courseId **required** `string`: Identifier of the course.
   * pageSize `integer`: Maximum number of items to return. Zero means no maximum.
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1382,20 +1382,20 @@ google_classroom.courses.teachers.create({
 
 #### Input
 * input `object`
-  * courseId **required** `string`: Identifier of the course.
   * body [Teacher](#teacher)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * courseId **required** `string`: Identifier of the course.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1425,18 +1425,18 @@ google_classroom.courses.teachers.delete({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * userId **required** `string`: Identifier of the teacher to delete. The identifier can be one of the
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1464,22 +1464,100 @@ google_classroom.courses.teachers.get({
 * input `object`
   * courseId **required** `string`: Identifier of the course.
   * userId **required** `string`: Identifier of the teacher to return. The identifier can be one of the
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
 * output [Teacher](#teacher)
+
+### courses.topics.list
+Returns the list of topics that the requester is permitted to view.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access
+the requested course or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course does not exist.
+
+
+```js
+google_classroom.courses.topics.list({
+  "courseId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * courseId **required** `string`: Identifier of the course.
+  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
+  * pageToken `string`: nextPageToken
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [ListTopicResponse](#listtopicresponse)
+
+### courses.topics.get
+Returns a topic.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access the
+requested course or topic, or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course or topic does not exist.
+
+
+```js
+google_classroom.courses.topics.get({
+  "courseId": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * courseId **required** `string`: Identifier of the course.
+  * id **required** `string`: Identifier of the topic.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [Topic](#topic)
 
 ### courses.delete
 Deletes a course.
@@ -1500,18 +1578,18 @@ google_classroom.courses.delete({
 #### Input
 * input `object`
   * id **required** `string`: Identifier of the course to delete.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1536,18 +1614,18 @@ google_classroom.courses.get({
 #### Input
 * input `object`
   * id **required** `string`: Identifier of the course to return.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1578,18 +1656,18 @@ google_classroom.courses.patch({
   * body [Course](#course)
   * id **required** `string`: Identifier of the course to update.
   * updateMask `string`: Mask that identifies which fields on the course to update.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1615,20 +1693,20 @@ google_classroom.courses.update({
 
 #### Input
 * input `object`
-  * id **required** `string`: Identifier of the course to update.
   * body [Course](#course)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * id **required** `string`: Identifier of the course to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1654,20 +1732,20 @@ google_classroom.invitations.list({}, context)
 * input `object`
   * courseId `string`: Restricts returned invitations to those for a course with the specified
   * pageSize `integer`: Maximum number of items to return. Zero means no maximum.
-  * userId `string`: Restricts returned invitations to those for a specific user. The identifier
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * userId `string`: Restricts returned invitations to those for a specific user. The identifier
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1695,18 +1773,18 @@ google_classroom.invitations.create({}, context)
 #### Input
 * input `object`
   * body [Invitation](#invitation)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1731,18 +1809,18 @@ google_classroom.invitations.delete({
 #### Input
 * input `object`
   * id **required** `string`: Identifier of the invitation to delete.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1767,18 +1845,18 @@ google_classroom.invitations.get({
 #### Input
 * input `object`
   * id **required** `string`: Identifier of the invitation to return.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1810,18 +1888,18 @@ google_classroom.invitations.accept({
 #### Input
 * input `object`
   * id **required** `string`: Identifier of the invitation to accept.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -1943,23 +2021,23 @@ google_classroom.userProfiles.guardianInvitations.list({
 
 #### Input
 * input `object`
-  * studentId **required** `string`: The ID of the student whose guardian invitations are to be returned.
-  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * invitedEmailAddress `string`: If specified, only results with the specified `invited_email_address`
-  * states `array`: If specified, only results with the specified `state` values will be
+  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * states `array`: If specified, only results with the specified `state` values will be
+  * studentId **required** `string`: The ID of the student whose guardian invitations are to be returned.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2006,20 +2084,20 @@ google_classroom.userProfiles.guardianInvitations.create({
 
 #### Input
 * input `object`
-  * studentId **required** `string`: ID of the student (in standard format)
   * body [GuardianInvitation](#guardianinvitation)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * studentId **required** `string`: ID of the student (in standard format)
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2044,27 +2122,27 @@ This method returns the following error codes:
 
 ```js
 google_classroom.userProfiles.guardianInvitations.get({
-  "studentId": "",
-  "invitationId": ""
+  "invitationId": "",
+  "studentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * studentId **required** `string`: The ID of the student whose guardian invitation is being requested.
   * invitationId **required** `string`: The `id` field of the `GuardianInvitation` being requested.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * studentId **required** `string`: The ID of the student whose guardian invitation is being requested.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2093,29 +2171,29 @@ This method returns the following error codes:
 
 ```js
 google_classroom.userProfiles.guardianInvitations.patch({
-  "studentId": "",
-  "invitationId": ""
+  "invitationId": "",
+  "studentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * studentId **required** `string`: The ID of the student whose guardian invitation is to be modified.
-  * invitationId **required** `string`: The `id` field of the `GuardianInvitation` to be modified.
-  * updateMask `string`: Mask that identifies which fields on the course to update.
   * body [GuardianInvitation](#guardianinvitation)
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * invitationId **required** `string`: The `id` field of the `GuardianInvitation` to be modified.
+  * studentId **required** `string`: The ID of the student whose guardian invitation is to be modified.
+  * updateMask `string`: Mask that identifies which fields on the course to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2152,22 +2230,22 @@ google_classroom.userProfiles.guardians.list({
 
 #### Input
 * input `object`
-  * studentId **required** `string`: Filter results by the student who the guardian is linked to.
-  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * invitedEmailAddress `string`: Filter results by the email address that the original invitation was sent
+  * pageSize `integer`: Maximum number of items to return. Zero or unspecified indicates that the
   * pageToken `string`: nextPageToken
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * studentId **required** `string`: Filter results by the student who the guardian is linked to.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2196,27 +2274,27 @@ This method returns the following error codes:
 
 ```js
 google_classroom.userProfiles.guardians.delete({
-  "studentId": "",
-  "guardianId": ""
+  "guardianId": "",
+  "studentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * studentId **required** `string`: The student whose guardian is to be deleted. One of the following:
   * guardianId **required** `string`: The `id` field from a `Guardian`.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * studentId **required** `string`: The student whose guardian is to be deleted. One of the following:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2242,27 +2320,27 @@ This method returns the following error codes:
 
 ```js
 google_classroom.userProfiles.guardians.get({
-  "studentId": "",
-  "guardianId": ""
+  "guardianId": "",
+  "studentId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * studentId **required** `string`: The student whose guardian is being requested. One of the following:
   * guardianId **required** `string`: The `id` field from a `Guardian`.
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
+  * studentId **required** `string`: The student whose guardian is being requested. One of the following:
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2287,18 +2365,18 @@ google_classroom.userProfiles.get({
 #### Input
 * input `object`
   * userId **required** `string`: Identifier of the profile to return. The identifier can be one of the
-  * access_token `string`: OAuth access token.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * alt `string` (values: json, media, proto): Data format for response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -2551,6 +2629,12 @@ google_classroom.userProfiles.get({
   * teachers `array`: Teachers who match the list request.
     * items [Teacher](#teacher)
 
+### ListTopicResponse
+* ListTopicResponse `object`: Response when listing topics.
+  * nextPageToken `string`: Token identifying the next page of results to return. If empty, no further
+  * topic `array`: Topic items that match the request.
+    * items [Topic](#topic)
+
 ### Material
 * Material `object`: Material attached to course work.
   * driveFile [SharedDriveFile](#shareddrivefile)
@@ -2668,6 +2752,13 @@ google_classroom.userProfiles.get({
   * minutes `integer`: Minutes of hour of day. Must be from 0 to 59.
   * nanos `integer`: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
   * seconds `integer`: Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+
+### Topic
+* Topic `object`: Topic created by a teacher for the course
+  * courseId `string`: Identifier of the course.
+  * name `string`: The name of the topic, generated by the user.
+  * topicId `string`: Unique identifier for the topic.
+  * updateTime `string`: The time the topic was last updated by the system.
 
 ### TurnInStudentSubmissionRequest
 * TurnInStudentSubmissionRequest `object`: Request to turn in a student submission.

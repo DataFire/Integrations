@@ -453,7 +453,7 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
-        "description": "Please be aware that the required parameters are contingent on the `grant_type` that you select.\n\nFor the `authorization_code` grant type, you are **required** to pass in the `code` and `redirect_uri` parameters. `service`, `username` and `password` parameters will be ignored.\n\nFor the `client_credentials` grant type, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nFor the `device_code` grant type, you are **required** to pass in the `code` parameter. `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nFor the `password` grant type, you are **required** to pass in the `username` and `password` parameters. If you are logging in via a social service, you should also pass in the `service` parameter. (In this case, the access token you receive from the social service will serve as both your username and password.) The `code` and `redirect_uri` parameters are ignored.\nThird-party developers do not have access to this grant type.\n\nFor the `refresh_token` grant type, you are **required** to pass in the `refresh_token` parameter. The `scope` parameter can optionally be used to request a different set of scopes than were used in the original request, but it **cannot** contain any scopes that were not previously requested. If not specified, then `scope` will be set to whichever scopes were used for the original access token request. If trading in an old non-expiring access token for a refresh-enabled token, set the value of `refresh_token` to the access token value and `token_type_hint` must be set to `access_token`. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nThe `temporary_user` grant type is a custom grant type created by NPR to suit our needs for functionality such as our &quot;try-before-you-buy&quot; experience. If you are a third-party developer, you will not have access to this grant type unless we have explicitly given you permission within our system.\nFor this grant type, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nIf you are unsure of which grant type to select, assume that `authorization_code` is the one you want.\n\nNote that at this time, refresh tokens are an opt-in feature; however, in the future, they will gradually transition to being opt-out, and ultimately required for all clients. Our general guidance at this time is that if this endpoint starts returning refresh tokens for you, you are responsible for implementing the code to handle them appropriately in accordance with the OAuth 2.0 spec. For more information about our gradual rollout of this feature, please contact the NPR One API team.",
+        "description": "Please be aware that the required parameters are contingent on the `grant_type` that you select.\n\nFor the `authorization_code` grant type, you are **required** to pass in the `code` and `redirect_uri` parameters. `service`, `username` and `password` parameters will be ignored.\n\nFor the `client_credentials` grant type, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nFor the `device_code` grant type, you are **required** to pass in the `code` parameter. `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nFor the `password` grant type, you are **required** to pass in the `username` and `password` parameters. If you are logging in via a social service, you should also pass in the `service` parameter. (In this case, the access token you receive from the social service will serve as both your username and password.) The `code` and `redirect_uri` parameters are ignored.\nThird-party developers do not have access to this grant type.\n\nFor the `refresh_token` grant type, you are **required** to pass in the `refresh_token` parameter. The `scope` parameter can optionally be used to request a different set of scopes than were used in the original request, but it **cannot** contain any scopes that were not previously requested. If not specified, then `scope` will be set to whichever scopes were used for the original access token request. If trading in an old non-expiring access token for a refresh-enabled token, set the value of `refresh_token` to the access token value and `token_type_hint` must be set to `access_token`. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nThe `temporary_user` and `anonymous_user` grant types are custom grant types created by NPR to suit our needs for functionality such as our &quot;try-before-you-buy&quot; experience. If you are a third-party developer, you will not have access to these grant types unless we have explicitly given you permission within our system.\nFor these grant types, you do not need to pass in any additional parameters beyond the basic requirements. `code`, `redirect_uri`, `service`, `username` and `password` parameters will be ignored.\n\nIf you are unsure of which grant type to select, assume that `authorization_code` is the one you want.\n\nNote that at this time, refresh tokens are an opt-in feature; however, in the future, they will gradually transition to being opt-out, and ultimately required for all clients. Our general guidance at this time is that if this endpoint starts returning refresh tokens for you, you are responsible for implementing the code to handle them appropriately in accordance with the OAuth 2.0 spec. For more information about our gradual rollout of this feature, please contact the NPR One API team.",
         "operationId": "createToken",
         "parameters": [
           {
@@ -464,7 +464,8 @@
               "device_code",
               "password",
               "refresh_token",
-              "temporary_user"
+              "temporary_user",
+              "anonymous_user"
             ],
             "in": "formData",
             "name": "grant_type",
@@ -1474,57 +1475,6 @@
         "summary": "Send a donation email to the logged-in user (only on request)",
         "tags": [
           "localactivation"
-        ]
-      }
-    },
-    "/organization/v3/organizations/{orgId}": {
-      "get": {
-        "description": "This endpoint retrieves information about a given organization, based on its numeric ID, which is consistent across all of NPR's APIs. NPR partners, as defined by this service, include member stations as well as third-party content providers. A successful request will return a document with metadata for the requested organization, including branding assets such as links to the organization’s logo and homepage, if such links are available.",
-        "operationId": "getOrganizationById",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Authorization"
-          },
-          {
-            "description": "The numeric ID of an organization",
-            "format": "int64",
-            "in": "path",
-            "name": "orgId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A document describing the organization with the given ID.",
-            "headers": {
-              "X-RateLimit-Limit": {
-                "description": "The number of allowed requests in the current period",
-                "type": "integer"
-              },
-              "X-RateLimit-Remaining": {
-                "description": "The number of remaining requests in the current period",
-                "type": "integer"
-              },
-              "X-RateLimit-Reset": {
-                "description": "The number of seconds left in the current period",
-                "type": "integer"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/OrganizationDocument"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/404WithDocument"
-          },
-          "500": {
-            "$ref": "#/responses/500WithDocument"
-          }
-        },
-        "summary": "Retrieve metadata for the organization with the given numeric ID.",
-        "tags": [
-          "organizationDataService"
         ]
       }
     },
@@ -3065,41 +3015,6 @@
         }
       ],
       "description": "An array of a certain category of audio recommendations from a provider"
-    },
-    "OrganizationDocument": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HALDocument"
-        },
-        {
-          "properties": {
-            "_links": {
-              "description": "A list of links consisting of logos and external URLs related to this organization.",
-              "type": "object"
-            },
-            "abbreviation": {
-              "description": "Short name of the organization",
-              "type": "string"
-            },
-            "guid": {
-              "description": "Globally unique id for this organization",
-              "type": "string"
-            },
-            "name": {
-              "description": "Full name of the organization",
-              "type": "string"
-            },
-            "orgId": {
-              "description": "Unique id for this organization",
-              "type": "integer"
-            },
-            "tagline": {
-              "description": "Organization tagline",
-              "type": "string"
-            }
-          }
-        }
-      ]
     },
     "OrganizationOverviewData": {
       "properties": {

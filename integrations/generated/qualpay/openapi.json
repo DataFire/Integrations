@@ -15,7 +15,7 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "title": "Qualpay Payment Gateway",
-    "version": "1.6",
+    "version": "1.7",
     "x-apisguru-categories": [
       "ecommerce"
     ],
@@ -961,7 +961,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -1034,6 +1034,7 @@
         }
       },
       "required": [
+        "amt_tran",
         "merchant_id"
       ],
       "type": "object"
@@ -1090,7 +1091,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -1163,6 +1164,7 @@
         }
       },
       "required": [
+        "amt_tran",
         "merchant_id"
       ],
       "type": "object"
@@ -1219,7 +1221,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -1290,7 +1292,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -1452,7 +1454,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -1478,6 +1480,13 @@
           "example": 2,
           "format": "double",
           "maximum": 99999999.99,
+          "type": "number"
+        },
+        "amt_fbo": {
+          "description": "Total amount of transaction transferred to the FBO account.",
+          "example": 1.5,
+          "format": "double",
+          "maximum": 9999999999.99,
           "type": "number"
         },
         "amt_tax": {
@@ -1542,7 +1551,7 @@
         },
         "customer": {
           "$ref": "#/definitions/Customer",
-          "description": "This field is a JSON object."
+          "description": "In an authorization, credit, force, sale or verify message the merchant can send tokenize (set to true), either card_number or card_swipe, the desired customer_id, and the customer field and the payment gateway will create the customer data in the vault. Cannot be used to update an existing customer_id"
         },
         "customer_code": {
           "description": "Reference code supplied by the cardholder to the merchant.",
@@ -1583,6 +1592,12 @@
           "description": "Expiration date of cardholder card number. Required when the field card_number is present. If card_swipe is present in the request, this field must NOT be present. When card_id or customer_id is present in the request this field may also be present; if it is not, then the expiration date from the Card Vault will be used.",
           "example": "0921",
           "type": "string"
+        },
+        "fbo_id": {
+          "description": "For Benefit Of (FBO) account identifier on the Qualpay system.",
+          "example": 999000000001,
+          "format": "int64",
+          "type": "integer"
         },
         "line_items": {
           "description": "JSON array of JSON objects. Each object represents a single line item detail element related to the transaction. Each detail element has required subfields: quantity (7N), description (26AN), unit_of_measure (12AN), product_code (12AN), debit_credit_ind (1 AN), unit_cost (12,2N). Optional subfields: type_of_supply (2AN), commodity code (12AN)",
@@ -1737,7 +1752,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -1790,7 +1805,7 @@
         },
         "customer": {
           "$ref": "#/definitions/Customer",
-          "description": "This field is a JSON object."
+          "description": "In an authorization, credit, force, sale or verify message the merchant can send tokenize (set to true), either card_number or card_swipe, the desired customer_id, and the customer field and the payment gateway will create the customer data in the vault. Cannot be used to update an existing customer_id"
         },
         "customer_code": {
           "description": "Reference code supplied by the cardholder to the merchant.",
@@ -1919,7 +1934,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"
@@ -2041,7 +2056,7 @@
           "type": "string"
         },
         "rcode": {
-          "description": "Repsonse code from the payment gateway.",
+          "description": "Repsonse code from the payment gateway. \"000\" indicates success. Refer to <a href=\"/developer/api/reference#api-response-codes\"target=\"_blank\">Platform API Response Codes</a> for entire list of Payment Gateway Response Codes.",
           "example": "000",
           "readOnly": true,
           "type": "string"

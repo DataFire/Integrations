@@ -152,6 +152,9 @@
       "name": "managedconfigurationsforuser"
     },
     {
+      "name": "managedconfigurationssettings"
+    },
+    {
       "name": "permissions"
     },
     {
@@ -234,18 +237,18 @@
         "operationId": "enterprises.insert",
         "parameters": [
           {
-            "description": "The token provided by the enterprise to register the EMM.",
-            "in": "query",
-            "name": "token",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Enterprise"
             }
+          },
+          {
+            "description": "The token provided by the enterprise to register the EMM.",
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -419,18 +422,18 @@
         "operationId": "enterprises.enroll",
         "parameters": [
           {
-            "description": "The token provided by the enterprise to register the EMM.",
-            "in": "query",
-            "name": "token",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Enterprise"
             }
+          },
+          {
+            "description": "The token provided by the enterprise to register the EMM.",
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -695,18 +698,18 @@
         "operationId": "enterprises.setAccount",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/EnterpriseAccount"
             }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -861,18 +864,18 @@
         "operationId": "enterprises.createWebToken",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AdministratorWebTokenSpec"
             }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1095,17 +1098,17 @@
         "operationId": "products.list",
         "parameters": [
           {
+            "description": "Specifies whether to search among all products (false) or among only products that have been approved (true). Only \"true\" is supported, and should be specified.",
+            "in": "query",
+            "name": "approved",
+            "type": "boolean"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Specifies whether to search among all products (false) or among only products that have been approved (true). Only \"true\" is supported, and should be specified.",
-            "in": "query",
-            "name": "approved",
-            "type": "boolean"
           },
           {
             "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\"). Results are returned in the language best matching the preferred language.",
@@ -1191,16 +1194,16 @@
             "type": "string"
           },
           {
+            "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\").",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the product, e.g. \"app:com.google.android.gm\".",
             "in": "path",
             "name": "productId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\").",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -1263,16 +1266,16 @@
             "type": "string"
           },
           {
+            "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\").",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the product.",
             "in": "path",
             "name": "productId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\").",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -1351,6 +1354,13 @@
         "operationId": "products.approve",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProductsApproveRequest"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -1363,13 +1373,6 @@
             "name": "productId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ProductsApproveRequest"
-            }
           }
         ],
         "responses": {
@@ -1428,16 +1431,16 @@
             "type": "string"
           },
           {
+            "description": "The BCP 47 language code used for permission names and descriptions in the returned iframe, for instance \"en-US\".",
+            "in": "query",
+            "name": "languageCode",
+            "type": "string"
+          },
+          {
             "description": "The ID of the product.",
             "in": "path",
             "name": "productId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The BCP 47 language code used for permission names and descriptions in the returned iframe, for instance \"en-US\".",
-            "in": "query",
-            "name": "languageCode",
             "type": "string"
           }
         ],
@@ -1463,6 +1466,72 @@
           "products"
         ]
       }
+    },
+    "/enterprises/{enterpriseId}/products/{productId}/managedConfigurationsSettings": {
+      "get": {
+        "description": "Lists all the managed configurations settings for the specified app. Only the ID and the name is set.",
+        "operationId": "managedconfigurationssettings.list",
+        "parameters": [
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the product for which the managed configurations settings applies to.",
+            "in": "path",
+            "name": "productId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ManagedConfigurationsSettingsListResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ]
+          }
+        ],
+        "tags": [
+          "managedconfigurationssettings"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
     },
     "/enterprises/{enterpriseId}/products/{productId}/permissions": {
       "get": {
@@ -1784,18 +1853,18 @@
         "operationId": "serviceaccountkeys.insert",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/ServiceAccountKey"
             }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1947,18 +2016,18 @@
         "operationId": "enterprises.setStoreLayout",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/StoreLayout"
             }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2047,18 +2116,18 @@
         "operationId": "storelayoutpages.insert",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/StorePage"
             }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2192,6 +2261,13 @@
         "operationId": "storelayoutpages.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StorePage"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2204,13 +2280,6 @@
             "name": "pageId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StorePage"
-            }
           }
         ],
         "responses": {
@@ -2240,6 +2309,13 @@
         "operationId": "storelayoutpages.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StorePage"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2252,13 +2328,6 @@
             "name": "pageId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StorePage"
-            }
           }
         ],
         "responses": {
@@ -2354,6 +2423,13 @@
         "operationId": "storelayoutclusters.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StoreCluster"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2366,13 +2442,6 @@
             "name": "pageId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StoreCluster"
-            }
           }
         ],
         "responses": {
@@ -2404,6 +2473,13 @@
         "operationId": "storelayoutclusters.delete",
         "parameters": [
           {
+            "description": "The ID of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2414,13 +2490,6 @@
             "description": "The ID of the page.",
             "in": "path",
             "name": "pageId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the cluster.",
-            "in": "path",
-            "name": "clusterId",
             "required": true,
             "type": "string"
           }
@@ -2449,6 +2518,13 @@
         "operationId": "storelayoutclusters.get",
         "parameters": [
           {
+            "description": "The ID of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2459,13 +2535,6 @@
             "description": "The ID of the page.",
             "in": "path",
             "name": "pageId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the cluster.",
-            "in": "path",
-            "name": "clusterId",
             "required": true,
             "type": "string"
           }
@@ -2520,6 +2589,20 @@
         "operationId": "storelayoutclusters.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StoreCluster"
+            }
+          },
+          {
+            "description": "The ID of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2532,20 +2615,6 @@
             "name": "pageId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The ID of the cluster.",
-            "in": "path",
-            "name": "clusterId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StoreCluster"
-            }
           }
         ],
         "responses": {
@@ -2575,6 +2644,20 @@
         "operationId": "storelayoutclusters.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StoreCluster"
+            }
+          },
+          {
+            "description": "The ID of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2587,20 +2670,6 @@
             "name": "pageId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The ID of the cluster.",
-            "in": "path",
-            "name": "clusterId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/StoreCluster"
-            }
           }
         ],
         "responses": {
@@ -2688,16 +2757,16 @@
         "operationId": "users.list",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
+            "description": "The exact primary email address of the user to look up.",
+            "in": "query",
+            "name": "email",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The exact primary email address of the user to look up.",
-            "in": "query",
-            "name": "email",
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
             "required": true,
             "type": "string"
           }
@@ -2752,18 +2821,18 @@
         "operationId": "users.insert",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/User"
             }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2897,6 +2966,13 @@
         "operationId": "users.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2909,13 +2985,6 @@
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
           }
         ],
         "responses": {
@@ -2945,6 +3014,13 @@
         "operationId": "users.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -2957,13 +3033,6 @@
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
           }
         ],
         "responses": {
@@ -3125,6 +3194,13 @@
         "operationId": "users.setAvailableProductSet",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProductSet"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -3137,13 +3213,6 @@
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ProductSet"
-            }
           }
         ],
         "responses": {
@@ -3168,6 +3237,69 @@
           "users"
         ]
       }
+    },
+    "/enterprises/{enterpriseId}/users/{userId}/deviceAccess": {
+      "delete": {
+        "description": "Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed devices.\n\nThis call only works with EMM-managed accounts.",
+        "operationId": "users.revokeDeviceAccess",
+        "parameters": [
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ]
+          }
+        ],
+        "tags": [
+          "users"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ]
     },
     "/enterprises/{enterpriseId}/users/{userId}/devices": {
       "get": {
@@ -3241,6 +3373,13 @@
         "operationId": "devices.get",
         "parameters": [
           {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -3251,13 +3390,6 @@
             "description": "The ID of the user.",
             "in": "path",
             "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the device.",
-            "in": "path",
-            "name": "deviceId",
             "required": true,
             "type": "string"
           }
@@ -3306,13 +3438,142 @@
         {
           "$ref": "#/parameters/userIp"
         }
-      ]
+      ],
+      "patch": {
+        "description": "Updates the device policy. This method supports patch semantics.",
+        "operationId": "devices.patch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Mask that identifies which fields to update. If not set, all modifiable fields will be modified.\n\nWhen set in a query parameter, this field should be specified as updateMask=<field1>,<field2>,...",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ]
+          }
+        ],
+        "tags": [
+          "devices"
+        ]
+      },
+      "put": {
+        "description": "Updates the device policy",
+        "operationId": "devices.update",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Mask that identifies which fields to update. If not set, all modifiable fields will be modified.\n\nWhen set in a query parameter, this field should be specified as updateMask=<field1>,<field2>,...",
+            "in": "query",
+            "name": "updateMask",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ]
+          }
+        ],
+        "tags": [
+          "devices"
+        ]
+      }
     },
     "/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs": {
       "get": {
         "description": "Retrieves the details of all apps installed on the specified device.",
         "operationId": "installs.list",
         "parameters": [
+          {
+            "description": "The Android ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The ID of the enterprise.",
             "in": "path",
@@ -3324,13 +3585,6 @@
             "description": "The ID of the user.",
             "in": "path",
             "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Android ID of the device.",
-            "in": "path",
-            "name": "deviceId",
             "required": true,
             "type": "string"
           }
@@ -3387,20 +3641,6 @@
         "operationId": "installs.delete",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
@@ -3408,9 +3648,23 @@
             "type": "string"
           },
           {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the product represented by the install, e.g. \"app:com.google.android.gm\".",
             "in": "path",
             "name": "installId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3439,20 +3693,6 @@
         "operationId": "installs.get",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
@@ -3460,9 +3700,23 @@
             "type": "string"
           },
           {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the product represented by the install, e.g. \"app:com.google.android.gm\".",
             "in": "path",
             "name": "installId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3517,23 +3771,23 @@
         "operationId": "installs.patch",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Install"
+            }
           },
           {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
             "required": true,
             "type": "string"
           },
@@ -3545,11 +3799,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Install"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3579,23 +3833,23 @@
         "operationId": "installs.update",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Install"
+            }
           },
           {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
             "required": true,
             "type": "string"
           },
@@ -3607,11 +3861,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Install"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3643,6 +3897,13 @@
         "operationId": "managedconfigurationsfordevice.list",
         "parameters": [
           {
+            "description": "The Android ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -3653,13 +3914,6 @@
             "description": "The ID of the user.",
             "in": "path",
             "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The Android ID of the device.",
-            "in": "path",
-            "name": "deviceId",
             "required": true,
             "type": "string"
           }
@@ -3716,20 +3970,6 @@
         "operationId": "managedconfigurationsfordevice.delete",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
@@ -3737,9 +3977,23 @@
             "type": "string"
           },
           {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the managed configuration (a product ID), e.g. \"app:com.google.android.gm\".",
             "in": "path",
             "name": "managedConfigurationForDeviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3768,20 +4022,6 @@
         "operationId": "managedconfigurationsfordevice.get",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
@@ -3789,9 +4029,23 @@
             "type": "string"
           },
           {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the managed configuration (a product ID), e.g. \"app:com.google.android.gm\".",
             "in": "path",
             "name": "managedConfigurationForDeviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -3846,23 +4100,23 @@
         "operationId": "managedconfigurationsfordevice.patch",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ManagedConfiguration"
+            }
           },
           {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
             "required": true,
             "type": "string"
           },
@@ -3874,11 +4128,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ManagedConfiguration"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3908,23 +4162,23 @@
         "operationId": "managedconfigurationsfordevice.update",
         "parameters": [
           {
-            "description": "The ID of the enterprise.",
-            "in": "path",
-            "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ManagedConfiguration"
+            }
           },
           {
             "description": "The Android ID of the device.",
             "in": "path",
             "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
             "required": true,
             "type": "string"
           },
@@ -3936,11 +4190,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ManagedConfiguration"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3972,6 +4226,13 @@
         "operationId": "devices.getState",
         "parameters": [
           {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -3982,13 +4243,6 @@
             "description": "The ID of the user.",
             "in": "path",
             "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the device.",
-            "in": "path",
-            "name": "deviceId",
             "required": true,
             "type": "string"
           }
@@ -4043,6 +4297,20 @@
         "operationId": "devices.setState",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DeviceState"
+            }
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
@@ -4055,20 +4323,6 @@
             "name": "userId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The ID of the device.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DeviceState"
-            }
           }
         ],
         "responses": {
@@ -4173,16 +4427,16 @@
             "type": "string"
           },
           {
-            "description": "The ID of the user.",
+            "description": "The ID of the entitlement (a product ID), e.g. \"app:com.google.android.gm\".",
             "in": "path",
-            "name": "userId",
+            "name": "entitlementId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the entitlement (a product ID), e.g. \"app:com.google.android.gm\".",
+            "description": "The ID of the user.",
             "in": "path",
-            "name": "entitlementId",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -4218,16 +4472,16 @@
             "type": "string"
           },
           {
-            "description": "The ID of the user.",
+            "description": "The ID of the entitlement (a product ID), e.g. \"app:com.google.android.gm\".",
             "in": "path",
-            "name": "userId",
+            "name": "entitlementId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the entitlement (a product ID), e.g. \"app:com.google.android.gm\".",
+            "description": "The ID of the user.",
             "in": "path",
-            "name": "entitlementId",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -4282,16 +4536,16 @@
         "operationId": "entitlements.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Entitlement"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
             "required": true,
             "type": "string"
           },
@@ -4309,11 +4563,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Entitlement"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4343,16 +4597,16 @@
         "operationId": "entitlements.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Entitlement"
+            }
+          },
+          {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
             "required": true,
             "type": "string"
           },
@@ -4370,11 +4624,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Entitlement"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4479,16 +4733,16 @@
             "type": "string"
           },
           {
-            "description": "The ID of the user.",
+            "description": "The ID of the managed configuration (a product ID), e.g. \"app:com.google.android.gm\".",
             "in": "path",
-            "name": "userId",
+            "name": "managedConfigurationForUserId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the managed configuration (a product ID), e.g. \"app:com.google.android.gm\".",
+            "description": "The ID of the user.",
             "in": "path",
-            "name": "managedConfigurationForUserId",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -4524,16 +4778,16 @@
             "type": "string"
           },
           {
-            "description": "The ID of the user.",
+            "description": "The ID of the managed configuration (a product ID), e.g. \"app:com.google.android.gm\".",
             "in": "path",
-            "name": "userId",
+            "name": "managedConfigurationForUserId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the managed configuration (a product ID), e.g. \"app:com.google.android.gm\".",
+            "description": "The ID of the user.",
             "in": "path",
-            "name": "managedConfigurationForUserId",
+            "name": "userId",
             "required": true,
             "type": "string"
           }
@@ -4584,20 +4838,20 @@
         }
       ],
       "patch": {
-        "description": "Adds or updates a per-user managed configuration for an app for the specified user. This method supports patch semantics.",
+        "description": "Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed properties. This method supports patch semantics.",
         "operationId": "managedconfigurationsforuser.patch",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ManagedConfiguration"
+            }
+          },
           {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
             "required": true,
             "type": "string"
           },
@@ -4609,11 +4863,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ManagedConfiguration"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4639,20 +4893,20 @@
         ]
       },
       "put": {
-        "description": "Adds or updates a per-user managed configuration for an app for the specified user.",
+        "description": "Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed properties.",
         "operationId": "managedconfigurationsforuser.update",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ManagedConfiguration"
+            }
+          },
           {
             "description": "The ID of the enterprise.",
             "in": "path",
             "name": "enterpriseId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the user.",
-            "in": "path",
-            "name": "userId",
             "required": true,
             "type": "string"
           },
@@ -4664,11 +4918,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ManagedConfiguration"
-            }
+            "description": "The ID of the user.",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4804,16 +5058,16 @@
         "operationId": "permissions.get",
         "parameters": [
           {
+            "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\")",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
             "description": "The ID of the permission.",
             "in": "path",
             "name": "permissionId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\")",
-            "in": "query",
-            "name": "language",
             "type": "string"
           }
         ],
@@ -5091,8 +5345,30 @@
       },
       "type": "object"
     },
+    "ConfigurationVariables": {
+      "description": "A configuration variables resource contains the managed configuration settings ID to be applied to a single user, as well as the variable set that is attributed to the user. The variable set will be used to replace placeholders in the managed configuration settings.",
+      "properties": {
+        "kind": {
+          "default": "androidenterprise#configurationVariables",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#configurationVariables\".",
+          "type": "string"
+        },
+        "mcmId": {
+          "description": "The ID of the managed configurations settings.",
+          "type": "string"
+        },
+        "variableSet": {
+          "description": "The variable set that is attributed to the user.",
+          "items": {
+            "$ref": "#/definitions/VariableSet"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Device": {
-      "description": "A Devices resource represents a mobile device managed by the EMM and belonging to a specific enterprise user.\n\nThis collection cannot be modified via the API. It is automatically populated as devices are set up to be managed.",
+      "description": "A Devices resource represents a mobile device managed by the EMM and belonging to a specific enterprise user.",
       "properties": {
         "androidId": {
           "description": "The Google Play Services Android ID for the device encoded as a lowercase hex string. For example, \"123456789abcdef0\".",
@@ -5106,6 +5382,10 @@
         "managementType": {
           "description": "Identifies the extent to which the device is controlled by a managed Google Play EMM in various deployment configurations.\n\nPossible values include: \n- \"managedDevice\", a device that has the EMM's device policy controller (DPC) as the device owner. \n- \"managedProfile\", a device that has a profile managed by the DPC (DPC is profile owner) in addition to a separate, personal profile that is unavailable to the DPC. \n- \"containerApp\", no longer used (deprecated). \n- \"unmanagedProfile\", a device that has been allowed (by the domain's admin, using the Admin Console to enable the privilege) to use managed Google Play, but the profile is itself not owned by a DPC.",
           "type": "string"
+        },
+        "policy": {
+          "$ref": "#/definitions/Policy",
+          "description": "The policy enforced on the device."
         }
       },
       "type": "object"
@@ -5412,8 +5692,12 @@
       "type": "object"
     },
     "ManagedConfiguration": {
-      "description": "A managed configuration resource contains the set of managed properties that have been configured for an Android app. The app's developer would have defined configurable properties in the managed configurations schema.",
+      "description": "A managed configuration resource contains the set of managed properties defined by the app developer in the app's managed configurations schema, as well as any configuration variables defined for the user.",
       "properties": {
+        "configurationVariables": {
+          "$ref": "#/definitions/ConfigurationVariables",
+          "description": "Contains the ID of the managed configuration profile and the set of configuration variables (if any) defined for the user."
+        },
         "kind": {
           "default": "androidenterprise#managedConfiguration",
           "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#managedConfiguration\".",
@@ -5463,6 +5747,50 @@
           "description": "A managed configuration for an app for a specific user.",
           "items": {
             "$ref": "#/definitions/ManagedConfiguration"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ManagedConfigurationsSettings": {
+      "description": "A managed configurations settings resource contains the set of managed properties that have been configured for an Android app to be applied to a set of users. The app's developer would have defined configurable properties in the managed configurations schema.",
+      "properties": {
+        "kind": {
+          "default": "androidenterprise#managedConfigurationsSettings",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#managedConfigurationsSettings\".",
+          "type": "string"
+        },
+        "managedProperty": {
+          "description": "The set of managed properties for this configuration.",
+          "items": {
+            "$ref": "#/definitions/ManagedProperty"
+          },
+          "type": "array"
+        },
+        "mcmId": {
+          "description": "The ID of the managed configurations settings.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the managed configurations settings.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ManagedConfigurationsSettingsListResponse": {
+      "description": "The managed configurations settings for a product.",
+      "properties": {
+        "kind": {
+          "default": "androidenterprise#managedConfigurationsSettingsListResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#managedConfigurationsSettingsListResponse\".",
+          "type": "string"
+        },
+        "managedConfigurationsSettings": {
+          "description": "A managed configurations settings for an app that may be assigned to a group of users in an enterprise.",
+          "items": {
+            "$ref": "#/definitions/ManagedConfigurationsSettings"
           },
           "type": "array"
         }
@@ -5528,6 +5856,10 @@
       "properties": {
         "deviceId": {
           "description": "The Android ID of the device. This field will always be present.",
+          "type": "string"
+        },
+        "dpcPackageName": {
+          "description": "Policy app on the device.",
           "type": "string"
         },
         "managementType": {
@@ -5674,6 +6006,23 @@
       },
       "type": "object"
     },
+    "Policy": {
+      "description": "The device policy for a given managed device.",
+      "properties": {
+        "productAvailabilityPolicy": {
+          "description": "The availability granted to the device for the specified products. \"all\" gives the device access to all products, regardless of approval status. \"allApproved\" entitles the device to access all products that are approved for the enterprise. \"allApproved\" and \"all\" do not enable automatic visibility of \"alpha\" or \"beta\" tracks. \"whitelist\" grants the device access the products specified in productPolicy[]. Only products that are approved or products that were previously approved (products with revoked approval) by the enterprise can be whitelisted. If no value is provided, the availability set at the user level is applied by default.",
+          "type": "string"
+        },
+        "productPolicy": {
+          "description": "The list of product policies.",
+          "items": {
+            "$ref": "#/definitions/ProductPolicy"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Product": {
       "description": "A Products resource represents an app in the Google Play store that is available to at least some users in the enterprise. (Some apps are restricted to a single enterprise, and no information about them is made available outside that enterprise.)\n\nThe information provided for each product (localized name, icon, link to the full Google Play details page) is intended to allow a basic representation of the product within an EMM user interface.",
       "properties": {
@@ -5688,12 +6037,31 @@
           "description": "The name of the author of the product (for example, the app developer).",
           "type": "string"
         },
+        "availableCountries": {
+          "description": "The countries which this app is available in.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "availableTracks": {
           "description": "The tracks that are visible to the enterprise.",
           "items": {
             "type": "string"
           },
           "type": "array"
+        },
+        "category": {
+          "description": "The app category (e.g. RACING, SOCIAL, etc.)",
+          "type": "string"
+        },
+        "contentRating": {
+          "description": "The content rating for this app.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The localized promotional description, if available.",
+          "type": "string"
         },
         "detailsUrl": {
           "description": "A link to the (consumer) Google Play details page for the product.",
@@ -5712,6 +6080,23 @@
           "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#product\".",
           "type": "string"
         },
+        "lastUpdatedTimestampMillis": {
+          "description": "The approximate time (within 7 days) the app was last published, expressed in milliseconds since epoch.",
+          "format": "int64",
+          "type": "string"
+        },
+        "minAndroidSdkVersion": {
+          "description": "The minimum Android SDK necessary to run the app.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "permissions": {
+          "description": "A list of permissions required by the app.",
+          "items": {
+            "$ref": "#/definitions/ProductPermission"
+          },
+          "type": "array"
+        },
         "productId": {
           "description": "A string of the form app:<package name>. For example, app:com.google.android.gm represents the Gmail app.",
           "type": "string"
@@ -5720,9 +6105,20 @@
           "description": "Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore (even though it might still be available to people who own it).",
           "type": "string"
         },
+        "recentChanges": {
+          "description": "A description of the recent changes made to the app.",
+          "type": "string"
+        },
         "requiresContainerApp": {
           "description": "Deprecated.",
           "type": "boolean"
+        },
+        "screenshotUrls": {
+          "description": "A list of screenshot links representing the app.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "signingCertificate": {
           "$ref": "#/definitions/ProductSigningCertificate",
@@ -5803,6 +6199,23 @@
         "productId": {
           "description": "The ID of the app that the permissions relate to, e.g. \"app:com.google.android.gm\".",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProductPolicy": {
+      "description": "The policy for a product.",
+      "properties": {
+        "productId": {
+          "description": "The ID of the product. For example, \"app:com.google.android.gm\".",
+          "type": "string"
+        },
+        "tracks": {
+          "description": "Grants visibility to the specified track(s) of the product to the device. The track available to the device is based on the following order of preference: alpha, beta, production. For example, if an app has a prod version, a beta version and an alpha version and the enterprise has been granted visibility to both the alpha and beta tracks, if tracks is {\"beta\", \"production\"} then the beta version of the app is made available to the device. If there are no app versions in the specified track adding the \"alpha\" and \"beta\" values to the list of tracks will have no effect. Note that the enterprise requires access to alpha and/or beta tracks before users can be granted visibility to apps in those tracks.\n\nThe allowed sets are: {} (considered equivalent to {\"production\"}) {\"production\"} {\"beta\", \"production\"} {\"alpha\", \"beta\", \"production\"} The order of elements is not relevant. Any other set of tracks will be rejected with an error.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -6187,6 +6600,25 @@
             "$ref": "#/definitions/User"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "VariableSet": {
+      "description": "A variable set is a key-value pair of EMM-provided placeholders and its corresponding value, which is attributed to a user. For example, $FIRSTNAME could be a placeholder, and its value could be Alice. Placeholders should start with a '$' sign and should be alphanumeric only.",
+      "properties": {
+        "kind": {
+          "default": "androidenterprise#variableSet",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#variableSet\".",
+          "type": "string"
+        },
+        "placeholder": {
+          "description": "The placeholder string; defined by EMM.",
+          "type": "string"
+        },
+        "userValue": {
+          "description": "The value of the placeholder, specific to the user.",
+          "type": "string"
         }
       },
       "type": "object"

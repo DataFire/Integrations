@@ -191,11 +191,17 @@
             "type": "string"
           },
           "changes": {
-            "href": {
-              "type": "string"
-            },
-            "etag": {
-              "type": "string"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "etag": {
+                  "type": "string"
+                }
+              }
             }
           }
         }

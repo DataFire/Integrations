@@ -11,12 +11,26 @@ let iqualify = require('@datafire/iqualify').create({
   jwt: ""
 });
 
-iqualify..get(null).then(data => {
+iqualify.users.all.progress.get({}).then(data => {
   console.log(data);
 });
 ```
 
 ## Description
+
+The iQualify API offers management and analytics responses for building
+learning experiences using your iQualify instance data.
+
+Once you’ve registered with iQualify, you can request an API access token by
+navigating to the API access section of the "Account Settings" area.
+
+Find out how to [Request your API access token](https://intercom.help/iqualify/iqualify-set-up/authentication/requesting-your-api-access-token) on our Knowledge base.
+
+All endpoints are only accessible via https and are located at
+api.iqualify.com. For instance: you can find your current offerings by
+accessing the following URL:
+
+    https://api.iqualify.com/v1/offerings/current
 
 
 
@@ -36,6 +50,78 @@ iqualify..get(null, context)
 #### Output
 *Output schema unknown*
 
+### course_mappings.get
+Returns all the course mappings
+
+
+```js
+iqualify.course_mappings.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+
+### course_mappings.offeringId.get
+Finds course mappings by offering id
+
+
+```js
+iqualify.course_mappings.offeringId.get({
+  "offeringId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+
+#### Output
+* output `array`
+  * items `string`
+
+### course_mappings.offeringId.externalCourseId.delete
+Removes the course mapping between the offering and the external course id
+
+
+```js
+iqualify.course_mappings.offeringId.externalCourseId.delete({
+  "offeringId": "",
+  "externalCourseId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * externalCourseId **required** `string`: external course's id
+
+#### Output
+* output `array`
+  * items `string`
+
+### course_mappings.offeringId.externalCourseId.put
+Creates a mapping between the offering and the external course id
+
+
+```js
+iqualify.course_mappings.offeringId.externalCourseId.put({
+  "offeringId": "",
+  "externalCourseId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * externalCourseId **required** `string`: external course's id
+
+#### Output
+* output `array`
+  * items `string`
+
 ### courses.get
 Responds with courses that can be activated (made to an offering).
 
@@ -50,6 +136,104 @@ iqualify.courses.get(null, context)
 #### Output
 * output `array`
   * items [CourseResponse](#courseresponse)
+
+### courses.contentId.get
+Find course by content id
+
+
+```js
+iqualify.courses.contentId.get({
+  "contentId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * contentId **required** `string`: The content Id
+
+#### Output
+* output [CourseMetaResponse](#coursemetaresponse)
+
+### courses.contentId.metadata.category.put
+Update course category
+
+
+```js
+iqualify.courses.contentId.metadata.category.put({
+  "contentId": "",
+  "category": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * contentId **required** `string`: The content Id
+  * category **required** `object`
+    * category `string`
+
+#### Output
+* output [CourseMetaResponse](#coursemetaresponse)
+
+### courses.contentId.metadata.level.put
+Update course level
+
+
+```js
+iqualify.courses.contentId.metadata.level.put({
+  "contentId": "",
+  "level": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * contentId **required** `string`: The content Id
+  * level **required** `object`
+    * level `string`
+
+#### Output
+* output [CourseMetaResponse](#coursemetaresponse)
+
+### courses.contentId.metadata.tags.put
+Update course tags
+
+
+```js
+iqualify.courses.contentId.metadata.tags.put({
+  "contentId": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * contentId **required** `string`: The content Id
+  * tags **required** `object`
+    * tags `array`
+      * items `string`
+
+#### Output
+* output [CourseMetaResponse](#coursemetaresponse)
+
+### courses.contentId.metadata.topic.put
+Update course topic
+
+
+```js
+iqualify.courses.contentId.metadata.topic.put({
+  "contentId": "",
+  "topic": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * contentId **required** `string`: The content Id
+  * topic **required** `object`
+    * topic `string`
+
+#### Output
+* output [CourseMetaResponse](#coursemetaresponse)
 
 ### offerings.get
 Responds with all offerings for your organisation.
@@ -81,7 +265,7 @@ iqualify.offerings.post({
   * offering **required** [OfferingRequired](#offeringrequired)
 
 #### Output
-* output [OfferingResponse](#offeringresponse)
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
 
 ### offerings.current.get
 Responds with current (active) offerings for your organisation. Offering is current when today's date is between (inclusive) it's `start` and `end` date.
@@ -143,7 +327,7 @@ iqualify.offerings.offeringId.get({
   * offeringId **required** `string`: offering's id
 
 #### Output
-* output [OfferingResponse](#offeringresponse)
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
 
 ### offerings.offeringId.patch
 Updates the offering.
@@ -162,7 +346,7 @@ iqualify.offerings.offeringId.patch({
   * offering **required** [Offering](#offering)
 
 #### Output
-* output [OfferingResponse](#offeringresponse)
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
 
 ### offerings.offeringId.analytics.channels.channelId.comments.get
 Responds with a list of all comments in any of the posts for a channel in a offering
@@ -592,6 +776,87 @@ iqualify.offerings.offeringId.groups.groupId.learners.userEmail.delete({
 #### Output
 *Output schema unknown*
 
+### offerings.offeringId.metadata.category.put
+Updates the offering category metadata.
+
+
+```js
+iqualify.offerings.offeringId.metadata.category.put({
+  "offeringId": "",
+  "category": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * category **required** `object`
+    * category `string`
+
+#### Output
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
+
+### offerings.offeringId.metadata.level.put
+Updates the offering level metadata.
+
+
+```js
+iqualify.offerings.offeringId.metadata.level.put({
+  "offeringId": "",
+  "level": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * level **required** `object`
+    * level `string`
+
+#### Output
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
+
+### offerings.offeringId.metadata.tags.put
+Updates the offering tags metadata.
+
+
+```js
+iqualify.offerings.offeringId.metadata.tags.put({
+  "offeringId": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * tags **required** `object`
+    * tags `array`
+      * items `string`
+
+#### Output
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
+
+### offerings.offeringId.metadata.topic.put
+Updates the offering topic metadata.
+
+
+```js
+iqualify.offerings.offeringId.metadata.topic.put({
+  "offeringId": "",
+  "topic": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * topic **required** `object`
+    * topic `string`
+
+#### Output
+* output [OfferingMetadataResponse](#offeringmetadataresponse)
+
 ### offerings.offeringId.study_plan.put
 Replaces offering's study plan with uploaded file
 
@@ -651,14 +916,14 @@ iqualify.offerings.offeringId.users.post({
 #### Output
 * output [OfferingUser](#offeringuser)
 
-### offerings.offeringId.users.evaluatorId.evaluates.delete
+### offerings.offeringId.users.evaluatorEmail.evaluates.delete
 Remove learners from evaluator's list.
 
 
 ```js
-iqualify.offerings.offeringId.users.evaluatorId.evaluates.delete({
+iqualify.offerings.offeringId.users.evaluatorEmail.evaluates.delete({
   "offeringId": "",
-  "evaluatorId": "",
+  "evaluatorEmail": "",
   "learners": []
 }, context)
 ```
@@ -666,7 +931,7 @@ iqualify.offerings.offeringId.users.evaluatorId.evaluates.delete({
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * evaluatorId **required** `string`: evaluator's id
+  * evaluatorEmail **required** `string`: evaluator's id
   * learners **required** `array`
     * items `string`
 
@@ -674,34 +939,34 @@ iqualify.offerings.offeringId.users.evaluatorId.evaluates.delete({
 * output `array`
   * items [OfferingUser](#offeringuser)
 
-### offerings.offeringId.users.evaluatorId.evaluates.get
+### offerings.offeringId.users.evaluatorEmail.evaluates.get
 Get learners evaluated by the peer evaluator.
 
 
 ```js
-iqualify.offerings.offeringId.users.evaluatorId.evaluates.get({
+iqualify.offerings.offeringId.users.evaluatorEmail.evaluates.get({
   "offeringId": "",
-  "evaluatorId": ""
+  "evaluatorEmail": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * evaluatorId **required** `string`: evaluators's id
+  * evaluatorEmail **required** `string`: evaluators's email
 
 #### Output
 * output `array`
   * items [OfferingUser](#offeringuser)
 
-### offerings.offeringId.users.evaluatorId.evaluates.post
+### offerings.offeringId.users.evaluatorEmail.evaluates.post
 Add learners to be evaluated by the peer evaluator.
 
 
 ```js
-iqualify.offerings.offeringId.users.evaluatorId.evaluates.post({
+iqualify.offerings.offeringId.users.evaluatorEmail.evaluates.post({
   "offeringId": "",
-  "evaluatorId": "",
+  "evaluatorEmail": "",
   "learners": []
 }, context)
 ```
@@ -709,7 +974,7 @@ iqualify.offerings.offeringId.users.evaluatorId.evaluates.post({
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * evaluatorId **required** `string`: evaluator's id
+  * evaluatorEmail **required** `string`: evaluator's email
   * learners **required** `array`
     * items `string`
 
@@ -717,14 +982,14 @@ iqualify.offerings.offeringId.users.evaluatorId.evaluates.post({
 * output `array`
   * items [OfferingUser](#offeringuser)
 
-### offerings.offeringId.users.markerId.marks.delete
+### offerings.offeringId.users.markerEmail.marks.delete
 Remove learners from marker's list.
 
 
 ```js
-iqualify.offerings.offeringId.users.markerId.marks.delete({
+iqualify.offerings.offeringId.users.markerEmail.marks.delete({
   "offeringId": "",
-  "markerId": "",
+  "markerEmail": "",
   "learners": []
 }, context)
 ```
@@ -732,7 +997,7 @@ iqualify.offerings.offeringId.users.markerId.marks.delete({
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * markerId **required** `string`: marker's id
+  * markerEmail **required** `string`: marker's email
   * learners **required** `array`
     * items `string`
 
@@ -740,34 +1005,34 @@ iqualify.offerings.offeringId.users.markerId.marks.delete({
 * output `array`
   * items [OfferingUser](#offeringuser)
 
-### offerings.offeringId.users.markerId.marks.get
+### offerings.offeringId.users.markerEmail.marks.get
 Get learners marked by the marker.
 
 
 ```js
-iqualify.offerings.offeringId.users.markerId.marks.get({
+iqualify.offerings.offeringId.users.markerEmail.marks.get({
   "offeringId": "",
-  "markerId": ""
+  "markerEmail": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * markerId **required** `string`: marker's id
+  * markerEmail **required** `string`: marker's email
 
 #### Output
 * output `array`
   * items [OfferingUser](#offeringuser)
 
-### offerings.offeringId.users.markerId.marks.post
+### offerings.offeringId.users.markerEmail.marks.post
 Add learners to be marked by the marker.
 
 
 ```js
-iqualify.offerings.offeringId.users.markerId.marks.post({
+iqualify.offerings.offeringId.users.markerEmail.marks.post({
   "offeringId": "",
-  "markerId": "",
+  "markerEmail": "",
   "learners": []
 }, context)
 ```
@@ -775,13 +1040,32 @@ iqualify.offerings.offeringId.users.markerId.marks.post({
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * markerId **required** `string`: marker's id
+  * markerEmail **required** `string`: marker's email
   * learners **required** `array`
     * items `string`
 
 #### Output
 * output `array`
   * items [OfferingUser](#offeringuser)
+
+### offerings.offeringId.users.userEmail.delete
+Removes user from the offering.
+
+
+```js
+iqualify.offerings.offeringId.users.userEmail.delete({
+  "offeringId": "",
+  "userEmail": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * offeringId **required** `string`: offering's id
+  * userEmail **required** `string`: user's email
+
+#### Output
+*Output schema unknown*
 
 ### offerings.offeringId.users.userEmail.invite_email.post
 Re-sends the invitation e-mail to the user.
@@ -802,94 +1086,97 @@ iqualify.offerings.offeringId.users.userEmail.invite_email.post({
 #### Output
 *Output schema unknown*
 
-### offerings.offeringId.users.userId.delete
-Removes user from the offering.
-
-
-```js
-iqualify.offerings.offeringId.users.userId.delete({
-  "offeringId": "",
-  "userId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * offeringId **required** `string`: offering's id
-  * userId **required** `string`: user's id
-
-#### Output
-*Output schema unknown*
-
-### offerings.offeringId.users.userId.submissions.open_response.get
+### offerings.offeringId.users.userEmail.submissions.open_response.get
 Gets user's open response assignment submissions.
 
 
 ```js
-iqualify.offerings.offeringId.users.userId.submissions.open_response.get({
+iqualify.offerings.offeringId.users.userEmail.submissions.open_response.get({
   "offeringId": "",
-  "userId": ""
+  "userEmail": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * offeringId **required** `string`: offering's id
-  * userId **required** `string`: user's id
+  * userEmail **required** `string`: user's email
 
 #### Output
 * output `array`
   * items [Assignments](#assignments)
 
-### users.userId.get
-Returns a user matching the userId.
+### users.all.progress.get
+Returns offering progress for each learner
 
 
 ```js
-iqualify.users.userId.get({
-  "userId": ""
+iqualify.users.all.progress.get({}, context)
+```
+
+#### Input
+* input `object`
+  * $top `integer`: Returns only the first n results.
+  * $orderby `string`: Sorts the results.
+  * $filter `string`: Filters the results, based on a Boolean condition.
+
+#### Output
+* output `object`
+  * data `object`
+    * offerings `object`
+    * progress `array`
+      * items [LearnerResponse](#learnerresponse)
+  * top `integer`
+
+### users.userEmail.get
+Returns a user matching the email.
+
+
+```js
+iqualify.users.userEmail.get({
+  "userEmail": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: user's id
+  * userEmail **required** `string`: user's email
 
 #### Output
 * output [UserResponse](#userresponse)
 
-### users.userId.patch
+### users.userEmail.patch
 Updates the user
 
 
 ```js
-iqualify.users.userId.patch({
-  "userId": "",
+iqualify.users.userEmail.patch({
+  "userEmail": "",
   "user": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: user's id
+  * userEmail **required** `string`: user's email
   * user **required** [User](#user)
 
 #### Output
 * output [UserResponse](#userresponse)
 
-### users.userId.offerings.get
+### users.userEmail.offerings.get
 Responds with all user's offerings.
 
 
 ```js
-iqualify.users.userId.offerings.get({
-  "userId": ""
+iqualify.users.userEmail.offerings.get({
+  "userEmail": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * userId **required** `string`: user's id
+  * userEmail **required** `string`: user's email
 
 #### Output
 * output `array`
@@ -995,6 +1282,14 @@ iqualify.users.userId.offerings.get({
   * moderation [Moderation](#moderation)
   * postId `string`
 
+### CourseMetaResponse
+* Course `object`
+  * coverImageUrl `string`
+  * createdAt `string`
+  * id `string`
+  * metadata [PortfolioMetadata](#portfoliometadata)
+  * name `string`
+
 ### CourseResponse
 * Course `object`
   * coverImageUrl `string`
@@ -1031,6 +1326,16 @@ iqualify.users.userId.offerings.get({
   * firstName `string`
   * lastLoggedInAt `string`
   * lastName `string`
+  * personId `string`
+
+### LearnerResponse
+* LearnerResponse `object`
+  * email `string`
+  * firstName `string`
+  * id `string`
+  * lastName `string`
+  * offerings `array`
+    * items [OfferingProgressRow](#offeringprogressrow)
   * personId `string`
 
 ### Mark
@@ -1071,10 +1376,31 @@ iqualify.users.userId.offerings.get({
   * earlyCloseOffDate `string`
   * end `string`
   * isReadonly `boolean`
+  * metadata [PortfolioMetadata](#portfoliometadata)
   * name `string`
   * start `string`
   * trailerVideoUrl `string`
   * version `string`: Content version, if not specified, the most recent version is used.
+
+### OfferingMetadataResponse
+* OfferingMetadataResponse `object`
+  * contentId `string`
+  * coverImageUrl `string`
+  * description `string`
+  * earlyCloseOffDate `string`
+  * end `string`
+  * id `string`
+  * isReadonly `boolean`
+  * metadata [PortfolioMetadata](#portfoliometadata)
+  * name `string`
+  * start `string`
+  * trailerVideoUrl `string`
+  * version `string`
+
+### OfferingProgressRow
+* OfferingProgressRow `object`
+  * completion `string`
+  * id `string`
 
 ### OfferingRequired
 * OfferingRequired
@@ -1083,6 +1409,7 @@ iqualify.users.userId.offerings.get({
   * earlyCloseOffDate `string`
   * end `string`
   * isReadonly `boolean`
+  * metadata [PortfolioMetadata](#portfoliometadata)
   * name `string`
   * start `string`
   * trailerVideoUrl `string`
@@ -1111,6 +1438,7 @@ iqualify.users.userId.offerings.get({
   * profile [UserProfile](#userprofile)
   * firstName `string`
   * lastName `string`
+  * metadata [UserMetadata](#usermetadata)
   * personId `string`
 
 ### OfferingUserResponse
@@ -1133,6 +1461,14 @@ iqualify.users.userId.offerings.get({
     * items `string`
   * personId `string`
   * profile [UserProfile](#userprofile)
+
+### PortfolioMetadata
+* PortfolioMetadata `object`
+  * category `string`
+  * level `string`
+  * tags `array`
+    * items `string`
+  * topic `string`
 
 ### Post
 * Post `object`
@@ -1198,7 +1534,13 @@ iqualify.users.userId.offerings.get({
 * User `object`
   * firstName `string`
   * lastName `string`
+  * metadata [UserMetadata](#usermetadata)
   * personId `string`
+
+### UserMetadata
+* UserMetadata `object`
+  * tags `array`
+    * items `string`
 
 ### UserProfile
 * UserProfile `object`
@@ -1213,6 +1555,7 @@ iqualify.users.userId.offerings.get({
   * id `string`
   * lastAccessAt `string`
   * lastName `string`
+  * metadata [UserMetadata](#usermetadata)
   * personId `string`
   * profile [UserProfile](#userprofile)
 

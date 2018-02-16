@@ -217,14 +217,13 @@ amazonaws_batch.DescribeJobs({
 
 
 ```js
-amazonaws_batch.ListJobs({
-  "jobQueue": ""
-}, context)
+amazonaws_batch.ListJobs({}, context)
 ```
 
 #### Input
 * input `object`
-  * jobQueue **required** [String](#string)
+  * arrayJobId [String](#string)
+  * jobQueue [String](#string)
   * jobStatus [JobStatus](#jobstatus)
   * maxResults [Integer](#integer)
   * nextToken [String](#string)
@@ -268,6 +267,7 @@ amazonaws_batch.SubmitJob({
 
 #### Input
 * input `object`
+  * arrayProperties [ArrayProperties](#arrayproperties)
   * containerOverrides [ContainerOverrides](#containeroverrides)
   * dependsOn [JobDependencyList](#jobdependencylist)
   * jobDefinition **required** [String](#string)
@@ -342,6 +342,30 @@ amazonaws_batch.UpdateJobQueue({
 
 ## Definitions
 
+### ArrayJobDependency
+* ArrayJobDependency `string` (values: N_TO_N, SEQUENTIAL)
+
+### ArrayJobStatusSummary
+* ArrayJobStatusSummary `array`
+  * items `object`
+    * key [String](#string)
+    * value [Integer](#integer)
+
+### ArrayProperties
+* ArrayProperties `object`: An object representing an AWS Batch array job.
+  * size [Integer](#integer)
+
+### ArrayPropertiesDetail
+* ArrayPropertiesDetail `object`: An object representing the array properties of a job.
+  * index [Integer](#integer)
+  * size [Integer](#integer)
+  * statusSummary [ArrayJobStatusSummary](#arrayjobstatussummary)
+
+### ArrayPropertiesSummary
+* ArrayPropertiesSummary `object`: An object representing the array properties of a job.
+  * index [Integer](#integer)
+  * size [Integer](#integer)
+
 ### AttemptContainerDetail
 * AttemptContainerDetail `object`: An object representing the details of a container that is part of a job attempt.
   * containerInstanceArn [String](#string)
@@ -385,7 +409,7 @@ amazonaws_batch.UpdateJobQueue({
 * CancelJobResponse `object`
 
 ### ClientException
-* ClientException `object`: These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid. 
+* ClientException `object`: These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid. 
   * message [String](#string)
 
 ### ComputeEnvironmentDetail
@@ -476,6 +500,11 @@ amazonaws_batch.UpdateJobQueue({
   * user [String](#string)
   * vcpus **required** [Integer](#integer)
   * volumes [Volumes](#volumes)
+
+### ContainerSummary
+* ContainerSummary `object`: An object representing summary details of a container within a job.
+  * exitCode [Integer](#integer)
+  * reason [String](#string)
 
 ### CreateComputeEnvironmentRequest
 * CreateComputeEnvironmentRequest `object`
@@ -604,6 +633,7 @@ amazonaws_batch.UpdateJobQueue({
 ### JobDependency
 * JobDependency `object`: An object representing an AWS Batch job dependency.
   * jobId [String](#string)
+  * type [ArrayJobDependency](#arrayjobdependency)
 
 ### JobDependencyList
 * JobDependencyList `array`
@@ -611,6 +641,7 @@ amazonaws_batch.UpdateJobQueue({
 
 ### JobDetail
 * JobDetail `object`: An object representing an AWS Batch job.
+  * arrayProperties [ArrayPropertiesDetail](#arraypropertiesdetail)
   * attempts [AttemptDetails](#attemptdetails)
   * container [ContainerDetail](#containerdetail)
   * createdAt [Long](#long)
@@ -649,8 +680,15 @@ amazonaws_batch.UpdateJobQueue({
 
 ### JobSummary
 * JobSummary `object`: An object representing summary details of a job.
+  * arrayProperties [ArrayPropertiesSummary](#arraypropertiessummary)
+  * container [ContainerSummary](#containersummary)
+  * createdAt [Long](#long)
   * jobId **required** [String](#string)
   * jobName **required** [String](#string)
+  * startedAt [Long](#long)
+  * status [JobStatus](#jobstatus)
+  * statusReason [String](#string)
+  * stoppedAt [Long](#long)
 
 ### JobSummaryList
 * JobSummaryList `array`
@@ -663,7 +701,8 @@ amazonaws_batch.UpdateJobQueue({
 
 ### ListJobsRequest
 * ListJobsRequest `object`
-  * jobQueue **required** [String](#string)
+  * arrayJobId [String](#string)
+  * jobQueue [String](#string)
   * jobStatus [JobStatus](#jobstatus)
   * maxResults [Integer](#integer)
   * nextToken [String](#string)
@@ -723,6 +762,7 @@ amazonaws_batch.UpdateJobQueue({
 
 ### SubmitJobRequest
 * SubmitJobRequest `object`
+  * arrayProperties [ArrayProperties](#arrayproperties)
   * containerOverrides [ContainerOverrides](#containeroverrides)
   * dependsOn [JobDependencyList](#jobdependencylist)
   * jobDefinition **required** [String](#string)

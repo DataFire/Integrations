@@ -1,6 +1,6 @@
 # @datafire/voodoomfg
 
-Client library for Voodoo Manufacturing
+Client library for Voodoo Manufacturing 3D Print
 
 ## Installation and Usage
 ```bash

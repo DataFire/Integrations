@@ -888,7 +888,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * AIRMacts **required** `string`
   * AIRMajorFlag **required** `string`
   * AIRMnthsInHpv **required** `string`
-  * AIRNaics **required** `string`
+  * AIRNAICS **required** `string`
   * AIRName **required** `string`: The name of the AIR Facility.
   * AIRPenalties **required** `string`
   * AIRPollRecentViol **required** `string`
@@ -938,7 +938,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * FacNaaFlag **required** `string`
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
   * FacPopulationDensity **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacTRIAIRReleases **required** `string`
   * FacTRICarcAIRReleases **required** `string`
   * FacTRIHapsAIRReleases **required** `string`
@@ -980,6 +980,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
   * TRIbalFlag **required** `string`
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### air2_MapOutput
 * air2_MapOutput `object`: Map Output Object
@@ -1044,7 +1045,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * AIRMacts **required** `string`
   * AIRMajorFlag **required** `string`
   * AIRMnthsInHpv **required** `string`
-  * AIRNaics **required** `string`
+  * AIRNAICS **required** `string`
   * AIRName **required** `string`: The name of the AIR Facility.
   * AIRPenalties **required** `string`
   * AIRPollRecentViol **required** `string`
@@ -1094,7 +1095,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * FacNaaFlag **required** `string`
   * FacPercentMinority **required** `string`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
   * FacPopulationDensity **required** `string`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacTRIAIRReleases **required** `string`
   * FacTRICarcAIRReleases **required** `string`
   * FacTRIHapsAIRReleases **required** `string`
@@ -1137,6 +1138,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
   * TRIbalFlag **required** `string`
   * ViolFlag **required** `string`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### air3_Results
 * air3_Results `object`: Results Object
@@ -1219,7 +1221,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * AIRMacts **required** `string`
   * AIRMajorFlag **required** `string`
   * AIRMnthsInHpv **required** `number`
-  * AIRNaics **required** `string`
+  * AIRNAICS **required** `string`
   * AIRName **required** `string`: The name of the AIR Facility.
   * AIRPenalties **required** `string`
   * AIRPollRecentViol **required** `string`
@@ -1267,7 +1269,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * FacNaaFlag **required** `string`
   * FacPercentMinority **required** `number`: Percent Minority is the percentage of the population of the given area that is considered minority. Statistics are shown for the area within a 3-mile radius of each facility.
   * FacPopulationDensity **required** `number`
-  * FacSicCodes **required** `string`
+  * FacSICCodes **required** `string`
   * FacTRIAIRReleases **required** `string`
   * FacTRICarcAIRReleases **required** `string`
   * FacTRIHapsAIRReleases **required** `string`
@@ -1309,6 +1311,7 @@ epa_gov_air.air_rest_services.metadata.post({}, context)
   * TRIIDs **required** `string`: A unique 15-character ID assigned for each facility within the Toxics Release Inventory (TRI) program. The format is ZZZZZNNNNNSSSSS, where ZZZZZ = ZIP code, NNNNN = the first 5 consonants of the name, and SSSSS = the first 5 non-blank non-special characters in the street address.
   * TRIbalFlag **required** `number`
   * ViolFlag **required** `number`: Indicates if the facility had a violation within the last 3 years. 1 = Yes
+  * WebDocs `string`: Contains flags that identify what web accessible documents are available for the facility.
 
 ### met_Results
 * met_Results `object`: Results Object

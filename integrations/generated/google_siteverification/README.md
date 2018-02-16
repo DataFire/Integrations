@@ -122,8 +122,8 @@ google_siteverification.webResource.insert({
 
 #### Input
 * input `object`
-  * verificationMethod **required** `string`: The method to use for verifying a site or domain.
   * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
+  * verificationMethod **required** `string`: The method to use for verifying a site or domain.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -195,8 +195,8 @@ google_siteverification.webResource.patch({
 
 #### Input
 * input `object`
-  * id **required** `string`: The id of a verified site or domain.
   * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
+  * id **required** `string`: The id of a verified site or domain.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -220,8 +220,8 @@ google_siteverification.webResource.update({
 
 #### Input
 * input `object`
-  * id **required** `string`: The id of a verified site or domain.
   * body [SiteVerificationWebResourceResource](#siteverificationwebresourceresource)
+  * id **required** `string`: The id of a verified site or domain.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

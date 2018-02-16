@@ -823,6 +823,7 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
   * DeviceName [DeviceName](#devicename)
   * DeviceSerialNumber [DeviceSerialNumber](#deviceserialnumber)
   * DeviceStatus [DeviceStatus](#devicestatus)
+  * DeviceStatusInfo [DeviceStatusInfo](#devicestatusinfo)
   * DeviceType [DeviceType](#devicetype)
   * MacAddress [MacAddress](#macaddress)
   * RoomArn [Arn](#arn)
@@ -834,6 +835,7 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
   * DeviceName [DeviceName](#devicename)
   * DeviceSerialNumber [DeviceSerialNumber](#deviceserialnumber)
   * DeviceStatus [DeviceStatus](#devicestatus)
+  * DeviceStatusInfo [DeviceStatusInfo](#devicestatusinfo)
   * DeviceType [DeviceType](#devicetype)
   * MacAddress [MacAddress](#macaddress)
   * RoomArn [Arn](#arn)
@@ -852,6 +854,21 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### DeviceStatus
 * DeviceStatus `string` (values: READY, PENDING, WAS_OFFLINE)
+
+### DeviceStatusDetail
+* DeviceStatusDetail `object`: Details of a device’s status.
+  * Code [DeviceStatusDetailCode](#devicestatusdetailcode)
+
+### DeviceStatusDetailCode
+* DeviceStatusDetailCode `string` (values: DEVICE_SOFTWARE_UPDATE_NEEDED, DEVICE_WAS_OFFLINE)
+
+### DeviceStatusDetails
+* DeviceStatusDetails `array`
+  * items [DeviceStatusDetail](#devicestatusdetail)
+
+### DeviceStatusInfo
+* DeviceStatusInfo `object`: Detailed information about a device's status.
+  * DeviceStatusDetails [DeviceStatusDetails](#devicestatusdetails)
 
 ### DeviceType
 * DeviceType `string`

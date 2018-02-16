@@ -72,14 +72,6 @@
       "name": "reward program"
     },
     {
-      "description": "A patient is the core user of Twine.",
-      "name": "patient"
-    },
-    {
-      "description": "A plan is the set of actions and associated goals for a patient.",
-      "name": "plan"
-    },
-    {
       "description": "An action is an actionable item in a patient's plan.",
       "name": "action"
     },
@@ -88,12 +80,40 @@
       "name": "bundle"
     },
     {
+      "description": "A calendar event represents an event involving or relevant to a patient which will or has occurred on a specific date or during a specific period of time.",
+      "name": "calendar event"
+    },
+    {
+      "description": "Email history represents a single email that was sent using twine.",
+      "name": "email history"
+    },
+    {
+      "description": "A health profile contains a set of health questions and answers for a patient.",
+      "name": "health profile"
+    },
+    {
+      "description": "A health profile answer is the answer to a question for a patient.",
+      "name": "health profile answer"
+    },
+    {
+      "description": "A health profile question contains a health question and the corresponding answer for a patient.",
+      "name": "health profile question"
+    },
+    {
+      "description": "A health question definition specifies a health question and the corresponding answer choices.",
+      "name": "health question definition"
+    },
+    {
       "description": "A metric is a quantitative result for a patient. For example, vital signs, lab results, etc. are all metrics.",
       "name": "metric"
     },
     {
-      "description": "A reward program activation is the activation of a reward program for a specific patient.",
-      "name": "reward program activation"
+      "description": "A patient is the core user of Twine.",
+      "name": "patient"
+    },
+    {
+      "description": "A plan is the set of actions and associated goals for a patient.",
+      "name": "plan"
     },
     {
       "description": "A reward allocates a portion of the budget from the reward program activation for achieving a particular goal and sets a target date.",
@@ -108,24 +128,8 @@
       "name": "reward earning fulfillment"
     },
     {
-      "description": "Email history represents a single email that was sent using twine.",
-      "name": "email history"
-    },
-    {
-      "description": "A health profile contains a set of health questions and answers for a patient.",
-      "name": "health profile"
-    },
-    {
-      "description": "A health profile question contains a health question and the corresponding answer for a patient.",
-      "name": "health profile question"
-    },
-    {
-      "description": "A health profile answer is the answer to a question for a patient.",
-      "name": "health profile answer"
-    },
-    {
-      "description": "A health question definition specifies a health question and the corresponding answer choices.",
-      "name": "health question definition"
+      "description": "A reward program activation is the activation of a reward program for a specific patient.",
+      "name": "reward program activation"
     }
   ],
   "paths": {
@@ -144,7 +148,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/CreateActionResponse"
@@ -214,7 +218,7 @@
         ]
       },
       "patch": {
-        "description": "Updte a health action from a patient's plan.",
+        "description": "Update a health action from a patient's plan.",
         "operationId": "updateAction",
         "parameters": [
           {
@@ -398,6 +402,312 @@
         "summary": "Update a bundle",
         "tags": [
           "bundle"
+        ]
+      }
+    },
+    "/calendar_event": {
+      "get": {
+        "description": "Get a list of calendar events",
+        "operationId": "fetchCalendarEvents",
+        "parameters": [
+          {
+            "description": "Patient id to fetch calendar event. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.\n",
+            "in": "query",
+            "name": "filter[patient]",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.\n",
+            "in": "query",
+            "name": "filter[groups]",
+            "type": "string"
+          },
+          {
+            "description": "Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.\n",
+            "in": "query",
+            "name": "filter[organization]",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of coach or patient ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, `filter[organization]`, or `filter[attendees]`.\n",
+            "in": "query",
+            "name": "filter[attendees]",
+            "type": "string"
+          },
+          {
+            "description": "Calendar event type",
+            "enum": [
+              "plan-check-in",
+              "reminder",
+              "telephone-call",
+              "office-visit",
+              "video-call"
+            ],
+            "in": "query",
+            "name": "filter[type]",
+            "type": "string"
+          },
+          {
+            "description": "If not specified, return all calendar events. If set to `true` return only events marked as completed, if set to `false`, return only events not marked as completed yet.",
+            "in": "query",
+            "name": "filter[completed]",
+            "type": "boolean"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events starting in November 2017 (America/New_York): `filter[start_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[start_at]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events ending in November 2017 (America/New_York): `filter[end_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[end_at]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events completed in November 2017 (America/New_York): `filter[completed_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[completed_at]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events created in November 2017 (America/New_York): `filter[created_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[created_at]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for events updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[updated_at]",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "Page number",
+            "in": "query",
+            "name": "page[number]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "Page size",
+            "in": "query",
+            "maximum": 50,
+            "name": "page[size]",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "List of related resources to include in the response",
+            "enum": [
+              "owner"
+            ],
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FetchCalendarEventsResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "List calendar events",
+        "tags": [
+          "calendar event"
+        ]
+      },
+      "post": {
+        "description": "Create a calendar event for a patient. Attribute `all_day` must be set to `true` and `end_at` cannot be set for `plan-check-in` event type.",
+        "operationId": "createCalendarEvent",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCalendarEventRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateCalendarEventResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          }
+        },
+        "summary": "Create calendar event",
+        "tags": [
+          "calendar event"
+        ]
+      }
+    },
+    "/calendar_event/{id}": {
+      "delete": {
+        "description": "Delete a calendar event by id",
+        "operationId": "deleteCalendarEvent",
+        "parameters": [
+          {
+            "description": "Calendar event identifier",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "Delete a calendar event",
+        "tags": [
+          "calendar event"
+        ]
+      },
+      "get": {
+        "description": "Get a calendar event by id",
+        "operationId": "fetchCalendarEvent",
+        "parameters": [
+          {
+            "description": "Calendar event identifier",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FetchCalendarEventResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          }
+        },
+        "summary": "Get a calendar event",
+        "tags": [
+          "calendar event"
+        ]
+      },
+      "patch": {
+        "description": "Update a calendar event for a patient. Attribute `all_day` must be true and `end_at` cannot be specified for `plan-check-in` event type. To mark a calendar event as 'completed', set `completed_at` and `completed_by` to desired values.  To mark a completed calendar event as 'not completed', set `completed_at` and `completed_by` to `null`.",
+        "operationId": "updateCalendarEvent",
+        "parameters": [
+          {
+            "description": "Calendar event identifier",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateCalendarEventRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateCalendarEventResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/FetchErrorResponse"
+            }
+          },
+          "409": {
+            "description": "Invalid Request",
+            "schema": {
+              "$ref": "#/definitions/CreateOrUpdateErrorResponse"
+            }
+          }
+        },
+        "summary": "Update a calendar event",
+        "tags": [
+          "calendar event"
         ]
       }
     },
@@ -680,19 +990,19 @@
         "operationId": "fetchHealthProfiles",
         "parameters": [
           {
-            "description": "Patient id to fetch healt profile (either a patient, group or organization filter is required)",
+            "description": "Patient id to fetch health profile. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[patient]",
             "type": "string"
           },
           {
-            "description": "Comma-separated list of Twine group ids (either a patient, group or organization filter is required)",
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[groups]",
             "type": "string"
           },
           {
-            "description": "Twine organization id (either a patient, group or organization filter is required)",
+            "description": "Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -814,19 +1124,19 @@
         "operationId": "fetchHealthProfileAnswers",
         "parameters": [
           {
-            "description": "Patient id to fetch healt profile answers (either a patient, group or organization filter is required)",
+            "description": "Patient id to fetch healt profile answers. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[patient]",
             "type": "string"
           },
           {
-            "description": "Comma-separated list of Twine group ids (either a patient, group or organization filter is required)",
+            "description": "Comma-separated list of group ids. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[groups]",
             "type": "string"
           },
           {
-            "description": "Twine organization id (either a patient, group or organization filter is required)",
+            "description": "Twine organization id. Note that one of the following filters must be specified: `filter[patient]`, `filter[group]`, or `filter[organization]`.\n",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -1265,13 +1575,13 @@
         "operationId": "fetchPatients",
         "parameters": [
           {
-            "description": "Comma-separated list of Twine group ids (either a group or organization filter is required)",
+            "description": "Comma-separated list of group ids. Note that either `filter[group]` or `filter[organization]` must be specified.",
             "in": "query",
             "name": "filter[groups]",
             "type": "string"
           },
           {
-            "description": "Twine organization id (either a group or organization filter is required)",
+            "description": "Twine organization id. Note that either `filter[group]` or `filter[organization]` must be specified.",
             "in": "query",
             "name": "filter[organization]",
             "type": "string"
@@ -1293,6 +1603,18 @@
             "in": "query",
             "name": "filter[archived]",
             "type": "boolean"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for patients created in November 2017 (America/New_York): `filter[created_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[created_at]",
+            "type": "string"
+          },
+          {
+            "description": "The start (inclusive) and end (exclusive) dates are ISO date and time strings separated by `..`. Example for patients updated in November 2017 (America/New_York): `filter[updated_at]=2017-11-01T00:00:00-04:00..2017-12-01T00:00:00-05:00`\n",
+            "in": "query",
+            "name": "filter[updated_at]",
+            "type": "string"
           },
           {
             "default": 1,
@@ -2894,6 +3216,186 @@
       ],
       "type": "object"
     },
+    "CalendarEventResource": {
+      "example": {
+        "attributes": {
+          "all_day": true,
+          "attendees": [
+            {
+              "response_status": "needsAction",
+              "user": "5a0c8e27a9d454cc150997c9"
+            },
+            {
+              "response_status": "needsAction",
+              "user": "5a0c8e27a9d454cc150997f7"
+            }
+          ],
+          "completed_at": "2017-11-03T06:17:34.652Z",
+          "completed_by": "5a0c8e27a9d454cc150997c9",
+          "created_at": "2017-10-20T10:59:40.000Z",
+          "created_by": "5a0c8e27a9d454cc150997c9",
+          "end_at": "2017-11-03T08:00:00.000Z",
+          "start_at": "2017-11-03T04:00:00.000Z",
+          "time_zone": "America/New_York",
+          "title": "Plan Check-In",
+          "type": "plan-check-in",
+          "updated_at": "2017-10-20T10:59:40.000Z",
+          "updated_by": "5a0c8e27a9d454cc150997c9"
+        },
+        "id": "5a0c8e2aa9d454cc1509a142",
+        "links": {
+          "self": "/pub/calendar_event/5a0c8e2aa9d454cc1509a142"
+        },
+        "relationships": {
+          "owner": {
+            "data": {
+              "id": "5a0c8e27a9d454cc150997f7",
+              "type": "patient"
+            },
+            "links": {
+              "related": "/pub/calendar_event/5a0c8e2aa9d454cc1509a142/owner"
+            }
+          }
+        },
+        "type": "calendar_event"
+      },
+      "properties": {
+        "attributes": {
+          "properties": {
+            "all_day": {
+              "description": "True if the calendar event is an all day event, false otherwise. Must be set to true for `plan-check-in` event type. If it is true, then `start_at` and `end_at` must also be set to beginning of day, except `plan-check-in` event type does not need an `end_at` date. If it is false, then `start_at` and `end_at` must be on the same day.",
+              "type": "boolean"
+            },
+            "attendees": {
+              "description": "List of attendees for the calendar event",
+              "items": {
+                "properties": {
+                  "response_status": {
+                    "description": "Status of responses from attendees",
+                    "enum": [
+                      "needsAction",
+                      "declined",
+                      "tentative",
+                      "accepted"
+                    ],
+                    "type": "string"
+                  },
+                  "user": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "completed_at": {
+              "description": "The date and time when the calendar event is marked as completed. Only valid for `plan-check-in` event type.",
+              "example": "2017-11-03T06:17:34.652Z",
+              "format": "ISODate",
+              "type": "string"
+            },
+            "completed_by": {
+              "description": "The coach who marked the calendar event as completed. Only valid for `plan-check-in` event type.",
+              "type": "object"
+            },
+            "description": {
+              "type": "string"
+            },
+            "end_at": {
+              "description": "The date and time when the calendar event ends. Not valid for `plan-check-in` event type.",
+              "example": "2017-11-03T08:00:00.000Z",
+              "format": "ISODate",
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "start_at": {
+              "description": "The date and time when the calendar event starts",
+              "example": "2017-11-03T04:00:00.000Z",
+              "format": "ISODate",
+              "type": "string"
+            },
+            "time_zone": {
+              "description": "The time zone in which the dates for the calendar event are specified",
+              "example": "America/New_York",
+              "type": "string"
+            },
+            "title": {
+              "description": "The title of the calendar event. Must not be empty or null",
+              "type": "string"
+            },
+            "type": {
+              "description": "The type of calendar event. Immutable after event creation.",
+              "enum": [
+                "plan-check-in",
+                "reminder",
+                "telephone-call",
+                "office-visit",
+                "video-call"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "properties": {
+            "self": {
+              "example": "/calendar_event/5a0c8e2aa9d454cc1509a142",
+              "pattern": "/calendar_event/[0-9a-z]+",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "relationships": {
+          "properties": {
+            "owner": {
+              "description": "The owner is the patient for whom the calendar event is created specificially for",
+              "properties": {
+                "data": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "links": {
+                  "properties": {
+                    "related": {
+                      "example": "/pub/calendar_event/5a0c8e2aa9d454cc1509a142/owner",
+                      "pattern": "/pub/calendar_event/[0-9a-z]+",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "data"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "calendar_event"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "CoachResource": {
       "properties": {
         "attributes": {
@@ -3145,6 +3647,95 @@
       ],
       "type": "object"
     },
+    "CreateCalendarEventRequest": {
+      "example": {
+        "data": {
+          "attributes": {
+            "all_day": true,
+            "attendees": [
+              {
+                "user": "5a0c8e27a9d454cc150997c9"
+              },
+              {
+                "user": "5a0c8e27a9d454cc150997f7"
+              }
+            ],
+            "start_at": "2018-02-20T00:00:00Z",
+            "time_zone": "America/New_York",
+            "title": "Plan Check-In",
+            "type": "plan-check-in"
+          },
+          "relationships": {
+            "owner": {
+              "data": {
+                "id": "5a0c8e27a9d454cc150997f7",
+                "type": "patient"
+              }
+            }
+          },
+          "type": "calendar_event"
+        }
+      },
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/CalendarEventResource/properties/attributes"
+                }
+              ],
+              "required": [
+                "type",
+                "start_at",
+                "title",
+                "attendees"
+              ]
+            },
+            "relationships": {
+              "properties": {
+                "owner": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/CalendarEventResource/properties/relationships/properties/owner/properties/data"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "$ref": "#/definitions/CalendarEventResource/properties/type"
+            }
+          },
+          "required": [
+            "type",
+            "attributes",
+            "relationships"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "CreateCalendarEventResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CalendarEventResource"
+        },
+        "meta": {
+          "$ref": "#/definitions/CreateOrUpdateMetaResponse"
+        }
+      },
+      "type": "object"
+    },
     "CreateGroupRequest": {
       "example": {
         "data": {
@@ -3233,7 +3824,7 @@
     "CreatePatientHealthMetricRequest": {
       "properties": {
         "data": {
-          "$ref": "#/definitions/PatientHealthMetricResource"
+          "$ref": "#/definitions/PatientHealthMetricCreateResource"
         },
         "meta": {
           "properties": {
@@ -3287,6 +3878,16 @@
       "properties": {
         "data": {
           "$ref": "#/definitions/PatientCreateResource"
+        },
+        "meta": {
+          "properties": {
+            "ignore_duplicates": {
+              "default": false,
+              "description": "If `true`, patients with any conflicting identifiers (same `system` and `value`) will be ignored.\nUseful for gracefully skipping duplicates after errors occur during bulk create.\n",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
         }
       },
       "required": [
@@ -3949,6 +4550,48 @@
       "required": [
         "data"
       ],
+      "type": "object"
+    },
+    "FetchCalendarEventResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CalendarEventResource"
+        },
+        "included": {
+          "description": "Related resources which are included in the response based on the `include` param.\nAttributes of each resource will vary depending on the type.\nSee [patient](#operation/fetchPatient)\n",
+          "items": {
+            "$ref": "#/definitions/Resource"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/FetchMetaResponse"
+        }
+      },
+      "type": "object"
+    },
+    "FetchCalendarEventsResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/CalendarEventResource"
+          },
+          "type": "array"
+        },
+        "included": {
+          "description": "Related resources which are included in the response based on the `include` param.\nAttributes of each resource will vary depending on the type.\nSee [patient](#operation/fetchPatient)\n",
+          "items": {
+            "$ref": "#/definitions/Resource"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/CollectionResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/FetchMetaResponse"
+        }
+      },
       "type": "object"
     },
     "FetchCoachResponse": {
@@ -5492,8 +6135,7 @@
         }
       },
       "required": [
-        "type",
-        "id"
+        "type"
       ],
       "type": "object"
     },
@@ -5698,235 +6340,145 @@
       "type": "object"
     },
     "PatientCreateResource": {
-      "properties": {
-        "attributes": {
-          "properties": {
-            "addresses": {
-              "items": {
-                "$ref": "#/definitions/Address"
-              },
-              "type": "array"
-            },
-            "birth_date": {
-              "example": "1944-03-06",
-              "format": "date",
-              "type": "string"
-            },
-            "email_address": {
-              "example": "fiona@example.com",
-              "type": "string"
-            },
-            "enrolled_at": {
-              "example": "2016-05-26T15:25:54.000Z",
-              "format": "dateTime",
-              "readOnly": true,
-              "type": "string"
-            },
-            "first_access_at": {
-              "example": "2016-06-03T13:15:22.000Z",
-              "format": "dateTime",
-              "readOnly": true,
-              "type": "string"
-            },
-            "first_name": {
-              "example": "Fiona",
-              "type": "string"
-            },
-            "gender": {
-              "enum": [
-                "male",
-                "female",
-                "other"
-              ],
-              "example": "female",
-              "type": "string"
-            },
-            "identifiers": {
-              "items": {
-                "$ref": "#/definitions/PatientIdentifier"
-              },
-              "type": "array"
-            },
-            "invited_at": {
-              "example": "2016-06-01T16:20:16.000Z",
-              "format": "dateTime",
-              "readOnly": true,
-              "type": "string"
-            },
-            "last_access_at": {
-              "example": "2016-07-11T17:50:49.400Z",
-              "format": "dateTime",
-              "readOnly": true,
-              "type": "string"
-            },
-            "last_name": {
-              "example": "Reeves",
-              "type": "string"
-            },
-            "phone_numbers": {
-              "items": {
-                "$ref": "#/definitions/PhoneNumber"
-              },
-              "type": "array"
-            },
-            "updated_at": {
-              "example": "2016-07-11T17:13:57.027Z",
-              "format": "dateTime",
-              "readOnly": true,
-              "type": "string"
-            }
-          },
-          "type": "object"
+      "allOf": [
+        {
+          "$ref": "#/definitions/PatientResource"
         },
-        "id": {
-          "example": "57b36ef304ad8c2224f2af3a",
-          "type": "string"
+        {
+          "description": "Note that `data` can either be a single object or an array of objects matching the schema specified here\n(bulk create).\n"
         },
-        "links": {
+        {
           "properties": {
-            "self": {
-              "example": "/patient/57b36ef304ad8c2224f2af3a",
-              "pattern": "/patient/[0-9a-z]+",
-              "type": "string"
-            },
-            "twine_web_app": {
-              "description": "A link to the patient record in the Twine web application.",
-              "example": "https://app.twinehealth.com/#/coach/patient/5367c6300b7bb6e94188c02c/overview",
-              "type": "string"
-            }
-          },
-          "readOnly": true,
-          "type": "object"
-        },
-        "relationships": {
-          "properties": {
-            "coaches": {
+            "relationships": {
               "properties": {
-                "data": {
-                  "items": {
-                    "properties": {
-                      "id": {
-                        "example": "57fee2a66b49113551658505",
-                        "type": "string"
-                      },
-                      "meta": {
-                        "properties": {
-                          "primary": {
-                            "type": "boolean"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "type": {
-                        "enum": [
-                          "coach"
-                        ],
-                        "example": "coach",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "id"
-                    ],
-                    "type": "object"
-                  },
-                  "type": "array"
-                },
-                "links": {
+                "coaches": {
                   "properties": {
-                    "related": {
-                      "example": "/patient/57b36ef304ad8c2224f2af3a/coaches",
-                      "pattern": "/patient/[0-9a-z]+/coaches",
-                      "type": "string"
-                    }
-                  },
-                  "readOnly": true
-                }
-              },
-              "required": [
-                "data"
-              ],
-              "type": "object"
-            },
-            "groups": {
-              "properties": {
-                "data": {
-                  "items": {
-                    "properties": {
-                      "id": {
-                        "description": "Required if the `meta.query` is not defined.",
-                        "example": "57b3708b04ad8c2224f2af3b",
-                        "type": "string"
-                      },
-                      "meta": {
-                        "description": "Allows the specification of a query for a group rather than providing a group id directly",
+                    "data": {
+                      "items": {
                         "properties": {
-                          "query": {
-                            "description": "1. If the query does not return any groups, a group with the specified name will be created and related to the patient.\n2. If the query returns one group, that group will be related to the patient.\n3. If the query returns more than one group, the creation of the patient will fail.\n",
+                          "id": {
+                            "example": "57fee2a66b49113551658505",
+                            "type": "string"
+                          },
+                          "meta": {
                             "properties": {
-                              "name": {
-                                "type": "string"
-                              },
-                              "organization": {
-                                "type": "string"
+                              "primary": {
+                                "type": "boolean"
                               }
                             },
-                            "required": [
-                              "organization",
-                              "name"
-                            ],
                             "type": "object"
+                          },
+                          "type": {
+                            "enum": [
+                              "coach"
+                            ],
+                            "example": "coach",
+                            "type": "string"
                           }
                         },
                         "required": [
-                          "query"
+                          "type",
+                          "id"
                         ],
                         "type": "object"
                       },
-                      "type": {
-                        "enum": [
-                          "group"
-                        ],
-                        "example": "group",
-                        "type": "string"
-                      }
+                      "type": "array"
                     },
-                    "required": [
-                      "type"
-                    ],
-                    "type": "object"
+                    "links": {
+                      "properties": {
+                        "related": {
+                          "example": "/patient/57b36ef304ad8c2224f2af3a/coaches",
+                          "pattern": "/patient/[0-9a-z]+/coaches",
+                          "type": "string"
+                        }
+                      },
+                      "readOnly": true
+                    }
                   },
-                  "type": "array"
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object"
+                },
+                "groups": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "description": "Required if the `meta.query` is not defined.",
+                            "example": "57b3708b04ad8c2224f2af3b",
+                            "type": "string"
+                          },
+                          "meta": {
+                            "description": "Allows the specification of a query for a group rather than providing a group id directly",
+                            "properties": {
+                              "query": {
+                                "description": "1. If the query does not return any groups, a group with the specified name will be created and related to the patient.\n2. If the query returns one group, that group will be related to the patient.\n3. If the query returns more than one group, the creation of the patient will fail.\n",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "organization": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "organization",
+                                  "name"
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            "required": [
+                              "query"
+                            ],
+                            "type": "object"
+                          },
+                          "type": {
+                            "enum": [
+                              "group"
+                            ],
+                            "example": "group",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object"
                 }
               },
               "required": [
-                "data"
+                "groups"
               ],
               "type": "object"
             }
-          },
-          "required": [
-            "groups"
-          ],
-          "type": "object"
-        },
-        "type": {
-          "enum": [
-            "patient"
-          ],
-          "example": "patient",
-          "type": "string"
+          }
         }
-      },
-      "required": [
-        "type",
-        "attributes"
+      ],
+      "type": "object"
+    },
+    "PatientHealthMetricCreateResource": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/PatientHealthMetricResource"
+        },
+        {
+          "description": "Note that `data` can either be a single object or an array of objects matching the schema specified here\n(bulk create).\n"
+        }
       ],
       "type": "object"
     },
     "PatientHealthMetricResource": {
-      "description": "Note that `data` can either be a single object or an array of objects matching the schema specified here\n(bulk create). When bulk creating multiple, the relationships in every item **must** be the same.\n",
       "example": {
         "data": {
           "attributes": {
@@ -6124,6 +6676,11 @@
         },
         "system": {
           "type": "string"
+        },
+        "unique": {
+          "default": true,
+          "description": "If `true`, the combination of system and value must be global unique among all patients and coaches in Twine.",
+          "type": "boolean"
         },
         "value": {
           "type": "string"
@@ -6415,6 +6972,11 @@
               "example": "Reeves",
               "type": "string"
             },
+            "note": {
+              "description": "Coach's note about the patient. Not visible to the patient.",
+              "example": "Relies on daughter to get around",
+              "type": "string"
+            },
             "phone_numbers": {
               "items": {
                 "$ref": "#/definitions/PhoneNumber"
@@ -6591,10 +7153,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "id"
-      ],
       "type": "object"
     },
     "RewardEarningFulfillmentResource": {
@@ -7324,6 +7882,89 @@
       ],
       "type": "object"
     },
+    "UpdateCalendarEventRequest": {
+      "example": {
+        "data": {
+          "attributes": {
+            "all_day": false,
+            "attendees": [
+              {
+                "user": "5a0c8e27a9d454cc150997c9"
+              },
+              {
+                "user": "5a0c8e27a9d454cc150997f7"
+              }
+            ],
+            "completed_at": "2017-11-03T06:17:34.652Z",
+            "completed_by": "5a0c8e27a9d454cc150997c9",
+            "end_at": "2018-02-20T18:00:00Z",
+            "start_at": "2018-02-20T14:00:00Z",
+            "time_zone": "America/New_York",
+            "title": "Telephone Call",
+            "type": "telephone-call"
+          },
+          "id": "42ba7c2da9d45415234345b3",
+          "relationships": {
+            "owner": {
+              "data": {
+                "id": "5a0c8e27a9d454cc150997f7",
+                "type": "patient"
+              }
+            }
+          },
+          "type": "calendar_event"
+        }
+      },
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/CalendarEventResource/properties/attributes"
+                }
+              ]
+            },
+            "id": {
+              "$ref": "#/definitions/CalendarEventResource/properties/id"
+            },
+            "relationships": {
+              "properties": {
+                "owner": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/CalendarEventResource/properties/relationships/properties/owner/properties/data"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "$ref": "#/definitions/CalendarEventResource/properties/type"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateCalendarEventResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CalendarEventResource"
+        },
+        "meta": {
+          "$ref": "#/definitions/CreateOrUpdateMetaResponse"
+        }
+      },
+      "type": "object"
+    },
     "UpdatePatientPlanSummaryRequest": {
       "properties": {
         "data": {
@@ -7444,22 +8085,23 @@
       ]
     },
     {
-      "name": "Patient Health Data",
+      "name": "Patient Data",
       "tags": [
-        "patient",
-        "plan",
         "action",
         "bundle",
+        "calendar event",
+        "email history",
+        "health profile",
+        "health profile answer",
+        "health profile question",
+        "health question definition",
         "metric",
-        "reward program activation",
+        "patient",
+        "plan",
         "reward",
         "reward earning",
         "reward earning fulfillment",
-        "email history",
-        "health profile",
-        "health profile question",
-        "health profile answer",
-        "health question definition"
+        "reward program activation"
       ]
     }
   ]

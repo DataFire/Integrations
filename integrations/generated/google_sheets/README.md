@@ -78,18 +78,18 @@ google_sheets.spreadsheets.create({}, context)
 #### Input
 * input `object`
   * body [Spreadsheet](#spreadsheet)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -127,21 +127,21 @@ google_sheets.spreadsheets.get({
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The spreadsheet to request.
-  * ranges `array`: The ranges to retrieve from the spreadsheet.
   * includeGridData `boolean`: True if grid data should be returned.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * ranges `array`: The ranges to retrieve from the spreadsheet.
+  * spreadsheetId **required** `string`: The spreadsheet to request.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -223,28 +223,28 @@ Returns the properties of the newly created sheet.
 
 ```js
 google_sheets.spreadsheets.sheets.copyTo({
-  "spreadsheetId": "",
-  "sheetId": 0
+  "sheetId": 0,
+  "spreadsheetId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet containing the sheet to copy.
-  * sheetId **required** `integer`: The ID of the sheet to copy.
   * body [CopySheetToAnotherSpreadsheetRequest](#copysheettoanotherspreadsheetrequest)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * sheetId **required** `integer`: The ID of the sheet to copy.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet containing the sheet to copy.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -257,30 +257,30 @@ The caller must specify the spreadsheet ID and a range.
 
 ```js
 google_sheets.spreadsheets.values.get({
-  "spreadsheetId": "",
-  "range": ""
+  "range": "",
+  "spreadsheetId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet to retrieve data from.
-  * range **required** `string`: The A1 notation of the values to retrieve.
-  * majorDimension `string` (values: DIMENSION_UNSPECIFIED, ROWS, COLUMNS): The major dimension that results should use.
-  * valueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): How values should be represented in the output.
   * dateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): How dates, times, and durations should be represented in the output.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * majorDimension `string` (values: DIMENSION_UNSPECIFIED, ROWS, COLUMNS): The major dimension that results should use.
+  * range **required** `string`: The A1 notation of the values to retrieve.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet to retrieve data from.
+  * valueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): How values should be represented in the output.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -294,32 +294,32 @@ a valueInputOption.
 
 ```js
 google_sheets.spreadsheets.values.update({
-  "spreadsheetId": "",
-  "range": ""
+  "range": "",
+  "spreadsheetId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
-  * range **required** `string`: The A1 notation of the values to update.
-  * responseValueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): Determines how values in the response should be rendered.
-  * valueInputOption `string` (values: INPUT_VALUE_OPTION_UNSPECIFIED, RAW, USER_ENTERED): How the input data should be interpreted.
-  * responseDateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): Determines how dates, times, and durations in the response should be
-  * includeValuesInResponse `boolean`: Determines if the update response should include the values
   * body [ValueRange](#valuerange)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * includeValuesInResponse `boolean`: Determines if the update response should include the values
+  * range **required** `string`: The A1 notation of the values to update.
+  * responseDateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): Determines how dates, times, and durations in the response should be
+  * responseValueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): Determines how values in the response should be rendered.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
+  * valueInputOption `string` (values: INPUT_VALUE_OPTION_UNSPECIFIED, RAW, USER_ENTERED): How the input data should be interpreted.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -344,33 +344,33 @@ to.
 
 ```js
 google_sheets.spreadsheets.values.append({
-  "spreadsheetId": "",
-  "range": ""
+  "range": "",
+  "spreadsheetId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
-  * range **required** `string`: The A1 notation of a range to search for a logical table of data.
-  * includeValuesInResponse `boolean`: Determines if the update response should include the values
-  * responseValueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): Determines how values in the response should be rendered.
-  * insertDataOption `string` (values: OVERWRITE, INSERT_ROWS): How the input data should be inserted.
-  * valueInputOption `string` (values: INPUT_VALUE_OPTION_UNSPECIFIED, RAW, USER_ENTERED): How the input data should be interpreted.
-  * responseDateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): Determines how dates, times, and durations in the response should be
   * body [ValueRange](#valuerange)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * includeValuesInResponse `boolean`: Determines if the update response should include the values
+  * insertDataOption `string` (values: OVERWRITE, INSERT_ROWS): How the input data should be inserted.
+  * range **required** `string`: The A1 notation of a range to search for a logical table of data.
+  * responseDateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): Determines how dates, times, and durations in the response should be
+  * responseValueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): Determines how values in the response should be rendered.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
+  * valueInputOption `string` (values: INPUT_VALUE_OPTION_UNSPECIFIED, RAW, USER_ENTERED): How the input data should be interpreted.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -385,28 +385,28 @@ formatting, data validation, etc..) are kept.
 
 ```js
 google_sheets.spreadsheets.values.clear({
-  "spreadsheetId": "",
-  "range": ""
+  "range": "",
+  "spreadsheetId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
-  * range **required** `string`: The A1 notation of the values to clear.
   * body [ClearValuesRequest](#clearvaluesrequest)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * range **required** `string`: The A1 notation of the values to clear.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -427,20 +427,20 @@ google_sheets.spreadsheets.values.batchClear({
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
   * body [BatchClearValuesRequest](#batchclearvaluesrequest)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -494,23 +494,23 @@ google_sheets.spreadsheets.values.batchGet({
 
 #### Input
 * input `object`
+  * dateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): How dates, times, and durations should be represented in the output.
+  * majorDimension `string` (values: DIMENSION_UNSPECIFIED, ROWS, COLUMNS): The major dimension that results should use.
+  * ranges `array`: The A1 notation of the values to retrieve.
   * spreadsheetId **required** `string`: The ID of the spreadsheet to retrieve data from.
   * valueRenderOption `string` (values: FORMATTED_VALUE, UNFORMATTED_VALUE, FORMULA): How values should be represented in the output.
-  * dateTimeRenderOption `string` (values: SERIAL_NUMBER, FORMATTED_STRING): How dates, times, and durations should be represented in the output.
-  * ranges `array`: The A1 notation of the values to retrieve.
-  * majorDimension `string` (values: DIMENSION_UNSPECIFIED, ROWS, COLUMNS): The major dimension that results should use.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -565,20 +565,20 @@ google_sheets.spreadsheets.values.batchUpdate({
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
   * body [BatchUpdateValuesRequest](#batchupdatevaluesrequest)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * spreadsheetId **required** `string`: The ID of the spreadsheet to update.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -648,20 +648,20 @@ google_sheets.spreadsheets.batchUpdate({
 
 #### Input
 * input `object`
-  * spreadsheetId **required** `string`: The spreadsheet to apply the updates to.
   * body [BatchUpdateSpreadsheetRequest](#batchupdatespreadsheetrequest)
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * fields `string`: Selector specifying which fields to include in a partial response.
+  * spreadsheetId **required** `string`: The spreadsheet to apply the updates to.
   * $.xgafv `string` (values: 1, 2): V1 error format.
-  * callback `string`: JSONP
-  * alt `string` (values: json, media, proto): Data format for response.
   * access_token `string`: OAuth access token.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * pp `boolean`: Pretty-print response.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * alt `string` (values: json, media, proto): Data format for response.
   * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
 
 #### Output
@@ -833,6 +833,7 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### BasicChartSeries
 * BasicChartSeries `object`: A single series of data in a chart.
+  * lineStyle [LineStyle](#linestyle)
   * series [ChartData](#chartdata)
   * targetAxis `string` (values: BASIC_CHART_AXIS_POSITION_UNSPECIFIED, BOTTOM_AXIS, LEFT_AXIS, RIGHT_AXIS): The minor axis that will specify the range of values for this series.
   * type `string` (values: BASIC_CHART_TYPE_UNSPECIFIED, BAR, LINE, AREA, COLUMN, SCATTER, COMBO, STEPPED_AREA): The type of this series. Valid only if the
@@ -1073,6 +1074,7 @@ google_sheets.spreadsheets.getByDataFilter({
   * title `string`: The title of the chart.
   * titleTextFormat [TextFormat](#textformat)
   * titleTextPosition [TextPosition](#textposition)
+  * waterfallChart [WaterfallChartSpec](#waterfallchartspec)
 
 ### ClearBasicFilterRequest
 * ClearBasicFilterRequest `object`: Clears the basic filter, if any exists on the sheet.
@@ -1384,6 +1386,12 @@ google_sheets.spreadsheets.getByDataFilter({
     * items [HistogramSeries](#histogramseries)
   * showItemDividers `boolean`: Whether horizontal divider lines should be displayed between items in each
 
+### HistogramRule
+* HistogramRule `object`: Allows you to organize the numeric values in a source data column into
+  * end `number`: Optional. The maximum value at which items will be placed into buckets
+  * interval `number`: Required. The size of the buckets that will be created. Must be positive.
+  * start `number`: Optional. The minimum value at which items will be placed into buckets
+
 ### HistogramSeries
 * HistogramSeries `object`: A histogram series containing the series color and data.
   * barColor [Color](#color)
@@ -1409,6 +1417,22 @@ google_sheets.spreadsheets.getByDataFilter({
 * IterativeCalculationSettings `object`: Settings to control how circular dependencies are resolved with iterative
   * convergenceThreshold `number`: When iterative calculation is enabled and successive results differ by
   * maxIterations `integer`: When iterative calculation is enabled, the maximum number of calculation
+
+### LineStyle
+* LineStyle `object`: Properties that describe the style of a line.
+  * type `string` (values: LINE_DASH_TYPE_UNSPECIFIED, INVISIBLE, CUSTOM, SOLID, DOTTED, MEDIUM_DASHED, MEDIUM_DASHED_DOTTED, LONG_DASHED, LONG_DASHED_DOTTED): The dash type of the line.
+  * width `integer`: The thickness of the line, in px.
+
+### ManualRule
+* ManualRule `object`: Allows you to manually organize the values in a source data column into
+  * groups `array`: The list of group names and the corresponding items from the source data
+    * items [ManualRuleGroup](#manualrulegroup)
+
+### ManualRuleGroup
+* ManualRuleGroup `object`: A group name and a list of items from the source data that should be placed
+  * groupName [ExtendedValue](#extendedvalue)
+  * items `array`: The items in the source data that should be placed into this group. Each
+    * items [ExtendedValue](#extendedvalue)
 
 ### MatchedDeveloperMetadata
 * MatchedDeveloperMetadata `object`: A developer metadata entry and the data filters specified in the original
@@ -1490,12 +1514,20 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### PivotGroup
 * PivotGroup `object`: A single grouping (either row or column) in a pivot table.
+  * groupRule [PivotGroupRule](#pivotgrouprule)
+  * label `string`: The labels to use for the row/column groups which can be customized. For
+  * repeatHeadings `boolean`: True if the headings in this pivot group should be repeated.
   * showTotals `boolean`: True if the pivot table should include the totals for this grouping.
   * sortOrder `string` (values: SORT_ORDER_UNSPECIFIED, ASCENDING, DESCENDING): The order the values in this group should be sorted.
   * sourceColumnOffset `integer`: The column offset of the source range that this grouping is based on.
   * valueBucket [PivotGroupSortValueBucket](#pivotgroupsortvaluebucket)
   * valueMetadata `array`: Metadata about values in the grouping.
     * items [PivotGroupValueMetadata](#pivotgroupvaluemetadata)
+
+### PivotGroupRule
+* PivotGroupRule `object`: An optional setting on a PivotGroup that defines buckets for the values
+  * histogramRule [HistogramRule](#histogramrule)
+  * manualRule [ManualRule](#manualrule)
 
 ### PivotGroupSortValueBucket
 * PivotGroupSortValueBucket `object`: Information about which values in a pivot group should be used for sorting.
@@ -1522,6 +1554,7 @@ google_sheets.spreadsheets.getByDataFilter({
 
 ### PivotValue
 * PivotValue `object`: The definition of how a value in a pivot table should be calculated.
+  * calculatedDisplayType `string` (values: PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED, PERCENT_OF_ROW_TOTAL, PERCENT_OF_COLUMN_TOTAL, PERCENT_OF_GRAND_TOTAL): If specified, indicates that pivot values should be displayed as
   * formula `string`: A custom formula to calculate the value.  The formula must start
   * name `string`: A name to use for the value.
   * sourceColumnOffset `integer`: The column offset of the source range that this value reads from.
@@ -1744,7 +1777,7 @@ google_sheets.spreadsheets.getByDataFilter({
 ### TextToColumnsRequest
 * TextToColumnsRequest `object`: Splits a column of text into multiple columns,
   * delimiter `string`: The delimiter to use. Used only if delimiterType is
-  * delimiterType `string` (values: DELIMITER_TYPE_UNSPECIFIED, COMMA, SEMICOLON, PERIOD, SPACE, CUSTOM): The delimiter type to use.
+  * delimiterType `string` (values: DELIMITER_TYPE_UNSPECIFIED, COMMA, SEMICOLON, PERIOD, SPACE, CUSTOM, AUTODETECT): The delimiter type to use.
   * source [GridRange](#gridrange)
 
 ### UnmergeCellsRequest
@@ -1871,5 +1904,41 @@ google_sheets.spreadsheets.getByDataFilter({
   * values `array`: The data that was read or to be written.  This is an array of arrays,
     * items `array`
 
+
+### WaterfallChartColumnStyle
+* WaterfallChartColumnStyle `object`: Styles for a waterfall chart column.
+  * color [Color](#color)
+  * label `string`: The label of the column's legend.
+
+### WaterfallChartCustomSubtotal
+* WaterfallChartCustomSubtotal `object`: A custom subtotal column for a waterfall chart series.
+  * dataIsSubtotal `boolean`: True if the data point at subtotal_index is the subtotal. If false,
+  * label `string`: A label for the subtotal column.
+  * subtotalIndex `integer`: The 0-based index of a data point within the series. If
+
+### WaterfallChartDomain
+* WaterfallChartDomain `object`: The domain of a waterfall chart.
+  * data [ChartData](#chartdata)
+  * reversed `boolean`: True to reverse the order of the domain values (horizontal axis).
+
+### WaterfallChartSeries
+* WaterfallChartSeries `object`: A single series of data for a waterfall chart.
+  * customSubtotals `array`: Custom subtotal columns appearing in this series. The order in which
+    * items [WaterfallChartCustomSubtotal](#waterfallchartcustomsubtotal)
+  * data [ChartData](#chartdata)
+  * hideTrailingSubtotal `boolean`: True to hide the subtotal column from the end of the series. By default,
+  * negativeColumnsStyle [WaterfallChartColumnStyle](#waterfallchartcolumnstyle)
+  * positiveColumnsStyle [WaterfallChartColumnStyle](#waterfallchartcolumnstyle)
+  * subtotalColumnsStyle [WaterfallChartColumnStyle](#waterfallchartcolumnstyle)
+
+### WaterfallChartSpec
+* WaterfallChartSpec `object`: A waterfall chart.
+  * connectorLineStyle [LineStyle](#linestyle)
+  * domain [WaterfallChartDomain](#waterfallchartdomain)
+  * firstValueIsTotal `boolean`: True to interpret the first value as a total.
+  * hideConnectorLines `boolean`: True to hide connector lines between columns.
+  * series `array`: The data this waterfall chart is visualizing.
+    * items [WaterfallChartSeries](#waterfallchartseries)
+  * stackedType `string` (values: WATERFALL_STACKED_TYPE_UNSPECIFIED, STACKED, SEQUENTIAL): The stacked type.
 
 

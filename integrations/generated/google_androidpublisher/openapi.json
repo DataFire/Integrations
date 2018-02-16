@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Lets Android application developers access their Google Play accounts.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Play Developer",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -47,11 +52,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -132,61 +147,6 @@
     }
   ],
   "paths": {
-    "/inappproducts/batch": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
-      "post": {
-        "operationId": "inappproducts.batch",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InappproductsBatchRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/InappproductsBatchResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ]
-          }
-        ],
-        "tags": [
-          "inappproducts"
-        ]
-      }
-    },
     "/{packageName}/edits": {
       "parameters": [
         {
@@ -216,18 +176,18 @@
         "operationId": "edits.insert",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/AppEdit"
             }
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -241,6 +201,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -256,16 +219,16 @@
         "operationId": "edits.delete",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -279,6 +242,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -291,16 +257,16 @@
         "operationId": "edits.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -316,6 +282,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -353,16 +322,16 @@
         "operationId": "edits.apks.list",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -378,6 +347,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -417,16 +389,16 @@
         "operationId": "edits.apks.upload",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -442,6 +414,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -480,11 +455,11 @@
         "operationId": "edits.apks.addexternallyhosted",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ApksAddExternallyHostedRequest"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -494,11 +469,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ApksAddExternallyHostedRequest"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -512,6 +487,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -553,20 +531,6 @@
         "operationId": "edits.deobfuscationfiles.upload",
         "parameters": [
           {
-            "description": "Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Unique identifier for this edit.",
-            "in": "path",
-            "name": "editId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The version code of the APK whose deobfuscation file is being uploaded.",
             "in": "path",
             "name": "apkVersionCode",
@@ -579,6 +543,20 @@
             ],
             "in": "path",
             "name": "deobfuscationFileType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for this edit.",
+            "in": "path",
+            "name": "editId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -595,6 +573,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -609,11 +590,11 @@
         "operationId": "edits.expansionfiles.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "description": "Unique identifier for this edit.",
@@ -623,19 +604,19 @@
             "type": "string"
           },
           {
-            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
-          },
-          {
             "enum": [
               "main",
               "patch"
             ],
             "in": "path",
             "name": "expansionFileType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -651,6 +632,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -687,11 +671,18 @@
         "operationId": "edits.expansionfiles.patch",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExpansionFile"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -699,13 +690,6 @@
             "name": "editId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
           },
           {
             "enum": [
@@ -718,11 +702,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ExpansionFile"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -736,6 +720,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -752,11 +739,11 @@
         "operationId": "edits.expansionfiles.upload",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "description": "Unique identifier for this edit.",
@@ -766,19 +753,19 @@
             "type": "string"
           },
           {
-            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
-          },
-          {
             "enum": [
               "main",
               "patch"
             ],
             "in": "path",
             "name": "expansionFileType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -795,6 +782,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -807,11 +797,18 @@
         "operationId": "edits.expansionfiles.update",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExpansionFile"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -819,13 +816,6 @@
             "name": "editId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The version code of the APK whose Expansion File configuration is being read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
           },
           {
             "enum": [
@@ -838,11 +828,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ExpansionFile"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -856,6 +846,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -871,11 +864,11 @@
         "operationId": "edits.apklistings.deleteall",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The APK version code whose APK-specific listings should be read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "description": "Unique identifier for this edit.",
@@ -885,11 +878,11 @@
             "type": "string"
           },
           {
-            "description": "The APK version code whose APK-specific listings should be read or modified.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "apkVersionCode",
+            "name": "packageName",
             "required": true,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {
@@ -900,6 +893,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -913,11 +909,11 @@
         "operationId": "edits.apklistings.list",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The APK version code whose APK-specific listings should be read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "description": "Unique identifier for this edit.",
@@ -927,11 +923,11 @@
             "type": "string"
           },
           {
-            "description": "The APK version code whose APK-specific listings should be read or modified.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "apkVersionCode",
+            "name": "packageName",
             "required": true,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {
@@ -945,6 +941,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -983,11 +982,11 @@
         "operationId": "edits.apklistings.delete",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The APK version code whose APK-specific listings should be read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "description": "Unique identifier for this edit.",
@@ -997,16 +996,16 @@
             "type": "string"
           },
           {
-            "description": "The APK version code whose APK-specific listings should be read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
-          },
-          {
             "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
             "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1020,6 +1019,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1032,11 +1034,11 @@
         "operationId": "edits.apklistings.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The APK version code whose APK-specific listings should be read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1046,16 +1048,16 @@
             "type": "string"
           },
           {
-            "description": "The APK version code whose APK-specific listings should be read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
-          },
-          {
             "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
             "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1071,6 +1073,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1107,11 +1112,18 @@
         "operationId": "edits.apklistings.patch",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The APK version code whose APK-specific listings should be read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ApkListing"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1121,13 +1133,6 @@
             "type": "string"
           },
           {
-            "description": "The APK version code whose APK-specific listings should be read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
-          },
-          {
             "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
             "name": "language",
@@ -1135,11 +1140,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ApkListing"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1154,6 +1159,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1166,11 +1174,18 @@
         "operationId": "edits.apklistings.update",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "The APK version code whose APK-specific listings should be read or modified.",
             "in": "path",
-            "name": "packageName",
+            "name": "apkVersionCode",
             "required": true,
-            "type": "string"
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ApkListing"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1180,13 +1195,6 @@
             "type": "string"
           },
           {
-            "description": "The APK version code whose APK-specific listings should be read or modified.",
-            "in": "path",
-            "name": "apkVersionCode",
-            "required": true,
-            "type": "integer"
-          },
-          {
             "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
             "name": "language",
@@ -1194,11 +1202,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ApkListing"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1212,6 +1220,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1227,16 +1238,16 @@
         "operationId": "edits.details.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1252,6 +1263,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1288,11 +1302,11 @@
         "operationId": "edits.details.patch",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AppDetails"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1302,11 +1316,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AppDetails"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1321,6 +1335,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1333,11 +1350,11 @@
         "operationId": "edits.details.update",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AppDetails"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1347,11 +1364,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AppDetails"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1365,6 +1382,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1380,16 +1400,16 @@
         "operationId": "edits.listings.deleteall",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1403,6 +1423,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1415,16 +1438,16 @@
         "operationId": "edits.listings.list",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1440,6 +1463,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1478,13 +1504,6 @@
         "operationId": "edits.listings.delete",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
@@ -1495,6 +1514,13 @@
             "description": "The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
             "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1508,6 +1534,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1520,13 +1549,6 @@
         "operationId": "edits.listings.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
@@ -1537,6 +1559,13 @@
             "description": "The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
             "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1552,6 +1581,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1588,11 +1620,11 @@
         "operationId": "edits.listings.patch",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Listing"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1609,11 +1641,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Listing"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1628,6 +1660,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1640,11 +1675,11 @@
         "operationId": "edits.listings.update",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Listing"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -1661,11 +1696,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Listing"
-            }
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1679,6 +1714,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1694,23 +1732,9 @@
         "operationId": "edits.images.deleteall",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
-            "in": "path",
-            "name": "language",
             "required": true,
             "type": "string"
           },
@@ -1728,6 +1752,20 @@
             ],
             "in": "path",
             "name": "imageType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
+            "in": "path",
+            "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1744,6 +1782,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1756,23 +1797,9 @@
         "operationId": "edits.images.list",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
-            "in": "path",
-            "name": "language",
             "required": true,
             "type": "string"
           },
@@ -1792,6 +1819,20 @@
             "name": "imageType",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
+            "in": "path",
+            "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1805,6 +1846,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1921,23 +1965,9 @@
         "operationId": "edits.images.upload",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
-            "in": "path",
-            "name": "language",
             "required": true,
             "type": "string"
           },
@@ -1955,6 +1985,20 @@
             ],
             "in": "path",
             "name": "imageType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
+            "in": "path",
+            "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -1971,6 +2015,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1985,13 +2032,6 @@
         "operationId": "edits.images.delete",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
@@ -1999,9 +2039,9 @@
             "type": "string"
           },
           {
-            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
+            "description": "Unique identifier an image within the set of images attached to this edit.",
             "in": "path",
-            "name": "language",
+            "name": "imageId",
             "required": true,
             "type": "string"
           },
@@ -2023,9 +2063,16 @@
             "type": "string"
           },
           {
-            "description": "Unique identifier an image within the set of images attached to this edit.",
+            "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\".",
             "in": "path",
-            "name": "imageId",
+            "name": "language",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -2038,6 +2085,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2075,13 +2125,6 @@
         "operationId": "edits.testers.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
@@ -2089,12 +2132,14 @@
             "type": "string"
           },
           {
-            "enum": [
-              "alpha",
-              "beta",
-              "production",
-              "rollout"
-            ],
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The track to read or modify. Acceptable values are: \"alpha\", \"beta\", \"production\" or \"rollout\".",
             "in": "path",
             "name": "track",
             "required": true,
@@ -2112,6 +2157,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2147,11 +2195,11 @@
         "operationId": "edits.testers.patch",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Testers"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -2161,23 +2209,18 @@
             "type": "string"
           },
           {
-            "enum": [
-              "alpha",
-              "beta",
-              "production",
-              "rollout"
-            ],
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "track",
+            "name": "packageName",
             "required": true,
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Testers"
-            }
+            "description": "The track to read or modify. Acceptable values are: \"alpha\", \"beta\", \"production\" or \"rollout\".",
+            "in": "path",
+            "name": "track",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2192,6 +2235,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2203,11 +2249,11 @@
         "operationId": "edits.testers.update",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Testers"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -2217,23 +2263,18 @@
             "type": "string"
           },
           {
-            "enum": [
-              "alpha",
-              "beta",
-              "production",
-              "rollout"
-            ],
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "track",
+            "name": "packageName",
             "required": true,
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Testers"
-            }
+            "description": "The track to read or modify. Acceptable values are: \"alpha\", \"beta\", \"production\" or \"rollout\".",
+            "in": "path",
+            "name": "track",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2247,6 +2288,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2262,16 +2306,16 @@
         "operationId": "edits.tracks.list",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -2287,6 +2331,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2325,13 +2372,6 @@
         "operationId": "edits.tracks.get",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Unique identifier for this edit.",
             "in": "path",
             "name": "editId",
@@ -2339,13 +2379,14 @@
             "type": "string"
           },
           {
-            "description": "The track type to read or modify.",
-            "enum": [
-              "alpha",
-              "beta",
-              "production",
-              "rollout"
-            ],
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The track to read or modify. Acceptable values are: \"alpha\", \"beta\", \"production\" or \"rollout\".",
             "in": "path",
             "name": "track",
             "required": true,
@@ -2363,6 +2404,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2399,11 +2443,11 @@
         "operationId": "edits.tracks.patch",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Track"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -2413,24 +2457,18 @@
             "type": "string"
           },
           {
-            "description": "The track type to read or modify.",
-            "enum": [
-              "alpha",
-              "beta",
-              "production",
-              "rollout"
-            ],
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "track",
+            "name": "packageName",
             "required": true,
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Track"
-            }
+            "description": "The track to read or modify. Acceptable values are: \"alpha\", \"beta\", \"production\" or \"rollout\".",
+            "in": "path",
+            "name": "track",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2445,6 +2483,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2457,11 +2498,11 @@
         "operationId": "edits.tracks.update",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Track"
+            }
           },
           {
             "description": "Unique identifier for this edit.",
@@ -2471,24 +2512,18 @@
             "type": "string"
           },
           {
-            "description": "The track type to read or modify.",
-            "enum": [
-              "alpha",
-              "beta",
-              "production",
-              "rollout"
-            ],
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "track",
+            "name": "packageName",
             "required": true,
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Track"
-            }
+            "description": "The track to read or modify. Acceptable values are: \"alpha\", \"beta\", \"production\" or \"rollout\".",
+            "in": "path",
+            "name": "track",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2502,6 +2537,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2540,16 +2578,16 @@
         "operationId": "edits.commit",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -2565,6 +2603,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2603,16 +2644,16 @@
         "operationId": "edits.validate",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
+            "description": "Unique identifier for this edit.",
             "in": "path",
-            "name": "packageName",
+            "name": "editId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Unique identifier for this edit.",
+            "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
             "in": "path",
-            "name": "editId",
+            "name": "packageName",
             "required": true,
             "type": "string"
           }
@@ -2629,6 +2670,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2643,16 +2687,16 @@
         "operationId": "entitlements.list",
         "parameters": [
           {
+            "in": "query",
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
             "description": "The package name of the application the inapp product was sold in (for example, 'com.some.thing').",
             "in": "path",
             "name": "packageName",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "maxResults",
-            "type": "integer"
           },
           {
             "description": "The product id of the inapp product (for example, 'sku1'). This can be used to restrict the result set.",
@@ -2713,16 +2757,16 @@
         "operationId": "inappproducts.list",
         "parameters": [
           {
+            "in": "query",
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
             "description": "Unique identifier for the Android app with in-app products; for example, \"com.spiffygame\".",
             "in": "path",
             "name": "packageName",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "maxResults",
-            "type": "integer"
           },
           {
             "in": "query",
@@ -2746,6 +2790,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2782,13 +2829,6 @@
         "operationId": "inappproducts.insert",
         "parameters": [
           {
-            "description": "Unique identifier for the Android app; for example, \"com.spiffygame\".",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.",
             "in": "query",
             "name": "autoConvertMissingPrices",
@@ -2800,6 +2840,13 @@
             "schema": {
               "$ref": "#/definitions/InAppProduct"
             }
+          },
+          {
+            "description": "Unique identifier for the Android app; for example, \"com.spiffygame\".",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2813,6 +2860,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2851,6 +2901,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2888,6 +2941,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2923,6 +2979,19 @@
         "operationId": "inappproducts.patch",
         "parameters": [
           {
+            "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.",
+            "in": "query",
+            "name": "autoConvertMissingPrices",
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InAppProduct"
+            }
+          },
+          {
             "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\".",
             "in": "path",
             "name": "packageName",
@@ -2935,19 +3004,6 @@
             "name": "sku",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.",
-            "in": "query",
-            "name": "autoConvertMissingPrices",
-            "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InAppProduct"
-            }
           }
         ],
         "responses": {
@@ -2962,6 +3018,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2973,6 +3032,19 @@
         "description": "Updates the details of an in-app product.",
         "operationId": "inappproducts.update",
         "parameters": [
+          {
+            "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.",
+            "in": "query",
+            "name": "autoConvertMissingPrices",
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InAppProduct"
+            }
+          },
           {
             "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\".",
             "in": "path",
@@ -2986,19 +3058,6 @@
             "name": "sku",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.",
-            "in": "query",
-            "name": "autoConvertMissingPrices",
-            "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InAppProduct"
-            }
           }
         ],
         "responses": {
@@ -3012,6 +3071,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3059,6 +3121,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3129,6 +3194,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3220,6 +3288,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3257,6 +3328,13 @@
         "operationId": "purchases.subscriptions.defer",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubscriptionPurchasesDeferRequest"
+            }
+          },
+          {
             "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing').",
             "in": "path",
             "name": "packageName",
@@ -3276,13 +3354,6 @@
             "name": "token",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SubscriptionPurchasesDeferRequest"
-            }
           }
         ],
         "responses": {
@@ -3296,6 +3367,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3364,6 +3438,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3431,6 +3508,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3491,6 +3571,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3528,16 +3611,16 @@
         "operationId": "reviews.list",
         "parameters": [
           {
+            "in": "query",
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
             "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\".",
             "in": "path",
             "name": "packageName",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "maxResults",
-            "type": "integer"
           },
           {
             "in": "query",
@@ -3566,6 +3649,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3634,6 +3720,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3694,6 +3783,13 @@
         "operationId": "reviews.reply",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReviewsReplyRequest"
+            }
+          },
+          {
             "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\".",
             "in": "path",
             "name": "packageName",
@@ -3705,13 +3801,6 @@
             "name": "reviewId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ReviewsReplyRequest"
-            }
           }
         ],
         "responses": {
@@ -3725,6 +3814,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidpublisher"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -4234,82 +4326,6 @@
       },
       "type": "object"
     },
-    "InappproductsBatchRequest": {
-      "properties": {
-        "entrys": {
-          "items": {
-            "$ref": "#/definitions/InappproductsBatchRequestEntry"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsBatchRequestEntry": {
-      "properties": {
-        "batchId": {
-          "format": "uint32",
-          "type": "integer"
-        },
-        "inappproductsinsertrequest": {
-          "$ref": "#/definitions/InappproductsInsertRequest"
-        },
-        "inappproductsupdaterequest": {
-          "$ref": "#/definitions/InappproductsUpdateRequest"
-        },
-        "methodName": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsBatchResponse": {
-      "properties": {
-        "entrys": {
-          "items": {
-            "$ref": "#/definitions/InappproductsBatchResponseEntry"
-          },
-          "type": "array"
-        },
-        "kind": {
-          "default": "androidpublisher#inappproductsBatchResponse",
-          "description": "Identifies what kind of resource this is. Value: the fixed string \"androidpublisher#inappproductsBatchResponse\".",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsBatchResponseEntry": {
-      "properties": {
-        "batchId": {
-          "format": "uint32",
-          "type": "integer"
-        },
-        "inappproductsinsertresponse": {
-          "$ref": "#/definitions/InappproductsInsertResponse"
-        },
-        "inappproductsupdateresponse": {
-          "$ref": "#/definitions/InappproductsUpdateResponse"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsInsertRequest": {
-      "properties": {
-        "inappproduct": {
-          "$ref": "#/definitions/InAppProduct"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsInsertResponse": {
-      "properties": {
-        "inappproduct": {
-          "$ref": "#/definitions/InAppProduct"
-        }
-      },
-      "type": "object"
-    },
     "InappproductsListResponse": {
       "properties": {
         "inappproduct": {
@@ -4328,22 +4344,6 @@
         },
         "tokenPagination": {
           "$ref": "#/definitions/TokenPagination"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsUpdateRequest": {
-      "properties": {
-        "inappproduct": {
-          "$ref": "#/definitions/InAppProduct"
-        }
-      },
-      "type": "object"
-    },
-    "InappproductsUpdateResponse": {
-      "properties": {
-        "inappproduct": {
-          "$ref": "#/definitions/InAppProduct"
         }
       },
       "type": "object"
@@ -4464,6 +4464,11 @@
           "description": "The time the product was purchased, in milliseconds since the epoch (Jan 1, 1970).",
           "format": "int64",
           "type": "string"
+        },
+        "purchaseType": {
+          "description": "The type of purchase of the inapp product. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are:  \n- Test (i.e. purchased from a license testing account)",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -4592,7 +4597,7 @@
           "type": "boolean"
         },
         "cancelReason": {
-          "description": "The reason why a subscription was cancelled or is not auto-renewing. Possible values are:  \n- User cancelled the subscription \n- Subscription was cancelled by the system, for example because of a billing problem \n- Subscription was replaced with a new subscription",
+          "description": "The reason why a subscription was cancelled or is not auto-renewing. Possible values are:  \n- User cancelled the subscription \n- Subscription was cancelled by the system, for example because of a billing problem \n- Subscription was replaced with a new subscription \n- Subscription was cancelled by the developer",
           "format": "int32",
           "type": "integer"
         },
@@ -4614,6 +4619,10 @@
           "description": "This kind represents a subscriptionPurchase object in the androidpublisher service.",
           "type": "string"
         },
+        "linkedPurchaseToken": {
+          "description": "The purchase token of the originating purchase if this subscription is one of the following:  \n- Re-signup of a canceled but non-lapsed subscription \n- Upgrade/downgrade from a previous subscription  For example, suppose a user originally signs up and you receive purchase token X, then the user cancels and goes through the resignup flow (before their subscription lapses) and you receive purchase token Y, and finally the user upgrades their subscription and you receive purchase token Z. If you call this API with purchase token Z, this field will be set to Y. If you call this API with purchase token Y, this field will be set to X. If you call this API with purchase token X, this field will not be set.",
+          "type": "string"
+        },
         "orderId": {
           "description": "The order id of the latest recurring order associated with the purchase of the subscription.",
           "type": "string"
@@ -4631,6 +4640,11 @@
         "priceCurrencyCode": {
           "description": "ISO 4217 currency code for the subscription price. For example, if the price is specified in British pounds sterling, price_currency_code is \"GBP\".",
           "type": "string"
+        },
+        "purchaseType": {
+          "description": "The type of purchase of the subscription. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are:  \n- Test (i.e. purchased from a license testing account)",
+          "format": "int32",
+          "type": "integer"
         },
         "startTimeMillis": {
           "description": "Time at which the subscription was granted, in milliseconds since the Epoch.",
@@ -4708,6 +4722,7 @@
     "Track": {
       "properties": {
         "track": {
+          "description": "Identifier for this track. One of \"alpha\", \"beta\", \"production\" or \"rollout\".",
           "type": "string"
         },
         "userFraction": {

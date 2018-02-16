@@ -15,7 +15,7 @@ let google_oslogin = require('@datafire/google_oslogin').create({
   redirect_uri: ""
 });
 
-google_oslogin.users.sshPublicKeys.delete({
+google_oslogin.users.projects.delete({
   "name": ""
 }).then(data => {
   console.log(data);
@@ -69,19 +69,19 @@ google_oslogin.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### users.sshPublicKeys.delete
-Deletes an SSH public key.
+### users.projects.delete
+Deletes a POSIX account.
 
 
 ```js
-google_oslogin.users.sshPublicKeys.delete({
+google_oslogin.users.projects.delete({
   "name": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * name **required** `string`: The fingerprint of the public key to update. Public keys are identified by
+  * name **required** `string`: A reference to the POSIX account to update. POSIX accounts are identified
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -209,6 +209,7 @@ google_oslogin.users.importSshPublicKey({
 * input `object`
   * body [SshPublicKey](#sshpublickey)
   * parent **required** `string`: The unique ID for the user in format `users/{user}`.
+  * projectId `string`: The project ID of the Google Cloud Platform project.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
@@ -238,15 +239,15 @@ google_oslogin.users.importSshPublicKey({
   * loginProfile [LoginProfile](#loginprofile)
 
 ### LoginProfile
-* LoginProfile `object`: The Directory API profile information used for logging in to a virtual
-  * name `string`: A unique user ID for identifying the user.
-  * posixAccounts `array`: The list of POSIX accounts associated with the Directory API user.
+* LoginProfile `object`: The user profile information used for logging in to a virtual machine on
+  * name `string`: A unique user ID.
+  * posixAccounts `array`: The list of POSIX accounts associated with the user.
     * items [PosixAccount](#posixaccount)
   * sshPublicKeys `object`: A map from SSH public key fingerprint to the associated key object.
-  * suspended `boolean`: Indicates if the user is suspended.
 
 ### PosixAccount
-* PosixAccount `object`: The POSIX account information associated with a Directory API User.
+* PosixAccount `object`: The POSIX account information associated with a Google account.
+  * accountId `string`: Output only. A POSIX account identifier.
   * gecos `string`: The GECOS (user information) entry for this account.
   * gid `string`: The default group ID.
   * homeDirectory `string`: The path to the home directory for this account.
@@ -257,9 +258,9 @@ google_oslogin.users.importSshPublicKey({
   * username `string`: The username of the POSIX account.
 
 ### SshPublicKey
-* SshPublicKey `object`: The SSH public key information associated with a Directory API User.
+* SshPublicKey `object`: The SSH public key information associated with a Google account.
   * expirationTimeUsec `string`: An expiration time in microseconds since epoch.
-  * fingerprint `string`: The SHA-256 fingerprint of the SSH public key.
+  * fingerprint `string`: Output only. The SHA-256 fingerprint of the SSH public key.
   * key `string`: Public key text in SSH format, defined by
 
 

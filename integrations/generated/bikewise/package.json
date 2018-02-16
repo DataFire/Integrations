@@ -1,6 +1,6 @@
 {
   "name": "@datafire/bikewise",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for BikeWise API v2",
   "repository": {

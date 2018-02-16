@@ -320,18 +320,18 @@
         "operationId": "calendars.patch",
         "parameters": [
           {
-            "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
-            "in": "path",
-            "name": "calendarId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Calendar"
             }
+          },
+          {
+            "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
+            "in": "path",
+            "name": "calendarId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -361,18 +361,18 @@
         "operationId": "calendars.update",
         "parameters": [
           {
-            "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
-            "in": "path",
-            "name": "calendarId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/Calendar"
             }
+          },
+          {
+            "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
+            "in": "path",
+            "name": "calendarId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -578,6 +578,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "resource",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
+          },
+          {
             "description": "Whether to include deleted ACLs in the result. Deleted ACLs are represented by role equal to \"none\". Deleted ACLs will always be included if syncToken is provided. Optional. The default is False.",
             "in": "query",
             "name": "showDeleted",
@@ -588,13 +595,6 @@
             "in": "query",
             "name": "syncToken",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
           }
         ],
         "responses": {
@@ -1084,11 +1084,26 @@
         "operationId": "events.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.",
+            "in": "query",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "conferenceDataVersion",
+            "type": "integer"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1108,13 +1123,6 @@
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
           }
         ],
         "responses": {
@@ -1169,6 +1177,13 @@
         "operationId": "events.import",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -1176,17 +1191,18 @@
             "type": "string"
           },
           {
+            "description": "Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.",
+            "in": "query",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "conferenceDataVersion",
+            "type": "integer"
+          },
+          {
             "description": "Whether API client performing operation supports event attachments. Optional. The default is False.",
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
           }
         ],
         "responses": {
@@ -1248,17 +1264,17 @@
             "type": "string"
           },
           {
+            "description": "Whether to send notifications about the creation of the event. Optional. The default is False.",
+            "in": "query",
+            "name": "sendNotifications",
+            "type": "boolean"
+          },
+          {
             "description": "The text describing the event to be created.",
             "in": "query",
             "name": "text",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to send notifications about the creation of the event. Optional. The default is False.",
-            "in": "query",
-            "name": "sendNotifications",
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -1525,6 +1541,12 @@
         "operationId": "events.get",
         "parameters": [
           {
+            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -1537,12 +1559,6 @@
             "name": "eventId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1616,6 +1632,19 @@
         "operationId": "events.patch",
         "parameters": [
           {
+            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -1623,17 +1652,19 @@
             "type": "string"
           },
           {
+            "description": "Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.",
+            "in": "query",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "conferenceDataVersion",
+            "type": "integer"
+          },
+          {
             "description": "Event identifier.",
             "in": "path",
             "name": "eventId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1653,13 +1684,6 @@
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
           }
         ],
         "responses": {
@@ -1689,6 +1713,19 @@
         "operationId": "events.update",
         "parameters": [
           {
+            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -1696,17 +1733,19 @@
             "type": "string"
           },
           {
+            "description": "Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0.",
+            "in": "query",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "conferenceDataVersion",
+            "type": "integer"
+          },
+          {
             "description": "Event identifier.",
             "in": "path",
             "name": "eventId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1726,13 +1765,6 @@
             "in": "query",
             "name": "supportsAttachments",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Event"
-            }
           }
         ],
         "responses": {
@@ -1764,6 +1796,12 @@
         "operationId": "events.instances",
         "parameters": [
           {
+            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -1776,12 +1814,6 @@
             "name": "eventId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
           },
           {
             "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
@@ -1924,16 +1956,16 @@
             "type": "string"
           },
           {
-            "description": "Event identifier.",
-            "in": "path",
-            "name": "eventId",
+            "description": "Calendar identifier of the target calendar where the event is to be moved to.",
+            "in": "query",
+            "name": "destination",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Calendar identifier of the target calendar where the event is to be moved to.",
-            "in": "query",
-            "name": "destination",
+            "description": "Event identifier.",
+            "in": "path",
+            "name": "eventId",
             "required": true,
             "type": "string"
           },
@@ -2263,17 +2295,17 @@
         "operationId": "calendarList.insert",
         "parameters": [
           {
-            "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
-            "in": "query",
-            "name": "colorRgbFormat",
-            "type": "boolean"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CalendarListEntry"
             }
+          },
+          {
+            "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
+            "in": "query",
+            "name": "colorRgbFormat",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2353,6 +2385,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "resource",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
+          },
+          {
             "description": "Whether to include deleted calendar list entries in the result. Optional. The default is False.",
             "in": "query",
             "name": "showDeleted",
@@ -2369,13 +2408,6 @@
             "in": "query",
             "name": "syncToken",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
           }
         ],
         "responses": {
@@ -2511,6 +2543,13 @@
         "operationId": "calendarList.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CalendarListEntry"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -2522,13 +2561,6 @@
             "in": "query",
             "name": "colorRgbFormat",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CalendarListEntry"
-            }
           }
         ],
         "responses": {
@@ -2558,6 +2590,13 @@
         "operationId": "calendarList.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CalendarListEntry"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -2569,13 +2608,6 @@
             "in": "query",
             "name": "colorRgbFormat",
             "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CalendarListEntry"
-            }
           }
         ],
         "responses": {
@@ -2722,17 +2754,17 @@
             "type": "string"
           },
           {
-            "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-            "in": "query",
-            "name": "syncToken",
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "resource",
             "schema": {
               "$ref": "#/definitions/Channel"
             }
+          },
+          {
+            "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
+            "in": "query",
+            "name": "syncToken",
+            "type": "string"
           }
         ],
         "responses": {
@@ -2902,6 +2934,10 @@
     },
     "Calendar": {
       "properties": {
+        "conferenceProperties": {
+          "$ref": "#/definitions/ConferenceProperties",
+          "description": "Conferencing properties for this calendar, for example what types of conferences are allowed."
+        },
         "description": {
           "description": "Description of the calendar. Optional.",
           "type": "string"
@@ -2976,6 +3012,10 @@
         "colorId": {
           "description": "The color of the calendar. This is an ID referring to an entry in the calendar section of the colors definition (see the colors endpoint). This property is superseded by the backgroundColor and foregroundColor properties and can be ignored when using these properties. Optional.",
           "type": "string"
+        },
+        "conferenceProperties": {
+          "$ref": "#/definitions/ConferenceProperties",
+          "description": "Conferencing properties for this calendar, for example what types of conferences are allowed."
         },
         "defaultReminders": {
           "description": "The default reminders that the authenticated user has for this calendar.",
@@ -3165,6 +3205,163 @@
       },
       "type": "object"
     },
+    "ConferenceData": {
+      "properties": {
+        "conferenceId": {
+          "description": "The ID of the conference.\nCan be used by developers to keep track of conferences, should not be displayed to users.\nValues for solution types:  \n- \"eventHangout\": unset.\n- \"eventNamedHangout\": the name of the Hangout.\n- \"hangoutsMeet\": the 10-letter meeting code, for example \"aaa-bbbb-ccc\".  Optional.",
+          "type": "string"
+        },
+        "conferenceSolution": {
+          "$ref": "#/definitions/ConferenceSolution",
+          "description": "The conference solution, such as Hangouts or Hangouts Meet.\nUnset for a conference with a failed create request.\nEither conferenceSolution and at least one entryPoint, or createRequest is required."
+        },
+        "createRequest": {
+          "$ref": "#/definitions/CreateConferenceRequest",
+          "description": "A request to generate a new conference and attach it to the event. The data is generated asynchronously. To see whether the data is present check the status field.\nEither conferenceSolution and at least one entryPoint, or createRequest is required."
+        },
+        "entryPoints": {
+          "description": "Information about individual conference entry points, such as URLs or phone numbers.\nAll of them must belong to the same conference.\nEither conferenceSolution and at least one entryPoint, or createRequest is required.",
+          "items": {
+            "$ref": "#/definitions/EntryPoint"
+          },
+          "type": "array"
+        },
+        "notes": {
+          "description": "Additional notes (such as instructions from the domain administrator, legal notices) to display to the user. Can contain HTML. The maximum length is 2048 characters. Optional.",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/definitions/ConferenceParameters",
+          "description": "Additional properties related to a conference. An example would be a solution-specific setting for enabling video streaming."
+        },
+        "signature": {
+          "description": "The signature of the conference data.\nGenereated on server side. Must be preserved while copying the conference data between events, otherwise the conference data will not be copied.\nUnset for a conference with a failed create request.\nOptional for a conference with a pending create request.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConferenceParameters": {
+      "properties": {
+        "addOnParameters": {
+          "$ref": "#/definitions/ConferenceParametersAddOnParameters",
+          "description": "Additional add-on specific data."
+        }
+      },
+      "type": "object"
+    },
+    "ConferenceParametersAddOnParameters": {
+      "properties": {
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ConferenceProperties": {
+      "properties": {
+        "allowedConferenceSolutionTypes": {
+          "description": "The types of conference solutions that are supported for this calendar.\nThe possible values are:  \n- \"eventHangout\" \n- \"eventNamedHangout\" \n- \"hangoutsMeet\"  Optional.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ConferenceRequestStatus": {
+      "properties": {
+        "statusCode": {
+          "description": "The current status of the conference create request. Read-only.\nThe possible values are:  \n- \"pending\": the conference create request is still being processed.\n- \"success\": the conference create request succeeded, the entry points are populated.\n- \"failure\": the conference create request failed, there are no entry points.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConferenceSolution": {
+      "properties": {
+        "iconUri": {
+          "description": "The user-visible icon for this solution.",
+          "type": "string"
+        },
+        "key": {
+          "$ref": "#/definitions/ConferenceSolutionKey",
+          "description": "The key which can uniquely identify the conference solution for this event."
+        },
+        "name": {
+          "description": "The user-visible name of this solution. Not localized.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConferenceSolutionKey": {
+      "properties": {
+        "type": {
+          "description": "The conference solution type.\nIf a client encounters an unfamiliar or empty type, it should still be able to display the entry points. However, it should disallow modifications.\nThe possible values are:  \n- \"eventHangout\" for Hangouts for consumers (http://hangouts.google.com)\n- \"eventNamedHangout\" for classic Hangouts for G Suite users (http://hangouts.google.com)\n- \"hangoutsMeet\" for Hangouts Meet (http://meet.google.com)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CreateConferenceRequest": {
+      "properties": {
+        "conferenceSolutionKey": {
+          "$ref": "#/definitions/ConferenceSolutionKey",
+          "description": "The conference solution, such as Hangouts or Hangouts Meet."
+        },
+        "requestId": {
+          "description": "The client-generated unique ID for this request.\nClients should regenerate this ID for every new request. If an ID provided is the same as for the previous request, the request is ignored.",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/ConferenceRequestStatus",
+          "description": "The status of the conference create request."
+        }
+      },
+      "type": "object"
+    },
+    "EntryPoint": {
+      "properties": {
+        "accessCode": {
+          "description": "The access code to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.\nOptional.",
+          "type": "string"
+        },
+        "entryPointType": {
+          "description": "The type of the conference entry point.\nPossible values are:  \n- \"video\" - joining a conference over HTTP. A conference can have zero or one video entry point.\n- \"phone\" - joining a conference by dialing a phone number. A conference can have zero or more phone entry points.\n- \"sip\" - joining a conference over SIP. A conference can have zero or one sip entry point.\n- \"more\" - further conference joining instructions, for example additional phone numbers. A conference can have zero or one more entry point. A conference with only a more entry point is not a valid conference.",
+          "type": "string"
+        },
+        "label": {
+          "description": "The label for the URI. Visible to end users. Not localized. The maximum length is 512 characters.\nExamples:  \n- for video: meet.google.com/aaa-bbbb-ccc\n- for phone: +1 123 268 2601\n- for sip: 12345678@altostrat.com\n- for more: should not be filled  \nOptional.",
+          "type": "string"
+        },
+        "meetingCode": {
+          "description": "The meeting code to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.\nOptional.",
+          "type": "string"
+        },
+        "passcode": {
+          "description": "The passcode to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.",
+          "type": "string"
+        },
+        "password": {
+          "description": "The password to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.\nOptional.",
+          "type": "string"
+        },
+        "pin": {
+          "description": "The PIN to access the conference. The maximum length is 128 characters.\nWhen creating new conference data, populate only the subset of {meetingCode, accessCode, passcode, password, pin} fields that match the terminology that the conference provider uses. Only the populated fields should be displayed.\nOptional.",
+          "type": "string"
+        },
+        "uri": {
+          "description": "The URI of the entry point. The maximum length is 1300 characters.\nFormat:  \n- for video, http: or https: schema is required.\n- for phone, tel: schema is required. The URI should include the entire dial sequence (e.g., tel:+12345678900,,,123456789;1234).\n- for sip, sip: schema is required, e.g., sip:12345678@myprovider.com.\n- for more, http: or https: schema is required.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Error": {
       "properties": {
         "domain": {
@@ -3207,6 +3404,10 @@
         "colorId": {
           "description": "The color of the event. This is an ID referring to an entry in the event section of the colors definition (see the  colors endpoint). Optional.",
           "type": "string"
+        },
+        "conferenceData": {
+          "$ref": "#/definitions/ConferenceData",
+          "description": "The conference-related information, such as details of a Hangouts Meet conference. To create new conference details use the createRequest field. To persist your changes, remember to set the conferenceDataVersion request parameter to 1 for all event modification requests."
         },
         "created": {
           "description": "Creation time of the event (as a RFC3339 timestamp). Read-only.",

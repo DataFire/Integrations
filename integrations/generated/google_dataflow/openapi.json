@@ -187,43 +187,43 @@
     "/v1b3/projects/{projectId}/WorkerMessages": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -231,18 +231,18 @@
         "operationId": "projects.workerMessages",
         "parameters": [
           {
-            "description": "The project to send the WorkerMessages to.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/SendWorkerMessagesRequest"
             }
+          },
+          {
+            "description": "The project to send the WorkerMessages to.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -298,13 +298,6 @@
         "operationId": "projects.jobs.list",
         "parameters": [
           {
-            "description": "The project which owns the jobs.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The kind of filter to use.",
             "enum": [
               "UNKNOWN",
@@ -323,16 +316,23 @@
             "type": "string"
           },
           {
+            "description": "If there are many jobs, limit response to at most this many.\nThe actual number of jobs returned will be the lesser of max_responses\nand an unspecified server-defined limit.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
             "description": "Set this to the 'next_page_token' field of a previous response\nto request additional results in a long list.",
             "in": "query",
             "name": "pageToken",
             "type": "string"
           },
           {
-            "description": "If there are many jobs, limit response to at most this many.\nThe actual number of jobs returned will be the lesser of max_responses\nand an unspecified server-defined limit.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
+            "description": "The project which owns the jobs.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.",
@@ -395,49 +395,62 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
         "description": "Creates a Cloud Dataflow job.",
         "operationId": "projects.jobs.create",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Job"
+            }
+          },
+          {
+            "description": "The location that contains this job.",
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
           {
             "description": "The ID of the Cloud Platform project that the job belongs to.",
             "in": "path",
@@ -462,19 +475,6 @@
             "in": "query",
             "name": "view",
             "type": "string"
-          },
-          {
-            "description": "The location that contains this job.",
-            "in": "query",
-            "name": "location",
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Job"
-            }
           }
         ],
         "responses": {
@@ -530,16 +530,22 @@
         "operationId": "projects.jobs.get",
         "parameters": [
           {
-            "description": "The ID of the Cloud Platform project that the job belongs to.",
+            "description": "The job ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The job ID.",
+            "description": "The location that contains this job.",
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the Cloud Platform project that the job belongs to.",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -553,12 +559,6 @@
             ],
             "in": "query",
             "name": "view",
-            "type": "string"
-          },
-          {
-            "description": "The location that contains this job.",
-            "in": "query",
-            "name": "location",
             "type": "string"
           }
         ],
@@ -610,43 +610,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -654,11 +654,11 @@
         "operationId": "projects.jobs.update",
         "parameters": [
           {
-            "description": "The ID of the Cloud Platform project that the job belongs to.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Job"
+            }
           },
           {
             "description": "The job ID.",
@@ -674,11 +674,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Job"
-            }
+            "description": "The ID of the Cloud Platform project that the job belongs to.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -731,43 +731,43 @@
     "/v1b3/projects/{projectId}/jobs/{jobId}/debug/getConfig": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -775,11 +775,11 @@
         "operationId": "projects.jobs.debug.getConfig",
         "parameters": [
           {
-            "description": "The project id.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GetDebugConfigRequest"
+            }
           },
           {
             "description": "The job id.",
@@ -789,11 +789,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/GetDebugConfigRequest"
-            }
+            "description": "The project id.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -846,43 +846,43 @@
     "/v1b3/projects/{projectId}/jobs/{jobId}/debug/sendCapture": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -890,11 +890,11 @@
         "operationId": "projects.jobs.debug.sendCapture",
         "parameters": [
           {
-            "description": "The project id.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SendDebugCaptureRequest"
+            }
           },
           {
             "description": "The job id.",
@@ -904,11 +904,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SendDebugCaptureRequest"
-            }
+            "description": "The project id.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -964,10 +964,9 @@
         "operationId": "projects.jobs.messages.list",
         "parameters": [
           {
-            "description": "A project id.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
+            "description": "Return only messages with timestamps < end_time. The default is now\n(i.e. return up to the latest messages available).",
+            "in": "query",
+            "name": "endTime",
             "type": "string"
           },
           {
@@ -984,30 +983,6 @@
             "type": "string"
           },
           {
-            "description": "Return only messages with timestamps < end_time. The default is now\n(i.e. return up to the latest messages available).",
-            "in": "query",
-            "name": "endTime",
-            "type": "string"
-          },
-          {
-            "description": "If supplied, this should be the value of next_page_token returned\nby an earlier call. This will cause the next page of results to\nbe returned.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "If specified, return only messages with timestamps >= start_time.\nThe default is the job creation time (i.e. beginning of messages).",
-            "in": "query",
-            "name": "startTime",
-            "type": "string"
-          },
-          {
-            "description": "If specified, determines the maximum number of messages to\nreturn.  If unspecified, the service may choose an appropriate\ndefault, or may return an arbitrarily large number of results.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
-          },
-          {
             "description": "Filter to only get messages with importance >= level",
             "enum": [
               "JOB_MESSAGE_IMPORTANCE_UNKNOWN",
@@ -1019,6 +994,31 @@
             ],
             "in": "query",
             "name": "minimumImportance",
+            "type": "string"
+          },
+          {
+            "description": "If specified, determines the maximum number of messages to\nreturn.  If unspecified, the service may choose an appropriate\ndefault, or may return an arbitrarily large number of results.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "If supplied, this should be the value of next_page_token returned\nby an earlier call. This will cause the next page of results to\nbe returned.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A project id.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If specified, return only messages with timestamps >= start_time.\nThe default is the job creation time (i.e. beginning of messages).",
+            "in": "query",
+            "name": "startTime",
             "type": "string"
           }
         ],
@@ -1070,43 +1070,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -1115,13 +1115,6 @@
         "description": "Request the job status.",
         "operationId": "projects.jobs.getMetrics",
         "parameters": [
-          {
-            "description": "A project id.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The job to get messages for.",
             "in": "path",
@@ -1133,6 +1126,13 @@
             "description": "The location which contains the job specified by job_id.",
             "in": "query",
             "name": "location",
+            "type": "string"
+          },
+          {
+            "description": "A project id.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
             "type": "string"
           },
           {
@@ -1190,86 +1190,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1b3/projects/{projectId}/jobs/{jobId}/workItems:lease": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1277,11 +1277,11 @@
         "operationId": "projects.jobs.workItems.lease",
         "parameters": [
           {
-            "description": "Identifies the project this worker belongs to.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LeaseWorkItemRequest"
+            }
           },
           {
             "description": "Identifies the workflow job this worker belongs to.",
@@ -1291,11 +1291,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LeaseWorkItemRequest"
-            }
+            "description": "Identifies the project this worker belongs to.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1348,43 +1348,43 @@
     "/v1b3/projects/{projectId}/jobs/{jobId}/workItems:reportStatus": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1392,11 +1392,11 @@
         "operationId": "projects.jobs.workItems.reportStatus",
         "parameters": [
           {
-            "description": "The project which owns the WorkItem's job.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReportWorkItemStatusRequest"
+            }
           },
           {
             "description": "The job which the WorkItem is part of.",
@@ -1406,11 +1406,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ReportWorkItemStatusRequest"
-            }
+            "description": "The project which owns the WorkItem's job.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1724,20 +1724,6 @@
         "operationId": "projects.locations.jobs.list",
         "parameters": [
           {
-            "description": "The project which owns the jobs.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The location that contains this job.",
-            "in": "path",
-            "name": "location",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The kind of filter to use.",
             "enum": [
               "UNKNOWN",
@@ -1750,9 +1736,10 @@
             "type": "string"
           },
           {
-            "description": "Set this to the 'next_page_token' field of a previous response\nto request additional results in a long list.",
-            "in": "query",
-            "name": "pageToken",
+            "description": "The location that contains this job.",
+            "in": "path",
+            "name": "location",
+            "required": true,
             "type": "string"
           },
           {
@@ -1760,6 +1747,19 @@
             "in": "query",
             "name": "pageSize",
             "type": "integer"
+          },
+          {
+            "description": "Set this to the 'next_page_token' field of a previous response\nto request additional results in a long list.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The project which owns the jobs.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.",
@@ -1822,43 +1822,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -1866,16 +1866,23 @@
         "operationId": "projects.locations.jobs.create",
         "parameters": [
           {
-            "description": "The ID of the Cloud Platform project that the job belongs to.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Job"
+            }
           },
           {
             "description": "The location that contains this job.",
             "in": "path",
             "name": "location",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the Cloud Platform project that the job belongs to.",
+            "in": "path",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -1896,13 +1903,6 @@
             "in": "query",
             "name": "view",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Job"
-            }
           }
         ],
         "responses": {
@@ -1958,9 +1958,9 @@
         "operationId": "projects.locations.jobs.get",
         "parameters": [
           {
-            "description": "The ID of the Cloud Platform project that the job belongs to.",
+            "description": "The job ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
@@ -1972,9 +1972,9 @@
             "type": "string"
           },
           {
-            "description": "The job ID.",
+            "description": "The ID of the Cloud Platform project that the job belongs to.",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -2039,43 +2039,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "put": {
@@ -2083,9 +2083,16 @@
         "operationId": "projects.locations.jobs.update",
         "parameters": [
           {
-            "description": "The ID of the Cloud Platform project that the job belongs to.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Job"
+            }
+          },
+          {
+            "description": "The job ID.",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
@@ -2097,18 +2104,11 @@
             "type": "string"
           },
           {
-            "description": "The job ID.",
+            "description": "The ID of the Cloud Platform project that the job belongs to.",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Job"
-            }
           }
         ],
         "responses": {
@@ -2408,17 +2408,9 @@
         "operationId": "projects.locations.jobs.messages.list",
         "parameters": [
           {
-            "description": "A project id.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The location which contains the job specified by job_id.",
-            "in": "path",
-            "name": "location",
-            "required": true,
+            "description": "Return only messages with timestamps < end_time. The default is now\n(i.e. return up to the latest messages available).",
+            "in": "query",
+            "name": "endTime",
             "type": "string"
           },
           {
@@ -2429,28 +2421,11 @@
             "type": "string"
           },
           {
-            "description": "Return only messages with timestamps < end_time. The default is now\n(i.e. return up to the latest messages available).",
-            "in": "query",
-            "name": "endTime",
+            "description": "The location which contains the job specified by job_id.",
+            "in": "path",
+            "name": "location",
+            "required": true,
             "type": "string"
-          },
-          {
-            "description": "If specified, return only messages with timestamps >= start_time.\nThe default is the job creation time (i.e. beginning of messages).",
-            "in": "query",
-            "name": "startTime",
-            "type": "string"
-          },
-          {
-            "description": "If supplied, this should be the value of next_page_token returned\nby an earlier call. This will cause the next page of results to\nbe returned.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
-            "description": "If specified, determines the maximum number of messages to\nreturn.  If unspecified, the service may choose an appropriate\ndefault, or may return an arbitrarily large number of results.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
           },
           {
             "description": "Filter to only get messages with importance >= level",
@@ -2464,6 +2439,31 @@
             ],
             "in": "query",
             "name": "minimumImportance",
+            "type": "string"
+          },
+          {
+            "description": "If specified, determines the maximum number of messages to\nreturn.  If unspecified, the service may choose an appropriate\ndefault, or may return an arbitrarily large number of results.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "If supplied, this should be the value of next_page_token returned\nby an earlier call. This will cause the next page of results to\nbe returned.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "A project id.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If specified, return only messages with timestamps >= start_time.\nThe default is the job creation time (i.e. beginning of messages).",
+            "in": "query",
+            "name": "startTime",
             "type": "string"
           }
         ],
@@ -2515,43 +2515,43 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
@@ -2561,9 +2561,9 @@
         "operationId": "projects.locations.jobs.getMetrics",
         "parameters": [
           {
-            "description": "A project id.",
+            "description": "The job to get messages for.",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
@@ -2575,9 +2575,9 @@
             "type": "string"
           },
           {
-            "description": "The job to get messages for.",
+            "description": "A project id.",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
           },
@@ -2636,86 +2636,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/workItems:lease": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2723,9 +2723,16 @@
         "operationId": "projects.locations.jobs.workItems.lease",
         "parameters": [
           {
-            "description": "Identifies the project this worker belongs to.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LeaseWorkItemRequest"
+            }
+          },
+          {
+            "description": "Identifies the workflow job this worker belongs to.",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
@@ -2737,18 +2744,11 @@
             "type": "string"
           },
           {
-            "description": "Identifies the workflow job this worker belongs to.",
+            "description": "Identifies the project this worker belongs to.",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/LeaseWorkItemRequest"
-            }
           }
         ],
         "responses": {
@@ -2801,43 +2801,43 @@
     "/v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/workItems:reportStatus": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -2845,9 +2845,16 @@
         "operationId": "projects.locations.jobs.workItems.reportStatus",
         "parameters": [
           {
-            "description": "The project which owns the WorkItem's job.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReportWorkItemStatusRequest"
+            }
+          },
+          {
+            "description": "The job which the WorkItem is part of.",
             "in": "path",
-            "name": "projectId",
+            "name": "jobId",
             "required": true,
             "type": "string"
           },
@@ -2859,18 +2866,11 @@
             "type": "string"
           },
           {
-            "description": "The job which the WorkItem is part of.",
+            "description": "The project which owns the WorkItem's job.",
             "in": "path",
-            "name": "jobId",
+            "name": "projectId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ReportWorkItemStatusRequest"
-            }
           }
         ],
         "responses": {
@@ -3288,43 +3288,43 @@
     "/v1b3/projects/{projectId}/templates": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3332,18 +3332,18 @@
         "operationId": "projects.templates.create",
         "parameters": [
           {
-            "description": "Required. The ID of the Cloud Platform project that the job belongs to.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CreateJobFromTemplateRequest"
             }
+          },
+          {
+            "description": "Required. The ID of the Cloud Platform project that the job belongs to.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3475,86 +3475,86 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
     "/v1b3/projects/{projectId}/templates:launch": {
       "parameters": [
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
           "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/key"
         },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
           "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
@@ -3925,6 +3925,11 @@
           "description": "Name of the stage. An execution step contains multiple component steps.",
           "type": "string"
         },
+        "inputIndex": {
+          "description": "Index of an input collection that's being read from/written to as a side\ninput.\nThe index identifies a step's side inputs starting by 1 (e.g. the first\nside input has input_index 1, the third has input_index 3).\nSide inputs are identified by a pair of (original_step_name, input_index).\nThis field helps uniquely identify them.",
+          "format": "int32",
+          "type": "integer"
+        },
         "name": {
           "description": "Counter name. Not necessarily globally-unique, but unique within the\ncontext of the other fields.\nRequired.",
           "type": "string"
@@ -3942,7 +3947,7 @@
           "type": "string"
         },
         "originalRequestingStepName": {
-          "description": "The step name requesting an operation, such as GBK.\nI.e. the ParDo causing a read/write from shuffle to occur.",
+          "description": "The step name requesting an operation, such as GBK.\nI.e. the ParDo causing a read/write from shuffle to occur, or a\nread from side inputs.",
           "type": "string"
         },
         "originalStepName": {
@@ -3957,10 +3962,6 @@
             "VALUE"
           ],
           "type": "string"
-        },
-        "sideInput": {
-          "$ref": "#/definitions/SideInputId",
-          "description": "ID of a side input being read from/written to. Side inputs are identified\nby a pair of (reader, input_index). The reader is usually equal to the\noriginal name, but it may be different, if a ParDo emits its Iterator /\nMap side input object."
         },
         "workerId": {
           "description": "ID of a particular worker.",
@@ -5467,6 +5468,13 @@
     "RuntimeEnvironment": {
       "description": "The environment values to set at runtime.",
       "properties": {
+        "additionalExperiments": {
+          "description": "Additional experiment flags for the job.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "bypassTempDirValidation": {
           "description": "Whether to bypass the safety checks for the job's temporary directory.\nUse with caution.",
           "type": "boolean"
@@ -5614,21 +5622,6 @@
         },
         "exitCode": {
           "description": "Exit code for the task.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "SideInputId": {
-      "description": "Uniquely identifies a side input.",
-      "properties": {
-        "declaringStepName": {
-          "description": "The step that receives and usually consumes this side input.",
-          "type": "string"
-        },
-        "inputIndex": {
-          "description": "The index of the side input, from the list of non_parallel_inputs.",
           "format": "int32",
           "type": "integer"
         }

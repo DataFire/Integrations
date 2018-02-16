@@ -233,6 +233,7 @@ nfusionsolutions_biz.api.vversion.Metals.spot.bbo.get({
 * input `object`
   * metals `string`: <b>REQUIRED</b> - comma separated list of metals
   * currency `string`: optional - currency for pricing, defaults to USD
+  * unitofmeasure `string`: optional - unit of meaure, defaults to troy ounces. allowed values are:
   * token `string`: <b>REQUIRED</b> - auth token
   * format `string`: optional - to override content negotiation specify a value of json or xml
   * version **required** `string`: The requested API version
@@ -260,6 +261,7 @@ nfusionsolutions_biz.api.vversion.Metals.spot.history.get({
 * input `object`
   * metals `string`: <b>REQUIRED</b> - comma separated list of metals
   * currency `string`: optional - currency for pricing, defaults to USD
+  * unitofmeasure `string`: optional - unit of meaure, defaults to troy ounces. allowed values are:
   * interval `string`: optional - aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), 
   * start `string`: <b>REQUIRED</b> - start date of time period. format is <i>yyyy-mm-dd</i>
   * end `string`: optional - end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date.
@@ -286,6 +288,7 @@ nfusionsolutions_biz.api.vversion.Metals.spot.summary.get({
 * input `object`
   * metals `string`: <b>REQUIRED</b> - comma separated list of metals
   * currency `string`: optional - currency for pricing, defaults to USD
+  * unitofmeasure `string`: optional - unit of meaure, defaults to troy ounces. allowed values are:
   * token `string`: <b>REQUIRED</b> - auth token
   * adjust `boolean`: optional - apply global and per-tenant spot price adjustments. Defaults to true.
   * format `string`: optional - to override content negotiation specify a value of json or xml

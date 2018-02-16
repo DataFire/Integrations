@@ -3589,7 +3589,7 @@
           "example": "2",
           "type": "string"
         },
-        "AIRNaics": {
+        "AIRNAICS": {
           "example": "812320",
           "type": "string"
         },
@@ -3814,7 +3814,7 @@
           "example": "9611.17",
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacTRIAIRReleases": {
@@ -4017,6 +4017,12 @@
           "example": "1",
           "title": "Violation Flag",
           "type": "string"
+        },
+        "WebDocs": {
+          "description": "Contains flags that identify what web accessible documents are available for the facility.",
+          "example": "C6",
+          "title": "Web Documents",
+          "type": "string"
         }
       },
       "required": [
@@ -4043,8 +4049,8 @@
         "FacLong",
         "FacUsMexBorderFlg",
         "AIRUniverse",
-        "AIRNaics",
-        "FacSicCodes",
+        "AIRNAICS",
+        "FacSICCodes",
         "FacPercentMinority",
         "FacPopulationDensity",
         "FacFederalAgencyCode",
@@ -4418,7 +4424,7 @@
           "example": "2",
           "type": "string"
         },
-        "AIRNaics": {
+        "AIRNAICS": {
           "example": "812320",
           "type": "string"
         },
@@ -4643,7 +4649,7 @@
           "example": "9611.17",
           "type": "string"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacTRIAIRReleases": {
@@ -4852,6 +4858,12 @@
           "example": "1",
           "title": "Violation Flag",
           "type": "string"
+        },
+        "WebDocs": {
+          "description": "Contains flags that identify what web accessible documents are available for the facility.",
+          "example": "C6",
+          "title": "Web Documents",
+          "type": "string"
         }
       },
       "required": [
@@ -4879,8 +4891,8 @@
         "FacLong",
         "FacUsMexBorderFlg",
         "AIRUniverse",
-        "AIRNaics",
-        "FacSicCodes",
+        "AIRNAICS",
+        "FacSICCodes",
         "FacPercentMinority",
         "FacPopulationDensity",
         "FacFederalAgencyCode",
@@ -5339,7 +5351,7 @@
           "example": 1,
           "type": "number"
         },
-        "AIRNaics": {
+        "AIRNAICS": {
           "example": "812320",
           "type": "string"
         },
@@ -5552,7 +5564,7 @@
           "example": 9611.17,
           "type": "number"
         },
-        "FacSicCodes": {
+        "FacSICCodes": {
           "type": "string"
         },
         "FacTRIAIRReleases": {
@@ -5755,6 +5767,12 @@
           "example": 1,
           "title": "Violation Flag",
           "type": "number"
+        },
+        "WebDocs": {
+          "description": "Contains flags that identify what web accessible documents are available for the facility.",
+          "example": "C6",
+          "title": "Web Documents",
+          "type": "string"
         }
       },
       "required": [
@@ -5779,8 +5797,8 @@
         "FacFIPSCode",
         "FacUsMexBorderFlg",
         "AIRUniverse",
-        "AIRNaics",
-        "FacSicCodes",
+        "AIRNAICS",
+        "FacSICCodes",
         "FacPercentMinority",
         "FacPopulationDensity",
         "FacFederalAgencyCode",

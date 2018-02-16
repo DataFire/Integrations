@@ -89,7 +89,6 @@
     "/reisezentren/loc/{lat}/{lon}": {
       "get": {
         "description": "Get information about a station near a location",
-        "operationId": "reisezentren.loc.lat.lon.get",
         "parameters": [
           {
             "description": "Latitude",
@@ -121,7 +120,54 @@
         },
         "summary": "Get information about a station near a location",
         "x-auth-type": "Application & Application User",
-        "x-throttling-tier": "Unlimited"
+        "x-throttling-tier": "Unlimited",
+        "operationId": "reisezentren.loc.lat.lon.get"
+      }
+    },
+    "/reisezentren/loc/{lat}/{lon}/{dist}": {
+      "get": {
+        "description": "Get stations in a given radius",
+        "parameters": [
+          {
+            "description": "Latitude",
+            "format": "float",
+            "in": "path",
+            "name": "lat",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Longitude",
+            "format": "float",
+            "in": "path",
+            "name": "lon",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "description": "Radius",
+            "format": "float",
+            "in": "path",
+            "name": "dist",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A station was found",
+            "schema": {
+              "$ref": "#/definitions/TravelCenter"
+            }
+          }
+        },
+        "summary": "Get stations in a given radius",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "operationId": "reisezentren.loc.lat.lon.dist.get"
       }
     },
     "/reisezentren/{id}": {

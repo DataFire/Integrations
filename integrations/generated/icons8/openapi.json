@@ -22,7 +22,7 @@
           "version": "2.6.0"
         },
         "format": "apiBlueprint",
-        "url": "http://docs.icons8.apiary.io/api-description-document",
+        "url": "https://raw.githubusercontent.com/icons8/api-docs/master/apiary.apib",
         "version": "1A"
       }
     ],

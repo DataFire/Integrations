@@ -491,6 +491,7 @@ amazonaws_elasticmapreduce.RunJobFlow({
   * EbsRootVolumeSize [Integer](#integer)
   * Instances **required** [JobFlowInstancesConfig](#jobflowinstancesconfig)
   * JobFlowRole [XmlString](#xmlstring)
+  * KerberosAttributes [KerberosAttributes](#kerberosattributes)
   * LogUri [XmlString](#xmlstring)
   * Name **required** [XmlStringMaxLen256](#xmlstringmaxlen256)
   * NewSupportedProducts [NewSupportedProductsList](#newsupportedproductslist)
@@ -610,7 +611,7 @@ amazonaws_elasticmapreduce.TerminateJobFlows({
 * AdjustmentType `string` (values: CHANGE_IN_CAPACITY, PERCENT_CHANGE_IN_CAPACITY, EXACT_CAPACITY)
 
 ### Application
-* Application `object`: <p>An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-mapr.html">Using the MapR Distribution for Hadoop</a>. Currently supported values are:</p> <ul> <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li> <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li> <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the cluster using MapR M3 or M5 Edition, respectively.</p> </li> </ul> <note> <p>In Amazon EMR releases 4.x and later, the only accepted parameter is the application name. To pass arguments to applications, you supply a configuration for each application.</p> </note>
+* Application `object`: <p>An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-mapr.html">Using the MapR Distribution for Hadoop</a>. Currently supported values are:</p> <ul> <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li> <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li> <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the cluster using MapR M3 or M5 Edition, respectively.</p> </li> </ul> <note> <p>In Amazon EMR releases 4.x and later, the only accepted parameter is the application name. To pass arguments to applications, you supply a configuration for each application.</p> </note>
   * AdditionalInfo [StringMap](#stringmap)
   * Args [StringList](#stringlist)
   * Name [String](#string)
@@ -715,6 +716,7 @@ amazonaws_elasticmapreduce.TerminateJobFlows({
   * Ec2InstanceAttributes [Ec2InstanceAttributes](#ec2instanceattributes)
   * Id [ClusterId](#clusterid)
   * InstanceCollectionType [InstanceCollectionType](#instancecollectiontype)
+  * KerberosAttributes [KerberosAttributes](#kerberosattributes)
   * LogUri [String](#string)
   * MasterPublicDnsName [String](#string)
   * Name [String](#string)
@@ -1287,6 +1289,14 @@ amazonaws_elasticmapreduce.TerminateJobFlows({
   * SlaveInstanceType **required** [InstanceType](#instancetype)
   * TerminationProtected [Boolean](#boolean)
 
+### KerberosAttributes
+* KerberosAttributes `object`: Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a> in the <i>EMR Management Guide</i>.
+  * ADDomainJoinPassword [XmlStringMaxLen256](#xmlstringmaxlen256)
+  * ADDomainJoinUser [XmlStringMaxLen256](#xmlstringmaxlen256)
+  * CrossRealmTrustPrincipalPassword [XmlStringMaxLen256](#xmlstringmaxlen256)
+  * KdcAdminPassword **required** [XmlStringMaxLen256](#xmlstringmaxlen256)
+  * Realm **required** [XmlStringMaxLen256](#xmlstringmaxlen256)
+
 ### KeyValue
 * KeyValue `object`: A key value pair.
   * Key [XmlString](#xmlstring)
@@ -1457,6 +1467,7 @@ amazonaws_elasticmapreduce.TerminateJobFlows({
   * EbsRootVolumeSize [Integer](#integer)
   * Instances **required** [JobFlowInstancesConfig](#jobflowinstancesconfig)
   * JobFlowRole [XmlString](#xmlstring)
+  * KerberosAttributes [KerberosAttributes](#kerberosattributes)
   * LogUri [XmlString](#xmlstring)
   * Name **required** [XmlStringMaxLen256](#xmlstringmaxlen256)
   * NewSupportedProducts [NewSupportedProductsList](#newsupportedproductslist)
@@ -1661,7 +1672,7 @@ amazonaws_elasticmapreduce.TerminateJobFlows({
   * items [XmlStringMaxLen256](#xmlstringmaxlen256)
 
 ### Tag
-* Tag `object`: A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html">Tagging Amazon EMR Resources</a>. 
+* Tag `object`: A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. 
   * Key [String](#string)
   * Value [String](#string)
 

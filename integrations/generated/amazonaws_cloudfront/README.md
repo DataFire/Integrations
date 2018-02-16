@@ -40,6 +40,45 @@ amazonaws_cloudfront.ListDistributions({}, context)
 #### Output
 * output [ListDistributionsResult](#listdistributionsresult)
 
+### CreateDistribution
+
+
+
+```js
+amazonaws_cloudfront.CreateDistribution({
+  "DistributionConfig": {
+    "CallerReference": "",
+    "Origins": {
+      "Quantity": 0
+    },
+    "DefaultCacheBehavior": {
+      "TargetOriginId": "",
+      "ForwardedValues": {
+        "QueryString": true,
+        "Cookies": {
+          "Forward": ""
+        }
+      },
+      "TrustedSigners": {
+        "Enabled": true,
+        "Quantity": 0
+      },
+      "ViewerProtocolPolicy": "",
+      "MinTTL": 0
+    },
+    "Comment": "",
+    "Enabled": true
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
+
+#### Output
+*Output schema unknown*
+
 ### ListInvalidations
 
 
@@ -58,6 +97,30 @@ amazonaws_cloudfront.ListInvalidations({
 
 #### Output
 * output [ListInvalidationsResult](#listinvalidationsresult)
+
+### CreateInvalidation
+
+
+
+```js
+amazonaws_cloudfront.CreateInvalidation({
+  "DistributionId": "",
+  "InvalidationBatch": {
+    "Paths": {
+      "Quantity": 0
+    },
+    "CallerReference": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * DistributionId **required** `string`
+  * InvalidationBatch **required** [InvalidationBatch](#invalidationbatch)
+
+#### Output
+*Output schema unknown*
 
 ### GetInvalidation
 
@@ -78,6 +141,23 @@ amazonaws_cloudfront.GetInvalidation({
 #### Output
 * output [GetInvalidationResult](#getinvalidationresult)
 
+### DeleteDistribution
+
+
+
+```js
+amazonaws_cloudfront.DeleteDistribution({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetDistribution
 
 
@@ -94,6 +174,23 @@ amazonaws_cloudfront.GetDistribution({
 
 #### Output
 * output [GetDistributionResult](#getdistributionresult)
+
+### GetDistributionConfig
+
+
+
+```js
+amazonaws_cloudfront.GetDistributionConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetDistributionConfigResult](#getdistributionconfigresult)
 
 ### UpdateDistribution
 
@@ -211,6 +308,43 @@ amazonaws_cloudfront.ListCloudFrontOriginAccessIdentities({}, context)
 #### Output
 * output [ListCloudFrontOriginAccessIdentitiesResult](#listcloudfrontoriginaccessidentitiesresult)
 
+### CreateCloudFrontOriginAccessIdentity
+
+
+
+```js
+amazonaws_cloudfront.CreateCloudFrontOriginAccessIdentity({
+  "CloudFrontOriginAccessIdentityConfig": {
+    "CallerReference": "",
+    "Comment": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * CloudFrontOriginAccessIdentityConfig **required** [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
+
+#### Output
+*Output schema unknown*
+
+### DeleteCloudFrontOriginAccessIdentity
+
+
+
+```js
+amazonaws_cloudfront.DeleteCloudFrontOriginAccessIdentity({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetCloudFrontOriginAccessIdentity
 
 
@@ -227,6 +361,23 @@ amazonaws_cloudfront.GetCloudFrontOriginAccessIdentity({
 
 #### Output
 * output [GetCloudFrontOriginAccessIdentityResult](#getcloudfrontoriginaccessidentityresult)
+
+### GetCloudFrontOriginAccessIdentityConfig
+
+
+
+```js
+amazonaws_cloudfront.GetCloudFrontOriginAccessIdentityConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetCloudFrontOriginAccessIdentityConfigResult](#getcloudfrontoriginaccessidentityconfigresult)
 
 ### UpdateCloudFrontOriginAccessIdentity
 
@@ -283,6 +434,52 @@ amazonaws_cloudfront.ListStreamingDistributions({}, context)
 #### Output
 * output [ListStreamingDistributionsResult](#liststreamingdistributionsresult)
 
+### CreateStreamingDistribution
+
+
+
+```js
+amazonaws_cloudfront.CreateStreamingDistribution({
+  "StreamingDistributionConfig": {
+    "CallerReference": "",
+    "S3Origin": {
+      "DomainName": "",
+      "OriginAccessIdentity": ""
+    },
+    "Comment": "",
+    "TrustedSigners": {
+      "Enabled": true,
+      "Quantity": 0
+    },
+    "Enabled": true
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
+
+#### Output
+*Output schema unknown*
+
+### DeleteStreamingDistribution
+
+
+
+```js
+amazonaws_cloudfront.DeleteStreamingDistribution({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+*Output schema unknown*
+
 ### GetStreamingDistribution
 
 
@@ -299,6 +496,23 @@ amazonaws_cloudfront.GetStreamingDistribution({
 
 #### Output
 * output [GetStreamingDistributionResult](#getstreamingdistributionresult)
+
+### GetStreamingDistributionConfig
+
+
+
+```js
+amazonaws_cloudfront.GetStreamingDistributionConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetStreamingDistributionConfigResult](#getstreamingdistributionconfigresult)
 
 ### UpdateStreamingDistribution
 

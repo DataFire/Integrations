@@ -60,6 +60,7 @@
         "read_messages": "",
         "read_offers": "",
         "read_orders": "",
+        "read_payouts": "",
         "read_profile": "",
         "write_feedback": "",
         "write_listings": "",
@@ -554,6 +555,34 @@
           "countries"
         ],
         "operationId": "countries.get"
+      }
+    },
+    "/csps": {
+      "get": {
+        "description": "Returns a set of comparison shopping pages based on the current params",
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "summary": "Returns a set of comparison shopping pages based on the current params",
+        "tags": [
+          "csps"
+        ],
+        "operationId": "csps.get"
+      }
+    },
+    "/csps/categories": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "tags": [
+          "csps"
+        ],
+        "operationId": "csps.categories.get"
       }
     },
     "/curated_sets/{slug}": {
@@ -1218,6 +1247,13 @@
                   "description": "Product description. Please keep formatting to a minimum.",
                   "type": "string"
                 },
+                "exclusive_channel": {
+                  "description": "Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'",
+                  "enum": [
+                    "seller_site"
+                  ],
+                  "type": "string"
+                },
                 "finish": {
                   "description": "Finish, e.g. 'Sunburst'",
                   "type": "string"
@@ -1397,6 +1433,22 @@
                 "upc_does_not_apply": {
                   "description": "True if a brand new product has no UPC code, ie for a handmade or custom item",
                   "type": "string"
+                },
+                "videos": {
+                  "description": "List of YouTube video urls. Note: ONLY ONE ALLOWED",
+                  "items": {
+                    "properties": {
+                      "link": {
+                        "description": "Valid YouTube url",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "link"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
                 },
                 "year": {
                   "description": "Supports many formats. Ex: 1979, mid-70s, late 90s",
@@ -2122,6 +2174,13 @@
                   "description": "Product description. Please keep formatting to a minimum.",
                   "type": "string"
                 },
+                "exclusive_channel": {
+                  "description": "Currently for users of seller sites only, this allows you to have a listing available only to your seller site by setting this to 'seller_site'",
+                  "enum": [
+                    "seller_site"
+                  ],
+                  "type": "string"
+                },
                 "finish": {
                   "description": "Finish, e.g. 'Sunburst'",
                   "type": "string"
@@ -2301,6 +2360,22 @@
                 "upc_does_not_apply": {
                   "description": "True if a brand new product has no UPC code, ie for a handmade or custom item",
                   "type": "string"
+                },
+                "videos": {
+                  "description": "List of YouTube video urls. Note: ONLY ONE ALLOWED",
+                  "items": {
+                    "properties": {
+                      "link": {
+                        "description": "Valid YouTube url",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "link"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
                 },
                 "year": {
                   "description": "Supports many formats. Ex: 1979, mid-70s, late 90s",
@@ -2728,6 +2803,10 @@
                 "recipient_id": {
                   "description": "The id of the user you are trying to contact",
                   "type": "integer"
+                },
+                "shop_id": {
+                  "description": "The id of the shop you are trying to contact",
+                  "type": "string"
                 }
               },
               "required": [
@@ -5301,7 +5380,7 @@
             "schema": {
               "properties": {
                 "provider": {
-                  "description": "Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, Other",
+                  "description": "Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, DPD, Other",
                   "type": "string"
                 },
                 "send_notification": {
@@ -5478,6 +5557,58 @@
           "my"
         ],
         "operationId": "my.payments.selling.id.get"
+      }
+    },
+    "/my/payouts": {
+      "get": {
+        "description": "Get a list of payouts",
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "read_payouts"
+            ]
+          }
+        ],
+        "summary": "Get a list of payouts",
+        "tags": [
+          "my"
+        ],
+        "operationId": "my.payouts.get"
+      }
+    },
+    "/my/payouts/{id}/line_items": {
+      "get": {
+        "description": "Read the line items of a payout",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "read_payouts"
+            ]
+          }
+        ],
+        "summary": "Read the line items of a payout",
+        "tags": [
+          "my"
+        ],
+        "operationId": "my.payouts.id.line_items.get"
       }
     },
     "/my/refund_requests/selling": {
@@ -5940,7 +6071,7 @@
     },
     "/products/{slug}/reviews": {
       "get": {
-        "description": "View reviews of a product",
+        "description": "View reviews of a comparison shopping page",
         "parameters": [
           {
             "in": "path",
@@ -5954,7 +6085,7 @@
             "description": "Unexpected error"
           }
         },
-        "summary": "View reviews of a product",
+        "summary": "View reviews of a comparison shopping page",
         "tags": [
           "products"
         ],
@@ -6616,6 +6747,29 @@
           "shop"
         ],
         "operationId": "shop.vacation.post"
+      }
+    },
+    "/shops/{id}/storefronts": {
+      "get": {
+        "description": "Get storefront details on a shop.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "summary": "Get storefront details on a shop.",
+        "tags": [
+          "shops"
+        ],
+        "operationId": "shops.id.storefronts.get"
       }
     },
     "/shops/{shop_id}/shipping_profiles": {

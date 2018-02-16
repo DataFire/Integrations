@@ -38,6 +38,60 @@ amazonaws_appsync.ListGraphqlApis({}, context)
 #### Output
 * output [ListGraphqlApisResponse](#listgraphqlapisresponse)
 
+### CreateGraphqlApi
+
+
+
+```js
+amazonaws_appsync.CreateGraphqlApi({
+  "name": "",
+  "authenticationType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * authenticationType **required** [AuthenticationType](#authenticationtype)
+  * name **required** [String](#string)
+  * userPoolConfig [UserPoolConfig](#userpoolconfig)
+
+#### Output
+* output [CreateGraphqlApiResponse](#creategraphqlapiresponse)
+
+### DeleteGraphqlApi
+
+
+
+```js
+amazonaws_appsync.DeleteGraphqlApi({
+  "apiId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+
+#### Output
+* output [DeleteGraphqlApiResponse](#deletegraphqlapiresponse)
+
+### GetGraphqlApi
+
+
+
+```js
+amazonaws_appsync.GetGraphqlApi({
+  "apiId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+
+#### Output
+* output [GetGraphqlApiResponse](#getgraphqlapiresponse)
+
 ### UpdateGraphqlApi
 
 
@@ -53,7 +107,7 @@ amazonaws_appsync.UpdateGraphqlApi({
 * input `object`
   * apiId **required** `string`
   * authenticationType [AuthenticationType](#authenticationtype)
-  * name **required** [ResourceName](#resourcename)
+  * name **required** [String](#string)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 #### Output
@@ -76,6 +130,25 @@ amazonaws_appsync.ListApiKeys({
 #### Output
 * output [ListApiKeysResponse](#listapikeysresponse)
 
+### CreateApiKey
+
+
+
+```js
+amazonaws_appsync.CreateApiKey({
+  "apiId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * description [String](#string)
+  * expires [Long](#long)
+
+#### Output
+* output [CreateApiKeyResponse](#createapikeyresponse)
+
 ### DeleteApiKey
 
 
@@ -95,6 +168,27 @@ amazonaws_appsync.DeleteApiKey({
 #### Output
 * output [DeleteApiKeyResponse](#deleteapikeyresponse)
 
+### UpdateApiKey
+
+
+
+```js
+amazonaws_appsync.UpdateApiKey({
+  "apiId": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * id **required** `string`
+  * description [String](#string)
+  * expires [Long](#long)
+
+#### Output
+* output [UpdateApiKeyResponse](#updateapikeyresponse)
+
 ### ListDataSources
 
 
@@ -111,6 +205,70 @@ amazonaws_appsync.ListDataSources({
 
 #### Output
 * output [ListDataSourcesResponse](#listdatasourcesresponse)
+
+### CreateDataSource
+
+
+
+```js
+amazonaws_appsync.CreateDataSource({
+  "apiId": "",
+  "name": "",
+  "type": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * description [String](#string)
+  * dynamodbConfig [DynamodbDataSourceConfig](#dynamodbdatasourceconfig)
+  * elasticsearchConfig [ElasticsearchDataSourceConfig](#elasticsearchdatasourceconfig)
+  * lambdaConfig [LambdaDataSourceConfig](#lambdadatasourceconfig)
+  * name **required** [ResourceName](#resourcename)
+  * serviceRoleArn [String](#string)
+  * type **required** [DataSourceType](#datasourcetype)
+
+#### Output
+* output [CreateDataSourceResponse](#createdatasourceresponse)
+
+### DeleteDataSource
+
+
+
+```js
+amazonaws_appsync.DeleteDataSource({
+  "apiId": "",
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * name **required** `string`
+
+#### Output
+* output [DeleteDataSourceResponse](#deletedatasourceresponse)
+
+### GetDataSource
+
+
+
+```js
+amazonaws_appsync.GetDataSource({
+  "apiId": "",
+  "name": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * name **required** `string`
+
+#### Output
+* output [GetDataSourceResponse](#getdatasourceresponse)
 
 ### UpdateDataSource
 
@@ -155,6 +313,23 @@ amazonaws_appsync.GetIntrospectionSchema({
 #### Output
 * output [GetIntrospectionSchemaResponse](#getintrospectionschemaresponse)
 
+### GetSchemaCreationStatus
+
+
+
+```js
+amazonaws_appsync.GetSchemaCreationStatus({
+  "apiId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+
+#### Output
+* output [GetSchemaCreationStatusResponse](#getschemacreationstatusresponse)
+
 ### StartSchemaCreation
 
 
@@ -190,6 +365,65 @@ amazonaws_appsync.ListTypes({
 
 #### Output
 * output [ListTypesResponse](#listtypesresponse)
+
+### CreateType
+
+
+
+```js
+amazonaws_appsync.CreateType({
+  "apiId": "",
+  "definition": "",
+  "format": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * definition **required** [String](#string)
+  * format **required** [TypeDefinitionFormat](#typedefinitionformat)
+
+#### Output
+* output [CreateTypeResponse](#createtyperesponse)
+
+### DeleteType
+
+
+
+```js
+amazonaws_appsync.DeleteType({
+  "apiId": "",
+  "typeName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * typeName **required** `string`
+
+#### Output
+* output [DeleteTypeResponse](#deletetyperesponse)
+
+### GetType
+
+
+
+```js
+amazonaws_appsync.GetType({
+  "apiId": "",
+  "typeName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * typeName **required** `string`
+
+#### Output
+* output [GetTypeResponse](#gettyperesponse)
 
 ### UpdateType
 
@@ -232,6 +466,74 @@ amazonaws_appsync.ListResolvers({
 #### Output
 * output [ListResolversResponse](#listresolversresponse)
 
+### CreateResolver
+
+
+
+```js
+amazonaws_appsync.CreateResolver({
+  "apiId": "",
+  "typeName": "",
+  "fieldName": "",
+  "dataSourceName": "",
+  "requestMappingTemplate": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * typeName **required** `string`
+  * dataSourceName **required** [ResourceName](#resourcename)
+  * fieldName **required** [ResourceName](#resourcename)
+  * requestMappingTemplate **required** [MappingTemplate](#mappingtemplate)
+  * responseMappingTemplate [MappingTemplate](#mappingtemplate)
+
+#### Output
+* output [CreateResolverResponse](#createresolverresponse)
+
+### DeleteResolver
+
+
+
+```js
+amazonaws_appsync.DeleteResolver({
+  "apiId": "",
+  "typeName": "",
+  "fieldName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * typeName **required** `string`
+  * fieldName **required** `string`
+
+#### Output
+* output [DeleteResolverResponse](#deleteresolverresponse)
+
+### GetResolver
+
+
+
+```js
+amazonaws_appsync.GetResolver({
+  "apiId": "",
+  "typeName": "",
+  "fieldName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * apiId **required** `string`
+  * typeName **required** `string`
+  * fieldName **required** `string`
+
+#### Output
+* output [GetResolverResponse](#getresolverresponse)
+
 ### UpdateResolver
 
 
@@ -272,6 +574,10 @@ amazonaws_appsync.UpdateResolver({
 * ApiKeyLimitExceededException `object`: The API key exceeded a limit. Try your request again.
   * message [String](#string)
 
+### ApiKeyValidityOutOfBoundsException
+* ApiKeyValidityOutOfBoundsException `object`: The API key expiration must be set to a value between 1 and 365 days.
+  * message [String](#string)
+
 ### ApiKeys
 * ApiKeys `array`
   * items [ApiKey](#apikey)
@@ -300,6 +606,7 @@ amazonaws_appsync.UpdateResolver({
 ### CreateApiKeyRequest
 * CreateApiKeyRequest `object`
   * description [String](#string)
+  * expires [Long](#long)
 
 ### CreateApiKeyResponse
 * CreateApiKeyResponse `object`
@@ -322,7 +629,7 @@ amazonaws_appsync.UpdateResolver({
 ### CreateGraphqlApiRequest
 * CreateGraphqlApiRequest `object`
   * authenticationType **required** [AuthenticationType](#authenticationtype)
-  * name **required** [ResourceName](#resourcename)
+  * name **required** [String](#string)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 ### CreateGraphqlApiResponse
@@ -361,7 +668,7 @@ amazonaws_appsync.UpdateResolver({
   * type [DataSourceType](#datasourcetype)
 
 ### DataSourceType
-* DataSourceType `string` (values: AWS_LAMBDA, AMAZON_DYNAMODB, AMAZON_ELASTICSEARCH)
+* DataSourceType `string` (values: AWS_LAMBDA, AMAZON_DYNAMODB, AMAZON_ELASTICSEARCH, NONE)
 
 ### DataSources
 * DataSources `array`
@@ -600,6 +907,15 @@ amazonaws_appsync.UpdateResolver({
 * UnauthorizedException `object`: You are not authorized to perform this operation.
   * message [String](#string)
 
+### UpdateApiKeyRequest
+* UpdateApiKeyRequest `object`
+  * description [String](#string)
+  * expires [Long](#long)
+
+### UpdateApiKeyResponse
+* UpdateApiKeyResponse `object`
+  * apiKey [ApiKey](#apikey)
+
 ### UpdateDataSourceRequest
 * UpdateDataSourceRequest `object`
   * description [String](#string)
@@ -616,7 +932,7 @@ amazonaws_appsync.UpdateResolver({
 ### UpdateGraphqlApiRequest
 * UpdateGraphqlApiRequest `object`
   * authenticationType [AuthenticationType](#authenticationtype)
-  * name **required** [ResourceName](#resourcename)
+  * name **required** [String](#string)
   * userPoolConfig [UserPoolConfig](#userpoolconfig)
 
 ### UpdateGraphqlApiResponse
