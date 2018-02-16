@@ -19,14 +19,13 @@ if (integsLocation !== -1) {
 
 readme += TITLE_LINE + '\n';
 readme += `Currently ${Object.keys(list).length} integrations\n\n`;
-readme += '\n|name|title|README|link|description|';
-readme += '\n|---|---|---|---|---|';
+readme += '\n|title|README|link|description|';
+readme += '\n|---|---|---|---|';
 
 Object.keys(list).sort().forEach(key => {
   if (SKIP.indexOf(key) !== -1) return;
   let details = list[key];
   let parts = [
-    key,
     details.title,
     `[README](integrations/${details.directory}/${key})`,
     `[DataFire.io](https://app.datafire.io/integrations/${key})`,
