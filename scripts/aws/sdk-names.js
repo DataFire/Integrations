@@ -6,8 +6,8 @@ const list = fs.readdirSync(__dirname + '/../../integrations/generated')
 
 const sdkMap = module.exports = {
   a4b: 'AlexaForBusiness',
+  api_pricing: 'Pricing',
   appstream2: 'AppStream',
-  autoscaling: 'ApplicationAutoScaling',
   ce: 'CostExplorer',
   cloudhsmv2: 'CloudHSMV2',
   cognito_idp: 'CognitoIdentityServiceProvider',
@@ -35,13 +35,13 @@ const sdkMap = module.exports = {
   states: 'StepFunctions',
   streams_dynamodb: 'DynamoDBStreams',
   tagging: 'ResourceGroupsTaggingAPI',
-  api_pricing: 'Pricing',
+  transcribe: 'TranscribeService',
 }
 
 list.forEach(name => {
   let objName = sdkMap[name] || Object.keys(sdk).filter(serviceName => {
     return serviceName.toLowerCase() === name.replace(/_/g, '');
   }).pop();
-  if (!objName || !sdk[objName]) throw new Error("obj name not found for " + name);
+  if (!objName || !sdk[objName]) throw new Error("obj name not found for " + name + ':' + sdkMap[name]);
   sdkMap[name] = objName;
 })

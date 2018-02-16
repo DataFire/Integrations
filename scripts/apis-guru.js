@@ -1,6 +1,6 @@
 const request = require('request');
 const async = require('async');
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const integrate = require('./integrate');
 
@@ -28,10 +28,12 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
       return false;
     }
     return true;
-  })
-  async.parallel(keys.map(key => {
+  });
+  let names = [];
+  async.parallelLimit(keys.map(key => {
     return acb => {
       let {name, provider} = getName(key);
+      names.push(name);
       let info = body[key];
       let api = info.versions[info.preferred];
       if (args.info_only) {
@@ -46,14 +48,28 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
           bump: args.bump,
         }, err => {
           if (err) return acb(err);
-          fs.unlinkSync(path.join(OUT_DIR, name, 'details.json'));
+          try {
+            fs.unlinkSync(path.join(OUT_DIR, name, 'details.json'));
+          } catch (e) {
+            console.log('Error deleting details.json for ' + name, e);
+          }
           acb();
         });
       }
     }
-  }), err => {
+  }), 10, err => {
     if (err) throw err;
-    console.log('done');
+    if (!args.name && !args.new) {
+      fs.readdirSync(OUT_DIR).forEach(name => {
+        if (names.indexOf(name) !== -1) return;
+        let dir = OUT_DIR + '/' + name;
+        let pkg = require(dir + '/package.json');
+        let origin = pkg.datafire.origin;
+        if (typeof origin === 'string' && origin.indexOf('https://api.apis.guru/') === 0) {
+          fs.moveSync(dir, DEPRECATED_DIR + '/' + name);
+        }
+      })
+    }
   })
 })
 

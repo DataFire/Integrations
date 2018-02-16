@@ -9,13 +9,13 @@ module.exports = function(fn, filterFn) {
       if (!filterFn(name)) return;
       let fullDir = path.join(dir, name);
       let integ = require(fullDir);
-      fn(fullDir, name, integ)
+      fn(fullDir, name, integ);
       if (integ.ajv) {
         integ.ajv._cache.clear();
       }
       integ = null;
       for (let key in require.cache) {
-        if (key.indexOf(path.join(__dirname, '..')) !== -1) {
+        if (key.indexOf(path.join(__dirname, '../integrations')) !== -1) {
           delete require.cache[key];
         }
       }

@@ -107,7 +107,7 @@ function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
     let propRequired = (schema.required || []).indexOf(prop) !== -1;
     let propMD = schemaToMarkdown(propSchema, base, prop, propRequired, depth + 1);
     if (propMD) md += '\n' + propMD;
-    else console.log("skipping property", prop, propSchema);
+    //else console.log("skipping property", prop, propSchema);
   });
 
   if (schema.items) {

@@ -14,6 +14,7 @@ if (integsLocation !== -1) {
 }
 
 readme += TITLE_LINE + '\n';
+readme += `Currently ${Object.keys(list).length} integrations\n\n`;
 readme += '\n|name|title|README|link|description|';
 readme += '\n|---|---|---|---|---|';
 
