@@ -18,9 +18,10 @@
     "type": "openapi"
   },
   "peerDependencies": {
-    "datafire": "^2.0.0"
+    "datafire": "^2.20.0"
   },
   "dependencies": {
-    "datafire": "^2.0.0"
+    "btoa": "^1.1.2",
+    "datafire": "^2.20.0"
   }
 }

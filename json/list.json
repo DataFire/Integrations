@@ -23728,5 +23728,28 @@
     "actionCount": 1,
     "directory": "manual",
     "latestVersion": "1.0.0"
+  },
+  "twitter": {
+    "id": "twitter",
+    "title": "Twitter",
+    "security": {
+      "twitter": {
+        "fields": {
+          "consumer_key": "",
+          "consumer_secret": "",
+          "token": "",
+          "token_secret": ""
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twitter.jpeg"
+    },
+    "actionCount": 83,
+    "directory": "generated",
+    "tags": [
+      "social"
+    ],
+    "latestVersion": "2.0.0"
   }
 }
