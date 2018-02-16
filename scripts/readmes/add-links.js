@@ -5,8 +5,12 @@ const removeMD = require('remove-markdown-and-html');
 
 const SKIP = ['apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi'];
 
-let readme = fs.readFileSync(README_FILE, 'utf8');
 let list = require('../../json/list');
+let readme = fs.readFileSync(README_FILE, 'utf8');
+
+let numIntegrations = Object.keys(list).length;
+let estimate = Math.floor(numIntegrations / 100) * 100;
+readme = readme.replace(/over \d+ different/, `over ${estimate} different`);
 
 let integsLocation = readme.indexOf(TITLE_LINE);
 if (integsLocation !== -1) {

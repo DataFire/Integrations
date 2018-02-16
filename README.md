@@ -6,7 +6,7 @@
 [travis-image]: https://travis-ci.org/DataFire/Integrations.svg?branch=master
 [travis-link]: https://travis-ci.org/DataFire/Integrations
 
-A set of NodeJS clients for over 600 different APIs and services, including:
+A set of NodeJS clients for over 800 different APIs and services, including:
 
 AWS • Azure • MongoDB • Slack • GitHub • Twilio • Trello • Square • Google Sheets • Gmail • Heroku
 
@@ -53,7 +53,7 @@ You can also create integrations manually by writing JavaScript and using npm mo
 See the [HTTP](./integrations/manual/http) or [MongoDB](./integrations/manual/mongodb) integrations for examples.
 
 ## Integrations
-Currently 841 integrations
+Currently 842 integrations
 
 
 |name|title|README|link|description|
@@ -856,6 +856,7 @@ Currently 841 integrations
 |tvmaze|TVmaze|[README](integrations/generated/tvmaze)|[DataFire.io](https://app.datafire.io/integrations/tvmaze)|Access to the user API is only possible for users with a premium account. A user can only access their own user data.|
 |twilio|Twilio|[README](integrations/generated/twilio)|[DataFire.io](https://app.datafire.io/integrations/twilio)|Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software.|
 |twinehealth|Twine|[README](integrations/generated/twinehealth)|[DataFire.io](https://app.datafire.io/integrations/twinehealth)|The Twine Health API is RESTful API. The requests and responses are formated according to the JSON API specification.|
+|twitter|Twitter|[README](integrations/generated/twitter)|[DataFire.io](https://app.datafire.io/integrations/twitter)||
 |uebermaps|uebermaps API endpoints|[README](integrations/generated/uebermaps)|[DataFire.io](https://app.datafire.io/integrations/uebermaps)|Enable people to store spots on public and private maps|
 |urbanairship|Urban Airship|[README](integrations/generated/urbanairship)|[DataFire.io](https://app.datafire.io/integrations/urbanairship)|The Urban Airship's API powers mobile applications with push, rich push, in-app purchases and subscription services.|
 |vatapi|VAT API|[README](integrations/generated/vatapi)|[DataFire.io](https://app.datafire.io/integrations/vatapi)|A developer friendly API to help your business achieve VAT compliance|
