@@ -6,7 +6,7 @@
 [travis-image]: https://travis-ci.org/DataFire/Integrations.svg?branch=master
 [travis-link]: https://travis-ci.org/DataFire/Integrations
 
-A set of NodeJS clients for over 600 different APIs and services, including:
+A set of NodeJS clients for over 800 different APIs and services, including:
 
 AWS • Azure • MongoDB • Slack • GitHub • Twilio • Trello • Square • Google Sheets • Gmail • Heroku
 
