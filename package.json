@@ -20,7 +20,7 @@
     "aws-sdk": "^2.196.0",
     "chai": "^3.5.0",
     "datafire": "^2.0.2",
-    "fennel": "git+https://github.com/bobby-brennan/fennel.git#f41cebe",
+    "fennel": "git+https://github.com/bobby-brennan/fennel.git#585160f",
     "fs-extra": "^5.0.0",
     "hoodiecrow-imap": "^2.1.0",
     "imap": "^0.8.19",
