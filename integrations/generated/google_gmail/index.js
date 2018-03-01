@@ -7,7 +7,7 @@ module.exports.addAction('buildMessage', new datafire.Action({
   inputSchema: {
     type: 'object',
     properties: {
-      to: {type: 'string'},
+      to: {type: ['string', 'array'], items: {type: 'string'}},
       from: {type: 'string'},
       subject: {type: 'string', default: ''},
       body: {type: 'string', default: ''},
@@ -19,10 +19,13 @@ module.exports.addAction('buildMessage', new datafire.Action({
     description: "RFC 2822 formatted and base64url encoded message"
   },
   handler: (input, context) => {
+    if (!Array.isArray(input.to)) {
+      input.to = [input.to]
+    }
     let message = `
 
 From: <${input.from}>
-To: <${input.to}>
+To: <${input.to.join('>, <')}>
 Subject: ${input.subject}
 Date: ${new Date().toString()}
 Content-Type: text/html; charset=utf-8
