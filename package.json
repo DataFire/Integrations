@@ -18,8 +18,10 @@
   "devDependencies": {
     "async": "^2.1.4",
     "aws-sdk": "^2.196.0",
+    "body-parser": "^1.18.2",
     "chai": "^3.5.0",
     "datafire": "^2.0.2",
+    "express": "^4.16.2",
     "fennel": "git+https://github.com/bobby-brennan/fennel.git#585160f",
     "fs-extra": "^5.0.0",
     "hoodiecrow-imap": "^2.1.0",
