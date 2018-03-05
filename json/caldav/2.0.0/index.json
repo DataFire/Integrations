@@ -12,6 +12,9 @@
       }
     }
   },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/caldav.png"
+  },
   "actionCount": 7,
   "actions": [
     {
