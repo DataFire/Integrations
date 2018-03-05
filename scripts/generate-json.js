@@ -7,6 +7,7 @@ const datafire = require('datafire');
 const args = require('yargs').argv;
 
 const iterateIntegs = require('./iterate-integrations');
+const overrides = require('../overrides.json');
 
 const MAX_DESCRIPTION_LENGTH = 120;
 const LOGO_BASE = 'https://s3-us-west-2.amazonaws.com/datafire-logos';
@@ -67,7 +68,6 @@ iterateIntegs((dir, name, integ) => {
     console.log('adding', name);
     let package = require(path.join(dir, 'package.json'));
     let openapiFile = path.join(dir, 'openapi.json');
-    let infoFile = path.join(dir, 'info.json');
     let info = {directory: dir.match(/\/integrations\/(generated|manual)\//)[1]};
     if (fs.existsSync(openapiFile)) {
       let openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
@@ -76,8 +76,8 @@ iterateIntegs((dir, name, integ) => {
       info.logo = openapi.info['x-logo'];
       info.tags = (openapi.info['x-apisguru-categories'] || []).map(t => t.replace(/_/g, ' '));
     }
-    if (fs.existsSync(infoFile)) {
-      Object.assign(info, require(infoFile));
+    if (overrides[name]) {
+      Object.assign(info, overrides[name]);
     }
     if (info.logo) {
       let extname = info.logo.url.match(/\.(\w+)$/)[1];

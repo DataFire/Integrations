@@ -1,0 +1,1260 @@
+{
+  "amazonaws_acm": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_acm.svg"
+    }
+  },
+  "amazonaws_api_pricing": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_apigateway": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_apigateway.svg"
+    }
+  },
+  "amazonaws_appstream2": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_athena": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_athena.svg"
+    }
+  },
+  "amazonaws_autoscaling": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_autoscaling.svg"
+    }
+  },
+  "amazonaws_batch": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_batch.svg"
+    }
+  },
+  "amazonaws_ce": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_ce.svg"
+    }
+  },
+  "amazonaws_cloudformation": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_cloudformation.svg"
+    }
+  },
+  "amazonaws_cloudfront": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_cloudfront.svg"
+    }
+  },
+  "amazonaws_cloudhsm": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_cloudhsm.svg"
+    }
+  },
+  "amazonaws_cloudsearch": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_cloudsearch.svg"
+    }
+  },
+  "amazonaws_cloudtrail": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_cloudtrail.svg"
+    }
+  },
+  "amazonaws_codebuild": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_codebuild.svg"
+    }
+  },
+  "amazonaws_codecommit": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_codecommit.svg"
+    }
+  },
+  "amazonaws_codedeploy": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_codedeploy.svg"
+    }
+  },
+  "amazonaws_codepipeline": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_codepipeline.svg"
+    }
+  },
+  "amazonaws_config": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_config.svg"
+    }
+  },
+  "amazonaws_data_iot": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_datapipeline": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_datapipeline.svg"
+    }
+  },
+  "amazonaws_devicefarm": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_devicefarm.svg"
+    }
+  },
+  "amazonaws_directconnect": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_directconnect.svg"
+    }
+  },
+  "amazonaws_dms": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_dms.svg"
+    }
+  },
+  "amazonaws_ds": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_ds.svg"
+    }
+  },
+  "amazonaws_dynamodb": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_dynamodb.svg"
+    }
+  },
+  "amazonaws_ec2": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_ec2.svg"
+    }
+  },
+  "amazonaws_ecr": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_ecr.svg"
+    }
+  },
+  "amazonaws_ecs": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_ecs.svg"
+    }
+  },
+  "amazonaws_elasticache": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_elasticache.svg"
+    }
+  },
+  "amazonaws_elasticbeanstalk": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_elasticbeanstalk.svg"
+    }
+  },
+  "amazonaws_elasticloadbalancing": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_elasticloadbalancing.svg"
+    }
+  },
+  "amazonaws_elastictranscoder": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_elastictranscoder.svg"
+    }
+  },
+  "amazonaws_email": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_email.svg"
+    }
+  },
+  "amazonaws_firehose": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_firehose.svg"
+    }
+  },
+  "amazonaws_gamelift": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_gamelift.svg"
+    }
+  },
+  "amazonaws_glacier": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_glacier.svg"
+    }
+  },
+  "amazonaws_greengrass": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_greengrass.svg"
+    }
+  },
+  "amazonaws_iam": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_iam.svg"
+    }
+  },
+  "amazonaws_importexport": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_importexport.svg"
+    }
+  },
+  "amazonaws_inspector": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_inspector.svg"
+    }
+  },
+  "amazonaws_iot": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_iot.svg"
+    }
+  },
+  "amazonaws_kinesis": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_kinesis.svg"
+    }
+  },
+  "amazonaws_kinesisanalytics": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_kinesisanalytics.svg"
+    }
+  },
+  "amazonaws_kms": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_kms.svg"
+    }
+  },
+  "amazonaws_lambda": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_lambda.svg"
+    }
+  },
+  "amazonaws_lightsail": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_lightsail.svg"
+    }
+  },
+  "amazonaws_logs": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_logs.svg"
+    }
+  },
+  "amazonaws_machinelearning": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_machinelearning.svg"
+    }
+  },
+  "amazonaws_metering_marketplace": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_mgh": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_mobileanalytics": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_mobileanalytics.svg"
+    }
+  },
+  "amazonaws_models_lex": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_monitoring": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_monitoring.svg"
+    }
+  },
+  "amazonaws_opsworks": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_opsworks.svg"
+    }
+  },
+  "amazonaws_opsworks_cm": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "amazonaws_organizations": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_organizations.svg"
+    }
+  },
+  "amazonaws_pinpoint": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_pinpoint.svg"
+    }
+  },
+  "amazonaws_polly": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_polly.svg"
+    }
+  },
+  "amazonaws_rds": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_rds.svg"
+    }
+  },
+  "amazonaws_redshift": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_redshift.svg"
+    }
+  },
+  "amazonaws_rekognition": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_rekognition.svg"
+    }
+  },
+  "amazonaws_route53": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_route53.svg"
+    }
+  },
+  "amazonaws_s3": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_s3.svg"
+    }
+  },
+  "amazonaws_servicecatalog": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_servicecatalog.svg"
+    }
+  },
+  "amazonaws_shield": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_shield.svg"
+    }
+  },
+  "amazonaws_sms": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_sms.svg"
+    }
+  },
+  "amazonaws_snowball": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_snowball.svg"
+    }
+  },
+  "amazonaws_sns": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_sns.svg"
+    }
+  },
+  "amazonaws_sqs": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_sqs.svg"
+    }
+  },
+  "amazonaws_storagegateway": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_storagegateway.svg"
+    }
+  },
+  "amazonaws_sts": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_sts.svg"
+    }
+  },
+  "amazonaws_swf": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_swf.svg"
+    }
+  },
+  "amazonaws_waf": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_waf.svg"
+    }
+  },
+  "amazonaws_workdocs": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_workdocs.svg"
+    }
+  },
+  "amazonaws_workspaces": {
+    "logo": {
+      "url": "https://app.datafire.io/img/aws/amazonaws_workspaces.svg"
+    }
+  },
+  "bbc_rss": {
+    "title": "BBC RSS",
+    "logo": {
+      "url": "http://kandl-genres.files.bbci.co.uk/kandl-genres/1199-1/images/meta-images/bbc_blocks.png"
+    }
+  },
+  "beanstream": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/659863099105611776/_btncc1h.png"
+    }
+  },
+  "bitbucket": {
+    "logo": {
+      "url": "http://tcashcroft.com/img/bitbucket_logo.png"
+    }
+  },
+  "bufferapp": {
+    "logo": {
+      "url": "https://cdn.worldvectorlogo.com/logos/buffer.svg"
+    }
+  },
+  "bungie": {
+    "logo": {
+      "url": "http://www.bungie.net/img/theme/bungienet/logo-share-large.png"
+    }
+  },
+  "cambase": {
+    "logo": {
+      "url": "http://cdn.cambase.io/assets/logo-f1bffbb8eea6139bc4acfec3b9f2f91b.jpg"
+    }
+  },
+  "clarify": {
+    "logo": {
+      "backgroundColor": "#65A8B5",
+      "url": "http://s3.amazonaws.com/totem_production/assets/logos/7748/original/clarify-negative.png"
+    }
+  },
+  "clickmeter": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/2960962618/8f7ac4dcddb86ba6af84301fc3707a46_400x400.png"
+    }
+  },
+  "cnab_online_herokuapp": {
+    "logo": {
+      "url": "https://blog.sparkpost.com/wp-content/uploads/2015/06/heroku-logo.png"
+    }
+  },
+  "cnn_rss": {
+    "title": "CNN RSS",
+    "logo": {
+      "url": "http://cdn.cnn.com/cnn/.e/img/3.0/global/misc/cnn-logo.png"
+    }
+  },
+  "core_ac_uk": {
+    "logo": {
+      "url": "https://core.ac.uk/resources/corelogo_hires.png"
+    }
+  },
+  "datumbox": {
+    "logo": {
+      "url": "https://lh3.googleusercontent.com/-ZLEItJpoAFY/AAAAAAAAAAI/AAAAAAAAABE/8_PWAyUy1aE/s120-c/photo.jpg"
+    }
+  },
+  "docusign": {
+    "logo": {
+      "url": "https://www.docusign.com/sites/default/files/DSWhiteonBlue.png"
+    }
+  },
+  "dweet": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/431961314080985088/5ZoIm6oE_400x400.png"
+    }
+  },
+  "etsy": {
+    "title": "Etsy",
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/613742962095341568/VGmQvBw8.png"
+    }
+  },
+  "exavault": {
+    "logo": {
+      "backgroundColor": "#222222",
+      "url": "https://pbs.twimg.com/profile_images/3656927203/3c6f0053f6ffb1e0a36761f91d736504_400x400.png"
+    }
+  },
+  "facebook": {
+    "title": "Facebook Graph",
+    "logo": {
+      "url": "https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png"
+    }
+  },
+  "firebrowse": {
+    "logo": {
+      "url": "https://www.broadinstitute.org/files/imagecache/featured-home/news/images/2014/BroadLogoSquare_205_1.png"
+    }
+  },
+  "fitbit": {
+    "title": "Fitbit",
+    "logo": {
+      "url": "https://static1.fitbit.com/simple.b-cssdisabled-png.he127ee977213a60001f4edd507132981.pack?items=%2Fcontent%2Fassets%2Fonezip%2Fimages%2Fdevices%2Fapp-icon-2x.png"
+    }
+  },
+  "geodesystems": {
+    "logo": {
+      "url": "http://ramadda.org/favicon.ico"
+    }
+  },
+  "gettyimages": {
+    "logo": {
+      "url": "http://www.pen-international.org/wp-content/uploads/2014/01/getty-images-logo.png"
+    }
+  },
+  "github": {
+    "logo": {
+      "url": "https://image.flaticon.com/icons/png/512/25/25231.png"
+    }
+  },
+  "gitlab": {
+    "logo": {
+      "url": "https://maxcdn.icons8.com/Share/icon/color/Logos//gitlab1600.png"
+    }
+  },
+  "google_adexchangebuyer": {
+    "logo": {
+      "url": "http://www.tagcommander.com/wp-content/uploads/2015/07/google-doubleclick-square-logo128.png"
+    }
+  },
+  "google_adexchangeseller": {
+    "logo": {
+      "url": "http://www.tagcommander.com/wp-content/uploads/2015/07/google-doubleclick-square-logo128.png"
+    }
+  },
+  "google_admin": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/1x/admin_64dp.png"
+    }
+  },
+  "google_analytics": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/analytics_64dp.png"
+    }
+  },
+  "google_appsactivity": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_appstate": {
+    "logo": {
+      "url": "http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Play-Games-icon.png"
+    }
+  },
+  "google_bigquery": {
+    "logo": {
+      "url": "http://www.fluentd.org/assets/img/datasources/bigquery.png"
+    }
+  },
+  "google_blogger": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/blogger_64dp.png"
+    }
+  },
+  "google_calendar": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/calendar_64dp.png"
+    }
+  },
+  "google_civicinfo": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_clouddebugger": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_cloudmonitoring": {
+    "logo": {
+      "url": "https://cloud.google.com/solutions/images/monitoring.png"
+    }
+  },
+  "google_cloudresourcemanager": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_cloudtrace": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_clouduseraccounts": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_compute": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/en/1/18/Google_Compute_Engine_logo.png"
+    }
+  },
+  "google_container": {
+    "logo": {
+      "url": "http://www.siyomek.com/wp-content/uploads/2015/04/container-engine.png"
+    }
+  },
+  "google_content": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_customsearch": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_datastore": {
+    "logo": {
+      "url": "http://hsincheng-chao.appspot.com/static/img/datastore-logo.png"
+    }
+  },
+  "google_deploymentmanager": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_dfareporting": {
+    "logo": {
+      "url": "http://www.tagcommander.com/wp-content/uploads/2015/07/google-doubleclick-square-logo128.png"
+    }
+  },
+  "google_discovery": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_doubleclickbidmanager": {
+    "logo": {
+      "url": "http://www.tagcommander.com/wp-content/uploads/2015/07/google-doubleclick-square-logo128.png"
+    }
+  },
+  "google_doubleclicksearch": {
+    "logo": {
+      "url": "http://www.tagcommander.com/wp-content/uploads/2015/07/google-doubleclick-square-logo128.png"
+    }
+  },
+  "google_drive": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/drive_32dp.png"
+    }
+  },
+  "google_fusiontables": {
+    "logo": {
+      "url": "http://icons.iconarchive.com/icons/alecive/flatwoken/256/Apps-Google-Drive-Fusion-Tables-icon.png"
+    }
+  },
+  "google_games": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/play_games_64dp.png"
+    }
+  },
+  "google_gamesconfiguration": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/play_games_64dp.png"
+    }
+  },
+  "google_gamesmanagement": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/play_games_64dp.png"
+    }
+  },
+  "google_genomics": {
+    "logo": {
+      "url": "https://cloud.google.com/solutions/genomics/images/genomics.png"
+    }
+  },
+  "google_gmail": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/gmail_64dp.png"
+    }
+  },
+  "google_groupsmigration": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
+    }
+  },
+  "google_groupssettings": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
+    }
+  },
+  "google_identitytoolkit": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_licensing": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
+    }
+  },
+  "google_logging": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_mirror": {
+    "logo": {
+      "url": "https://developers.google.com/glass/images/icons/glass_logo_round_96.png"
+    }
+  },
+  "google_oauth2": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_pagespeedonline": {
+    "logo": {
+      "url": "https://www.google.com/images/icons/product/pagespeed-64.png"
+    }
+  },
+  "google_partners": {
+    "logo": {
+      "url": "http://www.clientura.co.il/wp-content/uploads/2014/06/google-partner-thumbnail-250x250.jpg"
+    }
+  },
+  "google_playmoviespartner": {
+    "logo": {
+      "url": "http://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Play-Movies-icon.png"
+    }
+  },
+  "google_plus": {
+    "logo": {
+      "url": "https://developers.google.com/+/images/branding/g+128.png"
+    }
+  },
+  "google_plusdomains": {
+    "logo": {
+      "url": "https://developers.google.com/+/images/branding/g+128.png"
+    }
+  },
+  "google_prediction": {
+    "logo": {
+      "url": "https://www.google.com/images/icons/feature/predictionapi-64.png"
+    }
+  },
+  "google_qpxexpress": {
+    "logo": {
+      "url": "https://developers.google.com/qpx-express/images/qpx-icon-c_64.png"
+    }
+  },
+  "google_replicapool": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/en/1/18/Google_Compute_Engine_logo.png"
+    }
+  },
+  "google_replicapoolupdater": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/en/1/18/Google_Compute_Engine_logo.png"
+    }
+  },
+  "google_reseller": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
+    }
+  },
+  "google_script": {
+    "logo": {
+      "url": "https://www.gstatic.com/images/icons/material/product/2x/apps_script_64dp.png"
+    }
+  },
+  "google_sheets": {
+    "logo": {
+      "url": "https://maxcdn.icons8.com/Share/icon/Logos//google_sheets1600.png"
+    }
+  },
+  "google_siteverification": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_spectrum": {
+    "logo": {
+      "url": "https://developers.google.com/site-assets/developers_64dp.png"
+    }
+  },
+  "google_sqladmin": {
+    "logo": {
+      "url": "https://cloud.google.com/images/training/CloudSQL_128px.png"
+    }
+  },
+  "google_storage": {
+    "logo": {
+      "url": "https://cloud.google.com/storage/images/cloud-storage-logo.png"
+    }
+  },
+  "google_tagmanager": {
+    "logo": {
+      "url": "http://icons.iconarchive.com/icons/carlosjj/google-jfk/128/tag-manager-icon.png"
+    }
+  },
+  "google_taskqueue": {
+    "logo": {
+      "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
+    }
+  },
+  "google_tasks": {
+    "logo": {
+      "url": "https://developers.google.com/google-apps/images/tasks-128.png"
+    }
+  },
+  "google_translate": {
+    "logo": {
+      "url": "http://www.droid-life.com/wp-content/uploads/2015/01/google-translate-logo.jpg"
+    }
+  },
+  "google_urlshortener": {
+    "logo": {
+      "url": "http://img.talkandroid.com/uploads/2014/03/google_url_shortener_app_icon.png"
+    }
+  },
+  "google_webfonts": {
+    "logo": {
+      "url": "https://lh4.googleusercontent.com/-UfvH5WApwYQ/USUG7O5OrQI/AAAAAAAACA0/00r_sogQbJg/w800-h800/fonts-512%255B1%255D.png"
+    }
+  },
+  "google_webmasters": {
+    "logo": {
+      "url": "http://downloadicons.net/sites/default/files/google-webmaster-tools-icon-50603.png"
+    }
+  },
+  "google_youtube": {
+    "logo": {
+      "url": "https://www.seeklogo.net/wp-content/uploads/2016/06/YouTube-icon-400x400.png"
+    }
+  },
+  "google_youtubeanalytics": {
+    "logo": {
+      "url": "https://www.seeklogo.net/wp-content/uploads/2016/06/YouTube-icon-400x400.png"
+    }
+  },
+  "google_youtubereporting": {
+    "logo": {
+      "url": "https://www.seeklogo.net/wp-content/uploads/2016/06/YouTube-icon-400x400.png"
+    }
+  },
+  "graphhopper": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/451044992081862656/a7endB0P_400x400.png"
+    }
+  },
+  "groupon": {
+    "title": "Groupon",
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Groupon_Logo.svg/2000px-Groupon_Logo.svg.png"
+    }
+  },
+  "hacker_news": {
+    "logo": {
+      "url": "https://news.ycombinator.com/favicon.ico"
+    }
+  },
+  "heroku": {
+    "title": "Heroku",
+    "logo": {
+      "url": "https://blog.sparkpost.com/wp-content/uploads/2015/06/heroku-logo.png"
+    }
+  },
+  "idtbeyond": {
+    "logo": {
+      "backgroundColor": "#222222",
+      "url": "http://cdn1.hubspot.com/hub/123605/file-69898609.png"
+    }
+  },
+  "infermedica": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/961182586931417088/n--Beuot_400x400.jpg"
+    }
+  },
+  "infoconnect": {
+    "title": "Infoconnect",
+    "logo": {
+      "url": "https://lh3.googleusercontent.com/-6O7bXVOvhPM/AAAAAAAAAAI/AAAAAAAAAI0/tBWI5cn9OYM/s0-c-k-no-ns/photo.jpg"
+    }
+  },
+  "instagram": {
+    "logo": {
+      "url": "https://instagram-brand.com/wp-content/uploads/2016/11/app-icon2.png"
+    }
+  },
+  "kaltura": {
+    "logo": {
+      "url": "http://logosrated.net/wp-content/uploads/parser/Kaltura-Logo-1.jpg"
+    }
+  },
+  "linkedin": {
+    "title": "LinkedIn",
+    "logo": {
+      "url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAANyAAAAJGRlZTNlZDQwLTk4YTItNDA1MS04MzBjLWJmNGQ5M2RmZGUxYw.png"
+    }
+  },
+  "lufthansa_partner": {
+    "title": "Lufthansa Partner"
+  },
+  "lufthansa_public": {
+    "title": "Lufthansa Public"
+  },
+  "lyft": {
+    "logo": {
+      "url": "http://iosicongallery.com/img/512/lyft-2016-02-02.png"
+    }
+  },
+  "magento": {
+    "logo": {
+      "url": "http://icon-icons.com/icons2/836/PNG/512/Magento_icon-icons.com_66749.png"
+    }
+  },
+  "magick_nu": {
+    "logo": {
+      "url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAALUAAAAJDIxNTNiNDJlLWI3OGUtNDIxNy05MDVjLWU4N2EyMWE5OWU1Yg.png"
+    }
+  },
+  "mailchimp": {
+    "title": "MailChimp",
+    "description": "Create plugins that connect MailChimp to your CMS, your blog, your e-commerce shopping cart, and more.",
+    "logo": {
+      "url": "http://static.mailchimp.com/web/brand-assets/Freddie_OG.jpg"
+    }
+  },
+  "medium": {
+    "logo": {
+      "url": "https://d262ilb51hltx0.cloudfront.net/max/873/1*QnlI8nTg-t9G3pLrxbX9-w.png"
+    }
+  },
+  "moonmoonmoonmoon": {
+    "logo": {
+      "url": "http://3.bp.blogspot.com/-Q0fgZcTI8PQ/VQa0cd5-NyI/AAAAAAAAE-E/P5YMgWnVvyU/s1600/16.png",
+      "backgroundColor": "#000000"
+    }
+  },
+  "myspace": {
+    "title": "Myspace",
+    "logo": {
+      "url": "https://cdn0.iconfinder.com/data/icons/black-icon-social-media/512/099336-myspace-logo.png"
+    }
+  },
+  "nextcaller": {
+    "title": "Next Caller",
+    "logo": {
+      "url": "https://djse65jvdx9oi.cloudfront.net/img/dev/icon.ef4e072d2e49.png"
+    }
+  },
+  "npr_rss": {
+    "title": "NPR RSS",
+    "logo": {
+      "url": "http://www.npr.org/about/images/press/Logos/npr_logo_rgb.JPG"
+    }
+  },
+  "nrel_building_case_studies": {
+    "logo": {
+      "url": "https://www.nrel.gov/_resources/images/icon-buildings.svg"
+    }
+  },
+  "nsidc": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/489786331598315520/oxPRSQLy_400x400.png"
+    }
+  },
+  "nytimes_rss": {
+    "title": "New York Times RSS",
+    "logo": {
+      "url": "https://static01.nyt.com/images/icons/t_logo_291_black.png"
+    }
+  },
+  "o2_cz_mobility": {
+    "title": "O2 Mobility",
+    "logo": {
+      "url": "https://vignette2.wikia.nocookie.net/logopedia/images/8/8b/O2.png"
+    }
+  },
+  "o2_cz_sociodemo": {
+    "title": "O2 Socio-demo",
+    "logo": {
+      "url": "https://vignette2.wikia.nocookie.net/logopedia/images/8/8b/O2.png"
+    }
+  },
+  "oceandrivers": {
+    "logo": {
+      "url": "http://www.oceandrivers.com/wp-content/uploads/2014/11/OceanDriversLogo_Ball.png"
+    }
+  },
+  "onenote": {
+    "title": "Microsoft OneNote",
+    "logo": {
+      "url": "https://i-msdn.sec.s-msft.com/dynimg/IC728515.png"
+    }
+  },
+  "orghunter": {
+    "logo": {
+      "url": "https://lh6.googleusercontent.com/-YowTFzlu1UU/VLG43dT7ZUI/AAAAAAAAABQ/ZgR5pxE5ldQ/icon.png"
+    }
+  },
+  "patientview": {
+    "logo": {
+      "url": "https://www.patientview.org/images/icons/brand-pulse.png"
+    }
+  },
+  "paypal": {
+    "title": "PayPal Sandbox",
+    "logo": {
+      "url": "https://www.paypalobjects.com/webstatic/icon/pp258.png"
+    }
+  },
+  "picasa": {
+    "title": "Picasa",
+    "logo": {
+      "url": "http://cdn.cultofmac.com/wp-content/uploads/2011/02/20110204-picasa-icon.jpg"
+    }
+  },
+  "pinboard": {
+    "title": "Pinboard",
+    "logo": {
+      "url": "http://icons.iconarchive.com/icons/danleech/simple/512/pinboard-icon.png"
+    }
+  },
+  "pivotaltracker": {
+    "title": "Pivotal Tracker",
+    "logo": {
+      "url": "http://img.stackshare.io/service/1/422314579c5a2b89852d2ba6432d7716.png"
+    }
+  },
+  "postmark": {
+    "title": "Postmark",
+    "logo": {
+      "url": "https://assets.postmarkapp.com/images/landing/logo-stamp.png"
+    }
+  },
+  "postmarkapp_server": {
+    "title": "Postmark Server"
+  },
+  "producthunt": {
+    "title": "Product Hunt",
+    "logo": {
+      "url": "http://a5.mzstatic.com/us/r30/Purple69/v4/82/81/ef/8281ef50-0992-81fd-f6ce-eb9f638f5c20/icon175x175.png"
+    }
+  },
+  "ptv_vic_gov_au": {
+    "title": "PTV Timetable API"
+  },
+  "quandl": {
+    "title": "Quandl",
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/en/archive/2/26/20170501153400%21Quandl-logo.png"
+    }
+  },
+  "reddit": {
+    "title": "Reddit",
+    "logo": {
+      "url": "https://vignette2.wikia.nocookie.net/siivagunner/images/0/07/Reddit_icon.svg"
+    }
+  },
+  "reddit_rss": {
+    "title": "Reddit RSS",
+    "logo": {
+      "url": "https://vignette2.wikia.nocookie.net/siivagunner/images/0/07/Reddit_icon.svg"
+    }
+  },
+  "rhapsody": {
+    "title": "Rhapsody",
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Rhapsody.jpg"
+    }
+  },
+  "rubygems": {
+    "title": "RubyGems",
+    "logo": {
+      "url": "http://rubygems.org/favicon.ico"
+    }
+  },
+  "runscope": {
+    "logo": {
+      "url": "https://cdn.worldvectorlogo.com/logos/runscope.svg"
+    }
+  },
+  "salesforce": {
+    "title": "Salesforce",
+    "logo": {
+      "url": "https://login.salesforce.com/img/logo198.png"
+    }
+  },
+  "salesforcechatter": {
+    "title": "Salesforce Chatter",
+    "logo": {
+      "url": "http://images.pcworld.com/news/graphics/205003-chatter_app_icon_original.png"
+    }
+  },
+  "shopping_com": {
+    "title": "Shopping.com",
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/704500821/shoppy_400x400.jpg"
+    }
+  },
+  "skyrock": {
+    "title": "Skyrock",
+    "logo": {
+      "url": "http://www.logoeps.com/wp-content/uploads/2014/09/49265-skyrock-logo-icon-vector-icon-vector-eps.png"
+    }
+  },
+  "slack": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png"
+    }
+  },
+  "smart_me": {
+    "logo": {
+      "url": "http://smart-me.com/Images/icons/apple-touch-icon-114-precomposed.png"
+    }
+  },
+  "solarvps": {
+    "logo": {
+      "url": "http://res.sys-con.com/author/11127/Solar%20VPS%20logo_0_0_0.jpg"
+    }
+  },
+  "soundcloud": {
+    "title": "SoundCloud",
+    "logo": {
+      "url": "http://www.oliviercolot.com/assets/icons/soundcloud-icon-7e0fe45b1a901922ca5793a80721e4c5.png"
+    }
+  },
+  "spectrocoin": {
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg",
+      "backgroundColor": "#333333"
+    }
+  },
+  "spotify": {
+    "logo": {
+      "url": "https://pixel.nymag.com/imgs/daily/vulture/2015/06/26/26-spotify.w529.h529.jpg"
+    }
+  },
+  "statsocial": {
+    "logo": {
+      "url": "https://crunchbase-production-res.cloudinary.com/image/upload/c_pad,h_140,w_140/v1445533813/qm0o7sxd8g10exr1cwys.jpg"
+    }
+  },
+  "taggun": {
+    "logo": {
+      "url": "https://www-s.taggun.io/wp-content/uploads/2017/12/logo-big-white.png",
+      "backgroundColor": "#000000"
+    }
+  },
+  "thenounproject": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/en/c/c2/The_Noun_Project_logo.jpg"
+    }
+  },
+  "thetvdb": {
+    "logo": {
+      "url": "https://lh6.googleusercontent.com/-nOhc_UHLgD0/AAAAAAAAAAI/AAAAAAAAAAY/BP_NLgj6OTs/photo.jpg"
+    }
+  },
+  "traccar": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/590395195268538368/oScd6DxA.png"
+    }
+  },
+  "trello": {
+    "logo": {
+      "url": "https://maxcdn.icons8.com/Share/icon/Logos//trello1600.png"
+    },
+    "description": "Trello’s boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible and rewarding way."
+  },
+  "tumblr": {
+    "title": "Tumblr",
+    "logo": {
+      "url": "https://assets.tumblr.com/images/logo_page/blue-t.png"
+    }
+  },
+  "tvmaze": {
+    "title": "TVmaze"
+  },
+  "twilio": {
+    "logo": {
+      "url": "https://www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.ico"
+    }
+  },
+  "urbanairship": {
+    "title": "Urban Airship",
+    "logo": {
+      "url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAZhAAAAJGM5NGU5ZTkyLWZmZWYtNDE1Yy04MWI5LTM3OWQzOTA3MWU5Ng.png"
+    }
+  },
+  "vatapi": {
+    "logo": {
+      "url": "https://vatapi.com/images/logo-invoice.jpg"
+    }
+  },
+  "visagecloud": {
+    "logo": {
+      "url": "https://visagecloud.com/static/media/VisageCloudLogo_512px.png"
+    }
+  },
+  "waag": {
+    "logo": {
+      "url": "http://citysdk.waag.org/images/icon.png"
+    }
+  },
+  "winning_email": {
+    "logo": {
+      "url": "https://int-dir.s3.amazonaws.com/uploads/2916_2916_winning-email-icon-512-bg.png"
+    }
+  },
+  "wmata_incidents": {
+    "title": "WMATA Incidents"
+  },
+  "yellowpages": {
+    "title": "Yellow Pages",
+    "logo": {
+      "url": "http://www.underconsideration.com/brandnew/archives/yellow_pages_2013_00_logo_detail.png"
+    }
+  },
+  "youphoric": {
+    "title": "Youphoric",
+    "logo": {
+      "url": "http://www.youphoriclabs.com/img/logo.png"
+    }
+  },
+  "yunbi": {
+    "logo": {
+      "url": "https://yunbi.com/favicon.ico"
+    }
+  },
+  "fileserver": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/AWS_Simple_Icons_Non-Service_Specific_Traditional_Server.svg/1024px-AWS_Simple_Icons_Non-Service_Specific_Traditional_Server.svg.png"
+    }
+  },
+  "http": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/2000px-Globe_icon.svg.png"
+    }
+  },
+  "imap": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Tokyoship_Mail_icon.svg/2000px-Tokyoship_Mail_icon.svg.png"
+    }
+  },
+  "lucybot_docs": {
+    "logo": {
+      "url": "http://lucybot.com/static/img/logo/logo-small.svg"
+    }
+  },
+  "mongodb": {
+    "logo": {
+      "url": "https://www.mongodb.com/assets/images/global/leaf.png"
+    }
+  },
+  "swaggerui": {
+    "logo": {
+      "url": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/swagger/swaggerLogo360.png"
+    }
+  },
+  "amazonaws_tagging": {
+    "logo": {
+      "url": "https://a0.awsstatic.com/main/images/logos/aws_logo_smile_1200x630.png"
+    }
+  },
+  "apitore_twitterapis": {
+    "logo": {
+      "url": "https://g.twimg.com/Twitter_logo_blue.png"
+    }
+  },
+  "microsoft_security_updates": {
+    "logo": {
+      "url": "http://icons.iconarchive.com/icons/dakirby309/simply-styled/256/Microsoft-Security-Essentials-icon.png"
+    }
+  },
+  "t213_vg": {
+    "logo": {
+      "url": "http://icon-icons.com/icons2/836/PNG/512/Magento_icon-icons.com_66749.png"
+    }
+  }
+}

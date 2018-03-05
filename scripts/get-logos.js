@@ -5,13 +5,15 @@ let fs = require('fs');
 let args = require('yargs').argv;
 let logos = {};
 
+let overrides = require('../overrides.json');
+
 const OUTDIR = __dirname + '/../logos';
 
 iterate(function(dir, name, integ) {
   let logo = integ.logo;
-  try {
-    logo = require(dir + '/info.json').logo || logo;
-  } catch (e) {}
+  if (overrides[name]) {
+    logo = overrides[name].logo || logo;
+  }
   if (!logo) {
     console.log('no logo:' + name);
     return;
