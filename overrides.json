@@ -1,7 +1,7 @@
 {
   "amazonaws_acm": {
     "logo": {
-      "url": "https://app.datafire.io/img/aws/amazonaws_acm.svg"
+      "url": "http://aws-guide.com/static/icons//certificate-manager.png"
     }
   },
   "amazonaws_api_pricing": {
@@ -36,7 +36,7 @@
   },
   "amazonaws_ce": {
     "logo": {
-      "url": "https://app.datafire.io/img/aws/amazonaws_ce.svg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
     }
   },
   "amazonaws_cloudformation": {
@@ -2016,7 +2016,10 @@
     "title": "Citrix SCIM"
   },
   "cloud_gov": {
-    "title": "Cloud.gov Discovery Market Research"
+    "title": "Cloud.gov Discovery Market Research",
+    "logo": {
+      "url": "https://s3.amazonaws.com/sitesusa/wp-content/uploads/sites/482/2016/05/cloud-gov_logo.png"
+    }
   },
   "cloudmersive_ocr": {
     "title": "Cloudmersive OCR"
@@ -2295,7 +2298,10 @@
     "title": "Posty"
   },
   "redmine": {
-    "title": "Redmine"
+    "title": "Redmine",
+    "logo": {
+      "url": "https://www.skysilk.com/blog/wp-content/uploads/2017/06/redmine-624x416.png"
+    }
   },
   "reverb": {
     "title": "Reverb"
@@ -2304,7 +2310,10 @@
     "title": "roaring.io CompanyAPI"
   },
   "schooldigger": {
-    "title": "SchoolDigger"
+    "title": "SchoolDigger",
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/894631904250482688/rAuR3o81.jpg"
+    }
   },
   "scrapewebsite_email": {
     "title": "Scrape Website Email"
@@ -2395,6 +2404,36 @@
   "smtp": {
     "logo": {
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Tokyoship_Mail_icon.svg/2000px-Tokyoship_Mail_icon.svg.png"
+    }
+  },
+  "getgo_gototraining": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/458688380683816960/9UvK0gMT_400x400.png"
+    }
+  },
+  "getgo_gotowebinar": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/458688380683816960/9UvK0gMT_400x400.png"
+    }
+  },
+  "giphy": {
+    "logo": {
+      "url": "https://giphy.com/static/img/giphy_logo_square_social.png"
+    }
+  },
+  "illumidesk": {
+    "logo": {
+      "url": "https://www.illumidesk.com/images/7af94cd9-db6e-4351-a185-e5a1f191235c.png"
+    }
+  },
+  "learnifier": {
+    "logo": {
+      "url": "https://pbs.twimg.com/profile_images/748880785848041472/mx7UKDEb_400x400.jpg"
+    }
+  },
+  "simplyrets": {
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/assertible/site/simplyrets-logo-horizontal.png"
     }
   }
 }
