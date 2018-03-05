@@ -10,7 +10,7 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Automates reseller integration into zero-touch enrollment by assigning devices to customers and creating device reports.",
+    "description": "Automates Android zero-touch enrollment for device resellers, customers, and EMMs.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"

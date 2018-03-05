@@ -5,7 +5,7 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "description": "The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, VNET rules, log files and configurations.",
+    "description": "The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, log files and configurations.",
     "title": "PostgreSQLManagementClient",
     "version": "2017-04-30-preview",
     "x-apisguru-categories": [
