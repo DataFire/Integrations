@@ -393,12 +393,14 @@
   "bufferapp": {
     "logo": {
       "url": "https://cdn.worldvectorlogo.com/logos/buffer.svg"
-    }
+    },
+    "title": "Buffer"
   },
   "bungie": {
     "logo": {
       "url": "http://www.bungie.net/img/theme/bungienet/logo-share-large.png"
-    }
+    },
+    "title": "Bungie"
   },
   "cambase": {
     "logo": {
@@ -419,7 +421,8 @@
   "cnab_online_herokuapp": {
     "logo": {
       "url": "https://blog.sparkpost.com/wp-content/uploads/2015/06/heroku-logo.png"
-    }
+    },
+    "title": "CNAB Online"
   },
   "cnn_rss": {
     "title": "CNN RSS",
@@ -430,7 +433,8 @@
   "core_ac_uk": {
     "logo": {
       "url": "https://core.ac.uk/resources/corelogo_hires.png"
-    }
+    },
+    "title": "CORE"
   },
   "datumbox": {
     "logo": {
@@ -460,7 +464,7 @@
     }
   },
   "facebook": {
-    "title": "Facebook Graph",
+    "title": "Facebook",
     "logo": {
       "url": "https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png"
     }
@@ -468,7 +472,8 @@
   "firebrowse": {
     "logo": {
       "url": "https://www.broadinstitute.org/files/imagecache/featured-home/news/images/2014/BroadLogoSquare_205_1.png"
-    }
+    },
+    "title": "FireBrowse"
   },
   "fitbit": {
     "title": "Fitbit",
@@ -624,7 +629,8 @@
   "google_drive": {
     "logo": {
       "url": "https://www.gstatic.com/images/icons/material/product/2x/drive_32dp.png"
-    }
+    },
+    "title": "Google Drive"
   },
   "google_fusiontables": {
     "logo": {
@@ -649,7 +655,8 @@
   "google_genomics": {
     "logo": {
       "url": "https://cloud.google.com/solutions/genomics/images/genomics.png"
-    }
+    },
+    "title": "Google Genomics"
   },
   "google_gmail": {
     "logo": {
@@ -659,12 +666,14 @@
   "google_groupsmigration": {
     "logo": {
       "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
-    }
+    },
+    "title": "Google Groups Migration"
   },
   "google_groupssettings": {
     "logo": {
       "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
-    }
+    },
+    "title": "Google Groups Settings"
   },
   "google_identitytoolkit": {
     "logo": {
@@ -674,12 +683,14 @@
   "google_licensing": {
     "logo": {
       "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
-    }
+    },
+    "title": "Google Enterprise License Manager"
   },
   "google_logging": {
     "logo": {
       "url": "http://www.silicon.fr/wp-content/uploads/2014/01/Google-Cloud-Platform-logo.jpg"
-    }
+    },
+    "title": "Google Stackdriver Logging"
   },
   "google_mirror": {
     "logo": {
@@ -719,7 +730,8 @@
   "google_prediction": {
     "logo": {
       "url": "https://www.google.com/images/icons/feature/predictionapi-64.png"
-    }
+    },
+    "title": "Google Prediction"
   },
   "google_qpxexpress": {
     "logo": {
@@ -739,7 +751,8 @@
   "google_reseller": {
     "logo": {
       "url": "https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png"
-    }
+    },
+    "title": "Google Enterprise Apps Reseller"
   },
   "google_script": {
     "logo": {
@@ -769,12 +782,14 @@
   "google_storage": {
     "logo": {
       "url": "https://cloud.google.com/storage/images/cloud-storage-logo.png"
-    }
+    },
+    "title": "Google Cloud Storage"
   },
   "google_tagmanager": {
     "logo": {
       "url": "http://icons.iconarchive.com/icons/carlosjj/google-jfk/128/tag-manager-icon.png"
-    }
+    },
+    "title": "Google Tag Manager"
   },
   "google_taskqueue": {
     "logo": {
@@ -784,7 +799,8 @@
   "google_tasks": {
     "logo": {
       "url": "https://developers.google.com/google-apps/images/tasks-128.png"
-    }
+    },
+    "title": "Google Tasks"
   },
   "google_translate": {
     "logo": {
@@ -804,7 +820,8 @@
   "google_webmasters": {
     "logo": {
       "url": "http://downloadicons.net/sites/default/files/google-webmaster-tools-icon-50603.png"
-    }
+    },
+    "title": "Google Search Console"
   },
   "google_youtube": {
     "logo": {
@@ -824,7 +841,8 @@
   "graphhopper": {
     "logo": {
       "url": "https://pbs.twimg.com/profile_images/451044992081862656/a7endB0P_400x400.png"
-    }
+    },
+    "title": "GraphHopper Route Optimization"
   },
   "groupon": {
     "title": "Groupon",
@@ -847,7 +865,8 @@
     "logo": {
       "backgroundColor": "#222222",
       "url": "http://cdn1.hubspot.com/hub/123605/file-69898609.png"
-    }
+    },
+    "title": "IDT Beyond"
   },
   "infermedica": {
     "logo": {
@@ -877,10 +896,10 @@
     }
   },
   "lufthansa_partner": {
-    "title": "Lufthansa Partner"
+    "title": "Lufthansa Partners"
   },
   "lufthansa_public": {
-    "title": "Lufthansa Public"
+    "title": "Lufthansa"
   },
   "lyft": {
     "logo": {
@@ -936,7 +955,8 @@
   "nrel_building_case_studies": {
     "logo": {
       "url": "https://www.nrel.gov/_resources/images/icon-buildings.svg"
-    }
+    },
+    "title": "nrel.gov High Performance Building Database"
   },
   "nsidc": {
     "logo": {
@@ -1022,7 +1042,8 @@
     }
   },
   "ptv_vic_gov_au": {
-    "title": "PTV Timetable API"
+    "title": "PTV Timetable",
+    "description": "The PTV Timetable API provides direct access to Public Transport Victoria’s public transport timetable data.\n\nThe API returns scheduled timetable, route and stop data for all metropolitan and regional train, tram and bus services in Victoria, including Night Network(Night Train and Night Tram data are included in metropolitan train and tram services data, respectively, whereas Night Bus is a separate route type).\n\nThe API also returns real-time data for metropolitan train, tram and bus services (where this data is made available to PTV), as well as disruption information, stop facility information, and access to myki ticket outlet data.\n\nThis Swagger is for Version 3 of the PTV Timetable API. By using this documentation you agree to comply with the licence and terms of service.\n\nTrain timetable data is updated daily, while the remaining data is updated weekly, taking into account any planned timetable changes (for example, due to holidays or planned disruptions). The PTV timetable API is the same API used by PTV for its apps. To access the most up to date data PTV has (including real-time data) you must use the API dynamically.\n\nYou can access the PTV Timetable API through a HTTP or HTTPS interface, as follows:\n\n    base URL / version number / API name / query string\nThe base URL is either:\n  *  http://timetableapi.ptv.vic.gov.au\nor\n  *  https://timetableapi.ptv.vic.gov.au\n\nThe Swagger JSON file is available at http://timetableapi.ptv.vic.gov.au/swagger/docs/v3\n\nFrequently asked questions are available on the PTV website at http://ptv.vic.gov.au/apifaq\n\nLinks to the following information are also provided on the PTV website at http://ptv.vic.gov.au/ptv-timetable-api/\n* How to register for an API key and calculate a signature\n* PTV Timetable API V2 to V3 Migration Guide\n* Documentation for Version 2 of the PTV Timetable API\n* PTV Timetable API Data Quality Statement\n\nAll information about how to use the API is in this documentation. PTV cannot provide technical support for the API.\n\nCredits: This page has been based on Steve Bennett's http://opentransportdata.org/, used with permission.\n"
   },
   "quandl": {
     "title": "Quandl",
@@ -1134,7 +1155,8 @@
   "thetvdb": {
     "logo": {
       "url": "https://lh6.googleusercontent.com/-nOhc_UHLgD0/AAAAAAAAAAI/AAAAAAAAAAY/BP_NLgj6OTs/photo.jpg"
-    }
+    },
+    "title": "TheTVDB"
   },
   "traccar": {
     "logo": {
@@ -1188,7 +1210,7 @@
     }
   },
   "wmata_incidents": {
-    "title": "WMATA Incidents"
+    "title": "Washington WMATA Incidents"
   },
   "yellowpages": {
     "title": "Yellow Pages",
@@ -1255,6 +1277,1124 @@
   "t213_vg": {
     "logo": {
       "url": "http://icon-icons.com/icons2/836/PNG/512/Magento_icon-icons.com_66749.png"
+    }
+  },
+  "ato_gov_au": {
+    "title": "Australian Business Registries"
+  },
+  "aviationdata_systems": {
+    "title": "AviationData Airports"
+  },
+  "azure_advisor": {
+    "title": "Azure Advisor"
+  },
+  "azure_analysisservices": {
+    "title": "Azure Analysis Services"
+  },
+  "azure_apimanagement": {
+    "title": "Azure API Management"
+  },
+  "azure_apimanagement_apimapis": {
+    "title": "Azure API Management - APIs"
+  },
+  "azure_apimanagement_apimauthorizationservers": {
+    "title": "Azure API Management - Authorization"
+  },
+  "azure_apimanagement_apimbackends": {
+    "title": "Azure API Management - Backends"
+  },
+  "azure_apimanagement_apimcertificates": {
+    "title": "Azure API Management - Certificates"
+  },
+  "azure_apimanagement_apimdeployment": {
+    "title": "Azure API Management - Deployment"
+  },
+  "azure_apimanagement_apimemailtemplate": {
+    "title": "Azure API Management - Email Templates"
+  },
+  "azure_apimanagement_apimgroups": {
+    "title": "Azure API Management - Groups"
+  },
+  "azure_apimanagement_apimidentityprovider": {
+    "title": "Azure API Mangement - Identity Provider"
+  },
+  "azure_apimanagement_apimloggers": {
+    "title": "Azure API Management - Loggers"
+  },
+  "azure_apimanagement_apimnetworkstatus": {
+    "title": "Azure API Management - Network Status"
+  },
+  "azure_apimanagement_apimopenidconnectproviders": {
+    "title": "Azure API Management - OpenId Connect"
+  },
+  "azure_apimanagement_apimproducts": {
+    "title": "Azure API Management - Products"
+  },
+  "azure_apimanagement_apimproperties": {
+    "title": "Azure API Management - Properties"
+  },
+  "azure_apimanagement_apimquotas": {
+    "title": "Azure API Management - Quotas"
+  },
+  "azure_apimanagement_apimreports": {
+    "title": "Azure API Management - Reports"
+  },
+  "azure_apimanagement_apimsubscriptions": {
+    "title": "Azure API Management - Subscriptions"
+  },
+  "azure_apimanagement_apimtenant": {
+    "title": "Azure API Management - Tenant"
+  },
+  "azure_apimanagement_apimusers": {
+    "title": "Azure API Management - Users"
+  },
+  "bigoven": {
+    "description": "#Documentation\n\nThis is the documentation for the partner endpoint of the BigOven Recipe and Grocery List API.\n\nThe update brings with it Swagger-based documentation. [Swagger](http://swagger.io) is an emerging standard for describing REST-based APIs, and with this Swagger-compliant endpoint (above), you can make ready-to-go interface libraries for your code via [swagger-codegen](https://github.com/swagger-api/swagger-codegen). For instance, it's easy to generate libraries for Node.js, Java, Ruby, ASP.NET MVC, jQuery, php and more!\n\nYou can also try out the endpoint calls with your own api_key right here on this page. Be sure to enter your api_key above to use the \"Try it out!\" buttons on this page.\n\n##Start Here\n\nDevelopers new to the BigOven API should start with this version, not with the legacy API. We'll be making improvements to this API over time, and doing only bug fixes on the v1 API.\n\n\n\nTo pretend you're a BigOven user (for instance, to get your recently viewed recipes or your grocery list), you need to pass in Basic Authentication information in the header, just as with the v1 API. We do now require that you make all calls via https. You need to pass your api_key in with every call, though this can now be done on the header (send a request header \"X-BigOven-API-Key\" set to your api_key value, e.g., Request[\"X-BigOven-API-Key\"]=\"your-key-here\".)\n\n##Migration Notes\n\nFor existing partners, we encourage you to [migrate](http://api2.bigoven.com), and while at this writing we have no hard-and-fast termination date for the v1 API, we strongly prefer that you migrate by January 1, 2017. While the changes aren't overly complex, there are several breaking changes, including refactoring of recipe search and results and removal of support for XML. This is not a simply plug-and-play replacement to the v1 API. With respect to an exclusive focus on JSON, the world has spoken, and it prefers JSON for REST-based API's. We've taken numerous steps to refactor the API to make it more REST-compliant. Note that this v2 API will be the preferred API from this point onward, so we encourage developers to migrate to this new format. We have put together some [migration notes](/web/documentation/migration-to-v2) that we encourage you to read carefully.\n\n##Photos\n\nSee our [photos documentation](http://api2.bigoven.com/web/documentation/recipe-images). \n\nFor more information on usage of this API, including features, pricing, rate limits, terms and conditions, please visit the [BigOven API website](http://api2.bigoven.com)."
+  },
+  "envoice_in": {
+    "description": "[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/78ab8c4ce8421e7e0b43)\n<span style='margin-left: 0.5em;'>or</span>\n<a href='https://documenter.getpostman.com/view/3559821/7TMBCPS' class='openapi-button' _ngcontent-c6>View Postman docs</a>\n\n# Tutorial for running the API in postman\n\nFirst click on \"Run in Postman\" button\n![postman - tutorial - 1](/Assets/images/api/postman-tutorial/postman-tutorial-1.png)\n\nA new page will open.\nClick on \"Postman for windows\" to run postman as a desktop app.\nMake sure you have already [installed](https://www.getpostman.com/docs/postman/launching_postman/installation_and_updates) Postman.\n![postman - tutorial - 2](/Assets/images/api/postman-tutorial/postman-tutorial-2.png)\n\nIn chrome an alert might show up to set a default app for opening postman links.\nClick on \"Open Postman\".\n![postman - tutorial - 3](/Assets/images/api/postman-tutorial/postman-tutorial-3.png)\n\nThe OpenAPI specification will be imported in Postman as a new collection named \"Envoice api\"\n![postman - tutorial - 4](/Assets/images/api/postman-tutorial/postman-tutorial-4.png)\n\nWhen testing be sure to check and modify the environment variables to suit your api key and secret.\nThe domain is set to envoice's endpoint so you don't really need to change that.\n<sub>\\*Eye button in top right corner </sub>\n![postman - tutorial - 5](/Assets/images/api/postman-tutorial/postman-tutorial-5.png)\n![postman - tutorial - 6](/Assets/images/api/postman-tutorial/postman-tutorial-6.png)\n\nYou don't need to change the values of the header parameters, because they will be replaced automatically when you send a request with real values from the environment configured in the previous step.\n![postman - tutorial - 7](/Assets/images/api/postman-tutorial/postman-tutorial-7.png)\n\nModify the example data to suit your needs and send a request.\n![postman - tutorial - 8](/Assets/images/api/postman-tutorial/postman-tutorial-8.png)\n            ",
+    "title": "Envoice"
+  },
+  "geneea": {
+    "description": "<div class=\"api-description\">\n    <h2>Authentication</h2>\n    <p>For all calls, supply your API key. <a href=\"https://www.geneea.com/pricing\">Sign up to <em>obtain the key</em></a>.</p>\n    <p>\n        Our API supports both <em>unencrypted (HTTP)</em> and <em>encrypted (HTTPS)</em> protocols.\n        However, for security reasons, we strongly encourage using only the encrypted version.\n    </p>\n    <p>The API key should be supplied as either a request parameter <code>user_key</code> or in <code>Authorization</code> header.</p>\n    <pre><code>Authorization: user_key <YOUR_API_KEY></code></pre>\n\n    <h2>API operations</h2>\n    <p>\n        All API operations can perform analysis on supplied raw text or on text extracted from a given URL.\n        Optionally, one can supply additional information which can make the result more precise. An example\n        of such information would be the language of text or a particular text extractor for URL resources.\n    </p>\n    <p>The supported types of analyses are:</p>\n    <ul>\n        <li><strong>lemmatization</strong> ⟶\n            Finds out lemmata (basic forms) of all the words in the document.\n        </li>\n        <li><strong>correction</strong> ⟶\n            Performs correction (diacritization) on all the words in the document.\n        </li>\n        <li><strong>topic detection</strong> ⟶\n            Determines a topic of the document, e.g. finance or sports.\n        </li>\n        <li><strong>sentiment analysis</strong> ⟶\n            Determines a sentiment of the document, i.e. how positive or negative the document is.\n        </li>\n        <li><strong>named entity recognition</strong> ⟶\n            Finds named entities (like person, location, date etc.) mentioned the the document.\n        </li>\n    </ul>\n\n    <h2>Encoding</h2>\n    <p>The supplied text is expected to be in UTF-8 encoding, this is especially important for non-english texts.</p>\n\n    <h2>Returned values</h2>\n    <p>The API calls always return objects in serialized JSON format in UTF-8 encoding.</p>\n    <p>\n        If any error occurs, the HTTP response code will be in the range <code>4xx</code> (client-side error) or\n        <code>5xx</code> (server-side error). In this situation, the body of the response will contain information\n        about the error in JSON format, with <code>exception</code> and <code>message</code> values.\n    </p>\n\n    <h2>URL limitations</h2>\n    <p>\n        All the requests are semantically <code>GET</code>. However, for longer texts, you may run into issues\n        with URL length limit. Therefore, it's possible to always issue a <code>POST</code> request with all\n        the parameters encoded as a JSON in the request body.\n    </p>\n    <p>Example:</p>\n    <pre><code>\n        POST /s1/sentiment\n        Content-Type: application/json\n\n        {\"text\":\"There is no harm in being sometimes wrong - especially if one is promptly found out.\"}\n    </code></pre>\n    <p>This is equivalent to <code>GET /s1/sentiment?text=There%20is%20no%20harm...</code></p>\n\n    <h2>Request limitations</h2>\n    <p>\n        The API has other limitations concerning the size of the HTTP requests. The maximum allowed size of any\n        POST request body is <em>512 KiB</em>. For request with a URL resource, the maximum allowed number of\n        extracted characters from each such resource is <em>100,000</em>.\n    </p>\n\n    <h2>Terms of Service</h2>\n    <p>\n        By using the API, you agree to our\n        <a href=\"https://www.geneea.com/terms.html\" target=\"_blank\">Terms of Service Agreement</a>.\n    </p>\n\n    <h2>More information</h2>\n    <p>\n        <a href=\"https://help.geneea.com/index.html\" target=\"_blank\">\n        The Interpretor Public Documentation\n        </a>\n    </p>\n</div>\n"
+  },
+  "instawell": {
+    "description": "The Instawell API gives you access to  helpers all over the world. Integrate Instawell with your app using our API to get help wherever you are. Follow the instructions below to get started.\n\nBase URL\n----\nThe Instawell API supports a sandbox mode by making API calls to our sandbox server. Using the Sandbox server, you can make sure your integrations are working before deploying them to production. \n\nSandbox mode is accessed by using the following base URL\n\n~~~~\nhttps://api-sandbox.instawell.com/\n~~~~\n\nProduction mode is acccessed by using the following base URL\n\n~~~~\nhttps://api.instawell.com/\n~~~~\n\n\nGet your Access Token\n-----\n\nThe token to access the Campaign API is available when you create your first Campaign or when you request your first Plan. Have a look at the Create Campaign method to find out how to do this.\n\nMost requests made to the Instawell API require the auth token to be sent as part of the header. Exceptions will be noted in the docs. The name of the header to be used is X-instawell-token\n\n~~~~\nX-instawell-token: TEST_TOKEN\n~~~~\n\nOnce you have your token, you're ready to go.\n\n\n\n"
+  },
+  "azure_applicationinsights_aioperations_api": {
+    "title": "Azure Application Insights - Operations"
+  },
+  "azure_applicationinsights_componentapikeys_api": {
+    "title": "Azure Application Insights - Component API Keys"
+  },
+  "azure_applicationinsights_componentcontinuousexport_api": {
+    "title": "Azure Application Insights - Component Continuous Export"
+  },
+  "azure_applicationinsights_componentfeaturesandpricing_api": {
+    "title": "Azure Application Insights - Component Features and Pricing"
+  },
+  "azure_applicationinsights_components_api": {
+    "title": "Azure Application Insights - Components"
+  },
+  "azure_applicationinsights_webtests_api": {
+    "title": "Azure Application Insights - Web Tests"
+  },
+  "azure_authorization": {
+    "title": "Azure Authorization"
+  },
+  "azure_authorization_authorization_racalls": {
+    "title": "Azure Authorization - Roles"
+  },
+  "azure_automation_account": {
+    "title": "Azure Automation - Account"
+  },
+  "azure_automation_certificate": {
+    "title": "Azure Automation - Certificate"
+  },
+  "azure_automation_connection": {
+    "title": "Azure Automation - Connection"
+  },
+  "azure_automation_connectiontype": {
+    "title": "Azure Automation - Connection Type"
+  },
+  "azure_automation_credential": {
+    "title": "Azure Automation - Credentials"
+  },
+  "azure_automation_dsccompilationjob": {
+    "title": "Azure Automation - DSC Compilation Job"
+  },
+  "azure_automation_dscconfiguration": {
+    "title": "Azure Automation - DSC Configuration"
+  },
+  "azure_automation_dscnode": {
+    "title": "Azure Automation - DSC Node"
+  },
+  "azure_automation_dscnodeconfiguration": {
+    "title": "Azure Automation - DSC Node Configuration"
+  },
+  "azure_automation_hybridrunbookworkergroup": {
+    "title": "Azure Automation - Hybrid Run Book Worker Group"
+  },
+  "azure_automation_job": {
+    "title": "Azure Automation - Jobs"
+  },
+  "azure_automation_jobschedule": {
+    "title": "Azure Automation - Job Schedule"
+  },
+  "azure_automation_module": {
+    "title": "Azure Automation - Module"
+  },
+  "azure_automation_runbook": {
+    "title": "Azure Automation - Runbook"
+  },
+  "azure_automation_schedule": {
+    "title": "Azure Automation - Schedule"
+  },
+  "azure_automation_softwareupdateconfiguration": {
+    "title": "Azure Automation - Software Update Configuration"
+  },
+  "azure_automation_softwareupdateconfigurationmachinerun": {
+    "title": "Azure Automation - Software Update Configuration Machine Run"
+  },
+  "azure_automation_variable": {
+    "title": "Azure Automation - Variables"
+  },
+  "azure_automation_webhook": {
+    "title": "Azure Automation - Webhooks"
+  },
+  "azure_batch_batchmanagement": {
+    "title": "Azure Batch Management"
+  },
+  "azure_batchai_batchai": {
+    "title": "Azure Batch AI"
+  },
+  "azure_billing": {
+    "title": "Azure Billing"
+  },
+  "azure_cdn": {
+    "title": "Azure CDN"
+  },
+  "azure_cognitiveservices": {
+    "title": "Azure Cognitive Services"
+  },
+  "azure_commerce": {
+    "title": "Azure Commerce"
+  },
+  "azure_compute": {
+    "title": "Azure Compute"
+  },
+  "azure_compute_containerservice": {
+    "title": "Azure Compute - Container Service"
+  },
+  "azure_compute_disk": {
+    "title": "Azure Compute - Disk"
+  },
+  "azure_compute_runcommands": {
+    "title": "Azure Compute - Run Commands"
+  },
+  "azure_compute_skus": {
+    "title": "Azure Compute - SKUs"
+  },
+  "azure_compute_swagger": {
+    "title": "Azure Compute - Swagger"
+  },
+  "azure_consumption": {
+    "title": "Azure Consumption"
+  },
+  "azure_containerinstance_containerinstance": {
+    "title": "Azure Container Instance"
+  },
+  "azure_containerregistry": {
+    "title": "Azure Container Registry"
+  },
+  "azure_containerservices_containerservice": {
+    "title": "Azure Container Services"
+  },
+  "azure_containerservices_location": {
+    "title": "Azure Container Services - Location"
+  },
+  "azure_containerservices_managedclusters": {
+    "title": "Azure Container Services - Managed Clusters"
+  },
+  "azure_cosmos_db": {
+    "title": "Azure Cosmos DB"
+  },
+  "azure_customer_insights": {
+    "title": "Azure Customer Insights"
+  },
+  "azure_datacatalog": {
+    "title": "Azure Data Catalog"
+  },
+  "azure_datafactory": {
+    "title": "Azure Data Factory"
+  },
+  "azure_datalake_analytics_account": {
+    "title": "Azure Data Lake - Analytics Account"
+  },
+  "azure_datalake_store_account": {
+    "title": "Azure Data Lake - Store Account"
+  },
+  "azure_datamigration": {
+    "title": "Azure Data Migration"
+  },
+  "azure_devtestlabs_dtl": {
+    "title": "Azure DevTest Labs"
+  },
+  "azure_dns": {
+    "title": "Azure DNS"
+  },
+  "azure_domainservices": {
+    "title": "Azure Domain Services"
+  },
+  "azure_eventgrid_eventgrid": {
+    "title": "Azure EventGrid"
+  },
+  "azure_eventhub_eventhub": {
+    "title": "Azure EventHub"
+  },
+  "azure_hdinsight_applications": {
+    "title": "Azure HDInsight"
+  },
+  "azure_hdinsight_capabilities": {
+    "title": "Azure HDInsight - Capabilities"
+  },
+  "azure_hdinsight_cluster": {
+    "title": "Azure HDInsight - Cluster"
+  },
+  "azure_hdinsight_configurations": {
+    "title": "Azure HDInsight - Configurations"
+  },
+  "azure_hdinsight_extensions": {
+    "title": "Azure HDInsight - Extensions"
+  },
+  "azure_hdinsight_operations": {
+    "title": "Azure HDInsight - Operations"
+  },
+  "azure_hdinsight_scriptactions": {
+    "title": "Azure HDInsight - Script Actions"
+  },
+  "azure_intune": {
+    "title": "Azure Intune"
+  },
+  "azure_iothub": {
+    "title": "Azure IoT Hub"
+  },
+  "azure_keyvault": {
+    "title": "Azure Key Vault"
+  },
+  "azure_locationbasedservices": {
+    "title": "Azure Location Based Services"
+  },
+  "azure_logic": {
+    "title": "Azure Logic"
+  },
+  "azure_machinelearning_commitmentplans": {
+    "title": "Azure ML - Commitment Plans"
+  },
+  "azure_machinelearning_webservices": {
+    "title": "Azure ML - Web Services"
+  },
+  "azure_machinelearning_workspaces": {
+    "title": "Azure ML - Workspaces"
+  },
+  "azure_machinelearningcompute_machinelearningcompute": {
+    "title": "Azure ML - Compute"
+  },
+  "azure_machinelearningexperimentation_machinelearningexperimentation": {
+    "title": "Azure ML - Team Account"
+  },
+  "azure_marketplaceordering_agreements": {
+    "title": "Azure Marketplace Ordering Agreements"
+  },
+  "azure_mediaservices_media": {
+    "title": "Azure Media Services"
+  },
+  "azure_mobileengagement_mobile_engagement": {
+    "title": "Azure Mobile Engagement"
+  },
+  "azure_monitor_activitylogalerts_api": {
+    "title": "Azure Monitory - Activity Log Alerts"
+  },
+  "azure_monitor_activitylogs_api": {
+    "title": "Azure Monitor - Activity Logs"
+  },
+  "azure_monitor_alertrules_api": {
+    "title": "Azure Monitor - Alert Rules"
+  },
+  "azure_monitor_alertrulesincidents_api": {
+    "title": "Azure Monitor - Alert Rules Incidents"
+  },
+  "azure_monitor_autoscale_api": {
+    "title": "Azure Monitor - Autoscale"
+  },
+  "azure_monitor_baseline_api": {
+    "title": "Azure Monitor - Baseline"
+  },
+  "azure_monitor_calculatebaseline_api": {
+    "title": "Azure Monitor - Calculate Baseline"
+  },
+  "azure_monitor_diagnosticssettings_api": {
+    "title": "Azure Monitor - Diagnostics Settings"
+  },
+  "azure_monitor_diagnosticssettingscategories_api": {
+    "title": "Azure Monitor - Diagnostics Settings Categories"
+  },
+  "azure_monitor_eventcategories_api": {
+    "title": "Azure Monitor - Event Categories"
+  },
+  "azure_monitor_logprofiles_api": {
+    "title": "Azure Monitor - Log Profiles"
+  },
+  "azure_monitor_metricdefinitions_api": {
+    "title": "Azure Monitor - Metric Definitions"
+  },
+  "azure_monitor_metrics_api": {
+    "title": "Azure Monitor - Metrics"
+  },
+  "azure_monitor_operations_api": {
+    "title": "Azure Monitor - Operations"
+  },
+  "azure_monitor_servicediagnosticssettings_api": {
+    "title": "Azure Monitor - Service Diagnostics Settings"
+  },
+  "azure_monitor_tenantactivitylogs_api": {
+    "title": "Azure Monitor - Tenant Activity Logs"
+  },
+  "azure_msi_managedidentity": {
+    "title": "Azure MSI - Managed Identity"
+  },
+  "azure_mysql": {
+    "title": "Azure MySQL"
+  },
+  "azure_network_applicationsecuritygroup": {
+    "title": "Azure Network - Application Security"
+  },
+  "azure_network_checkdnsavailability": {
+    "title": "Azure Network - DNS Availability"
+  },
+  "azure_network_endpointservice": {
+    "title": "Azure Network - Endpoint Service"
+  },
+  "azure_network_expressroutecircuit": {
+    "title": "Azure Network - Express Route Circuit"
+  },
+  "azure_network_networkwatcher": {
+    "title": "Azure Network - Network Watcher"
+  },
+  "azure_network_operation": {
+    "title": "Azure Network - Operation"
+  },
+  "azure_network_servicecommunity": {
+    "title": "Azure Network - Service Community"
+  },
+  "azure_network_usage": {
+    "title": "Azure Network - Usage"
+  },
+  "azure_network_virtualnetworkgateway": {
+    "title": "Azure Network - Virtual Network Gateway"
+  },
+  "azure_notificationhubs": {
+    "title": "Azure Network - Notification Hubs"
+  },
+  "azure_postgresql": {
+    "title": "Azure PostgreSQL"
+  },
+  "azure_powerbidedicated": {
+    "title": "Azure PowerBI Dedicated"
+  },
+  "azure_powerbiembedded": {
+    "title": "Azure PowerBI Embedded"
+  },
+  "azure_provisioningservices_iotdps": {
+    "title": "Azure IoT Device Provisioning"
+  },
+  "azure_recoveryservices_backup": {
+    "title": "Azure Recovery Services - Backup"
+  },
+  "azure_recoveryservices_registeredidentities": {
+    "title": "Azure Recovery Services - Registered Identities"
+  },
+  "azure_recoveryservices_replicationusages": {
+    "title": "Azure Recovery Services - Replication Usage"
+  },
+  "azure_recoveryservices_vaults": {
+    "title": "Azure Recovery Services - Vaults"
+  },
+  "azure_recoveryservices_vaultusages": {
+    "title": "Azure Recovery Services - Vault Usages"
+  },
+  "azure_recoveryservicesbackup": {
+    "title": "Azure Recovery Services Backup"
+  },
+  "azure_recoveryservicesbackup_backupmanagement": {
+    "title": "Azure Recovery Services Backup - Backup Management"
+  },
+  "azure_recoveryservicesbackup_jobs": {
+    "title": "Azure Recovery Services Backup - Jobs"
+  },
+  "azure_recoveryservicesbackup_operations": {
+    "title": "Azure Recovery Services Backup - Operation"
+  },
+  "azure_recoveryservicesbackup_registeredidentities": {
+    "title": "Azure Recovery Services Backup - Registered Identities"
+  },
+  "azure_recoveryservicessiterecovery_service": {
+    "title": "Azure Recovery Services - Site Recovery"
+  },
+  "azure_redis": {
+    "title": "Azure Redis"
+  },
+  "azure_relay": {
+    "title": "Azure Relay"
+  },
+  "azure_reservations": {
+    "title": "Azure Reservations"
+  },
+  "azure_resourcehealth": {
+    "title": "Azure Resource Health"
+  },
+  "azure_resources": {
+    "title": "Azure Resources"
+  },
+  "azure_resources_features": {
+    "title": "Azure Resources - Features"
+  },
+  "azure_resources_links": {
+    "title": "Azure Resources - Links"
+  },
+  "azure_resources_locks": {
+    "title": "Azure Resources - Locks"
+  },
+  "azure_resources_managedapplications": {
+    "title": "Azure Resources - Managed Applications"
+  },
+  "azure_resources_management": {
+    "title": "Azure Resources - Management"
+  },
+  "azure_resources_policy": {
+    "title": "Azure Resources - Policy"
+  },
+  "azure_resources_policyassignments": {
+    "title": "Azure Resources - Policy Assignments"
+  },
+  "azure_resources_policydefinitions": {
+    "title": "Azure Resources - Policy Definitions"
+  },
+  "azure_resources_policysetdefinitions": {
+    "title": "Azure Resources - Policy Set Definitions"
+  },
+  "azure_resources_subscriptions": {
+    "title": "Azure Resources - Subscriptions"
+  },
+  "azure_scheduler": {
+    "title": "Azure Scheduler"
+  },
+  "azure_search": {
+    "title": "Azure Search"
+  },
+  "azure_servermanagement": {
+    "title": "Azure Server Management"
+  },
+  "azure_service_map_arm_service_map": {
+    "title": "Azure Service Map"
+  },
+  "azure_servicebus": {
+    "title": "Azure Service Bus"
+  },
+  "azure_servicefabric": {
+    "title": "Azure Service Fabric"
+  },
+  "azure_sql_advisors": {
+    "title": "Azure SQL Advisors"
+  },
+  "azure_sql_blobauditingpolicies": {
+    "title": "Azure SQL Blob Auditing Policies"
+  },
+  "azure_sql_canceloperations": {
+    "title": "Azure SQL - Cancel Operations"
+  },
+  "azure_sql_capabilities": {
+    "title": "Azure SQL - Capabilities"
+  },
+  "azure_sql_connectionpolicies": {
+    "title": "Azure SQL - Connection Policies"
+  },
+  "azure_sql_databaseautomatictuning": {
+    "title": "Azure SQL - Database Automatic Tuning"
+  },
+  "azure_sql_databases": {
+    "title": "Azure SQL - Databases"
+  },
+  "azure_sql_databasesecurityalertpolicies": {
+    "title": "Azure SQL - Database Threat Detection Policies"
+  },
+  "azure_sql_datamasking": {
+    "title": "Azure SQL - Database Datamasking Policies and Rules"
+  },
+  "azure_sql_deprecated": {
+    "title": "Azure SQL Database (deprecated)"
+  },
+  "azure_sql_encryptionprotectors": {
+    "title": "Azure SQL - Encryption Protectors"
+  },
+  "azure_sql_failovergroups": {
+    "title": "Azure SQL - Failover Groups"
+  },
+  "azure_sql_firewallrules": {
+    "title": "Azure SQL - Firewall Rules"
+  },
+  "azure_sql_geobackuppolicies": {
+    "title": "Azure SQL - Geo Backup Policies"
+  },
+  "azure_sql_importexport": {
+    "title": "Azure SQL Database Import/Export"
+  },
+  "azure_sql_manageddatabases": {
+    "title": "Azure SQL - Managed Databases"
+  },
+  "azure_sql_metrics": {
+    "title": "Azure SQL - Metrics"
+  },
+  "azure_sql_operations": {
+    "title": "Azure SQL - Operations"
+  },
+  "azure_sql_queries": {
+    "title": "Azure SQL - Queries"
+  },
+  "azure_sql_renamedatabase": {
+    "title": "Azure SQL - Renam Database"
+  },
+  "azure_sql_replicationlinks": {
+    "title": "Azure SQL - Replication Links"
+  },
+  "azure_sql_serverautomatictuning": {
+    "title": "Azure SQL - Server Automatic Tuning"
+  },
+  "azure_sql_serverazureadadministrators": {
+    "title": "Azure SQL - Server Administrators"
+  },
+  "azure_sql_servercommunicationlinks": {
+    "title": "Azure SQL - Server Communication Links"
+  },
+  "azure_sql_serverdnsaliases": {
+    "title": "Azure SQL - Server DNS Aliases"
+  },
+  "azure_sql_serverkeys": {
+    "title": "Azure SQL - Server Keys"
+  },
+  "azure_sql_servers": {
+    "title": "Azure SQL - Servers"
+  },
+  "azure_sql_serviceobjectives": {
+    "title": "Azure SQL - Service Objectives"
+  },
+  "azure_sql_sql_core": {
+    "title": "Azure SQL - Core"
+  },
+  "azure_sql_syncagents": {
+    "title": "Azure SQL - Sync Agents"
+  },
+  "azure_sql_syncgroups": {
+    "title": "Azure SQL - Sync Groups"
+  },
+  "azure_sql_syncmembers": {
+    "title": "Azure SQL - Sync Members"
+  },
+  "azure_sql_tableauditing": {
+    "title": "Azure SQL - Table Auditing"
+  },
+  "azure_sql_usages": {
+    "title": "Azure SQL - Usages"
+  },
+  "azure_sql_virtualnetworkrules": {
+    "title": "Azure SQL - Virtual Network Rules"
+  },
+  "azure_storage": {
+    "title": "Azure Storage"
+  },
+  "azure_storageimportexport": {
+    "title": "Azure Storage - Import/Export"
+  },
+  "azure_storsimple8000series_storsimple": {
+    "title": "Azure StorSimple8000"
+  },
+  "azure_streamanalytics_functions": {
+    "title": "Azure Stream Analytics - Functions"
+  },
+  "azure_streamanalytics_inputs": {
+    "title": "Azure Stream Analytics - Inputs"
+  },
+  "azure_streamanalytics_outputs": {
+    "title": "Azure Stream Analytics - Outputs"
+  },
+  "azure_streamanalytics_streamingjobs": {
+    "title": "Azure Stream Analytics - Streaming Jobs"
+  },
+  "azure_streamanalytics_subscriptions": {
+    "title": "Azure Stream Analytics - Subscriptions"
+  },
+  "azure_streamanalytics_transformations": {
+    "title": "Azure Stream Analytics - Transformations"
+  },
+  "azure_subscription_subscriptiondefinitions": {
+    "title": "Azure Subscription Definitions"
+  },
+  "azure_timeseriesinsights": {
+    "title": "Azure Time Series Insights"
+  },
+  "azure_trafficmanager": {
+    "title": "Azure Traffic Manager"
+  },
+  "azure_trafficmanager_trafficmanageranalytics": {
+    "title": "Azure Traffic Manager Analytics"
+  },
+  "azure_visualstudio_csm": {
+    "title": "Azure Visual Studio CSM"
+  },
+  "azure_web_appservicecertificateorders": {
+    "title": "Azure Web - App Service Certificate Orders"
+  },
+  "azure_web_appserviceplans": {
+    "title": "Azure Web - App Service Plans"
+  },
+  "azure_web_certificateregistrationprovider": {
+    "title": "Azure Web - Certificate Registration Provider"
+  },
+  "azure_web_certificates": {
+    "title": "Azure Web - Certificates"
+  },
+  "azure_web_deletedwebapps": {
+    "title": "Azure Web - Deleted Web Apps"
+  },
+  "azure_web_diagnostics": {
+    "title": "Azure Web - Diagnostics"
+  },
+  "azure_web_domainregistrationprovider": {
+    "title": "Azure Web - Domain Registration Provider"
+  },
+  "azure_web_domains": {
+    "title": "Azure Web - Domains"
+  },
+  "azure_web_logicappsmanagementclient": {
+    "title": "Azure Web - Logic Apps Management"
+  },
+  "azure_web_provider": {
+    "title": "Azure Web - Provider"
+  },
+  "azure_web_recommendations": {
+    "title": "Azure Web - Recommendations"
+  },
+  "azure_web_resourceprovider": {
+    "title": "Azure Web - Resource Provider"
+  },
+  "azure_web_service": {
+    "title": "Azure Web - Service"
+  },
+  "azure_web_topleveldomains": {
+    "title": "Azure Web - Top Level Domains"
+  },
+  "airport_web_appspot": {
+    "title": "Airports Web"
+  },
+  "bclaws_ca_bclaws": {
+    "title": "British Columbia Laws"
+  },
+  "bikewise": {
+    "title": "BikeWise"
+  },
+  "blazemeter": {
+    "title": "Blazemeter"
+  },
+  "box_authorization": {
+    "title": "Box Authorization"
+  },
+  "box_content": {
+    "title": "Box Content"
+  },
+  "box_token": {
+    "title": "Box OAuth2 Token"
+  },
+  "box_upload": {
+    "title": "Box Uploads"
+  },
+  "brandlovers": {
+    "title": "BrandLovers Marketplace"
+  },
+  "ccp_is": {
+    "title": "EVE Online"
+  },
+  "cenit": {
+    "title": "Cenit IO"
+  },
+  "circuitsandbox": {
+    "title": "Circuit"
+  },
+  "citrix_gotomeeting": {
+    "title": "Citrix GoToMeeting"
+  },
+  "citrix_scim": {
+    "title": "Citrix SCIM"
+  },
+  "cloud_gov": {
+    "title": "Cloud.gov Discovery Market Research"
+  },
+  "cloudmersive_ocr": {
+    "title": "Cloudmersive OCR"
+  },
+  "consumerfinance_gov": {
+    "title": "Consumer Financial Protection Bureau"
+  },
+  "cybertaxonomy_eu": {
+    "title": "EU BON Unified Taxonomic Information Service"
+  },
+  "data2crm": {
+    "title": "Data2CRM"
+  },
+  "deutschebahn_betriebsstellen": {
+    "title": "Deutsche Bahn Stations"
+  },
+  "deutschebahn_fahrplan": {
+    "title": "Deutsche Bahn Timetables"
+  },
+  "deutschebahn_fasta": {
+    "title": "Deutsche Bahn Facilities"
+  },
+  "deutschebahn_flinkster": {
+    "title": "Deutsche Bahn Private Transport"
+  },
+  "deutschebahn_reisezentren": {
+    "title": "Deutsche Bahn Travel Centers"
+  },
+  "deutschebahn_stada": {
+    "title": "Deutsche Bahn Railway Stations"
+  },
+  "ebay_buy_browse": {
+    "title": "eBay Browse"
+  },
+  "ebay_buy_feed": {
+    "title": "eBay Feed"
+  },
+  "ebay_buy_marketing": {
+    "title": "eBay Marketing"
+  },
+  "ebay_commerce_taxonomy": {
+    "title": "eBay Taxonomy"
+  },
+  "ebay_sell_fulfillment": {
+    "title": "eBay Fulfillment"
+  },
+  "epa_gov_air": {
+    "title": "U.S. EPA - Clean Air"
+  },
+  "epa_gov_case": {
+    "title": "U.S. EPA - Enforcement Case Search"
+  },
+  "epa_gov_cwa": {
+    "title": "U.S. EPA - Clean Water"
+  },
+  "epa_gov_dfr": {
+    "title": "U.S. EPA - Detailed Facility Report"
+  },
+  "epa_gov_echo": {
+    "title": "U.S. EPA - All Data"
+  },
+  "epa_gov_eff": {
+    "title": "U.S. EPA - Effluent Charting and Reporting"
+  },
+  "epa_gov_rcra": {
+    "title": "U.S. EPA - Resource Conservation and Recovery"
+  },
+  "epa_gov_sdw": {
+    "title": "U.S. EPA - Safe Drinking Water"
+  },
+  "etmdb": {
+    "title": "EtMDB"
+  },
+  "formapi": {
+    "title": "Form API"
+  },
+  "getsandbox": {
+    "title": "Sandbox API Development"
+  },
+  "gisgraphy": {
+    "title": "Gisgraphy"
+  },
+  "google_dlp": {
+    "title": "Google DLP"
+  },
+  "google_fitness": {
+    "title": "Google Fitness"
+  },
+  "google_monitoring": {
+    "title": "Google Stackdriver Monitoring"
+  },
+  "google_poly": {
+    "title": "Google Poly"
+  },
+  "google_serviceconsumermanagement": {
+    "title": "Google Service Consumer Management"
+  },
+  "google_streetviewpublish": {
+    "title": "Google Street View Publish"
+  },
+  "google_surveys": {
+    "title": "Google Surveys"
+  },
+  "gov_bc_ca_bcdc": {
+    "title": "British Columbia Data Catalogue"
+  },
+  "gov_bc_ca_bcgnws": {
+    "title": "British Columbia Geographical Names Web Service -"
+  },
+  "gov_bc_ca_geocoder": {
+    "title": "British Columbia Geocoder"
+  },
+  "gov_bc_ca_geomark": {
+    "title": "British Columbia GeoMark Web Service"
+  },
+  "gov_bc_ca_jobposting": {
+    "title": "British Columbia WorkBC Job Posting"
+  },
+  "gov_bc_ca_open511": {
+    "title": "British Columbia DriveBC's Open511"
+  },
+  "gov_bc_ca_router": {
+    "title": "British Columbia Route Planner"
+  },
+  "haloapi_metadata": {
+    "title": "Halo Metadata"
+  },
+  "haloapi_profile": {
+    "title": "Halo Profile"
+  },
+  "haloapi_stats": {
+    "title": "Halo Stats"
+  },
+  "haloapi_ugc": {
+    "title": "Halo UGC"
+  },
+  "healthcare_gov": {
+    "title": "Healthcare.gov"
+  },
+  "hetras_certification_booking": {
+    "title": "Hetras Booking"
+  },
+  "hetras_certification_hotel": {
+    "title": "Hetras Hotels"
+  },
+  "ijenko": {
+    "title": "Ijenko IoE² IoT"
+  },
+  "import_data": {
+    "title": "import.io Data"
+  },
+  "import_extraction": {
+    "title": "import.io Extraction"
+  },
+  "import_rss": {
+    "title": "import.io RSS"
+  },
+  "import_run": {
+    "title": "import.io Run"
+  },
+  "import_schedule": {
+    "title": "import.io Schedule"
+  },
+  "inboxroute": {
+    "title": "MailSquad"
+  },
+  "isendpro": {
+    "title": "iSendPro"
+  },
+  "iva_api": {
+    "title": "Internet Video Archive - Entertainment Express"
+  },
+  "koomalooma": {
+    "title": "koomalooma"
+  },
+  "mashape_geodb": {
+    "title": "Mashape Geo DB"
+  },
+  "microsoft_cognitiveservices_customsearch": {
+    "title": "Microsoft Custom Search"
+  },
+  "microsoft_cognitiveservices_entitysearch": {
+    "title": "Microsoft Entity Search"
+  },
+  "microsoft_cognitiveservices_imagesearch": {
+    "title": "Microsoft Image Search"
+  },
+  "microsoft_cognitiveservices_newssearch": {
+    "title": "Microsoft News Search"
+  },
+  "microsoft_cognitiveservices_spellcheck": {
+    "title": "Microsoft Spell Check"
+  },
+  "microsoft_cognitiveservices_videosearch": {
+    "title": "Microsoft Video Search"
+  },
+  "microsoft_cognitiveservices_websearch": {
+    "title": "Microsoft Web Search"
+  },
+  "mozilla_kinto": {
+    "title": "Mozilla Kinto"
+  },
+  "naviplancentral_factfinder": {
+    "title": "Advicent Fact Finder"
+  },
+  "naviplancentral_plan": {
+    "title": "Advicent Published Plan Service"
+  },
+  "neowsapp": {
+    "title": "Near Earth Objects"
+  },
+  "netlicensing": {
+    "title": "Labs64 NetLicensing"
+  },
+  "nfusionsolutions_biz": {
+    "title": "nFusion Solutions Market Data"
+  },
+  "npr": {
+    "title": "NPR One"
+  },
+  "nrel_transportation_incentives_laws": {
+    "title": "nrel.gov Transportation Laws and Incentives"
+  },
+  "nytimes_archive": {
+    "title": "NYTimes Archive"
+  },
+  "nytimes_article_search": {
+    "title": "NYTimes Article Search"
+  },
+  "nytimes_books_api": {
+    "title": "NYTimes Books"
+  },
+  "nytimes_community": {
+    "title": "NYTimes Community"
+  },
+  "nytimes_geo_api": {
+    "title": "NYTimes Geographic"
+  },
+  "nytimes_most_popular_api": {
+    "title": "NYTimes Most Popular"
+  },
+  "nytimes_movie_reviews": {
+    "title": "NYTimes Movie Reviews"
+  },
+  "nytimes_semantic_api": {
+    "title": "NYTimes Semantic"
+  },
+  "nytimes_times_tags": {
+    "title": "NYTimes TimesTags"
+  },
+  "nytimes_timeswire": {
+    "title": "NYTimes Newswire"
+  },
+  "nytimes_top_stories": {
+    "title": "NYTimes Top Stories"
+  },
+  "openbanking_org_uk": {
+    "title": "openbanking.org Open Data"
+  },
+  "opendatasoft": {
+    "title": "OpenDataSoft"
+  },
+  "osf": {
+    "title": "Open Science Framework"
+  },
+  "osisoft": {
+    "title": "OSISoft PI"
+  },
+  "payrun": {
+    "title": "PayRun.io"
+  },
+  "peel_ci": {
+    "title": "Peel Tune-in"
+  },
+  "posty": {
+    "title": "Posty"
+  },
+  "redmine": {
+    "title": "Redmine"
+  },
+  "reverb": {
+    "title": "Reverb"
+  },
+  "roaring": {
+    "title": "roaring.io CompanyAPI"
+  },
+  "schooldigger": {
+    "title": "SchoolDigger"
+  },
+  "scrapewebsite_email": {
+    "title": "Scrape Website Email"
+  },
+  "sendgrid": {
+    "title": "SendGrid"
+  },
+  "shipstation": {
+    "title": "ShipStation"
+  },
+  "slideroom": {
+    "title": "SlideRoom"
+  },
+  "spinbot": {
+    "title": "Spinbot.net Article Rewriter and Article Extractor"
+  },
+  "staging_ecotaco": {
+    "title": "ecota.co"
+  },
+  "transavia": {
+    "title": "Transavia Airports"
+  },
+  "twinehealth": {
+    "title": "Twine Health"
+  },
+  "uebermaps": {
+    "title": "uebermaps"
+  },
+  "versioneye": {
+    "title": "VersionEye"
+  },
+  "wavecell": {
+    "title": "Wavecell SMS"
+  },
+  "weatherbit": {
+    "title": "Weatherbit.io Weather"
+  },
+  "whapi_accounts": {
+    "title": "William Hill Accounts"
+  },
+  "whapi_bets": {
+    "title": "William Hill Bets"
+  },
+  "whapi_locations": {
+    "title": "William Hill Locations"
+  },
+  "whapi_numbers": {
+    "title": "William Hill Numbers"
+  },
+  "whapi_sessions": {
+    "title": "William Hill Sessions"
+  },
+  "whapi_sportsdata": {
+    "title": "William Hill SportsData"
+  },
+  "windows_batch_batchservice": {
+    "title": "Windows Batch Service"
+  },
+  "windows_graphrbac": {
+    "title": "Windows Graph RBAC"
+  },
+  "wmata_bus_realtime": {
+    "title": "Washington WMATA Real-Time Bus Predictions"
+  },
+  "wmata_bus_route": {
+    "title": "Washington WMATA Bus Route and Stop Methods"
+  },
+  "wmata_rail_realtime": {
+    "title": "Washington WMATA Real-Time Rail Predictions"
+  },
+  "wmata_rail_station": {
+    "title": "Washington WMATA Rail Station Information"
+  },
+  "wowza": {
+    "title": "Wowza Streaming Cloud"
+  },
+  "wso2apistore_transform": {
+    "title": "WSO2 Transform"
+  },
+  "xero": {
+    "title": "Xero Accounting"
+  },
+  "caldav": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Calendar_font_awesome.svg/2000px-Calendar_font_awesome.svg.png"
+    }
+  },
+  "smtp": {
+    "logo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Tokyoship_Mail_icon.svg/2000px-Tokyoship_Mail_icon.svg.png"
     }
   }
 }
