@@ -22,7 +22,7 @@
     "chai": "^3.5.0",
     "datafire": "^2.0.2",
     "express": "^4.16.2",
-    "fennel": "git+https://github.com/bobby-brennan/fennel.git#585160f",
+    "fennel": "git+https://github.com/bobby-brennan/fennel.git",
     "fs-extra": "^5.0.0",
     "hoodiecrow-imap": "^2.1.0",
     "imap": "^0.8.19",

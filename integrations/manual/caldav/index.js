@@ -18,19 +18,37 @@ const caldav = module.exports = new datafire.Integration({
         username: "",
         password: "",
         server: "e.g. http://localhost:3333",
+        basePath: "The absolute path for caldav calls, e.g. /caldav/v2 for Google Calendar",
         principalPath: "The relative path where principals can be found, e.g. 'p'",
       }
     }
   }
 });
 
+function unifyTags(str) {
+  if (!str) return str;
+  return str.toLowerCase().replace(/^\w+:/, '');
+}
+
+const XML2JS_OPTIONS = {
+  tagNameProcessors: [unifyTags],
+}
+
 function sendRequest(options, context) {
-  options.url = context.accounts.caldav.server + options.url;
+  let acct = context.accounts.caldav;
+  let url = acct.server;
+  if (acct.basePath && options.url.indexOf(acct.basePath) !== 0) {
+    url += acct.basePath;
+  }
+  options.url = url + options.url;
   options.headers = options.headers || {};
   options.headers['Content-Type'] = options.headers['Content-Type'] || 'application/xml; charset=utf-8';
-
-  let auth = context.accounts.caldav.username + ':' + context.accounts.caldav.password;
-  options.headers.Authorization = 'Basic ' + (new Buffer(auth.toString(), 'binary')).toString('base64');
+  if (context.accounts.caldav.access_token) {
+    options.headers.Authorization = 'Bearer ' + context.accounts.caldav.access_token;
+  } else {
+    let auth = context.accounts.caldav.username + ':' + context.accounts.caldav.password;
+    options.headers.Authorization = 'Basic ' + (new Buffer(auth.toString(), 'binary')).toString('base64');
+  }
   return http.request(options)
     .then(response => {
       if (response.statusCode >= 300) {
@@ -41,13 +59,13 @@ function sendRequest(options, context) {
     .then(body => {
       if (!body) return "Success";
       return new Promise((resolve, reject) => {
-        xml2js.parseString(body, (err, result) => {
+        xml2js.parseString(body, XML2JS_OPTIONS, (err, result) => {
           if (err) return reject(err);
-          let parsed = (result['d:multistatus']['d:response'] || []).map(resp => {
+          let parsed = (result['multistatus']['response'] || []).map(resp => {
             let obj = {
-              href: resp['d:href'],
+              href: resp['href'],
             };
-            obj.data = resp['d:propstat'][0]['d:prop'][0];
+            obj.data = resp['propstat'][0]['prop'][0];
             return obj;
           })
           resolve({responses: parsed, body: result});
@@ -96,7 +114,7 @@ caldav.addAction('listEvents', {
     }, context)
     .then(events => {
       return events.responses.map(evt => {
-        return extractData(evt, [['d:getetag', 'etag'], ['cal:calendar-data', 'calendarData']]);
+        return extractData(evt, [['getetag', 'etag'], ['calendar-data', 'calendarData']]);
       })
     })
     .then(events => {
@@ -164,7 +182,7 @@ caldav.addAction('listCalendars', {
       body: requests.principal(),
     }, context)
     .then(principals => {
-      let href = principals.responses[0].data['d:current-user-principal'][0]['d:href'][0];
+      let href = principals.responses[0].data['current-user-principal'][0]['href'][0];
       return sendRequest({
         method: 'PROPFIND',
         url: href,
@@ -173,7 +191,7 @@ caldav.addAction('listCalendars', {
       }, context)
     })
     .then(calhome => {
-      let href = calhome.responses[0].data['cal:calendar-home-set'][0]['d:href'][0];
+      let href = calhome.responses[0].data['calendar-home-set'][0]['href'][0];
       return sendRequest({
         method: 'PROPFIND',
         url: href,
@@ -184,9 +202,9 @@ caldav.addAction('listCalendars', {
     .then(calendars => {
       calendars.responses.shift();
       return calendars.responses.map(cal => {
-        let obj = extractData(cal, ['d:owner', ['d:displayname', 'name'], ['cs:getctag', 'ctag'], ['d:sync-token', 'syncToken']]);
+        let obj = extractData(cal, ['owner', ['displayname', 'name'], ['getctag', 'ctag'], ['sync-token', 'syncToken']]);
         if (obj.owner) {
-          obj.owner = obj.owner['d:href'][0];
+          obj.owner = obj.owner['href'][0];
         }
         return obj;
       });
@@ -236,9 +254,9 @@ caldav.addAction('getChanges', {
       body: requests.getChanges({syncToken: input.syncToken}),
     }, context)
     .then(changes => {
-      let syncToken = changes.body['d:multistatus']['d:sync-token'][0];
+      let syncToken = changes.body['multistatus']['sync-token'][0];
       changes = changes.responses.map(change => {
-        return extractData(change, [['d:getetag', 'etag']]);
+        return extractData(change, [['getetag', 'etag']]);
       });
       return {changes, syncToken};
     })
