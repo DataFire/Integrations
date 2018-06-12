@@ -14004,7 +14004,7 @@
       "collaboration",
       "developer tools"
     ],
-    "latestVersion": "5.0.0"
+    "latestVersion": "5.0.1"
   },
   "gitlab": {
     "id": "gitlab",
@@ -23659,6 +23659,7 @@
           "username": "",
           "password": "",
           "server": "e.g. http://localhost:3333",
+          "basePath": "The absolute path for caldav calls, e.g. /caldav/v2 for Google Calendar",
           "principalPath": "The relative path where principals can be found, e.g. 'p'"
         }
       }
@@ -23668,7 +23669,7 @@
     },
     "actionCount": 7,
     "directory": "manual",
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "fileserver": {
     "id": "fileserver",
