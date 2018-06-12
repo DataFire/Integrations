@@ -12,7 +12,13 @@ module.exports = (spec) => {
         })
       }
       // Lots of parameters that are optional are listed as required
-      (op.parameters || []).filter(p => p.in !== 'path' && p.in !== 'body').forEach(p => delete p.required);
+      (op.parameters || [])
+          .filter(p => p.in !== 'path' && p.in !== 'body')
+          .forEach(p => delete p.required);
+      (op.parameters || [])
+          .forEach(p => {
+            if (p.name === 'state') p.enum = ['open', 'closed', 'all'];
+          });
     }
   }
   spec.definitions.postGist.properties.files.additionalProperties = true;

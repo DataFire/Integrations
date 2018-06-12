@@ -658,7 +658,8 @@
             "default": "open",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "query",
             "name": "state",
@@ -732,7 +733,8 @@
             "description": "Indicates the state of the issues to return. Can be either open or closed.",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "path",
             "name": "state",
@@ -1318,7 +1320,8 @@
             "default": "open",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "query",
             "name": "state",
@@ -3988,7 +3991,8 @@
             "default": "open",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "query",
             "name": "state",
@@ -5250,7 +5254,8 @@
             "description": "String to filter by state.",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "query",
             "name": "state",
@@ -5613,7 +5618,8 @@
             "description": "String to filter by state.",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "query",
             "name": "state",
@@ -8133,7 +8139,8 @@
             "default": "open",
             "enum": [
               "open",
-              "closed"
+              "closed",
+              "all"
             ],
             "in": "query",
             "name": "state",
