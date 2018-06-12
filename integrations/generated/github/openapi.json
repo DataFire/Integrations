@@ -652,7 +652,6 @@
             ],
             "in": "query",
             "name": "filter",
-            "required": true,
             "type": "string"
           },
           {
@@ -663,14 +662,12 @@
             ],
             "in": "query",
             "name": "state",
-            "required": true,
             "type": "string"
           },
           {
             "description": "String list of comma separated Label names. Example - bug,ui,@high.",
             "in": "query",
             "name": "labels",
-            "required": true,
             "type": "string"
           },
           {
@@ -682,7 +679,6 @@
             ],
             "in": "query",
             "name": "sort",
-            "required": true,
             "type": "string"
           },
           {
@@ -693,7 +689,6 @@
             ],
             "in": "query",
             "name": "direction",
-            "required": true,
             "type": "string"
           },
           {
@@ -1317,7 +1312,6 @@
             ],
             "in": "query",
             "name": "filter",
-            "required": true,
             "type": "string"
           },
           {
@@ -1328,14 +1322,12 @@
             ],
             "in": "query",
             "name": "state",
-            "required": true,
             "type": "string"
           },
           {
             "description": "String list of comma separated Label names. Example - bug,ui,@high.",
             "in": "query",
             "name": "labels",
-            "required": true,
             "type": "string"
           },
           {
@@ -1347,7 +1339,6 @@
             ],
             "in": "query",
             "name": "sort",
-            "required": true,
             "type": "string"
           },
           {
@@ -1358,7 +1349,6 @@
             ],
             "in": "query",
             "name": "direction",
-            "required": true,
             "type": "string"
           },
           {
@@ -2777,7 +2767,6 @@
             "description": "Set to 1 or true to include anonymous contributors in results.",
             "in": "query",
             "name": "anon",
-            "required": true,
             "type": "string"
           },
           {
@@ -3993,7 +3982,6 @@
             ],
             "in": "query",
             "name": "filter",
-            "required": true,
             "type": "string"
           },
           {
@@ -4004,14 +3992,12 @@
             ],
             "in": "query",
             "name": "state",
-            "required": true,
             "type": "string"
           },
           {
             "description": "String list of comma separated Label names. Example - bug,ui,@high.",
             "in": "query",
             "name": "labels",
-            "required": true,
             "type": "string"
           },
           {
@@ -4023,7 +4009,6 @@
             ],
             "in": "query",
             "name": "sort",
-            "required": true,
             "type": "string"
           },
           {
@@ -4034,7 +4019,6 @@
             ],
             "in": "query",
             "name": "direction",
-            "required": true,
             "type": "string"
           },
           {
@@ -7284,7 +7268,6 @@
             "description": "The search terms. This can be any combination of the supported code\nsearch parameters:\n'Search In' Qualifies which fields are searched. With this qualifier\nyou can restrict the search to just the file contents, the file path,\nor both.\n'Languages' Searches code based on the language it's written in.\n'Forks' Filters repositories based on the number of forks, and/or\nwhether code from forked repositories should be included in the results\nat all.\n'Size' Finds files that match a certain size (in bytes).\n'Path' Specifies the path that the resulting file must be at.\n'Extension' Matches files with a certain extension.\n'Users' or 'Repositories' Limits searches to a specific user or repository.\n",
             "in": "query",
             "name": "q",
-            "required": true,
             "type": "string"
           },
           {
@@ -7330,7 +7313,6 @@
             "description": "The q search term can also contain any combination of the supported issue search qualifiers:",
             "in": "query",
             "name": "q",
-            "required": true,
             "type": "string"
           },
           {
@@ -7383,7 +7365,6 @@
             "description": "The search terms. This can be any combination of the supported repository\nsearch parameters:\n'Search In' Qualifies which fields are searched. With this qualifier you\ncan restrict the search to just the repository name, description, readme,\nor any combination of these.\n'Size' Finds repositories that match a certain size (in kilobytes).\n'Forks' Filters repositories based on the number of forks, and/or whether\nforked repositories should be included in the results at all.\n'Created' and 'Last Updated' Filters repositories based on times of\ncreation, or when they were last updated.\n'Users or Repositories' Limits searches to a specific user or repository.\n'Languages' Searches repositories based on the language they are written in.\n'Stars' Searches repositories based on the number of stars.\n",
             "in": "query",
             "name": "q",
-            "required": true,
             "type": "string"
           },
           {
@@ -7436,7 +7417,6 @@
             "description": "The search terms. This can be any combination of the supported user\nsearch parameters:\n'Search In' Qualifies which fields are searched. With this qualifier you\ncan restrict the search to just the username, public email, full name,\nlocation, or any combination of these.\n'Repository count' Filters users based on the number of repositories they\nhave.\n'Location' Filter users by the location indicated in their profile.\n'Language' Search for users that have repositories that match a certain\nlanguage.\n'Created' Filter users based on when they joined.\n'Followers' Filter users based on the number of followers they have.\n",
             "in": "query",
             "name": "q",
-            "required": true,
             "type": "string"
           },
           {
@@ -8147,7 +8127,6 @@
             ],
             "in": "query",
             "name": "filter",
-            "required": true,
             "type": "string"
           },
           {
@@ -8158,14 +8137,12 @@
             ],
             "in": "query",
             "name": "state",
-            "required": true,
             "type": "string"
           },
           {
             "description": "String list of comma separated Label names. Example - bug,ui,@high.",
             "in": "query",
             "name": "labels",
-            "required": true,
             "type": "string"
           },
           {
@@ -8177,7 +8154,6 @@
             ],
             "in": "query",
             "name": "sort",
-            "required": true,
             "type": "string"
           },
           {
@@ -8188,7 +8164,6 @@
             ],
             "in": "query",
             "name": "direction",
-            "required": true,
             "type": "string"
           },
           {
