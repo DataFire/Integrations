@@ -13,10 +13,12 @@ function render(template, args) {
 }
 
 function resolveRef(ref, base) {
+  ref = decodeURIComponent(ref);
   var keys = ref.split('/');
   keys.shift();
   var cur = base;
   keys.forEach(k => cur = cur[k]);
+  if (cur === undefined) throw new Error("Key " + keys.pop() + " not found");
   return cur;
 }
 
