@@ -21,7 +21,8 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
     if (fs.existsSync(DEPRECATED_DIR + '/' + name)) {
       return false;
     }
-    if (args.new && fs.existsSync(OUT_DIR + '/' + name)) {
+    let isNew = !fs.existsSync(OUT_DIR + '/' + name);
+    if (args.new && !isNew || args.nonew && isNew) {
       return false;
     }
     if (args.name && name !== args.name) {
