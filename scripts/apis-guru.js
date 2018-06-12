@@ -65,6 +65,7 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   }), 10, err => {
     if (err) throw err;
     if (!args.name && !args.new && !args.info_only) {
+      // Deprecate anyting that's been removed from list.json or had a name change
       fs.readdirSync(OUT_DIR).forEach(name => {
         if (names.indexOf(name) !== -1) return;
         let dir = OUT_DIR + '/' + name;

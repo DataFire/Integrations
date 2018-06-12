@@ -22,6 +22,8 @@ const sdkMap = module.exports = {
   email: 'SES',
   entitlement_marketplace: 'MarketplaceEntitlementService',
   events: 'CloudWatchEvents',
+  iot1click_devices: 'IoT1ClickDevicesService',
+  iot1click_projects: 'IoT1ClickProjects',
   logs: 'CloudWatchLogs',
   metering_marketplace: 'MarketplaceMetering',
   mgh: 'MigrationHub',

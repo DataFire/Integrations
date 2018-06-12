@@ -19,7 +19,7 @@
     "@datafire/fileserver": "^1.0.1",
     "@datafire/http": "^2.1.0",
     "async": "^2.1.4",
-    "aws-sdk": "^2.196.0",
+    "aws-sdk": "^2.255.1",
     "body-parser": "^1.18.2",
     "chai": "^3.5.0",
     "datafire": "^2.21.0",

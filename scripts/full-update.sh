@@ -1,6 +1,10 @@
 set -e
 node ./scripts/apis-guru.js
+
+set +e
 git checkout -- integrations/generated/**/index.js
+set -e
+
 node ./scripts/aws/rewrite.js
 node ./scripts/bump-versions.js --bump major
 node ./scripts/get-logos.js
