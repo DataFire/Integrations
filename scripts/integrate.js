@@ -3,7 +3,7 @@ const path = require('path');
 const datafire = require('datafire');
 const DESTINATION = __dirname + '/../integrations/generated';
 
-const TYPES = ['rss', 'openapi', 'raml', 'wadl', 'api_blueprint'];
+const TYPES = ['rss', 'openapi', 'openapi_3', 'raml', 'wadl', 'api_blueprint'];
 
 module.exports = (args, callback=()=>{}) => {
   args.name = args.name.toLowerCase().replace(/\W+/g, '_');

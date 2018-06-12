@@ -41,12 +41,17 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
       } else if (args.spec_only) {
         updateSpec(name, api.swaggerUrl, false, acb)
       } else {
-        integrate({
+        let opts = {
           name,
-          openapi: api.swaggerUrl,
           patch: maybeGetPatch(name) || maybeGetPatch(provider),
           bump: args.bump,
-        }, err => {
+        };
+        if (api.swaggerUrl.endsWith('openapi.json')) {
+          opts.openapi_3 = api.swaggerUrl;
+        } else {
+          opts.openapi = api.swaggerUrl;
+        }
+        integrate(opts, err => {
           if (err) return acb(err);
           try {
             fs.unlinkSync(path.join(OUT_DIR, name, 'details.json'));
