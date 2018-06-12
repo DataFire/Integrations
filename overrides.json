@@ -231,7 +231,7 @@
   },
   "amazonaws_logs": {
     "logo": {
-      "url": "https://app.datafire.io/img/aws/amazonaws_logs.svg"
+      "url": "https://pbs.twimg.com/media/CzqBDieVEAAfuYn.png"
     }
   },
   "amazonaws_machinelearning": {
@@ -488,7 +488,7 @@
   },
   "gettyimages": {
     "logo": {
-      "url": "http://www.pen-international.org/wp-content/uploads/2014/01/getty-images-logo.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Getty_Images_Logo.svg/2000px-Getty_Images_Logo.svg.png"
     }
   },
   "github": {
@@ -798,7 +798,7 @@
   },
   "google_tasks": {
     "logo": {
-      "url": "https://developers.google.com/google-apps/images/tasks-128.png"
+      "url": "https://9to5google.files.wordpress.com/2018/03/google_tasks_leaked_icon.jpg"
     },
     "title": "Google Tasks"
   },
@@ -892,7 +892,7 @@
   "linkedin": {
     "title": "LinkedIn",
     "logo": {
-      "url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAANyAAAAJGRlZTNlZDQwLTk4YTItNDA1MS04MzBjLWJmNGQ5M2RmZGUxYw.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Linkedin.svg/2000px-Linkedin.svg.png"
     }
   },
   "lufthansa_partner": {
@@ -909,11 +909,6 @@
   "magento": {
     "logo": {
       "url": "http://icon-icons.com/icons2/836/PNG/512/Magento_icon-icons.com_66749.png"
-    }
-  },
-  "magick_nu": {
-    "logo": {
-      "url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAALUAAAAJDIxNTNiNDJlLWI3OGUtNDIxNy05MDVjLWU4N2EyMWE5OWU1Yg.png"
     }
   },
   "mailchimp": {
@@ -960,7 +955,7 @@
   },
   "nsidc": {
     "logo": {
-      "url": "https://pbs.twimg.com/profile_images/489786331598315520/oxPRSQLy_400x400.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/NSIDC-logo.svg/2000px-NSIDC-logo.svg.png"
     }
   },
   "nytimes_rss": {
@@ -1186,7 +1181,7 @@
   "urbanairship": {
     "title": "Urban Airship",
     "logo": {
-      "url": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAZhAAAAJGM5NGU5ZTkyLWZmZWYtNDE1Yy04MWI5LTM3OWQzOTA3MWU5Ng.png"
+      "url": "https://www.urbanairship.com/images/companies/urban-airship.png"
     }
   },
   "vatapi": {
@@ -1206,7 +1201,7 @@
   },
   "winning_email": {
     "logo": {
-      "url": "https://int-dir.s3.amazonaws.com/uploads/2916_2916_winning-email-icon-512-bg.png"
+      "url": "https://winning.email/media/winning-email-logo.png"
     }
   },
   "wmata_incidents": {
@@ -1242,7 +1237,8 @@
   "imap": {
     "logo": {
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Tokyoship_Mail_icon.svg/2000px-Tokyoship_Mail_icon.svg.png"
-    }
+    },
+    "title": "IMAP"
   },
   "lucybot_docs": {
     "logo": {
@@ -1998,7 +1994,10 @@
     "title": "Box Uploads"
   },
   "brandlovers": {
-    "title": "BrandLovers Marketplace"
+    "title": "BrandLovers Marketplace",
+    "logo": {
+      "url": "https://brandlovers.de/files/brandgroup/brandlovers-logo.png"
+    }
   },
   "ccp_is": {
     "title": "EVE Online"
@@ -2094,10 +2093,11 @@
     "title": "EtMDB"
   },
   "formapi": {
-    "title": "Form API"
+    "title": "Form"
   },
   "getsandbox": {
-    "title": "Sandbox API Development"
+    "title": "Sandbox API Mocks",
+    "description": "With Sandbox you can quickly stub RESTful API or SOAP web services."
   },
   "gisgraphy": {
     "title": "Gisgraphy"
@@ -2127,7 +2127,7 @@
     "title": "British Columbia Data Catalogue"
   },
   "gov_bc_ca_bcgnws": {
-    "title": "British Columbia Geographical Names Web Service -"
+    "title": "British Columbia Geographical Names Web Service"
   },
   "gov_bc_ca_geocoder": {
     "title": "British Columbia Geocoder"
@@ -2423,7 +2423,7 @@
   },
   "illumidesk": {
     "logo": {
-      "url": "https://www.illumidesk.com/images/7af94cd9-db6e-4351-a185-e5a1f191235c.png"
+      "url": "https://www.illumidesk.com/assets/55wvu2pd.png"
     }
   },
   "learnifier": {
@@ -2435,5 +2435,389 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/assertible/site/simplyrets-logo-horizontal.png"
     }
+  },
+  "adafruit": {
+    "description": "The Internet of Things for Everyone"
+  },
+  "adobe_aem": {
+    "title": "Adobe Experience Manager",
+    "description": "Adobe Experience Manager (AEM) API"
+  },
+  "azure_cognitiveservices_contentmoderator": {
+    "description": "You use the API to scan your content as it is generated. Content Moderator then processes your content and sends the results along with relevant information either back to your systems or to the built-in review tool. You can use this information to take decisions e.g. take it down, send to human judge, etc.\n\nWhen using the API, images need to have a minimum of 128 pixels and a maximum file size of 4MB. \nText can be at most 1024 characters long. \nIf the content passed to the text API or the image API exceeds the size limits, the API will return an error code that informs about the issue.\n\nThis API is currently available in:\n\n* West US - westus.api.cognitive.microsoft.com\n* East US 2 - eastus2.api.cognitive.microsoft.com\n* West Central US - westcentralus.api.cognitive.microsoft.com\n* West Europe - westeurope.api.cognitive.microsoft.com\n* Southeast Asia - southeastasia.api.cognitive.microsoft.com ."
+  },
+  "channel4": {
+    "logo": {
+      "url": "http://static.bips.channel4.com/static/bips/global/socialmedia/network-logo-1200x630.jpg"
+    }
+  },
+  "cisco": {
+    "logo": {
+      "url": "http://1000logos.net/wp-content/uploads/2016/11/cisco-emblem.jpg"
+    }
+  },
+  "setlist_fm": {
+    "description": "<p>\nThe setlist.fm API has been designed to give you easy access to setlist data in order to build fancy websites and\nother applications. Before starting to use the API, be sure to ...\n<ol>\n<li>... understand how setlist.fm works (the <a href=\"https://www.setlist.fm/faq\">FAQ</a> and the\n<a href=\"https://www.setlist.fm/guidelines\">Guidelines</a> are a good starting point),</li>\n<li>... read this documentation carefully and</li>\n<li>... <a href=\"https://www.setlist.fm/settings/api\">apply for an API key</a> (link for logged in users only) - if\nyou're no registered user yet, then <a href=\"https://www.setlist.fm/signup\">register first</a> (it's free).</li>\n</ol>\n</p>\n<p>\nIf this documentation isn't enough or if you've got other things you'd like to tell us about the API, visit the\n<a href=\"https://www.setlist.fm/forum/setlistfm/setlistfm-api\">API Forum</a>.\n</p>\n<p>\nNote that the setlist.fm API is, according to the <a href=\"https://www.setlist.fm/help/api-terms\">API terms of\nservice</a>, only free for non-commercial projects. If you're interested in using the API for commercial purposes,\n<a href=\"https://www.setlist.fm/contact\">contact us</a>.\n</p>\n\n<h2>About this Service</h2>\n<p>\nThis service provides methods to get both setlists and components of setlists such as artists, cities, countries or\nvenues.\n</p>\n\n<h2>Supported Content Types</h2>\n<p>\nThe REST service currently supports XML (default) and JSON content.\n</p>\n<p>\nTo receive a JSON response, set the <code>Accept</code>\n<a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1\">header</a> to <em>application/json</em>.\n</p>\n\n<h2>Internationalization</h2>\n<p>\n<small>(Please note that this is an experimental feature and does not work for all cities!)</small>\n</p>\n<p>\nMost of the featured methods honor the <code>Accept-Language</code>\n<a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4\">header</a>. This header is used for\nlocalizing cities and countries. The default language is English (en), but you can provide any of the languages\nSpanish (es), French (fr), German (de), Portuguese (pt), Turkish (tr), Italian (it) or Polish (pl).\n</p>\n<p>\nE.g. if you search a setlist for a concert that took place in Vienna and you pass \"de\" as header, you'll\nget <em>\"Wien, Österreich\"</em> instead of <em>\"Vienna, Austria\"</em>.<br/>\nThis also works if you use a different language than the country's native language.\n</p>\n<p>\nE.g. for a concert in New York, you'll get <em>\"Nueva York, Estados Unidos\"</em> instead of <em>\"New\nYork, United States\"</em> if you pass \"es\" as language.\n</p>\n\n<h2>API Keys</h2>\n\nAPI keys (<a href=\"https://www.setlist.fm/settings/api\">application form</a>) must be included in the request with\nthe <code>x-api-key</code> header.\n\n<h2>Version History</h2>\n<table class=\"table table-bordered table-versions\">\n<thead>\n<tr>\n<th>Version</th>\n<th>Docs</th>\n<th>End of Service</th>\n</tr>\n</thead> <tbody>\n<tr>\n<td><strong>1.0</strong></td>\n<td><a href=\"/docs/1.0\">Docs</a></td>\n<td>-</li>\n</tr>\n<tr>\n<td><strong>0.1</strong></td>\n<td></td>\n<td>December 31, 2017</li>\n</tr>\n</tbody>\n</table>"
+  },
+  "zuora": {
+    "description": "The Zuora REST API provides a broad set of operations and resources that:\n\n  * Enable Web Storefront integration from your website.\n  * Support self-service subscriber sign-ups and account management.\n  * Process revenue schedules through custom revenue rule models.\n  * Enable manipulation of most objects in the Zuora Object Model.\n\n",
+    "logo": {
+      "url": "https://internetofbusiness.com/wp-content/uploads/2016/12/zuora-logo-navy-medium.png"
+    },
+    "title": "Zuora"
+  },
+  "agco_ats": {
+    "title": "AGCO",
+    "description": "AGCO is a global leader in the design, manufacture and distribution of agricultural equipment. "
+  },
+  "anchore": {
+    "title": "Anchore Engine"
+  },
+  "apache_qakka": {
+    "title": "Apache Qakka"
+  },
+  "api2cart": {
+    "title": "API2Cart"
+  },
+  "azure_automation_sourcecontrol": {
+    "title": "Azure Automation - Source Control"
+  },
+  "azure_automation_sourcecontrolsyncjob": {
+    "title": "Azure Automation - Souce Control Sync Job"
+  },
+  "azure_azsadmin_alert": {
+    "title": "Azure AZS Admin - Alert"
+  },
+  "azure_azsadmin_commerceadmin": {
+    "title": "Azur AZS Admin - Commerce Admin"
+  },
+  "azure_azsadmin_edgegateway": {
+    "title": "Azure AZS Admin - Edge Gateway"
+  },
+  "azure_azsadmin_edgegatewaypool": {
+    "title": "Azure AZS Admin - Edge Gateway Pool"
+  },
+  "azure_azsadmin_fabriclocation": {
+    "title": "Azure AZS Admin - Fabric Location"
+  },
+  "azure_azsadmin_fileshare": {
+    "title": "Azure AZS Admin - Fileshare"
+  },
+  "azure_azsadmin_infrarole": {
+    "title": "Azure AZS Admin - Infrarole"
+  },
+  "azure_azsadmin_infraroleinstance": {
+    "title": "Azure AZS Admin - Infrarole Instance"
+  },
+  "azure_azsadmin_ippool": {
+    "title": "Azure AZS Admin - IP Pool"
+  },
+  "azure_azsadmin_logicalnetwork": {
+    "title": "Azure AZS Admin - Logical Network"
+  },
+  "azure_azsadmin_logicalsubnet": {
+    "title": "Azure AZS Admin - Logical Subnet"
+  },
+  "azure_azsadmin_macaddresspool": {
+    "title": "Azure AZS Admin - Mac Address Pool"
+  },
+  "azure_azsadmin_operations": {
+    "title": "Azure AZS Admin - Operations"
+  },
+  "azure_azsadmin_regionhealth": {
+    "title": "Azure AZS Admin - Region Health"
+  },
+  "azure_azsadmin_resourcehealth": {
+    "title": "Azure AZS Admin - Resource Health"
+  },
+  "azure_azsadmin_scaleunit": {
+    "title": "Azure AZS Admin - Scale Unit"
+  },
+  "azure_azsadmin_scaleunitnode": {
+    "title": "Azure AZS Admin - Scale Unit Node"
+  },
+  "azure_azsadmin_servicehealth": {
+    "title": "Azure AZS Admin - Service Health"
+  },
+  "azure_azsadmin_slbmuxinstance": {
+    "title": "Azure AZS Admin - Software load balancer multiplexer"
+  },
+  "azure_azsadmin_storagepool": {
+    "title": "Azure AZS Admin - Storage Pool"
+  },
+  "azure_azsadmin_storagesystem": {
+    "title": "Azure AZS Admin - Storage System"
+  },
+  "azure_azsadmin_volume": {
+    "title": "Azure AZS Admin - Volume"
+  },
+  "azure_apimanagement_apimtags": {
+    "title": "Azure API Management - Tags"
+  },
+  "azure_apimanagement_apimversionsets": {
+    "title": "Azure API Management - Version Sets"
+  },
+  "azure_applicationinsights_componentannotations_api": {
+    "title": "Azure Application Insights - Component Annotations"
+  },
+  "azure_applicationinsights_componentproactivedetection_api": {
+    "title": "Azure Application Insights - Component Proactive Detection"
+  },
+  "azure_applicationinsights_componentworkitemconfigs_api": {
+    "title": "Azure Application Insights - Component Work Item Config"
+  },
+  "azure_applicationinsights_favorites_api": {
+    "title": "Azure Application Insights - Favorites"
+  },
+  "azure_applicationinsights_webtestlocations_api": {
+    "title": "Azure Application Insights - Web Test Locations"
+  },
+  "azure_authorization_authorization_classicadmincalls": {
+    "title": "Azure Authorization - Classic Admin"
+  },
+  "azure_authorization_authorization_rolebasedcalls": {
+    "title": "Azure Authorization - Role Based Calls"
+  },
+  "azure_automation_linkedworkspace": {
+    "title": "Azure Automation - Linked Workspace"
+  },
+  "azure_cognitiveservices_luis_runtime": {
+    "title": "Azure Cognitive Services - Language Understanding Intelligent Service",
+    "description": "Language Understanding Intelligent Service (LUIS) Endpoint API for running predictions and extracting user intentions and entities from utterances."
+  },
+  "azure_datalake_analytics_catalog": {
+    "title": "Azure Data Lake - Analytics Catalog"
+  },
+  "azure_datalake_analytics_job": {
+    "title": "Azure Data Lake - Analytics Job"
+  },
+  "azure_datalake_store_filesystem": {
+    "title": "Azure Data Lake - Store Filesystem"
+  },
+  "azure_deviceprovisioningservices_iotdps": {
+    "title": "Azure Device Provisioning - IoT"
+  },
+  "azure_hanaonazure": {
+    "title": "Azure - SAP HANA"
+  },
+  "azure_keyvault_providers": {
+    "title": "Azure Key Vault - Providers"
+  },
+  "azure_keyvault_secrets": {
+    "title": "Azure Key Vault - Secrets"
+  },
+  "azure_network": {
+    "title": "Azure Network"
+  },
+  "azure_network_applicationgateway": {
+    "title": "Azure Network - Application Gateway"
+  },
+  "azure_network_networkinterface": {
+    "title": "Azure Network - Network Interface"
+  },
+  "azure_network_publicipaddress": {
+    "title": "Azure Network - Public IP Address"
+  },
+  "azure_network_routefilter": {
+    "title": "Azure Network - Route Filter"
+  },
+  "azure_network_routetable": {
+    "title": "Azure Network - Route Table"
+  },
+  "azure_policyinsights_policyevents": {
+    "title": "Azure Policy Insights - Policy Events"
+  },
+  "azure_policyinsights_policystates": {
+    "title": "Azure Policy Insights - Policy States"
+  },
+  "azure_search_searchindex": {
+    "title": "Azure Search - Search Index"
+  },
+  "azure_search_searchservice": {
+    "title": "Azure Search - Search Service"
+  },
+  "azure_sql_cancelpooloperations": {
+    "title": "Azure SQL - Cancel Pool Operations"
+  },
+  "azure_sql_datawarehouseuseractivities": {
+    "title": "Azure SQL - Data Warehouse User Activities"
+  },
+  "bulksms": {
+    "title": "BulkSMS"
+  },
+  "clever": {
+    "title": "Clever Data"
+  },
+  "evetech": {
+    "title": "EVE Online",
+    "description": "EVE Online"
+  },
+  "fantasydata_cbb_v3_scores": {
+    "title": "FantasyData CBB v3 Scores"
+  },
+  "fantasydata_cbb_v3_stats": {
+    "title": "FantasyData CBB v3 Stats"
+  },
+  "fantasydata_cfb_v3_scores": {
+    "title": "FantasyData CFB v3 Scores"
+  },
+  "fantasydata_golf_v2": {
+    "title": "FantasyData Golf v2"
+  },
+  "fantasydata_mlb_v3_play_by_play": {
+    "title": "FantasyData MLB v3 Play-by-Play"
+  },
+  "fantasydata_mlb_v3_projections": {
+    "title": "FantasyData MLB v3 Projections"
+  },
+  "fantasydata_mlb_v3_projections_dfsr": {
+    "title": "FantasyData MLB v3 Projections DFSR"
+  },
+  "fantasydata_mlb_v3_rotoballer_articles": {
+    "title": "FantasyData MLB v3 RotoBaller Articles"
+  },
+  "fantasydata_mlb_v3_rotoballer_premium_news": {
+    "title": "FantasyData MLB v3 RotoBaller Premium News"
+  },
+  "fantasydata_mlb_v3_scores": {
+    "title": "FantasyData MLB v3 Scores"
+  },
+  "fantasydata_mlb_v3_stats": {
+    "title": "FantasyData MLB v3 Stats"
+  },
+  "fantasydata_nascar_v2": {
+    "title": "FantasyData NASCAR v2"
+  },
+  "fantasydata_nba_v3_play_by_play": {
+    "title": "FantasyData NBA v3 Play-by-Play"
+  },
+  "fantasydata_nba_v3_projections": {
+    "title": "FantasyData NBA v3 Projections"
+  },
+  "fantasydata_nba_v3_rotoballer_articles": {
+    "title": "FantasyData NBA v3 RotoBaller Articles"
+  },
+  "fantasydata_nba_v3_rotoballer_premium_news": {
+    "title": "FantasyData NBA v3 RotoBaller Premium News"
+  },
+  "fantasydata_nba_v3_scores": {
+    "title": "FantasyData NBA v3 Scores"
+  },
+  "fantasydata_nba_v3_stats": {
+    "title": "FantasyData NBA v3 Stats"
+  },
+  "fantasydata_nfl_v3_play_by_play": {
+    "title": "FantasyData NFL v3 Play-by-Play"
+  },
+  "fantasydata_nfl_v3_projections": {
+    "title": "FantasyData NFL v3 Projections"
+  },
+  "fantasydata_nfl_v3_projections_dfsr": {
+    "title": "FantasyData NFL v3 Projections DFSR"
+  },
+  "fantasydata_nfl_v3_rotoballer_articles": {
+    "title": "FantasyData NFL v3 RotoBaller Articles"
+  },
+  "fantasydata_nfl_v3_rotoballer_premium_news": {
+    "title": "FantasyData NFL v3 RotoBaller Premium News"
+  },
+  "fantasydata_nfl_v3_scores": {
+    "title": "FantasyData NFL v3 Scores"
+  },
+  "fantasydata_nfl_v3_stats": {
+    "title": "FantasyData NFL v3 Stats"
+  },
+  "fantasydata_nhl_v3_play_by_play": {
+    "title": "FantasyData NHL v3 Play-by-Play"
+  },
+  "fantasydata_nhl_v3_projections": {
+    "title": "FantasyData NHL v3 Projections"
+  },
+  "fantasydata_nhl_v3_scores": {
+    "title": "FantasyData NHL v3 Scores"
+  },
+  "fantasydata_nhl_v3_stats": {
+    "title": "FantasyData NHL v3 Stats"
+  },
+  "fantasydata_soccer_v3_projections": {
+    "title": "FantasyData Soccer v3 Projections"
+  },
+  "fantasydata_soccer_v3_scores": {
+    "title": "FantasyData Soccer v3 Scores"
+  },
+  "fantasydata_soccer_v3_stats": {
+    "title": "FantasyData Soccer v3 Stats"
+  },
+  "flickr": {
+    "title": "Flickr"
+  },
+  "gov_bc_ca_gwells": {
+    "title": "British Columbia Registers of Well Drillers and Well Pump Installers"
+  },
+  "gov_bc_ca_news": {
+    "title": "British Columbia Gov News API Service 1.0"
+  },
+  "gsa_gov": {
+    "title": "gsa.gov Discovery Market Research"
+  },
+  "hillbillysoftware_shinobi": {
+    "title": "Shinobi"
+  },
+  "je_apis": {
+    "title": "Just Eat Tenant"
+  },
+  "landregistry_gov_uk_deed": {
+    "title": "UK Land Registry"
+  },
+  "letmc_basic_tier": {
+    "title": "LetMC Basic"
+  },
+  "letmc_customer": {
+    "title": "LetMC Customer Login"
+  },
+  "letmc_diary": {
+    "title": "LetMC diary"
+  },
+  "letmc_free_tier": {
+    "title": "LetMC Free"
+  },
+  "letmc_maintenance": {
+    "title": "LetMC maintenance"
+  },
+  "letmc_reporting": {
+    "title": "LetMC reporting"
+  },
+  "microsoft_cognitiveservices_prediction": {
+    "title": "Microsoft Cognitive Services - Prediction"
+  },
+  "microsoft_cognitiveservices_training": {
+    "title": "Microsoft Cognitive Services - Training"
+  },
+  "nebl": {
+    "title": "Neblio"
+  },
+  "netlify": {
+    "title": "Netlify"
+  },
+  "payments_service_gov_uk_payments": {
+    "title": "GOV.UK Pay"
+  },
+  "spinitron": {
+    "title": "Spinitron"
+  },
+  "tyk": {
+    "title": "Tyk Gateway"
+  },
+  "walmart_inventory": {
+    "title": "Walmart Inventory"
+  },
+  "walmart_item": {
+    "title": "Walmart Item"
+  },
+  "walmart_order": {
+    "title": "Walmart Orders"
+  },
+  "walmart_price": {
+    "title": "Walmart Price"
   }
 }
